@@ -12187,186 +12187,200 @@ const OrderDetails: React.FC = () => {
                         {/* Charge Info Grid */}
                         <div
                           style={{
-                            display: "grid",
-                            height: "112px",
-                            rowGap: "8px",
-                            columnGap: "8px",
+                            display: "flex",
+                            alignItems: "flex-start",
                             alignSelf: "stretch",
-                            gridTemplateRows:
-                              "fit-content(100%) minmax(0, 1fr)",
-                            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
                             position: "relative",
+                            overflowX: isMobile ? "auto" : "visible",
+                            paddingLeft: isMobile ? "4px" : "0",
+                            paddingRight: isMobile ? "4px" : "0",
                           }}
                         >
                           <div
                             style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              gap: "4px",
-                              flex: "1 0 0",
-                              alignSelf: "stretch",
-                              gridRow: "1 / span 1",
-                              gridColumn: "1 / span 1",
+                              display: "grid",
+                              rowGap: "8px",
+                              columnGap: "8px",
+                              width: isMobile ? "max-content" : "100%",
+                              minWidth: isMobile ? "576px" : "0",
+                              gridTemplateRows:
+                                "fit-content(100%) minmax(0, 1fr)",
+                              gridTemplateColumns: isMobile
+                                ? "repeat(3, minmax(180px, 1fr))"
+                                : "repeat(3, minmax(0, 1fr))",
                               position: "relative",
                             }}
                           >
                             <div
                               style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
                                 alignSelf: "stretch",
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "16px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "24px",
+                                gridRow: "1 / span 1",
+                                gridColumn: "1 / span 1",
                                 position: "relative",
                               }}
                             >
-                              Charge
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Charge
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Petty Theft
+                              </div>
                             </div>
-                            <div
-                              style={{
-                                alignSelf: "stretch",
-                                color: "#181D27",
-                                fontFamily: "Public Sans",
-                                fontSize: "16px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "24px",
-                                position: "relative",
-                              }}
-                            >
-                              Petty Theft
-                            </div>
-                          </div>
 
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              gap: "4px",
-                              flex: "1 0 0",
-                              alignSelf: "stretch",
-                              gridRow: "1 / span 1",
-                              gridColumn: "2 / span 1",
-                              position: "relative",
-                            }}
-                          >
                             <div
                               style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
                                 alignSelf: "stretch",
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "16px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "24px",
+                                gridRow: "1 / span 1",
+                                gridColumn: "2 / span 1",
                                 position: "relative",
                               }}
                             >
-                              Crime Type:
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Crime Type:
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Civil
+                              </div>
                             </div>
-                            <div
-                              style={{
-                                alignSelf: "stretch",
-                                color: "#181D27",
-                                fontFamily: "Public Sans",
-                                fontSize: "16px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "24px",
-                                position: "relative",
-                              }}
-                            >
-                              Civil
-                            </div>
-                          </div>
 
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              gap: "4px",
-                              flex: "1 0 0",
-                              alignSelf: "stretch",
-                              gridRow: "1 / span 1",
-                              gridColumn: "3 / span 1",
-                              position: "relative",
-                            }}
-                          >
                             <div
                               style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
                                 alignSelf: "stretch",
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "16px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "24px",
+                                gridRow: "1 / span 1",
+                                gridColumn: "3 / span 1",
                                 position: "relative",
                               }}
                             >
-                              Disposition
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Disposition
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Conviction
+                              </div>
                             </div>
-                            <div
-                              style={{
-                                alignSelf: "stretch",
-                                color: "#181D27",
-                                fontFamily: "Public Sans",
-                                fontSize: "16px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "24px",
-                                position: "relative",
-                              }}
-                            >
-                              Conviction
-                            </div>
-                          </div>
 
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              gap: "4px",
-                              flex: "1 0 0",
-                              alignSelf: "stretch",
-                              gridRow: "2 / span 1",
-                              gridColumn: "1 / span 1",
-                              position: "relative",
-                            }}
-                          >
                             <div
                               style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
                                 alignSelf: "stretch",
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "16px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "24px",
+                                gridRow: "2 / span 1",
+                                gridColumn: "1 / span 1",
                                 position: "relative",
                               }}
                             >
-                              Plea
-                            </div>
-                            <div
-                              style={{
-                                alignSelf: "stretch",
-                                color: "#181D27",
-                                fontFamily: "Public Sans",
-                                fontSize: "16px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "24px",
-                                position: "relative",
-                              }}
-                            >
-                              Not Guilty
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Plea
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Not Guilty
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -12525,315 +12539,329 @@ const OrderDetails: React.FC = () => {
                         {/* Charge Info Grid */}
                         <div
                           style={{
-                            display: "grid",
-                            height: "172px",
-                            rowGap: "8px",
-                            columnGap: "8px",
+                            display: "flex",
+                            alignItems: "flex-start",
                             alignSelf: "stretch",
-                            gridTemplateRows:
-                              "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr)",
-                            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
                             position: "relative",
+                            overflowX: isMobile ? "auto" : "visible",
+                            paddingLeft: isMobile ? "4px" : "0",
+                            paddingRight: isMobile ? "4px" : "0",
                           }}
                         >
                           <div
                             style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              gap: "4px",
-                              flex: "1 0 0",
-                              alignSelf: "stretch",
-                              gridRow: "1 / span 1",
-                              gridColumn: "1 / span 1",
+                              display: "grid",
+                              rowGap: "8px",
+                              columnGap: "8px",
+                              width: isMobile ? "max-content" : "100%",
+                              minWidth: isMobile ? "576px" : "0",
+                              gridTemplateRows:
+                                "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr)",
+                              gridTemplateColumns: isMobile
+                                ? "repeat(3, minmax(180px, 1fr))"
+                                : "repeat(3, minmax(0, 1fr))",
                               position: "relative",
                             }}
                           >
                             <div
                               style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
                                 alignSelf: "stretch",
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "16px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "24px",
+                                gridRow: "1 / span 1",
+                                gridColumn: "1 / span 1",
                                 position: "relative",
                               }}
                             >
-                              Charge
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Charge
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Petty Theft
+                              </div>
                             </div>
-                            <div
-                              style={{
-                                alignSelf: "stretch",
-                                color: "#181D27",
-                                fontFamily: "Public Sans",
-                                fontSize: "16px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "24px",
-                                position: "relative",
-                              }}
-                            >
-                              Petty Theft
-                            </div>
-                          </div>
 
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              gap: "4px",
-                              flex: "1 0 0",
-                              alignSelf: "stretch",
-                              gridRow: "1 / span 1",
-                              gridColumn: "2 / span 1",
-                              position: "relative",
-                            }}
-                          >
                             <div
                               style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
                                 alignSelf: "stretch",
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "16px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "24px",
+                                gridRow: "1 / span 1",
+                                gridColumn: "2 / span 1",
                                 position: "relative",
                               }}
                             >
-                              Crime Type:
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Crime Type:
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Civil
+                              </div>
                             </div>
-                            <div
-                              style={{
-                                alignSelf: "stretch",
-                                color: "#181D27",
-                                fontFamily: "Public Sans",
-                                fontSize: "16px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "24px",
-                                position: "relative",
-                              }}
-                            >
-                              Civil
-                            </div>
-                          </div>
 
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              gap: "4px",
-                              flex: "1 0 0",
-                              alignSelf: "stretch",
-                              gridRow: "1 / span 1",
-                              gridColumn: "3 / span 1",
-                              position: "relative",
-                            }}
-                          >
                             <div
                               style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
                                 alignSelf: "stretch",
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "16px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "24px",
+                                gridRow: "1 / span 1",
+                                gridColumn: "3 / span 1",
                                 position: "relative",
                               }}
                             >
-                              Disposition
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Disposition
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Conviction
+                              </div>
                             </div>
-                            <div
-                              style={{
-                                alignSelf: "stretch",
-                                color: "#181D27",
-                                fontFamily: "Public Sans",
-                                fontSize: "16px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "24px",
-                                position: "relative",
-                              }}
-                            >
-                              Conviction
-                            </div>
-                          </div>
 
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              gap: "4px",
-                              flex: "1 0 0",
-                              alignSelf: "stretch",
-                              gridRow: "2 / span 1",
-                              gridColumn: "1 / span 1",
-                              position: "relative",
-                            }}
-                          >
                             <div
                               style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
                                 alignSelf: "stretch",
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "16px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "24px",
+                                gridRow: "2 / span 1",
+                                gridColumn: "1 / span 1",
                                 position: "relative",
                               }}
                             >
-                              Plea
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Plea
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Not Guilty
+                              </div>
                             </div>
-                            <div
-                              style={{
-                                alignSelf: "stretch",
-                                color: "#181D27",
-                                fontFamily: "Public Sans",
-                                fontSize: "16px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "24px",
-                                position: "relative",
-                              }}
-                            >
-                              Not Guilty
-                            </div>
-                          </div>
 
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              gap: "4px",
-                              flex: "1 0 0",
-                              alignSelf: "stretch",
-                              gridRow: "2 / span 1",
-                              gridColumn: "2 / span 1",
-                              position: "relative",
-                            }}
-                          >
                             <div
                               style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
                                 alignSelf: "stretch",
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "16px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "24px",
+                                gridRow: "2 / span 1",
+                                gridColumn: "2 / span 1",
                                 position: "relative",
                               }}
                             >
-                              Arrest Date
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Arrest Date
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                03/03/2021
+                              </div>
                             </div>
-                            <div
-                              style={{
-                                alignSelf: "stretch",
-                                color: "#181D27",
-                                fontFamily: "Public Sans",
-                                fontSize: "16px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "24px",
-                                position: "relative",
-                              }}
-                            >
-                              03/03/2021
-                            </div>
-                          </div>
 
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              gap: "4px",
-                              flex: "1 0 0",
-                              alignSelf: "stretch",
-                              gridRow: "2 / span 1",
-                              gridColumn: "3 / span 1",
-                              position: "relative",
-                            }}
-                          >
                             <div
                               style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
                                 alignSelf: "stretch",
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "16px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "24px",
+                                gridRow: "2 / span 1",
+                                gridColumn: "3 / span 1",
                                 position: "relative",
                               }}
                             >
-                              Offense Date
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Offense Date
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                03/03/2021
+                              </div>
                             </div>
-                            <div
-                              style={{
-                                alignSelf: "stretch",
-                                color: "#181D27",
-                                fontFamily: "Public Sans",
-                                fontSize: "16px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "24px",
-                                position: "relative",
-                              }}
-                            >
-                              03/03/2021
-                            </div>
-                          </div>
 
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              gap: "4px",
-                              flex: "1 0 0",
-                              alignSelf: "stretch",
-                              gridRow: "3 / span 1",
-                              gridColumn: "1 / span 1",
-                              position: "relative",
-                            }}
-                          >
                             <div
                               style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
                                 alignSelf: "stretch",
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "16px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "24px",
+                                gridRow: "3 / span 1",
+                                gridColumn: "1 / span 1",
                                 position: "relative",
                               }}
                             >
-                              Disposition Date
-                            </div>
-                            <div
-                              style={{
-                                alignSelf: "stretch",
-                                color: "#181D27",
-                                fontFamily: "Public Sans",
-                                fontSize: "16px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "24px",
-                                position: "relative",
-                              }}
-                            >
-                              03/03/2021
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Disposition Date
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                03/03/2021
+                              </div>
                             </div>
                           </div>
                         </div>
