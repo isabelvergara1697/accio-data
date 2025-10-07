@@ -1214,6 +1214,7 @@ const OrderDetails: React.FC = () => {
                   position: "relative",
                   flexWrap: "wrap",
                   maxWidth: "100%",
+                  minWidth: 0,
                   flex: "1 1 auto",
                   alignSelf: "stretch",
                 }}
