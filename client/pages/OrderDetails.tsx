@@ -2662,13 +2662,13 @@ const OrderDetails: React.FC = () => {
                       padding: "2px 8px",
                       alignItems: "center",
                       borderRadius: "9999px",
-                      border: "1px solid #ABEFC6",
-                      background: "#ECFDF3",
+                      border: "1px solid #F9DBAF",
+                      background: "#FEF6EE",
                     }}
                   >
                     <div
                       style={{
-                        color: "#067647",
+                        color: "#B93815",
                         textAlign: "center",
                         fontFamily: "Public Sans",
                         fontSize: "12px",
@@ -2677,7 +2677,7 @@ const OrderDetails: React.FC = () => {
                         lineHeight: "18px",
                       }}
                     >
-                      Completed - Verified
+                      Pending
                     </div>
                   </div>
                 </button>
