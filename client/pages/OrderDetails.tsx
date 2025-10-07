@@ -9736,7 +9736,7 @@ const OrderDetails: React.FC = () => {
                     <div
                       style={{
                         display: "flex",
-                        padding: "20px 24px 0 24px",
+                        padding: isMobile ? "20px 16px 0 16px" : "20px 24px 0 24px",
                         flexDirection: "column",
                         alignItems: "flex-start",
                         gap: "16px",
@@ -9881,7 +9881,7 @@ const OrderDetails: React.FC = () => {
                     <div
                       style={{
                         display: "flex",
-                        padding: "12px 24px 20px 24px",
+                        padding: isMobile ? "12px 0px 20px 0px" : "12px 24px 20px 24px",
                         flexDirection: "column",
                         alignItems: "flex-start",
                         gap: "10px",
@@ -9896,6 +9896,9 @@ const OrderDetails: React.FC = () => {
                           alignItems: "flex-start",
                           alignSelf: "stretch",
                           position: "relative",
+                          overflowX: isMobile ? "auto" : "visible",
+                          paddingLeft: isMobile ? "16px" : "0",
+                          paddingRight: isMobile ? "16px" : "0",
                         }}
                       >
                         {/* Field Labels Column */}
