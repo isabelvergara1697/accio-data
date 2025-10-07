@@ -12949,230 +12949,248 @@ const OrderDetails: React.FC = () => {
                             alignItems: "flex-start",
                             alignSelf: "stretch",
                             position: "relative",
+                            overflowX: isMobile ? "auto" : "visible",
+                            paddingLeft: isMobile ? "4px" : "0",
+                            paddingRight: isMobile ? "4px" : "0",
                           }}
                         >
                           <div
                             style={{
                               display: "flex",
-                              flexDirection: "column",
                               alignItems: "flex-start",
-                              flex: "1 0 0",
+                              width: isMobile ? "max-content" : "100%",
+                              minWidth: isMobile ? "720px" : "0",
+                              flex: isMobile ? "0 0 auto" : "1 0 0",
                               position: "relative",
                             }}
                           >
                             <div
                               style={{
                                 display: "flex",
-                                height: "36px",
-                                padding: "6px 12px",
-                                alignItems: "center",
-                                gap: "12px",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                background: "#FFF",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                flex: isMobile ? "0 0 180px" : "1 0 0",
+                                minWidth: isMobile ? "180px" : "0",
                                 position: "relative",
                               }}
                             >
                               <div
                                 style={{
-                                  color: "#717680",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "12px",
-                                  fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight: "18px",
+                                  display: "flex",
+                                  height: "36px",
+                                  padding: "6px 12px",
+                                  alignItems: "center",
+                                  gap: "12px",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  background: "#FFF",
                                   position: "relative",
                                 }}
                               >
-                                Sentencing:
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 600,
+                                    lineHeight: "18px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Sentencing:
+                                </div>
                               </div>
-                            </div>
-                            <div
-                              style={{
-                                display: "flex",
-                                height: "36px",
-                                padding: "12px",
-                                alignItems: "center",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                position: "relative",
-                              }}
-                            >
                               <div
                                 style={{
-                                  color: "#181D27",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "14px",
-                                  fontStyle: "normal",
-                                  fontWeight: 500,
-                                  lineHeight: "20px",
+                                  display: "flex",
+                                  height: "36px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
                                   position: "relative",
                                 }}
                               >
-                                Jail Time
+                                <div
+                                  style={{
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Jail Time
+                                </div>
                               </div>
                             </div>
-                          </div>
 
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              flex: "1 0 0",
-                              position: "relative",
-                            }}
-                          >
                             <div
                               style={{
                                 display: "flex",
-                                height: "36px",
-                                padding: "6px 12px",
-                                alignItems: "center",
-                                gap: "12px",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                background: "#FFF",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                flex: isMobile ? "0 0 180px" : "1 0 0",
+                                minWidth: isMobile ? "180px" : "0",
                                 position: "relative",
                               }}
                             >
                               <div
                                 style={{
-                                  color: "#717680",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "12px",
-                                  fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight: "18px",
+                                  display: "flex",
+                                  height: "36px",
+                                  padding: "6px 12px",
+                                  alignItems: "center",
+                                  gap: "12px",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  background: "#FFF",
                                   position: "relative",
                                 }}
                               >
-                                Active
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 600,
+                                    lineHeight: "18px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Active
+                                </div>
                               </div>
-                            </div>
-                            <div
-                              style={{
-                                display: "flex",
-                                height: "36px",
-                                padding: "12px",
-                                alignItems: "center",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                position: "relative",
-                              }}
-                            >
                               <div
                                 style={{
-                                  color: "#181D27",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "14px",
-                                  fontStyle: "normal",
-                                  fontWeight: 500,
-                                  lineHeight: "20px",
+                                  display: "flex",
+                                  height: "36px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
                                   position: "relative",
                                 }}
                               >
-                                5/12/2024
+                                <div
+                                  style={{
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  5/12/2024
+                                </div>
                               </div>
                             </div>
-                          </div>
 
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              flex: "1 0 0",
-                              position: "relative",
-                            }}
-                          >
                             <div
                               style={{
                                 display: "flex",
-                                height: "36px",
-                                padding: "6px 12px",
-                                alignItems: "center",
-                                gap: "12px",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                background: "#FFF",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                flex: isMobile ? "0 0 180px" : "1 0 0",
+                                minWidth: isMobile ? "180px" : "0",
                                 position: "relative",
                               }}
                             >
                               <div
                                 style={{
-                                  color: "#717680",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "12px",
-                                  fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight: "18px",
+                                  display: "flex",
+                                  height: "36px",
+                                  padding: "6px 12px",
+                                  alignItems: "center",
+                                  gap: "12px",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  background: "#FFF",
                                   position: "relative",
                                 }}
                               >
-                                Suspended
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 600,
+                                    lineHeight: "18px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Suspended
+                                </div>
                               </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  height: "36px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  position: "relative",
+                                }}
+                              />
                             </div>
-                            <div
-                              style={{
-                                display: "flex",
-                                height: "36px",
-                                padding: "12px",
-                                alignItems: "center",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                position: "relative",
-                              }}
-                            />
-                          </div>
 
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              flex: "1 0 0",
-                              position: "relative",
-                            }}
-                          >
                             <div
                               style={{
                                 display: "flex",
-                                height: "36px",
-                                padding: "6px 12px",
-                                alignItems: "center",
-                                gap: "12px",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                background: "#FFF",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                flex: isMobile ? "0 0 180px" : "1 0 0",
+                                minWidth: isMobile ? "180px" : "0",
                                 position: "relative",
                               }}
                             >
                               <div
                                 style={{
-                                  color: "#717680",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "12px",
-                                  fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight: "18px",
+                                  display: "flex",
+                                  height: "36px",
+                                  padding: "6px 12px",
+                                  alignItems: "center",
+                                  gap: "12px",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  background: "#FFF",
                                   position: "relative",
                                 }}
                               >
-                                Completed
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 600,
+                                    lineHeight: "18px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Completed
+                                </div>
                               </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  height: "36px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  position: "relative",
+                                }}
+                              />
                             </div>
-                            <div
-                              style={{
-                                display: "flex",
-                                height: "36px",
-                                padding: "12px",
-                                alignItems: "center",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                position: "relative",
-                              }}
-                            />
                           </div>
                         </div>
                       </div>
