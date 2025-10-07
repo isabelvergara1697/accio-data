@@ -139,10 +139,13 @@ export function FivePanelsSection({
   return (
     <section
       id="five-panels-section"
-      className="rounded-xl border border-[#E9EAEB] bg-white shadow-sm"
+      className={cn(
+        "w-full self-stretch rounded-xl border border-[#E9EAEB] bg-white shadow-sm",
+        !expanded && "pb-5",
+      )}
     >
       <div className="px-4 pt-5 sm:px-6">
-        <div className="flex items-center justify-between gap-3 md:flex-nowrap">
+        <div className="flex items-center justify-between gap-3 md:flex-nowrap md:gap-4">
           <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2 md:flex-nowrap">
             <h2 className="text-lg font-semibold leading-7 text-[#181D27]">
               5 Panels
@@ -187,10 +190,10 @@ export function FivePanelsSection({
               </IconButton>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-4">
               <SectionTitle>Account Information</SectionTitle>
 
-              <div className="space-y-2">
+              <div className="grid grid-cols-1 gap-2 md:grid-cols-3">
                 {ACCOUNT_INFO_FIELDS.map((field, index) => (
                   <InfoItem key={`account-${index}`} {...field} />
                 ))}
@@ -208,7 +211,7 @@ export function FivePanelsSection({
 
               <SectionTitle>Collection Site</SectionTitle>
 
-              <div className="space-y-2">
+              <div className="grid grid-cols-1 gap-2 md:grid-cols-3">
                 {COLLECTION_SITE_FIELDS.map((field, index) => (
                   <InfoItem key={`collection-${index}`} {...field} />
                 ))}
@@ -222,7 +225,7 @@ export function FivePanelsSection({
 
               <SectionTitle>Test ID</SectionTitle>
 
-              <div className="space-y-2">
+              <div className="grid grid-cols-1 gap-2 md:grid-cols-3">
                 {SPECIMEN_DETAILS_FIELDS.map((field, index) => (
                   <InfoItem key={`specimen-${index}`} {...field} />
                 ))}
