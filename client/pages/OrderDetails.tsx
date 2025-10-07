@@ -16941,6 +16941,12 @@ const OrderDetails: React.FC = () => {
                   onToggle={() => setFivePanelsExpanded(!fivePanelsExpanded)}
                 />
 
+                {/* CBSV Section */}
+                <CBSVSection
+                  expanded={cbsvExpanded}
+                  onToggle={() => setCbsvExpanded(!cbsvExpanded)}
+                />
+
 
                 {/* Special Notice Section */}
                 <div
