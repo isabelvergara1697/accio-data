@@ -9330,7 +9330,7 @@ const OrderDetails: React.FC = () => {
                     <div
                       style={{
                         display: "flex",
-                        padding: "20px 24px 0 24px",
+                        padding: isMobile ? "20px 16px 0 16px" : "20px 24px 0 24px",
                         flexDirection: "column",
                         alignItems: "flex-start",
                         gap: "16px",
@@ -9477,7 +9477,7 @@ const OrderDetails: React.FC = () => {
                     <div
                       style={{
                         display: "flex",
-                        padding: "12px 24px 20px 24px",
+                        padding: isMobile ? "12px 16px 20px 16px" : "12px 24px 20px 24px",
                         flexDirection: "column",
                         alignItems: "flex-start",
                         gap: "10px",
@@ -9566,13 +9566,10 @@ const OrderDetails: React.FC = () => {
                           {/* Three Column Grid: Roll Number, Start Date, License Issuer */}
                           <div
                             style={{
-                              display: "grid",
-                              height: "52px",
-                              rowGap: "8px",
-                              columnGap: "8px",
+                              display: "flex",
+                              flexDirection: isMobile ? "column" : "row",
+                              gap: "8px",
                               alignSelf: "stretch",
-                              gridTemplateRows: "fit-content(100%)",
-                              gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
                               position: "relative",
                             }}
                           >
@@ -9582,10 +9579,8 @@ const OrderDetails: React.FC = () => {
                                 flexDirection: "column",
                                 alignItems: "flex-start",
                                 gap: "4px",
-                                flex: "1 0 0",
+                                flex: isMobile ? "0 0 auto" : "1 0 0",
                                 alignSelf: "stretch",
-                                gridRow: "1 / span 1",
-                                gridColumn: "1 / span 1",
                                 position: "relative",
                               }}
                             >
