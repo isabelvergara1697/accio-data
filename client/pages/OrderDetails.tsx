@@ -18046,9 +18046,9 @@ const OrderDetails: React.FC = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: "504.5px",
                               alignItems: "center",
                               gap: "8px",
+                              flex: "1 0 0",
                               position: "relative",
                             }}
                           >
