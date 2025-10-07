@@ -9909,6 +9909,9 @@ const OrderDetails: React.FC = () => {
                             flexDirection: "column",
                             alignItems: "flex-start",
                             position: "relative",
+                            flex: "0 0 171px",
+                            minWidth: "171px",
+                            flexShrink: 0,
                           }}
                         >
                           {/* Empty header cell */}
@@ -10697,6 +10700,9 @@ const OrderDetails: React.FC = () => {
                             flexDirection: "column",
                             alignItems: "flex-start",
                             position: "relative",
+                            flex: "0 0 171px",
+                            minWidth: "171px",
+                            flexShrink: 0,
                           }}
                         >
                           {/* Empty header cell */}
@@ -14126,6 +14132,9 @@ const OrderDetails: React.FC = () => {
                             flexDirection: "column",
                             alignItems: "flex-start",
                             position: "relative",
+                            flex: "0 0 171px",
+                            minWidth: "171px",
+                            flexShrink: 0,
                           }}
                         >
                           {/* Empty header cell */}
@@ -14777,6 +14786,9 @@ const OrderDetails: React.FC = () => {
                             flexDirection: "column",
                             alignItems: "flex-start",
                             position: "relative",
+                            flex: "0 0 171px",
+                            minWidth: "171px",
+                            flexShrink: 0,
                           }}
                         >
                           {/* Empty header cell */}
