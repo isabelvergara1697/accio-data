@@ -263,7 +263,10 @@ export function EVerifySection({ expanded, onToggle }: EVerifySectionProps) {
                 </span>
                 <StatusPill variant="warning">Pending</StatusPill>
               </div>
-              <IconButton aria-label="More E-Verify actions" className="h-9 w-9">
+              <IconButton
+                aria-label="More E-Verify actions"
+                className="h-9 w-9"
+              >
                 <ChevronDown className="h-4 w-4 text-[#A4A7AE]" />
               </IconButton>
             </div>

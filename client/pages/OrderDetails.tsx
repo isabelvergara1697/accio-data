@@ -15,7 +15,10 @@ import { CreditEmploymentReportSection } from "../components/order-details/Credi
 import AddAkasModal, { AkaEntry } from "../components/ui/add-akas-modal";
 import { ArchiveOrderModal } from "../components/ui/archive-order-modal";
 import { UploadApplicantReleaseModal } from "../components/ui/upload-applicant-release-modal";
-import { RequestDocumentUploadModal, RequestDocumentData } from "../components/ui/request-document-upload-modal";
+import {
+  RequestDocumentUploadModal,
+  RequestDocumentData,
+} from "../components/ui/request-document-upload-modal";
 import { SendReportModal } from "../components/ui/send-report-modal";
 import { CustomerServiceModal } from "../components/ui/customer-service-modal";
 import { RadioGroup, RadioGroupItem } from "../components/ui/radio-group";
@@ -375,13 +378,15 @@ const OrderDetails: React.FC = () => {
   const [uploadReleaseModalOpen, setUploadReleaseModalOpen] = useState(false);
 
   // Request Document Upload modal state
-  const [requestDocumentModalOpen, setRequestDocumentModalOpen] = useState(false);
+  const [requestDocumentModalOpen, setRequestDocumentModalOpen] =
+    useState(false);
 
   // Send Report modal state
   const [sendReportModalOpen, setSendReportModalOpen] = useState(false);
 
   // Customer Service modal state
-  const [customerServiceModalOpen, setCustomerServiceModalOpen] = useState(false);
+  const [customerServiceModalOpen, setCustomerServiceModalOpen] =
+    useState(false);
 
   // Manual rescreening state
   const [manualRescreening, setManualRescreening] = useState<string>("");
@@ -826,7 +831,9 @@ const OrderDetails: React.FC = () => {
     console.log("Submitting customer service inquiry:", inquiry);
     // Here you would typically send the inquiry to your backend
     // For now, just log it and show a success message
-    alert("Your inquiry has been submitted. Our support team will get back to you shortly!");
+    alert(
+      "Your inquiry has been submitted. Our support team will get back to you shortly!",
+    );
   };
 
   // Report Visibility handlers
@@ -6751,7 +6758,9 @@ const OrderDetails: React.FC = () => {
                     <div
                       style={{
                         display: "flex",
-                        padding: isMobile ? "20px 16px 0 16px" : "20px 24px 0 24px",
+                        padding: isMobile
+                          ? "20px 16px 0 16px"
+                          : "20px 24px 0 24px",
                         flexDirection: "column",
                         alignItems: "flex-start",
                         gap: "16px",
@@ -8247,7 +8256,9 @@ const OrderDetails: React.FC = () => {
                     <div
                       style={{
                         display: "flex",
-                        padding: isMobile ? "20px 16px 0 16px" : "20px 24px 0 24px",
+                        padding: isMobile
+                          ? "20px 16px 0 16px"
+                          : "20px 24px 0 24px",
                         flexDirection: "column",
                         alignItems: "flex-start",
                         gap: "16px",
@@ -8642,7 +8653,9 @@ const OrderDetails: React.FC = () => {
                                   flex: "1 0 0",
                                   alignSelf: "stretch",
                                   gridRow: isMobile ? undefined : "1 / span 1",
-                                  gridColumn: isMobile ? undefined : "1 / span 1",
+                                  gridColumn: isMobile
+                                    ? undefined
+                                    : "1 / span 1",
                                   position: "relative",
                                 }}
                               >
@@ -8685,7 +8698,9 @@ const OrderDetails: React.FC = () => {
                                   flex: "1 0 0",
                                   alignSelf: "stretch",
                                   gridRow: isMobile ? undefined : "1 / span 1",
-                                  gridColumn: isMobile ? undefined : "2 / span 1",
+                                  gridColumn: isMobile
+                                    ? undefined
+                                    : "2 / span 1",
                                   position: "relative",
                                 }}
                               >
@@ -8728,7 +8743,9 @@ const OrderDetails: React.FC = () => {
                                   flex: "1 0 0",
                                   alignSelf: "stretch",
                                   gridRow: isMobile ? undefined : "1 / span 1",
-                                  gridColumn: isMobile ? undefined : "3 / span 1",
+                                  gridColumn: isMobile
+                                    ? undefined
+                                    : "3 / span 1",
                                   position: "relative",
                                 }}
                               >
@@ -9333,7 +9350,9 @@ const OrderDetails: React.FC = () => {
                     <div
                       style={{
                         display: "flex",
-                        padding: isMobile ? "20px 16px 0 16px" : "20px 24px 0 24px",
+                        padding: isMobile
+                          ? "20px 16px 0 16px"
+                          : "20px 24px 0 24px",
                         flexDirection: "column",
                         alignItems: "flex-start",
                         gap: "16px",
@@ -9480,7 +9499,9 @@ const OrderDetails: React.FC = () => {
                     <div
                       style={{
                         display: "flex",
-                        padding: isMobile ? "12px 16px 20px 16px" : "12px 24px 20px 24px",
+                        padding: isMobile
+                          ? "12px 16px 20px 16px"
+                          : "12px 24px 20px 24px",
                         flexDirection: "column",
                         alignItems: "flex-start",
                         gap: "10px",
@@ -9739,7 +9760,9 @@ const OrderDetails: React.FC = () => {
                     <div
                       style={{
                         display: "flex",
-                        padding: isMobile ? "20px 16px 0 16px" : "20px 24px 0 24px",
+                        padding: isMobile
+                          ? "20px 16px 0 16px"
+                          : "20px 24px 0 24px",
                         flexDirection: "column",
                         alignItems: "flex-start",
                         gap: "16px",
@@ -9884,7 +9907,9 @@ const OrderDetails: React.FC = () => {
                     <div
                       style={{
                         display: "flex",
-                        padding: isMobile ? "12px 0px 20px 0px" : "12px 24px 20px 24px",
+                        padding: isMobile
+                          ? "12px 0px 20px 0px"
+                          : "12px 24px 20px 24px",
                         flexDirection: "column",
                         alignItems: "flex-start",
                         gap: "10px",
@@ -10442,7 +10467,9 @@ const OrderDetails: React.FC = () => {
                     <div
                       style={{
                         display: "flex",
-                        padding: isMobile ? "20px 16px 0 16px" : "20px 24px 0 24px",
+                        padding: isMobile
+                          ? "20px 16px 0 16px"
+                          : "20px 24px 0 24px",
                         flexDirection: "column",
                         alignItems: "flex-start",
                         gap: "16px",
@@ -10587,7 +10614,9 @@ const OrderDetails: React.FC = () => {
                     <div
                       style={{
                         display: "flex",
-                        padding: isMobile ? "12px 0px 20px 0px" : "12px 24px 20px 24px",
+                        padding: isMobile
+                          ? "12px 0px 20px 0px"
+                          : "12px 24px 20px 24px",
                         flexDirection: "column",
                         alignItems: "flex-start",
                         gap: "10px",
@@ -10601,7 +10630,9 @@ const OrderDetails: React.FC = () => {
                           display: "flex",
                           flexDirection: isMobile ? "column" : "row",
                           gap: isMobile ? "8px" : "0",
-                          justifyContent: isMobile ? "flex-start" : "space-between",
+                          justifyContent: isMobile
+                            ? "flex-start"
+                            : "space-between",
                           alignItems: "flex-start",
                           alignSelf: "stretch",
                           position: "relative",
@@ -11231,7 +11262,9 @@ const OrderDetails: React.FC = () => {
                     <div
                       style={{
                         display: "flex",
-                        padding: isMobile ? "20px 16px 0 16px" : "20px 24px 0 24px",
+                        padding: isMobile
+                          ? "20px 16px 0 16px"
+                          : "20px 24px 0 24px",
                         flexDirection: "column",
                         alignItems: "flex-start",
                         gap: "16px",
@@ -11377,7 +11410,9 @@ const OrderDetails: React.FC = () => {
                     <div
                       style={{
                         display: "flex",
-                        padding: isMobile ? "12px 16px 20px 16px" : "12px 24px 20px 24px",
+                        padding: isMobile
+                          ? "12px 16px 20px 16px"
+                          : "12px 24px 20px 24px",
                         flexDirection: "column",
                         alignItems: "flex-start",
                         gap: "10px",
@@ -13961,7 +13996,9 @@ const OrderDetails: React.FC = () => {
                     <div
                       style={{
                         display: "flex",
-                        padding: isMobile ? "20px 16px 0 16px" : "20px 24px 0 24px",
+                        padding: isMobile
+                          ? "20px 16px 0 16px"
+                          : "20px 24px 0 24px",
                         flexDirection: "column",
                         alignItems: "flex-start",
                         gap: isMobile ? "12px" : "16px",
@@ -13969,143 +14006,143 @@ const OrderDetails: React.FC = () => {
                         position: "relative",
                       }}
                     >
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: isMobile ? "12px" : "16px",
-                        alignSelf: "stretch",
-                        position: "relative",
-                        flexWrap: isMobile ? "wrap" : "nowrap",
-                      }}
-                    >
                       <div
                         style={{
                           display: "flex",
-                          alignItems: "flex-start",
-                          gap: "4px",
-                          flex: "1 0 0",
-                          minWidth: 0,
+                          alignItems: "center",
+                          gap: isMobile ? "12px" : "16px",
+                          alignSelf: "stretch",
                           position: "relative",
+                          flexWrap: isMobile ? "wrap" : "nowrap",
                         }}
                       >
                         <div
                           style={{
                             display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "center",
                             alignItems: "flex-start",
-                            gap: "2px",
+                            gap: "4px",
                             flex: "1 0 0",
-                            position: "relative",
                             minWidth: 0,
+                            position: "relative",
                           }}
                         >
                           <div
                             style={{
                               display: "flex",
-                              alignItems: "center",
-                              gap: "8px",
-                              alignSelf: "stretch",
+                              flexDirection: "column",
+                              justifyContent: "center",
+                              alignItems: "flex-start",
+                              gap: "2px",
+                              flex: "1 0 0",
                               position: "relative",
-                              flexWrap: "wrap",
+                              minWidth: 0,
                             }}
                           >
                             <div
                               style={{
-                                color: "#181D27",
-                                fontFamily: "Public Sans",
-                                fontSize: "18px",
-                                fontStyle: "normal",
-                                fontWeight: 600,
-                                lineHeight: "28px",
-                                position: "relative",
-                              }}
-                            >
-                              Professional References #1, Hank Williams
-                            </div>
-                            <div
-                              style={{
                                 display: "flex",
-                                padding: "2px 8px",
                                 alignItems: "center",
-                                borderRadius: "9999px",
-                                border: "1px solid #ABEFC6",
-                                background: "#ECFDF3",
+                                gap: "8px",
+                                alignSelf: "stretch",
                                 position: "relative",
-                                maxWidth: "100%",
-                                minWidth: 0,
+                                flexWrap: "wrap",
                               }}
                             >
                               <div
                                 style={{
-                                  color: "#067647",
-                                  textAlign: "center",
+                                  color: "#181D27",
                                   fontFamily: "Public Sans",
-                                  fontSize: "12px",
+                                  fontSize: "18px",
                                   fontStyle: "normal",
-                                  fontWeight: 500,
-                                  lineHeight: "18px",
+                                  fontWeight: 600,
+                                  lineHeight: "28px",
                                   position: "relative",
-                                  whiteSpace: "nowrap",
-                                  overflow: "hidden",
-                                  textOverflow: "ellipsis",
-                                  maxWidth: "100%",
                                 }}
                               >
-                                Completed - Verified
+                                Professional References #1, Hank Williams
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "2px 8px",
+                                  alignItems: "center",
+                                  borderRadius: "9999px",
+                                  border: "1px solid #ABEFC6",
+                                  background: "#ECFDF3",
+                                  position: "relative",
+                                  maxWidth: "100%",
+                                  minWidth: 0,
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#067647",
+                                    textAlign: "center",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "18px",
+                                    position: "relative",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    maxWidth: "100%",
+                                  }}
+                                >
+                                  Completed - Verified
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
 
-                      {/* Chevron Button */}
-                      <button
-                        onClick={() =>
-                          setProfessionalReferencesExpanded(
-                            !professionalReferencesExpanded,
-                          )
-                        }
-                        style={{
-                          display: "flex",
-                          padding: "8px",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          borderRadius: "8px",
-                          border: "1px solid #D5D7DA",
-                          background: "#FFF",
-                          boxShadow:
-                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          position: "relative",
-                          cursor: "pointer",
-                          alignSelf: isMobile ? "flex-start" : "auto",
-                        }}
-                      >
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                        {/* Chevron Button */}
+                        <button
+                          onClick={() =>
+                            setProfessionalReferencesExpanded(
+                              !professionalReferencesExpanded,
+                            )
+                          }
                           style={{
-                            transform: professionalReferencesExpanded
-                              ? "rotate(180deg)"
-                              : "rotate(0deg)",
-                            transition: "transform 0.2s ease",
+                            display: "flex",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            position: "relative",
+                            cursor: "pointer",
+                            alignSelf: isMobile ? "flex-start" : "auto",
                           }}
                         >
-                          <path
-                            d="M4 6L8 10L12 6"
-                            stroke="#A4A7AE"
-                            strokeWidth="1.66667"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </button>
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            style={{
+                              transform: professionalReferencesExpanded
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
+                              transition: "transform 0.2s ease",
+                            }}
+                          >
+                            <path
+                              d="M4 6L8 10L12 6"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+                      </div>
                     </div>
-                  </div>
                   </div>
 
                   {/* Professional References Content */}
