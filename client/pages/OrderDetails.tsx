@@ -420,6 +420,10 @@ const OrderDetails: React.FC = () => {
       : "0 32px";
   const mainColumnsGap = stackedLayout ? "16px" : "20px";
   const leftColumnWidth = isDesktop ? "320px" : "100%";
+  const stickyHeaderLeftOffset = isDesktop ? (sidebarCollapsed ? 80 : 296) : 0;
+  const stickyHeaderWidth = isDesktop
+    ? `calc(100vw - ${stickyHeaderLeftOffset}px)`
+    : "100%";
 
   // Collapse/Expand all state
   const [allSectionsCollapsed, setAllSectionsCollapsed] = useState(false);
