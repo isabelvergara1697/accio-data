@@ -13942,148 +13942,153 @@ const OrderDetails: React.FC = () => {
                     }}
                   >
                     <div
+                    style={{
+                      display: "flex",
+                      padding: isMobile ? "20px 16px 0 16px" : "20px 24px 0 24px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: isMobile ? "12px" : "16px",
+                      alignSelf: "stretch",
+                      position: "relative",
+                    }}
+                  >
+                    <div
                       style={{
                         display: "flex",
-                        padding: "20px 24px 0 24px",
-                        flexDirection: "column",
-                        alignItems: "flex-start",
-                        gap: "16px",
+                        alignItems: "center",
+                        gap: isMobile ? "12px" : "16px",
                         alignSelf: "stretch",
                         position: "relative",
+                        flexWrap: isMobile ? "wrap" : "nowrap",
                       }}
                     >
                       <div
                         style={{
                           display: "flex",
-                          alignItems: "center",
-                          gap: "16px",
-                          alignSelf: "stretch",
+                          alignItems: "flex-start",
+                          gap: "4px",
+                          flex: "1 0 0",
+                          minWidth: 0,
                           position: "relative",
                         }}
                       >
                         <div
                           style={{
                             display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
                             alignItems: "flex-start",
-                            gap: "4px",
+                            gap: "2px",
                             flex: "1 0 0",
                             position: "relative",
+                            minWidth: 0,
                           }}
                         >
                           <div
                             style={{
                               display: "flex",
-                              flexDirection: "column",
-                              justifyContent: "center",
-                              alignItems: "flex-start",
-                              gap: "2px",
-                              flex: "1 0 0",
+                              alignItems: "center",
+                              gap: "8px",
+                              alignSelf: "stretch",
                               position: "relative",
+                              flexWrap: "wrap",
                             }}
                           >
                             <div
                               style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "8px",
-                                alignSelf: "stretch",
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "18px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "28px",
                                 position: "relative",
+                              }}
+                            >
+                              Professional References #1, Hank Williams
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "2px 8px",
+                                alignItems: "center",
+                                borderRadius: "9999px",
+                                border: "1px solid #ABEFC6",
+                                background: "#ECFDF3",
+                                position: "relative",
+                                maxWidth: "100%",
+                                minWidth: 0,
                               }}
                             >
                               <div
                                 style={{
-                                  color: "#181D27",
+                                  color: "#067647",
+                                  textAlign: "center",
                                   fontFamily: "Public Sans",
-                                  fontSize: "18px",
+                                  fontSize: "12px",
                                   fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight: "28px",
+                                  fontWeight: 500,
+                                  lineHeight: "18px",
                                   position: "relative",
-                                }}
-                              >
-                                Professional References #1, Hank Williams
-                              </div>
-                              <div
-                                style={{
-                                  display: "flex",
-                                  padding: "2px 8px",
-                                  alignItems: "center",
-                                  borderRadius: "9999px",
-                                  border: "1px solid #ABEFC6",
-                                  background: "#ECFDF3",
-                                  position: "relative",
+                                  whiteSpace: "nowrap",
+                                  overflow: "hidden",
+                                  textOverflow: "ellipsis",
                                   maxWidth: "100%",
-                                  minWidth: 0,
                                 }}
                               >
-                                <div
-                                  style={{
-                                    color: "#067647",
-                                    textAlign: "center",
-                                    fontFamily: "Public Sans",
-                                    fontSize: "12px",
-                                    fontStyle: "normal",
-                                    fontWeight: 500,
-                                    lineHeight: "18px",
-                                    position: "relative",
-                                    whiteSpace: "nowrap",
-                                    overflow: "hidden",
-                                    textOverflow: "ellipsis",
-                                    maxWidth: "100%",
-                                  }}
-                                >
-                                  Completed - Verified
-                                </div>
+                                Completed - Verified
                               </div>
                             </div>
                           </div>
                         </div>
+                      </div>
 
-                        {/* Chevron Button */}
-                        <button
-                          onClick={() =>
-                            setProfessionalReferencesExpanded(
-                              !professionalReferencesExpanded,
-                            )
-                          }
+                      {/* Chevron Button */}
+                      <button
+                        onClick={() =>
+                          setProfessionalReferencesExpanded(
+                            !professionalReferencesExpanded,
+                          )
+                        }
+                        style={{
+                          display: "flex",
+                          padding: "8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          position: "relative",
+                          cursor: "pointer",
+                          alignSelf: isMobile ? "flex-start" : "auto",
+                        }}
+                      >
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
                           style={{
-                            display: "flex",
-                            padding: "8px",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            borderRadius: "8px",
-                            border: "1px solid #D5D7DA",
-                            background: "#FFF",
-                            boxShadow:
-                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                            position: "relative",
-                            cursor: "pointer",
+                            transform: professionalReferencesExpanded
+                              ? "rotate(180deg)"
+                              : "rotate(0deg)",
+                            transition: "transform 0.2s ease",
                           }}
                         >
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            style={{
-                              transform: professionalReferencesExpanded
-                                ? "rotate(180deg)"
-                                : "rotate(0deg)",
-                              transition: "transform 0.2s ease",
-                            }}
-                          >
-                            <path
-                              d="M4 6L8 10L12 6"
-                              stroke="#A4A7AE"
-                              strokeWidth="1.66667"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </button>
-                      </div>
+                          <path
+                            d="M4 6L8 10L12 6"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </button>
                     </div>
+                  </div>
                   </div>
 
                   {/* Professional References Content */}
