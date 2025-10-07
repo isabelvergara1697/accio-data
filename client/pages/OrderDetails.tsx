@@ -6748,7 +6748,7 @@ const OrderDetails: React.FC = () => {
                     <div
                       style={{
                         display: "flex",
-                        padding: "20px 24px 0 24px",
+                        padding: isMobile ? "20px 16px 0 16px" : "20px 24px 0 24px",
                         flexDirection: "column",
                         alignItems: "flex-start",
                         gap: "16px",
@@ -6861,7 +6861,9 @@ const OrderDetails: React.FC = () => {
                     <div
                       style={{
                         display: "flex",
-                        padding: "12px 24px 20px 24px",
+                        padding: isMobile
+                          ? "12px 16px 20px 16px"
+                          : "12px 24px 20px 24px",
                         flexDirection: "column",
                         alignItems: "flex-start",
                         gap: "16px",
@@ -6892,12 +6894,18 @@ const OrderDetails: React.FC = () => {
                       >
                         <div
                           style={{
-                            display: "grid",
-                            height: "124px",
-                            gridTemplateRows: "repeat(2, minmax(0, 1fr))",
-                            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-                            rowGap: "8px",
-                            columnGap: "8px",
+                            display: isMobile ? "flex" : "grid",
+                            flexDirection: isMobile ? "column" : undefined,
+                            height: isMobile ? "auto" : "124px",
+                            gridTemplateRows: isMobile
+                              ? undefined
+                              : "repeat(2, minmax(0, 1fr))",
+                            gridTemplateColumns: isMobile
+                              ? undefined
+                              : "repeat(3, minmax(0, 1fr))",
+                            rowGap: isMobile ? undefined : "8px",
+                            columnGap: isMobile ? undefined : "8px",
+                            gap: isMobile ? "8px" : undefined,
                             alignSelf: "stretch",
                             position: "relative",
                           }}
@@ -6909,8 +6917,8 @@ const OrderDetails: React.FC = () => {
                               flexDirection: "column",
                               alignItems: "flex-start",
                               gap: "4px",
-                              gridRow: "1 / span 1",
-                              gridColumn: "1 / span 1",
+                              gridRow: isMobile ? undefined : "1 / span 1",
+                              gridColumn: isMobile ? undefined : "1 / span 1",
                               position: "relative",
                             }}
                           >
@@ -6951,8 +6959,8 @@ const OrderDetails: React.FC = () => {
                               flexDirection: "column",
                               alignItems: "flex-start",
                               gap: "4px",
-                              gridRow: "1 / span 1",
-                              gridColumn: "2 / span 1",
+                              gridRow: isMobile ? undefined : "1 / span 1",
+                              gridColumn: isMobile ? undefined : "2 / span 1",
                               position: "relative",
                             }}
                           >
@@ -6993,8 +7001,8 @@ const OrderDetails: React.FC = () => {
                               flexDirection: "column",
                               alignItems: "flex-start",
                               gap: "4px",
-                              gridRow: "1 / span 1",
-                              gridColumn: "3 / span 1",
+                              gridRow: isMobile ? undefined : "1 / span 1",
+                              gridColumn: isMobile ? undefined : "3 / span 1",
                               position: "relative",
                             }}
                           >
@@ -7035,8 +7043,8 @@ const OrderDetails: React.FC = () => {
                               flexDirection: "column",
                               alignItems: "flex-start",
                               gap: "4px",
-                              gridRow: "2 / span 1",
-                              gridColumn: "1 / span 1",
+                              gridRow: isMobile ? undefined : "2 / span 1",
+                              gridColumn: isMobile ? undefined : "1 / span 1",
                               position: "relative",
                             }}
                           >
