@@ -10220,7 +10220,9 @@ const OrderDetails: React.FC = () => {
                             display: "flex",
                             flexDirection: "column",
                             alignItems: "flex-start",
-                            flex: "1 0 0",
+                            flex: isMobile ? "0 0 200px" : "1 0 0",
+                            minWidth: isMobile ? "200px" : "0",
+                            flexShrink: isMobile ? 0 : 1,
                             position: "relative",
                           }}
                         >
@@ -11008,7 +11010,9 @@ const OrderDetails: React.FC = () => {
                             display: "flex",
                             flexDirection: "column",
                             alignItems: "flex-start",
-                            flex: "1 0 0",
+                            flex: isMobile ? "0 0 200px" : "1 0 0",
+                            minWidth: isMobile ? "200px" : "0",
+                            flexShrink: isMobile ? 0 : 1,
                             position: "relative",
                           }}
                         >
@@ -14411,7 +14415,9 @@ const OrderDetails: React.FC = () => {
                             display: "flex",
                             flexDirection: "column",
                             alignItems: "flex-start",
-                            flex: "1 0 0",
+                            flex: isMobile ? "0 0 200px" : "1 0 0",
+                            minWidth: isMobile ? "200px" : "0",
+                            flexShrink: isMobile ? 0 : 1,
                             position: "relative",
                           }}
                         >
@@ -15072,7 +15078,9 @@ const OrderDetails: React.FC = () => {
                             display: "flex",
                             flexDirection: "column",
                             alignItems: "flex-start",
-                            flex: "1 0 0",
+                            flex: isMobile ? "0 0 200px" : "1 0 0",
+                            minWidth: isMobile ? "200px" : "0",
+                            flexShrink: isMobile ? 0 : 1,
                             position: "relative",
                           }}
                         >
