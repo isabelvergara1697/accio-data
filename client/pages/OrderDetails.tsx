@@ -10593,6 +10593,8 @@ const OrderDetails: React.FC = () => {
                           alignItems: "flex-start",
                           alignSelf: "stretch",
                           position: "relative",
+                          paddingLeft: isMobile ? "16px" : "0",
+                          paddingRight: isMobile ? "16px" : "0",
                         }}
                       >
                         <div
@@ -10683,8 +10685,6 @@ const OrderDetails: React.FC = () => {
                           alignSelf: "stretch",
                           position: "relative",
                           overflowX: isMobile ? "auto" : "visible",
-                          marginLeft: isMobile ? "-16px" : "0",
-                          marginRight: isMobile ? "-16px" : "0",
                           paddingLeft: isMobile ? "16px" : "0",
                           paddingRight: isMobile ? "16px" : "0",
                         }}
@@ -11134,6 +11134,7 @@ const OrderDetails: React.FC = () => {
                             "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                           position: "relative",
                           cursor: "pointer",
+                          marginLeft: isMobile ? "16px" : "0",
                         }}
                       >
                         <div
