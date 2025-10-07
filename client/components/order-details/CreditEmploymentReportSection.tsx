@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import { ChevronDown, ExternalLink } from "lucide-react";
+import type { ReactNode } from "react";
+import { ExternalLink } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -119,11 +119,16 @@ export function CreditEmploymentReportSection({
   onToggle,
 }: CreditEmploymentReportSectionProps) {
   return (
-    <section className="rounded-xl border border-[#E9EAEB] bg-white shadow-sm">
+    <section
+      className={cn(
+        "rounded-xl border border-[#E9EAEB] bg-white shadow-sm",
+        !expanded && "pb-5",
+      )}
+    >
       <div className="px-4 pt-5 sm:px-6">
-        <div className="flex items-center justify-between gap-3 md:flex-nowrap">
+        <div className="flex items-center justify-between gap-3 md:flex-nowrap md:gap-4">
           <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2 md:flex-nowrap">
-            <h2 className="truncate text-lg font-semibold leading-7 text-[#181D27]">
+            <h2 className="text-lg font-semibold leading-7 text-[#181D27]">
               Credit Employment Report
             </h2>
             <StatusPill variant="success">Completed - Verified</StatusPill>
@@ -137,19 +142,32 @@ export function CreditEmploymentReportSection({
                 : "Expand Credit Employment Report"
             }
           >
-            <ChevronDown
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
               className={cn(
-                "h-4 w-4 text-[#A4A7AE] transition-transform",
+                "transition-transform",
                 expanded && "rotate-180",
               )}
-            />
+            >
+              <path
+                d="M4 6L8 10L12 6"
+                stroke="#A4A7AE"
+                strokeWidth="1.66667"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </IconButton>
         </div>
       </div>
 
       {expanded && (
-        <div className="space-y-2 px-4 pb-5 pt-3 sm:px-6">
-          <div className="space-y-2">
+        <div className="space-y-2.5 px-4 pb-5 pt-3 sm:px-6">
+          <div className="grid grid-cols-1 gap-2 md:grid-cols-3">
             {INFO_FIELDS.map((field, index) => (
               <InfoItem key={`info-${index}`} {...field} />
             ))}
