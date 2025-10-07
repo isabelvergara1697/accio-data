@@ -17813,7 +17813,11 @@ const OrderDetails: React.FC = () => {
                   onToggle={() => setEVerifyExpanded(!eVerifyExpanded)}
                 />
 
-                </div>
+                {/* 5 Panels Section */}
+                <FivePanelsSection
+                  expanded={fivePanelsExpanded}
+                  onToggle={() => setFivePanelsExpanded(!fivePanelsExpanded)}
+                />
 
                 {/* CBSV Section */}
                 <div
