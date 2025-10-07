@@ -18161,8 +18161,8 @@ const OrderDetails: React.FC = () => {
                               gap: "4px",
                               flex: "1 0 0",
                               alignSelf: "stretch",
-                              gridRow: "1 / span 1",
-                              gridColumn: "1 / span 1",
+                              gridRow: isMobile ? undefined : "1 / span 1",
+                              gridColumn: isMobile ? undefined : "1 / span 1",
                               position: "relative",
                             }}
                           >
@@ -18208,8 +18208,8 @@ const OrderDetails: React.FC = () => {
                               gap: "4px",
                               flex: "1 0 0",
                               alignSelf: "stretch",
-                              gridRow: "1 / span 1",
-                              gridColumn: "2 / span 1",
+                              gridRow: isMobile ? undefined : "1 / span 1",
+                              gridColumn: isMobile ? undefined : "2 / span 1",
                               position: "relative",
                             }}
                           >
@@ -18250,8 +18250,8 @@ const OrderDetails: React.FC = () => {
                               gap: "4px",
                               flex: "1 0 0",
                               alignSelf: "stretch",
-                              gridRow: "1 / span 1",
-                              gridColumn: "3 / span 1",
+                              gridRow: isMobile ? undefined : "1 / span 1",
+                              gridColumn: isMobile ? undefined : "3 / span 1",
                               position: "relative",
                             }}
                           >
