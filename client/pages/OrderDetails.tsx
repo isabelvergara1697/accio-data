@@ -1086,7 +1086,7 @@ const OrderDetails: React.FC = () => {
             style={{
               position: "fixed",
               top: "0",
-              left: isDesktop ? (sidebarCollapsed ? "80px" : "296px") : "0",
+              left: `${stickyHeaderLeftOffset}px`,
               right: "0",
               zIndex: 1000,
               display: "flex",
@@ -1101,9 +1101,8 @@ const OrderDetails: React.FC = () => {
               background: "#FFF",
               borderBottom: "1px solid #E9EAEB",
               boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-              width: "100%",
+              width: stickyHeaderWidth,
               boxSizing: "border-box",
-              maxWidth: "100%",
             }}
             className="sticky-header"
           >
