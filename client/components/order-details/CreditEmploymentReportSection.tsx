@@ -11,6 +11,7 @@ type InfoField = {
 type CreditEmploymentReportSectionProps = {
   expanded: boolean;
   onToggle: () => void;
+  id?: string;
 };
 
 const CARD_SHADOW =
@@ -117,11 +118,13 @@ const TABLE_DATA = [
 export function CreditEmploymentReportSection({
   expanded,
   onToggle,
+  id,
 }: CreditEmploymentReportSectionProps) {
   return (
     <section
+      id={id}
       className={cn(
-        "rounded-xl border border-[#E9EAEB] bg-white shadow-sm",
+        "w-full rounded-xl border border-[#E9EAEB] bg-white shadow-sm",
         !expanded && "pb-5",
       )}
     >
