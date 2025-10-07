@@ -3651,6 +3651,7 @@ const OrderDetails: React.FC = () => {
                   position: "relative",
                   width: leftColumnWidth,
                   maxWidth: "100%",
+                  minWidth: "0",
                   alignSelf: "stretch",
                   flex: stackedLayout ? "1 1 auto" : "0 0 auto",
                 }}
