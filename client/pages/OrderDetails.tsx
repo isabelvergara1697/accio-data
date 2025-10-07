@@ -404,6 +404,15 @@ const OrderDetails: React.FC = () => {
     { id: "6", name: "Emily Davis", avatar: "/placeholder-avatar-6.jpg" },
   ];
 
+  const stackedLayout = isMobile || isTablet;
+  const mainContentHorizontalPadding = isMobile
+    ? "0 16px"
+    : isTablet
+      ? "0 24px"
+      : "0 32px";
+  const mainColumnsGap = stackedLayout ? "16px" : "20px";
+  const leftColumnWidth = isDesktop ? "320px" : "100%";
+
   // Collapse/Expand all state
   const [allSectionsCollapsed, setAllSectionsCollapsed] = useState(false);
 
@@ -3611,7 +3620,7 @@ const OrderDetails: React.FC = () => {
           <div
             style={{
               display: "flex",
-              padding: "0 32px",
+              padding: mainContentHorizontalPadding,
               flexDirection: "column",
               alignItems: "flex-start",
               gap: "20px",
@@ -3622,11 +3631,13 @@ const OrderDetails: React.FC = () => {
             <div
               style={{
                 display: "flex",
-                alignItems: "flex-start",
-                gap: "20px",
+                flexDirection: stackedLayout ? "column" : "row",
+                alignItems: "stretch",
+                gap: mainColumnsGap,
                 alignSelf: "stretch",
                 position: "relative",
                 minWidth: "0",
+                width: "100%",
               }}
             >
               {/* Left Column - Subject Overview */}
@@ -3636,8 +3647,12 @@ const OrderDetails: React.FC = () => {
                   flexDirection: "column",
                   justifyContent: "center",
                   alignItems: "flex-start",
-                  gap: "24px",
+                  gap: stackedLayout ? "16px" : "24px",
                   position: "relative",
+                  width: leftColumnWidth,
+                  maxWidth: "100%",
+                  alignSelf: "stretch",
+                  flex: stackedLayout ? "1 1 auto" : "0 0 auto",
                 }}
               >
                 <div
@@ -6690,13 +6705,14 @@ const OrderDetails: React.FC = () => {
                   flexDirection: "column",
                   justifyContent: "center",
                   alignItems: "flex-start",
-                  gap: "24px",
+                  gap: stackedLayout ? "16px" : "24px",
                   flex: "1 1 0",
                   position: "relative",
                   minWidth: "0",
                   maxWidth: isDesktop
                     ? `calc(100vw - ${(sidebarCollapsed ? 80 : 296) + 404}px)`
                     : "100%",
+                  width: "100%",
                 }}
               >
                 <div
