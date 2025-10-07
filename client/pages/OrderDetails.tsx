@@ -11511,11 +11511,10 @@ const OrderDetails: React.FC = () => {
                               flexDirection: "column",
                               alignItems: "flex-start",
                               gap: "4px",
-                              flex: "1 0 0",
+                              flex: isMobile ? "0 0 auto" : "1 0 0",
                               alignSelf: "stretch",
-                              gridRow: "1 / span 1",
-                              gridColumn: "1 / span 1",
                               position: "relative",
+                              minWidth: isMobile ? "auto" : "0",
                             }}
                           >
                             <div
