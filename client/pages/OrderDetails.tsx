@@ -19364,15 +19364,19 @@ const OrderDetails: React.FC = () => {
                             </div>
                             <div
                               style={{
-                                display: "grid",
-                                height: "172px",
-                                rowGap: "8px",
-                                columnGap: "8px",
+                                display: isMobile ? "flex" : "grid",
+                                flexDirection: isMobile ? "column" : undefined,
+                                height: isMobile ? "auto" : "172px",
+                                rowGap: isMobile ? undefined : "8px",
+                                columnGap: isMobile ? undefined : "8px",
+                                gap: isMobile ? "8px" : undefined,
                                 alignSelf: "stretch",
-                                gridTemplateRows:
-                                  "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr)",
-                                gridTemplateColumns:
-                                  "repeat(3, minmax(0, 1fr))",
+                                gridTemplateRows: isMobile
+                                  ? undefined
+                                  : "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr)",
+                                gridTemplateColumns: isMobile
+                                  ? undefined
+                                  : "repeat(3, minmax(0, 1fr))",
                                 position: "relative",
                               }}
                             >
