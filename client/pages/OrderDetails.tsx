@@ -3648,14 +3648,14 @@ const OrderDetails: React.FC = () => {
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  justifyContent: "center",
+                  justifyContent: "flex-start",
                   alignItems: "flex-start",
                   gap: stackedLayout ? "16px" : "24px",
                   position: "relative",
                   width: leftColumnWidth,
                   maxWidth: "100%",
                   minWidth: "0",
-                  alignSelf: "stretch",
+                  alignSelf: stackedLayout ? "stretch" : "flex-start",
                   flex: stackedLayout ? "1 1 auto" : "0 0 auto",
                 }}
               >
