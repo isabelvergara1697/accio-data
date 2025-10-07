@@ -13956,15 +13956,15 @@ const OrderDetails: React.FC = () => {
                     }}
                   >
                     <div
-                    style={{
-                      display: "flex",
-                      padding: isMobile ? "20px 16px 0 16px" : "20px 24px 0 24px",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                      gap: isMobile ? "12px" : "16px",
-                      alignSelf: "stretch",
-                      position: "relative",
-                    }}
+                      style={{
+                        display: "flex",
+                        padding: isMobile ? "20px 16px 0 16px" : "20px 24px 0 24px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: isMobile ? "12px" : "16px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
                   >
                     <div
                       style={{
