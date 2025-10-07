@@ -222,7 +222,10 @@ export function EVerifySection({ expanded, onToggle }: EVerifySectionProps) {
   return (
     <section
       id="e-verify"
-      className="rounded-2xl border border-[#E9EAEB] bg-white shadow-sm"
+      className={cn(
+        "w-full self-stretch rounded-xl border border-[#E9EAEB] bg-white shadow-sm",
+        !expanded && "pb-5",
+      )}
     >
       <div className="px-4 pt-5 sm:px-6">
         <div className="flex flex-wrap items-start justify-between gap-3 sm:items-center md:flex-nowrap">
