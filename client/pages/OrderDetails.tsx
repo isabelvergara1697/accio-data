@@ -13204,6 +13204,7 @@ const OrderDetails: React.FC = () => {
                             alignItems: "flex-start",
                             alignSelf: "stretch",
                             position: "relative",
+                            overflowX: isMobile ? "auto" : "visible",
                           }}
                         >
                           {/* Items Column */}
