@@ -9,6 +9,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
+import { EVerifySection } from "../components/order-details/EVerifySection";
 import AddAkasModal, { AkaEntry } from "../components/ui/add-akas-modal";
 import { ArchiveOrderModal } from "../components/ui/archive-order-modal";
 import { UploadApplicantReleaseModal } from "../components/ui/upload-applicant-release-modal";
