@@ -17851,9 +17851,10 @@ const OrderDetails: React.FC = () => {
                         style={{
                           display: "flex",
                           alignItems: "center",
-                          gap: "16px",
+                          gap: isMobile ? "12px" : "16px",
                           alignSelf: "stretch",
                           position: "relative",
+                          flexWrap: isMobile ? "wrap" : "nowrap",
                         }}
                       >
                         <div
@@ -17862,6 +17863,7 @@ const OrderDetails: React.FC = () => {
                             alignItems: "flex-start",
                             gap: "4px",
                             flex: "1 0 0",
+                            minWidth: 0,
                             position: "relative",
                           }}
                         >
@@ -17874,6 +17876,7 @@ const OrderDetails: React.FC = () => {
                               gap: "2px",
                               flex: "1 0 0",
                               position: "relative",
+                              minWidth: 0,
                             }}
                           >
                             <div
@@ -17883,6 +17886,7 @@ const OrderDetails: React.FC = () => {
                                 gap: "8px",
                                 alignSelf: "stretch",
                                 position: "relative",
+                                flexWrap: isMobile ? "wrap" : "nowrap",
                               }}
                             >
                               <div
