@@ -17806,6 +17806,12 @@ const OrderDetails: React.FC = () => {
                 </div>
 
                 {/* E-Verify Section */}
+                <EVerifySection
+                  expanded={eVerifyExpanded}
+                  onToggle={() => setEVerifyExpanded(!eVerifyExpanded)}
+                />
+
+                {/* Legacy E-Verify markup placeholder */}
                 <div
                   id="e-verify"
                   style={{
