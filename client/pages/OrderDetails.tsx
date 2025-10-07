@@ -16818,6 +16818,12 @@ const OrderDetails: React.FC = () => {
                 </div>
 
                 {/* Credit Employment Report Section */}
+                <CreditEmploymentReportSection
+                  expanded={creditEmploymentExpanded}
+                  onToggle={() =>
+                    setCreditEmploymentExpanded(!creditEmploymentExpanded)
+                  }
+                />
 
                 {/* E-Verify Section */}
                 <EVerifySection
