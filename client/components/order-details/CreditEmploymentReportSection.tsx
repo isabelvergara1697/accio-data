@@ -124,7 +124,7 @@ export function CreditEmploymentReportSection({
     <section
       id={id}
       className={cn(
-        "w-full rounded-xl border border-[#E9EAEB] bg-white shadow-sm",
+        "w-full self-stretch rounded-xl border border-[#E9EAEB] bg-white shadow-sm",
         !expanded && "pb-5",
       )}
     >
