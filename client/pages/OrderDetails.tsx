@@ -18137,13 +18137,19 @@ const OrderDetails: React.FC = () => {
                         {/* ETA Information Grid */}
                         <div
                           style={{
-                            display: "grid",
-                            height: "52px",
+                            display: isMobile ? "flex" : "grid",
+                            flexDirection: isMobile ? "column" : undefined,
+                            height: isMobile ? "auto" : "52px",
                             rowGap: "8px",
                             columnGap: "8px",
+                            gap: isMobile ? "8px" : undefined,
                             alignSelf: "stretch",
-                            gridTemplateRows: "repeat(1, minmax(0, 1fr))",
-                            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                            gridTemplateRows: isMobile
+                              ? undefined
+                              : "repeat(1, minmax(0, 1fr))",
+                            gridTemplateColumns: isMobile
+                              ? undefined
+                              : "repeat(3, minmax(0, 1fr))",
                             position: "relative",
                           }}
                         >
