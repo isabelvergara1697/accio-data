@@ -16857,6 +16857,7 @@ const OrderDetails: React.FC = () => {
 
                 {/* Credit Employment Report Section */}
                 <CreditEmploymentReportSection
+                  id="credit-employment-report"
                   expanded={creditEmploymentExpanded}
                   onToggle={() =>
                     setCreditEmploymentExpanded(!creditEmploymentExpanded)
