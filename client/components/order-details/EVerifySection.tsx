@@ -225,8 +225,8 @@ export function EVerifySection({ expanded, onToggle }: EVerifySectionProps) {
       className="rounded-2xl border border-[#E9EAEB] bg-white shadow-sm"
     >
       <div className="px-4 pt-5 sm:px-6">
-        <div className="flex flex-wrap items-start justify-between gap-3 sm:items-center">
-          <div className="flex flex-1 flex-wrap items-center gap-3">
+        <div className="flex flex-wrap items-start justify-between gap-3 sm:items-center md:flex-nowrap">
+          <div className="flex flex-1 flex-wrap items-center gap-3 md:flex-nowrap md:items-center md:gap-4">
             <h2 className="text-lg font-semibold leading-7 text-[#181D27]">
               E-Verify
             </h2>
