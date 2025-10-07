@@ -1098,7 +1098,7 @@ const OrderDetails: React.FC = () => {
               background: "#FFF",
               borderBottom: "1px solid #E9EAEB",
               boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-              width: stickyHeaderWidth,
+              width: "auto",
               boxSizing: "border-box",
             }}
             className="sticky-header"
