@@ -3659,7 +3659,7 @@ const OrderDetails: React.FC = () => {
                   id="subject"
                   style={{
                     display: "flex",
-                    width: "320px",
+                    width: "100%",
                     flexDirection: "column",
                     alignItems: "flex-start",
                     borderRadius: "12px",
@@ -4493,7 +4493,7 @@ const OrderDetails: React.FC = () => {
                 <div
                   style={{
                     display: "flex",
-                    width: "320px",
+                    width: "100%",
                     flexDirection: "column",
                     alignItems: "flex-start",
                     borderRadius: "12px",
@@ -4667,7 +4667,7 @@ const OrderDetails: React.FC = () => {
                 <div
                   style={{
                     display: "flex",
-                    width: "320px",
+                    width: "100%",
                     flexDirection: "column",
                     alignItems: "flex-start",
                     borderRadius: "12px",
@@ -5329,7 +5329,7 @@ const OrderDetails: React.FC = () => {
                 <div
                   style={{
                     display: "flex",
-                    width: "320px",
+                    width: "100%",
                     flexDirection: "column",
                     alignItems: "flex-start",
                     borderRadius: "12px",
@@ -5882,7 +5882,7 @@ const OrderDetails: React.FC = () => {
                 <div
                   style={{
                     display: "flex",
-                    width: "320px",
+                    width: "100%",
                     flexDirection: "column",
                     alignItems: "flex-start",
                     borderRadius: "12px",
@@ -6197,7 +6197,7 @@ const OrderDetails: React.FC = () => {
                   id="billing-identifiers"
                   style={{
                     display: "flex",
-                    width: "320px",
+                    width: "100%",
                     flexDirection: "column",
                     alignItems: "flex-start",
                     borderRadius: "12px",
@@ -6435,7 +6435,7 @@ const OrderDetails: React.FC = () => {
                 <div
                   style={{
                     display: "flex",
-                    width: "320px",
+                    width: "100%",
                     flexDirection: "column",
                     alignItems: "flex-start",
                     borderRadius: "12px",
