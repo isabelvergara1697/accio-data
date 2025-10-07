@@ -17811,14 +17811,6 @@ const OrderDetails: React.FC = () => {
                   onToggle={() => setEVerifyExpanded(!eVerifyExpanded)}
                 />
 
-                {/* Legacy E-Verify markup placeholder */}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
                 {/* 5 Panels Section */}
                 <div
                   id="five-panels-section"
