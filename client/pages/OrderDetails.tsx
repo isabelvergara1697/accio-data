@@ -2554,6 +2554,70 @@ const OrderDetails: React.FC = () => {
                   </div>
                 </button>
 
+                {/* Credit Employment Report */}
+                <button
+                  onClick={() => {
+                    scrollToSection("credit-employment-report");
+                    setStickyNavigationOpen(false);
+                  }}
+                  style={{
+                    display: "flex",
+                    padding: "8px 12px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "6px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    textAlign: "left",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F9FAFB";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  <div
+                    style={{
+                      flex: "1 0 0",
+                      color: "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                    }}
+                  >
+                    Credit Employment Report
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "2px 8px",
+                      alignItems: "center",
+                      borderRadius: "9999px",
+                      border: "1px solid #ABEFC6",
+                      background: "#ECFDF3",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#067647",
+                        textAlign: "center",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      Completed - Verified
+                    </div>
+                  </div>
+                </button>
+
                 {/* E-Verify */}
                 <button
                   onClick={() => {
