@@ -14113,6 +14113,9 @@ const OrderDetails: React.FC = () => {
                           alignItems: "flex-start",
                           alignSelf: "stretch",
                           position: "relative",
+                          overflowX: isMobile ? "auto" : "visible",
+                          paddingLeft: isMobile ? "4px" : "0",
+                          paddingRight: isMobile ? "4px" : "0",
                         }}
                       >
                         {/* Field Labels Column */}
