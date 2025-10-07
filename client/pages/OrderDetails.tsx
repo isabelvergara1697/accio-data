@@ -1038,7 +1038,7 @@ const OrderDetails: React.FC = () => {
           flexDirection: "column",
           flex: "1 1 auto",
           alignSelf: "stretch",
-          marginLeft: isDesktop ? (sidebarCollapsed ? "80px" : "296px") : "0",
+          marginLeft: isDesktop ? `${stickyHeaderLeftOffset}px` : "0",
           position: "relative",
           width: "100%",
           maxWidth: "100%",
