@@ -142,8 +142,8 @@ export function FivePanelsSection({
       className="rounded-xl border border-[#E9EAEB] bg-white shadow-sm"
     >
       <div className="px-4 pt-5 sm:px-6">
-        <div className="flex items-center justify-between gap-3">
-          <div className="flex flex-1 flex-wrap items-center gap-2">
+        <div className="flex items-center justify-between gap-3 md:flex-nowrap">
+          <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2 md:flex-nowrap">
             <h2 className="text-lg font-semibold leading-7 text-[#181D27]">
               5 Panels
             </h2>
