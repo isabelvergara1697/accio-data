@@ -57,7 +57,7 @@ function IconButton({
       onClick={onClick}
       aria-label={ariaLabel}
       className={cn(
-        "flex h-9 w-9 items-center justify-center rounded-lg border border-[#D5D7DA] bg-white",
+        "flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg border border-[#D5D7DA] bg-white",
         CARD_SHADOW,
         "transition hover:bg-[#F5F5F5] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#344698]/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white",
         className,
