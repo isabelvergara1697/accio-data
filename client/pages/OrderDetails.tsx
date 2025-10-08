@@ -8088,10 +8088,7 @@ const OrderDetails: React.FC = () => {
                                   >
                                     <div
                                       style={{
-                                        display: "-webkit-box",
-                                        WebkitBoxOrient: "vertical",
-                                        WebkitLineClamp: 1,
-                                        flex: "1 0 0",
+                                        display: "block",
                                         overflow: "hidden",
                                         color: "#273572",
                                         textOverflow: "ellipsis",
@@ -8103,6 +8100,9 @@ const OrderDetails: React.FC = () => {
                                         textDecoration: "underline",
                                         position: "relative",
                                         textAlign: "left",
+                                        width: "100%",
+                                        maxWidth: "100%",
+                                        whiteSpace: "nowrap",
                                       }}
                                       title={docName}
                                     >
