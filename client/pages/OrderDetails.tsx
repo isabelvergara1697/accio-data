@@ -7685,7 +7685,10 @@ const OrderDetails: React.FC = () => {
                                 display: "flex",
                                 flexDirection: "column",
                                 alignItems: "flex-start",
-                                flex: "1 0 0",
+                                flex: isMobile ? "0 0 80px" : "1 0 0",
+                                width: isMobile ? "80px" : "auto",
+                                minWidth: isMobile ? "80px" : "0",
+                                maxWidth: isMobile ? "80px" : "none",
                                 position: "relative",
                               }}
                             >
@@ -7701,6 +7704,7 @@ const OrderDetails: React.FC = () => {
                                   borderBottom: "1px solid #E9EAEB",
                                   background: "#FFF",
                                   position: "relative",
+                                  width: "100%",
                                 }}
                               >
                                 <div
