@@ -7448,6 +7448,7 @@ const OrderDetails: React.FC = () => {
 
                 {/* Documents Section */}
                 <div
+                  id="documents-section"
                   style={{
                     display: "flex",
                     paddingBottom: "20px",
