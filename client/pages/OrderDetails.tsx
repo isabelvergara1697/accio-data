@@ -488,17 +488,20 @@ const OrderDetails: React.FC = () => {
       window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
     };
 
-    if (closeQuickNavigation && !isDesktop) {
+    if (closeQuickNavigation) {
       setStickyNavigationOpen(false);
-      if (
-        typeof window !== "undefined" &&
-        typeof window.requestAnimationFrame === "function"
-      ) {
-        window.requestAnimationFrame(() => {
-          window.requestAnimationFrame(performScroll);
-        });
-        return;
-      }
+    }
+
+    if (
+      closeQuickNavigation &&
+      !isDesktop &&
+      typeof window !== "undefined" &&
+      typeof window.requestAnimationFrame === "function"
+    ) {
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(performScroll);
+      });
+      return;
     }
 
     performScroll();
