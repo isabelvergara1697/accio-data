@@ -15300,6 +15300,12 @@ const OrderDetails: React.FC = () => {
                   )}
                 </div>
 
+                {/* Motor Vehicle Driving History Section */}
+                <MotorVehicleDrivingHistorySection
+                  expanded={motorVehicleExpanded}
+                  onToggle={() => setMotorVehicleExpanded(!motorVehicleExpanded)}
+                />
+
                 {/* Credit Employment Report Section */}
                 <CreditEmploymentReportSection
                   id="credit-employment-report"
