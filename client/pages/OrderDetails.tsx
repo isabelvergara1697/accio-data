@@ -7393,35 +7393,6 @@ const OrderDetails: React.FC = () => {
                                     : "—"}
                                 </div>
 
-                                <div
-                                  style={{
-                                    display: "inline-flex",
-                                    padding: "2px 8px",
-                                    alignItems: "center",
-                                    borderRadius: "9999px",
-                                    border: "1px solid #ABEFC6",
-                                    background: "#ECFDF3",
-                                    position: "relative",
-                                    maxWidth: "100%",
-                                    justifySelf: "flex-start",
-                                  }}
-                                >
-                                  <div
-                                    style={{
-                                      color: "#067647",
-                                      textAlign: "center",
-                                      fontFamily: "Public Sans",
-                                      fontSize: "12px",
-                                      fontStyle: "normal",
-                                      fontWeight: 500,
-                                      lineHeight: "18px",
-                                      position: "relative",
-                                    }}
-                                  >
-                                    {row.researchResult}
-                                  </div>
-                                </div>
-
                                 <div style={REPORT_SUMMARY_TEXT_STYLE}>
                                   {row.searchId}
                                 </div>
