@@ -174,8 +174,8 @@ export function MotorVehicleDrivingHistorySection({
       </div>
 
       {expanded && (
-        <div className="space-y-2 px-4 pb-5 pt-3 sm:px-6">
-          <div className="flex flex-col gap-2">
+        <div className="space-y-2.5 px-4 pb-5 pt-3 sm:px-6">
+          <div className="space-y-2.5">
             {DRIVER_INFO_FIELDS.map((field, index) => (
               <InfoItem key={`driver-${index}`} {...field} />
             ))}
@@ -183,7 +183,7 @@ export function MotorVehicleDrivingHistorySection({
 
           <SectionDivider />
 
-          <div className="flex flex-col gap-2 md:grid md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-2.5 md:grid-cols-3">
             {MAIN_INFO_FIELDS.map((field, index) => (
               <InfoItem key={`main-${index}`} {...field} />
             ))}
@@ -191,13 +191,11 @@ export function MotorVehicleDrivingHistorySection({
 
           <SectionDivider />
 
-          <div className="flex flex-col gap-2 md:grid md:grid-cols-3">
-            <InfoItem {...STATUS_FIELD} />
-          </div>
+          <InfoItem {...STATUS_FIELD} />
 
           <SectionDivider />
 
-          <div className="flex flex-col gap-2 md:grid md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-2.5 md:grid-cols-3">
             {VIOLATIONS_FIELDS.map((field, index) => (
               <InfoItem key={`violations-${index}`} {...field} />
             ))}
@@ -205,7 +203,7 @@ export function MotorVehicleDrivingHistorySection({
 
           <SectionDivider />
 
-          <div className="flex flex-col gap-2 md:grid md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-2.5 md:grid-cols-3">
             {LICENSE_DETAILS_FIELDS.map((field, index) => (
               <InfoItem key={`license-${index}`} {...field} />
             ))}
@@ -213,9 +211,7 @@ export function MotorVehicleDrivingHistorySection({
 
           <SectionDivider />
 
-          <div className="flex flex-col gap-2">
-            <InfoItem {...MISC_STATE_DATA_FIELD} />
-          </div>
+          <InfoItem {...MISC_STATE_DATA_FIELD} />
         </div>
       )}
     </section>
