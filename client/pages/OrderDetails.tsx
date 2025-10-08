@@ -66,7 +66,7 @@ type ReportSummaryRow = {
 };
 
 const REPORT_SUMMARY_GRID_TEMPLATE =
-  "160px 240px 220px 140px 110px 200px 220px 60px";
+  "120px 240px 220px 140px 110px 200px 220px 60px";
 
 const REPORT_SUMMARY_HEADER_STYLE: React.CSSProperties = {
   color: "#717680",
