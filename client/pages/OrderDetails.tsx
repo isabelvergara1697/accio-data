@@ -345,9 +345,6 @@ const OrderDetails: React.FC = () => {
   ] = useState<number | null>(null);
   const [motorVehicleExpanded, setMotorVehicleExpanded] = useState(true);
   const [credentialsExpanded, setCredentialsExpanded] = useState(true);
-  const [credentialsHoveredRowIndex, setCredentialsHoveredRowIndex] = useState<
-    number | null
-  >(null);
   const [creditEmploymentExpanded, setCreditEmploymentExpanded] =
     useState(true);
   const [eVerifyExpanded, setEVerifyExpanded] = useState(true);
