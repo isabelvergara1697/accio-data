@@ -7675,8 +7675,8 @@ const OrderDetails: React.FC = () => {
                               alignItems: "flex-start",
                               alignSelf: "stretch",
                               position: "relative",
-                              minWidth: "960px",
-                              width: "max-content",
+                              minWidth: isMobile ? "0" : "960px",
+                              width: isMobile ? "100%" : "max-content",
                             }}
                           >
                             {/* Document Name Column */}
