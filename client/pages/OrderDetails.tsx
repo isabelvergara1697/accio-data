@@ -1855,9 +1855,9 @@ const OrderDetails: React.FC = () => {
                 {/* Documents */}
                 <button
                   onClick={() => {
-                    // Scroll to documents section if it exists
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                    setStickyNavigationOpen(false);
+                    scrollToSection("documents-section", {
+                      closeQuickNavigation: true,
+                    });
                   }}
                   style={{
                     display: "flex",
