@@ -467,19 +467,41 @@ const OrderDetails: React.FC = () => {
   const [stickyNavHeight, setStickyNavHeight] = useState<number>(0);
 
   // Accurate in-page anchor scroll accounting for fixed headers
-  const scrollToSection = (targetId: string) => {
-    const el =
-      typeof document !== "undefined"
-        ? document.getElementById(targetId)
-        : null;
-    if (!el) return;
-    const headerOffset =
-      showStickyHeader && stickyHeaderRef.current
-        ? stickyHeaderRef.current.offsetHeight
-        : baseHeaderOffset;
-    const y =
-      el.getBoundingClientRect().top + window.pageYOffset - headerOffset - 8;
-    window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+  const scrollToSection = (
+    targetId: string,
+    options?: { closeQuickNavigation?: boolean },
+  ) => {
+    const { closeQuickNavigation = false } = options ?? {};
+
+    const performScroll = () => {
+      if (typeof document === "undefined" || typeof window === "undefined") {
+        return;
+      }
+      const el = document.getElementById(targetId);
+      if (!el) return;
+      const headerOffset =
+        showStickyHeader && stickyHeaderRef.current
+          ? stickyHeaderRef.current.offsetHeight
+          : baseHeaderOffset;
+      const y =
+        el.getBoundingClientRect().top + window.pageYOffset - headerOffset - 8;
+      window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+    };
+
+    if (closeQuickNavigation && !isDesktop) {
+      setStickyNavigationOpen(false);
+      if (
+        typeof window !== "undefined" &&
+        typeof window.requestAnimationFrame === "function"
+      ) {
+        window.requestAnimationFrame(() => {
+          window.requestAnimationFrame(performScroll);
+        });
+        return;
+      }
+    }
+
+    performScroll();
   };
 
   const collapseAllSections = () => {
