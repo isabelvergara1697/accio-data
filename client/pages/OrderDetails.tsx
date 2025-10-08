@@ -3802,7 +3802,8 @@ const OrderDetails: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                alignItems: "center",
+                                flexDirection: isMobile ? "column" : "row",
+                                alignItems: isMobile ? "flex-start" : "center",
                                 gap: "8px",
                                 alignSelf: "stretch",
                                 position: "relative",
@@ -4634,7 +4635,8 @@ const OrderDetails: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                alignItems: "center",
+                                flexDirection: isMobile ? "column" : "row",
+                                alignItems: isMobile ? "flex-start" : "center",
                                 gap: "8px",
                                 alignSelf: "stretch",
                                 position: "relative",
@@ -4810,7 +4812,8 @@ const OrderDetails: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                alignItems: "center",
+                                flexDirection: isMobile ? "column" : "row",
+                                alignItems: isMobile ? "flex-start" : "center",
                                 gap: "8px",
                                 alignSelf: "stretch",
                                 position: "relative",
@@ -5047,10 +5050,11 @@ const OrderDetails: React.FC = () => {
                               <div
                                 style={{
                                   display: "flex",
-                                  alignItems: "center",
-                                  gap: "8px",
-                                  alignSelf: "stretch",
-                                  position: "relative",
+                                  flexDirection: isMobile ? "column" : "row",
+                                alignItems: isMobile ? "flex-start" : "center",
+                                gap: "8px",
+                                alignSelf: "stretch",
+                                position: "relative",
                                 }}
                               >
                                 <div
@@ -5472,7 +5476,8 @@ const OrderDetails: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                alignItems: "center",
+                                flexDirection: isMobile ? "column" : "row",
+                                alignItems: isMobile ? "flex-start" : "center",
                                 gap: "8px",
                                 alignSelf: "stretch",
                                 position: "relative",
@@ -6025,7 +6030,8 @@ const OrderDetails: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                alignItems: "center",
+                                flexDirection: isMobile ? "column" : "row",
+                                alignItems: isMobile ? "flex-start" : "center",
                                 gap: "8px",
                                 alignSelf: "stretch",
                                 position: "relative",
@@ -6340,7 +6346,8 @@ const OrderDetails: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                alignItems: "center",
+                                flexDirection: isMobile ? "column" : "row",
+                                alignItems: isMobile ? "flex-start" : "center",
                                 gap: "8px",
                                 alignSelf: "stretch",
                                 position: "relative",
@@ -6577,7 +6584,8 @@ const OrderDetails: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                alignItems: "center",
+                                flexDirection: isMobile ? "column" : "row",
+                                alignItems: isMobile ? "flex-start" : "center",
                                 gap: "8px",
                                 alignSelf: "stretch",
                                 position: "relative",
@@ -6865,7 +6873,8 @@ const OrderDetails: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                alignItems: "center",
+                                flexDirection: isMobile ? "column" : "row",
+                                alignItems: isMobile ? "flex-start" : "center",
                                 gap: "8px",
                                 alignSelf: "stretch",
                                 position: "relative",
@@ -7473,7 +7482,8 @@ const OrderDetails: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                alignItems: "center",
+                                flexDirection: isMobile ? "column" : "row",
+                                alignItems: isMobile ? "flex-start" : "center",
                                 gap: "8px",
                                 alignSelf: "stretch",
                                 position: "relative",
@@ -8377,7 +8387,8 @@ const OrderDetails: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                alignItems: "center",
+                                flexDirection: isMobile ? "column" : "row",
+                                alignItems: isMobile ? "flex-start" : "center",
                                 gap: "8px",
                                 alignSelf: "stretch",
                                 position: "relative",
@@ -9471,7 +9482,8 @@ const OrderDetails: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                alignItems: "center",
+                                flexDirection: isMobile ? "column" : "row",
+                                alignItems: isMobile ? "flex-start" : "center",
                                 gap: "8px",
                                 alignSelf: "stretch",
                                 position: "relative",
@@ -9881,7 +9893,8 @@ const OrderDetails: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                alignItems: "center",
+                                flexDirection: isMobile ? "column" : "row",
+                                alignItems: isMobile ? "flex-start" : "center",
                                 gap: "8px",
                                 alignSelf: "stretch",
                                 position: "relative",
@@ -10588,7 +10601,8 @@ const OrderDetails: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                alignItems: "center",
+                                flexDirection: isMobile ? "column" : "row",
+                                alignItems: isMobile ? "flex-start" : "center",
                                 gap: "8px",
                                 alignSelf: "stretch",
                                 position: "relative",
@@ -11383,7 +11397,8 @@ const OrderDetails: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                alignItems: "center",
+                                flexDirection: isMobile ? "column" : "row",
+                                alignItems: isMobile ? "flex-start" : "center",
                                 gap: "8px",
                                 alignSelf: "stretch",
                                 position: "relative",
@@ -13699,7 +13714,8 @@ const OrderDetails: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                alignItems: "center",
+                                flexDirection: isMobile ? "column" : "row",
+                                alignItems: isMobile ? "flex-start" : "center",
                                 gap: "8px",
                                 alignSelf: "stretch",
                                 position: "relative",
@@ -13910,7 +13926,8 @@ const OrderDetails: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                alignItems: "center",
+                                flexDirection: isMobile ? "column" : "row",
+                                alignItems: isMobile ? "flex-start" : "center",
                                 gap: "8px",
                                 alignSelf: "stretch",
                                 position: "relative",
@@ -14120,7 +14137,8 @@ const OrderDetails: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                alignItems: "center",
+                                flexDirection: isMobile ? "column" : "row",
+                                alignItems: isMobile ? "flex-start" : "center",
                                 gap: "8px",
                                 alignSelf: "stretch",
                                 position: "relative",
@@ -14804,7 +14822,8 @@ const OrderDetails: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                alignItems: "center",
+                                flexDirection: isMobile ? "column" : "row",
+                                alignItems: isMobile ? "flex-start" : "center",
                                 gap: "8px",
                                 alignSelf: "stretch",
                                 position: "relative",
@@ -15640,10 +15659,11 @@ const OrderDetails: React.FC = () => {
                               <div
                                 style={{
                                   display: "flex",
-                                  alignItems: "center",
-                                  gap: "8px",
-                                  alignSelf: "stretch",
-                                  position: "relative",
+                                  flexDirection: isMobile ? "column" : "row",
+                                alignItems: isMobile ? "flex-start" : "center",
+                                gap: "8px",
+                                alignSelf: "stretch",
+                                position: "relative",
                                   flexWrap: "wrap",
                                 }}
                               >
