@@ -7287,12 +7287,12 @@ const OrderDetails: React.FC = () => {
                               Search Type
                             </div>
                             <div style={REPORT_SUMMARY_HEADER_STYLE}>
+                              Research Results
+                            </div>
+                            <div style={REPORT_SUMMARY_HEADER_STYLE}>
                               County
                             </div>
                             <div style={REPORT_SUMMARY_HEADER_STYLE}>State</div>
-                            <div style={REPORT_SUMMARY_HEADER_STYLE}>
-                              Research Results
-                            </div>
                             <div style={REPORT_SUMMARY_HEADER_STYLE}>
                               Search ID
                             </div>
@@ -7304,9 +7304,7 @@ const OrderDetails: React.FC = () => {
                                 ...REPORT_SUMMARY_HEADER_STYLE,
                                 textAlign: "center",
                               }}
-                            >
-                              Actions
-                            </div>
+                            ></div>
                           </div>
 
                           {REPORT_SUMMARY_ROWS.map((row, index) => {
