@@ -1921,8 +1921,9 @@ const OrderDetails: React.FC = () => {
                 {/* Subject */}
                 <button
                   onClick={() => {
-                    scrollToSection("subject");
-                    setStickyNavigationOpen(false);
+                    scrollToSection("subject", {
+                      closeQuickNavigation: true,
+                    });
                   }}
                   style={{
                     display: "flex",
@@ -1986,8 +1987,9 @@ const OrderDetails: React.FC = () => {
                 {/* Resume Validation */}
                 <button
                   onClick={() => {
-                    scrollToSection("resume-validation");
-                    setStickyNavigationOpen(false);
+                    scrollToSection("resume-validation", {
+                      closeQuickNavigation: true,
+                    });
                   }}
                   style={{
                     display: "flex",
@@ -2051,8 +2053,9 @@ const OrderDetails: React.FC = () => {
                 {/* Employment */}
                 <button
                   onClick={() => {
-                    scrollToSection("employment-at-jerrys-tx");
-                    setStickyNavigationOpen(false);
+                    scrollToSection("employment-at-jerrys-tx", {
+                      closeQuickNavigation: true,
+                    });
                   }}
                   style={{
                     display: "flex",
@@ -2120,8 +2123,9 @@ const OrderDetails: React.FC = () => {
                 {/* Education */}
                 <button
                   onClick={() => {
-                    scrollToSection("education-at-brown-community-college");
-                    setStickyNavigationOpen(false);
+                    scrollToSection("education-at-brown-community-college", {
+                      closeQuickNavigation: true,
+                    });
                   }}
                   style={{
                     display: "flex",
@@ -2189,8 +2193,9 @@ const OrderDetails: React.FC = () => {
                 {/* Criminal History */}
                 <button
                   onClick={() => {
-                    scrollToSection("countywide-criminal-history");
-                    setStickyNavigationOpen(false);
+                    scrollToSection("countywide-criminal-history", {
+                      closeQuickNavigation: true,
+                    });
                   }}
                   style={{
                     display: "flex",
@@ -2259,8 +2264,9 @@ const OrderDetails: React.FC = () => {
                 {/* MJD */}
                 <button
                   onClick={() => {
-                    scrollToSection("mjd");
-                    setStickyNavigationOpen(false);
+                    scrollToSection("mjd", {
+                      closeQuickNavigation: true,
+                    });
                   }}
                   style={{
                     display: "flex",
@@ -2323,8 +2329,9 @@ const OrderDetails: React.FC = () => {
                 {/* Nationwide Federal Crime */}
                 <button
                   onClick={() => {
-                    scrollToSection("nationwide-federal-crime");
-                    setStickyNavigationOpen(false);
+                    scrollToSection("nationwide-federal-crime", {
+                      closeQuickNavigation: true,
+                    });
                   }}
                   style={{
                     display: "flex",
@@ -2387,8 +2394,9 @@ const OrderDetails: React.FC = () => {
                 {/* Professional References */}
                 <button
                   onClick={() => {
-                    scrollToSection("professional-references");
-                    setStickyNavigationOpen(false);
+                    scrollToSection("professional-references", {
+                      closeQuickNavigation: true,
+                    });
                   }}
                   style={{
                     display: "flex",
@@ -2451,8 +2459,9 @@ const OrderDetails: React.FC = () => {
                 {/* Credentials - Professional License */}
                 <button
                   onClick={() => {
-                    scrollToSection("credentials-professional-license");
-                    setStickyNavigationOpen(false);
+                    scrollToSection("credentials-professional-license", {
+                      closeQuickNavigation: true,
+                    });
                   }}
                   style={{
                     display: "flex",
@@ -2515,8 +2524,9 @@ const OrderDetails: React.FC = () => {
                 {/* Motor Vehicle Driving History */}
                 <button
                   onClick={() => {
-                    scrollToSection("motor-vehicle-driving-history");
-                    setStickyNavigationOpen(false);
+                    scrollToSection("motor-vehicle-driving-history", {
+                      closeQuickNavigation: true,
+                    });
                   }}
                   style={{
                     display: "flex",
@@ -2579,8 +2589,9 @@ const OrderDetails: React.FC = () => {
                 {/* Credit Employment Report */}
                 <button
                   onClick={() => {
-                    scrollToSection("credit-employment-report");
-                    setStickyNavigationOpen(false);
+                    scrollToSection("credit-employment-report", {
+                      closeQuickNavigation: true,
+                    });
                   }}
                   style={{
                     display: "flex",
@@ -2643,8 +2654,9 @@ const OrderDetails: React.FC = () => {
                 {/* E-Verify */}
                 <button
                   onClick={() => {
-                    scrollToSection("e-verify");
-                    setStickyNavigationOpen(false);
+                    scrollToSection("e-verify", {
+                      closeQuickNavigation: true,
+                    });
                   }}
                   style={{
                     display: "flex",
@@ -2707,8 +2719,9 @@ const OrderDetails: React.FC = () => {
                 {/* 5 Panel */}
                 <button
                   onClick={() => {
-                    scrollToSection("five-panels-section");
-                    setStickyNavigationOpen(false);
+                    scrollToSection("five-panels-section", {
+                      closeQuickNavigation: true,
+                    });
                   }}
                   style={{
                     display: "flex",
@@ -2771,8 +2784,9 @@ const OrderDetails: React.FC = () => {
                 {/* CBSV */}
                 <button
                   onClick={() => {
-                    scrollToSection("cbsv-section");
-                    setStickyNavigationOpen(false);
+                    scrollToSection("cbsv-section", {
+                      closeQuickNavigation: true,
+                    });
                   }}
                   style={{
                     display: "flex",
@@ -2835,8 +2849,9 @@ const OrderDetails: React.FC = () => {
                 {/* Special Notice */}
                 <button
                   onClick={() => {
-                    scrollToSection("special-notice-section");
-                    setStickyNavigationOpen(false);
+                    scrollToSection("special-notice-section", {
+                      closeQuickNavigation: true,
+                    });
                   }}
                   style={{
                     display: "flex",
