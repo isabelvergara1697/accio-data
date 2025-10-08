@@ -148,7 +148,7 @@ export function MotorVehicleDrivingHistorySection({
     >
       <div className="px-4 pt-5 sm:px-6">
         <div className="flex items-start justify-between gap-3 md:items-center md:flex-nowrap md:gap-4">
-          <div className="flex min-w-0 flex-1 flex-col items-start gap-2 md:flex-row md:flex-wrap md:items-center">
+          <div className="flex min-w-0 flex-1 flex-col items-start gap-2 sm:flex-row sm:flex-wrap sm:items-center md:flex-nowrap">
             <h2 className="text-lg font-semibold leading-7 text-[#181D27]">
               Motor Vehicle Driving History
             </h2>
