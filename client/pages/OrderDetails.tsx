@@ -7752,13 +7752,14 @@ const OrderDetails: React.FC = () => {
                                     <button
                                       style={{
                                         display: "flex",
-                                        justifyContent: "center",
+                                        justifyContent: "flex-start",
                                         alignItems: "center",
                                         gap: "4px",
                                         background: "transparent",
                                         border: "none",
                                         cursor: "pointer",
                                         position: "relative",
+                                        width: "100%",
                                       }}
                                     >
                                       <div
@@ -7773,6 +7774,11 @@ const OrderDetails: React.FC = () => {
                                           textDecoration:
                                             index === 0 ? "underline" : "none",
                                           position: "relative",
+                                          width: "100%",
+                                          maxWidth: "100%",
+                                          overflow: "hidden",
+                                          textOverflow: "ellipsis",
+                                          whiteSpace: "nowrap",
                                         }}
                                       >
                                         {docName}
