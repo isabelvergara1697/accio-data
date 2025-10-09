@@ -21,6 +21,7 @@ import OrderConfirmation from "./pages/OrderConfirmation";
 import OrderDetails from "./pages/OrderDetails";
 import Quickscreen from "./pages/Quickscreen";
 import AdverseActionProcess from "./pages/AdverseActionProcess";
+import { Reporting } from "./pages/Reporting";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import EmailSent from "./pages/EmailSent";
@@ -47,6 +48,7 @@ const App = () => (
             element={<PasswordResetSuccess />}
           />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/reporting" element={<Reporting />} />
           <Route path="/online-ordering" element={<OnlineOrdering />} />
           <Route path="/submit-order" element={<SubmitOrSaveOrder />} />
           <Route path="/order-confirmation" element={<OrderConfirmation />} />
