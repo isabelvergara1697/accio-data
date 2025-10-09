@@ -1148,7 +1148,7 @@ export const Reporting: React.FC = () => {
             </div>
           </div>
 
-          {/* Search Result Report Section */}
+          {/* Tab Content */}
           <div
             style={{
               display: "flex",
