@@ -723,6 +723,28 @@ export const Reporting: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {datePickerOpen && activeTriggerRef && (isDesktop || isTablet) && (
+        <DesktopCalendar
+          isOpen={datePickerOpen}
+          onClose={handleCloseDatePicker}
+          triggerRef={activeTriggerRef}
+          selectedStartDate={selectedStartDate}
+          selectedEndDate={selectedEndDate}
+          onDateChange={handleDateChange}
+        />
+      )}
+
+      {datePickerOpen && activeTriggerRef && !isDesktop && !isTablet && (
+        <DatePickerCalendar
+          isOpen={datePickerOpen}
+          onClose={handleCloseDatePicker}
+          triggerRef={activeTriggerRef}
+          selectedStartDate={selectedStartDate}
+          selectedEndDate={selectedEndDate}
+          onDateChange={handleDateChange}
+        />
+      )}
     </div>
   );
 };
