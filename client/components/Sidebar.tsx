@@ -72,7 +72,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
       "Adjudication Statuses",
       "Adverse Action Letters",
     ],
-    reporting: ["CSV Reports", "Turn Around Time Reports", "Billing Reports"],
     support: ["Document Library", "Resources"],
   };
 
@@ -81,9 +80,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
     "ID Verification Status",
     "Adjudication Statuses",
     "Adverse Action Letters",
-    "CSV Reports",
-    "Turn Around Time Reports",
-    "Billing Reports",
   ];
 
   const NavIcon = ({
