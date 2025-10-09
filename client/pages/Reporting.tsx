@@ -618,73 +618,14 @@ export const Reporting: React.FC = () => {
                   flexDirection: "column",
                   alignItems: "flex-start",
                   alignSelf: "stretch",
+                  minHeight: "400px",
                 }}
               >
-                <div
-                  style={{
-                    width: "100%",
-                    height: "398px",
-                    display: "flex",
-                    alignItems: "flex-end",
-                    justifyContent: "space-between",
-                    padding: "0 8px",
-                    position: "relative",
-                  }}
-                >
-                  {/* Bar Chart - Simplified version */}
-                  {[
-                    191, 113, 351, 160, 287, 191, 351, 351, 226, 206, 226, 191,
-                  ].map((height, index) => (
-                    <div
-                      key={index}
-                      style={{
-                        height: `${height}px`,
-                        maxWidth: "10px",
-                        flex: "1 0 0",
-                        borderRadius: "4px",
-                        background: "#8D9BD8",
-                      }}
-                    />
-                  ))}
-                </div>
-                {/* Month Labels */}
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignSelf: "stretch",
-                    padding: "8px 0 0 0",
-                  }}
-                >
-                  {[
-                    "Jan",
-                    "Feb",
-                    "Mar",
-                    "Apr",
-                    "May",
-                    "Jun",
-                    "Jul",
-                    "Aug",
-                    "Sep",
-                    "Oct",
-                    "Nov",
-                    "Dec",
-                  ].map((month) => (
-                    <div
-                      key={month}
-                      style={{
-                        color: "#535862",
-                        textAlign: "center",
-                        fontFamily: "Roboto Mono",
-                        fontSize: "12px",
-                        fontWeight: 400,
-                        lineHeight: "18px",
-                      }}
-                    >
-                      {month}
-                    </div>
-                  ))}
-                </div>
+                <TurnaroundTimeChart
+                  isMobile={isMobile}
+                  isTablet={isTablet}
+                  windowWidth={windowWidth}
+                />
               </div>
             </div>
           </div>
