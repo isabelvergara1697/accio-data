@@ -158,12 +158,13 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
             className="quick-create-button"
             style={{
               display: "flex",
-              width: isTablet ? "44px" : "40px",
-              height: isTablet ? "44px" : "40px",
+              padding: isTablet ? "12px" : "0",
+              width: isTablet ? "auto" : "40px",
+              height: isTablet ? "auto" : "40px",
               justifyContent: "center",
               alignItems: "center",
-              padding: "0",
-              borderRadius: "12px",
+              gap: isTablet ? "4px" : "0",
+              borderRadius: isTablet ? "8px" : "12px",
               border: "2px solid rgba(255, 255, 255, 0.12)",
               background: quickCreateOpen ? "#273572" : "#344698",
               boxShadow:
@@ -174,7 +175,7 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
             onClick={() => setQuickCreateOpen(!quickCreateOpen)}
             onMouseEnter={(e) => {
               if (!quickCreateOpen) {
-                e.currentTarget.style.background = "#2A3A82";
+                e.currentTarget.style.background = "#273572";
               }
             }}
             onMouseLeave={(e) => {
@@ -183,6 +184,19 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
               }
             }}
           >
+            {isTablet && (
+              <span
+                style={{
+                  fontFamily: "Public Sans",
+                  fontWeight: 600,
+                  fontSize: "14px",
+                  color: "#FFF",
+                  lineHeight: "20px",
+                }}
+              >
+                Quick Create
+              </span>
+            )}
             <svg
               style={plusIconSize.style}
               width={plusIconSize.width}
@@ -239,14 +253,14 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
               }}
               style={{
                 display: "flex",
-                width: isTablet ? "44px" : "40px",
-                height: isTablet ? "44px" : "40px",
+                width: isTablet ? "40px" : "40px",
+                height: isTablet ? "40px" : "40px",
                 justifyContent: "center",
                 alignItems: "center",
-                borderRadius: "12px",
+                borderRadius: isTablet ? "6px" : "12px",
                 background: "transparent",
-                border: isTablet ? "1px solid #E9EAEB" : "none",
-                padding: "0",
+                border: "none",
+                padding: isTablet ? "8px" : "0",
                 cursor: "pointer",
               }}
               onMouseEnter={(e) => {
@@ -278,24 +292,26 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
               </svg>
             </button>
 
-            {/* Notification indicator dot */}
-            <div
-              style={{
-                position: "absolute",
-                top: "4px",
-                right: "4px",
-                width: "8px",
-                height: "8px",
-                background: "#17B26A",
-                borderRadius: "50%",
-                border: "1.5px solid #FFF",
-              }}
-            />
+            {/* Notification indicator dot - hide on tablet to match Figma */}
+            {!isTablet && (
+              <div
+                style={{
+                  position: "absolute",
+                  top: "4px",
+                  right: "4px",
+                  width: "8px",
+                  height: "8px",
+                  background: "#17B26A",
+                  borderRadius: "50%",
+                  border: "1.5px solid #FFF",
+                }}
+              />
+            )}
           </div>
         </div>
 
-        {/* Divider removed for tablet design */}
-        {false && (
+        {/* Divider - Show on tablet */}
+        {isTablet && (
           <div
             style={{
               display: "flex",
@@ -317,8 +333,8 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
           </div>
         )}
 
-        {/* User Profile Menu disabled for tablet layout */}
-        {false && (
+        {/* User Profile Menu - Show on tablet */}
+        {isTablet && (
           <div
             style={{
               position: "relative",
@@ -341,8 +357,7 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
               <div
                 style={{
                   display: "flex",
-                  minWidth: "120px",
-                  maxWidth: "180px",
+                  width: "200px",
                   alignItems: "center",
                   gap: "8px",
                   overflow: "hidden",
@@ -437,12 +452,12 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
           aria-label="Open navigation menu"
           style={{
             display: "flex",
-            width: isTablet ? "44px" : "40px",
-            height: isTablet ? "44px" : "40px",
-            padding: "0",
+            width: isTablet ? "40px" : "40px",
+            height: isTablet ? "40px" : "40px",
+            padding: isTablet ? "8px" : "0",
             justifyContent: "center",
             alignItems: "center",
-            borderRadius: isTablet ? "12px" : "8px",
+            borderRadius: "8px",
             background: "transparent",
             border: isTablet ? "1px solid #E9EAEB" : "none",
             cursor: "pointer",
