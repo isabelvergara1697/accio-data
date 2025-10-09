@@ -471,6 +471,10 @@ const BarChart: React.FC<BarChartProps> = ({
   );
 };
 
+export const TurnaroundTimeChart: React.FC<BarChartProps> = (props) => (
+  <BarChart {...props} />
+);
+
 export const TurnaroundTimeWidget: React.FC<TurnaroundTimeWidgetProps> = ({
   id,
   position = 0,
