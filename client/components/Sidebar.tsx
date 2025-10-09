@@ -676,7 +676,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       setAllExpanded(false);
     } else {
       // Expand all
-      setOpenAccordions(["tools", "screening", "reporting", "support"]);
+      setOpenAccordions(["tools", "screening", "support"]);
       setAllExpanded(true);
     }
   };
