@@ -29,6 +29,7 @@ export const Reporting: React.FC = () => {
       setIsDesktop(width >= 1200);
       setIsMobile(width < 640);
       setIsTablet(width >= 640 && width < 1200);
+      setWindowWidth(width);
     };
 
     window.addEventListener("resize", handleResize);
