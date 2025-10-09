@@ -70,6 +70,55 @@ export const Reporting: React.FC = () => {
     { id: "turnaround", label: "Turn Around Time" },
   ];
 
+  const formatDateRange = (startDate: Date, endDate: Date): string => {
+    const months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+
+    const formatSingleDate = (date: Date) =>
+      `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+
+    return `${formatSingleDate(startDate)} – ${formatSingleDate(endDate)}`;
+  };
+
+  const handleDateChange = (startDate: Date, endDate: Date) => {
+    setSelectedStartDate(startDate);
+    setSelectedEndDate(endDate);
+  };
+
+  const handleOpenDatePicker = (picker: "generate" | "report") => {
+    setActiveDatePicker(picker);
+    setDatePickerOpen(true);
+  };
+
+  const handleCloseDatePicker = () => {
+    setDatePickerOpen(false);
+    setActiveDatePicker(null);
+  };
+
+  const activeTriggerRef =
+    activeDatePicker === "generate"
+      ? generateDateButtonRef
+      : activeDatePicker === "report"
+        ? reportDateButtonRef
+        : null;
+
+  const isGenerateActive = datePickerOpen && activeDatePicker === "generate";
+  const isReportActive = datePickerOpen && activeDatePicker === "report";
+  const isGenerateHovered = hoveredDateButton === "generate";
+  const isReportHovered = hoveredDateButton === "report";
+
   return (
     <div
       style={{
