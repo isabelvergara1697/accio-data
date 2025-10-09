@@ -1851,7 +1851,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 <NavItem
                   section="reporting"
                   label="Reporting"
-                  onClick={() => toggleSidebarAccordion("reporting")}
+                  isActive={currentPage === "reporting"}
+                  hasChevron={false}
+                  onClick={() => navigate("/reporting")}
                 />
 
                 <NavItem
