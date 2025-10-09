@@ -152,18 +152,32 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
       const triggerRect = triggerRef.current.getBoundingClientRect();
       const calendarRect = calendarRef.current.getBoundingClientRect();
 
-      // Position calendar to the right of the button, aligned to button's bottom
-      const top = triggerRect.bottom - calendarRect.height;
-      const left = triggerRect.right + 8; // 8px gap between button and calendar
-
-      // Ensure calendar doesn't go off screen to the right
       const viewportWidth = window.innerWidth;
-      const adjustedLeft = Math.min(
-        left,
-        viewportWidth - calendarRect.width - 16,
-      );
+      const viewportHeight = window.innerHeight;
+      const horizontalMargin = 16;
+      const verticalMargin = 16;
+      const verticalGap = 12;
 
-      setPosition({ top, left: adjustedLeft });
+      let left = triggerRect.left;
+      let top = triggerRect.bottom + verticalGap;
+
+      const maxLeft = viewportWidth - calendarRect.width - horizontalMargin;
+      if (left > maxLeft) {
+        left = maxLeft;
+      }
+      if (left < horizontalMargin) {
+        left = horizontalMargin;
+      }
+
+      const maxTop = viewportHeight - calendarRect.height - verticalMargin;
+      if (top > maxTop) {
+        top = triggerRect.top - calendarRect.height - verticalGap;
+      }
+      if (top < verticalMargin) {
+        top = Math.max(verticalMargin, maxTop);
+      }
+
+      setPosition({ top, left });
     }
   };
 
@@ -175,13 +189,16 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
   useEffect(() => {
     if (!isOpen) return;
 
-    const handleResize = () => {
+    const handleReposition = () => {
       updatePosition();
     };
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleReposition);
+    window.addEventListener("scroll", handleReposition, true);
+
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", handleReposition);
+      window.removeEventListener("scroll", handleReposition, true);
     };
   }, [isOpen]);
 
