@@ -162,8 +162,9 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
       let top = triggerRect.bottom + verticalGap;
 
       const maxLeft = viewportWidth - calendarRect.width - horizontalMargin;
-      if (left > maxLeft) {
-        left = maxLeft;
+      const clampedMaxLeft = Math.max(horizontalMargin, maxLeft);
+      if (left > clampedMaxLeft) {
+        left = clampedMaxLeft;
       }
       if (left < horizontalMargin) {
         left = horizontalMargin;
@@ -173,8 +174,12 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
       if (top > maxTop) {
         top = triggerRect.top - calendarRect.height - verticalGap;
       }
+      const clampedMaxTop = Math.max(verticalMargin, maxTop);
+      if (top > clampedMaxTop) {
+        top = clampedMaxTop;
+      }
       if (top < verticalMargin) {
-        top = Math.max(verticalMargin, maxTop);
+        top = verticalMargin;
       }
 
       setPosition({ top, left });
