@@ -24,6 +24,13 @@ export const Reporting: React.FC = () => {
   const [ssnOrderDrawerOpen, setSSNOrderDrawerOpen] = useState(false);
   const [customizeDrawerOpen, setCustomizeDrawerOpen] = useState(false);
   const [notificationModalOpen, setNotificationModalOpen] = useState(false);
+  const [selectedStartDate, setSelectedStartDate] = useState(new Date(2025, 0, 10));
+  const [selectedEndDate, setSelectedEndDate] = useState(new Date(2025, 0, 16));
+  const [datePickerOpen, setDatePickerOpen] = useState(false);
+  const [activeDatePicker, setActiveDatePicker] = useState<"generate" | "report" | null>(null);
+  const [hoveredDateButton, setHoveredDateButton] = useState<"generate" | "report" | null>(null);
+  const generateDateButtonRef = React.useRef<HTMLButtonElement>(null);
+  const reportDateButtonRef = React.useRef<HTMLButtonElement>(null);
 
   React.useEffect(() => {
     const handleResize = () => {
