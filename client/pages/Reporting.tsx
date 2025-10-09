@@ -10,6 +10,7 @@ export const Reporting: React.FC = () => {
   const [isTablet, setIsTablet] = useState(
     window.innerWidth >= 640 && window.innerWidth < 1200,
   );
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
