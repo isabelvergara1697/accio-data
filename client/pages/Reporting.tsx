@@ -7,7 +7,7 @@ export const Reporting: React.FC = () => {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1200);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
   const [isTablet, setIsTablet] = useState(
-    window.innerWidth >= 640 && window.innerWidth < 1200
+    window.innerWidth >= 640 && window.innerWidth < 1200,
   );
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -220,7 +220,8 @@ export const Reporting: React.FC = () => {
                     gap: "8px",
                     borderRadius: "6px",
                     border: activeTab === tab.id ? "1px solid #B3BCE5" : "none",
-                    background: activeTab === tab.id ? "#ECEEF9" : "transparent",
+                    background:
+                      activeTab === tab.id ? "#ECEEF9" : "transparent",
                     cursor: "pointer",
                     transition: "all 0.2s ease",
                   }}
@@ -628,20 +629,20 @@ export const Reporting: React.FC = () => {
                   }}
                 >
                   {/* Bar Chart - Simplified version */}
-                  {[191, 113, 351, 160, 287, 191, 351, 351, 226, 206, 226, 191].map(
-                    (height, index) => (
-                      <div
-                        key={index}
-                        style={{
-                          height: `${height}px`,
-                          maxWidth: "10px",
-                          flex: "1 0 0",
-                          borderRadius: "4px",
-                          background: "#8D9BD8",
-                        }}
-                      />
-                    )
-                  )}
+                  {[
+                    191, 113, 351, 160, 287, 191, 351, 351, 226, 206, 226, 191,
+                  ].map((height, index) => (
+                    <div
+                      key={index}
+                      style={{
+                        height: `${height}px`,
+                        maxWidth: "10px",
+                        flex: "1 0 0",
+                        borderRadius: "4px",
+                        background: "#8D9BD8",
+                      }}
+                    />
+                  ))}
                 </div>
                 {/* Month Labels */}
                 <div
