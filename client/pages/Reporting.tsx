@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
+import { TurnaroundTimeChart } from "../components/ui/turnaround-time-widget";
 
 export const Reporting: React.FC = () => {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1200);
