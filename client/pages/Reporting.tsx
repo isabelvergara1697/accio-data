@@ -709,126 +709,29 @@ export const Reporting: React.FC = () => {
     </div>
   );
 
-  const renderProductTypeContent = () => (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        gap: "24px",
-        alignSelf: "stretch",
-        padding: isMobile ? "16px" : "24px 32px",
-      }}
-    >
+  const renderProductTypeContent = () => {
+    const activeFilterLabel = selectedProductFilter?.label ?? "All product types";
+    const averageTurnaroundLabel = formatTurnaroundTime(
+      Number(aggregatedProductMetrics.averageHours.toFixed(1)),
+    );
+
+    return (
       <div
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
-          gap: "20px",
+          gap: "24px",
           alignSelf: "stretch",
+          padding: isMobile ? "16px" : "24px 32px",
         }}
       >
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
-            gap: "2px",
-            flex: "1 0 0",
-          }}
-        >
-          <h2
-            style={{
-              color: "#181D27",
-              fontFamily: "Public Sans",
-              fontSize: "18px",
-              fontWeight: 600,
-              lineHeight: "28px",
-              margin: 0,
-            }}
-          >
-            Search Results by Product Type Report
-          </h2>
-          <p
-            style={{
-              color: "#535862",
-              fontFamily: "Public Sans",
-              fontSize: "14px",
-              fontWeight: 400,
-              lineHeight: "20px",
-              margin: 0,
-            }}
-          >
-            This report produces a CSV file containing background checks ordered
-            in a given time frame with columns for the following products types:
-            Drug, Criminal, Sex Offender, Credit Check, Education Checks,
-            References Checks, Employment Checks, MVR
-            <br />
-            <br />
-            The value of the product type columns will be one of:
-            <br />
-            N/A (the order has no components of this type)
-            <br />
-            In process - components have not been completed/reviewed
-            <br />
-            Date/time - date/time when the last component of said type has been
-            completed/reviewed
-            <br />
-            <br />
-            Includes reports for this account only unless this user has the
-            ability to view other accounts, in which case this report will
-            include all of this account's 'Additional Accounts Viewable'.
-          </p>
-        </div>
-      </div>
-
-      {/* Generate Report Card */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          alignSelf: "stretch",
-          borderRadius: "12px",
-          border: "1px solid #E9EAEB",
-          background: "#FFF",
-          overflow: "hidden",
-        }}
-      >
-        {/* Card Header */}
-        <div
-          style={{
-            display: "flex",
-            padding: "16px",
-            alignItems: "center",
-            gap: "16px",
-            alignSelf: "stretch",
-            borderBottom: "1px solid #E9EAEB",
-          }}
-        >
-          <h3
-            style={{
-              color: "#181D27",
-              fontFamily: "Public Sans",
-              fontSize: "18px",
-              fontWeight: 600,
-              lineHeight: "28px",
-              margin: 0,
-              flex: 1,
-            }}
-          >
-            Generate Report
-          </h3>
-        </div>
-
-        {/* Card Content */}
-        <div
-          style={{
-            display: "flex",
-            padding: "12px 16px 16px 16px",
             flexDirection: "column",
             alignItems: "flex-start",
-            gap: "24px",
+            gap: "20px",
             alignSelf: "stretch",
           }}
         >
@@ -836,47 +739,770 @@ export const Reporting: React.FC = () => {
             style={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "8px",
+              gap: "2px",
+              flex: "1 0 0",
+            }}
+          >
+            <h2
+              style={{
+                color: "#181D27",
+                fontFamily: "Public Sans",
+                fontSize: "18px",
+                fontWeight: 600,
+                lineHeight: "28px",
+                margin: 0,
+              }}
+            >
+              Search Results by Product Type Report
+            </h2>
+            <p
+              style={{
+                color: "#535862",
+                fontFamily: "Public Sans",
+                fontSize: "14px",
+                fontWeight: 400,
+                lineHeight: "20px",
+                margin: 0,
+              }}
+            >
+              This report produces a CSV file containing background checks ordered
+              in a given time frame with columns for the following product types:
+              Drug, Criminal, Sex Offender, Credit Check, Education Checks,
+              References Checks, Employment Checks, MVR
+              <br />
+              <br />
+              The value of the product type columns will be one of:
+              <br />
+              N/A (the order has no components of this type)
+              <br />
+              In process - components have not been completed/reviewed
+              <br />
+              Date/time - date/time when the last component of said type has been
+              completed/reviewed
+              <br />
+              <br />
+              Includes reports for this account only unless this user has the
+              ability to view other accounts, in which case this report will
+              include all of this account's 'Additional Accounts Viewable'.
+            </p>
+          </div>
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "8px",
+            alignItems: "center",
+          }}
+        >
+          {PRODUCT_TYPE_FILTERS.map((filter) => {
+            const isActive = filter.id === selectedProductType;
+
+            return (
+              <button
+                key={filter.id}
+                type="button"
+                onClick={() => setSelectedProductType(filter.id)}
+                onMouseEnter={(event) => {
+                  if (!isActive) {
+                    event.currentTarget.style.background = "#F5F5F5";
+                  }
+                }}
+                onMouseLeave={(event) => {
+                  if (!isActive) {
+                    event.currentTarget.style.background = "#FFF";
+                  }
+                }}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  padding: "6px 12px",
+                  borderRadius: "999px",
+                  border: isActive ? "1px solid #B3BCE5" : "1px solid #E9EAEB",
+                  background: isActive ? "#ECEEF9" : "#FFF",
+                  boxShadow: isActive
+                    ? "0 0 0 3px rgba(52, 70, 152, 0.12)"
+                    : "none",
+                  color: isActive ? "#273572" : "#535862",
+                  fontFamily: "Public Sans",
+                  fontSize: "13px",
+                  fontWeight: 600,
+                  lineHeight: "18px",
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                }}
+              >
+                {filter.label}
+              </button>
+            );
+          })}
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            alignSelf: "stretch",
+            borderRadius: "12px",
+            border: "1px solid #E9EAEB",
+            background: "#FFF",
+            overflow: "hidden",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              padding: "16px",
+              alignItems: "center",
+              gap: "24px",
+              alignSelf: "stretch",
+              borderBottom: "1px solid #E9EAEB",
+              justifyContent: "space-between",
+            }}
+          >
+            <h3
+              style={{
+                color: "#181D27",
+                fontFamily: "Public Sans",
+                fontSize: "18px",
+                fontWeight: 600,
+                lineHeight: "28px",
+                margin: 0,
+              }}
+            >
+              Product Type Overview
+            </h3>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "24px",
+                alignItems: "center",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "4px",
+                  minWidth: "120px",
+                }}
+              >
+                <span
+                  style={{
+                    color: "#535862",
+                    fontFamily: "Public Sans",
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    letterSpacing: "0.04em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Selection
+                </span>
+                <span
+                  style={{
+                    color: "#273572",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    lineHeight: "20px",
+                  }}
+                >
+                  {activeFilterLabel}
+                </span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "4px",
+                  minWidth: "100px",
+                }}
+              >
+                <span
+                  style={{
+                    color: "#535862",
+                    fontFamily: "Public Sans",
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    letterSpacing: "0.04em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Orders
+                </span>
+                <span
+                  style={{
+                    color: "#181D27",
+                    fontFamily: "Public Sans",
+                    fontSize: "18px",
+                    fontWeight: 600,
+                    lineHeight: "24px",
+                  }}
+                >
+                  {aggregatedProductMetrics.orders.toLocaleString()}
+                </span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "4px",
+                  minWidth: "120px",
+                }}
+              >
+                <span
+                  style={{
+                    color: "#535862",
+                    fontFamily: "Public Sans",
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    letterSpacing: "0.04em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Completion Rate
+                </span>
+                <span
+                  style={{
+                    color: "#067647",
+                    fontFamily: "Public Sans",
+                    fontSize: "18px",
+                    fontWeight: 600,
+                    lineHeight: "24px",
+                  }}
+                >
+                  {aggregatedProductMetrics.completionRate}%
+                </span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "4px",
+                  minWidth: "140px",
+                }}
+              >
+                <span
+                  style={{
+                    color: "#535862",
+                    fontFamily: "Public Sans",
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    letterSpacing: "0.04em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Avg Turnaround
+                </span>
+                <span
+                  style={{
+                    color: "#181D27",
+                    fontFamily: "Public Sans",
+                    fontSize: "18px",
+                    fontWeight: 600,
+                    lineHeight: "24px",
+                  }}
+                >
+                  {averageTurnaroundLabel}
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            style={{
+              padding: "0 16px 16px 16px",
+              alignSelf: "stretch",
+              width: "100%",
             }}
           >
             <div
               style={{
+                width: "100%",
+                overflowX: "auto",
+              }}
+            >
+              <table
+                style={{
+                  width: "100%",
+                  borderCollapse: "separate",
+                  borderSpacing: 0,
+                }}
+              >
+                <thead>
+                  <tr>
+                    <th
+                      style={{
+                        padding: "12px 16px",
+                        textAlign: "left",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontWeight: 600,
+                        lineHeight: "16px",
+                        letterSpacing: "0.04em",
+                        textTransform: "uppercase",
+                        color: "#535862",
+                        background: "#F5F5F5",
+                        borderBottom: "1px solid #E9EAEB",
+                      }}
+                    >
+                      Product Type
+                    </th>
+                    <th
+                      style={{
+                        padding: "12px 16px",
+                        textAlign: "right",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontWeight: 600,
+                        lineHeight: "16px",
+                        letterSpacing: "0.04em",
+                        textTransform: "uppercase",
+                        color: "#535862",
+                        background: "#F5F5F5",
+                        borderBottom: "1px solid #E9EAEB",
+                      }}
+                    >
+                      Orders
+                    </th>
+                    <th
+                      style={{
+                        padding: "12px 16px",
+                        textAlign: "right",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontWeight: 600,
+                        lineHeight: "16px",
+                        letterSpacing: "0.04em",
+                        textTransform: "uppercase",
+                        color: "#535862",
+                        background: "#F5F5F5",
+                        borderBottom: "1px solid #E9EAEB",
+                      }}
+                    >
+                      Completed
+                    </th>
+                    <th
+                      style={{
+                        padding: "12px 16px",
+                        textAlign: "right",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontWeight: 600,
+                        lineHeight: "16px",
+                        letterSpacing: "0.04em",
+                        textTransform: "uppercase",
+                        color: "#535862",
+                        background: "#F5F5F5",
+                        borderBottom: "1px solid #E9EAEB",
+                      }}
+                    >
+                      In Process
+                    </th>
+                    <th
+                      style={{
+                        padding: "12px 16px",
+                        textAlign: "right",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontWeight: 600,
+                        lineHeight: "16px",
+                        letterSpacing: "0.04em",
+                        textTransform: "uppercase",
+                        color: "#535862",
+                        background: "#F5F5F5",
+                        borderBottom: "1px solid #E9EAEB",
+                      }}
+                    >
+                      Needs Attention
+                    </th>
+                    <th
+                      style={{
+                        padding: "12px 16px",
+                        textAlign: "left",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontWeight: 600,
+                        lineHeight: "16px",
+                        letterSpacing: "0.04em",
+                        textTransform: "uppercase",
+                        color: "#535862",
+                        background: "#F5F5F5",
+                        borderBottom: "1px solid #E9EAEB",
+                      }}
+                    >
+                      Completion Rate
+                    </th>
+                    <th
+                      style={{
+                        padding: "12px 16px",
+                        textAlign: "right",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontWeight: 600,
+                        lineHeight: "16px",
+                        letterSpacing: "0.04em",
+                        textTransform: "uppercase",
+                        color: "#535862",
+                        background: "#F5F5F5",
+                        borderBottom: "1px solid #E9EAEB",
+                      }}
+                    >
+                      Avg Turnaround
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredProductMetrics.map((metric, index) => {
+                    const completionPercent = getCompletionPercent(metric);
+                    const trendStyles = getTrendStyles(metric.change);
+                    const rowBorder =
+                      index === filteredProductMetrics.length - 1
+                        ? "none"
+                        : "1px solid #E9EAEB";
+
+                    return (
+                      <tr key={metric.id}>
+                        <td
+                          style={{
+                            padding: "16px",
+                            borderBottom: rowBorder,
+                            verticalAlign: "top",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              gap: "8px",
+                            }}
+                          >
+                            <span
+                              style={{
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 600,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              {metric.name}
+                            </span>
+                            <span
+                              style={{
+                                display: "inline-flex",
+                                width: "fit-content",
+                                alignItems: "center",
+                                gap: "6px",
+                                padding: "4px 10px",
+                                borderRadius: "999px",
+                                background: trendStyles.background,
+                                color: trendStyles.color,
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "16px",
+                              }}
+                            >
+                              {metric.change > 0 ? "+" : ""}
+                              {metric.change}%
+                            </span>
+                          </div>
+                        </td>
+                        <td
+                          style={{
+                            padding: "16px",
+                            borderBottom: rowBorder,
+                            textAlign: "right",
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          {metric.orders.toLocaleString()}
+                        </td>
+                        <td
+                          style={{
+                            padding: "16px",
+                            borderBottom: rowBorder,
+                            textAlign: "right",
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          {metric.completed.toLocaleString()}
+                        </td>
+                        <td
+                          style={{
+                            padding: "16px",
+                            borderBottom: rowBorder,
+                            textAlign: "right",
+                            color: "#535862",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          {metric.inProcess.toLocaleString()}
+                        </td>
+                        <td
+                          style={{
+                            padding: "16px",
+                            borderBottom: rowBorder,
+                            textAlign: "right",
+                          }}
+                        >
+                          <span
+                            style={{
+                              display: "inline-flex",
+                              alignItems: "center",
+                              justifyContent: "flex-end",
+                              minWidth: "64px",
+                              padding: "4px 10px",
+                              borderRadius: "999px",
+                              background: "rgba(180, 35, 24, 0.12)",
+                              color: "#B42318",
+                              fontFamily: "Public Sans",
+                              fontSize: "12px",
+                              fontWeight: 600,
+                              lineHeight: "16px",
+                            }}
+                          >
+                            {metric.needsAttention.toLocaleString()}
+                          </span>
+                        </td>
+                        <td
+                          style={{
+                            padding: "16px",
+                            borderBottom: rowBorder,
+                            verticalAlign: "middle",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "12px",
+                            }}
+                          >
+                            <div
+                              style={{
+                                flex: "1 1 0%",
+                                height: "6px",
+                                borderRadius: "999px",
+                                background: "#E9EAEB",
+                                overflow: "hidden",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: `${completionPercent}%`,
+                                  height: "100%",
+                                  borderRadius: "inherit",
+                                  background: "#344698",
+                                  transition: "width 0.2s ease",
+                                }}
+                              />
+                            </div>
+                            <span
+                              style={{
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "13px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                minWidth: "40px",
+                                textAlign: "right",
+                              }}
+                            >
+                              {completionPercent}%
+                            </span>
+                          </div>
+                        </td>
+                        <td
+                          style={{
+                            padding: "16px",
+                            borderBottom: rowBorder,
+                            textAlign: "right",
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          {formatTurnaroundTime(metric.avgCompletionHours)}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        {/* Generate Report Card */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            alignSelf: "stretch",
+            borderRadius: "12px",
+            border: "1px solid #E9EAEB",
+            background: "#FFF",
+            overflow: "hidden",
+          }}
+        >
+          {/* Card Header */}
+          <div
+            style={{
+              display: "flex",
+              padding: "16px",
+              alignItems: "center",
+              gap: "16px",
+              alignSelf: "stretch",
+              borderBottom: "1px solid #E9EAEB",
+            }}
+          >
+            <h3
+              style={{
                 color: "#181D27",
                 fontFamily: "Public Sans",
-                fontSize: "16px",
-                fontWeight: 500,
-                lineHeight: "24px",
+                fontSize: "18px",
+                fontWeight: 600,
+                lineHeight: "28px",
+                margin: 0,
+                flex: 1,
               }}
             >
-              Date Selection
-            </div>
-            <div
-              style={{
-                color: "#414651",
-                fontFamily: "Public Sans",
-                fontSize: "14px",
-                fontWeight: 500,
-                lineHeight: "20px",
-              }}
-            >
-              Select a Date Range or a Specific Time Frame
-            </div>
+              Generate Report
+            </h3>
+          </div>
+
+          {/* Card Content */}
+          <div
+            style={{
+              display: "flex",
+              padding: "12px 16px 16px 16px",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "24px",
+              alignSelf: "stretch",
+            }}
+          >
             <div
               style={{
                 display: "flex",
+                flexDirection: "column",
                 alignItems: "flex-start",
-                gap: "16px",
-                flexWrap: "wrap",
+                gap: "8px",
               }}
             >
-              <div style={{ position: "relative" }}>
+              <div
+                style={{
+                  color: "#181D27",
+                  fontFamily: "Public Sans",
+                  fontSize: "16px",
+                  fontWeight: 500,
+                  lineHeight: "24px",
+                }}
+              >
+                Date Selection
+              </div>
+              <div
+                style={{
+                  color: "#414651",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontWeight: 500,
+                  lineHeight: "20px",
+                }}
+              >
+                Select a Date Range or a Specific Time Frame
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: "16px",
+                  flexWrap: "wrap",
+                }}
+              >
+                <div style={{ position: "relative" }}>
+                  <button
+                    type="button"
+                    ref={generateDateButtonRef}
+                    onClick={() => handleOpenDatePicker("generate")}
+                    onMouseEnter={() => setHoveredDateButton("generate")}
+                    onMouseLeave={() => setHoveredDateButton(null)}
+                    style={{
+                      display: "flex",
+                      minHeight: "36px",
+                      padding: "6px 8px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "4px",
+                      borderRadius: "8px",
+                      border: isGenerateActive
+                        ? "1px solid #B3BCE5"
+                        : "1px solid #D5D7DA",
+                      background: isGenerateActive
+                        ? "#F5F5F5"
+                        : isGenerateHovered
+                          ? "#F8F9FA"
+                          : "#FFF",
+                      boxShadow:
+                        "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <svg
+                      style={{ width: "16px", height: "16px" }}
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M14 6.66665H2M10.6667 1.33331V3.99998M5.33333 1.33331V3.99998M5.2 14.6666H10.8C11.9201 14.6666 12.4802 14.6666 12.908 14.4487C13.2843 14.2569 13.5903 13.951 13.782 13.5746C14 13.1468 14 12.5868 14 11.4666V5.86665C14 4.74654 14 4.18649 13.782 3.75867C13.5903 3.38234 13.2843 3.07638 12.908 2.88463C12.4802 2.66665 11.9201 2.66665 10.8 2.66665H5.2C4.0799 2.66665 3.51984 2.66665 3.09202 2.88463C2.71569 3.07638 2.40973 3.38234 2.21799 3.75867C2 4.18649 2 4.74654 2 5.86665V11.4666C2 12.5868 2 13.1468 2.21799 13.5746C2.40973 13.951 2.71569 14.2569 3.09202 14.4487C3.51984 14.6666 4.0799 14.6666 5.2 14.6666Z"
+                        stroke={
+                          isGenerateActive || isGenerateHovered
+                            ? "#717680"
+                            : "#A4A7AE"
+                        }
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    <span
+                      style={{
+                        color: isGenerateActive ? "#252B37" : "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                        padding: "0 2px",
+                      }}
+                    >
+                      {formatDateRange(selectedStartDate, selectedEndDate)}
+                    </span>
+                  </button>
+                </div>
                 <button
-                  type="button"
-                  ref={generateDateButtonRef}
-                  onClick={() => handleOpenDatePicker("generate")}
-                  onMouseEnter={() => setHoveredDateButton("generate")}
-                  onMouseLeave={() => setHoveredDateButton(null)}
                   style={{
                     display: "flex",
                     minHeight: "36px",
@@ -885,42 +1511,16 @@ export const Reporting: React.FC = () => {
                     alignItems: "center",
                     gap: "4px",
                     borderRadius: "8px",
-                    border: isGenerateActive
-                      ? "1px solid #B3BCE5"
-                      : "1px solid #D5D7DA",
-                    background: isGenerateActive
-                      ? "#F5F5F5"
-                      : isGenerateHovered
-                        ? "#F8F9FA"
-                        : "#FFF",
+                    border: "2px solid rgba(255, 255, 255, 0.12)",
+                    background: "#344698",
                     boxShadow:
                       "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     cursor: "pointer",
                   }}
                 >
-                  <svg
-                    style={{ width: "16px", height: "16px" }}
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M14 6.66665H2M10.6667 1.33331V3.99998M5.33333 1.33331V3.99998M5.2 14.6666H10.8C11.9201 14.6666 12.4802 14.6666 12.908 14.4487C13.2843 14.2569 13.5903 13.951 13.782 13.5746C14 13.1468 14 12.5868 14 11.4666V5.86665C14 4.74654 14 4.18649 13.782 3.75867C13.5903 3.38234 13.2843 3.07638 12.908 2.88463C12.4802 2.66665 11.9201 2.66665 10.8 2.66665H5.2C4.0799 2.66665 3.51984 2.66665 3.09202 2.88463C2.71569 3.07638 2.40973 3.38234 2.21799 3.75867C2 4.18649 2 4.74654 2 5.86665V11.4666C2 12.5868 2 13.1468 2.21799 13.5746C2.40973 13.951 2.71569 14.2569 3.09202 14.4487C3.51984 14.6666 4.0799 14.6666 5.2 14.6666Z"
-                      stroke={
-                        isGenerateActive || isGenerateHovered
-                          ? "#717680"
-                          : "#A4A7AE"
-                      }
-                      strokeWidth="1.66667"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
                   <span
                     style={{
-                      color: isGenerateActive ? "#252B37" : "#414651",
+                      color: "#FFF",
                       fontFamily: "Public Sans",
                       fontSize: "14px",
                       fontWeight: 600,
@@ -928,11 +1528,99 @@ export const Reporting: React.FC = () => {
                       padding: "0 2px",
                     }}
                   >
-                    {formatDateRange(selectedStartDate, selectedEndDate)}
+                    Create Report
                   </span>
                 </button>
               </div>
+            </div>
+
+            {/* Sample Preview */}
+            <div
+              style={{
+                display: "flex",
+                padding: "12px 8px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "12px",
+                alignSelf: "stretch",
+                borderRadius: "8px",
+                background: "#FAFAFA",
+              }}
+            >
+              <div
+                style={{
+                  color: "#414651",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontWeight: 500,
+                  lineHeight: "20px",
+                }}
+              >
+                Sample
+              </div>
+              <div
+                style={{
+                  width: "100%",
+                  overflowX: "auto",
+                }}
+              >
+                <img
+                  src="https://api.builder.io/api/v1/image/assets/TEMP/b24f0ab59702d309c327d519c4bc23bbe4942559?width=4594"
+                  alt="Sample report preview"
+                  style={{
+                    height: "auto",
+                    maxWidth: "100%",
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Report Chart Card */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            alignSelf: "stretch",
+            borderRadius: "12px",
+            border: "1px solid #E9EAEB",
+            background: "#FFF",
+            overflow: "hidden",
+          }}
+        >
+          {/* Card Header */}
+          <div
+            style={{
+              display: "flex",
+              padding: "16px",
+              alignItems: "center",
+              gap: "16px",
+              alignSelf: "stretch",
+              borderBottom: "1px solid #E9EAEB",
+            }}
+          >
+            <h3
+              style={{
+                color: "#181D27",
+                fontFamily: "Public Sans",
+                fontSize: "18px",
+                fontWeight: 600,
+                lineHeight: "28px",
+                margin: 0,
+                flex: 1,
+              }}
+            >
+              Report
+            </h3>
+            <div style={{ position: "relative" }}>
               <button
+                type="button"
+                ref={reportDateButtonRef}
+                onClick={() => handleOpenDatePicker("report")}
+                onMouseEnter={() => setHoveredDateButton("report")}
+                onMouseLeave={() => setHoveredDateButton(null)}
                 style={{
                   display: "flex",
                   minHeight: "36px",
@@ -941,16 +1629,40 @@ export const Reporting: React.FC = () => {
                   alignItems: "center",
                   gap: "4px",
                   borderRadius: "8px",
-                  border: "2px solid rgba(255, 255, 255, 0.12)",
-                  background: "#344698",
+                  border: isReportActive
+                    ? "1px solid #B3BCE5"
+                    : "1px solid #D5D7DA",
+                  background: isReportActive
+                    ? "#F5F5F5"
+                    : isReportHovered
+                      ? "#F8F9FA"
+                      : "#FFF",
                   boxShadow:
                     "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                   cursor: "pointer",
                 }}
               >
+                <svg
+                  style={{ width: "16px", height: "16px" }}
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14 6.66665H2M10.6667 1.33331V3.99998M5.33333 1.33331V3.99998M5.2 14.6666H10.8C11.9201 14.6666 12.4802 14.6666 12.908 14.4487C13.2843 14.2569 13.5903 13.951 13.782 13.5746C14 13.1468 14 12.5868 14 11.4666V5.86665C14 4.74654 14 4.18649 13.782 3.75867C13.5903 3.38234 13.2843 3.07638 12.908 2.88463C12.4802 2.66665 11.9201 2.66665 10.8 2.66665H5.2C4.0799 2.66665 3.51984 2.66665 3.09202 2.88463C2.71569 3.07638 2.40973 3.38234 2.21799 3.75867C2 4.18649 2 4.74654 2 5.86665V11.4666C2 12.5868 2 13.1468 2.21799 13.5746C2.40973 13.951 2.71569 14.2569 3.09202 14.4487C3.51984 14.6666 4.0799 14.6666 5.2 14.6666Z"
+                    stroke={
+                      isReportActive || isReportHovered ? "#717680" : "#A4A7AE"
+                    }
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
                 <span
                   style={{
-                    color: "#FFF",
+                    color: isReportActive ? "#252B37" : "#414651",
                     fontFamily: "Public Sans",
                     fontSize: "14px",
                     fontWeight: 600,
@@ -958,174 +1670,33 @@ export const Reporting: React.FC = () => {
                     padding: "0 2px",
                   }}
                 >
-                  Create Report
+                  {formatDateRange(selectedStartDate, selectedEndDate)}
                 </span>
               </button>
             </div>
           </div>
 
-          {/* Sample Preview */}
+          {/* Chart Content */}
           <div
             style={{
               display: "flex",
-              padding: "12px 8px",
+              padding: "12px 16px 16px 16px",
               flexDirection: "column",
               alignItems: "flex-start",
-              gap: "12px",
               alignSelf: "stretch",
-              borderRadius: "8px",
-              background: "#FAFAFA",
+              minHeight: "400px",
             }}
           >
-            <div
-              style={{
-                color: "#414651",
-                fontFamily: "Public Sans",
-                fontSize: "14px",
-                fontWeight: 500,
-                lineHeight: "20px",
-              }}
-            >
-              Sample
-            </div>
-            <div
-              style={{
-                width: "100%",
-                overflowX: "auto",
-              }}
-            >
-              <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/b24f0ab59702d309c327d519c4bc23bbe4942559?width=4594"
-                alt="Sample report preview"
-                style={{
-                  height: "auto",
-                  maxWidth: "100%",
-                }}
-              />
-            </div>
+            <TurnaroundTimeChart
+              isMobile={isMobile}
+              isTablet={isTablet}
+              windowWidth={windowWidth}
+            />
           </div>
         </div>
       </div>
-
-      {/* Report Chart Card */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          alignSelf: "stretch",
-          borderRadius: "12px",
-          border: "1px solid #E9EAEB",
-          background: "#FFF",
-          overflow: "hidden",
-        }}
-      >
-        {/* Card Header */}
-        <div
-          style={{
-            display: "flex",
-            padding: "16px",
-            alignItems: "center",
-            gap: "16px",
-            alignSelf: "stretch",
-            borderBottom: "1px solid #E9EAEB",
-          }}
-        >
-          <h3
-            style={{
-              color: "#181D27",
-              fontFamily: "Public Sans",
-              fontSize: "18px",
-              fontWeight: 600,
-              lineHeight: "28px",
-              margin: 0,
-              flex: 1,
-            }}
-          >
-            Report
-          </h3>
-          <div style={{ position: "relative" }}>
-            <button
-              type="button"
-              ref={reportDateButtonRef}
-              onClick={() => handleOpenDatePicker("report")}
-              onMouseEnter={() => setHoveredDateButton("report")}
-              onMouseLeave={() => setHoveredDateButton(null)}
-              style={{
-                display: "flex",
-                minHeight: "36px",
-                padding: "6px 8px",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "4px",
-                borderRadius: "8px",
-                border: isReportActive
-                  ? "1px solid #B3BCE5"
-                  : "1px solid #D5D7DA",
-                background: isReportActive
-                  ? "#F5F5F5"
-                  : isReportHovered
-                    ? "#F8F9FA"
-                    : "#FFF",
-                boxShadow:
-                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                cursor: "pointer",
-              }}
-            >
-              <svg
-                style={{ width: "16px", height: "16px" }}
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M14 6.66665H2M10.6667 1.33331V3.99998M5.33333 1.33331V3.99998M5.2 14.6666H10.8C11.9201 14.6666 12.4802 14.6666 12.908 14.4487C13.2843 14.2569 13.5903 13.951 13.782 13.5746C14 13.1468 14 12.5868 14 11.4666V5.86665C14 4.74654 14 4.18649 13.782 3.75867C13.5903 3.38234 13.2843 3.07638 12.908 2.88463C12.4802 2.66665 11.9201 2.66665 10.8 2.66665H5.2C4.0799 2.66665 3.51984 2.66665 3.09202 2.88463C2.71569 3.07638 2.40973 3.38234 2.21799 3.75867C2 4.18649 2 4.74654 2 5.86665V11.4666C2 12.5868 2 13.1468 2.21799 13.5746C2.40973 13.951 2.71569 14.2569 3.09202 14.4487C3.51984 14.6666 4.0799 14.6666 5.2 14.6666Z"
-                  stroke={
-                    isReportActive || isReportHovered ? "#717680" : "#A4A7AE"
-                  }
-                  strokeWidth="1.66667"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span
-                style={{
-                  color: isReportActive ? "#252B37" : "#414651",
-                  fontFamily: "Public Sans",
-                  fontSize: "14px",
-                  fontWeight: 600,
-                  lineHeight: "20px",
-                  padding: "0 2px",
-                }}
-              >
-                {formatDateRange(selectedStartDate, selectedEndDate)}
-              </span>
-            </button>
-          </div>
-        </div>
-
-        {/* Chart Content */}
-        <div
-          style={{
-            display: "flex",
-            padding: "12px 16px 16px 16px",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            alignSelf: "stretch",
-            minHeight: "400px",
-          }}
-        >
-          <TurnaroundTimeChart
-            isMobile={isMobile}
-            isTablet={isTablet}
-            windowWidth={windowWidth}
-          />
-        </div>
-      </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <div
