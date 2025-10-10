@@ -7,11 +7,6 @@ import DatePickerCalendar from "../components/ui/date-picker-calendar";
 import { TurnaroundTimeChart } from "../components/ui/turnaround-time-widget";
 import { Checkbox } from "../components/ui/checkbox";
 
-type ProductTypeFilterOption = {
-  id: string;
-  label: string;
-};
-
 type ProductTypeMetric = {
   id: string;
   name: string;
@@ -22,16 +17,6 @@ type ProductTypeMetric = {
   avgCompletionHours: number;
   change: number;
 };
-
-const PRODUCT_TYPE_FILTERS: ProductTypeFilterOption[] = [
-  { id: "all", label: "All product types" },
-  { id: "drug", label: "Drug screening" },
-  { id: "criminal", label: "Criminal search" },
-  { id: "employment", label: "Employment verification" },
-  { id: "education", label: "Education verification" },
-  { id: "credit", label: "Credit check" },
-  { id: "mvr", label: "Motor vehicle records" },
-];
 
 const PRODUCT_TYPE_METRICS: ProductTypeMetric[] = [
   {
