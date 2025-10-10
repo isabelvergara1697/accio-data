@@ -127,7 +127,6 @@ export const Reporting: React.FC = () => {
   const [userMenuHovered, setUserMenuHovered] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
   const [activeTab, setActiveTab] = useState("results");
-  const [selectedProductType, setSelectedProductType] = useState<string>("all");
   const [includeAccountInfo, setIncludeAccountInfo] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const [quickOrderDrawerOpen, setQuickOrderDrawerOpen] = useState(false);
