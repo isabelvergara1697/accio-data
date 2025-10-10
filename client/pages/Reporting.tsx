@@ -1128,7 +1128,7 @@ export const Reporting: React.FC = () => {
 
   const renderSubjectContent = () => {
     return (
-    <div
+      <div
       style={{
         display: "flex",
         flexDirection: "column",
