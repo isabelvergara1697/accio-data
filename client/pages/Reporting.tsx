@@ -5,6 +5,7 @@ import { MobileHeader } from "../components/MobileHeader";
 import DesktopCalendar from "../components/ui/desktop-calendar";
 import DatePickerCalendar from "../components/ui/date-picker-calendar";
 import { TurnaroundTimeChart } from "../components/ui/turnaround-time-widget";
+import { Checkbox } from "../components/ui/checkbox";
 
 type ProductTypeFilterOption = {
   id: string;
@@ -142,6 +143,7 @@ export const Reporting: React.FC = () => {
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
   const [activeTab, setActiveTab] = useState("results");
   const [selectedProductType, setSelectedProductType] = useState<string>("all");
+  const [includeAccountInfo, setIncludeAccountInfo] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const [quickOrderDrawerOpen, setQuickOrderDrawerOpen] = useState(false);
   const [ssnOrderDrawerOpen, setSSNOrderDrawerOpen] = useState(false);
@@ -296,6 +298,8 @@ export const Reporting: React.FC = () => {
     switch (activeTab) {
       case "product":
         return renderProductTypeContent();
+      case "subject":
+        return renderSubjectContent();
       case "results":
       default:
         return renderResultsReportContent();
