@@ -686,10 +686,11 @@ export const Reporting: React.FC = () => {
   );
 
   const renderProductTypeContent = () => {
-    const activeFilterLabel = selectedProductFilter?.label ?? "All product types";
     const averageTurnaroundLabel = formatTurnaroundTime(
       Number(aggregatedProductMetrics.averageHours.toFixed(1)),
     );
+    const selectionLabel = "All product types";
+    const productMetrics = PRODUCT_TYPE_METRICS;
 
     return (
       <div
