@@ -242,6 +242,56 @@ export const Reporting: React.FC = () => {
   const isGenerateHovered = hoveredDateButton === "generate";
   const isReportHovered = hoveredDateButton === "report";
 
+  const filteredProductMetrics = useMemo(() => {
+    if (selectedProductType === "all") {
+      return PRODUCT_TYPE_METRICS;
+    }
+
+    return PRODUCT_TYPE_METRICS.filter((metric) => metric.id === selectedProductType);
+  }, [selectedProductType]);
+
+  const aggregatedProductMetrics = useMemo(() => {
+    if (filteredProductMetrics.length === 0) {
+      return {
+        orders: 0,
+        completed: 0,
+        inProcess: 0,
+        needsAttention: 0,
+        averageHours: 0,
+        completionRate: 0,
+      };
+    }
+
+    const totals = filteredProductMetrics.reduce(
+      (acc, metric) => {
+        acc.orders += metric.orders;
+        acc.completed += metric.completed;
+        acc.inProcess += metric.inProcess;
+        acc.needsAttention += metric.needsAttention;
+        acc.weightedHours += metric.avgCompletionHours * metric.orders;
+        return acc;
+      },
+      { orders: 0, completed: 0, inProcess: 0, needsAttention: 0, weightedHours: 0 },
+    );
+
+    const averageHours = totals.orders === 0 ? 0 : totals.weightedHours / totals.orders;
+    const completionRate =
+      totals.orders === 0 ? 0 : Math.round((totals.completed / totals.orders) * 100);
+
+    return {
+      orders: totals.orders,
+      completed: totals.completed,
+      inProcess: totals.inProcess,
+      needsAttention: totals.needsAttention,
+      averageHours,
+      completionRate,
+    };
+  }, [filteredProductMetrics]);
+
+  const selectedProductFilter = useMemo(() => {
+    return PRODUCT_TYPE_FILTERS.find((filter) => filter.id === selectedProductType);
+  }, [selectedProductType]);
+
   const renderTabContent = () => {
     switch (activeTab) {
       case "product":
