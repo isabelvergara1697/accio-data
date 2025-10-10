@@ -783,57 +783,6 @@ export const Reporting: React.FC = () => {
         <div
           style={{
             display: "flex",
-            flexWrap: "wrap",
-            gap: "8px",
-            alignItems: "center",
-          }}
-        >
-          {PRODUCT_TYPE_FILTERS.map((filter) => {
-            const isActive = filter.id === selectedProductType;
-
-            return (
-              <button
-                key={filter.id}
-                type="button"
-                onClick={() => setSelectedProductType(filter.id)}
-                onMouseEnter={(event) => {
-                  if (!isActive) {
-                    event.currentTarget.style.background = "#F5F5F5";
-                  }
-                }}
-                onMouseLeave={(event) => {
-                  if (!isActive) {
-                    event.currentTarget.style.background = "#FFF";
-                  }
-                }}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  padding: "6px 12px",
-                  borderRadius: "999px",
-                  border: isActive ? "1px solid #B3BCE5" : "1px solid #E9EAEB",
-                  background: isActive ? "#ECEEF9" : "#FFF",
-                  boxShadow: isActive
-                    ? "0 0 0 3px rgba(52, 70, 152, 0.12)"
-                    : "none",
-                  color: isActive ? "#273572" : "#535862",
-                  fontFamily: "Public Sans",
-                  fontSize: "13px",
-                  fontWeight: 600,
-                  lineHeight: "18px",
-                  cursor: "pointer",
-                  transition: "all 0.2s ease",
-                }}
-              >
-                {filter.label}
-              </button>
-            );
-          })}
-        </div>
-
-        <div
-          style={{
-            display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
             alignSelf: "stretch",
