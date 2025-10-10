@@ -118,6 +118,139 @@ const getCompletionPercent = (metric: ProductTypeMetric): number => {
   return Math.min(100, Math.round((metric.completed / metric.orders) * 100));
 };
 
+const SAMPLE_PREVIEW_FALLBACK_WIDTH = 720;
+
+type SamplePreviewImageProps = {
+  src: string;
+  alt: string;
+  isTablet: boolean;
+  windowWidth: number;
+};
+
+const SamplePreviewImage: React.FC<SamplePreviewImageProps> = ({
+  src,
+  alt,
+  isTablet,
+  windowWidth,
+}) => {
+  const imageRef = React.useRef<HTMLImageElement | null>(null);
+  const [referenceSize, setReferenceSize] = React.useState<{
+    width: number;
+    height: number;
+  } | null>(null);
+
+  const updateReferenceFromLayout = React.useCallback(() => {
+    if (!imageRef.current) {
+      return;
+    }
+    const rect = imageRef.current.getBoundingClientRect();
+    if (rect.width > 0 && rect.height > 0) {
+      setReferenceSize({ width: rect.width, height: rect.height });
+    }
+  }, []);
+
+  const ensureFallbackDimensions = React.useCallback(() => {
+    const img = imageRef.current;
+    if (!img) {
+      return;
+    }
+    const { naturalWidth, naturalHeight } = img;
+    if (!naturalWidth || !naturalHeight) {
+      return;
+    }
+
+    setReferenceSize((prev) => {
+      if (prev) {
+        return prev;
+      }
+      const fallbackWidth = Math.min(
+        SAMPLE_PREVIEW_FALLBACK_WIDTH,
+        naturalWidth,
+      );
+      const effectiveWidth =
+        fallbackWidth > 0 ? fallbackWidth : naturalWidth;
+      const height =
+        naturalWidth > 0
+          ? (naturalHeight / naturalWidth) * effectiveWidth
+          : naturalHeight;
+      return {
+        width: effectiveWidth,
+        height,
+      };
+    });
+  }, []);
+
+  React.useEffect(() => {
+    const img = imageRef.current;
+    if (!img) {
+      return;
+    }
+
+    const handleLoad = () => {
+      if (isTablet) {
+        ensureFallbackDimensions();
+      } else {
+        updateReferenceFromLayout();
+      }
+    };
+
+    if (img.complete) {
+      handleLoad();
+    } else {
+      img.addEventListener("load", handleLoad);
+    }
+
+    return () => {
+      img.removeEventListener("load", handleLoad);
+    };
+  }, [isTablet, ensureFallbackDimensions, updateReferenceFromLayout]);
+
+  React.useEffect(() => {
+    if (!isTablet) {
+      updateReferenceFromLayout();
+    }
+  }, [isTablet, windowWidth, updateReferenceFromLayout]);
+
+  React.useEffect(() => {
+    if (isTablet && referenceSize === null) {
+      ensureFallbackDimensions();
+    }
+  }, [isTablet, referenceSize, ensureFallbackDimensions]);
+
+  const tabletHasDimensions = isTablet && referenceSize !== null;
+
+  const containerStyle: React.CSSProperties = {
+    width: "100%",
+    overflowX: "auto",
+    overflowY: tabletHasDimensions ? "auto" : "hidden",
+    maxHeight:
+      tabletHasDimensions && referenceSize
+        ? `${referenceSize.height}px`
+        : undefined,
+  };
+
+  const imageStyle: React.CSSProperties =
+    tabletHasDimensions && referenceSize
+      ? {
+          display: "block",
+          width: `${referenceSize.width}px`,
+          height: `${referenceSize.height}px`,
+          maxWidth: "none",
+        }
+      : {
+          display: "block",
+          width: "100%",
+          height: "auto",
+          maxWidth: "100%",
+        };
+
+  return (
+    <div style={containerStyle}>
+      <img ref={imageRef} src={src} alt={alt} style={imageStyle} />
+    </div>
+  );
+};
+
 export const Reporting: React.FC = () => {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1200);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
