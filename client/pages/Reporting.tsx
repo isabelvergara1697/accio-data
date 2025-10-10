@@ -1693,8 +1693,8 @@ export const Reporting: React.FC = () => {
             This report produces a CSV file containing information on subjects that have pending
             background checks. This will not report on items pending longer than 6 months. Includes
             reports for this account only unless this user has the ability to view other accounts,
-            in which case this report will include all of this account&apos;s &lsquo;Additional Accounts
-            Viewable&rsquo;.
+            in which case this report will include all of this account's 'Additional Accounts
+            Viewable'.
           </p>
         </div>
       </div>
