@@ -904,7 +904,7 @@ export const Reporting: React.FC = () => {
                     lineHeight: "20px",
                   }}
                 >
-                  {activeFilterLabel}
+                  {selectionLabel}
                 </span>
               </div>
               <div
@@ -1149,11 +1149,11 @@ export const Reporting: React.FC = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {filteredProductMetrics.map((metric, index) => {
+                  {productMetrics.map((metric, index) => {
                     const completionPercent = getCompletionPercent(metric);
                     const trendStyles = getTrendStyles(metric.change);
                     const rowBorder =
-                      index === filteredProductMetrics.length - 1
+                      index === productMetrics.length - 1
                         ? "none"
                         : "1px solid #E9EAEB";
 
