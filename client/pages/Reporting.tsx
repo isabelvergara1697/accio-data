@@ -276,6 +276,8 @@ export const Reporting: React.FC = () => {
         return renderPendingIndividualContent();
       case "alert":
         return renderSubjectAlertContent();
+      case "turnaround":
+        return renderTurnaroundTimeContent();
       case "results":
       default:
         return renderResultsReportContent();
