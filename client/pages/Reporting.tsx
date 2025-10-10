@@ -2385,6 +2385,481 @@ export const Reporting: React.FC = () => {
     </div>
   );
 
+  const renderTurnaroundTimeContent = () => (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        gap: "24px",
+        alignSelf: "stretch",
+        padding: isMobile ? "16px" : "24px 32px",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          gap: "20px",
+          alignSelf: "stretch",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "flex-start",
+            gap: "2px",
+            flex: "1 0 0",
+          }}
+        >
+          <h2
+            style={{
+              color: "#181D27",
+              fontFamily: "Public Sans",
+              fontSize: "18px",
+              fontWeight: 600,
+              lineHeight: "28px",
+              margin: 0,
+            }}
+          >
+            TAT Report Parameters
+          </h2>
+        </div>
+      </div>
+
+      {/* Report Section */}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          alignSelf: "stretch",
+          borderRadius: "12px",
+          border: "1px solid #E9EAEB",
+          background: "#FFF",
+          overflow: "hidden",
+        }}
+      >
+        {/* Card Header */}
+        <div
+          style={{
+            display: "flex",
+            padding: "16px",
+            alignItems: "center",
+            gap: "16px",
+            alignSelf: "stretch",
+            borderBottom: "1px solid #E9EAEB",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "flex-start",
+              gap: "4px",
+              flex: "1 0 0",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "flex-start",
+                gap: "2px",
+                flex: "1 0 0",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  alignSelf: "stretch",
+                }}
+              >
+                <h3
+                  style={{
+                    color: "#181D27",
+                    fontFamily: "Public Sans",
+                    fontSize: "18px",
+                    fontWeight: 600,
+                    lineHeight: "28px",
+                    margin: 0,
+                  }}
+                >
+                  Report
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "12px",
+              flexWrap: "wrap",
+            }}
+          >
+            <button
+              style={{
+                display: "flex",
+                minHeight: "36px",
+                padding: "6px 8px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "4px",
+                borderRadius: "8px",
+                border: "1px solid #D5D7DA",
+                background: "#FFF",
+                boxShadow:
+                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                cursor: "pointer",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  padding: "0 2px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <span
+                  style={{
+                    color: "#414651",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    lineHeight: "20px",
+                  }}
+                >
+                  Report Type
+                </span>
+              </div>
+              <svg
+                style={{ width: "16px", height: "16px" }}
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 6L8 10L12 6"
+                  stroke="#A4A7AE"
+                  strokeWidth="1.66667"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            <button
+              style={{
+                display: "flex",
+                minHeight: "36px",
+                padding: "6px 8px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "4px",
+                borderRadius: "8px",
+                border: "1px solid #D5D7DA",
+                background: "#FFF",
+                boxShadow:
+                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                cursor: "pointer",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  padding: "0 2px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <span
+                  style={{
+                    color: "#414651",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    lineHeight: "20px",
+                  }}
+                >
+                  TAT Type
+                </span>
+              </div>
+              <svg
+                style={{ width: "16px", height: "16px" }}
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 6L8 10L12 6"
+                  stroke="#A4A7AE"
+                  strokeWidth="1.66667"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            <button
+              style={{
+                display: "flex",
+                minHeight: "36px",
+                padding: "6px 8px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "4px",
+                borderRadius: "8px",
+                border: "1px solid #D5D7DA",
+                background: "#FFF",
+                boxShadow:
+                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                cursor: "pointer",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  padding: "0 2px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <span
+                  style={{
+                    color: "#414651",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    lineHeight: "20px",
+                  }}
+                >
+                  Breakdown
+                </span>
+              </div>
+              <svg
+                style={{ width: "16px", height: "16px" }}
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 6L8 10L12 6"
+                  stroke="#A4A7AE"
+                  strokeWidth="1.66667"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            <button
+              style={{
+                display: "flex",
+                minHeight: "36px",
+                padding: "6px 8px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "4px",
+                borderRadius: "8px",
+                border: "1px solid #D5D7DA",
+                background: "#FFF",
+                boxShadow:
+                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                cursor: "pointer",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  padding: "0 2px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <span
+                  style={{
+                    color: "#414651",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    lineHeight: "20px",
+                  }}
+                >
+                  Days Per Buckect
+                </span>
+              </div>
+              <svg
+                style={{ width: "16px", height: "16px" }}
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 6L8 10L12 6"
+                  stroke="#A4A7AE"
+                  strokeWidth="1.66667"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            <div style={{ position: "relative" }}>
+              <button
+                type="button"
+                ref={reportDateButtonRef}
+                onClick={() => handleOpenDatePicker("report")}
+                onMouseEnter={() => setHoveredDateButton("report")}
+                onMouseLeave={() => setHoveredDateButton(null)}
+                style={{
+                  display: "flex",
+                  minHeight: "36px",
+                  padding: "6px 8px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: "4px",
+                  borderRadius: "8px",
+                  border: isReportActive
+                    ? "1px solid #B3BCE5"
+                    : "1px solid #D5D7DA",
+                  background: isReportActive
+                    ? "#F5F5F5"
+                    : isReportHovered
+                      ? "#F8F9FA"
+                      : "#FFF",
+                  boxShadow:
+                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  cursor: "pointer",
+                }}
+              >
+                <svg
+                  style={{ width: "16px", height: "16px" }}
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14 6.66668H2M10.6667 1.33334V4.00001M5.33333 1.33334V4.00001M5.2 14.6667H10.8C11.9201 14.6667 12.4802 14.6667 12.908 14.4487C13.2843 14.2569 13.5903 13.951 13.782 13.5747C14 13.1468 14 12.5868 14 11.4667V5.86668C14 4.74657 14 4.18652 13.782 3.7587C13.5903 3.38237 13.2843 3.07641 12.908 2.88466C12.4802 2.66668 11.9201 2.66668 10.8 2.66668H5.2C4.0799 2.66668 3.51984 2.66668 3.09202 2.88466C2.71569 3.07641 2.40973 3.38237 2.21799 3.7587C2 4.18652 2 4.74657 2 5.86668V11.4667C2 12.5868 2 13.1468 2.21799 13.5747C2.40973 13.951 2.71569 14.2569 3.09202 14.4487C3.51984 14.6667 4.0799 14.6667 5.2 14.6667Z"
+                    stroke={
+                      isReportActive || isReportHovered ? "#717680" : "#A4A7AE"
+                    }
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "0 2px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <span
+                    style={{
+                      color: isReportActive ? "#252B37" : "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                    }}
+                  >
+                    {formatDateRange(selectedStartDate, selectedEndDate)}
+                  </span>
+                </div>
+              </button>
+            </div>
+            <button
+              style={{
+                display: "flex",
+                minHeight: "36px",
+                padding: "6px 8px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "4px",
+                borderRadius: "8px",
+                border: "1px solid #D5D7DA",
+                background: "#FFF",
+                boxShadow:
+                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                cursor: "pointer",
+              }}
+            >
+              <svg
+                style={{ width: "16px", height: "16px" }}
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14 10V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V10M11.3333 6.66667L8 10M8 10L4.66667 6.66667M8 10V2"
+                  stroke="#A4A7AE"
+                  strokeWidth="1.66667"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <div
+                style={{
+                  display: "flex",
+                  padding: "0 2px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <span
+                  style={{
+                    color: "#414651",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    lineHeight: "20px",
+                  }}
+                >
+                  Download
+                </span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        {/* Chart Content */}
+        <div
+          style={{
+            display: "flex",
+            padding: "12px 16px 16px 16px",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            alignSelf: "stretch",
+            minHeight: "400px",
+          }}
+        >
+          <TurnaroundTimeChart
+            isMobile={isMobile}
+            isTablet={isTablet}
+            windowWidth={windowWidth}
+          />
+        </div>
+      </div>
+    </div>
+  );
+
   const renderSubjectContent = () => {
     return (
       <div
