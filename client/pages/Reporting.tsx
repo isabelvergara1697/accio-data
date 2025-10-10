@@ -3293,21 +3293,12 @@ export const Reporting: React.FC = () => {
               >
                 Sample
               </div>
-              <div
-                style={{
-                  width: "100%",
-                  overflowX: "auto",
-                }}
-              >
-                <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/8885f072864d855ad9d8da76b0675e7aa467efd5?width=8192"
-                  alt="Sample applicant report preview"
-                  style={{
-                    height: "auto",
-                    maxWidth: "100%",
-                  }}
-                />
-              </div>
+              <SamplePreviewImage
+            src="https://api.builder.io/api/v1/image/assets/TEMP/8885f072864d855ad9d8da76b0675e7aa467efd5?width=8192"
+            alt="Sample applicant report preview"
+            isTablet={isTablet}
+            windowWidth={windowWidth}
+          />
             </div>
           </div>
         </div>
