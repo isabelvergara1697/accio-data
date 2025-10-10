@@ -1126,7 +1126,14 @@ export const Reporting: React.FC = () => {
     );
   };
 
-  const renderSubjectContent = () => (
+  const renderSubjectContent = () => {
+    const averageTurnaroundLabel = formatTurnaroundTime(
+      Number(aggregatedProductMetrics.averageHours.toFixed(1)),
+    );
+    const selectionLabel = "All subjects";
+    const productMetrics = PRODUCT_TYPE_METRICS;
+
+    return (
     <div
       style={{
         display: "flex",
@@ -2081,6 +2088,7 @@ export const Reporting: React.FC = () => {
 
     </div>
   );
+  };
 
   return (
     <div
