@@ -759,36 +759,51 @@ export const Reporting: React.FC = () => {
             >
               Search Results by Product Type Report
             </h2>
-            <p
+            <div
               style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "12px",
                 color: "#535862",
                 fontFamily: "Public Sans",
                 fontSize: "14px",
                 fontWeight: 400,
                 lineHeight: "20px",
-                margin: 0,
               }}
             >
-              This report produces a CSV file containing background checks ordered
-              in a given time frame with columns for the following product types:
-              Drug, Criminal, Sex Offender, Credit Check, Education Checks,
-              References Checks, Employment Checks, MVR
-              <br />
-              <br />
-              The value of the product type columns will be one of:
-              <br />
-              N/A (the order has no components of this type)
-              <br />
-              In process - components have not been completed/reviewed
-              <br />
-              Date/time - date/time when the last component of said type has been
-              completed/reviewed
-              <br />
-              <br />
-              Includes reports for this account only unless this user has the
-              ability to view other accounts, in which case this report will
-              include all of this account's 'Additional Accounts Viewable'.
-            </p>
+              <p style={{ margin: 0 }}>
+                This report produces a CSV file containing background checks ordered in a given
+                time frame with columns for the following product types: Drug, Criminal, Sex
+                Offender, Credit Check, Education Checks, References Checks, Employment Checks,
+                MVR.
+              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                <span style={{ fontWeight: 600, color: "#414651" }}>
+                  The value of the product type columns will be one of:
+                </span>
+                <ul
+                  style={{
+                    margin: 0,
+                    paddingLeft: "20px",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "4px",
+                  }}
+                >
+                  <li>N/A (the order has no components of this type)</li>
+                  <li>In process - components have not been completed/reviewed</li>
+                  <li>
+                    Date/time - date/time when the last component of said type has been
+                    completed/reviewed
+                  </li>
+                </ul>
+              </div>
+              <p style={{ margin: 0 }}>
+                Includes reports for this account only unless this user has the ability to view
+                other accounts, in which case this report will include all of this account's
+                "Additional Accounts Viewable".
+              </p>
+            </div>
           </div>
         </div>
 
