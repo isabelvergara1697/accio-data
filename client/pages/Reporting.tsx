@@ -84,12 +84,16 @@ const PRODUCT_TYPE_METRICS: ProductTypeMetric[] = [
 const formatTurnaroundTime = (hours: number): string => {
   if (hours >= 24) {
     const days = hours / 24;
-    const formattedDays = Number.isInteger(days) ? days.toString() : days.toFixed(1);
+    const formattedDays = Number.isInteger(days)
+      ? days.toString()
+      : days.toFixed(1);
     const suffix = Number(days.toFixed(1)) === 1 ? " day" : " days";
     return `${formattedDays}${suffix}`;
   }
 
-  const formattedHours = Number.isInteger(hours) ? hours.toString() : hours.toFixed(1);
+  const formattedHours = Number.isInteger(hours)
+    ? hours.toString()
+    : hours.toFixed(1);
   const suffix = hours === 1 ? " hr" : " hrs";
   return `${formattedHours}${suffix}`;
 };
@@ -133,11 +137,17 @@ export const Reporting: React.FC = () => {
   const [ssnOrderDrawerOpen, setSSNOrderDrawerOpen] = useState(false);
   const [customizeDrawerOpen, setCustomizeDrawerOpen] = useState(false);
   const [notificationModalOpen, setNotificationModalOpen] = useState(false);
-  const [selectedStartDate, setSelectedStartDate] = useState(new Date(2025, 0, 10));
+  const [selectedStartDate, setSelectedStartDate] = useState(
+    new Date(2025, 0, 10),
+  );
   const [selectedEndDate, setSelectedEndDate] = useState(new Date(2025, 0, 16));
   const [datePickerOpen, setDatePickerOpen] = useState(false);
-  const [activeDatePicker, setActiveDatePicker] = useState<"generate" | "report" | null>(null);
-  const [hoveredDateButton, setHoveredDateButton] = useState<"generate" | "report" | null>(null);
+  const [activeDatePicker, setActiveDatePicker] = useState<
+    "generate" | "report" | null
+  >(null);
+  const [hoveredDateButton, setHoveredDateButton] = useState<
+    "generate" | "report" | null
+  >(null);
   const generateDateButtonRef = React.useRef<HTMLButtonElement>(null);
   const reportDateButtonRef = React.useRef<HTMLButtonElement>(null);
 
@@ -249,12 +259,21 @@ export const Reporting: React.FC = () => {
         acc.weightedHours += metric.avgCompletionHours * metric.orders;
         return acc;
       },
-      { orders: 0, completed: 0, inProcess: 0, needsAttention: 0, weightedHours: 0 },
+      {
+        orders: 0,
+        completed: 0,
+        inProcess: 0,
+        needsAttention: 0,
+        weightedHours: 0,
+      },
     );
 
-    const averageHours = totals.orders === 0 ? 0 : totals.weightedHours / totals.orders;
+    const averageHours =
+      totals.orders === 0 ? 0 : totals.weightedHours / totals.orders;
     const completionRate =
-      totals.orders === 0 ? 0 : Math.round((totals.completed / totals.orders) * 100);
+      totals.orders === 0
+        ? 0
+        : Math.round((totals.completed / totals.orders) * 100);
 
     return {
       orders: totals.orders,
@@ -751,12 +770,14 @@ export const Reporting: React.FC = () => {
               }}
             >
               <p style={{ margin: 0 }}>
-                This report produces a CSV file containing background checks ordered in a given
-                time frame with columns for the following product types: Drug, Criminal, Sex
-                Offender, Credit Check, Education Checks, References Checks, Employment Checks,
-                MVR.
+                This report produces a CSV file containing background checks
+                ordered in a given time frame with columns for the following
+                product types: Drug, Criminal, Sex Offender, Credit Check,
+                Education Checks, References Checks, Employment Checks, MVR.
               </p>
-              <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+              <div
+                style={{ display: "flex", flexDirection: "column", gap: "8px" }}
+              >
                 <span style={{ fontWeight: 600, color: "#414651" }}>
                   The value of the product type columns will be one of:
                 </span>
@@ -770,17 +791,19 @@ export const Reporting: React.FC = () => {
                   }}
                 >
                   <li>N/A (the order has no components of this type)</li>
-                  <li>In process - components have not been completed/reviewed</li>
                   <li>
-                    Date/time - date/time when the last component of said type has been
-                    completed/reviewed
+                    In process - components have not been completed/reviewed
+                  </li>
+                  <li>
+                    Date/time - date/time when the last component of said type
+                    has been completed/reviewed
                   </li>
                 </ul>
               </div>
               <p style={{ margin: 0 }}>
-                Includes reports for this account only unless this user has the ability to view
-                other accounts, in which case this report will include all of this account's
-                "Additional Accounts Viewable".
+                Includes reports for this account only unless this user has the
+                ability to view other accounts, in which case this report will
+                include all of this account's "Additional Accounts Viewable".
               </p>
             </div>
           </div>
@@ -1452,7 +1475,9 @@ export const Reporting: React.FC = () => {
                     const completionPercent = getCompletionPercent(metric);
                     const trendStyles = getTrendStyles(metric.change);
                     const rowBorder =
-                      index === productMetrics.length - 1 ? "none" : "1px solid #E9EAEB";
+                      index === productMetrics.length - 1
+                        ? "none"
+                        : "1px solid #E9EAEB";
 
                     return (
                       <tr key={metric.id}>
@@ -1694,11 +1719,12 @@ export const Reporting: React.FC = () => {
               margin: 0,
             }}
           >
-            This report produces a CSV file containing information on subjects that have pending
-            background checks. This will not report on items pending longer than 6 months. Includes
-            reports for this account only unless this user has the ability to view other accounts,
-            in which case this report will include all of this account's 'Additional Accounts
-            Viewable'.
+            This report produces a CSV file containing information on subjects
+            that have pending background checks. This will not report on items
+            pending longer than 6 months. Includes reports for this account only
+            unless this user has the ability to view other accounts, in which
+            case this report will include all of this account's 'Additional
+            Accounts Viewable'.
           </p>
         </div>
       </div>
@@ -1903,16 +1929,19 @@ export const Reporting: React.FC = () => {
             }}
           >
             <p style={{ margin: 0 }}>
-              This report produces a CSV file containing information for all of the subject
-              (top-level) orders entered within a given date range with an alert indicator.
-              &quot;Alert&quot; means that potentially derogatory information was found in one or more of
-              the research elements, while &quot;No Alert&quot; means that potentially derogatory information
-              was not identified by us in any element. The date range may be toggled to use
-              completion dates in place of entry dates. Only completed reports will be displayed
-              when using completion dates. By default, reports based on entry dates will include
-              incomplete reports. Includes reports for this account only unless this user has the
-              ability to view other accounts, in which case this report will include all of this
-              account's 'Additional Accounts Viewable'.
+              This report produces a CSV file containing information for all of
+              the subject (top-level) orders entered within a given date range
+              with an alert indicator. &quot;Alert&quot; means that potentially
+              derogatory information was found in one or more of the research
+              elements, while &quot;No Alert&quot; means that potentially
+              derogatory information was not identified by us in any element.
+              The date range may be toggled to use completion dates in place of
+              entry dates. Only completed reports will be displayed when using
+              completion dates. By default, reports based on entry dates will
+              include incomplete reports. Includes reports for this account only
+              unless this user has the ability to view other accounts, in which
+              case this report will include all of this account's 'Additional
+              Accounts Viewable'.
             </p>
           </div>
         </div>
@@ -2045,7 +2074,9 @@ export const Reporting: React.FC = () => {
                     <path
                       d="M14 6.66665H2M10.6667 1.33331V3.99998M5.33333 1.33331V3.99998M5.2 14.6666H10.8C11.9201 14.6666 12.4802 14.6666 12.908 14.4487C13.2843 14.2569 13.5903 13.951 13.782 13.5746C14 13.1468 14 12.5868 14 11.4666V5.86665C14 4.74654 14 4.18649 13.782 3.75867C13.5903 3.38234 13.2843 3.07638 12.908 2.88463C12.4802 2.66665 11.9201 2.66665 10.8 2.66665H5.2C4.0799 2.66665 3.51984 2.66665 3.09202 2.88463C2.71569 3.07638 2.40973 3.38234 2.21799 3.75867C2 4.18649 2 4.74654 2 5.86665V11.4666C2 12.5868 2 13.1468 2.21799 13.5746C2.40973 13.951 2.71569 14.2569 3.09202 14.4487C3.51984 14.6666 4.0799 14.6666 5.2 14.6666Z"
                       stroke={
-                        isGenerateActive || isGenerateHovered ? "#717680" : "#A4A7AE"
+                        isGenerateActive || isGenerateHovered
+                          ? "#717680"
+                          : "#A4A7AE"
                       }
                       strokeWidth="1.66667"
                       strokeLinecap="round"
@@ -2863,114 +2894,21 @@ export const Reporting: React.FC = () => {
   const renderSubjectContent = () => {
     return (
       <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        gap: "24px",
-        alignSelf: "stretch",
-        padding: isMobile ? "16px" : "24px 32px",
-      }}
-    >
-      <div
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
-          gap: "20px",
+          gap: "24px",
           alignSelf: "stretch",
+          padding: isMobile ? "16px" : "24px 32px",
         }}
       >
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
-            gap: "2px",
-            flex: "1 0 0",
-          }}
-        >
-          <h2
-            style={{
-              color: "#181D27",
-              fontFamily: "Public Sans",
-              fontSize: "18px",
-              fontWeight: 600,
-              lineHeight: "28px",
-              margin: 0,
-            }}
-          >
-            Subject/Applicant Information Report
-          </h2>
-          <p
-            style={{
-              color: "#535862",
-              fontFamily: "Public Sans",
-              fontSize: "14px",
-              fontWeight: 400,
-              lineHeight: "20px",
-              margin: 0,
-            }}
-          >
-            This report produces a CSV file containing applicant/subject information
-            and two columns containing motor vehicle search component information. The
-            information in the columns DL Number and DL State was entered at the
-            subject level. The information in the columns MVR Number and MVR State was
-            entered at the motor vehicle search component level. The columns MVR Number
-            and MVR State will only have information if a motor vehicle search component
-            was in the order. Includes reports for this account only unless this user
-            has the ability to view other accounts, in which case this report will
-            include all of this account's 'Additional Accounts Viewable'.
-          </p>
-        </div>
-      </div>
-
-      {/* Generate Report Card */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          alignSelf: "stretch",
-          borderRadius: "12px",
-          border: "1px solid #E9EAEB",
-          background: "#FFF",
-          overflow: "hidden",
-        }}
-      >
-        {/* Card Header */}
-        <div
-          style={{
-            display: "flex",
-            padding: "16px",
-            alignItems: "center",
-            gap: "16px",
-            alignSelf: "stretch",
-            borderBottom: "1px solid #E9EAEB",
-          }}
-        >
-          <h3
-            style={{
-              color: "#181D27",
-              fontFamily: "Public Sans",
-              fontSize: "18px",
-              fontWeight: 600,
-              lineHeight: "28px",
-              margin: 0,
-              flex: 1,
-            }}
-          >
-            Generate Report
-          </h3>
-        </div>
-
-        {/* Card Content */}
-        <div
-          style={{
-            display: "flex",
-            padding: "12px 16px 16px 16px",
             flexDirection: "column",
             alignItems: "flex-start",
-            gap: "24px",
+            gap: "20px",
             alignSelf: "stretch",
           }}
         >
@@ -2978,47 +2916,231 @@ export const Reporting: React.FC = () => {
             style={{
               display: "flex",
               flexDirection: "column",
+              gap: "2px",
+              flex: "1 0 0",
+            }}
+          >
+            <h2
+              style={{
+                color: "#181D27",
+                fontFamily: "Public Sans",
+                fontSize: "18px",
+                fontWeight: 600,
+                lineHeight: "28px",
+                margin: 0,
+              }}
+            >
+              Subject/Applicant Information Report
+            </h2>
+            <p
+              style={{
+                color: "#535862",
+                fontFamily: "Public Sans",
+                fontSize: "14px",
+                fontWeight: 400,
+                lineHeight: "20px",
+                margin: 0,
+              }}
+            >
+              This report produces a CSV file containing applicant/subject
+              information and two columns containing motor vehicle search
+              component information. The information in the columns DL Number
+              and DL State was entered at the subject level. The information in
+              the columns MVR Number and MVR State was entered at the motor
+              vehicle search component level. The columns MVR Number and MVR
+              State will only have information if a motor vehicle search
+              component was in the order. Includes reports for this account only
+              unless this user has the ability to view other accounts, in which
+              case this report will include all of this account's 'Additional
+              Accounts Viewable'.
+            </p>
+          </div>
+        </div>
+
+        {/* Generate Report Card */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            alignSelf: "stretch",
+            borderRadius: "12px",
+            border: "1px solid #E9EAEB",
+            background: "#FFF",
+            overflow: "hidden",
+          }}
+        >
+          {/* Card Header */}
+          <div
+            style={{
+              display: "flex",
+              padding: "16px",
+              alignItems: "center",
+              gap: "16px",
+              alignSelf: "stretch",
+              borderBottom: "1px solid #E9EAEB",
+            }}
+          >
+            <h3
+              style={{
+                color: "#181D27",
+                fontFamily: "Public Sans",
+                fontSize: "18px",
+                fontWeight: 600,
+                lineHeight: "28px",
+                margin: 0,
+                flex: 1,
+              }}
+            >
+              Generate Report
+            </h3>
+          </div>
+
+          {/* Card Content */}
+          <div
+            style={{
+              display: "flex",
+              padding: "12px 16px 16px 16px",
+              flexDirection: "column",
               alignItems: "flex-start",
-              gap: "8px",
+              gap: "24px",
+              alignSelf: "stretch",
             }}
           >
             <div
               style={{
-                color: "#181D27",
-                fontFamily: "Public Sans",
-                fontSize: "16px",
-                fontWeight: 500,
-                lineHeight: "24px",
-              }}
-            >
-              Date Selection
-            </div>
-            <div
-              style={{
-                color: "#414651",
-                fontFamily: "Public Sans",
-                fontSize: "14px",
-                fontWeight: 500,
-                lineHeight: "20px",
-              }}
-            >
-              Select a Date Range or a Specific Time Frame
-            </div>
-            <div
-              style={{
                 display: "flex",
-                alignItems: "center",
-                gap: "16px",
-                flexWrap: "wrap",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "8px",
               }}
             >
-              <div style={{ position: "relative" }}>
+              <div
+                style={{
+                  color: "#181D27",
+                  fontFamily: "Public Sans",
+                  fontSize: "16px",
+                  fontWeight: 500,
+                  lineHeight: "24px",
+                }}
+              >
+                Date Selection
+              </div>
+              <div
+                style={{
+                  color: "#414651",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontWeight: 500,
+                  lineHeight: "20px",
+                }}
+              >
+                Select a Date Range or a Specific Time Frame
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "16px",
+                  flexWrap: "wrap",
+                }}
+              >
+                <div style={{ position: "relative" }}>
+                  <button
+                    type="button"
+                    ref={generateDateButtonRef}
+                    onClick={() => handleOpenDatePicker("generate")}
+                    onMouseEnter={() => setHoveredDateButton("generate")}
+                    onMouseLeave={() => setHoveredDateButton(null)}
+                    style={{
+                      display: "flex",
+                      minHeight: "36px",
+                      padding: "6px 8px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "4px",
+                      borderRadius: "8px",
+                      border: isGenerateActive
+                        ? "1px solid #B3BCE5"
+                        : "1px solid #D5D7DA",
+                      background: isGenerateActive
+                        ? "#F5F5F5"
+                        : isGenerateHovered
+                          ? "#F8F9FA"
+                          : "#FFF",
+                      boxShadow:
+                        "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <svg
+                      style={{ width: "16px", height: "16px" }}
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M14 6.66665H2M10.6667 1.33331V3.99998M5.33333 1.33331V3.99998M5.2 14.6666H10.8C11.9201 14.6666 12.4802 14.6666 12.908 14.4487C13.2843 14.2569 13.5903 13.951 13.782 13.5746C14 13.1468 14 12.5868 14 11.4666V5.86665C14 4.74654 14 4.18649 13.782 3.75867C13.5903 3.38234 13.2843 3.07638 12.908 2.88463C12.4802 2.66665 11.9201 2.66665 10.8 2.66665H5.2C4.0799 2.66665 3.51984 2.66665 3.09202 2.88463C2.71569 3.07638 2.40973 3.38234 2.21799 3.75867C2 4.18649 2 4.74654 2 5.86665V11.4666C2 12.5868 2 13.1468 2.21799 13.5746C2.40973 13.951 2.71569 14.2569 3.09202 14.4487C3.51984 14.6666 4.0799 14.6666 5.2 14.6666Z"
+                        stroke={
+                          isGenerateActive || isGenerateHovered
+                            ? "#717680"
+                            : "#A4A7AE"
+                        }
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    <span
+                      style={{
+                        color: isGenerateActive ? "#252B37" : "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                        padding: "0 2px",
+                      }}
+                    >
+                      {formatDateRange(selectedStartDate, selectedEndDate)}
+                    </span>
+                  </button>
+                </div>
+
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                  }}
+                >
+                  <Checkbox
+                    id="include-account-info"
+                    checked={includeAccountInfo}
+                    onCheckedChange={(checked) =>
+                      setIncludeAccountInfo(checked === true)
+                    }
+                    style={{
+                      borderColor: "#D5D7DA",
+                    }}
+                  />
+                  <label
+                    htmlFor="include-account-info"
+                    style={{
+                      color: "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 500,
+                      lineHeight: "20px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Include account info?
+                  </label>
+                </div>
+
                 <button
-                  type="button"
-                  ref={generateDateButtonRef}
-                  onClick={() => handleOpenDatePicker("generate")}
-                  onMouseEnter={() => setHoveredDateButton("generate")}
-                  onMouseLeave={() => setHoveredDateButton(null)}
                   style={{
                     display: "flex",
                     minHeight: "36px",
@@ -3027,42 +3149,16 @@ export const Reporting: React.FC = () => {
                     alignItems: "center",
                     gap: "4px",
                     borderRadius: "8px",
-                    border: isGenerateActive
-                      ? "1px solid #B3BCE5"
-                      : "1px solid #D5D7DA",
-                    background: isGenerateActive
-                      ? "#F5F5F5"
-                      : isGenerateHovered
-                        ? "#F8F9FA"
-                        : "#FFF",
+                    border: "2px solid rgba(255, 255, 255, 0.12)",
+                    background: "#344698",
                     boxShadow:
                       "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     cursor: "pointer",
                   }}
                 >
-                  <svg
-                    style={{ width: "16px", height: "16px" }}
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M14 6.66665H2M10.6667 1.33331V3.99998M5.33333 1.33331V3.99998M5.2 14.6666H10.8C11.9201 14.6666 12.4802 14.6666 12.908 14.4487C13.2843 14.2569 13.5903 13.951 13.782 13.5746C14 13.1468 14 12.5868 14 11.4666V5.86665C14 4.74654 14 4.18649 13.782 3.75867C13.5903 3.38234 13.2843 3.07638 12.908 2.88463C12.4802 2.66665 11.9201 2.66665 10.8 2.66665H5.2C4.0799 2.66665 3.51984 2.66665 3.09202 2.88463C2.71569 3.07638 2.40973 3.38234 2.21799 3.75867C2 4.18649 2 4.74654 2 5.86665V11.4666C2 12.5868 2 13.1468 2.21799 13.5746C2.40973 13.951 2.71569 14.2569 3.09202 14.4487C3.51984 14.6666 4.0799 14.6666 5.2 14.6666Z"
-                      stroke={
-                        isGenerateActive || isGenerateHovered
-                          ? "#717680"
-                          : "#A4A7AE"
-                      }
-                      strokeWidth="1.66667"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
                   <span
                     style={{
-                      color: isGenerateActive ? "#252B37" : "#414651",
+                      color: "#FFF",
                       fontFamily: "Public Sans",
                       fontSize: "14px",
                       fontWeight: 600,
@@ -3070,44 +3166,99 @@ export const Reporting: React.FC = () => {
                       padding: "0 2px",
                     }}
                   >
-                    {formatDateRange(selectedStartDate, selectedEndDate)}
+                    Create Report
                   </span>
                 </button>
               </div>
+            </div>
 
+            {/* Sample Preview */}
+            <div
+              style={{
+                display: "flex",
+                padding: "12px 8px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "12px",
+                alignSelf: "stretch",
+                borderRadius: "8px",
+                background: "#FAFAFA",
+              }}
+            >
               <div
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
+                  color: "#414651",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontWeight: 500,
+                  lineHeight: "20px",
                 }}
               >
-                <Checkbox
-                  id="include-account-info"
-                  checked={includeAccountInfo}
-                  onCheckedChange={(checked) =>
-                    setIncludeAccountInfo(checked === true)
-                  }
+                Sample
+              </div>
+              <div
+                style={{
+                  width: "100%",
+                  overflowX: "auto",
+                }}
+              >
+                <img
+                  src="https://api.builder.io/api/v1/image/assets/TEMP/8885f072864d855ad9d8da76b0675e7aa467efd5?width=8192"
+                  alt="Sample applicant report preview"
                   style={{
-                    borderColor: "#D5D7DA",
+                    height: "auto",
+                    maxWidth: "100%",
                   }}
                 />
-                <label
-                  htmlFor="include-account-info"
-                  style={{
-                    color: "#414651",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontWeight: 500,
-                    lineHeight: "20px",
-                    cursor: "pointer",
-                  }}
-                >
-                  Include account info?
-                </label>
               </div>
+            </div>
+          </div>
+        </div>
 
+        {/* Report Chart Card */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            alignSelf: "stretch",
+            borderRadius: "12px",
+            border: "1px solid #E9EAEB",
+            background: "#FFF",
+            overflow: "hidden",
+          }}
+        >
+          {/* Card Header */}
+          <div
+            style={{
+              display: "flex",
+              padding: "16px",
+              alignItems: "center",
+              gap: "16px",
+              alignSelf: "stretch",
+              borderBottom: "1px solid #E9EAEB",
+            }}
+          >
+            <h3
+              style={{
+                color: "#181D27",
+                fontFamily: "Public Sans",
+                fontSize: "18px",
+                fontWeight: 600,
+                lineHeight: "28px",
+                margin: 0,
+                flex: 1,
+              }}
+            >
+              Report
+            </h3>
+            <div style={{ position: "relative" }}>
               <button
+                type="button"
+                ref={reportDateButtonRef}
+                onClick={() => handleOpenDatePicker("report")}
+                onMouseEnter={() => setHoveredDateButton("report")}
+                onMouseLeave={() => setHoveredDateButton(null)}
                 style={{
                   display: "flex",
                   minHeight: "36px",
@@ -3116,16 +3267,40 @@ export const Reporting: React.FC = () => {
                   alignItems: "center",
                   gap: "4px",
                   borderRadius: "8px",
-                  border: "2px solid rgba(255, 255, 255, 0.12)",
-                  background: "#344698",
+                  border: isReportActive
+                    ? "1px solid #B3BCE5"
+                    : "1px solid #D5D7DA",
+                  background: isReportActive
+                    ? "#F5F5F5"
+                    : isReportHovered
+                      ? "#F8F9FA"
+                      : "#FFF",
                   boxShadow:
                     "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                   cursor: "pointer",
                 }}
               >
+                <svg
+                  style={{ width: "16px", height: "16px" }}
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14 6.66665H2M10.6667 1.33331V3.99998M5.33333 1.33331V3.99998M5.2 14.6666H10.8C11.9201 14.6666 12.4802 14.6666 12.908 14.4487C13.2843 14.2569 13.5903 13.951 13.782 13.5746C14 13.1468 14 12.5868 14 11.4666V5.86665C14 4.74654 14 4.18649 13.782 3.75867C13.5903 3.38234 13.2843 3.07638 12.908 2.88463C12.4802 2.66665 11.9201 2.66665 10.8 2.66665H5.2C4.0799 2.66665 3.51984 2.66665 3.09202 2.88463C2.71569 3.07638 2.40973 3.38234 2.21799 3.75867C2 4.18649 2 4.74654 2 5.86665V11.4666C2 12.5868 2 13.1468 2.21799 13.5746C2.40973 13.951 2.71569 14.2569 3.09202 14.4487C3.51984 14.6666 4.0799 14.6666 5.2 14.6666Z"
+                    stroke={
+                      isReportActive || isReportHovered ? "#717680" : "#A4A7AE"
+                    }
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
                 <span
                   style={{
-                    color: "#FFF",
+                    color: isReportActive ? "#252B37" : "#414651",
                     fontFamily: "Public Sans",
                     fontSize: "14px",
                     fontWeight: 600,
@@ -3133,175 +3308,32 @@ export const Reporting: React.FC = () => {
                     padding: "0 2px",
                   }}
                 >
-                  Create Report
+                  {formatDateRange(selectedStartDate, selectedEndDate)}
                 </span>
               </button>
             </div>
           </div>
 
-          {/* Sample Preview */}
+          {/* Chart Content */}
           <div
             style={{
               display: "flex",
-              padding: "12px 8px",
+              padding: "12px 16px 16px 16px",
               flexDirection: "column",
               alignItems: "flex-start",
-              gap: "12px",
               alignSelf: "stretch",
-              borderRadius: "8px",
-              background: "#FAFAFA",
+              minHeight: "400px",
             }}
           >
-            <div
-              style={{
-                color: "#414651",
-                fontFamily: "Public Sans",
-                fontSize: "14px",
-                fontWeight: 500,
-                lineHeight: "20px",
-              }}
-            >
-              Sample
-            </div>
-            <div
-              style={{
-                width: "100%",
-                overflowX: "auto",
-              }}
-            >
-              <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/8885f072864d855ad9d8da76b0675e7aa467efd5?width=8192"
-                alt="Sample applicant report preview"
-                style={{
-                  height: "auto",
-                  maxWidth: "100%",
-                }}
-              />
-            </div>
+            <TurnaroundTimeChart
+              isMobile={isMobile}
+              isTablet={isTablet}
+              windowWidth={windowWidth}
+            />
           </div>
         </div>
       </div>
-
-      {/* Report Chart Card */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          alignSelf: "stretch",
-          borderRadius: "12px",
-          border: "1px solid #E9EAEB",
-          background: "#FFF",
-          overflow: "hidden",
-        }}
-      >
-        {/* Card Header */}
-        <div
-          style={{
-            display: "flex",
-            padding: "16px",
-            alignItems: "center",
-            gap: "16px",
-            alignSelf: "stretch",
-            borderBottom: "1px solid #E9EAEB",
-          }}
-        >
-          <h3
-            style={{
-              color: "#181D27",
-              fontFamily: "Public Sans",
-              fontSize: "18px",
-              fontWeight: 600,
-              lineHeight: "28px",
-              margin: 0,
-              flex: 1,
-            }}
-          >
-            Report
-          </h3>
-          <div style={{ position: "relative" }}>
-            <button
-              type="button"
-              ref={reportDateButtonRef}
-              onClick={() => handleOpenDatePicker("report")}
-              onMouseEnter={() => setHoveredDateButton("report")}
-              onMouseLeave={() => setHoveredDateButton(null)}
-              style={{
-                display: "flex",
-                minHeight: "36px",
-                padding: "6px 8px",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "4px",
-                borderRadius: "8px",
-                border: isReportActive
-                  ? "1px solid #B3BCE5"
-                  : "1px solid #D5D7DA",
-                background: isReportActive
-                  ? "#F5F5F5"
-                  : isReportHovered
-                    ? "#F8F9FA"
-                    : "#FFF",
-                boxShadow:
-                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                cursor: "pointer",
-              }}
-            >
-              <svg
-                style={{ width: "16px", height: "16px" }}
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M14 6.66665H2M10.6667 1.33331V3.99998M5.33333 1.33331V3.99998M5.2 14.6666H10.8C11.9201 14.6666 12.4802 14.6666 12.908 14.4487C13.2843 14.2569 13.5903 13.951 13.782 13.5746C14 13.1468 14 12.5868 14 11.4666V5.86665C14 4.74654 14 4.18649 13.782 3.75867C13.5903 3.38234 13.2843 3.07638 12.908 2.88463C12.4802 2.66665 11.9201 2.66665 10.8 2.66665H5.2C4.0799 2.66665 3.51984 2.66665 3.09202 2.88463C2.71569 3.07638 2.40973 3.38234 2.21799 3.75867C2 4.18649 2 4.74654 2 5.86665V11.4666C2 12.5868 2 13.1468 2.21799 13.5746C2.40973 13.951 2.71569 14.2569 3.09202 14.4487C3.51984 14.6666 4.0799 14.6666 5.2 14.6666Z"
-                  stroke={
-                    isReportActive || isReportHovered ? "#717680" : "#A4A7AE"
-                  }
-                  strokeWidth="1.66667"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span
-                style={{
-                  color: isReportActive ? "#252B37" : "#414651",
-                  fontFamily: "Public Sans",
-                  fontSize: "14px",
-                  fontWeight: 600,
-                  lineHeight: "20px",
-                  padding: "0 2px",
-                }}
-              >
-                {formatDateRange(selectedStartDate, selectedEndDate)}
-              </span>
-            </button>
-          </div>
-        </div>
-
-        {/* Chart Content */}
-        <div
-          style={{
-            display: "flex",
-            padding: "12px 16px 16px 16px",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            alignSelf: "stretch",
-            minHeight: "400px",
-          }}
-        >
-          <TurnaroundTimeChart
-            isMobile={isMobile}
-            isTablet={isTablet}
-            windowWidth={windowWidth}
-          />
-        </div>
-      </div>
-
-    </div>
-  );
+    );
   };
 
   return (
@@ -3499,7 +3531,6 @@ export const Reporting: React.FC = () => {
           </div>
 
           {renderTabContent()}
-
         </div>
       </div>
 
