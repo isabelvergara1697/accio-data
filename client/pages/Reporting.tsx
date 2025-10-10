@@ -6,6 +6,128 @@ import DesktopCalendar from "../components/ui/desktop-calendar";
 import DatePickerCalendar from "../components/ui/date-picker-calendar";
 import { TurnaroundTimeChart } from "../components/ui/turnaround-time-widget";
 
+type ProductTypeFilterOption = {
+  id: string;
+  label: string;
+};
+
+type ProductTypeMetric = {
+  id: string;
+  name: string;
+  orders: number;
+  completed: number;
+  inProcess: number;
+  needsAttention: number;
+  avgCompletionHours: number;
+  change: number;
+};
+
+const PRODUCT_TYPE_FILTERS: ProductTypeFilterOption[] = [
+  { id: "all", label: "All product types" },
+  { id: "drug", label: "Drug screening" },
+  { id: "criminal", label: "Criminal search" },
+  { id: "employment", label: "Employment verification" },
+  { id: "education", label: "Education verification" },
+  { id: "credit", label: "Credit check" },
+  { id: "mvr", label: "Motor vehicle records" },
+];
+
+const PRODUCT_TYPE_METRICS: ProductTypeMetric[] = [
+  {
+    id: "drug",
+    name: "Drug Screening",
+    orders: 184,
+    completed: 168,
+    inProcess: 12,
+    needsAttention: 4,
+    avgCompletionHours: 39,
+    change: 8,
+  },
+  {
+    id: "criminal",
+    name: "Criminal Search",
+    orders: 212,
+    completed: 194,
+    inProcess: 11,
+    needsAttention: 7,
+    avgCompletionHours: 46,
+    change: 4,
+  },
+  {
+    id: "employment",
+    name: "Employment Verification",
+    orders: 158,
+    completed: 134,
+    inProcess: 16,
+    needsAttention: 8,
+    avgCompletionHours: 58,
+    change: -3,
+  },
+  {
+    id: "education",
+    name: "Education Verification",
+    orders: 126,
+    completed: 112,
+    inProcess: 9,
+    needsAttention: 5,
+    avgCompletionHours: 52,
+    change: 2,
+  },
+  {
+    id: "credit",
+    name: "Credit Check",
+    orders: 98,
+    completed: 94,
+    inProcess: 3,
+    needsAttention: 1,
+    avgCompletionHours: 24,
+    change: 5,
+  },
+  {
+    id: "mvr",
+    name: "Motor Vehicle Records",
+    orders: 142,
+    completed: 131,
+    inProcess: 7,
+    needsAttention: 4,
+    avgCompletionHours: 18,
+    change: -1,
+  },
+];
+
+const formatTurnaroundTime = (hours: number): string => {
+  if (hours >= 24) {
+    const days = hours / 24;
+    const formattedDays = Number.isInteger(days) ? days.toString() : days.toFixed(1);
+    const suffix = Number(days.toFixed(1)) === 1 ? " day" : " days";
+    return `${formattedDays}${suffix}`;
+  }
+
+  const formattedHours = Number.isInteger(hours) ? hours.toString() : hours.toFixed(1);
+  const suffix = hours === 1 ? " hr" : " hrs";
+  return `${formattedHours}${suffix}`;
+};
+
+const getTrendStyles = (change: number) => {
+  if (change > 0) {
+    return { color: "#067647", background: "rgba(6, 118, 71, 0.12)" };
+  }
+
+  if (change < 0) {
+    return { color: "#B42318", background: "rgba(180, 35, 24, 0.12)" };
+  }
+
+  return { color: "#414651", background: "rgba(65, 70, 81, 0.12)" };
+};
+
+const getCompletionPercent = (metric: ProductTypeMetric): number => {
+  if (metric.orders <= 0) {
+    return 0;
+  }
+
+  return Math.min(100, Math.round((metric.completed / metric.orders) * 100));
+};
+
 export const Reporting: React.FC = () => {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1200);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
