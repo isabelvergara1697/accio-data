@@ -228,16 +228,8 @@ export const Reporting: React.FC = () => {
   const isGenerateHovered = hoveredDateButton === "generate";
   const isReportHovered = hoveredDateButton === "report";
 
-  const filteredProductMetrics = useMemo(() => {
-    if (selectedProductType === "all") {
-      return PRODUCT_TYPE_METRICS;
-    }
-
-    return PRODUCT_TYPE_METRICS.filter((metric) => metric.id === selectedProductType);
-  }, [selectedProductType]);
-
   const aggregatedProductMetrics = useMemo(() => {
-    if (filteredProductMetrics.length === 0) {
+    if (PRODUCT_TYPE_METRICS.length === 0) {
       return {
         orders: 0,
         completed: 0,
@@ -248,7 +240,7 @@ export const Reporting: React.FC = () => {
       };
     }
 
-    const totals = filteredProductMetrics.reduce(
+    const totals = PRODUCT_TYPE_METRICS.reduce(
       (acc, metric) => {
         acc.orders += metric.orders;
         acc.completed += metric.completed;
@@ -272,11 +264,7 @@ export const Reporting: React.FC = () => {
       averageHours,
       completionRate,
     };
-  }, [filteredProductMetrics]);
-
-  const selectedProductFilter = useMemo(() => {
-    return PRODUCT_TYPE_FILTERS.find((filter) => filter.id === selectedProductType);
-  }, [selectedProductType]);
+  }, []);
 
   const renderTabContent = () => {
     switch (activeTab) {
