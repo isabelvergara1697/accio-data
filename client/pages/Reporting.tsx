@@ -1122,6 +1122,518 @@ export const Reporting: React.FC = () => {
             />
           </div>
         </div>
+
+        {/* Product Type Overview */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            alignSelf: "stretch",
+            borderRadius: "12px",
+            border: "1px solid #E9EAEB",
+            background: "#FFF",
+            overflow: "hidden",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              padding: "16px",
+              alignItems: "center",
+              gap: "24px",
+              alignSelf: "stretch",
+              borderBottom: "1px solid #E9EAEB",
+              justifyContent: "space-between",
+            }}
+          >
+            <h3
+              style={{
+                color: "#181D27",
+                fontFamily: "Public Sans",
+                fontSize: "18px",
+                fontWeight: 600,
+                lineHeight: "28px",
+                margin: 0,
+              }}
+            >
+              Product Type Overview
+            </h3>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "24px",
+                alignItems: "center",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "4px",
+                  minWidth: "120px",
+                }}
+              >
+                <span
+                  style={{
+                    color: "#535862",
+                    fontFamily: "Public Sans",
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    letterSpacing: "0.04em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Selection
+                </span>
+                <span
+                  style={{
+                    color: "#273572",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    lineHeight: "20px",
+                  }}
+                >
+                  {selectionLabel}
+                </span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "4px",
+                  minWidth: "100px",
+                }}
+              >
+                <span
+                  style={{
+                    color: "#535862",
+                    fontFamily: "Public Sans",
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    letterSpacing: "0.04em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Orders
+                </span>
+                <span
+                  style={{
+                    color: "#181D27",
+                    fontFamily: "Public Sans",
+                    fontSize: "18px",
+                    fontWeight: 600,
+                    lineHeight: "24px",
+                  }}
+                >
+                  {aggregatedProductMetrics.orders.toLocaleString()}
+                </span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "4px",
+                  minWidth: "120px",
+                }}
+              >
+                <span
+                  style={{
+                    color: "#535862",
+                    fontFamily: "Public Sans",
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    letterSpacing: "0.04em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Completion Rate
+                </span>
+                <span
+                  style={{
+                    color: "#067647",
+                    fontFamily: "Public Sans",
+                    fontSize: "18px",
+                    fontWeight: 600,
+                    lineHeight: "24px",
+                  }}
+                >
+                  {aggregatedProductMetrics.completionRate}%
+                </span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "4px",
+                  minWidth: "140px",
+                }}
+              >
+                <span
+                  style={{
+                    color: "#535862",
+                    fontFamily: "Public Sans",
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    letterSpacing: "0.04em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Avg Turnaround
+                </span>
+                <span
+                  style={{
+                    color: "#181D27",
+                    fontFamily: "Public Sans",
+                    fontSize: "18px",
+                    fontWeight: 600,
+                    lineHeight: "24px",
+                  }}
+                >
+                  {averageTurnaroundLabel}
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            style={{
+              padding: "0 16px 16px 16px",
+              alignSelf: "stretch",
+              width: "100%",
+            }}
+          >
+            <div
+              style={{
+                width: "100%",
+                overflowX: "auto",
+              }}
+            >
+              <table
+                style={{
+                  width: "100%",
+                  borderCollapse: "separate",
+                  borderSpacing: 0,
+                }}
+              >
+                <thead>
+                  <tr>
+                    <th
+                      style={{
+                        padding: "12px 16px",
+                        textAlign: "left",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontWeight: 600,
+                        lineHeight: "16px",
+                        letterSpacing: "0.04em",
+                        textTransform: "uppercase",
+                        color: "#535862",
+                        background: "#F5F5F5",
+                        borderBottom: "1px solid #E9EAEB",
+                      }}
+                    >
+                      Product Type
+                    </th>
+                    <th
+                      style={{
+                        padding: "12px 16px",
+                        textAlign: "right",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontWeight: 600,
+                        lineHeight: "16px",
+                        letterSpacing: "0.04em",
+                        textTransform: "uppercase",
+                        color: "#535862",
+                        background: "#F5F5F5",
+                        borderBottom: "1px solid #E9EAEB",
+                      }}
+                    >
+                      Orders
+                    </th>
+                    <th
+                      style={{
+                        padding: "12px 16px",
+                        textAlign: "right",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontWeight: 600,
+                        lineHeight: "16px",
+                        letterSpacing: "0.04em",
+                        textTransform: "uppercase",
+                        color: "#535862",
+                        background: "#F5F5F5",
+                        borderBottom: "1px solid #E9EAEB",
+                      }}
+                    >
+                      Completed
+                    </th>
+                    <th
+                      style={{
+                        padding: "12px 16px",
+                        textAlign: "right",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontWeight: 600,
+                        lineHeight: "16px",
+                        letterSpacing: "0.04em",
+                        textTransform: "uppercase",
+                        color: "#535862",
+                        background: "#F5F5F5",
+                        borderBottom: "1px solid #E9EAEB",
+                      }}
+                    >
+                      In Process
+                    </th>
+                    <th
+                      style={{
+                        padding: "12px 16px",
+                        textAlign: "right",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontWeight: 600,
+                        lineHeight: "16px",
+                        letterSpacing: "0.04em",
+                        textTransform: "uppercase",
+                        color: "#535862",
+                        background: "#F5F5F5",
+                        borderBottom: "1px solid #E9EAEB",
+                      }}
+                    >
+                      Needs Attention
+                    </th>
+                    <th
+                      style={{
+                        padding: "12px 16px",
+                        textAlign: "left",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontWeight: 600,
+                        lineHeight: "16px",
+                        letterSpacing: "0.04em",
+                        textTransform: "uppercase",
+                        color: "#535862",
+                        background: "#F5F5F5",
+                        borderBottom: "1px solid #E9EAEB",
+                      }}
+                    >
+                      Completion Rate
+                    </th>
+                    <th
+                      style={{
+                        padding: "12px 16px",
+                        textAlign: "right",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontWeight: 600,
+                        lineHeight: "16px",
+                        letterSpacing: "0.04em",
+                        textTransform: "uppercase",
+                        color: "#535862",
+                        background: "#F5F5F5",
+                        borderBottom: "1px solid #E9EAEB",
+                      }}
+                    >
+                      Avg Turnaround
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {productMetrics.map((metric, index) => {
+                    const completionPercent = getCompletionPercent(metric);
+                    const trendStyles = getTrendStyles(metric.change);
+                    const rowBorder =
+                      index === productMetrics.length - 1 ? "none" : "1px solid #E9EAEB";
+
+                    return (
+                      <tr key={metric.id}>
+                        <td
+                          style={{
+                            padding: "16px",
+                            borderBottom: rowBorder,
+                            verticalAlign: "top",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              gap: "8px",
+                            }}
+                          >
+                            <span
+                              style={{
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 600,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              {metric.name}
+                            </span>
+                            <span
+                              style={{
+                                display: "inline-flex",
+                                width: "fit-content",
+                                alignItems: "center",
+                                gap: "6px",
+                                padding: "4px 10px",
+                                borderRadius: "999px",
+                                background: trendStyles.background,
+                                color: trendStyles.color,
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "16px",
+                              }}
+                            >
+                              {metric.change > 0 ? "+" : ""}
+                              {metric.change}%
+                            </span>
+                          </div>
+                        </td>
+                        <td
+                          style={{
+                            padding: "16px",
+                            borderBottom: rowBorder,
+                            textAlign: "right",
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          {metric.orders.toLocaleString()}
+                        </td>
+                        <td
+                          style={{
+                            padding: "16px",
+                            borderBottom: rowBorder,
+                            textAlign: "right",
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          {metric.completed.toLocaleString()}
+                        </td>
+                        <td
+                          style={{
+                            padding: "16px",
+                            borderBottom: rowBorder,
+                            textAlign: "right",
+                            color: "#535862",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          {metric.inProcess.toLocaleString()}
+                        </td>
+                        <td
+                          style={{
+                            padding: "16px",
+                            borderBottom: rowBorder,
+                            textAlign: "right",
+                          }}
+                        >
+                          <span
+                            style={{
+                              display: "inline-flex",
+                              alignItems: "center",
+                              justifyContent: "flex-end",
+                              minWidth: "64px",
+                              padding: "4px 10px",
+                              borderRadius: "999px",
+                              background: "#FEE4E2",
+                              color: "#B42318",
+                              fontFamily: "Public Sans",
+                              fontSize: "12px",
+                              fontWeight: 600,
+                              lineHeight: "16px",
+                            }}
+                          >
+                            {metric.needsAttention.toLocaleString()}
+                          </span>
+                        </td>
+                        <td
+                          style={{
+                            padding: "16px",
+                            borderBottom: rowBorder,
+                            verticalAlign: "middle",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "12px",
+                            }}
+                          >
+                            <div
+                              style={{
+                                flex: "1 1 0%",
+                                height: "6px",
+                                borderRadius: "999px",
+                                background: "#E9EAEB",
+                                overflow: "hidden",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: `${completionPercent}%`,
+                                  height: "100%",
+                                  borderRadius: "inherit",
+                                  background: "#344698",
+                                  transition: "width 0.2s ease",
+                                }}
+                              />
+                            </div>
+                            <span
+                              style={{
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "13px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                minWidth: "40px",
+                                textAlign: "right",
+                              }}
+                            >
+                              {completionPercent}%
+                            </span>
+                          </div>
+                        </td>
+                        <td
+                          style={{
+                            padding: "16px",
+                            borderBottom: rowBorder,
+                            textAlign: "right",
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          {formatTurnaroundTime(metric.avgCompletionHours)}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     );
   };
