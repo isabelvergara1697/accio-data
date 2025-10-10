@@ -1640,6 +1640,408 @@ export const Reporting: React.FC = () => {
     );
   };
 
+  const renderPendingIndividualContent = () => (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        gap: "24px",
+        alignSelf: "stretch",
+        padding: isMobile ? "16px" : "24px 32px",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          gap: "20px",
+          alignSelf: "stretch",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "2px",
+            flex: "1 0 0",
+          }}
+        >
+          <h2
+            style={{
+              color: "#181D27",
+              fontFamily: "Public Sans",
+              fontSize: "18px",
+              fontWeight: 600,
+              lineHeight: "28px",
+              margin: 0,
+            }}
+          >
+            Pending Individual Report
+          </h2>
+          <p
+            style={{
+              color: "#535862",
+              fontFamily: "Public Sans",
+              fontSize: "14px",
+              fontWeight: 400,
+              lineHeight: "20px",
+              margin: 0,
+            }}
+          >
+            This report produces a CSV file containing information on subjects that have pending
+            background checks. This will not report on items pending longer than 6 months. Includes
+            reports for this account only unless this user has the ability to view other accounts,
+            in which case this report will include all of this account&apos;s &lsquo;Additional Accounts
+            Viewable&rsquo;.
+          </p>
+        </div>
+      </div>
+
+      {/* Generate Report Card */}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          alignSelf: "stretch",
+          borderRadius: "12px",
+          border: "1px solid #E9EAEB",
+          background: "#FFF",
+          overflow: "hidden",
+        }}
+      >
+        {/* Card Header */}
+        <div
+          style={{
+            display: "flex",
+            padding: "16px",
+            alignItems: "center",
+            gap: "16px",
+            alignSelf: "stretch",
+            borderBottom: "1px solid #E9EAEB",
+          }}
+        >
+          <h3
+            style={{
+              color: "#181D27",
+              fontFamily: "Public Sans",
+              fontSize: "18px",
+              fontWeight: 600,
+              lineHeight: "28px",
+              margin: 0,
+              flex: 1,
+            }}
+          >
+            Generate Report
+          </h3>
+        </div>
+
+        {/* Card Content */}
+        <div
+          style={{
+            display: "flex",
+            padding: "12px 16px 16px 16px",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: "24px",
+            alignSelf: "stretch",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "8px",
+            }}
+          >
+            <div
+              style={{
+                color: "#181D27",
+                fontFamily: "Public Sans",
+                fontSize: "16px",
+                fontWeight: 500,
+                lineHeight: "24px",
+              }}
+            >
+              Date Selection
+            </div>
+            <div
+              style={{
+                color: "#414651",
+                fontFamily: "Public Sans",
+                fontSize: "14px",
+                fontWeight: 500,
+                lineHeight: "20px",
+              }}
+            >
+              Select a Date Range or a Specific Time Frame
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "16px",
+                flexWrap: "wrap",
+              }}
+            >
+              <div style={{ position: "relative" }}>
+                <button
+                  type="button"
+                  ref={generateDateButtonRef}
+                  onClick={() => handleOpenDatePicker("generate")}
+                  onMouseEnter={() => setHoveredDateButton("generate")}
+                  onMouseLeave={() => setHoveredDateButton(null)}
+                  style={{
+                    display: "flex",
+                    minHeight: "36px",
+                    padding: "6px 8px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "4px",
+                    borderRadius: "8px",
+                    border: isGenerateActive
+                      ? "1px solid #B3BCE5"
+                      : "1px solid #D5D7DA",
+                    background: isGenerateActive
+                      ? "#F5F5F5"
+                      : isGenerateHovered
+                        ? "#F8F9FA"
+                        : "#FFF",
+                    boxShadow:
+                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    cursor: "pointer",
+                  }}
+                >
+                  <svg
+                    style={{ width: "16px", height: "16px" }}
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M14 6.66665H2M10.6667 1.33331V3.99998M5.33333 1.33331V3.99998M5.2 14.6666H10.8C11.9201 14.6666 12.4802 14.6666 12.908 14.4487C13.2843 14.2569 13.5903 13.951 13.782 13.5746C14 13.1468 14 12.5868 14 11.4666V5.86665C14 4.74654 14 4.18649 13.782 3.75867C13.5903 3.38234 13.2843 3.07638 12.908 2.88463C12.4802 2.66665 11.9201 2.66665 10.8 2.66665H5.2C4.0799 2.66665 3.51984 2.66665 3.09202 2.88463C2.71569 3.07638 2.40973 3.38234 2.21799 3.75867C2 4.18649 2 4.74654 2 5.86665V11.4666C2 12.5868 2 13.1468 2.21799 13.5746C2.40973 13.951 2.71569 14.2569 3.09202 14.4487C3.51984 14.6666 4.0799 14.6666 5.2 14.6666Z"
+                      stroke={
+                        isGenerateActive || isGenerateHovered ? "#717680" : "#A4A7AE"
+                      }
+                      strokeWidth="1.66667"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span
+                    style={{
+                      color: isGenerateActive ? "#252B37" : "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                      padding: "0 2px",
+                    }}
+                  >
+                    {formatDateRange(selectedStartDate, selectedEndDate)}
+                  </span>
+                </button>
+              </div>
+              <button
+                style={{
+                  display: "flex",
+                  minHeight: "36px",
+                  padding: "6px 8px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: "4px",
+                  borderRadius: "8px",
+                  border: "2px solid rgba(255, 255, 255, 0.12)",
+                  background: "#344698",
+                  boxShadow:
+                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  cursor: "pointer",
+                }}
+              >
+                <span
+                  style={{
+                    color: "#FFF",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    lineHeight: "20px",
+                    padding: "0 2px",
+                  }}
+                >
+                  Create Report
+                </span>
+              </button>
+            </div>
+          </div>
+
+          {/* Sample Preview */}
+          <div
+            style={{
+              display: "flex",
+              padding: "12px 8px",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "12px",
+              alignSelf: "stretch",
+              borderRadius: "8px",
+              background: "#FAFAFA",
+            }}
+          >
+            <div
+              style={{
+                color: "#414651",
+                fontFamily: "Public Sans",
+                fontSize: "14px",
+                fontWeight: 500,
+                lineHeight: "20px",
+              }}
+            >
+              Sample
+            </div>
+            <div
+              style={{
+                width: "100%",
+                overflowX: "auto",
+              }}
+            >
+              <img
+                src="https://api.builder.io/api/v1/image/assets/TEMP/a59ff89d8caa4d5710101811f55d3651ae63b5e7?width=4096"
+                alt="Sample pending individual report preview"
+                style={{
+                  height: "auto",
+                  maxWidth: "100%",
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Report Chart Card */}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          alignSelf: "stretch",
+          borderRadius: "12px",
+          border: "1px solid #E9EAEB",
+          background: "#FFF",
+          overflow: "hidden",
+        }}
+      >
+        {/* Card Header */}
+        <div
+          style={{
+            display: "flex",
+            padding: "16px",
+            alignItems: "center",
+            gap: "16px",
+            alignSelf: "stretch",
+            borderBottom: "1px solid #E9EAEB",
+          }}
+        >
+          <h3
+            style={{
+              color: "#181D27",
+              fontFamily: "Public Sans",
+              fontSize: "18px",
+              fontWeight: 600,
+              lineHeight: "28px",
+              margin: 0,
+              flex: 1,
+            }}
+          >
+            Report
+          </h3>
+          <div style={{ position: "relative" }}>
+            <button
+              type="button"
+              ref={reportDateButtonRef}
+              onClick={() => handleOpenDatePicker("report")}
+              onMouseEnter={() => setHoveredDateButton("report")}
+              onMouseLeave={() => setHoveredDateButton(null)}
+              style={{
+                display: "flex",
+                minHeight: "36px",
+                padding: "6px 8px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "4px",
+                borderRadius: "8px",
+                border: isReportActive
+                  ? "1px solid #B3BCE5"
+                  : "1px solid #D5D7DA",
+                background: isReportActive
+                  ? "#F5F5F5"
+                  : isReportHovered
+                    ? "#F8F9FA"
+                    : "#FFF",
+                boxShadow:
+                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                cursor: "pointer",
+              }}
+            >
+              <svg
+                style={{ width: "16px", height: "16px" }}
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14 6.66665H2M10.6667 1.33331V3.99998M5.33333 1.33331V3.99998M5.2 14.6666H10.8C11.9201 14.6666 12.4802 14.6666 12.908 14.4487C13.2843 14.2569 13.5903 13.951 13.782 13.5746C14 13.1468 14 12.5868 14 11.4666V5.86665C14 4.74654 14 4.18649 13.782 3.75867C13.5903 3.38234 13.2843 3.07638 12.908 2.88463C12.4802 2.66665 11.9201 2.66665 10.8 2.66665H5.2C4.0799 2.66665 3.51984 2.66665 3.09202 2.88463C2.71569 3.07638 2.40973 3.38234 2.21799 3.75867C2 4.18649 2 4.74654 2 5.86665V11.4666C2 12.5868 2 13.1468 2.21799 13.5746C2.40973 13.951 2.71569 14.2569 3.09202 14.4487C3.51984 14.6666 4.0799 14.6666 5.2 14.6666Z"
+                  stroke={
+                    isReportActive || isReportHovered ? "#717680" : "#A4A7AE"
+                  }
+                  strokeWidth="1.66667"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span
+                style={{
+                  color: isReportActive ? "#252B37" : "#414651",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontWeight: 600,
+                  lineHeight: "20px",
+                  padding: "0 2px",
+                }}
+              >
+                {formatDateRange(selectedStartDate, selectedEndDate)}
+              </span>
+            </button>
+          </div>
+        </div>
+
+        {/* Chart Content */}
+        <div
+          style={{
+            display: "flex",
+            padding: "12px 16px 16px 16px",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            alignSelf: "stretch",
+            minHeight: "400px",
+          }}
+        >
+          <TurnaroundTimeChart
+            isMobile={isMobile}
+            isTablet={isTablet}
+            windowWidth={windowWidth}
+          />
+        </div>
+      </div>
+    </div>
+  );
+
   const renderSubjectContent = () => {
     return (
       <div
