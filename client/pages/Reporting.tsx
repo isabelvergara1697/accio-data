@@ -2322,21 +2322,12 @@ export const Reporting: React.FC = () => {
             >
               Sample
             </div>
-            <div
-              style={{
-                width: "100%",
-                overflowX: "auto",
-              }}
-            >
-              <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/99a4ba92b3f8663b36bf02fffe86d7deac44e03c?width=8192"
-                alt="Sample subject alert report preview"
-                style={{
-                  height: "auto",
-                  maxWidth: "100%",
-                }}
-              />
-            </div>
+            <SamplePreviewImage
+            src="https://api.builder.io/api/v1/image/assets/TEMP/99a4ba92b3f8663b36bf02fffe86d7deac44e03c?width=8192"
+            alt="Sample subject alert report preview"
+            isTablet={isTablet}
+            windowWidth={windowWidth}
+          />
           </div>
         </div>
       </div>
