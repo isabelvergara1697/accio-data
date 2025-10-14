@@ -421,10 +421,10 @@ export const Reporting: React.FC = () => {
   const mobileButtonGroupStyles: React.CSSProperties = isMobile
     ? {
         flexDirection: "column",
-                            alignItems: "stretch",
+        alignItems: "stretch",
         flexWrap: "nowrap",
         width: "100%",
-                            gap: "12px",
+        gap: "12px",
       }
     : {};
 
