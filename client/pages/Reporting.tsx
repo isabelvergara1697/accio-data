@@ -602,7 +602,6 @@ export const Reporting: React.FC = () => {
             </div>
             <div
               style={{
-                ...mobileButtonStyles,
                 display: "flex",
                 alignItems: "flex-start",
                 gap: "16px",
@@ -1043,11 +1042,10 @@ export const Reporting: React.FC = () => {
                 Select a Date Range or a Specific Time Frame
               </div>
               <div
-                style={{
-                ...mobileButtonStyles,
+              style={{
                 display: "flex",
-                  alignItems: "flex-start",
-                  gap: "16px",
+                alignItems: "flex-start",
+                gap: "16px",
                 flexWrap: "wrap",
                 ...mobileButtonGroupStyles,
               }}
