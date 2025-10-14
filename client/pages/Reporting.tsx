@@ -419,7 +419,7 @@ export const Reporting: React.FC = () => {
     };
   }, []);
 
-  const mobileButtonGroupStyles: React.CSSProperties = isMobile
+  const mobileButtonGroupStyles: React.CSSProperties = isSmallScreen
     ? {
         flexDirection: "column",
         alignItems: "stretch",
@@ -429,7 +429,7 @@ export const Reporting: React.FC = () => {
       }
     : {};
 
-  const mobileButtonWrapperStyles: React.CSSProperties = isMobile
+  const mobileButtonWrapperStyles: React.CSSProperties = isSmallScreen
     ? {
         width: "100%",
       }
