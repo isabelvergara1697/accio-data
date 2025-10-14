@@ -674,8 +674,8 @@ export const Reporting: React.FC = () => {
               </div>
               <button
                 style={{
-
-                display: "flex",
+                  ...mobileButtonStyles,
+                  display: "flex",
                   minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
@@ -1114,21 +1114,21 @@ export const Reporting: React.FC = () => {
                   </button>
                 </div>
                 <button
-                  style={{
-
-                display: "flex",
-                    minHeight: "36px",
-                    padding: "6px 8px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "4px",
-                    borderRadius: "8px",
-                    border: "2px solid rgba(255, 255, 255, 0.12)",
-                    background: "#344698",
-                    boxShadow:
-                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                    cursor: "pointer",
-                  }}
+                style={{
+                  ...mobileButtonStyles,
+                  display: "flex",
+                  minHeight: "36px",
+                  padding: "6px 8px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: "4px",
+                  borderRadius: "8px",
+                  border: "2px solid rgba(255, 255, 255, 0.12)",
+                  background: "#344698",
+                  boxShadow:
+                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  cursor: "pointer",
+                }}
                 >
                   <span
                     style={{
@@ -1952,8 +1952,8 @@ export const Reporting: React.FC = () => {
             >
               <button
                 style={{
-
-                display: "flex",
+                  ...mobileButtonStyles,
+                  display: "flex",
                   minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
@@ -2310,8 +2310,8 @@ export const Reporting: React.FC = () => {
               </label>
               <button
                 style={{
-
-                display: "flex",
+                  ...mobileButtonStyles,
+                  display: "flex",
                   minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
@@ -3312,21 +3312,21 @@ export const Reporting: React.FC = () => {
                 </div>
 
                 <button
-                  style={{
-
-                display: "flex",
-                    minHeight: "36px",
-                    padding: "6px 8px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "4px",
-                    borderRadius: "8px",
-                    border: "2px solid rgba(255, 255, 255, 0.12)",
-                    background: "#344698",
-                    boxShadow:
-                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                    cursor: "pointer",
-                  }}
+                style={{
+                  ...mobileButtonStyles,
+                  display: "flex",
+                  minHeight: "36px",
+                  padding: "6px 8px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: "4px",
+                  borderRadius: "8px",
+                  border: "2px solid rgba(255, 255, 255, 0.12)",
+                  background: "#344698",
+                  boxShadow:
+                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  cursor: "pointer",
+                }}
                 >
                   <span
                     style={{
