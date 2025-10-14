@@ -618,7 +618,7 @@ export const Reporting: React.FC = () => {
                   onMouseLeave={() => setHoveredDateButton(null)}
                   style={{
                     display: "flex",
-                    width: isMobile ? "100%" : "auto",
+                                        width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                     padding: "6px 8px",
                     justifyContent: "center",
@@ -675,7 +675,7 @@ export const Reporting: React.FC = () => {
               <button
                 style={{
                     display: "flex",
-                    width: isMobile ? "100%" : "auto",
+                                        width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
@@ -785,7 +785,7 @@ export const Reporting: React.FC = () => {
               onMouseLeave={() => setHoveredDateButton(null)}
               style={{
                     display: "flex",
-                    width: isMobile ? "100%" : "auto",
+                                        width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                 padding: "6px 8px",
                 justifyContent: "center",
@@ -1057,7 +1057,7 @@ export const Reporting: React.FC = () => {
                     onMouseLeave={() => setHoveredDateButton(null)}
                     style={{
                     display: "flex",
-                    width: isMobile ? "100%" : "auto",
+                                        width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                     padding: "6px 8px",
                     justifyContent: "center",
@@ -1114,7 +1114,7 @@ export const Reporting: React.FC = () => {
                 <button
                 style={{
                     display: "flex",
-                    width: isMobile ? "100%" : "auto",
+                                        width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
@@ -1224,7 +1224,7 @@ export const Reporting: React.FC = () => {
                 onMouseLeave={() => setHoveredDateButton(null)}
                 style={{
                     display: "flex",
-                    width: isMobile ? "100%" : "auto",
+                                        width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
@@ -1942,7 +1942,7 @@ export const Reporting: React.FC = () => {
               <button
                 style={{
                     display: "flex",
-                    width: isMobile ? "100%" : "auto",
+                                        width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
@@ -2182,7 +2182,7 @@ export const Reporting: React.FC = () => {
                   onMouseLeave={() => setHoveredDateButton(null)}
                   style={{
                     display: "flex",
-                    width: isMobile ? "100%" : "auto",
+                                        width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                     padding: "6px 8px",
                     justifyContent: "center",
@@ -2294,7 +2294,7 @@ export const Reporting: React.FC = () => {
               <button
                 style={{
                     display: "flex",
-                    width: isMobile ? "100%" : "auto",
+                                        width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
@@ -2419,7 +2419,7 @@ export const Reporting: React.FC = () => {
                 onMouseLeave={() => setHoveredDateButton(null)}
                 style={{
                     display: "flex",
-                    width: isMobile ? "100%" : "auto",
+                                        width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
@@ -2474,7 +2474,7 @@ export const Reporting: React.FC = () => {
             <button
               style={{
                     display: "flex",
-                    width: isMobile ? "100%" : "auto",
+                                        width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                 padding: "6px 8px",
                 justifyContent: "center",
@@ -2670,7 +2670,7 @@ export const Reporting: React.FC = () => {
             <button
               style={{
                     display: "flex",
-                    width: isMobile ? "100%" : "auto",
+                                        width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                 padding: "6px 8px",
                 justifyContent: "center",
@@ -2724,7 +2724,7 @@ export const Reporting: React.FC = () => {
             <button
               style={{
                     display: "flex",
-                    width: isMobile ? "100%" : "auto",
+                                        width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                 padding: "6px 8px",
                 justifyContent: "center",
@@ -2778,7 +2778,7 @@ export const Reporting: React.FC = () => {
             <button
               style={{
                     display: "flex",
-                    width: isMobile ? "100%" : "auto",
+                                        width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                 padding: "6px 8px",
                 justifyContent: "center",
@@ -2832,7 +2832,7 @@ export const Reporting: React.FC = () => {
             <button
               style={{
                     display: "flex",
-                    width: isMobile ? "100%" : "auto",
+                                        width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                 padding: "6px 8px",
                 justifyContent: "center",
@@ -2892,7 +2892,7 @@ export const Reporting: React.FC = () => {
                 onMouseLeave={() => setHoveredDateButton(null)}
                 style={{
                     display: "flex",
-                    width: isMobile ? "100%" : "auto",
+                                        width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
@@ -2955,7 +2955,7 @@ export const Reporting: React.FC = () => {
             <button
               style={{
                     display: "flex",
-                    width: isMobile ? "100%" : "auto",
+                                        width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                 padding: "6px 8px",
                 justifyContent: "center",
@@ -3194,7 +3194,7 @@ export const Reporting: React.FC = () => {
                     onMouseLeave={() => setHoveredDateButton(null)}
                     style={{
                     display: "flex",
-                    width: isMobile ? "100%" : "auto",
+                                        width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                     padding: "6px 8px",
                     justifyContent: "center",
@@ -3284,7 +3284,7 @@ export const Reporting: React.FC = () => {
                 <button
                 style={{
                     display: "flex",
-                    width: isMobile ? "100%" : "auto",
+                                        width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
@@ -3394,7 +3394,7 @@ export const Reporting: React.FC = () => {
                 onMouseLeave={() => setHoveredDateButton(null)}
                 style={{
                     display: "flex",
-                    width: isMobile ? "100%" : "auto",
+                                        width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
