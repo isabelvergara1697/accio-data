@@ -418,6 +418,28 @@ export const Reporting: React.FC = () => {
     };
   }, []);
 
+  const mobileButtonGroupStyles: React.CSSProperties = isMobile
+    ? {
+        flexDirection: "column",
+        alignItems: "stretch",
+        flexWrap: "nowrap",
+        width: "100%",
+        gap: "12px",
+      }
+    : {};
+
+  const mobileButtonStyles: React.CSSProperties = isMobile
+    ? {
+        width: "100%",
+      }
+    : {};
+
+  const mobileButtonWrapperStyles: React.CSSProperties = isMobile
+    ? {
+        width: "100%",
+      }
+    : {};
+
   const renderTabContent = () => {
     switch (activeTab) {
       case "product":
