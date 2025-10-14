@@ -606,6 +606,7 @@ export const Reporting: React.FC = () => {
                 alignItems: "flex-start",
                 gap: "16px",
                 flexWrap: "wrap",
+                ...mobileButtonGroupStyles,
               }}
             >
               <div style={{ position: "relative" }}>
@@ -1040,8 +1041,9 @@ export const Reporting: React.FC = () => {
                   display: "flex",
                   alignItems: "flex-start",
                   gap: "16px",
-                  flexWrap: "wrap",
-                }}
+                flexWrap: "wrap",
+                ...mobileButtonGroupStyles,
+              }}
               >
                 <div style={{ position: "relative" }}>
                   <button
@@ -2161,6 +2163,7 @@ export const Reporting: React.FC = () => {
                 alignItems: "center",
                 gap: "16px",
                 flexWrap: "wrap",
+                ...mobileButtonGroupStyles,
               }}
             >
               <div style={{ position: "relative" }}>
@@ -3161,8 +3164,9 @@ export const Reporting: React.FC = () => {
                   display: "flex",
                   alignItems: "center",
                   gap: "16px",
-                  flexWrap: "wrap",
-                }}
+                flexWrap: "wrap",
+                ...mobileButtonGroupStyles,
+              }}
               >
                 <div style={{ position: "relative" }}>
                   <button
