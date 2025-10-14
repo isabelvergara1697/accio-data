@@ -617,8 +617,8 @@ export const Reporting: React.FC = () => {
                   onMouseEnter={() => setHoveredDateButton("generate")}
                   onMouseLeave={() => setHoveredDateButton(null)}
                   style={{
-
-                display: "flex",
+                    ...mobileButtonStyles,
+                    display: "flex",
                     minHeight: "36px",
                     padding: "6px 8px",
                     justifyContent: "center",
@@ -1058,26 +1058,26 @@ export const Reporting: React.FC = () => {
                     onMouseEnter={() => setHoveredDateButton("generate")}
                     onMouseLeave={() => setHoveredDateButton(null)}
                     style={{
-
-                display: "flex",
-                      minHeight: "36px",
-                      padding: "6px 8px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      gap: "4px",
-                      borderRadius: "8px",
-                      border: isGenerateActive
-                        ? "1px solid #B3BCE5"
-                        : "1px solid #D5D7DA",
-                      background: isGenerateActive
-                        ? "#F5F5F5"
-                        : isGenerateHovered
-                          ? "#F8F9FA"
-                          : "#FFF",
-                      boxShadow:
-                        "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                      cursor: "pointer",
-                    }}
+                    ...mobileButtonStyles,
+                    display: "flex",
+                    minHeight: "36px",
+                    padding: "6px 8px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "4px",
+                    borderRadius: "8px",
+                    border: isGenerateActive
+                      ? "1px solid #B3BCE5"
+                      : "1px solid #D5D7DA",
+                    background: isGenerateActive
+                      ? "#F5F5F5"
+                      : isGenerateHovered
+                        ? "#F8F9FA"
+                        : "#FFF",
+                    boxShadow:
+                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    cursor: "pointer",
+                  }}
                   >
                     <svg
                       style={{ width: "16px", height: "16px" }}
@@ -2194,8 +2194,8 @@ export const Reporting: React.FC = () => {
                   onMouseEnter={() => setHoveredDateButton("generate")}
                   onMouseLeave={() => setHoveredDateButton(null)}
                   style={{
-
-                display: "flex",
+                    ...mobileButtonStyles,
+                    display: "flex",
                     minHeight: "36px",
                     padding: "6px 8px",
                     justifyContent: "center",
@@ -3222,26 +3222,26 @@ export const Reporting: React.FC = () => {
                     onMouseEnter={() => setHoveredDateButton("generate")}
                     onMouseLeave={() => setHoveredDateButton(null)}
                     style={{
-
-                display: "flex",
-                      minHeight: "36px",
-                      padding: "6px 8px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      gap: "4px",
-                      borderRadius: "8px",
-                      border: isGenerateActive
-                        ? "1px solid #B3BCE5"
-                        : "1px solid #D5D7DA",
-                      background: isGenerateActive
-                        ? "#F5F5F5"
-                        : isGenerateHovered
-                          ? "#F8F9FA"
-                          : "#FFF",
-                      boxShadow:
-                        "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                      cursor: "pointer",
-                    }}
+                    ...mobileButtonStyles,
+                    display: "flex",
+                    minHeight: "36px",
+                    padding: "6px 8px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "4px",
+                    borderRadius: "8px",
+                    border: isGenerateActive
+                      ? "1px solid #B3BCE5"
+                      : "1px solid #D5D7DA",
+                    background: isGenerateActive
+                      ? "#F5F5F5"
+                      : isGenerateHovered
+                        ? "#F8F9FA"
+                        : "#FFF",
+                    boxShadow:
+                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    cursor: "pointer",
+                  }}
                   >
                     <svg
                       style={{ width: "16px", height: "16px" }}
