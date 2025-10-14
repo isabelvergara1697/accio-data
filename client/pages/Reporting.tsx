@@ -428,12 +428,6 @@ export const Reporting: React.FC = () => {
       }
     : {};
 
-  const mobileButtonStyles: React.CSSProperties = isMobile
-    ? {
-        width: "100%",
-      }
-    : {};
-
   const mobileButtonWrapperStyles: React.CSSProperties = isMobile
     ? {
         width: "100%",
