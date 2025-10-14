@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserMenuDropdown } from "./UserMenuDropdown";
 import { QuickCreateDropdown } from "./ui/quick-create-dropdown";
 import QuickOrderDrawer from "./ui/quick-order-drawer";
@@ -12,6 +13,7 @@ import {
 
 interface HeaderProps {
   isDesktop: boolean;
+  isMobile?: boolean;
   userMenuOpen: boolean;
   setUserMenuOpen: (open: boolean) => void;
   userMenuHovered: boolean;
@@ -21,6 +23,7 @@ interface HeaderProps {
   showMobileUserMenu?: boolean;
   showNotification?: boolean;
   sidebarCollapsed?: boolean;
+  searchQuery?: string;
   onOrderNotification?: (notification: {
     title: string;
     description: string;
@@ -43,6 +46,7 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({
   isDesktop,
+  isMobile = false,
   userMenuOpen,
   setUserMenuOpen,
   userMenuHovered,
@@ -52,6 +56,7 @@ export const Header: React.FC<HeaderProps> = ({
   showMobileUserMenu = false,
   showNotification = false,
   sidebarCollapsed = false,
+  searchQuery: initialSearchQuery = "",
   onOrderNotification,
   quickOrderDrawerOpen = false,
   setQuickOrderDrawerOpen,
@@ -66,7 +71,15 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenCustomizeDrawer,
   onOpenNotificationModal,
 }) => {
+  const navigate = useNavigate();
   const [quickCreateOpen, setQuickCreateOpen] = React.useState(false);
+  const [searchQuery, setSearchQuery] = React.useState(initialSearchQuery);
+
+  const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && searchQuery.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+    }
+  };
 
   // Enhanced responsive icon sizes with container awareness
   const searchIconSize = useIconSizeEnhanced(20, {
@@ -142,6 +155,9 @@ export const Header: React.FC<HeaderProps> = ({
         <input
           type="text"
           placeholder="Search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          onKeyDown={handleSearch}
           style={{
             flex: "1 0 0",
             border: "none",
@@ -150,7 +166,7 @@ export const Header: React.FC<HeaderProps> = ({
             fontFamily: "Public Sans",
             fontSize: "16px",
             fontWeight: 400,
-            color: "#717680",
+            color: "#181D27",
             lineHeight: "24px",
           }}
         />
