@@ -613,6 +613,7 @@ export const Reporting: React.FC = () => {
                   style={{
                     display: "flex",
                     width: isMobile ? "100%" : "auto",
+                    flex: isMobile ? "1 0 auto" : undefined,
                     minHeight: "36px",
                     padding: "6px 8px",
                     justifyContent: "center",
@@ -670,6 +671,7 @@ export const Reporting: React.FC = () => {
                 style={{
                     display: "flex",
                     width: isMobile ? "100%" : "auto",
+                    flex: isMobile ? "1 0 auto" : undefined,
                                         minHeight: "36px",
                                       padding: "6px 8px",
                                       justifyContent: "center",
@@ -780,6 +782,7 @@ export const Reporting: React.FC = () => {
               style={{
                     display: "flex",
                     width: isMobile ? "100%" : "auto",
+                    flex: isMobile ? "1 0 auto" : undefined,
                                         minHeight: "36px",
                                     padding: "6px 8px",
                                     justifyContent: "center",
@@ -1052,6 +1055,7 @@ export const Reporting: React.FC = () => {
                     style={{
                     display: "flex",
                     width: isMobile ? "100%" : "auto",
+                    flex: isMobile ? "1 0 auto" : undefined,
                     minHeight: "36px",
                     padding: "6px 8px",
                     justifyContent: "center",
@@ -1109,6 +1113,7 @@ export const Reporting: React.FC = () => {
                 style={{
                     display: "flex",
                     width: isMobile ? "100%" : "auto",
+                    flex: isMobile ? "1 0 auto" : undefined,
                                         minHeight: "36px",
                                       padding: "6px 8px",
                                       justifyContent: "center",
@@ -1219,6 +1224,7 @@ export const Reporting: React.FC = () => {
                 style={{
                     display: "flex",
                     width: isMobile ? "100%" : "auto",
+                    flex: isMobile ? "1 0 auto" : undefined,
                                         minHeight: "36px",
                                       padding: "6px 8px",
                                       justifyContent: "center",
@@ -1937,6 +1943,7 @@ export const Reporting: React.FC = () => {
                 style={{
                     display: "flex",
                     width: isMobile ? "100%" : "auto",
+                    flex: isMobile ? "1 0 auto" : undefined,
                                         minHeight: "36px",
                                       padding: "6px 8px",
                                       justifyContent: "center",
@@ -2177,6 +2184,7 @@ export const Reporting: React.FC = () => {
                   style={{
                     display: "flex",
                     width: isMobile ? "100%" : "auto",
+                    flex: isMobile ? "1 0 auto" : undefined,
                     minHeight: "36px",
                     padding: "6px 8px",
                     justifyContent: "center",
@@ -2289,6 +2297,7 @@ export const Reporting: React.FC = () => {
                 style={{
                     display: "flex",
                     width: isMobile ? "100%" : "auto",
+                    flex: isMobile ? "1 0 auto" : undefined,
                                         minHeight: "36px",
                                       padding: "6px 8px",
                                       justifyContent: "center",
@@ -2414,6 +2423,7 @@ export const Reporting: React.FC = () => {
                 style={{
                     display: "flex",
                     width: isMobile ? "100%" : "auto",
+                    flex: isMobile ? "1 0 auto" : undefined,
                                         minHeight: "36px",
                                       padding: "6px 8px",
                                       justifyContent: "center",
@@ -2469,6 +2479,7 @@ export const Reporting: React.FC = () => {
               style={{
                     display: "flex",
                     width: isMobile ? "100%" : "auto",
+                    flex: isMobile ? "1 0 auto" : undefined,
                                         minHeight: "36px",
                                     padding: "6px 8px",
                                     justifyContent: "center",
@@ -2665,6 +2676,7 @@ export const Reporting: React.FC = () => {
               style={{
                     display: "flex",
                     width: isMobile ? "100%" : "auto",
+                    flex: isMobile ? "1 0 auto" : undefined,
                                         minHeight: "36px",
                                     padding: "6px 8px",
                                     justifyContent: "center",
@@ -2719,6 +2731,7 @@ export const Reporting: React.FC = () => {
               style={{
                     display: "flex",
                     width: isMobile ? "100%" : "auto",
+                    flex: isMobile ? "1 0 auto" : undefined,
                                         minHeight: "36px",
                                     padding: "6px 8px",
                                     justifyContent: "center",
@@ -2773,6 +2786,7 @@ export const Reporting: React.FC = () => {
               style={{
                     display: "flex",
                     width: isMobile ? "100%" : "auto",
+                    flex: isMobile ? "1 0 auto" : undefined,
                                         minHeight: "36px",
                                     padding: "6px 8px",
                                     justifyContent: "center",
@@ -2827,6 +2841,7 @@ export const Reporting: React.FC = () => {
               style={{
                     display: "flex",
                     width: isMobile ? "100%" : "auto",
+                    flex: isMobile ? "1 0 auto" : undefined,
                                         minHeight: "36px",
                                     padding: "6px 8px",
                                     justifyContent: "center",
@@ -2887,6 +2902,7 @@ export const Reporting: React.FC = () => {
                 style={{
                     display: "flex",
                     width: isMobile ? "100%" : "auto",
+                    flex: isMobile ? "1 0 auto" : undefined,
                                         minHeight: "36px",
                                       padding: "6px 8px",
                                       justifyContent: "center",
@@ -2950,6 +2966,7 @@ export const Reporting: React.FC = () => {
               style={{
                     display: "flex",
                     width: isMobile ? "100%" : "auto",
+                    flex: isMobile ? "1 0 auto" : undefined,
                                         minHeight: "36px",
                                     padding: "6px 8px",
                                     justifyContent: "center",
@@ -3189,6 +3206,7 @@ export const Reporting: React.FC = () => {
                     style={{
                     display: "flex",
                     width: isMobile ? "100%" : "auto",
+                    flex: isMobile ? "1 0 auto" : undefined,
                     minHeight: "36px",
                     padding: "6px 8px",
                     justifyContent: "center",
@@ -3279,6 +3297,7 @@ export const Reporting: React.FC = () => {
                 style={{
                     display: "flex",
                     width: isMobile ? "100%" : "auto",
+                    flex: isMobile ? "1 0 auto" : undefined,
                                         minHeight: "36px",
                                       padding: "6px 8px",
                                       justifyContent: "center",
@@ -3389,6 +3408,7 @@ export const Reporting: React.FC = () => {
                 style={{
                     display: "flex",
                     width: isMobile ? "100%" : "auto",
+                    flex: isMobile ? "1 0 auto" : undefined,
                                         minHeight: "36px",
                                       padding: "6px 8px",
                                       justifyContent: "center",
