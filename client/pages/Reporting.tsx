@@ -3567,7 +3567,11 @@ export const Reporting: React.FC = () => {
                 alignItems: "center",
                 gap: "4px",
                 alignSelf: "stretch",
-                flexWrap: "wrap",
+                flexWrap: isMobile ? "nowrap" : "wrap",
+                overflowX: isMobile ? "auto" : "visible",
+                overflowY: "hidden",
+                width: "100%",
+                WebkitOverflowScrolling: "touch",
                 borderRadius: "10px",
                 border: "1px solid #E9EAEB",
                 background: "#FFF",
@@ -3590,6 +3594,7 @@ export const Reporting: React.FC = () => {
                       activeTab === tab.id ? "#ECEEF9" : "transparent",
                     cursor: "pointer",
                     transition: "all 0.2s ease",
+                    flexShrink: 0,
                   }}
                   onMouseEnter={(e) => {
                     if (activeTab !== tab.id) {
