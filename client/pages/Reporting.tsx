@@ -100,14 +100,14 @@ const formatTurnaroundTime = (hours: number): string => {
 
 const getTrendStyles = (change: number) => {
   if (change > 0) {
-    return { color: "#067647", background: "rgba(6, 118, 71, 0.12)" };
+    return { color: "#067647",                     background: "rgba(6, 118, 71, 0.12)" };
   }
 
   if (change < 0) {
-    return { color: "#B42318", background: "rgba(180, 35, 24, 0.12)" };
+    return { color: "#B42318",                     background: "rgba(180, 35, 24, 0.12)" };
   }
 
-  return { color: "#414651", background: "rgba(65, 70, 81, 0.12)" };
+  return { color: "#414651",                     background: "rgba(65, 70, 81, 0.12)" };
 };
 
 const getCompletionPercent = (metric: ProductTypeMetric): number => {
@@ -303,7 +303,7 @@ export const Reporting: React.FC = () => {
 
   const getUserMenuStyles = () => {
     if (userMenuOpen || userMenuHovered) {
-      return { background: "#F5F5F5" };
+      return {                     background: "#F5F5F5" };
     }
     return {};
   };
@@ -421,10 +421,10 @@ export const Reporting: React.FC = () => {
   const mobileButtonGroupStyles: React.CSSProperties = isMobile
     ? {
         flexDirection: "column",
-        alignItems: "stretch",
+                            alignItems: "stretch",
         flexWrap: "nowrap",
         width: "100%",
-        gap: "12px",
+                            gap: "12px",
       }
     : {};
 
@@ -463,18 +463,18 @@ export const Reporting: React.FC = () => {
       style={{
                     display: "flex",
         flexDirection: "column",
-        alignItems: "flex-start",
-        gap: "24px",
+                            alignItems: "flex-start",
+                            gap: "24px",
         alignSelf: "stretch",
-        padding: isMobile ? "16px" : "24px 32px",
+                            padding: isMobile ? "16px" : "24px 32px",
       }}
     >
       <div
         style={{
                     display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start",
-          gap: "20px",
+                              alignItems: "flex-start",
+                              gap: "20px",
           alignSelf: "stretch",
         }}
       >
@@ -482,7 +482,7 @@ export const Reporting: React.FC = () => {
           style={{
                     display: "flex",
             flexDirection: "column",
-            gap: "2px",
+                                gap: "2px",
             flex: "1 0 0",
           }}
         >
@@ -525,11 +525,11 @@ export const Reporting: React.FC = () => {
         style={{
                     display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start",
+                              alignItems: "flex-start",
           alignSelf: "stretch",
-          borderRadius: "12px",
-          border: "1px solid #E9EAEB",
-          background: "#FFF",
+                              borderRadius: "12px",
+                              border: "1px solid #E9EAEB",
+                              background: "#FFF",
           overflow: "hidden",
         }}
       >
@@ -537,9 +537,9 @@ export const Reporting: React.FC = () => {
         <div
           style={{
                     display: "flex",
-            padding: "16px",
-            alignItems: "center",
-            gap: "16px",
+                                padding: "16px",
+                                alignItems: "center",
+                                gap: "16px",
             alignSelf: "stretch",
             borderBottom: "1px solid #E9EAEB",
           }}
@@ -563,10 +563,10 @@ export const Reporting: React.FC = () => {
         <div
           style={{
                     display: "flex",
-            padding: "12px 16px 16px 16px",
+                                padding: "12px 16px 16px 16px",
             flexDirection: "column",
-            alignItems: "flex-start",
-            gap: "24px",
+                                alignItems: "flex-start",
+                                gap: "24px",
             alignSelf: "stretch",
           }}
         >
@@ -574,8 +574,8 @@ export const Reporting: React.FC = () => {
             style={{
                     display: "flex",
               flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "8px",
+                                  alignItems: "flex-start",
+                                  gap: "8px",
             }}
           >
             <div
@@ -603,8 +603,8 @@ export const Reporting: React.FC = () => {
             <div
               style={{
                     display: "flex",
-                alignItems: "flex-start",
-                gap: "16px",
+                                    alignItems: "flex-start",
+                                    gap: "16px",
                 flexWrap: "wrap",
                 ...mobileButtonGroupStyles,
               }}
@@ -619,23 +619,23 @@ export const Reporting: React.FC = () => {
                   style={{
                     display: "flex",
                                         width: isMobile ? "100%" : "auto",
-                    minHeight: "36px",
-                    padding: "6px 8px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "4px",
-                    borderRadius: "8px",
-                    border: isGenerateActive
+                                        minHeight: "36px",
+                                        padding: "6px 8px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        gap: "4px",
+                                        borderRadius: "8px",
+                                        border: isGenerateActive
                       ? "1px solid #B3BCE5"
                       : "1px solid #D5D7DA",
-                    background: isGenerateActive
+                                        background: isGenerateActive
                       ? "#F5F5F5"
                       : isGenerateHovered
                         ? "#F8F9FA"
                         : "#FFF",
-                    boxShadow:
+                                        boxShadow:
                       "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                    cursor: "pointer",
+                                        cursor: "pointer",
                   }}
                 >
                   <svg
@@ -665,7 +665,7 @@ export const Reporting: React.FC = () => {
                       fontSize: "14px",
                       fontWeight: 600,
                       lineHeight: "20px",
-                      padding: "0 2px",
+                                          padding: "0 2px",
                     }}
                   >
                     {formatDateRange(selectedStartDate, selectedEndDate)}
@@ -676,17 +676,17 @@ export const Reporting: React.FC = () => {
                 style={{
                     display: "flex",
                                         width: isMobile ? "100%" : "auto",
-                    minHeight: "36px",
-                  padding: "6px 8px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "4px",
-                  borderRadius: "8px",
-                  border: "2px solid rgba(255, 255, 255, 0.12)",
-                  background: "#344698",
-                  boxShadow:
+                                        minHeight: "36px",
+                                      padding: "6px 8px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      borderRadius: "8px",
+                                      border: "2px solid rgba(255, 255, 255, 0.12)",
+                                      background: "#344698",
+                                      boxShadow:
                     "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                  cursor: "pointer",
+                                      cursor: "pointer",
                 }}
               >
                 <span
@@ -696,7 +696,7 @@ export const Reporting: React.FC = () => {
                     fontSize: "14px",
                     fontWeight: 600,
                     lineHeight: "20px",
-                    padding: "0 2px",
+                                        padding: "0 2px",
                   }}
                 >
                   Create Report
@@ -709,13 +709,13 @@ export const Reporting: React.FC = () => {
           <div
             style={{
                     display: "flex",
-              padding: "12px 8px",
+                                  padding: "12px 8px",
               flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "12px",
+                                  alignItems: "flex-start",
+                                  gap: "12px",
               alignSelf: "stretch",
-              borderRadius: "8px",
-              background: "#FAFAFA",
+                                  borderRadius: "8px",
+                                  background: "#FAFAFA",
             }}
           >
             <div
@@ -744,11 +744,11 @@ export const Reporting: React.FC = () => {
         style={{
                     display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start",
+                              alignItems: "flex-start",
           alignSelf: "stretch",
-          borderRadius: "12px",
-          border: "1px solid #E9EAEB",
-          background: "#FFF",
+                              borderRadius: "12px",
+                              border: "1px solid #E9EAEB",
+                              background: "#FFF",
           overflow: "hidden",
         }}
       >
@@ -756,9 +756,9 @@ export const Reporting: React.FC = () => {
         <div
           style={{
                     display: "flex",
-            padding: "16px",
-            alignItems: "center",
-            gap: "16px",
+                                padding: "16px",
+                                alignItems: "center",
+                                gap: "16px",
             alignSelf: "stretch",
             borderBottom: "1px solid #E9EAEB",
           }}
@@ -786,23 +786,23 @@ export const Reporting: React.FC = () => {
               style={{
                     display: "flex",
                                         width: isMobile ? "100%" : "auto",
-                    minHeight: "36px",
-                padding: "6px 8px",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "4px",
-                borderRadius: "8px",
-                border: isReportActive
+                                        minHeight: "36px",
+                                    padding: "6px 8px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                    borderRadius: "8px",
+                                    border: isReportActive
                   ? "1px solid #B3BCE5"
                   : "1px solid #D5D7DA",
-                background: isReportActive
+                                    background: isReportActive
                   ? "#F5F5F5"
                   : isReportHovered
                     ? "#F8F9FA"
                     : "#FFF",
-                boxShadow:
+                                    boxShadow:
                   "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                cursor: "pointer",
+                                    cursor: "pointer",
               }}
             >
               <svg
@@ -830,7 +830,7 @@ export const Reporting: React.FC = () => {
                   fontSize: "14px",
                   fontWeight: 600,
                   lineHeight: "20px",
-                  padding: "0 2px",
+                                      padding: "0 2px",
                 }}
               >
                 {formatDateRange(selectedStartDate, selectedEndDate)}
@@ -843,11 +843,11 @@ export const Reporting: React.FC = () => {
         <div
           style={{
                     display: "flex",
-            padding: "12px 16px 16px 16px",
+                                padding: "12px 16px 16px 16px",
             flexDirection: "column",
-            alignItems: "flex-start",
+                                alignItems: "flex-start",
             alignSelf: "stretch",
-            minHeight: "400px",
+                                minHeight: "400px",
           }}
         >
           <TurnaroundTimeChart
@@ -872,18 +872,18 @@ export const Reporting: React.FC = () => {
         style={{
                     display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start",
-          gap: "24px",
+                              alignItems: "flex-start",
+                              gap: "24px",
           alignSelf: "stretch",
-          padding: isMobile ? "16px" : "24px 32px",
+                              padding: isMobile ? "16px" : "24px 32px",
         }}
       >
         <div
           style={{
                     display: "flex",
             flexDirection: "column",
-            alignItems: "flex-start",
-            gap: "20px",
+                                alignItems: "flex-start",
+                                gap: "20px",
             alignSelf: "stretch",
           }}
         >
@@ -891,7 +891,7 @@ export const Reporting: React.FC = () => {
             style={{
                     display: "flex",
               flexDirection: "column",
-              gap: "2px",
+                                  gap: "2px",
               flex: "1 0 0",
             }}
           >
@@ -911,7 +911,7 @@ export const Reporting: React.FC = () => {
               style={{
                     display: "flex",
                 flexDirection: "column",
-                gap: "12px",
+                                    gap: "12px",
                 color: "#535862",
                 fontFamily: "Public Sans",
                 fontSize: "14px",
@@ -926,7 +926,7 @@ export const Reporting: React.FC = () => {
                 Education Checks, References Checks, Employment Checks, MVR.
               </p>
               <div
-                style={{ display: "flex", flexDirection: "column", gap: "8px" }}
+                style={{ display: "flex", flexDirection: "column",                     gap: "8px" }}
               >
                 <span style={{ fontWeight: 600, color: "#414651" }}>
                   The value of the product type columns will be one of:
@@ -937,7 +937,7 @@ export const Reporting: React.FC = () => {
                     paddingLeft: "20px",
                     display: "flex",
                     flexDirection: "column",
-                    gap: "4px",
+                                        gap: "4px",
                   }}
                 >
                   <li>N/A (the order has no components of this type)</li>
@@ -964,11 +964,11 @@ export const Reporting: React.FC = () => {
           style={{
                     display: "flex",
             flexDirection: "column",
-            alignItems: "flex-start",
+                                alignItems: "flex-start",
             alignSelf: "stretch",
-            borderRadius: "12px",
-            border: "1px solid #E9EAEB",
-            background: "#FFF",
+                                borderRadius: "12px",
+                                border: "1px solid #E9EAEB",
+                                background: "#FFF",
             overflow: "hidden",
           }}
         >
@@ -976,9 +976,9 @@ export const Reporting: React.FC = () => {
           <div
             style={{
                     display: "flex",
-              padding: "16px",
-              alignItems: "center",
-              gap: "16px",
+                                  padding: "16px",
+                                  alignItems: "center",
+                                  gap: "16px",
               alignSelf: "stretch",
               borderBottom: "1px solid #E9EAEB",
             }}
@@ -1002,10 +1002,10 @@ export const Reporting: React.FC = () => {
           <div
             style={{
                     display: "flex",
-              padding: "12px 16px 16px 16px",
+                                  padding: "12px 16px 16px 16px",
               flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "24px",
+                                  alignItems: "flex-start",
+                                  gap: "24px",
               alignSelf: "stretch",
             }}
           >
@@ -1013,8 +1013,8 @@ export const Reporting: React.FC = () => {
               style={{
                     display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "8px",
+                                    alignItems: "flex-start",
+                                    gap: "8px",
               }}
             >
               <div
@@ -1042,8 +1042,8 @@ export const Reporting: React.FC = () => {
               <div
               style={{
                     display: "flex",
-                alignItems: "flex-start",
-                gap: "16px",
+                                    alignItems: "flex-start",
+                                    gap: "16px",
                 flexWrap: "wrap",
                 ...mobileButtonGroupStyles,
               }}
@@ -1058,23 +1058,23 @@ export const Reporting: React.FC = () => {
                     style={{
                     display: "flex",
                                         width: isMobile ? "100%" : "auto",
-                    minHeight: "36px",
-                    padding: "6px 8px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "4px",
-                    borderRadius: "8px",
-                    border: isGenerateActive
+                                        minHeight: "36px",
+                                        padding: "6px 8px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        gap: "4px",
+                                        borderRadius: "8px",
+                                        border: isGenerateActive
                       ? "1px solid #B3BCE5"
                       : "1px solid #D5D7DA",
-                    background: isGenerateActive
+                                        background: isGenerateActive
                       ? "#F5F5F5"
                       : isGenerateHovered
                         ? "#F8F9FA"
                         : "#FFF",
-                    boxShadow:
+                                        boxShadow:
                       "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                    cursor: "pointer",
+                                        cursor: "pointer",
                   }}
                   >
                     <svg
@@ -1104,7 +1104,7 @@ export const Reporting: React.FC = () => {
                         fontSize: "14px",
                         fontWeight: 600,
                         lineHeight: "20px",
-                        padding: "0 2px",
+                                            padding: "0 2px",
                       }}
                     >
                       {formatDateRange(selectedStartDate, selectedEndDate)}
@@ -1115,17 +1115,17 @@ export const Reporting: React.FC = () => {
                 style={{
                     display: "flex",
                                         width: isMobile ? "100%" : "auto",
-                    minHeight: "36px",
-                  padding: "6px 8px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "4px",
-                  borderRadius: "8px",
-                  border: "2px solid rgba(255, 255, 255, 0.12)",
-                  background: "#344698",
-                  boxShadow:
+                                        minHeight: "36px",
+                                      padding: "6px 8px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      borderRadius: "8px",
+                                      border: "2px solid rgba(255, 255, 255, 0.12)",
+                                      background: "#344698",
+                                      boxShadow:
                     "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                  cursor: "pointer",
+                                      cursor: "pointer",
                 }}
                 >
                   <span
@@ -1135,7 +1135,7 @@ export const Reporting: React.FC = () => {
                       fontSize: "14px",
                       fontWeight: 600,
                       lineHeight: "20px",
-                      padding: "0 2px",
+                                          padding: "0 2px",
                     }}
                   >
                     Create Report
@@ -1148,13 +1148,13 @@ export const Reporting: React.FC = () => {
             <div
               style={{
                     display: "flex",
-                padding: "12px 8px",
+                                    padding: "12px 8px",
                 flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "12px",
+                                    alignItems: "flex-start",
+                                    gap: "12px",
                 alignSelf: "stretch",
-                borderRadius: "8px",
-                background: "#FAFAFA",
+                                    borderRadius: "8px",
+                                    background: "#FAFAFA",
               }}
             >
               <div
@@ -1183,11 +1183,11 @@ export const Reporting: React.FC = () => {
           style={{
                     display: "flex",
             flexDirection: "column",
-            alignItems: "flex-start",
+                                alignItems: "flex-start",
             alignSelf: "stretch",
-            borderRadius: "12px",
-            border: "1px solid #E9EAEB",
-            background: "#FFF",
+                                borderRadius: "12px",
+                                border: "1px solid #E9EAEB",
+                                background: "#FFF",
             overflow: "hidden",
           }}
         >
@@ -1195,9 +1195,9 @@ export const Reporting: React.FC = () => {
           <div
             style={{
                     display: "flex",
-              padding: "16px",
-              alignItems: "center",
-              gap: "16px",
+                                  padding: "16px",
+                                  alignItems: "center",
+                                  gap: "16px",
               alignSelf: "stretch",
               borderBottom: "1px solid #E9EAEB",
             }}
@@ -1225,23 +1225,23 @@ export const Reporting: React.FC = () => {
                 style={{
                     display: "flex",
                                         width: isMobile ? "100%" : "auto",
-                    minHeight: "36px",
-                  padding: "6px 8px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "4px",
-                  borderRadius: "8px",
-                  border: isReportActive
+                                        minHeight: "36px",
+                                      padding: "6px 8px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      borderRadius: "8px",
+                                      border: isReportActive
                     ? "1px solid #B3BCE5"
                     : "1px solid #D5D7DA",
-                  background: isReportActive
+                                      background: isReportActive
                     ? "#F5F5F5"
                     : isReportHovered
                       ? "#F8F9FA"
                       : "#FFF",
-                  boxShadow:
+                                      boxShadow:
                     "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                  cursor: "pointer",
+                                      cursor: "pointer",
                 }}
               >
                 <svg
@@ -1269,7 +1269,7 @@ export const Reporting: React.FC = () => {
                     fontSize: "14px",
                     fontWeight: 600,
                     lineHeight: "20px",
-                    padding: "0 2px",
+                                        padding: "0 2px",
                   }}
                 >
                   {formatDateRange(selectedStartDate, selectedEndDate)}
@@ -1282,11 +1282,11 @@ export const Reporting: React.FC = () => {
           <div
             style={{
                     display: "flex",
-              padding: "12px 16px 16px 16px",
+                                  padding: "12px 16px 16px 16px",
               flexDirection: "column",
-              alignItems: "flex-start",
+                                  alignItems: "flex-start",
               alignSelf: "stretch",
-              minHeight: "400px",
+                                  minHeight: "400px",
             }}
           >
             <TurnaroundTimeChart
@@ -1302,11 +1302,11 @@ export const Reporting: React.FC = () => {
           style={{
                     display: "flex",
             flexDirection: "column",
-            alignItems: "flex-start",
+                                alignItems: "flex-start",
             alignSelf: "stretch",
-            borderRadius: "12px",
-            border: "1px solid #E9EAEB",
-            background: "#FFF",
+                                borderRadius: "12px",
+                                border: "1px solid #E9EAEB",
+                                background: "#FFF",
             overflow: "hidden",
           }}
         >
@@ -1314,12 +1314,12 @@ export const Reporting: React.FC = () => {
             style={{
                     display: "flex",
               flexWrap: "wrap",
-              padding: "16px",
-              alignItems: "center",
-              gap: "24px",
+                                  padding: "16px",
+                                  alignItems: "center",
+                                  gap: "24px",
               alignSelf: "stretch",
               borderBottom: "1px solid #E9EAEB",
-              justifyContent: "space-between",
+                                  justifyContent: "space-between",
             }}
           >
             <h3
@@ -1338,15 +1338,15 @@ export const Reporting: React.FC = () => {
               style={{
                     display: "flex",
                 flexWrap: "wrap",
-                gap: "24px",
-                alignItems: "center",
+                                    gap: "24px",
+                                    alignItems: "center",
               }}
             >
               <div
                 style={{
                     display: "flex",
                   flexDirection: "column",
-                  gap: "4px",
+                                      gap: "4px",
                   minWidth: "120px",
                 }}
               >
@@ -1378,7 +1378,7 @@ export const Reporting: React.FC = () => {
                 style={{
                     display: "flex",
                   flexDirection: "column",
-                  gap: "4px",
+                                      gap: "4px",
                   minWidth: "100px",
                 }}
               >
@@ -1410,7 +1410,7 @@ export const Reporting: React.FC = () => {
                 style={{
                     display: "flex",
                   flexDirection: "column",
-                  gap: "4px",
+                                      gap: "4px",
                   minWidth: "120px",
                 }}
               >
@@ -1442,7 +1442,7 @@ export const Reporting: React.FC = () => {
                 style={{
                     display: "flex",
                   flexDirection: "column",
-                  gap: "4px",
+                                      gap: "4px",
                   minWidth: "140px",
                 }}
               >
@@ -1474,7 +1474,7 @@ export const Reporting: React.FC = () => {
           </div>
           <div
             style={{
-              padding: "0 16px 16px 16px",
+                                  padding: "0 16px 16px 16px",
               alignSelf: "stretch",
               width: "100%",
             }}
@@ -1496,7 +1496,7 @@ export const Reporting: React.FC = () => {
                   <tr>
                     <th
                       style={{
-                        padding: "12px 16px",
+                                            padding: "12px 16px",
                         textAlign: "left",
                         fontFamily: "Public Sans",
                         fontSize: "12px",
@@ -1505,7 +1505,7 @@ export const Reporting: React.FC = () => {
                         letterSpacing: "0.04em",
                         textTransform: "uppercase",
                         color: "#535862",
-                        background: "#F5F5F5",
+                                            background: "#F5F5F5",
                         borderBottom: "1px solid #E9EAEB",
                       }}
                     >
@@ -1513,7 +1513,7 @@ export const Reporting: React.FC = () => {
                     </th>
                     <th
                       style={{
-                        padding: "12px 16px",
+                                            padding: "12px 16px",
                         textAlign: "right",
                         fontFamily: "Public Sans",
                         fontSize: "12px",
@@ -1522,7 +1522,7 @@ export const Reporting: React.FC = () => {
                         letterSpacing: "0.04em",
                         textTransform: "uppercase",
                         color: "#535862",
-                        background: "#F5F5F5",
+                                            background: "#F5F5F5",
                         borderBottom: "1px solid #E9EAEB",
                       }}
                     >
@@ -1530,7 +1530,7 @@ export const Reporting: React.FC = () => {
                     </th>
                     <th
                       style={{
-                        padding: "12px 16px",
+                                            padding: "12px 16px",
                         textAlign: "right",
                         fontFamily: "Public Sans",
                         fontSize: "12px",
@@ -1539,7 +1539,7 @@ export const Reporting: React.FC = () => {
                         letterSpacing: "0.04em",
                         textTransform: "uppercase",
                         color: "#535862",
-                        background: "#F5F5F5",
+                                            background: "#F5F5F5",
                         borderBottom: "1px solid #E9EAEB",
                       }}
                     >
@@ -1547,7 +1547,7 @@ export const Reporting: React.FC = () => {
                     </th>
                     <th
                       style={{
-                        padding: "12px 16px",
+                                            padding: "12px 16px",
                         textAlign: "right",
                         fontFamily: "Public Sans",
                         fontSize: "12px",
@@ -1556,7 +1556,7 @@ export const Reporting: React.FC = () => {
                         letterSpacing: "0.04em",
                         textTransform: "uppercase",
                         color: "#535862",
-                        background: "#F5F5F5",
+                                            background: "#F5F5F5",
                         borderBottom: "1px solid #E9EAEB",
                       }}
                     >
@@ -1564,7 +1564,7 @@ export const Reporting: React.FC = () => {
                     </th>
                     <th
                       style={{
-                        padding: "12px 16px",
+                                            padding: "12px 16px",
                         textAlign: "right",
                         fontFamily: "Public Sans",
                         fontSize: "12px",
@@ -1573,7 +1573,7 @@ export const Reporting: React.FC = () => {
                         letterSpacing: "0.04em",
                         textTransform: "uppercase",
                         color: "#535862",
-                        background: "#F5F5F5",
+                                            background: "#F5F5F5",
                         borderBottom: "1px solid #E9EAEB",
                       }}
                     >
@@ -1581,7 +1581,7 @@ export const Reporting: React.FC = () => {
                     </th>
                     <th
                       style={{
-                        padding: "12px 16px",
+                                            padding: "12px 16px",
                         textAlign: "left",
                         fontFamily: "Public Sans",
                         fontSize: "12px",
@@ -1590,7 +1590,7 @@ export const Reporting: React.FC = () => {
                         letterSpacing: "0.04em",
                         textTransform: "uppercase",
                         color: "#535862",
-                        background: "#F5F5F5",
+                                            background: "#F5F5F5",
                         borderBottom: "1px solid #E9EAEB",
                       }}
                     >
@@ -1598,7 +1598,7 @@ export const Reporting: React.FC = () => {
                     </th>
                     <th
                       style={{
-                        padding: "12px 16px",
+                                            padding: "12px 16px",
                         textAlign: "right",
                         fontFamily: "Public Sans",
                         fontSize: "12px",
@@ -1607,7 +1607,7 @@ export const Reporting: React.FC = () => {
                         letterSpacing: "0.04em",
                         textTransform: "uppercase",
                         color: "#535862",
-                        background: "#F5F5F5",
+                                            background: "#F5F5F5",
                         borderBottom: "1px solid #E9EAEB",
                       }}
                     >
@@ -1628,7 +1628,7 @@ export const Reporting: React.FC = () => {
                       <tr key={metric.id}>
                         <td
                           style={{
-                            padding: "16px",
+                                                padding: "16px",
                             borderBottom: rowBorder,
                             verticalAlign: "top",
                           }}
@@ -1637,7 +1637,7 @@ export const Reporting: React.FC = () => {
                             style={{
                     display: "flex",
                               flexDirection: "column",
-                              gap: "8px",
+                                                  gap: "8px",
                             }}
                           >
                             <span
@@ -1655,11 +1655,11 @@ export const Reporting: React.FC = () => {
                               style={{
                                 display: "inline-flex",
                                 width: "fit-content",
-                                alignItems: "center",
-                                gap: "6px",
-                                padding: "4px 10px",
-                                borderRadius: "999px",
-                                background: trendStyles.background,
+                                                    alignItems: "center",
+                                                    gap: "6px",
+                                                    padding: "4px 10px",
+                                                    borderRadius: "999px",
+                                                    background: trendStyles.background,
                                 color: trendStyles.color,
                                 fontFamily: "Public Sans",
                                 fontSize: "12px",
@@ -1674,7 +1674,7 @@ export const Reporting: React.FC = () => {
                         </td>
                         <td
                           style={{
-                            padding: "16px",
+                                                padding: "16px",
                             borderBottom: rowBorder,
                             textAlign: "right",
                             color: "#181D27",
@@ -1688,7 +1688,7 @@ export const Reporting: React.FC = () => {
                         </td>
                         <td
                           style={{
-                            padding: "16px",
+                                                padding: "16px",
                             borderBottom: rowBorder,
                             textAlign: "right",
                             color: "#181D27",
@@ -1702,7 +1702,7 @@ export const Reporting: React.FC = () => {
                         </td>
                         <td
                           style={{
-                            padding: "16px",
+                                                padding: "16px",
                             borderBottom: rowBorder,
                             textAlign: "right",
                             color: "#535862",
@@ -1716,7 +1716,7 @@ export const Reporting: React.FC = () => {
                         </td>
                         <td
                           style={{
-                            padding: "16px",
+                                                padding: "16px",
                             borderBottom: rowBorder,
                             textAlign: "right",
                           }}
@@ -1724,12 +1724,12 @@ export const Reporting: React.FC = () => {
                           <span
                             style={{
                               display: "inline-flex",
-                              alignItems: "center",
-                              justifyContent: "flex-end",
+                                                  alignItems: "center",
+                                                  justifyContent: "flex-end",
                               minWidth: "64px",
-                              padding: "4px 10px",
-                              borderRadius: "999px",
-                              background: "#FEE4E2",
+                                                  padding: "4px 10px",
+                                                  borderRadius: "999px",
+                                                  background: "#FEE4E2",
                               color: "#B42318",
                               fontFamily: "Public Sans",
                               fontSize: "12px",
@@ -1742,7 +1742,7 @@ export const Reporting: React.FC = () => {
                         </td>
                         <td
                           style={{
-                            padding: "16px",
+                                                padding: "16px",
                             borderBottom: rowBorder,
                             verticalAlign: "middle",
                           }}
@@ -1750,16 +1750,16 @@ export const Reporting: React.FC = () => {
                           <div
                             style={{
                     display: "flex",
-                              alignItems: "center",
-                              gap: "12px",
+                                                  alignItems: "center",
+                                                  gap: "12px",
                             }}
                           >
                             <div
                               style={{
                                 flex: "1 1 0%",
                                 height: "6px",
-                                borderRadius: "999px",
-                                background: "#E9EAEB",
+                                                    borderRadius: "999px",
+                                                    background: "#E9EAEB",
                                 overflow: "hidden",
                               }}
                             >
@@ -1767,8 +1767,8 @@ export const Reporting: React.FC = () => {
                                 style={{
                                   width: `${completionPercent}%`,
                                   height: "100%",
-                                  borderRadius: "inherit",
-                                  background: "#344698",
+                                                      borderRadius: "inherit",
+                                                      background: "#344698",
                                   transition: "width 0.2s ease",
                                 }}
                               />
@@ -1790,7 +1790,7 @@ export const Reporting: React.FC = () => {
                         </td>
                         <td
                           style={{
-                            padding: "16px",
+                                                padding: "16px",
                             borderBottom: rowBorder,
                             textAlign: "right",
                             color: "#181D27",
@@ -1819,18 +1819,18 @@ export const Reporting: React.FC = () => {
       style={{
                     display: "flex",
         flexDirection: "column",
-        alignItems: "flex-start",
-        gap: "24px",
+                            alignItems: "flex-start",
+                            gap: "24px",
         alignSelf: "stretch",
-        padding: isMobile ? "16px" : "24px 32px",
+                            padding: isMobile ? "16px" : "24px 32px",
       }}
     >
       <div
         style={{
                     display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start",
-          gap: "20px",
+                              alignItems: "flex-start",
+                              gap: "20px",
           alignSelf: "stretch",
         }}
       >
@@ -1838,7 +1838,7 @@ export const Reporting: React.FC = () => {
           style={{
                     display: "flex",
             flexDirection: "column",
-            gap: "2px",
+                                gap: "2px",
             flex: "1 0 0",
           }}
         >
@@ -1879,11 +1879,11 @@ export const Reporting: React.FC = () => {
         style={{
                     display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start",
+                              alignItems: "flex-start",
           alignSelf: "stretch",
-          borderRadius: "12px",
-          border: "1px solid #E9EAEB",
-          background: "#FFF",
+                              borderRadius: "12px",
+                              border: "1px solid #E9EAEB",
+                              background: "#FFF",
           overflow: "hidden",
         }}
       >
@@ -1891,9 +1891,9 @@ export const Reporting: React.FC = () => {
         <div
           style={{
                     display: "flex",
-            padding: "16px",
-            alignItems: "center",
-            gap: "16px",
+                                padding: "16px",
+                                alignItems: "center",
+                                gap: "16px",
             alignSelf: "stretch",
             borderBottom: "1px solid #E9EAEB",
           }}
@@ -1917,10 +1917,10 @@ export const Reporting: React.FC = () => {
         <div
           style={{
                     display: "flex",
-            padding: "12px 16px 16px 16px",
+                                padding: "12px 16px 16px 16px",
             flexDirection: "column",
-            alignItems: "flex-start",
-            gap: "24px",
+                                alignItems: "flex-start",
+                                gap: "24px",
             alignSelf: "stretch",
           }}
         >
@@ -1928,40 +1928,40 @@ export const Reporting: React.FC = () => {
             style={{
                     display: "flex",
               flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "8px",
+                                  alignItems: "flex-start",
+                                  gap: "8px",
             }}
           >
             <div
               style={{
                     display: "flex",
-                alignItems: "center",
-                gap: "16px",
+                                    alignItems: "center",
+                                    gap: "16px",
               }}
             >
               <button
                 style={{
                     display: "flex",
                                         width: isMobile ? "100%" : "auto",
-                    minHeight: "36px",
-                  padding: "6px 8px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "4px",
-                  borderRadius: "8px",
-                  border: "2px solid rgba(255, 255, 255, 0.12)",
-                  background: "#344698",
-                  boxShadow:
+                                        minHeight: "36px",
+                                      padding: "6px 8px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      borderRadius: "8px",
+                                      border: "2px solid rgba(255, 255, 255, 0.12)",
+                                      background: "#344698",
+                                      boxShadow:
                     "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                  cursor: "pointer",
+                                      cursor: "pointer",
                 }}
               >
                 <div
                   style={{
                     display: "flex",
-                    padding: "0 2px",
-                    justifyContent: "center",
-                    alignItems: "center",
+                                        padding: "0 2px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
                   }}
                 >
                   <span
@@ -1984,13 +1984,13 @@ export const Reporting: React.FC = () => {
           <div
             style={{
                     display: "flex",
-              padding: "12px 8px",
+                                  padding: "12px 8px",
               flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "12px",
+                                  alignItems: "flex-start",
+                                  gap: "12px",
               alignSelf: "stretch",
-              borderRadius: "8px",
-              background: "#FAFAFA",
+                                  borderRadius: "8px",
+                                  background: "#FAFAFA",
             }}
           >
             <div
@@ -2021,18 +2021,18 @@ export const Reporting: React.FC = () => {
       style={{
                     display: "flex",
         flexDirection: "column",
-        alignItems: "flex-start",
-        gap: "24px",
+                            alignItems: "flex-start",
+                            gap: "24px",
         alignSelf: "stretch",
-        padding: isMobile ? "16px" : "24px 32px",
+                            padding: isMobile ? "16px" : "24px 32px",
       }}
     >
       <div
         style={{
                     display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start",
-          gap: "20px",
+                              alignItems: "flex-start",
+                              gap: "20px",
           alignSelf: "stretch",
         }}
       >
@@ -2040,7 +2040,7 @@ export const Reporting: React.FC = () => {
           style={{
                     display: "flex",
             flexDirection: "column",
-            gap: "2px",
+                                gap: "2px",
             flex: "1 0 0",
           }}
         >
@@ -2089,11 +2089,11 @@ export const Reporting: React.FC = () => {
         style={{
                     display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start",
+                              alignItems: "flex-start",
           alignSelf: "stretch",
-          borderRadius: "12px",
-          border: "1px solid #E9EAEB",
-          background: "#FFF",
+                              borderRadius: "12px",
+                              border: "1px solid #E9EAEB",
+                              background: "#FFF",
           overflow: "hidden",
         }}
       >
@@ -2101,9 +2101,9 @@ export const Reporting: React.FC = () => {
         <div
           style={{
                     display: "flex",
-            padding: "16px",
-            alignItems: "center",
-            gap: "16px",
+                                padding: "16px",
+                                alignItems: "center",
+                                gap: "16px",
             alignSelf: "stretch",
             borderBottom: "1px solid #E9EAEB",
           }}
@@ -2127,10 +2127,10 @@ export const Reporting: React.FC = () => {
         <div
           style={{
                     display: "flex",
-            padding: "12px 16px 16px 16px",
+                                padding: "12px 16px 16px 16px",
             flexDirection: "column",
-            alignItems: "flex-start",
-            gap: "24px",
+                                alignItems: "flex-start",
+                                gap: "24px",
             alignSelf: "stretch",
           }}
         >
@@ -2138,8 +2138,8 @@ export const Reporting: React.FC = () => {
             style={{
                     display: "flex",
               flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "8px",
+                                  alignItems: "flex-start",
+                                  gap: "8px",
             }}
           >
             <div
@@ -2167,8 +2167,8 @@ export const Reporting: React.FC = () => {
             <div
               style={{
                     display: "flex",
-                alignItems: "center",
-                gap: "16px",
+                                    alignItems: "center",
+                                    gap: "16px",
                 flexWrap: "wrap",
                 ...mobileButtonGroupStyles,
               }}
@@ -2183,23 +2183,23 @@ export const Reporting: React.FC = () => {
                   style={{
                     display: "flex",
                                         width: isMobile ? "100%" : "auto",
-                    minHeight: "36px",
-                    padding: "6px 8px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "4px",
-                    borderRadius: "8px",
-                    border: isGenerateActive
+                                        minHeight: "36px",
+                                        padding: "6px 8px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        gap: "4px",
+                                        borderRadius: "8px",
+                                        border: isGenerateActive
                       ? "1px solid #B3BCE5"
                       : "1px solid #D5D7DA",
-                    background: isGenerateActive
+                                        background: isGenerateActive
                       ? "#F5F5F5"
                       : isGenerateHovered
                         ? "#F8F9FA"
                         : "#FFF",
-                    boxShadow:
+                                        boxShadow:
                       "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                    cursor: "pointer",
+                                        cursor: "pointer",
                   }}
                 >
                   <svg
@@ -2225,9 +2225,9 @@ export const Reporting: React.FC = () => {
                   <div
                     style={{
                     display: "flex",
-                      padding: "0 2px",
-                      justifyContent: "center",
-                      alignItems: "center",
+                                          padding: "0 2px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
                     }}
                   >
                     <span
@@ -2247,17 +2247,17 @@ export const Reporting: React.FC = () => {
               <label
                 style={{
                     display: "flex",
-                  alignItems: "flex-start",
-                  gap: "8px",
-                  cursor: "pointer",
+                                      alignItems: "flex-start",
+                                      gap: "8px",
+                                      cursor: "pointer",
                 }}
               >
                 <div
                   style={{
                     display: "flex",
                     paddingTop: "2px",
-                    justifyContent: "center",
-                    alignItems: "center",
+                                        justifyContent: "center",
+                                        alignItems: "center",
                   }}
                 >
                   <input
@@ -2265,9 +2265,9 @@ export const Reporting: React.FC = () => {
                     style={{
                       width: "16px",
                       height: "16px",
-                      borderRadius: "4px",
-                      border: "1px solid #D5D7DA",
-                      cursor: "pointer",
+                                          borderRadius: "4px",
+                                          border: "1px solid #D5D7DA",
+                                          cursor: "pointer",
                     }}
                   />
                 </div>
@@ -2275,7 +2275,7 @@ export const Reporting: React.FC = () => {
                   style={{
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: "flex-start",
+                                        alignItems: "flex-start",
                   }}
                 >
                   <span
@@ -2295,25 +2295,25 @@ export const Reporting: React.FC = () => {
                 style={{
                     display: "flex",
                                         width: isMobile ? "100%" : "auto",
-                    minHeight: "36px",
-                  padding: "6px 8px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "4px",
-                  borderRadius: "8px",
-                  border: "2px solid rgba(255, 255, 255, 0.12)",
-                  background: "#344698",
-                  boxShadow:
+                                        minHeight: "36px",
+                                      padding: "6px 8px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      borderRadius: "8px",
+                                      border: "2px solid rgba(255, 255, 255, 0.12)",
+                                      background: "#344698",
+                                      boxShadow:
                     "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                  cursor: "pointer",
+                                      cursor: "pointer",
                 }}
               >
                 <div
                   style={{
                     display: "flex",
-                    padding: "0 2px",
-                    justifyContent: "center",
-                    alignItems: "center",
+                                        padding: "0 2px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
                   }}
                 >
                   <span
@@ -2336,13 +2336,13 @@ export const Reporting: React.FC = () => {
           <div
             style={{
                     display: "flex",
-              padding: "12px 8px",
+                                  padding: "12px 8px",
               flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "12px",
+                                  alignItems: "flex-start",
+                                  gap: "12px",
               alignSelf: "stretch",
-              borderRadius: "8px",
-              background: "#FAFAFA",
+                                  borderRadius: "8px",
+                                  background: "#FAFAFA",
             }}
           >
             <div
@@ -2371,11 +2371,11 @@ export const Reporting: React.FC = () => {
         style={{
                     display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start",
+                              alignItems: "flex-start",
           alignSelf: "stretch",
-          borderRadius: "12px",
-          border: "1px solid #E9EAEB",
-          background: "#FFF",
+                              borderRadius: "12px",
+                              border: "1px solid #E9EAEB",
+                              background: "#FFF",
           overflow: "hidden",
         }}
       >
@@ -2383,9 +2383,9 @@ export const Reporting: React.FC = () => {
         <div
           style={{
                     display: "flex",
-            padding: "16px",
-            alignItems: "center",
-            gap: "16px",
+                                padding: "16px",
+                                alignItems: "center",
+                                gap: "16px",
             alignSelf: "stretch",
             borderBottom: "1px solid #E9EAEB",
           }}
@@ -2406,8 +2406,8 @@ export const Reporting: React.FC = () => {
           <div
             style={{
                     display: "flex",
-              alignItems: "center",
-              gap: "12px",
+                                  alignItems: "center",
+                                  gap: "12px",
             }}
           >
             <div style={{ position: "relative", ...mobileButtonWrapperStyles }}>
@@ -2420,23 +2420,23 @@ export const Reporting: React.FC = () => {
                 style={{
                     display: "flex",
                                         width: isMobile ? "100%" : "auto",
-                    minHeight: "36px",
-                  padding: "6px 8px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "4px",
-                  borderRadius: "8px",
-                  border: isReportActive
+                                        minHeight: "36px",
+                                      padding: "6px 8px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      borderRadius: "8px",
+                                      border: isReportActive
                     ? "1px solid #B3BCE5"
                     : "1px solid #D5D7DA",
-                  background: isReportActive
+                                      background: isReportActive
                     ? "#F5F5F5"
                     : isReportHovered
                       ? "#F8F9FA"
                       : "#FFF",
-                  boxShadow:
+                                      boxShadow:
                     "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                  cursor: "pointer",
+                                      cursor: "pointer",
                 }}
               >
                 <svg
@@ -2464,7 +2464,7 @@ export const Reporting: React.FC = () => {
                     fontSize: "14px",
                     fontWeight: 600,
                     lineHeight: "20px",
-                    padding: "0 2px",
+                                        padding: "0 2px",
                   }}
                 >
                   {formatDateRange(selectedStartDate, selectedEndDate)}
@@ -2475,17 +2475,17 @@ export const Reporting: React.FC = () => {
               style={{
                     display: "flex",
                                         width: isMobile ? "100%" : "auto",
-                    minHeight: "36px",
-                padding: "6px 8px",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "4px",
-                borderRadius: "8px",
-                border: "1px solid #D5D7DA",
-                background: "#FFF",
-                boxShadow:
+                                        minHeight: "36px",
+                                    padding: "6px 8px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                    borderRadius: "8px",
+                                    border: "1px solid #D5D7DA",
+                                    background: "#FFF",
+                                    boxShadow:
                   "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                cursor: "pointer",
+                                    cursor: "pointer",
               }}
             >
               <svg
@@ -2507,9 +2507,9 @@ export const Reporting: React.FC = () => {
               <div
                 style={{
                     display: "flex",
-                  padding: "0 2px",
-                  justifyContent: "center",
-                  alignItems: "center",
+                                      padding: "0 2px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
                 }}
               >
                 <span
@@ -2532,11 +2532,11 @@ export const Reporting: React.FC = () => {
         <div
           style={{
                     display: "flex",
-            padding: "12px 16px 16px 16px",
+                                padding: "12px 16px 16px 16px",
             flexDirection: "column",
-            alignItems: "flex-start",
+                                alignItems: "flex-start",
             alignSelf: "stretch",
-            minHeight: "400px",
+                                minHeight: "400px",
           }}
         >
           <TurnaroundTimeChart
@@ -2554,18 +2554,18 @@ export const Reporting: React.FC = () => {
       style={{
                     display: "flex",
         flexDirection: "column",
-        alignItems: "flex-start",
-        gap: "24px",
+                            alignItems: "flex-start",
+                            gap: "24px",
         alignSelf: "stretch",
-        padding: isMobile ? "16px" : "24px 32px",
+                            padding: isMobile ? "16px" : "24px 32px",
       }}
     >
       <div
         style={{
                     display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start",
-          gap: "20px",
+                              alignItems: "flex-start",
+                              gap: "20px",
           alignSelf: "stretch",
         }}
       >
@@ -2573,9 +2573,9 @@ export const Reporting: React.FC = () => {
           style={{
                     display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "flex-start",
-            gap: "2px",
+                                justifyContent: "center",
+                                alignItems: "flex-start",
+                                gap: "2px",
             flex: "1 0 0",
           }}
         >
@@ -2599,11 +2599,11 @@ export const Reporting: React.FC = () => {
         style={{
                     display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start",
+                              alignItems: "flex-start",
           alignSelf: "stretch",
-          borderRadius: "12px",
-          border: "1px solid #E9EAEB",
-          background: "#FFF",
+                              borderRadius: "12px",
+                              border: "1px solid #E9EAEB",
+                              background: "#FFF",
           overflow: "hidden",
         }}
       >
@@ -2611,9 +2611,9 @@ export const Reporting: React.FC = () => {
         <div
           style={{
                     display: "flex",
-            padding: "16px",
-            alignItems: "center",
-            gap: "16px",
+                                padding: "16px",
+                                alignItems: "center",
+                                gap: "16px",
             alignSelf: "stretch",
             borderBottom: "1px solid #E9EAEB",
           }}
@@ -2621,8 +2621,8 @@ export const Reporting: React.FC = () => {
           <div
             style={{
                     display: "flex",
-              alignItems: "flex-start",
-              gap: "4px",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
               flex: "1 0 0",
             }}
           >
@@ -2630,17 +2630,17 @@ export const Reporting: React.FC = () => {
               style={{
                     display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "flex-start",
-                gap: "2px",
+                                    justifyContent: "center",
+                                    alignItems: "flex-start",
+                                    gap: "2px",
                 flex: "1 0 0",
               }}
             >
               <div
                 style={{
                     display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
+                                      alignItems: "center",
+                                      gap: "8px",
                   alignSelf: "stretch",
                 }}
               >
@@ -2662,8 +2662,8 @@ export const Reporting: React.FC = () => {
           <div
             style={{
                     display: "flex",
-              alignItems: "center",
-              gap: "12px",
+                                  alignItems: "center",
+                                  gap: "12px",
               flexWrap: "wrap",
             }}
           >
@@ -2671,25 +2671,25 @@ export const Reporting: React.FC = () => {
               style={{
                     display: "flex",
                                         width: isMobile ? "100%" : "auto",
-                    minHeight: "36px",
-                padding: "6px 8px",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "4px",
-                borderRadius: "8px",
-                border: "1px solid #D5D7DA",
-                background: "#FFF",
-                boxShadow:
+                                        minHeight: "36px",
+                                    padding: "6px 8px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                    borderRadius: "8px",
+                                    border: "1px solid #D5D7DA",
+                                    background: "#FFF",
+                                    boxShadow:
                   "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                cursor: "pointer",
+                                    cursor: "pointer",
               }}
             >
               <div
                 style={{
                     display: "flex",
-                  padding: "0 2px",
-                  justifyContent: "center",
-                  alignItems: "center",
+                                      padding: "0 2px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
                 }}
               >
                 <span
@@ -2725,25 +2725,25 @@ export const Reporting: React.FC = () => {
               style={{
                     display: "flex",
                                         width: isMobile ? "100%" : "auto",
-                    minHeight: "36px",
-                padding: "6px 8px",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "4px",
-                borderRadius: "8px",
-                border: "1px solid #D5D7DA",
-                background: "#FFF",
-                boxShadow:
+                                        minHeight: "36px",
+                                    padding: "6px 8px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                    borderRadius: "8px",
+                                    border: "1px solid #D5D7DA",
+                                    background: "#FFF",
+                                    boxShadow:
                   "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                cursor: "pointer",
+                                    cursor: "pointer",
               }}
             >
               <div
                 style={{
                     display: "flex",
-                  padding: "0 2px",
-                  justifyContent: "center",
-                  alignItems: "center",
+                                      padding: "0 2px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
                 }}
               >
                 <span
@@ -2779,25 +2779,25 @@ export const Reporting: React.FC = () => {
               style={{
                     display: "flex",
                                         width: isMobile ? "100%" : "auto",
-                    minHeight: "36px",
-                padding: "6px 8px",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "4px",
-                borderRadius: "8px",
-                border: "1px solid #D5D7DA",
-                background: "#FFF",
-                boxShadow:
+                                        minHeight: "36px",
+                                    padding: "6px 8px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                    borderRadius: "8px",
+                                    border: "1px solid #D5D7DA",
+                                    background: "#FFF",
+                                    boxShadow:
                   "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                cursor: "pointer",
+                                    cursor: "pointer",
               }}
             >
               <div
                 style={{
                     display: "flex",
-                  padding: "0 2px",
-                  justifyContent: "center",
-                  alignItems: "center",
+                                      padding: "0 2px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
                 }}
               >
                 <span
@@ -2833,25 +2833,25 @@ export const Reporting: React.FC = () => {
               style={{
                     display: "flex",
                                         width: isMobile ? "100%" : "auto",
-                    minHeight: "36px",
-                padding: "6px 8px",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "4px",
-                borderRadius: "8px",
-                border: "1px solid #D5D7DA",
-                background: "#FFF",
-                boxShadow:
+                                        minHeight: "36px",
+                                    padding: "6px 8px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                    borderRadius: "8px",
+                                    border: "1px solid #D5D7DA",
+                                    background: "#FFF",
+                                    boxShadow:
                   "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                cursor: "pointer",
+                                    cursor: "pointer",
               }}
             >
               <div
                 style={{
                     display: "flex",
-                  padding: "0 2px",
-                  justifyContent: "center",
-                  alignItems: "center",
+                                      padding: "0 2px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
                 }}
               >
                 <span
@@ -2893,23 +2893,23 @@ export const Reporting: React.FC = () => {
                 style={{
                     display: "flex",
                                         width: isMobile ? "100%" : "auto",
-                    minHeight: "36px",
-                  padding: "6px 8px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "4px",
-                  borderRadius: "8px",
-                  border: isReportActive
+                                        minHeight: "36px",
+                                      padding: "6px 8px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      borderRadius: "8px",
+                                      border: isReportActive
                     ? "1px solid #B3BCE5"
                     : "1px solid #D5D7DA",
-                  background: isReportActive
+                                      background: isReportActive
                     ? "#F5F5F5"
                     : isReportHovered
                       ? "#F8F9FA"
                       : "#FFF",
-                  boxShadow:
+                                      boxShadow:
                     "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                  cursor: "pointer",
+                                      cursor: "pointer",
                 }}
               >
                 <svg
@@ -2933,9 +2933,9 @@ export const Reporting: React.FC = () => {
                 <div
                   style={{
                     display: "flex",
-                    padding: "0 2px",
-                    justifyContent: "center",
-                    alignItems: "center",
+                                        padding: "0 2px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
                   }}
                 >
                   <span
@@ -2956,17 +2956,17 @@ export const Reporting: React.FC = () => {
               style={{
                     display: "flex",
                                         width: isMobile ? "100%" : "auto",
-                    minHeight: "36px",
-                padding: "6px 8px",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "4px",
-                borderRadius: "8px",
-                border: "1px solid #D5D7DA",
-                background: "#FFF",
-                boxShadow:
+                                        minHeight: "36px",
+                                    padding: "6px 8px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                    borderRadius: "8px",
+                                    border: "1px solid #D5D7DA",
+                                    background: "#FFF",
+                                    boxShadow:
                   "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                cursor: "pointer",
+                                    cursor: "pointer",
               }}
             >
               <svg
@@ -2988,9 +2988,9 @@ export const Reporting: React.FC = () => {
               <div
                 style={{
                     display: "flex",
-                  padding: "0 2px",
-                  justifyContent: "center",
-                  alignItems: "center",
+                                      padding: "0 2px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
                 }}
               >
                 <span
@@ -3013,11 +3013,11 @@ export const Reporting: React.FC = () => {
         <div
           style={{
                     display: "flex",
-            padding: "12px 16px 16px 16px",
+                                padding: "12px 16px 16px 16px",
             flexDirection: "column",
-            alignItems: "flex-start",
+                                alignItems: "flex-start",
             alignSelf: "stretch",
-            minHeight: "400px",
+                                minHeight: "400px",
           }}
         >
           <TurnaroundTimeChart
@@ -3036,18 +3036,18 @@ export const Reporting: React.FC = () => {
         style={{
                     display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start",
-          gap: "24px",
+                              alignItems: "flex-start",
+                              gap: "24px",
           alignSelf: "stretch",
-          padding: isMobile ? "16px" : "24px 32px",
+                              padding: isMobile ? "16px" : "24px 32px",
         }}
       >
         <div
           style={{
                     display: "flex",
             flexDirection: "column",
-            alignItems: "flex-start",
-            gap: "20px",
+                                alignItems: "flex-start",
+                                gap: "20px",
             alignSelf: "stretch",
           }}
         >
@@ -3055,7 +3055,7 @@ export const Reporting: React.FC = () => {
             style={{
                     display: "flex",
               flexDirection: "column",
-              gap: "2px",
+                                  gap: "2px",
               flex: "1 0 0",
             }}
           >
@@ -3101,11 +3101,11 @@ export const Reporting: React.FC = () => {
           style={{
                     display: "flex",
             flexDirection: "column",
-            alignItems: "flex-start",
+                                alignItems: "flex-start",
             alignSelf: "stretch",
-            borderRadius: "12px",
-            border: "1px solid #E9EAEB",
-            background: "#FFF",
+                                borderRadius: "12px",
+                                border: "1px solid #E9EAEB",
+                                background: "#FFF",
             overflow: "hidden",
           }}
         >
@@ -3113,9 +3113,9 @@ export const Reporting: React.FC = () => {
           <div
             style={{
                     display: "flex",
-              padding: "16px",
-              alignItems: "center",
-              gap: "16px",
+                                  padding: "16px",
+                                  alignItems: "center",
+                                  gap: "16px",
               alignSelf: "stretch",
               borderBottom: "1px solid #E9EAEB",
             }}
@@ -3139,10 +3139,10 @@ export const Reporting: React.FC = () => {
           <div
             style={{
                     display: "flex",
-              padding: "12px 16px 16px 16px",
+                                  padding: "12px 16px 16px 16px",
               flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "24px",
+                                  alignItems: "flex-start",
+                                  gap: "24px",
               alignSelf: "stretch",
             }}
           >
@@ -3150,8 +3150,8 @@ export const Reporting: React.FC = () => {
               style={{
                     display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "8px",
+                                    alignItems: "flex-start",
+                                    gap: "8px",
               }}
             >
               <div
@@ -3179,8 +3179,8 @@ export const Reporting: React.FC = () => {
               <div
                 style={{
                     display: "flex",
-                  alignItems: "center",
-                  gap: "16px",
+                                      alignItems: "center",
+                                      gap: "16px",
                 flexWrap: "wrap",
                 ...mobileButtonGroupStyles,
               }}
@@ -3195,23 +3195,23 @@ export const Reporting: React.FC = () => {
                     style={{
                     display: "flex",
                                         width: isMobile ? "100%" : "auto",
-                    minHeight: "36px",
-                    padding: "6px 8px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "4px",
-                    borderRadius: "8px",
-                    border: isGenerateActive
+                                        minHeight: "36px",
+                                        padding: "6px 8px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        gap: "4px",
+                                        borderRadius: "8px",
+                                        border: isGenerateActive
                       ? "1px solid #B3BCE5"
                       : "1px solid #D5D7DA",
-                    background: isGenerateActive
+                                        background: isGenerateActive
                       ? "#F5F5F5"
                       : isGenerateHovered
                         ? "#F8F9FA"
                         : "#FFF",
-                    boxShadow:
+                                        boxShadow:
                       "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                    cursor: "pointer",
+                                        cursor: "pointer",
                   }}
                   >
                     <svg
@@ -3241,7 +3241,7 @@ export const Reporting: React.FC = () => {
                         fontSize: "14px",
                         fontWeight: 600,
                         lineHeight: "20px",
-                        padding: "0 2px",
+                                            padding: "0 2px",
                       }}
                     >
                       {formatDateRange(selectedStartDate, selectedEndDate)}
@@ -3252,8 +3252,8 @@ export const Reporting: React.FC = () => {
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
+                                        alignItems: "center",
+                                        gap: "8px",
                   }}
                 >
                   <Checkbox
@@ -3274,7 +3274,7 @@ export const Reporting: React.FC = () => {
                       fontSize: "14px",
                       fontWeight: 500,
                       lineHeight: "20px",
-                      cursor: "pointer",
+                                          cursor: "pointer",
                     }}
                   >
                     Include account info?
@@ -3285,17 +3285,17 @@ export const Reporting: React.FC = () => {
                 style={{
                     display: "flex",
                                         width: isMobile ? "100%" : "auto",
-                    minHeight: "36px",
-                  padding: "6px 8px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "4px",
-                  borderRadius: "8px",
-                  border: "2px solid rgba(255, 255, 255, 0.12)",
-                  background: "#344698",
-                  boxShadow:
+                                        minHeight: "36px",
+                                      padding: "6px 8px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      borderRadius: "8px",
+                                      border: "2px solid rgba(255, 255, 255, 0.12)",
+                                      background: "#344698",
+                                      boxShadow:
                     "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                  cursor: "pointer",
+                                      cursor: "pointer",
                 }}
                 >
                   <span
@@ -3305,7 +3305,7 @@ export const Reporting: React.FC = () => {
                       fontSize: "14px",
                       fontWeight: 600,
                       lineHeight: "20px",
-                      padding: "0 2px",
+                                          padding: "0 2px",
                     }}
                   >
                     Create Report
@@ -3318,13 +3318,13 @@ export const Reporting: React.FC = () => {
             <div
               style={{
                     display: "flex",
-                padding: "12px 8px",
+                                    padding: "12px 8px",
                 flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "12px",
+                                    alignItems: "flex-start",
+                                    gap: "12px",
                 alignSelf: "stretch",
-                borderRadius: "8px",
-                background: "#FAFAFA",
+                                    borderRadius: "8px",
+                                    background: "#FAFAFA",
               }}
             >
               <div
@@ -3353,11 +3353,11 @@ export const Reporting: React.FC = () => {
           style={{
                     display: "flex",
             flexDirection: "column",
-            alignItems: "flex-start",
+                                alignItems: "flex-start",
             alignSelf: "stretch",
-            borderRadius: "12px",
-            border: "1px solid #E9EAEB",
-            background: "#FFF",
+                                borderRadius: "12px",
+                                border: "1px solid #E9EAEB",
+                                background: "#FFF",
             overflow: "hidden",
           }}
         >
@@ -3365,9 +3365,9 @@ export const Reporting: React.FC = () => {
           <div
             style={{
                     display: "flex",
-              padding: "16px",
-              alignItems: "center",
-              gap: "16px",
+                                  padding: "16px",
+                                  alignItems: "center",
+                                  gap: "16px",
               alignSelf: "stretch",
               borderBottom: "1px solid #E9EAEB",
             }}
@@ -3395,23 +3395,23 @@ export const Reporting: React.FC = () => {
                 style={{
                     display: "flex",
                                         width: isMobile ? "100%" : "auto",
-                    minHeight: "36px",
-                  padding: "6px 8px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "4px",
-                  borderRadius: "8px",
-                  border: isReportActive
+                                        minHeight: "36px",
+                                      padding: "6px 8px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      borderRadius: "8px",
+                                      border: isReportActive
                     ? "1px solid #B3BCE5"
                     : "1px solid #D5D7DA",
-                  background: isReportActive
+                                      background: isReportActive
                     ? "#F5F5F5"
                     : isReportHovered
                       ? "#F8F9FA"
                       : "#FFF",
-                  boxShadow:
+                                      boxShadow:
                     "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                  cursor: "pointer",
+                                      cursor: "pointer",
                 }}
               >
                 <svg
@@ -3439,7 +3439,7 @@ export const Reporting: React.FC = () => {
                     fontSize: "14px",
                     fontWeight: 600,
                     lineHeight: "20px",
-                    padding: "0 2px",
+                                        padding: "0 2px",
                   }}
                 >
                   {formatDateRange(selectedStartDate, selectedEndDate)}
@@ -3452,11 +3452,11 @@ export const Reporting: React.FC = () => {
           <div
             style={{
                     display: "flex",
-              padding: "12px 16px 16px 16px",
+                                  padding: "12px 16px 16px 16px",
               flexDirection: "column",
-              alignItems: "flex-start",
+                                  alignItems: "flex-start",
               alignSelf: "stretch",
-              minHeight: "400px",
+                                  minHeight: "400px",
             }}
           >
             <TurnaroundTimeChart
@@ -3476,7 +3476,7 @@ export const Reporting: React.FC = () => {
                     display: "flex",
         width: "100%",
         height: "100vh",
-        background: "#FAFAFA",
+                            background: "#FAFAFA",
         position: "relative",
         overflow: "hidden",
       }}
@@ -3505,7 +3505,7 @@ export const Reporting: React.FC = () => {
           flex: "1 1 auto",
           display: "flex",
           flexDirection: "column",
-          background: "#FAFAFA",
+                              background: "#FAFAFA",
           position: "relative",
           height: "100vh",
           overflow: "auto",
@@ -3575,10 +3575,10 @@ export const Reporting: React.FC = () => {
           <div
             style={{
                     display: "flex",
-              padding: isMobile ? "16px" : "0 32px",
+                                  padding: isMobile ? "16px" : "0 32px",
               flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "20px",
+                                  alignItems: "flex-start",
+                                  gap: "20px",
               alignSelf: "stretch",
             }}
           >
@@ -3586,8 +3586,8 @@ export const Reporting: React.FC = () => {
               style={{
                     display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "16px",
+                                    alignItems: "flex-start",
+                                    gap: "16px",
                 alignSelf: "stretch",
               }}
             >
@@ -3609,18 +3609,18 @@ export const Reporting: React.FC = () => {
             <div
               style={{
                     display: "flex",
-                padding: "4px",
-                alignItems: "center",
-                gap: "4px",
+                                    padding: "4px",
+                                    alignItems: "center",
+                                    gap: "4px",
                 alignSelf: "stretch",
                 flexWrap: isMobile ? "nowrap" : "wrap",
                 overflowX: isMobile ? "auto" : "visible",
                 overflowY: "hidden",
                 width: "100%",
                 WebkitOverflowScrolling: "touch",
-                borderRadius: "10px",
-                border: "1px solid #E9EAEB",
-                background: "#FFF",
+                                    borderRadius: "10px",
+                                    border: "1px solid #E9EAEB",
+                                    background: "#FFF",
               }}
             >
               {tabs.map((tab) => (
@@ -3630,15 +3630,15 @@ export const Reporting: React.FC = () => {
                   style={{
                     display: "flex",
                     height: "36px",
-                    padding: "8px 12px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "8px",
-                    borderRadius: "6px",
-                    border: activeTab === tab.id ? "1px solid #B3BCE5" : "none",
-                    background:
+                                        padding: "8px 12px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        gap: "8px",
+                                        borderRadius: "6px",
+                                        border: activeTab === tab.id ? "1px solid #B3BCE5" : "none",
+                                        background:
                       activeTab === tab.id ? "#ECEEF9" : "transparent",
-                    cursor: "pointer",
+                                        cursor: "pointer",
                     transition: "all 0.2s ease",
                     flexShrink: 0,
                   }}
