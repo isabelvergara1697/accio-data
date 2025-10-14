@@ -22,6 +22,7 @@ import OrderDetails from "./pages/OrderDetails";
 import Quickscreen from "./pages/Quickscreen";
 import AdverseActionProcess from "./pages/AdverseActionProcess";
 import { Reporting } from "./pages/Reporting";
+import SearchResults from "./pages/SearchResults";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import EmailSent from "./pages/EmailSent";
@@ -49,6 +50,7 @@ const App = () => (
           />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/reporting" element={<Reporting />} />
+          <Route path="/search" element={<SearchResults />} />
           <Route path="/online-ordering" element={<OnlineOrdering />} />
           <Route path="/submit-order" element={<SubmitOrSaveOrder />} />
           <Route path="/order-confirmation" element={<OrderConfirmation />} />
