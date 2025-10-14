@@ -674,6 +674,7 @@ export const Reporting: React.FC = () => {
               </div>
               <button
                 style={{
+                  ...mobileButtonStyles,
                   display: "flex",
                   minHeight: "36px",
                   padding: "6px 8px",
@@ -1940,6 +1941,7 @@ export const Reporting: React.FC = () => {
             >
               <button
                 style={{
+                  ...mobileButtonStyles,
                   display: "flex",
                   minHeight: "36px",
                   padding: "6px 8px",
@@ -2295,6 +2297,7 @@ export const Reporting: React.FC = () => {
               </label>
               <button
                 style={{
+                  ...mobileButtonStyles,
                   display: "flex",
                   minHeight: "36px",
                   padding: "6px 8px",
