@@ -461,7 +461,7 @@ export const Reporting: React.FC = () => {
   const renderResultsReportContent = () => (
     <div
       style={{
-        display: "flex",
+                    display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
         gap: "24px",
@@ -471,7 +471,7 @@ export const Reporting: React.FC = () => {
     >
       <div
         style={{
-          display: "flex",
+                    display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
           gap: "20px",
@@ -480,7 +480,7 @@ export const Reporting: React.FC = () => {
       >
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             flexDirection: "column",
             gap: "2px",
             flex: "1 0 0",
@@ -523,7 +523,7 @@ export const Reporting: React.FC = () => {
       {/* Generate Report Card */}
       <div
         style={{
-          display: "flex",
+                    display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
           alignSelf: "stretch",
@@ -536,7 +536,7 @@ export const Reporting: React.FC = () => {
         {/* Card Header */}
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             padding: "16px",
             alignItems: "center",
             gap: "16px",
@@ -562,7 +562,7 @@ export const Reporting: React.FC = () => {
         {/* Card Content */}
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             padding: "12px 16px 16px 16px",
             flexDirection: "column",
             alignItems: "flex-start",
@@ -572,7 +572,7 @@ export const Reporting: React.FC = () => {
         >
           <div
             style={{
-              display: "flex",
+                    display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",
               gap: "8px",
@@ -602,7 +602,7 @@ export const Reporting: React.FC = () => {
             </div>
             <div
               style={{
-                display: "flex",
+                    display: "flex",
                 alignItems: "flex-start",
                 gap: "16px",
                 flexWrap: "wrap",
@@ -617,7 +617,7 @@ export const Reporting: React.FC = () => {
                   onMouseEnter={() => setHoveredDateButton("generate")}
                   onMouseLeave={() => setHoveredDateButton(null)}
                   style={{
-                display: "flex",
+                    display: "flex",
                     width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                     padding: "6px 8px",
@@ -674,7 +674,7 @@ export const Reporting: React.FC = () => {
               </div>
               <button
                 style={{
-                display: "flex",
+                    display: "flex",
                     width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                   padding: "6px 8px",
@@ -708,7 +708,7 @@ export const Reporting: React.FC = () => {
           {/* Sample Preview */}
           <div
             style={{
-              display: "flex",
+                    display: "flex",
               padding: "12px 8px",
               flexDirection: "column",
               alignItems: "flex-start",
@@ -742,7 +742,7 @@ export const Reporting: React.FC = () => {
       {/* Report Chart Card */}
       <div
         style={{
-          display: "flex",
+                    display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
           alignSelf: "stretch",
@@ -755,7 +755,7 @@ export const Reporting: React.FC = () => {
         {/* Card Header */}
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             padding: "16px",
             alignItems: "center",
             gap: "16px",
@@ -784,7 +784,7 @@ export const Reporting: React.FC = () => {
               onMouseEnter={() => setHoveredDateButton("report")}
               onMouseLeave={() => setHoveredDateButton(null)}
               style={{
-                display: "flex",
+                    display: "flex",
                     width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                 padding: "6px 8px",
@@ -842,7 +842,7 @@ export const Reporting: React.FC = () => {
         {/* Chart Content */}
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             padding: "12px 16px 16px 16px",
             flexDirection: "column",
             alignItems: "flex-start",
@@ -870,7 +870,7 @@ export const Reporting: React.FC = () => {
     return (
       <div
         style={{
-          display: "flex",
+                    display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
           gap: "24px",
@@ -880,7 +880,7 @@ export const Reporting: React.FC = () => {
       >
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
             gap: "20px",
@@ -889,7 +889,7 @@ export const Reporting: React.FC = () => {
         >
           <div
             style={{
-              display: "flex",
+                    display: "flex",
               flexDirection: "column",
               gap: "2px",
               flex: "1 0 0",
@@ -909,7 +909,7 @@ export const Reporting: React.FC = () => {
             </h2>
             <div
               style={{
-                display: "flex",
+                    display: "flex",
                 flexDirection: "column",
                 gap: "12px",
                 color: "#535862",
@@ -962,7 +962,7 @@ export const Reporting: React.FC = () => {
         {/* Generate Report Card */}
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
             alignSelf: "stretch",
@@ -975,7 +975,7 @@ export const Reporting: React.FC = () => {
           {/* Card Header */}
           <div
             style={{
-              display: "flex",
+                    display: "flex",
               padding: "16px",
               alignItems: "center",
               gap: "16px",
@@ -1001,7 +1001,7 @@ export const Reporting: React.FC = () => {
           {/* Card Content */}
           <div
             style={{
-              display: "flex",
+                    display: "flex",
               padding: "12px 16px 16px 16px",
               flexDirection: "column",
               alignItems: "flex-start",
@@ -1011,7 +1011,7 @@ export const Reporting: React.FC = () => {
           >
             <div
               style={{
-                display: "flex",
+                    display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-start",
                 gap: "8px",
@@ -1041,7 +1041,7 @@ export const Reporting: React.FC = () => {
               </div>
               <div
               style={{
-                display: "flex",
+                    display: "flex",
                 alignItems: "flex-start",
                 gap: "16px",
                 flexWrap: "wrap",
@@ -1056,7 +1056,7 @@ export const Reporting: React.FC = () => {
                     onMouseEnter={() => setHoveredDateButton("generate")}
                     onMouseLeave={() => setHoveredDateButton(null)}
                     style={{
-                display: "flex",
+                    display: "flex",
                     width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                     padding: "6px 8px",
@@ -1113,7 +1113,7 @@ export const Reporting: React.FC = () => {
                 </div>
                 <button
                 style={{
-                display: "flex",
+                    display: "flex",
                     width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                   padding: "6px 8px",
@@ -1147,7 +1147,7 @@ export const Reporting: React.FC = () => {
             {/* Sample Preview */}
             <div
               style={{
-                display: "flex",
+                    display: "flex",
                 padding: "12px 8px",
                 flexDirection: "column",
                 alignItems: "flex-start",
@@ -1181,7 +1181,7 @@ export const Reporting: React.FC = () => {
         {/* Report Chart Card */}
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
             alignSelf: "stretch",
@@ -1194,7 +1194,7 @@ export const Reporting: React.FC = () => {
           {/* Card Header */}
           <div
             style={{
-              display: "flex",
+                    display: "flex",
               padding: "16px",
               alignItems: "center",
               gap: "16px",
@@ -1223,7 +1223,7 @@ export const Reporting: React.FC = () => {
                 onMouseEnter={() => setHoveredDateButton("report")}
                 onMouseLeave={() => setHoveredDateButton(null)}
                 style={{
-                display: "flex",
+                    display: "flex",
                     width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                   padding: "6px 8px",
@@ -1281,7 +1281,7 @@ export const Reporting: React.FC = () => {
           {/* Chart Content */}
           <div
             style={{
-              display: "flex",
+                    display: "flex",
               padding: "12px 16px 16px 16px",
               flexDirection: "column",
               alignItems: "flex-start",
@@ -1300,7 +1300,7 @@ export const Reporting: React.FC = () => {
         {/* Product Type Overview */}
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
             alignSelf: "stretch",
@@ -1312,7 +1312,7 @@ export const Reporting: React.FC = () => {
         >
           <div
             style={{
-              display: "flex",
+                    display: "flex",
               flexWrap: "wrap",
               padding: "16px",
               alignItems: "center",
@@ -1336,7 +1336,7 @@ export const Reporting: React.FC = () => {
             </h3>
             <div
               style={{
-                display: "flex",
+                    display: "flex",
                 flexWrap: "wrap",
                 gap: "24px",
                 alignItems: "center",
@@ -1344,7 +1344,7 @@ export const Reporting: React.FC = () => {
             >
               <div
                 style={{
-                display: "flex",
+                    display: "flex",
                   flexDirection: "column",
                   gap: "4px",
                   minWidth: "120px",
@@ -1376,7 +1376,7 @@ export const Reporting: React.FC = () => {
               </div>
               <div
                 style={{
-                display: "flex",
+                    display: "flex",
                   flexDirection: "column",
                   gap: "4px",
                   minWidth: "100px",
@@ -1408,7 +1408,7 @@ export const Reporting: React.FC = () => {
               </div>
               <div
                 style={{
-                display: "flex",
+                    display: "flex",
                   flexDirection: "column",
                   gap: "4px",
                   minWidth: "120px",
@@ -1440,7 +1440,7 @@ export const Reporting: React.FC = () => {
               </div>
               <div
                 style={{
-                display: "flex",
+                    display: "flex",
                   flexDirection: "column",
                   gap: "4px",
                   minWidth: "140px",
@@ -1635,7 +1635,7 @@ export const Reporting: React.FC = () => {
                         >
                           <div
                             style={{
-                display: "flex",
+                    display: "flex",
                               flexDirection: "column",
                               gap: "8px",
                             }}
@@ -1749,7 +1749,7 @@ export const Reporting: React.FC = () => {
                         >
                           <div
                             style={{
-                display: "flex",
+                    display: "flex",
                               alignItems: "center",
                               gap: "12px",
                             }}
@@ -1817,7 +1817,7 @@ export const Reporting: React.FC = () => {
   const renderPendingIndividualContent = () => (
     <div
       style={{
-        display: "flex",
+                    display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
         gap: "24px",
@@ -1827,7 +1827,7 @@ export const Reporting: React.FC = () => {
     >
       <div
         style={{
-          display: "flex",
+                    display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
           gap: "20px",
@@ -1836,7 +1836,7 @@ export const Reporting: React.FC = () => {
       >
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             flexDirection: "column",
             gap: "2px",
             flex: "1 0 0",
@@ -1877,7 +1877,7 @@ export const Reporting: React.FC = () => {
       {/* Generate Report Card */}
       <div
         style={{
-          display: "flex",
+                    display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
           alignSelf: "stretch",
@@ -1890,7 +1890,7 @@ export const Reporting: React.FC = () => {
         {/* Card Header */}
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             padding: "16px",
             alignItems: "center",
             gap: "16px",
@@ -1916,7 +1916,7 @@ export const Reporting: React.FC = () => {
         {/* Card Content */}
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             padding: "12px 16px 16px 16px",
             flexDirection: "column",
             alignItems: "flex-start",
@@ -1926,7 +1926,7 @@ export const Reporting: React.FC = () => {
         >
           <div
             style={{
-              display: "flex",
+                    display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",
               gap: "8px",
@@ -1934,14 +1934,14 @@ export const Reporting: React.FC = () => {
           >
             <div
               style={{
-                display: "flex",
+                    display: "flex",
                 alignItems: "center",
                 gap: "16px",
               }}
             >
               <button
                 style={{
-                display: "flex",
+                    display: "flex",
                     width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                   padding: "6px 8px",
@@ -1958,7 +1958,7 @@ export const Reporting: React.FC = () => {
               >
                 <div
                   style={{
-                display: "flex",
+                    display: "flex",
                     padding: "0 2px",
                     justifyContent: "center",
                     alignItems: "center",
@@ -1983,7 +1983,7 @@ export const Reporting: React.FC = () => {
           {/* Sample Preview */}
           <div
             style={{
-              display: "flex",
+                    display: "flex",
               padding: "12px 8px",
               flexDirection: "column",
               alignItems: "flex-start",
@@ -2019,7 +2019,7 @@ export const Reporting: React.FC = () => {
   const renderSubjectAlertContent = () => (
     <div
       style={{
-        display: "flex",
+                    display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
         gap: "24px",
@@ -2029,7 +2029,7 @@ export const Reporting: React.FC = () => {
     >
       <div
         style={{
-          display: "flex",
+                    display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
           gap: "20px",
@@ -2038,7 +2038,7 @@ export const Reporting: React.FC = () => {
       >
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             flexDirection: "column",
             gap: "2px",
             flex: "1 0 0",
@@ -2087,7 +2087,7 @@ export const Reporting: React.FC = () => {
       {/* Generate Report Card */}
       <div
         style={{
-          display: "flex",
+                    display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
           alignSelf: "stretch",
@@ -2100,7 +2100,7 @@ export const Reporting: React.FC = () => {
         {/* Card Header */}
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             padding: "16px",
             alignItems: "center",
             gap: "16px",
@@ -2126,7 +2126,7 @@ export const Reporting: React.FC = () => {
         {/* Card Content */}
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             padding: "12px 16px 16px 16px",
             flexDirection: "column",
             alignItems: "flex-start",
@@ -2136,7 +2136,7 @@ export const Reporting: React.FC = () => {
         >
           <div
             style={{
-              display: "flex",
+                    display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",
               gap: "8px",
@@ -2166,7 +2166,7 @@ export const Reporting: React.FC = () => {
             </div>
             <div
               style={{
-                display: "flex",
+                    display: "flex",
                 alignItems: "center",
                 gap: "16px",
                 flexWrap: "wrap",
@@ -2181,7 +2181,7 @@ export const Reporting: React.FC = () => {
                   onMouseEnter={() => setHoveredDateButton("generate")}
                   onMouseLeave={() => setHoveredDateButton(null)}
                   style={{
-                display: "flex",
+                    display: "flex",
                     width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                     padding: "6px 8px",
@@ -2224,7 +2224,7 @@ export const Reporting: React.FC = () => {
                   </svg>
                   <div
                     style={{
-                display: "flex",
+                    display: "flex",
                       padding: "0 2px",
                       justifyContent: "center",
                       alignItems: "center",
@@ -2246,7 +2246,7 @@ export const Reporting: React.FC = () => {
               </div>
               <label
                 style={{
-                display: "flex",
+                    display: "flex",
                   alignItems: "flex-start",
                   gap: "8px",
                   cursor: "pointer",
@@ -2254,7 +2254,7 @@ export const Reporting: React.FC = () => {
               >
                 <div
                   style={{
-                display: "flex",
+                    display: "flex",
                     paddingTop: "2px",
                     justifyContent: "center",
                     alignItems: "center",
@@ -2273,7 +2273,7 @@ export const Reporting: React.FC = () => {
                 </div>
                 <div
                   style={{
-                display: "flex",
+                    display: "flex",
                     flexDirection: "column",
                     alignItems: "flex-start",
                   }}
@@ -2293,7 +2293,7 @@ export const Reporting: React.FC = () => {
               </label>
               <button
                 style={{
-                display: "flex",
+                    display: "flex",
                     width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                   padding: "6px 8px",
@@ -2310,7 +2310,7 @@ export const Reporting: React.FC = () => {
               >
                 <div
                   style={{
-                display: "flex",
+                    display: "flex",
                     padding: "0 2px",
                     justifyContent: "center",
                     alignItems: "center",
@@ -2335,7 +2335,7 @@ export const Reporting: React.FC = () => {
           {/* Sample Preview */}
           <div
             style={{
-              display: "flex",
+                    display: "flex",
               padding: "12px 8px",
               flexDirection: "column",
               alignItems: "flex-start",
@@ -2369,7 +2369,7 @@ export const Reporting: React.FC = () => {
       {/* Report Chart Card */}
       <div
         style={{
-          display: "flex",
+                    display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
           alignSelf: "stretch",
@@ -2382,7 +2382,7 @@ export const Reporting: React.FC = () => {
         {/* Card Header */}
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             padding: "16px",
             alignItems: "center",
             gap: "16px",
@@ -2405,7 +2405,7 @@ export const Reporting: React.FC = () => {
           </h3>
           <div
             style={{
-              display: "flex",
+                    display: "flex",
               alignItems: "center",
               gap: "12px",
             }}
@@ -2418,7 +2418,7 @@ export const Reporting: React.FC = () => {
                 onMouseEnter={() => setHoveredDateButton("report")}
                 onMouseLeave={() => setHoveredDateButton(null)}
                 style={{
-                display: "flex",
+                    display: "flex",
                     width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                   padding: "6px 8px",
@@ -2473,7 +2473,7 @@ export const Reporting: React.FC = () => {
             </div>
             <button
               style={{
-                display: "flex",
+                    display: "flex",
                     width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                 padding: "6px 8px",
@@ -2506,7 +2506,7 @@ export const Reporting: React.FC = () => {
               </svg>
               <div
                 style={{
-                display: "flex",
+                    display: "flex",
                   padding: "0 2px",
                   justifyContent: "center",
                   alignItems: "center",
@@ -2531,7 +2531,7 @@ export const Reporting: React.FC = () => {
         {/* Chart Content */}
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             padding: "12px 16px 16px 16px",
             flexDirection: "column",
             alignItems: "flex-start",
@@ -2552,7 +2552,7 @@ export const Reporting: React.FC = () => {
   const renderTurnaroundTimeContent = () => (
     <div
       style={{
-        display: "flex",
+                    display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
         gap: "24px",
@@ -2562,7 +2562,7 @@ export const Reporting: React.FC = () => {
     >
       <div
         style={{
-          display: "flex",
+                    display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
           gap: "20px",
@@ -2571,7 +2571,7 @@ export const Reporting: React.FC = () => {
       >
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "flex-start",
@@ -2597,7 +2597,7 @@ export const Reporting: React.FC = () => {
       {/* Report Section */}
       <div
         style={{
-          display: "flex",
+                    display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
           alignSelf: "stretch",
@@ -2610,7 +2610,7 @@ export const Reporting: React.FC = () => {
         {/* Card Header */}
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             padding: "16px",
             alignItems: "center",
             gap: "16px",
@@ -2620,7 +2620,7 @@ export const Reporting: React.FC = () => {
         >
           <div
             style={{
-              display: "flex",
+                    display: "flex",
               alignItems: "flex-start",
               gap: "4px",
               flex: "1 0 0",
@@ -2628,7 +2628,7 @@ export const Reporting: React.FC = () => {
           >
             <div
               style={{
-                display: "flex",
+                    display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "flex-start",
@@ -2638,7 +2638,7 @@ export const Reporting: React.FC = () => {
             >
               <div
                 style={{
-                display: "flex",
+                    display: "flex",
                   alignItems: "center",
                   gap: "8px",
                   alignSelf: "stretch",
@@ -2661,7 +2661,7 @@ export const Reporting: React.FC = () => {
           </div>
           <div
             style={{
-              display: "flex",
+                    display: "flex",
               alignItems: "center",
               gap: "12px",
               flexWrap: "wrap",
@@ -2669,7 +2669,7 @@ export const Reporting: React.FC = () => {
           >
             <button
               style={{
-                display: "flex",
+                    display: "flex",
                     width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                 padding: "6px 8px",
@@ -2686,7 +2686,7 @@ export const Reporting: React.FC = () => {
             >
               <div
                 style={{
-                display: "flex",
+                    display: "flex",
                   padding: "0 2px",
                   justifyContent: "center",
                   alignItems: "center",
@@ -2723,7 +2723,7 @@ export const Reporting: React.FC = () => {
             </button>
             <button
               style={{
-                display: "flex",
+                    display: "flex",
                     width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                 padding: "6px 8px",
@@ -2740,7 +2740,7 @@ export const Reporting: React.FC = () => {
             >
               <div
                 style={{
-                display: "flex",
+                    display: "flex",
                   padding: "0 2px",
                   justifyContent: "center",
                   alignItems: "center",
@@ -2777,7 +2777,7 @@ export const Reporting: React.FC = () => {
             </button>
             <button
               style={{
-                display: "flex",
+                    display: "flex",
                     width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                 padding: "6px 8px",
@@ -2794,7 +2794,7 @@ export const Reporting: React.FC = () => {
             >
               <div
                 style={{
-                display: "flex",
+                    display: "flex",
                   padding: "0 2px",
                   justifyContent: "center",
                   alignItems: "center",
@@ -2831,7 +2831,7 @@ export const Reporting: React.FC = () => {
             </button>
             <button
               style={{
-                display: "flex",
+                    display: "flex",
                     width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                 padding: "6px 8px",
@@ -2848,7 +2848,7 @@ export const Reporting: React.FC = () => {
             >
               <div
                 style={{
-                display: "flex",
+                    display: "flex",
                   padding: "0 2px",
                   justifyContent: "center",
                   alignItems: "center",
@@ -2891,7 +2891,7 @@ export const Reporting: React.FC = () => {
                 onMouseEnter={() => setHoveredDateButton("report")}
                 onMouseLeave={() => setHoveredDateButton(null)}
                 style={{
-                display: "flex",
+                    display: "flex",
                     width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                   padding: "6px 8px",
@@ -2932,7 +2932,7 @@ export const Reporting: React.FC = () => {
                 </svg>
                 <div
                   style={{
-                display: "flex",
+                    display: "flex",
                     padding: "0 2px",
                     justifyContent: "center",
                     alignItems: "center",
@@ -2954,7 +2954,7 @@ export const Reporting: React.FC = () => {
             </div>
             <button
               style={{
-                display: "flex",
+                    display: "flex",
                     width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                 padding: "6px 8px",
@@ -2987,7 +2987,7 @@ export const Reporting: React.FC = () => {
               </svg>
               <div
                 style={{
-                display: "flex",
+                    display: "flex",
                   padding: "0 2px",
                   justifyContent: "center",
                   alignItems: "center",
@@ -3012,7 +3012,7 @@ export const Reporting: React.FC = () => {
         {/* Chart Content */}
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             padding: "12px 16px 16px 16px",
             flexDirection: "column",
             alignItems: "flex-start",
@@ -3034,7 +3034,7 @@ export const Reporting: React.FC = () => {
     return (
       <div
         style={{
-          display: "flex",
+                    display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
           gap: "24px",
@@ -3044,7 +3044,7 @@ export const Reporting: React.FC = () => {
       >
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
             gap: "20px",
@@ -3053,7 +3053,7 @@ export const Reporting: React.FC = () => {
         >
           <div
             style={{
-              display: "flex",
+                    display: "flex",
               flexDirection: "column",
               gap: "2px",
               flex: "1 0 0",
@@ -3099,7 +3099,7 @@ export const Reporting: React.FC = () => {
         {/* Generate Report Card */}
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
             alignSelf: "stretch",
@@ -3112,7 +3112,7 @@ export const Reporting: React.FC = () => {
           {/* Card Header */}
           <div
             style={{
-              display: "flex",
+                    display: "flex",
               padding: "16px",
               alignItems: "center",
               gap: "16px",
@@ -3138,7 +3138,7 @@ export const Reporting: React.FC = () => {
           {/* Card Content */}
           <div
             style={{
-              display: "flex",
+                    display: "flex",
               padding: "12px 16px 16px 16px",
               flexDirection: "column",
               alignItems: "flex-start",
@@ -3148,7 +3148,7 @@ export const Reporting: React.FC = () => {
           >
             <div
               style={{
-                display: "flex",
+                    display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-start",
                 gap: "8px",
@@ -3178,7 +3178,7 @@ export const Reporting: React.FC = () => {
               </div>
               <div
                 style={{
-                display: "flex",
+                    display: "flex",
                   alignItems: "center",
                   gap: "16px",
                 flexWrap: "wrap",
@@ -3193,7 +3193,7 @@ export const Reporting: React.FC = () => {
                     onMouseEnter={() => setHoveredDateButton("generate")}
                     onMouseLeave={() => setHoveredDateButton(null)}
                     style={{
-                display: "flex",
+                    display: "flex",
                     width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                     padding: "6px 8px",
@@ -3251,7 +3251,7 @@ export const Reporting: React.FC = () => {
 
                 <div
                   style={{
-                display: "flex",
+                    display: "flex",
                     alignItems: "center",
                     gap: "8px",
                   }}
@@ -3283,7 +3283,7 @@ export const Reporting: React.FC = () => {
 
                 <button
                 style={{
-                display: "flex",
+                    display: "flex",
                     width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                   padding: "6px 8px",
@@ -3317,7 +3317,7 @@ export const Reporting: React.FC = () => {
             {/* Sample Preview */}
             <div
               style={{
-                display: "flex",
+                    display: "flex",
                 padding: "12px 8px",
                 flexDirection: "column",
                 alignItems: "flex-start",
@@ -3351,7 +3351,7 @@ export const Reporting: React.FC = () => {
         {/* Report Chart Card */}
         <div
           style={{
-            display: "flex",
+                    display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
             alignSelf: "stretch",
@@ -3364,7 +3364,7 @@ export const Reporting: React.FC = () => {
           {/* Card Header */}
           <div
             style={{
-              display: "flex",
+                    display: "flex",
               padding: "16px",
               alignItems: "center",
               gap: "16px",
@@ -3393,7 +3393,7 @@ export const Reporting: React.FC = () => {
                 onMouseEnter={() => setHoveredDateButton("report")}
                 onMouseLeave={() => setHoveredDateButton(null)}
                 style={{
-                display: "flex",
+                    display: "flex",
                     width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                   padding: "6px 8px",
@@ -3451,7 +3451,7 @@ export const Reporting: React.FC = () => {
           {/* Chart Content */}
           <div
             style={{
-              display: "flex",
+                    display: "flex",
               padding: "12px 16px 16px 16px",
               flexDirection: "column",
               alignItems: "flex-start",
@@ -3473,7 +3473,7 @@ export const Reporting: React.FC = () => {
   return (
     <div
       style={{
-        display: "flex",
+                    display: "flex",
         width: "100%",
         height: "100vh",
         background: "#FAFAFA",
@@ -3574,7 +3574,7 @@ export const Reporting: React.FC = () => {
           {/* Page Header */}
           <div
             style={{
-              display: "flex",
+                    display: "flex",
               padding: isMobile ? "16px" : "0 32px",
               flexDirection: "column",
               alignItems: "flex-start",
@@ -3584,7 +3584,7 @@ export const Reporting: React.FC = () => {
           >
             <div
               style={{
-                display: "flex",
+                    display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-start",
                 gap: "16px",
@@ -3608,7 +3608,7 @@ export const Reporting: React.FC = () => {
             {/* Tab Navigation */}
             <div
               style={{
-                display: "flex",
+                    display: "flex",
                 padding: "4px",
                 alignItems: "center",
                 gap: "4px",
@@ -3628,7 +3628,7 @@ export const Reporting: React.FC = () => {
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
                   style={{
-                display: "flex",
+                    display: "flex",
                     height: "36px",
                     padding: "8px 12px",
                     justifyContent: "center",
