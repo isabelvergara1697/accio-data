@@ -602,6 +602,7 @@ export const Reporting: React.FC = () => {
             </div>
             <div
               style={{
+                ...mobileButtonStyles,
                 display: "flex",
                 alignItems: "flex-start",
                 gap: "16px",
@@ -784,6 +785,7 @@ export const Reporting: React.FC = () => {
               onMouseEnter={() => setHoveredDateButton("report")}
               onMouseLeave={() => setHoveredDateButton(null)}
               style={{
+                ...mobileButtonStyles,
                 display: "flex",
                 minHeight: "36px",
                 padding: "6px 8px",
@@ -908,6 +910,7 @@ export const Reporting: React.FC = () => {
             </h2>
             <div
               style={{
+                ...mobileButtonStyles,
                 display: "flex",
                 flexDirection: "column",
                 gap: "12px",
@@ -1010,6 +1013,7 @@ export const Reporting: React.FC = () => {
           >
             <div
               style={{
+                ...mobileButtonStyles,
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-start",
@@ -1040,7 +1044,8 @@ export const Reporting: React.FC = () => {
               </div>
               <div
                 style={{
-                  display: "flex",
+                ...mobileButtonStyles,
+                display: "flex",
                   alignItems: "flex-start",
                   gap: "16px",
                 flexWrap: "wrap",
@@ -1146,6 +1151,7 @@ export const Reporting: React.FC = () => {
             {/* Sample Preview */}
             <div
               style={{
+                ...mobileButtonStyles,
                 display: "flex",
                 padding: "12px 8px",
                 flexDirection: "column",
@@ -1222,7 +1228,8 @@ export const Reporting: React.FC = () => {
                 onMouseEnter={() => setHoveredDateButton("report")}
                 onMouseLeave={() => setHoveredDateButton(null)}
                 style={{
-                  display: "flex",
+                ...mobileButtonStyles,
+                display: "flex",
                   minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
@@ -1334,6 +1341,7 @@ export const Reporting: React.FC = () => {
             </h3>
             <div
               style={{
+                ...mobileButtonStyles,
                 display: "flex",
                 flexWrap: "wrap",
                 gap: "24px",
@@ -1342,7 +1350,8 @@ export const Reporting: React.FC = () => {
             >
               <div
                 style={{
-                  display: "flex",
+                ...mobileButtonStyles,
+                display: "flex",
                   flexDirection: "column",
                   gap: "4px",
                   minWidth: "120px",
@@ -1374,7 +1383,8 @@ export const Reporting: React.FC = () => {
               </div>
               <div
                 style={{
-                  display: "flex",
+                ...mobileButtonStyles,
+                display: "flex",
                   flexDirection: "column",
                   gap: "4px",
                   minWidth: "100px",
@@ -1406,7 +1416,8 @@ export const Reporting: React.FC = () => {
               </div>
               <div
                 style={{
-                  display: "flex",
+                ...mobileButtonStyles,
+                display: "flex",
                   flexDirection: "column",
                   gap: "4px",
                   minWidth: "120px",
@@ -1438,7 +1449,8 @@ export const Reporting: React.FC = () => {
               </div>
               <div
                 style={{
-                  display: "flex",
+                ...mobileButtonStyles,
+                display: "flex",
                   flexDirection: "column",
                   gap: "4px",
                   minWidth: "140px",
@@ -1934,6 +1946,7 @@ export const Reporting: React.FC = () => {
           >
             <div
               style={{
+                ...mobileButtonStyles,
                 display: "flex",
                 alignItems: "center",
                 gap: "16px",
@@ -2167,6 +2180,7 @@ export const Reporting: React.FC = () => {
             </div>
             <div
               style={{
+                ...mobileButtonStyles,
                 display: "flex",
                 alignItems: "center",
                 gap: "16px",
@@ -2248,7 +2262,8 @@ export const Reporting: React.FC = () => {
               </div>
               <label
                 style={{
-                  display: "flex",
+                ...mobileButtonStyles,
+                display: "flex",
                   alignItems: "flex-start",
                   gap: "8px",
                   cursor: "pointer",
@@ -2423,7 +2438,8 @@ export const Reporting: React.FC = () => {
                 onMouseEnter={() => setHoveredDateButton("report")}
                 onMouseLeave={() => setHoveredDateButton(null)}
                 style={{
-                  display: "flex",
+                ...mobileButtonStyles,
+                display: "flex",
                   minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
@@ -2477,6 +2493,7 @@ export const Reporting: React.FC = () => {
             </div>
             <button
               style={{
+                ...mobileButtonStyles,
                 display: "flex",
                 minHeight: "36px",
                 padding: "6px 8px",
@@ -2509,7 +2526,8 @@ export const Reporting: React.FC = () => {
               </svg>
               <div
                 style={{
-                  display: "flex",
+                ...mobileButtonStyles,
+                display: "flex",
                   padding: "0 2px",
                   justifyContent: "center",
                   alignItems: "center",
@@ -2631,6 +2649,7 @@ export const Reporting: React.FC = () => {
           >
             <div
               style={{
+                ...mobileButtonStyles,
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
@@ -2641,7 +2660,8 @@ export const Reporting: React.FC = () => {
             >
               <div
                 style={{
-                  display: "flex",
+                ...mobileButtonStyles,
+                display: "flex",
                   alignItems: "center",
                   gap: "8px",
                   alignSelf: "stretch",
@@ -2672,6 +2692,7 @@ export const Reporting: React.FC = () => {
           >
             <button
               style={{
+                ...mobileButtonStyles,
                 display: "flex",
                 minHeight: "36px",
                 padding: "6px 8px",
@@ -2688,7 +2709,8 @@ export const Reporting: React.FC = () => {
             >
               <div
                 style={{
-                  display: "flex",
+                ...mobileButtonStyles,
+                display: "flex",
                   padding: "0 2px",
                   justifyContent: "center",
                   alignItems: "center",
@@ -2725,6 +2747,7 @@ export const Reporting: React.FC = () => {
             </button>
             <button
               style={{
+                ...mobileButtonStyles,
                 display: "flex",
                 minHeight: "36px",
                 padding: "6px 8px",
@@ -2741,7 +2764,8 @@ export const Reporting: React.FC = () => {
             >
               <div
                 style={{
-                  display: "flex",
+                ...mobileButtonStyles,
+                display: "flex",
                   padding: "0 2px",
                   justifyContent: "center",
                   alignItems: "center",
@@ -2778,6 +2802,7 @@ export const Reporting: React.FC = () => {
             </button>
             <button
               style={{
+                ...mobileButtonStyles,
                 display: "flex",
                 minHeight: "36px",
                 padding: "6px 8px",
@@ -2794,7 +2819,8 @@ export const Reporting: React.FC = () => {
             >
               <div
                 style={{
-                  display: "flex",
+                ...mobileButtonStyles,
+                display: "flex",
                   padding: "0 2px",
                   justifyContent: "center",
                   alignItems: "center",
@@ -2831,6 +2857,7 @@ export const Reporting: React.FC = () => {
             </button>
             <button
               style={{
+                ...mobileButtonStyles,
                 display: "flex",
                 minHeight: "36px",
                 padding: "6px 8px",
@@ -2847,7 +2874,8 @@ export const Reporting: React.FC = () => {
             >
               <div
                 style={{
-                  display: "flex",
+                ...mobileButtonStyles,
+                display: "flex",
                   padding: "0 2px",
                   justifyContent: "center",
                   alignItems: "center",
@@ -2890,7 +2918,8 @@ export const Reporting: React.FC = () => {
                 onMouseEnter={() => setHoveredDateButton("report")}
                 onMouseLeave={() => setHoveredDateButton(null)}
                 style={{
-                  display: "flex",
+                ...mobileButtonStyles,
+                display: "flex",
                   minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
@@ -2953,6 +2982,7 @@ export const Reporting: React.FC = () => {
             </div>
             <button
               style={{
+                ...mobileButtonStyles,
                 display: "flex",
                 minHeight: "36px",
                 padding: "6px 8px",
@@ -2985,7 +3015,8 @@ export const Reporting: React.FC = () => {
               </svg>
               <div
                 style={{
-                  display: "flex",
+                ...mobileButtonStyles,
+                display: "flex",
                   padding: "0 2px",
                   justifyContent: "center",
                   alignItems: "center",
@@ -3146,6 +3177,7 @@ export const Reporting: React.FC = () => {
           >
             <div
               style={{
+                ...mobileButtonStyles,
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-start",
@@ -3176,7 +3208,8 @@ export const Reporting: React.FC = () => {
               </div>
               <div
                 style={{
-                  display: "flex",
+                ...mobileButtonStyles,
+                display: "flex",
                   alignItems: "center",
                   gap: "16px",
                 flexWrap: "wrap",
@@ -3316,6 +3349,7 @@ export const Reporting: React.FC = () => {
             {/* Sample Preview */}
             <div
               style={{
+                ...mobileButtonStyles,
                 display: "flex",
                 padding: "12px 8px",
                 flexDirection: "column",
@@ -3392,7 +3426,8 @@ export const Reporting: React.FC = () => {
                 onMouseEnter={() => setHoveredDateButton("report")}
                 onMouseLeave={() => setHoveredDateButton(null)}
                 style={{
-                  display: "flex",
+                ...mobileButtonStyles,
+                display: "flex",
                   minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
@@ -3582,6 +3617,7 @@ export const Reporting: React.FC = () => {
           >
             <div
               style={{
+                ...mobileButtonStyles,
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-start",
@@ -3606,6 +3642,7 @@ export const Reporting: React.FC = () => {
             {/* Tab Navigation */}
             <div
               style={{
+                ...mobileButtonStyles,
                 display: "flex",
                 padding: "4px",
                 alignItems: "center",
