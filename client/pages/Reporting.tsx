@@ -617,6 +617,7 @@ export const Reporting: React.FC = () => {
                   onMouseEnter={() => setHoveredDateButton("generate")}
                   onMouseLeave={() => setHoveredDateButton(null)}
                   style={{
+                    ...mobileButtonStyles,
                     display: "flex",
                     minHeight: "36px",
                     padding: "6px 8px",
@@ -1053,7 +1054,8 @@ export const Reporting: React.FC = () => {
                     onMouseEnter={() => setHoveredDateButton("generate")}
                     onMouseLeave={() => setHoveredDateButton(null)}
                     style={{
-                      display: "flex",
+                    ...mobileButtonStyles,
+                    display: "flex",
                       minHeight: "36px",
                       padding: "6px 8px",
                       justifyContent: "center",
@@ -1109,6 +1111,7 @@ export const Reporting: React.FC = () => {
                 </div>
                 <button
                   style={{
+                    ...mobileButtonStyles,
                     display: "flex",
                     minHeight: "36px",
                     padding: "6px 8px",
@@ -1629,7 +1632,8 @@ export const Reporting: React.FC = () => {
                         >
                           <div
                             style={{
-                              display: "flex",
+                    ...mobileButtonStyles,
+                    display: "flex",
                               flexDirection: "column",
                               gap: "8px",
                             }}
@@ -1743,7 +1747,8 @@ export const Reporting: React.FC = () => {
                         >
                           <div
                             style={{
-                              display: "flex",
+                    ...mobileButtonStyles,
+                    display: "flex",
                               alignItems: "center",
                               gap: "12px",
                             }}
@@ -1951,6 +1956,7 @@ export const Reporting: React.FC = () => {
               >
                 <div
                   style={{
+                    ...mobileButtonStyles,
                     display: "flex",
                     padding: "0 2px",
                     justifyContent: "center",
@@ -2174,6 +2180,7 @@ export const Reporting: React.FC = () => {
                   onMouseEnter={() => setHoveredDateButton("generate")}
                   onMouseLeave={() => setHoveredDateButton(null)}
                   style={{
+                    ...mobileButtonStyles,
                     display: "flex",
                     minHeight: "36px",
                     padding: "6px 8px",
@@ -2216,7 +2223,8 @@ export const Reporting: React.FC = () => {
                   </svg>
                   <div
                     style={{
-                      display: "flex",
+                    ...mobileButtonStyles,
+                    display: "flex",
                       padding: "0 2px",
                       justifyContent: "center",
                       alignItems: "center",
@@ -2246,6 +2254,7 @@ export const Reporting: React.FC = () => {
               >
                 <div
                   style={{
+                    ...mobileButtonStyles,
                     display: "flex",
                     paddingTop: "2px",
                     justifyContent: "center",
@@ -2265,6 +2274,7 @@ export const Reporting: React.FC = () => {
                 </div>
                 <div
                   style={{
+                    ...mobileButtonStyles,
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "flex-start",
@@ -2301,6 +2311,7 @@ export const Reporting: React.FC = () => {
               >
                 <div
                   style={{
+                    ...mobileButtonStyles,
                     display: "flex",
                     padding: "0 2px",
                     justifyContent: "center",
@@ -2916,6 +2927,7 @@ export const Reporting: React.FC = () => {
                 </svg>
                 <div
                   style={{
+                    ...mobileButtonStyles,
                     display: "flex",
                     padding: "0 2px",
                     justifyContent: "center",
@@ -3176,7 +3188,8 @@ export const Reporting: React.FC = () => {
                     onMouseEnter={() => setHoveredDateButton("generate")}
                     onMouseLeave={() => setHoveredDateButton(null)}
                     style={{
-                      display: "flex",
+                    ...mobileButtonStyles,
+                    display: "flex",
                       minHeight: "36px",
                       padding: "6px 8px",
                       justifyContent: "center",
@@ -3233,6 +3246,7 @@ export const Reporting: React.FC = () => {
 
                 <div
                   style={{
+                    ...mobileButtonStyles,
                     display: "flex",
                     alignItems: "center",
                     gap: "8px",
@@ -3265,6 +3279,7 @@ export const Reporting: React.FC = () => {
 
                 <button
                   style={{
+                    ...mobileButtonStyles,
                     display: "flex",
                     minHeight: "36px",
                     padding: "6px 8px",
@@ -3608,6 +3623,7 @@ export const Reporting: React.FC = () => {
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
                   style={{
+                    ...mobileButtonStyles,
                     display: "flex",
                     height: "36px",
                     padding: "8px 12px",
