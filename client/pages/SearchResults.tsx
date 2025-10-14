@@ -320,6 +320,9 @@ const SearchResults = () => {
           setSSNOrderDrawerOpen={setSSNOrderDrawerOpen}
           notificationModalOpen={notificationModalOpen}
           setNotificationModalOpen={setNotificationModalOpen}
+          onOpenQuickOrderDrawer={() => setQuickOrderDrawerOpen(true)}
+          onOpenSSNOrderDrawer={() => setSSNOrderDrawerOpen(true)}
+          onOpenNotificationModal={() => setNotificationModalOpen(true)}
         />
 
         <MobileHeader
