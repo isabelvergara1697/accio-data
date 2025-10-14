@@ -618,6 +618,7 @@ export const Reporting: React.FC = () => {
                   onMouseLeave={() => setHoveredDateButton(null)}
                   style={{
                 display: "flex",
+                    width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                     padding: "6px 8px",
                     justifyContent: "center",
@@ -674,7 +675,8 @@ export const Reporting: React.FC = () => {
               <button
                 style={{
                 display: "flex",
-                  minHeight: "36px",
+                    width: isMobile ? "100%" : "auto",
+                    minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
                   alignItems: "center",
@@ -783,7 +785,8 @@ export const Reporting: React.FC = () => {
               onMouseLeave={() => setHoveredDateButton(null)}
               style={{
                 display: "flex",
-                minHeight: "36px",
+                    width: isMobile ? "100%" : "auto",
+                    minHeight: "36px",
                 padding: "6px 8px",
                 justifyContent: "center",
                 alignItems: "center",
@@ -1054,6 +1057,7 @@ export const Reporting: React.FC = () => {
                     onMouseLeave={() => setHoveredDateButton(null)}
                     style={{
                 display: "flex",
+                    width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                     padding: "6px 8px",
                     justifyContent: "center",
@@ -1110,7 +1114,8 @@ export const Reporting: React.FC = () => {
                 <button
                 style={{
                 display: "flex",
-                  minHeight: "36px",
+                    width: isMobile ? "100%" : "auto",
+                    minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
                   alignItems: "center",
@@ -1219,7 +1224,8 @@ export const Reporting: React.FC = () => {
                 onMouseLeave={() => setHoveredDateButton(null)}
                 style={{
                 display: "flex",
-                  minHeight: "36px",
+                    width: isMobile ? "100%" : "auto",
+                    minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
                   alignItems: "center",
@@ -1936,7 +1942,8 @@ export const Reporting: React.FC = () => {
               <button
                 style={{
                 display: "flex",
-                  minHeight: "36px",
+                    width: isMobile ? "100%" : "auto",
+                    minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
                   alignItems: "center",
@@ -2175,6 +2182,7 @@ export const Reporting: React.FC = () => {
                   onMouseLeave={() => setHoveredDateButton(null)}
                   style={{
                 display: "flex",
+                    width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                     padding: "6px 8px",
                     justifyContent: "center",
@@ -2286,7 +2294,8 @@ export const Reporting: React.FC = () => {
               <button
                 style={{
                 display: "flex",
-                  minHeight: "36px",
+                    width: isMobile ? "100%" : "auto",
+                    minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
                   alignItems: "center",
@@ -2410,7 +2419,8 @@ export const Reporting: React.FC = () => {
                 onMouseLeave={() => setHoveredDateButton(null)}
                 style={{
                 display: "flex",
-                  minHeight: "36px",
+                    width: isMobile ? "100%" : "auto",
+                    minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
                   alignItems: "center",
@@ -2464,7 +2474,8 @@ export const Reporting: React.FC = () => {
             <button
               style={{
                 display: "flex",
-                minHeight: "36px",
+                    width: isMobile ? "100%" : "auto",
+                    minHeight: "36px",
                 padding: "6px 8px",
                 justifyContent: "center",
                 alignItems: "center",
@@ -2659,7 +2670,8 @@ export const Reporting: React.FC = () => {
             <button
               style={{
                 display: "flex",
-                minHeight: "36px",
+                    width: isMobile ? "100%" : "auto",
+                    minHeight: "36px",
                 padding: "6px 8px",
                 justifyContent: "center",
                 alignItems: "center",
@@ -2712,7 +2724,8 @@ export const Reporting: React.FC = () => {
             <button
               style={{
                 display: "flex",
-                minHeight: "36px",
+                    width: isMobile ? "100%" : "auto",
+                    minHeight: "36px",
                 padding: "6px 8px",
                 justifyContent: "center",
                 alignItems: "center",
@@ -2765,7 +2778,8 @@ export const Reporting: React.FC = () => {
             <button
               style={{
                 display: "flex",
-                minHeight: "36px",
+                    width: isMobile ? "100%" : "auto",
+                    minHeight: "36px",
                 padding: "6px 8px",
                 justifyContent: "center",
                 alignItems: "center",
@@ -2818,7 +2832,8 @@ export const Reporting: React.FC = () => {
             <button
               style={{
                 display: "flex",
-                minHeight: "36px",
+                    width: isMobile ? "100%" : "auto",
+                    minHeight: "36px",
                 padding: "6px 8px",
                 justifyContent: "center",
                 alignItems: "center",
@@ -2877,7 +2892,8 @@ export const Reporting: React.FC = () => {
                 onMouseLeave={() => setHoveredDateButton(null)}
                 style={{
                 display: "flex",
-                  minHeight: "36px",
+                    width: isMobile ? "100%" : "auto",
+                    minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
                   alignItems: "center",
@@ -2939,7 +2955,8 @@ export const Reporting: React.FC = () => {
             <button
               style={{
                 display: "flex",
-                minHeight: "36px",
+                    width: isMobile ? "100%" : "auto",
+                    minHeight: "36px",
                 padding: "6px 8px",
                 justifyContent: "center",
                 alignItems: "center",
@@ -3177,6 +3194,7 @@ export const Reporting: React.FC = () => {
                     onMouseLeave={() => setHoveredDateButton(null)}
                     style={{
                 display: "flex",
+                    width: isMobile ? "100%" : "auto",
                     minHeight: "36px",
                     padding: "6px 8px",
                     justifyContent: "center",
@@ -3266,7 +3284,8 @@ export const Reporting: React.FC = () => {
                 <button
                 style={{
                 display: "flex",
-                  minHeight: "36px",
+                    width: isMobile ? "100%" : "auto",
+                    minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
                   alignItems: "center",
@@ -3375,7 +3394,8 @@ export const Reporting: React.FC = () => {
                 onMouseLeave={() => setHoveredDateButton(null)}
                 style={{
                 display: "flex",
-                  minHeight: "36px",
+                    width: isMobile ? "100%" : "auto",
+                    minHeight: "36px",
                   padding: "6px 8px",
                   justifyContent: "center",
                   alignItems: "center",
