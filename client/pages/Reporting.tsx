@@ -609,7 +609,7 @@ export const Reporting: React.FC = () => {
                 ...mobileButtonGroupStyles,
               }}
             >
-              <div style={{ position: "relative" }}>
+              <div style={{ position: "relative", ...mobileButtonWrapperStyles }}>
                 <button
                   type="button"
                   ref={generateDateButtonRef}
@@ -774,7 +774,7 @@ export const Reporting: React.FC = () => {
           >
             Report
           </h3>
-          <div style={{ position: "relative" }}>
+          <div style={{ position: "relative", ...mobileButtonWrapperStyles }}>
             <button
               type="button"
               ref={reportDateButtonRef}
@@ -1045,7 +1045,7 @@ export const Reporting: React.FC = () => {
                 ...mobileButtonGroupStyles,
               }}
               >
-                <div style={{ position: "relative" }}>
+                <div style={{ position: "relative", ...mobileButtonWrapperStyles }}>
                   <button
                     type="button"
                     ref={generateDateButtonRef}
@@ -1210,7 +1210,7 @@ export const Reporting: React.FC = () => {
             >
               Report
             </h3>
-            <div style={{ position: "relative" }}>
+            <div style={{ position: "relative", ...mobileButtonWrapperStyles }}>
               <button
                 type="button"
                 ref={reportDateButtonRef}
@@ -2166,7 +2166,7 @@ export const Reporting: React.FC = () => {
                 ...mobileButtonGroupStyles,
               }}
             >
-              <div style={{ position: "relative" }}>
+              <div style={{ position: "relative", ...mobileButtonWrapperStyles }}>
                 <button
                   type="button"
                   ref={generateDateButtonRef}
@@ -2401,7 +2401,7 @@ export const Reporting: React.FC = () => {
               gap: "12px",
             }}
           >
-            <div style={{ position: "relative" }}>
+            <div style={{ position: "relative", ...mobileButtonWrapperStyles }}>
               <button
                 type="button"
                 ref={reportDateButtonRef}
@@ -2868,7 +2868,7 @@ export const Reporting: React.FC = () => {
                 />
               </svg>
             </button>
-            <div style={{ position: "relative" }}>
+            <div style={{ position: "relative", ...mobileButtonWrapperStyles }}>
               <button
                 type="button"
                 ref={reportDateButtonRef}
@@ -3168,7 +3168,7 @@ export const Reporting: React.FC = () => {
                 ...mobileButtonGroupStyles,
               }}
               >
-                <div style={{ position: "relative" }}>
+                <div style={{ position: "relative", ...mobileButtonWrapperStyles }}>
                   <button
                     type="button"
                     ref={generateDateButtonRef}
@@ -3366,7 +3366,7 @@ export const Reporting: React.FC = () => {
             >
               Report
             </h3>
-            <div style={{ position: "relative" }}>
+            <div style={{ position: "relative", ...mobileButtonWrapperStyles }}>
               <button
                 type="button"
                 ref={reportDateButtonRef}
