@@ -365,6 +365,7 @@ const SearchResults = () => {
       />
 
       <div
+        className={isMobile ? "mobile-container" : ""}
         style={{
           flex: "1 0 0",
           display: "flex",
