@@ -5,6 +5,7 @@ import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import { HorizontalTabs } from "../components/HorizontalTabs";
 import { useIsMobile } from "../hooks/use-mobile";
+import DeleteUserModal from "../components/ui/delete-user-modal";
 
 type CompanyTabType =
   | "company"
@@ -49,6 +50,8 @@ export default function CompanySettings() {
   const [hoveredRowIndex, setHoveredRowIndex] = React.useState<number | null>(
     null,
   );
+  const [deleteUserModalOpen, setDeleteUserModalOpen] = React.useState(false);
+  const [userToDelete, setUserToDelete] = React.useState<{ id: number; name: string } | null>(null);
 
   React.useEffect(() => {
     if (initialTab) {
