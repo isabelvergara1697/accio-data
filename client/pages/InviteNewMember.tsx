@@ -1070,11 +1070,11 @@ export default function InviteNewMember() {
                 <div
                   style={{
                     display: "grid",
-                    gridTemplateColumns: isCompact
-                      ? "1fr"
-                      : "repeat(2, minmax(0, 1fr))",
-                    rowGap: isCompact ? "16px" : "20px",
-                    columnGap: isCompact ? "16px" : "20px",
+                    gridTemplateColumns: isDesktop
+                      ? "repeat(2, minmax(0, 1fr))"
+                      : "1fr",
+                    rowGap: isDesktop ? "20px" : "16px",
+                    columnGap: isDesktop ? "20px" : "16px",
                   }}
                 >
                   <div
