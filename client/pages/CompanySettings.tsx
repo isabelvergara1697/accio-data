@@ -2620,6 +2620,46 @@ export default function CompanySettings() {
                             lastActive: "Jun 30, 2025, 03:00 PM",
                             status: "Inactive",
                           },
+                          {
+                            name: "Liam Smith",
+                            email: "newdevice@acciodata.com",
+                            role: "Admin",
+                            department: "Recruitment",
+                            lastActive: "Invited Jan 10, 2025",
+                            status: "Pending",
+                          },
+                          {
+                            name: "Ethan Miller",
+                            email: "alerts@acciodata.com",
+                            role: "Admin",
+                            department: "Employee Relations",
+                            lastActive: "Aug 25, 2025, 01:30 PM",
+                            status: "Inactive",
+                          },
+                          {
+                            name: "Olivia Brown",
+                            email: "export@acciodata.com",
+                            role: "Orders Only",
+                            department: "Training and Development",
+                            lastActive: "Sep 14, 2025, 04:00 PM",
+                            status: "Active",
+                          },
+                          {
+                            name: "Sophia Garcia",
+                            email: "timeout@acciodata.com",
+                            role: "Editor",
+                            department: "Payroll",
+                            lastActive: "Oct 29, 2025, 12:00 PM",
+                            status: "Active",
+                          },
+                          {
+                            name: "Ava Wilson",
+                            email: "settings@acciodata.com",
+                            role: "Editor",
+                            department: "Workplace Culture",
+                            lastActive: "Nov 11, 2025, 05:15 PM",
+                            status: "Active",
+                          },
                         ].map((member, index) => (
                           <tr
                             key={index}
