@@ -69,6 +69,8 @@ type InviteMemberFormData = {
   icimsPassword: string;
 };
 
+const TEAM_MEMBERS: TeamMember[] = [];
+
 export default function InviteNewMember() {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
