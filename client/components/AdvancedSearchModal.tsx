@@ -1,9 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+
+type AdvancedSearchAnchor = {
+  top: number;
+  left: number;
+  width: number;
+};
 
 interface AdvancedSearchModalProps {
   isOpen: boolean;
   onClose: () => void;
+  anchor: AdvancedSearchAnchor | null;
 }
 
 export const AdvancedSearchModal: React.FC<AdvancedSearchModalProps> = ({
