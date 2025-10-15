@@ -378,20 +378,25 @@ export default function InviteNewMember() {
                     onValueChange={(value: "auto" | "manual") => setPasswordOption(value)}
                     style={{
                       display: "flex",
-                      flexDirection: "column",
-                      gap: "16px",
+                      flexDirection: isCompact ? "column" : "row",
+                      alignItems: "flex-start",
+                      gap: isCompact ? "12px" : "24px",
+                      flexWrap: isCompact ? "nowrap" : "wrap",
                     }}
                   >
-                    <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                      <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
-                        <RadioGroupItem value="auto" id="auto-password" style={{ marginTop: "2px" }} />
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "8px",
+                        maxWidth: isCompact ? "100%" : "360px",
+                      }}
+                    >
+                      <RadioGroupItem value="auto" id="auto-password" style={{ marginTop: "2px" }} />
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
                         <Label
                           htmlFor="auto-password"
                           style={{
-                            display: "flex",
-                            alignItems: "flex-end",
-                            gap: "4px",
-                            alignSelf: "stretch",
                             color: "#414651",
                             fontFamily: "Public Sans",
                             fontSize: "14px",
@@ -401,29 +406,25 @@ export default function InviteNewMember() {
                         >
                           Automatically generate a secure 16-character password
                         </Label>
+                        <p
+                          style={{
+                            color: "#535862",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 400,
+                            lineHeight: "20px",
+                            margin: 0,
+                          }}
+                        >
+                          It will be emailed to the user
+                        </p>
                       </div>
-                      <p
-                        style={{
-                          color: "#535862",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 400,
-                          lineHeight: "20px",
-                          margin: "0 0 0 24px",
-                        }}
-                      >
-                        It will be emailed to the user
-                      </p>
                     </div>
                     <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
                       <RadioGroupItem value="manual" id="manual-password" style={{ marginTop: "2px" }} />
                       <Label
                         htmlFor="manual-password"
                         style={{
-                          display: "flex",
-                          alignItems: "flex-end",
-                          gap: "4px",
-                          alignSelf: "stretch",
                           color: "#414651",
                           fontFamily: "Public Sans",
                           fontSize: "14px",
