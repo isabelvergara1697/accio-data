@@ -33,6 +33,7 @@ import AccountSettings from "./pages/AccountSettings";
 import CompanySettings from "./pages/CompanySettings";
 import InviteNewMember from "./pages/InviteNewMember";
 import InviteNewMemberValidation from "./pages/InviteNewMemberValidation";
+import InviteNewMemberConfirmation from "./pages/InviteNewMemberConfirmation";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -61,6 +62,10 @@ const App = () => (
           <Route
             path="/invite-new-member/validation"
             element={<InviteNewMemberValidation />}
+          />
+          <Route
+            path="/invite-new-member/confirmation"
+            element={<InviteNewMemberConfirmation />}
           />
           <Route path="/online-ordering" element={<OnlineOrdering />} />
           <Route path="/submit-order" element={<SubmitOrSaveOrder />} />

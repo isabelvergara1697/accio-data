@@ -388,20 +388,9 @@ export default function InviteNewMember() {
       return;
     }
 
-    toast({
-      title: "Invite details ready",
-      description:
-        "All required information is filled out. Continue to the next step to send the invite.",
-    });
-
-    navigate("/invite-new-member/validation", {
+    navigate("/invite-new-member/confirmation", {
       state: {
-        formData,
-        passwordOption,
-        password,
-        selectedTeamMembers,
-        adjudicationSelections,
-        reportViewOption,
+        email: formData.email,
       },
     });
   }, [
