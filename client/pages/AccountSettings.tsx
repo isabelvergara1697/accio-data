@@ -44,6 +44,12 @@ export default function AccountSettings() {
 
   const hasPhoto = photoUrl.length > 0;
 
+  const getInitials = () => {
+    const firstInitial = firstName.trim().charAt(0).toUpperCase();
+    const lastInitial = lastName.trim().charAt(0).toUpperCase();
+    return `${firstInitial}${lastInitial}`;
+  };
+
   const handleSignOut = () => {
     navigate("/login");
   };
