@@ -631,9 +631,7 @@ export default function InviteNewMember({ mode = "invite" }: InviteMemberPagePro
                   margin: 0,
                 }}
               >
-                Invite new users to your account, assign roles, and configure
-                access permissions. Fill out the form below to set up user
-                credentials, contact details, and report visibility settings.
+                {pageDescription}
               </p>
             </div>
 
