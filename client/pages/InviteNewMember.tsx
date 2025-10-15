@@ -2388,7 +2388,7 @@ export default function InviteNewMember({ mode = "invite" }: InviteMemberPagePro
                   cursor: "pointer",
                 }}
               >
-                Create User
+                {primaryActionLabel}
               </button>
             </div>
           </div>
