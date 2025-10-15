@@ -350,6 +350,9 @@ const SearchResults = () => {
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
         onNavigate={(path) => navigate(path)}
+        onOpenQuickOrderDrawer={() => setQuickOrderDrawerOpen(true)}
+        onOpenSSNOrderDrawer={() => setSSNOrderDrawerOpen(true)}
+        onOpenNotificationModal={() => setNotificationModalOpen(true)}
       />
 
       <div
