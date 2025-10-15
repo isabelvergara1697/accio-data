@@ -342,13 +342,21 @@ export default function CompanySettings() {
                       type="text"
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
-                      style={{ ...inputStyle, flex: isMobile ? "unset" : "1 0 0" }}
+                      style={{
+                        ...inputStyle,
+                        flex: isMobile ? "0 0 auto" : "1 0 0",
+                        width: isMobile ? "100%" : undefined,
+                      }}
                     />
                     <input
                       type="text"
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
-                      style={{ ...inputStyle, flex: isMobile ? "unset" : "1 0 0" }}
+                      style={{
+                        ...inputStyle,
+                        flex: isMobile ? "0 0 auto" : "1 0 0",
+                        width: isMobile ? "100%" : undefined,
+                      }}
                     />
                   </div>
                 </div>
