@@ -5,7 +5,7 @@ import { QuickCreateDropdown } from "./ui/quick-create-dropdown";
 import QuickOrderDrawer from "./ui/quick-order-drawer";
 import SSNOrderDrawer from "./ui/ssn-order-drawer";
 import NotificationModal from "./ui/notification-modal";
-import { AdvancedSearchDropdown } from "./AdvancedSearchDropdown";
+import { AdvancedSearchModal } from "./AdvancedSearchModal";
 import { formatContactText } from "../lib/order-utils";
 import {
   useResponsiveSVGEnhanced,
