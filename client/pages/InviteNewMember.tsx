@@ -2287,6 +2287,8 @@ export default function InviteNewMember() {
               }}
             >
               <button
+                type="button"
+                onClick={handleSubmit}
                 style={{
                   display: "flex",
                   padding: "12px 20px",
