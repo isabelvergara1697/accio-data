@@ -20,6 +20,101 @@ type CompanyTabType =
   | "audit"
   | "customization";
 
+type RoleKey = "superAdmin" | "admin" | "recruiter" | "support";
+
+type RolePermissionRow = {
+  label: string;
+  roles: Record<RoleKey, boolean>;
+};
+
+type RolePermissionCategory = {
+  title: string;
+  permissions: RolePermissionRow[];
+};
+
+const ROLE_COLUMNS: { key: RoleKey; label: string; locked?: boolean }[] = [
+  { key: "superAdmin", label: "Super Admin", locked: true },
+  { key: "admin", label: "Admin" },
+  { key: "recruiter", label: "Recruiter" },
+  { key: "support", label: "Support" },
+];
+
+const INITIAL_ROLE_PERMISSIONS: RolePermissionCategory[] = [
+  {
+    title: "User Management",
+    permissions: [
+      {
+        label: "View Users",
+        roles: { superAdmin: true, admin: true, recruiter: false, support: true },
+      },
+      {
+        label: "Create User",
+        roles: { superAdmin: true, admin: true, recruiter: true, support: false },
+      },
+      {
+        label: "Edit Users",
+        roles: { superAdmin: true, admin: true, recruiter: true, support: false },
+      },
+      {
+        label: "Delete Users",
+        roles: { superAdmin: true, admin: true, recruiter: true, support: false },
+      },
+    ],
+  },
+  {
+    title: "Orders",
+    permissions: [
+      {
+        label: "[Permission Label]",
+        roles: { superAdmin: true, admin: true, recruiter: false, support: true },
+      },
+      {
+        label: "[Permission Label]",
+        roles: { superAdmin: true, admin: true, recruiter: true, support: false },
+      },
+      {
+        label: "[Permission Label]",
+        roles: { superAdmin: true, admin: true, recruiter: true, support: false },
+      },
+      {
+        label: "[Permission Label]",
+        roles: { superAdmin: true, admin: true, recruiter: true, support: false },
+      },
+    ],
+  },
+  {
+    title: "Billing & Finances",
+    permissions: [
+      {
+        label: "View Billing",
+        roles: { superAdmin: true, admin: true, recruiter: false, support: true },
+      },
+      {
+        label: "Configure Billing",
+        roles: { superAdmin: true, admin: true, recruiter: true, support: false },
+      },
+    ],
+  },
+  {
+    title: "System Settings",
+    permissions: [
+      {
+        label: "Company Settings",
+        roles: { superAdmin: true, admin: true, recruiter: true, support: true },
+      },
+      {
+        label: "SAML Integration",
+        roles: { superAdmin: true, admin: true, recruiter: false, support: false },
+      },
+      {
+        label: "Customization",
+        roles: { superAdmin: true, admin: true, recruiter: false, support: false },
+      },
+    ],
+  },
+];
+
+
 export default function CompanySettings() {
   const navigate = useNavigate();
   const location = useLocation();
