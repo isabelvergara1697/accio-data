@@ -1683,6 +1683,8 @@ export default function InviteNewMember() {
                         display: "flex",
                         flexDirection: "column",
                         flex: isCompact ? "1 0 0" : "0 0 auto",
+                        minWidth: isCompact ? "100%" : "72px",
+                        alignItems: isCompact ? "stretch" : "center",
                       }}
                     >
                       {/* Empty Header */}
