@@ -54,6 +54,7 @@ export default function CompanySettings() {
   );
   const [deleteUserModalOpen, setDeleteUserModalOpen] = React.useState(false);
   const [userToDelete, setUserToDelete] = React.useState<{ id: number; name: string } | null>(null);
+  const [teamSubTab, setTeamSubTab] = React.useState<'members' | 'permissions'>('members');
 
   React.useEffect(() => {
     if (initialTab) {
@@ -2595,6 +2596,7 @@ export default function CompanySettings() {
                   }}
                 >
                   <button
+                    onClick={() => setTeamSubTab('members')}
                     style={{
                       display: "flex",
                       height: "36px",
@@ -2603,9 +2605,9 @@ export default function CompanySettings() {
                       alignItems: "center",
                       gap: "8px",
                       borderRadius: "6px",
-                      border: "1px solid #B3BCE5",
-                      background: "#ECEEF9",
-                      color: "#273572",
+                      border: teamSubTab === 'members' ? "1px solid #B3BCE5" : "none",
+                      background: teamSubTab === 'members' ? "#ECEEF9" : "transparent",
+                      color: teamSubTab === 'members' ? "#273572" : "#717680",
                       fontFamily: "Public Sans",
                       fontSize: "14px",
                       fontWeight: 600,
@@ -2616,6 +2618,7 @@ export default function CompanySettings() {
                     Members
                   </button>
                   <button
+                    onClick={() => setTeamSubTab('permissions')}
                     style={{
                       display: "flex",
                       height: "36px",
@@ -2624,9 +2627,9 @@ export default function CompanySettings() {
                       alignItems: "center",
                       gap: "8px",
                       borderRadius: "6px",
-                      border: "none",
-                      background: "transparent",
-                      color: "#717680",
+                      border: teamSubTab === 'permissions' ? "1px solid #B3BCE5" : "none",
+                      background: teamSubTab === 'permissions' ? "#ECEEF9" : "transparent",
+                      color: teamSubTab === 'permissions' ? "#273572" : "#717680",
                       fontFamily: "Public Sans",
                       fontSize: "14px",
                       fontWeight: 600,
