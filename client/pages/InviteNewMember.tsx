@@ -1642,8 +1642,7 @@ export default function InviteNewMember() {
                       style={{
                         display: "flex",
                         flexDirection: "column",
-                        alignItems: isCompact ? "stretch" : "center",
-                        width: isCompact ? "100%" : "72px",
+                        flex: isCompact ? "1 0 0" : "0 0 auto",
                       }}
                     >
                       {/* Empty Header */}
@@ -1656,8 +1655,6 @@ export default function InviteNewMember() {
                           justifyContent: "center",
                           borderBottom: "1px solid #E9EAEB",
                           background: "#FFF",
-                          width: isCompact ? "100%" : "72px",
-                          boxSizing: "border-box",
                         }}
                       />
                       {/* Toggle Rows */}
@@ -1669,10 +1666,8 @@ export default function InviteNewMember() {
                             height: permission.locked ? "64px" : "36px",
                             padding: "12px",
                             alignItems: "center",
-                            justifyContent: isCompact ? "flex-start" : "center",
+                            justifyContent: "center",
                             borderBottom: "1px solid #E9EAEB",
-                            width: isCompact ? "100%" : "72px",
-                            boxSizing: "border-box",
                           }}
                         >
                           <button
