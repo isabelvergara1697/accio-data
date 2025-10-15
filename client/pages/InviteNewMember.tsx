@@ -2131,42 +2131,66 @@ export default function InviteNewMember() {
                     <div
                       style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}
                     >
-                      {[
-                        "All",
-                        "Does not Meet Hiring Requirements",
-                        "Meet Hiring Requirements",
-                      ].map((label) => (
-                        <label
-                          key={label}
-                          style={{
-                            display: "flex",
-                            gap: "8px",
-                            cursor: "pointer",
-                          }}
-                        >
-                          <div style={{ display: "flex", paddingTop: "2px" }}>
-                            <div
-                              style={{
-                                width: "16px",
-                                height: "16px",
-                                borderRadius: "4px",
-                                border: "1px solid #D5D7DA",
-                              }}
-                            />
-                          </div>
-                          <span
+                      {ADJUDICATION_OPTIONS.map((label) => {
+                        const isSelected = adjudicationSelections.includes(label);
+                        return (
+                          <label
+                            key={label}
                             style={{
-                              color: "#414651",
-                              fontFamily: "Public Sans",
-                              fontSize: "14px",
-                              fontWeight: 500,
-                              lineHeight: "20px",
+                              display: "flex",
+                              gap: "8px",
+                              cursor: "pointer",
                             }}
+                            onClick={() => toggleAdjudicationOption(label)}
                           >
-                            {label}
-                          </span>
-                        </label>
-                      ))}
+                            <div style={{ display: "flex", paddingTop: "2px" }}>
+                              <div
+                                style={{
+                                  width: "16px",
+                                  height: "16px",
+                                  borderRadius: "4px",
+                                  border: isSelected
+                                    ? "1px solid #344698"
+                                    : "1px solid #D5D7DA",
+                                  background: isSelected ? "#344698" : "#FFF",
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                }}
+                              >
+                                {isSelected && (
+                                  <svg
+                                    width="10"
+                                    height="10"
+                                    viewBox="0 0 12 10"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M1 5L4.25 8.25L11 1.75"
+                                      stroke="#FFF"
+                                      strokeWidth="1.5"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                )}
+                              </div>
+                            </div>
+                            <span
+                              style={{
+                                color: "#414651",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              {label}
+                            </span>
+                          </label>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
