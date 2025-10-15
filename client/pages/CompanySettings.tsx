@@ -20,10 +20,17 @@ type CompanyTabType =
 export default function CompanySettings() {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
-  const isDesktop = !isMobile;
+  const [isTablet, setIsTablet] = React.useState(() => {
+    if (typeof window === "undefined") {
+      return false;
+    }
+    const width = window.innerWidth;
+    return width >= 768 && width < 1024;
+  });
+  const isSmallScreen = isMobile || isTablet;
+  const isDesktop = !isSmallScreen;
   const headerHeight = isDesktop ? 72 : 64;
 
-  const [isTablet, setIsTablet] = React.useState(false);
   const [activeTab, setActiveTab] = React.useState<CompanyTabType>("company");
   const [userMenuOpen, setUserMenuOpen] = React.useState(false);
   const [userMenuHovered, setUserMenuHovered] = React.useState(false);
