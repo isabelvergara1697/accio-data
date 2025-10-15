@@ -126,21 +126,26 @@ export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
             /* Enable scrolling on tablet and mobile viewports */
             @media (max-width: 1023px) {
               .tabs-container {
-                flex-wrap: nowrap;
-                overflow-x: auto;
+                flex-wrap: nowrap !important;
+                overflow-x: auto !important;
                 padding-right: 20px;
                 touch-action: pan-x;
               }
             }
 
-            /* Mobile specific styles */
+            /* Mobile specific styles - always scroll horizontally */
             @media (max-width: 767px) {
               .tabs-container {
-                flex-wrap: nowrap;
-                overflow-x: auto;
+                flex-wrap: nowrap !important;
+                overflow-x: scroll !important;
+                -webkit-overflow-scrolling: touch;
                 padding-right: 20px;
                 touch-action: pan-x;
                 cursor: default;
+              }
+
+              .tab-button {
+                flex-shrink: 0 !important;
               }
             }
 
