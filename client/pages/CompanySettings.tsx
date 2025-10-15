@@ -9,6 +9,151 @@ import DeleteUserModal from "../components/ui/delete-user-modal";
 import { toast } from "../hooks/use-toast";
 import { Toaster } from "../components/ui/toaster";
 
+interface HSVColor {
+  h: number;
+  s: number;
+  v: number;
+}
+
+const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
+
+function hexToRgb(hex: string): { r: number; g: number; b: number } | null {
+  const sanitized = hex.trim().replace(/^#/, "");
+
+  if (sanitized.length === 3) {
+    const r = parseInt(sanitized[0] + sanitized[0], 16);
+    const g = parseInt(sanitized[1] + sanitized[1], 16);
+    const b = parseInt(sanitized[2] + sanitized[2], 16);
+    return { r, g, b };
+  }
+
+  if (sanitized.length === 6) {
+    const r = parseInt(sanitized.substring(0, 2), 16);
+    const g = parseInt(sanitized.substring(2, 4), 16);
+    const b = parseInt(sanitized.substring(4, 6), 16);
+    return { r, g, b };
+  }
+
+  return null;
+}
+
+function rgbToHex(r: number, g: number, b: number) {
+  const toHex = (channel: number) => channel.toString(16).padStart(2, "0").toUpperCase();
+  return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+}
+
+function rgbToHsv(r: number, g: number, b: number): HSVColor {
+  const rNorm = r / 255;
+  const gNorm = g / 255;
+  const bNorm = b / 255;
+
+  const max = Math.max(rNorm, gNorm, bNorm);
+  const min = Math.min(rNorm, gNorm, bNorm);
+  const delta = max - min;
+
+  let h = 0;
+  if (delta !== 0) {
+    if (max === rNorm) {
+      h = ((gNorm - bNorm) / delta) % 6;
+    } else if (max === gNorm) {
+      h = (bNorm - rNorm) / delta + 2;
+    } else {
+      h = (rNorm - gNorm) / delta + 4;
+    }
+    h *= 60;
+    if (h < 0) {
+      h += 360;
+    }
+  }
+
+  const s = max === 0 ? 0 : delta / max;
+  const v = max;
+
+  return { h, s, v };
+}
+
+function hsvToRgb(h: number, s: number, v: number): { r: number; g: number; b: number } {
+  const c = v * s;
+  const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
+  const m = v - c;
+
+  let rPrime = 0;
+  let gPrime = 0;
+  let bPrime = 0;
+
+  if (h >= 0 && h < 60) {
+    rPrime = c;
+    gPrime = x;
+  } else if (h >= 60 && h < 120) {
+    rPrime = x;
+    gPrime = c;
+  } else if (h >= 120 && h < 180) {
+    gPrime = c;
+    bPrime = x;
+  } else if (h >= 180 && h < 240) {
+    gPrime = x;
+    bPrime = c;
+  } else if (h >= 240 && h < 300) {
+    rPrime = x;
+    bPrime = c;
+  } else {
+    rPrime = c;
+    bPrime = x;
+  }
+
+  const r = Math.round((rPrime + m) * 255);
+  const g = Math.round((gPrime + m) * 255);
+  const b = Math.round((bPrime + m) * 255);
+
+  return { r, g, b };
+}
+
+function hsvToHex(h: number, s: number, v: number) {
+  const { r, g, b } = hsvToRgb(h, s, v);
+  return rgbToHex(r, g, b);
+}
+
+function hexToHsv(hex: string): HSVColor {
+  const rgb = hexToRgb(hex);
+  if (!rgb) {
+    return { h: 0, s: 0, v: 0 };
+  }
+  return rgbToHsv(rgb.r, rgb.g, rgb.b);
+}
+
+function normalizeHex(value: string): string | null {
+  const sanitized = value.trim().replace(/^#/, "");
+  if (sanitized.length === 3) {
+    const expanded = sanitized
+      .split("")
+      .map((char) => char + char)
+      .join("");
+    return `#${expanded.toUpperCase()}`;
+  }
+  if (sanitized.length === 6 && /^[0-9A-Fa-f]+$/.test(sanitized)) {
+    return `#${sanitized.toUpperCase()}`;
+  }
+  return null;
+}
+
+function getContrastingTextColor(hex: string) {
+  const rgb = hexToRgb(hex);
+  if (!rgb) {
+    return "#FFF";
+  }
+  const toLinear = (channel: number) => {
+    const normalized = channel / 255;
+    return normalized <= 0.03928
+      ? normalized / 12.92
+      : Math.pow((normalized + 0.055) / 1.055, 2.4);
+  };
+  const luminance = 0.2126 * toLinear(rgb.r) + 0.7152 * toLinear(rgb.g) + 0.0722 * toLinear(rgb.b);
+  return luminance > 0.55 ? "#181D27" : "#FFF";
+}
+
+const DEFAULT_BRAND_COLOR = "#7F56D9";
+const DEFAULT_HSV = hexToHsv(DEFAULT_BRAND_COLOR);
+
 type CompanyTabType =
   | "company"
   | "saml"
