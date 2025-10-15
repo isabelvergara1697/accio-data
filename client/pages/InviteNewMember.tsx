@@ -179,7 +179,7 @@ export default function InviteNewMember() {
     return width >= 768 && width < 1024;
   });
   const isDesktop = !isMobile && !isTablet;
-  const isCompact = !isDesktop;
+  const isCompact = isMobile;
 
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [userMenuHovered, setUserMenuHovered] = useState(false);
