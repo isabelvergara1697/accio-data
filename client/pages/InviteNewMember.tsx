@@ -63,8 +63,16 @@ export default function InviteNewMember() {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const [passwordOption, setPasswordOption] = useState<"auto" | "manual">(
-    "auto",
+    "manual",
   );
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [requirementStates, setRequirementStates] = useState<{
+    [key: string]: boolean;
+  }>({});
+
   const [reportViewOption, setReportViewOption] = useState<
     "own" | "any" | "select"
   >("select");
