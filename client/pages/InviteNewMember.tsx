@@ -77,6 +77,8 @@ const TEAM_MEMBERS: TeamMember[] = [
   { id: 5, name: "Candice Wu" },
 ];
 
+const DEFAULT_SELECTED_MEMBER_IDS = [1, 2, 3];
+
 export default function InviteNewMember() {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
