@@ -27,8 +27,7 @@ export default function CompanySettings() {
     const width = window.innerWidth;
     return width >= 768 && width < 1024;
   });
-  const isSmallScreen = isMobile || isTablet;
-  const isDesktop = !isSmallScreen;
+  const isDesktop = !isMobile && !isTablet;
   const headerHeight = isDesktop ? 72 : 64;
 
   const [activeTab, setActiveTab] = React.useState<CompanyTabType>("company");
