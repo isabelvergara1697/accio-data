@@ -479,129 +479,127 @@ const SearchResults = () => {
               </div>
             </div>
 
-            <div style={{ padding: "0 16px 16px 16px" }}>
-              <div style={tableWrapperStyle}>
-                <table style={tableStyle}>
-                  <thead>
-                    <tr>
-                      <th style={tableHeaderCellStyle}>Status</th>
-                      <th style={tableHeaderCellStyle}>First Name</th>
-                      <th style={tableHeaderCellStyle}>Last Name</th>
-                      <th style={tableHeaderCellStyle}>Invitation Email</th>
-                      <th style={tableHeaderCellStyle}>Completed</th>
-                      <th style={tableHeaderCellStyle}>Last Email</th>
-                      <th style={tableHeaderCellStyle}>I-9 Filled</th>
-                      <th style={tableHeaderCellStyle}>Activate</th>
-                      <th style={tableHeaderCellStyle}>EWS</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {invites.map((invite, index) => {
-                      const isLastRow = index === invites.length - 1;
-                      return (
-                        <tr key={invite.id}>
-                          <td
-                            style={{
-                              padding: "12px",
-                              borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
-                            }}
-                          >
-                            {renderStatusBadge(invite.status)}
-                          </td>
-                          <td
-                            style={{
-                              padding: "12px",
-                              borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
-                              color: index === 0 ? "#344698" : "#181D27",
-                              fontFamily: "Public Sans",
-                              fontSize: "14px",
-                              fontWeight: index === 0 ? 700 : 500,
-                              lineHeight: "20px",
-                            }}
-                          >
-                            {invite.firstName}
-                          </td>
-                          <td
-                            style={{
-                              padding: "12px",
-                              borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
-                              color: "#181D27",
-                              fontFamily: "Public Sans",
-                              fontSize: "14px",
-                              fontWeight: 500,
-                              lineHeight: "20px",
-                            }}
-                          >
-                            {invite.lastName}
-                          </td>
-                          <td
-                            style={{
-                              padding: "12px",
-                              borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
-                              color: index === 1 ? "#344698" : "#181D27",
-                              fontFamily: "Public Sans",
-                              fontSize: "14px",
-                              fontWeight: index === 1 ? 700 : 500,
-                              lineHeight: "20px",
-                              maxWidth: "220px",
-                              whiteSpace: "nowrap",
-                              overflow: "hidden",
-                              textOverflow: "ellipsis",
-                            }}
-                          >
-                            {invite.email}
-                          </td>
-                          <td
-                            style={{
-                              padding: "12px",
-                              borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
-                            }}
-                          >
-                            <ProgressBar value={invite.completed} />
-                          </td>
-                          <td
-                            style={{
-                              padding: "12px",
-                              borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
-                              color: "#181D27",
-                              fontFamily: "Public Sans",
-                              fontSize: "14px",
-                              fontWeight: 500,
-                              lineHeight: "20px",
-                            }}
-                          >
-                            {invite.lastEmail}
-                          </td>
-                          <td
-                            style={{
-                              padding: "12px",
-                              borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
-                            }}
-                          >
-                            {invite.i9Filled ? renderCheckIcon() : null}
-                          </td>
-                          <td
-                            style={{
-                              padding: "12px",
-                              borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
-                            }}
-                          >
-                            {invite.activate ? renderCheckIcon() : null}
-                          </td>
-                          <td
-                            style={{
-                              padding: "12px",
-                              borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
-                            }}
-                          >
-                            {invite.ews ? renderCheckIcon() : null}
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
+            <div style={tableWrapperStyle}>
+              <table style={tableStyle}>
+                <thead>
+                  <tr>
+                    <th style={tableHeaderCellStyle}>Status</th>
+                    <th style={tableHeaderCellStyle}>First Name</th>
+                    <th style={tableHeaderCellStyle}>Last Name</th>
+                    <th style={tableHeaderCellStyle}>Invitation Email</th>
+                    <th style={tableHeaderCellStyle}>Completed</th>
+                    <th style={tableHeaderCellStyle}>Last Email</th>
+                    <th style={tableHeaderCellStyle}>I-9 Filled</th>
+                    <th style={tableHeaderCellStyle}>Activate</th>
+                    <th style={tableHeaderCellStyle}>EWS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {invites.map((invite, index) => {
+                    const isLastRow = index === invites.length - 1;
+                    return (
+                      <tr key={invite.id}>
+                        <td
+                          style={{
+                            padding: "12px",
+                            borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
+                          }}
+                        >
+                          {renderStatusBadge(invite.status)}
+                        </td>
+                        <td
+                          style={{
+                            padding: "12px",
+                            borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
+                            color: index === 0 ? "#344698" : "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: index === 0 ? 700 : 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          {invite.firstName}
+                        </td>
+                        <td
+                          style={{
+                            padding: "12px",
+                            borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          {invite.lastName}
+                        </td>
+                        <td
+                          style={{
+                            padding: "12px",
+                            borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
+                            color: index === 1 ? "#344698" : "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: index === 1 ? 700 : 500,
+                            lineHeight: "20px",
+                            maxWidth: "220px",
+                            whiteSpace: "nowrap",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                          }}
+                        >
+                          {invite.email}
+                        </td>
+                        <td
+                          style={{
+                            padding: "12px",
+                            borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
+                          }}
+                        >
+                          <ProgressBar value={invite.completed} />
+                        </td>
+                        <td
+                          style={{
+                            padding: "12px",
+                            borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          {invite.lastEmail}
+                        </td>
+                        <td
+                          style={{
+                            padding: "12px",
+                            borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
+                          }}
+                        >
+                          {invite.i9Filled ? renderCheckIcon() : null}
+                        </td>
+                        <td
+                          style={{
+                            padding: "12px",
+                            borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
+                          }}
+                        >
+                          {invite.activate ? renderCheckIcon() : null}
+                        </td>
+                        <td
+                          style={{
+                            padding: "12px",
+                            borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
+                          }}
+                        >
+                          {invite.ews ? renderCheckIcon() : null}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
             </div>
           </section>
 
