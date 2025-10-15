@@ -40,7 +40,7 @@ interface InviteValidationState {
   reportViewOption: "own" | "any" | "select";
 }
 
-const INFO_CARD_STYLE: React.CSSProperties = {
+const INFO_CARD_STYLE: CSSProperties = {
   display: "flex",
   flexDirection: "column",
   gap: "12px",
