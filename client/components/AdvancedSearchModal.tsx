@@ -104,31 +104,23 @@ export const AdvancedSearchModal: React.FC<AdvancedSearchModalProps> = ({
     }
   };
 
-  if (!isOpen) return null;
+  if (!isOpen || !anchor) return null;
 
   return (
     <div
       style={{
         position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        background: "rgba(0, 0, 0, 0.5)",
-        display: "flex",
-        alignItems: "flex-start",
-        justifyContent: "center",
-        zIndex: 50,
-        padding: "74px 20px 20px",
-        overflowY: "auto",
+        top: anchor.top,
+        left: anchor.left,
+        width: anchor.width,
+        zIndex: 1000,
+        paddingBottom: "16px",
       }}
-      onClick={onClose}
     >
       <div
-        onClick={(e) => e.stopPropagation()}
+        ref={containerRef}
         style={{
           width: "100%",
-          maxWidth: "602px",
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
@@ -137,8 +129,10 @@ export const AdvancedSearchModal: React.FC<AdvancedSearchModalProps> = ({
           border: "1px solid #E9EAEB",
           background: "#FFF",
           boxShadow:
-            "0 24px 48px -12px rgba(10, 13, 18, 0.18), 0 4px 4px -2px rgba(10, 13, 18, 0.04)",
+            "0 24px 48px -12px rgba(10,13,18,0.18), 0 4px 4px -2px rgba(10,13,18,0.04)",
           padding: "16px 0",
+          maxHeight: "calc(100vh - 120px)",
+          overflowY: "auto",
         }}
       >
         {/* Title */}
