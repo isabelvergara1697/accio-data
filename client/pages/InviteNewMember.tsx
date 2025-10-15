@@ -560,9 +560,16 @@ export default function InviteNewMember() {
                   </h3>
                   <RadioGroup
                     value={passwordOption}
-                    onValueChange={(value: "auto" | "manual") =>
-                      setPasswordOption(value)
-                    }
+                    onValueChange={(value: "auto" | "manual") => {
+                      setPasswordOption(value);
+                      if (value === "manual") {
+                        setPassword(DEFAULT_PASSWORD_VALUE);
+                        setConfirmPassword(DEFAULT_PASSWORD_VALUE);
+                      } else {
+                        setPassword("");
+                        setConfirmPassword("");
+                      }
+                    }}
                     style={{
                       display: "flex",
                       flexDirection: isCompact ? "column" : "row",
