@@ -454,12 +454,13 @@ const SearchResults = () => {
         >
           <div
             style={{
-              padding: isMobile
-                ? `24px ${horizontalPadding}px ${bottomPadding}px`
-                : `${verticalPadding}px ${horizontalPadding}px ${bottomPadding}px`,
+              paddingTop: verticalPadding,
+              paddingBottom: bottomPadding,
+              paddingLeft: horizontalPadding,
+              paddingRight: horizontalPadding,
               display: "flex",
               flexDirection: "column",
-              gap: `${sectionGap}px`,
+              gap: sectionGap,
               boxSizing: "border-box",
               width: "100%",
               maxWidth: "1200px",
