@@ -1242,11 +1242,15 @@ export default function InviteNewMember() {
                         display: "block",
                         marginBottom: "6px",
                       }}
-                    >
+>
                       Address
                     </label>
                     <input
                       type="text"
+                      value={formData.address}
+                      onChange={(event) =>
+                        updateFormField("address", event.target.value)
+                      }
                       style={{
                         width: "100%",
                         height: "40px",
