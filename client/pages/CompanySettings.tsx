@@ -4064,523 +4064,170 @@ export default function CompanySettings() {
 
                 {/* Role Permissions Section */}
                 {teamSubTab === 'permissions' && (
-                  <div style={{ display: "flex", flexDirection: "column", gap: "24px", width: "100%" }}>
-                    {/* User Management Table */}
-                    <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
-                      <div style={{
-                        display: "flex",
-                        padding: "16px 16px 12px 16px",
-                        borderRadius: "12px 12px 0 0",
-                        border: "1px solid #E9EAEB",
-                        borderBottom: "none",
-                        background: "#FFF"
-                      }}>
-                        <h3 style={{
-                          color: "#181D27",
-                          fontFamily: "Public Sans",
-                          fontSize: "18px",
-                          fontWeight: 600,
-                          lineHeight: "28px",
-                          margin: 0
-                        }}>User Management</h3>
-                      </div>
-                      <div style={{
-                        border: "1px solid #E9EAEB",
-                        borderRadius: "0 0 12px 12px",
-                        background: "#FFF",
-                        overflow: "hidden"
-                      }}>
-                        <table style={{ width: "100%", borderCollapse: "collapse" }}>
-                          <thead>
-                            <tr style={{ borderBottom: "1px solid #E9EAEB" }}>
-                              <th style={{ padding: "6px 12px", textAlign: "left", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 700, color: "#717680" }}>Permissions</th>
-                              <th style={{ padding: "6px 12px", textAlign: "left", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 700, color: "#717680" }}>
-                                <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                                  Super Admin
-                                  <svg width="16" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M11.9333 7.33333V5.33333C11.9333 3.49238 10.4409 2 8.59993 2C6.75899 2 5.2666 3.49238 5.2666 5.33333V7.33333M6.4666 14H10.7333C11.8534 14 12.4134 14 12.8412 13.782C13.2176 13.5903 13.5235 13.2843 13.7153 12.908C13.9333 12.4802 13.9333 11.9201 13.9333 10.8V10.5333C13.9333 9.41323 13.9333 8.85318 13.7153 8.42535C13.5235 8.04903 13.2176 7.74307 12.8412 7.55132C12.4134 7.33333 11.8534 7.33333 10.7333 7.33333H6.4666C5.3465 7.33333 4.78644 7.33333 4.35862 7.55132C3.9823 7.74307 3.67634 8.04903 3.48459 8.42535C3.2666 8.85318 3.2666 9.41323 3.2666 10.5333V10.8C3.2666 11.9201 3.2666 12.4802 3.48459 12.908C3.67634 13.2843 3.9823 13.5903 4.35862 13.782C4.78644 14 5.3465 14 6.4666 14Z" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                  </svg>
-                                </div>
-                              </th>
-                              <th style={{ padding: "6px 12px", textAlign: "left", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 700, color: "#717680" }}>Admin</th>
-                              <th style={{ padding: "6px 12px", textAlign: "left", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 700, color: "#717680" }}>Recruiter</th>
-                              <th style={{ padding: "6px 12px", textAlign: "left", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 700, color: "#717680" }}>Support</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {[
-                              { label: "View Users", superAdmin: true, admin: true, recruiter: false, support: true },
-                              { label: "Create User", superAdmin: true, admin: true, recruiter: true, support: false },
-                              { label: "Edit Users", superAdmin: true, admin: true, recruiter: true, support: false },
-                              { label: "Delete Users", superAdmin: true, admin: true, recruiter: true, support: false }
-                            ].map((permission, idx) => (
-                              <tr key={idx} style={{ borderBottom: idx < 3 ? "1px solid #E9EAEB" : "none" }}>
-                                <td style={{ padding: "12px", fontFamily: "Public Sans", fontSize: "14px", color: "#181D27" }}>
-                                  <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                                    {permission.label}
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                      <path d="M6.05967 5.99992C6.21641 5.55436 6.52578 5.17866 6.93298 4.93934C7.34018 4.70002 7.81894 4.61254 8.28446 4.69239C8.74998 4.77224 9.17222 5.01427 9.47639 5.3756C9.78057 5.73694 9.94705 6.19427 9.94634 6.66659C9.94634 7.99992 7.94634 8.66659 7.94634 8.66659M7.99967 11.3333H8.00634M14.6663 7.99992C14.6663 11.6818 11.6816 14.6666 7.99967 14.6666C4.31778 14.6666 1.33301 11.6818 1.33301 7.99992C1.33301 4.31802 4.31778 1.33325 7.99967 1.33325C11.6816 1.33325 14.6663 4.31802 14.6663 7.99992Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
-                                    </svg>
-                                  </div>
-                                </td>
-                                <td style={{ padding: "12px" }}>
-                                  <div style={{
-                                    width: "36px",
-                                    height: "20px",
-                                    borderRadius: "9999px",
-                                    border: "1px solid #E9EAEB",
-                                    background: "#8D9BD8",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "flex-end",
-                                    padding: "2px",
-                                    opacity: 0.6,
-                                    cursor: "not-allowed"
-                                  }}>
-                                    <div style={{ width: "16px", height: "16px", borderRadius: "9999px", background: "#FAFAFA", boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)" }}></div>
-                                  </div>
-                                </td>
-                                <td style={{ padding: "12px" }}>
-                                  <div style={{
-                                    width: "36px",
-                                    height: "20px",
-                                    borderRadius: "9999px",
-                                    background: permission.admin ? "#344698" : "#F5F5F5",
-                                    border: permission.admin ? "none" : "1px solid #E9EAEB",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: permission.admin ? "flex-end" : "flex-start",
-                                    padding: "2px",
-                                    cursor: "pointer"
-                                  }}>
-                                    <div style={{ width: "16px", height: "16px", borderRadius: "9999px", background: "#FFF", boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)" }}></div>
-                                  </div>
-                                </td>
-                                <td style={{ padding: "12px" }}>
-                                  <div style={{
-                                    width: "36px",
-                                    height: "20px",
-                                    borderRadius: "9999px",
-                                    background: permission.recruiter ? "#344698" : "#F5F5F5",
-                                    border: permission.recruiter ? "none" : "1px solid #E9EAEB",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: permission.recruiter ? "flex-end" : "flex-start",
-                                    padding: "2px",
-                                    cursor: "pointer"
-                                  }}>
-                                    <div style={{ width: "16px", height: "16px", borderRadius: "9999px", background: "#FFF", boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)" }}></div>
-                                  </div>
-                                </td>
-                                <td style={{ padding: "12px" }}>
-                                  <div style={{
-                                    width: "36px",
-                                    height: "20px",
-                                    borderRadius: "9999px",
-                                    background: permission.support ? "#344698" : "#F5F5F5",
-                                    border: permission.support ? "none" : "1px solid #E9EAEB",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: permission.support ? "flex-end" : "flex-start",
-                                    padding: "2px",
-                                    cursor: "pointer"
-                                  }}>
-                                    <div style={{ width: "16px", height: "16px", borderRadius: "9999px", background: "#FFF", boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)" }}></div>
-                                  </div>
-                                </td>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "24px",
+                      width: "100%",
+                    }}
+                  >
+                    {rolePermissions.map((category, categoryIndex) => (
+                      <div
+                        key={category.title}
+                        style={{ display: "flex", flexDirection: "column", width: "100%" }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "16px 16px 12px 16px",
+                            borderRadius: "12px 12px 0 0",
+                            border: "1px solid #E9EAEB",
+                            borderBottom: "none",
+                            background: "#FFF",
+                          }}
+                        >
+                          <h3
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "18px",
+                              fontWeight: 600,
+                              lineHeight: "28px",
+                              margin: 0,
+                            }}
+                          >
+                            {category.title}
+                          </h3>
+                        </div>
+                        <div
+                          style={{
+                            border: "1px solid #E9EAEB",
+                            borderRadius: "0 0 12px 12px",
+                            background: "#FFF",
+                            overflow: "hidden",
+                          }}
+                        >
+                          <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                            <thead>
+                              <tr style={{ borderBottom: "1px solid #E9EAEB" }}>
+                                <th
+                                  style={{
+                                    padding: "6px 12px",
+                                    textAlign: "left",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontWeight: 700,
+                                    color: "#717680",
+                                  }}
+                                >
+                                  Permissions
+                                </th>
+                                {ROLE_COLUMNS.map((role) => (
+                                  <th
+                                    key={role.key}
+                                    style={{
+                                      padding: "6px 12px",
+                                      textAlign: "left",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "12px",
+                                      fontWeight: 700,
+                                      color: "#717680",
+                                    }}
+                                  >
+                                    <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                                      {role.label}
+                                      {role.locked && (
+                                        <svg
+                                          width="16"
+                                          height="16"
+                                          viewBox="0 0 17 16"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M11.9333 7.33333V5.33333C11.9333 3.49238 10.4409 2 8.59993 2C6.75899 2 5.2666 3.49238 5.2666 5.33333V7.33333M6.4666 14H10.7333C11.8534 14 12.4134 14 12.8412 13.782C13.2176 13.5903 13.5235 13.2843 13.7153 12.908C13.9333 12.4802 13.9333 11.9201 13.9333 10.8V10.5333C13.9333 9.41323 13.9333 8.85318 13.7153 8.42535C13.5235 8.04903 13.2176 7.74307 12.8412 7.55132C12.4134 7.33333 11.8534 7.33333 10.7333 7.33333H6.4666C5.3465 7.33333 4.78644 7.33333 4.35862 7.55132C3.9823 7.74307 3.67634 8.04903 3.48459 8.42535C3.2666 8.85318 3.2666 9.41323 3.2666 10.5333V10.8C3.2666 11.9201 3.2666 12.4802 3.48459 12.908C3.67634 13.2843 3.9823 13.5903 4.35862 13.782C4.78644 14 5.3465 14 6.4666 14Z"
+                                            stroke="#A4A7AE"
+                                            strokeWidth="1.5"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </svg>
+                                      )}
+                                    </div>
+                                  </th>
+                                ))}
                               </tr>
-                            ))}
-                          </tbody>
-                        </table>
+                            </thead>
+                            <tbody>
+                              {category.permissions.map((permission, permissionIndex) => (
+                                <tr
+                                  key={`${category.title}-${permission.label}-${permissionIndex}`}
+                                  style={{
+                                    borderBottom:
+                                      permissionIndex < category.permissions.length - 1
+                                        ? "1px solid #E9EAEB"
+                                        : "none",
+                                  }}
+                                >
+                                  <td
+                                    style={{
+                                      padding: "12px",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      color: "#181D27",
+                                    }}
+                                  >
+                                    <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                                      {permission.label}
+                                      <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M6.05967 5.99992C6.21641 5.55436 6.52578 5.17866 6.93298 4.93934C7.34018 4.70002 7.81894 4.61254 8.28446 4.69239C8.74998 4.77224 9.17222 5.01427 9.47639 5.3756C9.78057 5.73694 9.94705 6.19427 9.94634 6.66659C9.94634 7.99992 7.94634 8.66659 7.94634 8.66659M7.99967 11.3333H8.00634M14.6663 7.99992C14.6663 11.6818 11.6816 14.6666 7.99967 14.6666C4.31778 14.6666 1.33301 11.6818 1.33301 7.99992C1.33301 4.31802 4.31778 1.33325 7.99967 1.33325C11.6816 1.33325 14.6663 4.31802 14.6663 7.99992Z"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.33333"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </div>
+                                  </td>
+                                  {ROLE_COLUMNS.map((role) => {
+                                    const locked = Boolean(role.locked);
+                                    const isOn = permission.roles[role.key];
+                                    return (
+                                      <td key={role.key} style={{ padding: "12px" }}>
+                                        <button
+                                          type="button"
+                                          aria-pressed={isOn}
+                                          aria-label={`${role.label} permission for ${permission.label}${locked ? " (locked)" : ""}`}
+                                          disabled={locked}
+                                          onClick={() =>
+                                            handlePermissionToggle(
+                                              categoryIndex,
+                                              permissionIndex,
+                                              role.key,
+                                            )
+                                          }
+                                          style={getToggleStyle(isOn, locked)}
+                                        >
+                                          <span style={getToggleKnobStyle(locked)} />
+                                        </button>
+                                      </td>
+                                    );
+                                  })}
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
-                    </div>
-
-                    {/* Orders Table */}
-                    <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
-                      <div style={{
-                        display: "flex",
-                        padding: "16px 16px 12px 16px",
-                        borderRadius: "12px 12px 0 0",
-                        border: "1px solid #E9EAEB",
-                        borderBottom: "none",
-                        background: "#FFF"
-                      }}>
-                        <h3 style={{
-                          color: "#181D27",
-                          fontFamily: "Public Sans",
-                          fontSize: "18px",
-                          fontWeight: 600,
-                          lineHeight: "28px",
-                          margin: 0
-                        }}>Orders</h3>
-                      </div>
-                      <div style={{
-                        border: "1px solid #E9EAEB",
-                        borderRadius: "0 0 12px 12px",
-                        background: "#FFF",
-                        overflow: "hidden"
-                      }}>
-                        <table style={{ width: "100%", borderCollapse: "collapse" }}>
-                          <thead>
-                            <tr style={{ borderBottom: "1px solid #E9EAEB" }}>
-                              <th style={{ padding: "6px 12px", textAlign: "left", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 700, color: "#717680" }}>Permissions</th>
-                              <th style={{ padding: "6px 12px", textAlign: "left", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 700, color: "#717680" }}>
-                                <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                                  Super Admin
-                                  <svg width="16" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M11.9333 7.33333V5.33333C11.9333 3.49238 10.4409 2 8.59993 2C6.75899 2 5.2666 3.49238 5.2666 5.33333V7.33333M6.4666 14H10.7333C11.8534 14 12.4134 14 12.8412 13.782C13.2176 13.5903 13.5235 13.2843 13.7153 12.908C13.9333 12.4802 13.9333 11.9201 13.9333 10.8V10.5333C13.9333 9.41323 13.9333 8.85318 13.7153 8.42535C13.5235 8.04903 13.2176 7.74307 12.8412 7.55132C12.4134 7.33333 11.8534 7.33333 10.7333 7.33333H6.4666C5.3465 7.33333 4.78644 7.33333 4.35862 7.55132C3.9823 7.74307 3.67634 8.04903 3.48459 8.42535C3.2666 8.85318 3.2666 9.41323 3.2666 10.5333V10.8C3.2666 11.9201 3.2666 12.4802 3.48459 12.908C3.67634 13.2843 3.9823 13.5903 4.35862 13.782C4.78644 14 5.3465 14 6.4666 14Z" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                  </svg>
-                                </div>
-                              </th>
-                              <th style={{ padding: "6px 12px", textAlign: "left", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 700, color: "#717680" }}>Admin</th>
-                              <th style={{ padding: "6px 12px", textAlign: "left", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 700, color: "#717680" }}>Recruiter</th>
-                              <th style={{ padding: "6px 12px", textAlign: "left", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 700, color: "#717680" }}>Support</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {[
-                              { label: "[Permission Label]", superAdmin: true, admin: true, recruiter: false, support: true },
-                              { label: "[Permission Label]", superAdmin: true, admin: true, recruiter: true, support: false },
-                              { label: "[Permission Label]", superAdmin: true, admin: true, recruiter: true, support: false },
-                              { label: "[Permission Label]", superAdmin: true, admin: true, recruiter: true, support: false }
-                            ].map((permission, idx) => (
-                              <tr key={idx} style={{ borderBottom: idx < 3 ? "1px solid #E9EAEB" : "none" }}>
-                                <td style={{ padding: "12px", fontFamily: "Public Sans", fontSize: "14px", color: "#181D27" }}>
-                                  <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                                    {permission.label}
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                      <path d="M6.05967 5.99992C6.21641 5.55436 6.52578 5.17866 6.93298 4.93934C7.34018 4.70002 7.81894 4.61254 8.28446 4.69239C8.74998 4.77224 9.17222 5.01427 9.47639 5.3756C9.78057 5.73694 9.94705 6.19427 9.94634 6.66659C9.94634 7.99992 7.94634 8.66659 7.94634 8.66659M7.99967 11.3333H8.00634M14.6663 7.99992C14.6663 11.6818 11.6816 14.6666 7.99967 14.6666C4.31778 14.6666 1.33301 11.6818 1.33301 7.99992C1.33301 4.31802 4.31778 1.33325 7.99967 1.33325C11.6816 1.33325 14.6663 4.31802 14.6663 7.99992Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
-                                    </svg>
-                                  </div>
-                                </td>
-                                <td style={{ padding: "12px" }}>
-                                  <div style={{
-                                    width: "36px",
-                                    height: "20px",
-                                    borderRadius: "9999px",
-                                    border: "1px solid #E9EAEB",
-                                    background: "#8D9BD8",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "flex-end",
-                                    padding: "2px",
-                                    opacity: 0.6,
-                                    cursor: "not-allowed"
-                                  }}>
-                                    <div style={{ width: "16px", height: "16px", borderRadius: "9999px", background: "#FAFAFA", boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)" }}></div>
-                                  </div>
-                                </td>
-                                <td style={{ padding: "12px" }}>
-                                  <div style={{
-                                    width: "36px",
-                                    height: "20px",
-                                    borderRadius: "9999px",
-                                    background: permission.admin ? "#344698" : "#F5F5F5",
-                                    border: permission.admin ? "none" : "1px solid #E9EAEB",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: permission.admin ? "flex-end" : "flex-start",
-                                    padding: "2px",
-                                    cursor: "pointer"
-                                  }}>
-                                    <div style={{ width: "16px", height: "16px", borderRadius: "9999px", background: "#FFF", boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)" }}></div>
-                                  </div>
-                                </td>
-                                <td style={{ padding: "12px" }}>
-                                  <div style={{
-                                    width: "36px",
-                                    height: "20px",
-                                    borderRadius: "9999px",
-                                    background: permission.recruiter ? "#344698" : "#F5F5F5",
-                                    border: permission.recruiter ? "none" : "1px solid #E9EAEB",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: permission.recruiter ? "flex-end" : "flex-start",
-                                    padding: "2px",
-                                    cursor: "pointer"
-                                  }}>
-                                    <div style={{ width: "16px", height: "16px", borderRadius: "9999px", background: "#FFF", boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)" }}></div>
-                                  </div>
-                                </td>
-                                <td style={{ padding: "12px" }}>
-                                  <div style={{
-                                    width: "36px",
-                                    height: "20px",
-                                    borderRadius: "9999px",
-                                    background: permission.support ? "#344698" : "#F5F5F5",
-                                    border: permission.support ? "none" : "1px solid #E9EAEB",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: permission.support ? "flex-end" : "flex-start",
-                                    padding: "2px",
-                                    cursor: "pointer"
-                                  }}>
-                                    <div style={{ width: "16px", height: "16px", borderRadius: "9999px", background: "#FFF", boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)" }}></div>
-                                  </div>
-                                </td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-
-                    {/* Billing & Finances Table */}
-                    <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
-                      <div style={{
-                        display: "flex",
-                        padding: "16px 16px 12px 16px",
-                        borderRadius: "12px 12px 0 0",
-                        border: "1px solid #E9EAEB",
-                        borderBottom: "none",
-                        background: "#FFF"
-                      }}>
-                        <h3 style={{
-                          color: "#181D27",
-                          fontFamily: "Public Sans",
-                          fontSize: "18px",
-                          fontWeight: 600,
-                          lineHeight: "28px",
-                          margin: 0
-                        }}>Billing & Finances</h3>
-                      </div>
-                      <div style={{
-                        border: "1px solid #E9EAEB",
-                        borderRadius: "0 0 12px 12px",
-                        background: "#FFF",
-                        overflow: "hidden"
-                      }}>
-                        <table style={{ width: "100%", borderCollapse: "collapse" }}>
-                          <thead>
-                            <tr style={{ borderBottom: "1px solid #E9EAEB" }}>
-                              <th style={{ padding: "6px 12px", textAlign: "left", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 700, color: "#717680" }}>Permissions</th>
-                              <th style={{ padding: "6px 12px", textAlign: "left", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 700, color: "#717680" }}>
-                                <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                                  Super Admin
-                                  <svg width="16" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M11.9333 7.33333V5.33333C11.9333 3.49238 10.4409 2 8.59993 2C6.75899 2 5.2666 3.49238 5.2666 5.33333V7.33333M6.4666 14H10.7333C11.8534 14 12.4134 14 12.8412 13.782C13.2176 13.5903 13.5235 13.2843 13.7153 12.908C13.9333 12.4802 13.9333 11.9201 13.9333 10.8V10.5333C13.9333 9.41323 13.9333 8.85318 13.7153 8.42535C13.5235 8.04903 13.2176 7.74307 12.8412 7.55132C12.4134 7.33333 11.8534 7.33333 10.7333 7.33333H6.4666C5.3465 7.33333 4.78644 7.33333 4.35862 7.55132C3.9823 7.74307 3.67634 8.04903 3.48459 8.42535C3.2666 8.85318 3.2666 9.41323 3.2666 10.5333V10.8C3.2666 11.9201 3.2666 12.4802 3.48459 12.908C3.67634 13.2843 3.9823 13.5903 4.35862 13.782C4.78644 14 5.3465 14 6.4666 14Z" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                  </svg>
-                                </div>
-                              </th>
-                              <th style={{ padding: "6px 12px", textAlign: "left", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 700, color: "#717680" }}>Admin</th>
-                              <th style={{ padding: "6px 12px", textAlign: "left", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 700, color: "#717680" }}>Recruiter</th>
-                              <th style={{ padding: "6px 12px", textAlign: "left", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 700, color: "#717680" }}>Support</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {[
-                              { label: "View Billing", superAdmin: true, admin: true, recruiter: false, support: true },
-                              { label: "Configure Billing", superAdmin: true, admin: true, recruiter: true, support: false }
-                            ].map((permission, idx) => (
-                              <tr key={idx} style={{ borderBottom: idx < 1 ? "1px solid #E9EAEB" : "none" }}>
-                                <td style={{ padding: "12px", fontFamily: "Public Sans", fontSize: "14px", color: "#181D27" }}>
-                                  <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                                    {permission.label}
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                      <path d="M6.05967 5.99992C6.21641 5.55436 6.52578 5.17866 6.93298 4.93934C7.34018 4.70002 7.81894 4.61254 8.28446 4.69239C8.74998 4.77224 9.17222 5.01427 9.47639 5.3756C9.78057 5.73694 9.94705 6.19427 9.94634 6.66659C9.94634 7.99992 7.94634 8.66659 7.94634 8.66659M7.99967 11.3333H8.00634M14.6663 7.99992C14.6663 11.6818 11.6816 14.6666 7.99967 14.6666C4.31778 14.6666 1.33301 11.6818 1.33301 7.99992C1.33301 4.31802 4.31778 1.33325 7.99967 1.33325C11.6816 1.33325 14.6663 4.31802 14.6663 7.99992Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
-                                    </svg>
-                                  </div>
-                                </td>
-                                <td style={{ padding: "12px" }}>
-                                  <div style={{
-                                    width: "36px",
-                                    height: "20px",
-                                    borderRadius: "9999px",
-                                    border: "1px solid #E9EAEB",
-                                    background: "#8D9BD8",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "flex-end",
-                                    padding: "2px",
-                                    opacity: 0.6,
-                                    cursor: "not-allowed"
-                                  }}>
-                                    <div style={{ width: "16px", height: "16px", borderRadius: "9999px", background: "#FAFAFA", boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)" }}></div>
-                                  </div>
-                                </td>
-                                <td style={{ padding: "12px" }}>
-                                  <div style={{
-                                    width: "36px",
-                                    height: "20px",
-                                    borderRadius: "9999px",
-                                    background: permission.admin ? "#344698" : "#F5F5F5",
-                                    border: permission.admin ? "none" : "1px solid #E9EAEB",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: permission.admin ? "flex-end" : "flex-start",
-                                    padding: "2px",
-                                    cursor: "pointer"
-                                  }}>
-                                    <div style={{ width: "16px", height: "16px", borderRadius: "9999px", background: "#FFF", boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)" }}></div>
-                                  </div>
-                                </td>
-                                <td style={{ padding: "12px" }}>
-                                  <div style={{
-                                    width: "36px",
-                                    height: "20px",
-                                    borderRadius: "9999px",
-                                    background: permission.recruiter ? "#344698" : "#F5F5F5",
-                                    border: permission.recruiter ? "none" : "1px solid #E9EAEB",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: permission.recruiter ? "flex-end" : "flex-start",
-                                    padding: "2px",
-                                    cursor: "pointer"
-                                  }}>
-                                    <div style={{ width: "16px", height: "16px", borderRadius: "9999px", background: "#FFF", boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)" }}></div>
-                                  </div>
-                                </td>
-                                <td style={{ padding: "12px" }}>
-                                  <div style={{
-                                    width: "36px",
-                                    height: "20px",
-                                    borderRadius: "9999px",
-                                    background: permission.support ? "#344698" : "#F5F5F5",
-                                    border: permission.support ? "none" : "1px solid #E9EAEB",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: permission.support ? "flex-end" : "flex-start",
-                                    padding: "2px",
-                                    cursor: "pointer"
-                                  }}>
-                                    <div style={{ width: "16px", height: "16px", borderRadius: "9999px", background: "#FFF", boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)" }}></div>
-                                  </div>
-                                </td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-
-                    {/* System Settings Table */}
-                    <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
-                      <div style={{
-                        display: "flex",
-                        padding: "16px 16px 12px 16px",
-                        borderRadius: "12px 12px 0 0",
-                        border: "1px solid #E9EAEB",
-                        borderBottom: "none",
-                        background: "#FFF"
-                      }}>
-                        <h3 style={{
-                          color: "#181D27",
-                          fontFamily: "Public Sans",
-                          fontSize: "18px",
-                          fontWeight: 600,
-                          lineHeight: "28px",
-                          margin: 0
-                        }}>System Settings</h3>
-                      </div>
-                      <div style={{
-                        border: "1px solid #E9EAEB",
-                        borderRadius: "0 0 12px 12px",
-                        background: "#FFF",
-                        overflow: "hidden"
-                      }}>
-                        <table style={{ width: "100%", borderCollapse: "collapse" }}>
-                          <thead>
-                            <tr style={{ borderBottom: "1px solid #E9EAEB" }}>
-                              <th style={{ padding: "6px 12px", textAlign: "left", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 700, color: "#717680" }}>Permissions</th>
-                              <th style={{ padding: "6px 12px", textAlign: "left", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 700, color: "#717680" }}>
-                                <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                                  Super Admin
-                                  <svg width="16" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M11.9333 7.33333V5.33333C11.9333 3.49238 10.4409 2 8.59993 2C6.75899 2 5.2666 3.49238 5.2666 5.33333V7.33333M6.4666 14H10.7333C11.8534 14 12.4134 14 12.8412 13.782C13.2176 13.5903 13.5235 13.2843 13.7153 12.908C13.9333 12.4802 13.9333 11.9201 13.9333 10.8V10.5333C13.9333 9.41323 13.9333 8.85318 13.7153 8.42535C13.5235 8.04903 13.2176 7.74307 12.8412 7.55132C12.4134 7.33333 11.8534 7.33333 10.7333 7.33333H6.4666C5.3465 7.33333 4.78644 7.33333 4.35862 7.55132C3.9823 7.74307 3.67634 8.04903 3.48459 8.42535C3.2666 8.85318 3.2666 9.41323 3.2666 10.5333V10.8C3.2666 11.9201 3.2666 12.4802 3.48459 12.908C3.67634 13.2843 3.9823 13.5903 4.35862 13.782C4.78644 14 5.3465 14 6.4666 14Z" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                  </svg>
-                                </div>
-                              </th>
-                              <th style={{ padding: "6px 12px", textAlign: "left", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 700, color: "#717680" }}>Admin</th>
-                              <th style={{ padding: "6px 12px", textAlign: "left", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 700, color: "#717680" }}>Recruiter</th>
-                              <th style={{ padding: "6px 12px", textAlign: "left", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 700, color: "#717680" }}>Support</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {[
-                              { label: "Company Settings", superAdmin: true, admin: true, recruiter: true, support: true },
-                              { label: "SAML Integration", superAdmin: true, admin: true, recruiter: false, support: false },
-                              { label: "Customization", superAdmin: true, admin: true, recruiter: false, support: false }
-                            ].map((permission, idx) => (
-                              <tr key={idx} style={{ borderBottom: idx < 2 ? "1px solid #E9EAEB" : "none" }}>
-                                <td style={{ padding: "12px", fontFamily: "Public Sans", fontSize: "14px", color: "#181D27" }}>
-                                  <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                                    {permission.label}
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                      <path d="M6.05967 5.99992C6.21641 5.55436 6.52578 5.17866 6.93298 4.93934C7.34018 4.70002 7.81894 4.61254 8.28446 4.69239C8.74998 4.77224 9.17222 5.01427 9.47639 5.3756C9.78057 5.73694 9.94705 6.19427 9.94634 6.66659C9.94634 7.99992 7.94634 8.66659 7.94634 8.66659M7.99967 11.3333H8.00634M14.6663 7.99992C14.6663 11.6818 11.6816 14.6666 7.99967 14.6666C4.31778 14.6666 1.33301 11.6818 1.33301 7.99992C1.33301 4.31802 4.31778 1.33325 7.99967 1.33325C11.6816 1.33325 14.6663 4.31802 14.6663 7.99992Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
-                                    </svg>
-                                  </div>
-                                </td>
-                                <td style={{ padding: "12px" }}>
-                                  <div style={{
-                                    width: "36px",
-                                    height: "20px",
-                                    borderRadius: "9999px",
-                                    border: "1px solid #E9EAEB",
-                                    background: "#8D9BD8",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "flex-end",
-                                    padding: "2px",
-                                    opacity: 0.6,
-                                    cursor: "not-allowed"
-                                  }}>
-                                    <div style={{ width: "16px", height: "16px", borderRadius: "9999px", background: "#FAFAFA", boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)" }}></div>
-                                  </div>
-                                </td>
-                                <td style={{ padding: "12px" }}>
-                                  <div style={{
-                                    width: "36px",
-                                    height: "20px",
-                                    borderRadius: "9999px",
-                                    background: permission.admin ? "#344698" : "#F5F5F5",
-                                    border: permission.admin ? "none" : "1px solid #E9EAEB",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: permission.admin ? "flex-end" : "flex-start",
-                                    padding: "2px",
-                                    cursor: "pointer"
-                                  }}>
-                                    <div style={{ width: "16px", height: "16px", borderRadius: "9999px", background: "#FFF", boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)" }}></div>
-                                  </div>
-                                </td>
-                                <td style={{ padding: "12px" }}>
-                                  <div style={{
-                                    width: "36px",
-                                    height: "20px",
-                                    borderRadius: "9999px",
-                                    background: permission.recruiter ? "#344698" : "#F5F5F5",
-                                    border: permission.recruiter ? "none" : "1px solid #E9EAEB",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: permission.recruiter ? "flex-end" : "flex-start",
-                                    padding: "2px",
-                                    cursor: "pointer"
-                                  }}>
-                                    <div style={{ width: "16px", height: "16px", borderRadius: "9999px", background: "#FFF", boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)" }}></div>
-                                  </div>
-                                </td>
-                                <td style={{ padding: "12px" }}>
-                                  <div style={{
-                                    width: "36px",
-                                    height: "20px",
-                                    borderRadius: "9999px",
-                                    background: permission.support ? "#344698" : "#F5F5F5",
-                                    border: permission.support ? "none" : "1px solid #E9EAEB",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: permission.support ? "flex-end" : "flex-start",
-                                    padding: "2px",
-                                    cursor: "pointer"
-                                  }}>
-                                    <div style={{ width: "16px", height: "16px", borderRadius: "9999px", background: "#FFF", boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)" }}></div>
-                                  </div>
-                                </td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 )}
               </div>
