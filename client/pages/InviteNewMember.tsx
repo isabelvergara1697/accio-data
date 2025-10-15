@@ -1536,7 +1536,7 @@ export default function InviteNewMember() {
                   style={{
                     display: "flex",
                     flexDirection: "column",
-                    gap: "12px",
+                    gap: "8px",
                   }}
                 >
                   <h3
@@ -1556,7 +1556,6 @@ export default function InviteNewMember() {
                       display: "flex",
                       flexDirection: isCompact ? "column" : "row",
                       alignSelf: "stretch",
-                      gap: isCompact ? "0" : "0",
                     }}
                   >
                     {/* Left Column - Configuration */}
