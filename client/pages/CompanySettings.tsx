@@ -725,7 +725,7 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: isCompactLayout ? "column" : "row",
                       justifyContent: isCompactLayout ? "flex-start" : "flex-end",
-                      alignItems: isMobile ? "stretch" : "center",
+                      alignItems: isCompactLayout ? "stretch" : "center",
                       gap: isMobile ? "12px" : "20px",
                       width: "100%",
                     }}
@@ -1261,7 +1261,7 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: isCompactLayout ? "column" : "row",
                       justifyContent: isCompactLayout ? "flex-start" : "flex-end",
-                      alignItems: isMobile ? "stretch" : "center",
+                      alignItems: isCompactLayout ? "stretch" : "center",
                       gap: isMobile ? "12px" : "20px",
                       width: "100%",
                     }}
@@ -2361,7 +2361,7 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: isCompactLayout ? "column" : "row",
                       justifyContent: isCompactLayout ? "flex-start" : "flex-end",
-                      alignItems: isMobile ? "stretch" : "center",
+                      alignItems: isCompactLayout ? "stretch" : "center",
                       gap: isMobile ? "12px" : "20px",
                       width: "100%",
                     }}
@@ -2584,7 +2584,7 @@ export default function CompanySettings() {
                       style={{
                         display: "flex",
                         flexDirection: isCompactLayout ? "column" : "row",
-                        alignItems: isMobile ? "stretch" : "center",
+                        alignItems: isCompactLayout ? "stretch" : "center",
                         gap: "12px",
                         width: isCompactLayout ? "100%" : "auto",
                       }}
