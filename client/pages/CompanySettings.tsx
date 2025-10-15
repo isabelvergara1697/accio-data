@@ -93,14 +93,17 @@ export default function CompanySettings() {
   const [sendHitsEmail, setSendHitsEmail] = React.useState("olivia@acciodata.com");
 
   // SAML Integration state
-  const [samlFirstName, setSamlFirstName] = React.useState("Oliva");
-  const [samlLastName, setSamlLastName] = React.useState("Rhye");
-  const [samlTitle, setSamlTitle] = React.useState("HR Manager");
-  const [samlCity, setSamlCity] = React.useState("Austin");
-  const [samlState, setSamlState] = React.useState("Alabama");
-  const [samlTelephone, setSamlTelephone] = React.useState("Austin");
-  const [samlFax, setSamlFax] = React.useState("2849193");
-  const [samlEmail, setSamlEmail] = React.useState("olivia@acciodata.com");
+  const [samlIdpValue, setSamlIdpValue] = React.useState("Value to give to your IdP");
+  const [samlAcsUrl, setSamlAcsUrl] = React.useState("https://demoh.acciodata.com/c/p/saml?account=flatirons");
+  const [samlSpEntityId, setSamlSpEntityId] = React.useState("https://demoh.acciodata.com/c/p/saml_logout?account=flatirons");
+  const [samlEnableAuth, setSamlEnableAuth] = React.useState("Disable SAML Single Signon for this account");
+  const [samlUseMappedUsernames, setSamlUseMappedUsernames] = React.useState("No");
+  const [samlSsoUrl, setSamlSsoUrl] = React.useState("");
+  const [samlIdpCertificate, setSamlIdpCertificate] = React.useState("");
+  const [samlIdpIssuer, setSamlIdpIssuer] = React.useState("");
+  const [samlEmailAttribute, setSamlEmailAttribute] = React.useState("");
+  const [samlPrivateKey, setSamlPrivateKey] = React.useState("");
+  const [samlAccioCertificate, setSamlAccioCertificate] = React.useState("");
 
   const inputStyle = {
     width: "100%",
