@@ -32,6 +32,7 @@ import ActivateAccount from "./pages/ActivateAccount";
 import AccountSettings from "./pages/AccountSettings";
 import CompanySettings from "./pages/CompanySettings";
 import InviteNewMember from "./pages/InviteNewMember";
+import InviteNewMemberValidation from "./pages/InviteNewMemberValidation";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
