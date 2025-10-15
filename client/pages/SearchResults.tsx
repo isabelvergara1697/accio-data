@@ -322,6 +322,7 @@ const SearchResults = () => {
 
   const tableWrapperStyle: React.CSSProperties = {
     width: "100%",
+    boxSizing: "border-box",
     overflowX: "auto",
     overflowY: isMobile ? "auto" : "visible",
     maxHeight: isMobile ? "176px" : "none",
