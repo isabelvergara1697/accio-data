@@ -41,7 +41,7 @@ export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
     return () => window.removeEventListener("resize", checkScrollable);
   }, [tabs]);
 
-  // Drag functionality
+  // Drag functionality for desktop/tablet
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!isScrollable || (!isMobile && !isTablet && window.innerWidth > 1023))
       return;
@@ -65,6 +65,25 @@ export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
     const x = e.pageX - (containerRef.current.offsetLeft || 0);
     const walk = (x - startX) * 2;
     containerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  // Touch support for mobile devices
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (!containerRef.current || !isMobile) return;
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX - (containerRef.current?.offsetLeft || 0));
+    setScrollLeft(containerRef.current?.scrollLeft || 0);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging || !containerRef.current) return;
+    const x = e.touches[0].pageX - (containerRef.current.offsetLeft || 0);
+    const walk = (x - startX) * 2;
+    containerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
   };
 
   const shouldEnableScroll = isMobile || isTablet || window.innerWidth <= 1023;
