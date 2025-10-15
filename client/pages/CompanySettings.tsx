@@ -497,6 +497,171 @@ export default function CompanySettings() {
             />
           </div>
 
+          {activeTab === "termination" && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "24px",
+                width: "100%",
+                maxWidth: "100%",
+                minWidth: 0,
+                overflowX: "hidden",
+                boxSizing: "border-box",
+              }}
+            >
+              {/* Termination Dates Section */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "20px",
+                  width: "100%",
+                  maxWidth: "100%",
+                  boxSizing: "border-box",
+                }}
+              >
+                <div>
+                  <h2
+                    style={{
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "18px",
+                      fontWeight: 600,
+                      lineHeight: "28px",
+                      margin: 0,
+                    }}
+                  >
+                    Termination Date(s)
+                  </h2>
+                  <p
+                    style={{
+                      color: "#535862",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      lineHeight: "20px",
+                      margin: "2px 0 0 0",
+                    }}
+                  >
+                    Update multiple users at once by uploading a spreadsheet with their termination dates. You can use our sample file to get started.
+                  </p>
+                </div>
+
+                {/* Upload Card */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    alignSelf: "stretch",
+                    borderRadius: "12px",
+                    border: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    overflow: "hidden",
+                  }}
+                >
+                  {/* Card Header */}
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "16px 16px 12px 16px",
+                      alignItems: "center",
+                      gap: "16px",
+                      alignSelf: "stretch",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "flex-start",
+                        gap: "2px",
+                        flex: "1 0 0",
+                      }}
+                    >
+                      <h3
+                        style={{
+                          color: "#181D27",
+                          fontFamily: "Public Sans",
+                          fontSize: "18px",
+                          fontWeight: 600,
+                          lineHeight: "28px",
+                          margin: 0,
+                        }}
+                      >
+                        Upload Termination Dates
+                      </h3>
+                    </div>
+                    <button
+                      type="button"
+                      style={{
+                        display: "flex",
+                        minHeight: "36px",
+                        padding: "6px 8px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "4px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        cursor: "pointer",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = "#F5F5F5";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = "#FFF";
+                      }}
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style={{ flexShrink: 0 }}
+                      >
+                        <path
+                          d="M14 10V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V10M11.3333 6.66667L8 10M8 10L4.66667 6.66667M8 10V2"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "0 2px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <span
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Download Sample
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+
+                  {/* Upload Area */}
+                  <TerminationUploadArea isMobile={isMobile} />
+                </div>
+              </div>
+            </div>
+          )}
+
           {activeTab === "company" && (
             <div
               style={{
