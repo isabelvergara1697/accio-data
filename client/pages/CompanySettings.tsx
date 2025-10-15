@@ -803,6 +803,82 @@ export default function CompanySettings() {
   const [uiStyling, setUiStyling] = React.useState<'pill' | 'round' | 'sharp'>('pill');
   const [loginImageEnabled, setLoginImageEnabled] = React.useState(true);
   const [portalInstructionsEnabled, setPortalInstructionsEnabled] = React.useState(true);
+  const loginImageInputRef = React.useRef<HTMLInputElement | null>(null);
+  const portalInstructionsInputRef = React.useRef<HTMLInputElement | null>(null);
+  const [loginImagePreview, setLoginImagePreview] = React.useState<string>(
+    LOGIN_IMAGE_PLACEHOLDER,
+  );
+  const [portalInstructionsPreview, setPortalInstructionsPreview] = React.useState<string>(
+    PORTAL_INSTRUCTIONS_PLACEHOLDER,
+  );
+
+  const processImageSelection = React.useCallback(
+    (
+      files: FileList | null,
+      setPreview: React.Dispatch<React.SetStateAction<string>>,
+    ) => {
+      const file = files?.[0];
+      if (!file) {
+        return;
+      }
+
+      if (!file.type.startsWith("image/")) {
+        toast({
+          title: "Unsupported file type",
+          description: "Please upload an image in SVG, PNG, JPG, or GIF format.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      const fileUrl = URL.createObjectURL(file);
+      setPreview((previous) => {
+        if (previous.startsWith("blob:")) {
+          URL.revokeObjectURL(previous);
+        }
+        return fileUrl;
+      });
+    },
+    [],
+  );
+
+  const handleImageInputChange = React.useCallback(
+    (
+      event: React.ChangeEvent<HTMLInputElement>,
+      setPreview: React.Dispatch<React.SetStateAction<string>>,
+    ) => {
+      processImageSelection(event.target.files, setPreview);
+      event.target.value = "";
+    },
+    [processImageSelection],
+  );
+
+  const handleImageDrop = React.useCallback(
+    (
+      event: React.DragEvent<HTMLDivElement>,
+      setPreview: React.Dispatch<React.SetStateAction<string>>,
+    ) => {
+      event.preventDefault();
+      processImageSelection(event.dataTransfer?.files ?? null, setPreview);
+    },
+    [processImageSelection],
+  );
+
+  React.useEffect(() => {
+    return () => {
+      if (loginImagePreview.startsWith("blob:")) {
+        URL.revokeObjectURL(loginImagePreview);
+      }
+    };
+  }, [loginImagePreview]);
+
+  React.useEffect(() => {
+    return () => {
+      if (portalInstructionsPreview.startsWith("blob:")) {
+        URL.revokeObjectURL(portalInstructionsPreview);
+      }
+    };
+  }, [portalInstructionsPreview]);
 
   const handlePermissionToggle = React.useCallback(
     (categoryIndex: number, permissionIndex: number, roleKey: RoleKey) => {
