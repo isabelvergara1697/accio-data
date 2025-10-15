@@ -291,11 +291,12 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      minWidth: isMobile ? "auto" : "200px",
-                      maxWidth: isMobile ? "auto" : "280px",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -353,11 +354,12 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      minWidth: isMobile ? "auto" : "200px",
-                      maxWidth: isMobile ? "auto" : "280px",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -399,11 +401,12 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      minWidth: isMobile ? "auto" : "200px",
-                      maxWidth: isMobile ? "auto" : "280px",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -445,11 +448,12 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      minWidth: isMobile ? "auto" : "200px",
-                      maxWidth: isMobile ? "auto" : "280px",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -500,11 +504,12 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      minWidth: isMobile ? "auto" : "200px",
-                      maxWidth: isMobile ? "auto" : "280px",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -546,11 +551,12 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      minWidth: isMobile ? "auto" : "200px",
-                      maxWidth: isMobile ? "auto" : "280px",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -592,11 +598,12 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      minWidth: isMobile ? "auto" : "200px",
-                      maxWidth: isMobile ? "auto" : "280px",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -739,11 +746,12 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      minWidth: isMobile ? "auto" : "200px",
-                      maxWidth: isMobile ? "auto" : "280px",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -785,11 +793,12 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      minWidth: isMobile ? "auto" : "200px",
-                      maxWidth: isMobile ? "auto" : "280px",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -840,11 +849,12 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      minWidth: isMobile ? "auto" : "200px",
-                      maxWidth: isMobile ? "auto" : "280px",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -895,11 +905,12 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      minWidth: isMobile ? "auto" : "200px",
-                      maxWidth: isMobile ? "auto" : "280px",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -950,11 +961,12 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      minWidth: isMobile ? "auto" : "200px",
-                      maxWidth: isMobile ? "auto" : "280px",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1005,11 +1017,12 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      minWidth: isMobile ? "auto" : "200px",
-                      maxWidth: isMobile ? "auto" : "280px",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1060,11 +1073,12 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      minWidth: isMobile ? "auto" : "200px",
-                      maxWidth: isMobile ? "auto" : "280px",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1114,11 +1128,12 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      minWidth: isMobile ? "auto" : "200px",
-                      maxWidth: isMobile ? "auto" : "280px",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
