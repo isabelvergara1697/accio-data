@@ -391,25 +391,12 @@ export default function InviteNewMember() {
     toast({
       title: "Invite details ready",
       description:
-        "All required information is filled out. Continue to the invites dashboard to manage the invite.",
-    });
-
-    navigate("/invites-orders", {
-      state: {
-        newInvite: {
-          ...formData,
-          passwordOption,
-          password: passwordOption === "manual" ? password : undefined,
-          selectedTeamMemberIds: selectedTeamMembers.map((member) => member.id),
-          adjudicationSelections,
-        },
-      },
+        "All required information is filled out. Continue to the next step to send the invite.",
     });
   }, [
     adjudicationSelections,
     confirmPassword,
     formData,
-    navigate,
     password,
     passwordOption,
     reportViewOption,
@@ -927,7 +914,7 @@ export default function InviteNewMember() {
                               type={showConfirmPassword ? "text" : "password"}
                               value={confirmPassword}
                               onChange={(e) => setConfirmPassword(e.target.value)}
-                              placeholder="••���•••••"
+                              placeholder="••••••••"
                               style={{
                                 width: "100%",
                                 height: "48px",
