@@ -395,7 +395,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       gap: isMobile ? "12px" : "24px",
                       width: "100%",
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                       boxSizing: "border-box" as const,
                     }}
                   >
@@ -461,7 +461,7 @@ export default function CompanySettings() {
                     onChange={(e) => setTitle(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -507,7 +507,7 @@ export default function CompanySettings() {
                     onChange={(e) => setCity(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -552,7 +552,7 @@ export default function CompanySettings() {
                     onChange={(e) => setState(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                       appearance: "none",
                       backgroundImage:
                         "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
@@ -608,7 +608,7 @@ export default function CompanySettings() {
                     onChange={(e) => setTelephone(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -654,7 +654,7 @@ export default function CompanySettings() {
                     onChange={(e) => setFax(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -700,7 +700,7 @@ export default function CompanySettings() {
                     onChange={(e) => setEmail(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -861,7 +861,7 @@ export default function CompanySettings() {
                     onChange={(e) => setManualRescreening(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -906,7 +906,7 @@ export default function CompanySettings() {
                     onChange={(e) => setMinPasswordLength(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                       appearance: "none",
                       backgroundImage:
                         "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
@@ -961,7 +961,7 @@ export default function CompanySettings() {
                     onChange={(e) => setMaxPasswordExpiration(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                       appearance: "none",
                       backgroundImage:
                         "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
@@ -1016,7 +1016,7 @@ export default function CompanySettings() {
                     onChange={(e) => setInactivityLogout(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                       appearance: "none",
                       backgroundImage:
                         "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
@@ -1071,7 +1071,7 @@ export default function CompanySettings() {
                     onChange={(e) => setPrintFCRA(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                       appearance: "none",
                       backgroundImage:
                         "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
@@ -1126,7 +1126,7 @@ export default function CompanySettings() {
                     onChange={(e) => setDuplicateOrderCheck1(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                       appearance: "none",
                       backgroundImage:
                         "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
@@ -1181,7 +1181,7 @@ export default function CompanySettings() {
                     onChange={(e) => setDuplicateOrderCheck2(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                       appearance: "none",
                       backgroundImage:
                         "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
@@ -1236,7 +1236,7 @@ export default function CompanySettings() {
                     onChange={(e) => setSendHitsEmail(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -1436,7 +1436,7 @@ export default function CompanySettings() {
                       alignItems: "center",
                       gap: "24px",
                       width: "100%",
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                     }}
                   >
                     <div
@@ -1531,7 +1531,7 @@ export default function CompanySettings() {
                       alignItems: "center",
                       gap: "24px",
                       width: "100%",
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                     }}
                   >
                     <div
@@ -1629,7 +1629,7 @@ export default function CompanySettings() {
                       alignItems: "center",
                       gap: "24px",
                       width: "100%",
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                     }}
                   >
                     <div
@@ -1727,7 +1727,7 @@ export default function CompanySettings() {
                       alignItems: "center",
                       gap: "24px",
                       width: "100%",
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                     }}
                   >
                     <div
@@ -1839,7 +1839,7 @@ export default function CompanySettings() {
                     onChange={(e) => setSamlEnableAuth(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                       appearance: "none",
                       backgroundImage:
                         "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
@@ -1917,7 +1917,7 @@ export default function CompanySettings() {
                     onChange={(e) => setSamlUseMappedUsernames(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                       appearance: "none",
                       backgroundImage:
                         "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
@@ -1993,7 +1993,7 @@ export default function CompanySettings() {
                     placeholder="[Value]"
                     style={{
                       ...inputStyle,
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -2059,7 +2059,7 @@ export default function CompanySettings() {
                     placeholder="[Value]"
                     style={{
                       ...inputStyle,
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                       minHeight: "154px",
                       resize: "vertical",
                       padding: "12px 14px",
@@ -2129,7 +2129,7 @@ export default function CompanySettings() {
                     placeholder="[Value]"
                     style={{
                       ...inputStyle,
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -2196,7 +2196,7 @@ export default function CompanySettings() {
                     placeholder="[Value]"
                     style={{
                       ...inputStyle,
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -2262,7 +2262,7 @@ export default function CompanySettings() {
                     placeholder="[Value]"
                     style={{
                       ...inputStyle,
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                       minHeight: "154px",
                       resize: "vertical",
                       padding: "12px 14px",
@@ -2331,7 +2331,7 @@ export default function CompanySettings() {
                     placeholder="[Value]"
                     style={{
                       ...inputStyle,
-                      maxWidth: isMobile ? "100%" : "512px",
+                      maxWidth: isCompactLayout ? "100%" : "512px",
                       minHeight: "154px",
                       resize: "vertical",
                       padding: "12px 14px",
