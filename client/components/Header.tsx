@@ -304,20 +304,6 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
           )}
         </div>
-        <AdvancedSearchDropdown
-          showAdvancedSearch={showAdvancedSearch}
-          advancedSearchForm={advancedSearchForm}
-          focusedAdvancedField={focusedAdvancedField}
-          onFieldChange={handleAdvancedSearchChange}
-          onFieldFocus={setFocusedAdvancedField}
-          onClear={clearAdvancedSearch}
-          onSearch={handleAdvancedSearch}
-          dropdownRef={advancedSearchRef}
-          style={{
-            width: "280px",
-            right: "0",
-          }}
-        />
       </div>
 
       {/* Right Side - Quick Create, Notifications, User Menu */}
