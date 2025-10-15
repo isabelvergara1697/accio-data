@@ -1443,14 +1443,16 @@ export default function CompanySettings() {
                     <div
                       style={{
                         flex: 1,
+                        minWidth: 0,
                         color: "#181D27",
                         fontFamily: "Public Sans",
                         fontSize: "16px",
                         fontWeight: 400,
                         lineHeight: "24px",
-                        overflow: "hidden",
+                        overflow: isCompactLayout ? "visible" : "hidden",
                         textOverflow: isCompactLayout ? "clip" : "ellipsis",
                         whiteSpace: isCompactLayout ? "normal" : "nowrap",
+                        overflowWrap: isCompactLayout ? "anywhere" : "normal",
                         wordBreak: isCompactLayout ? "break-word" : "normal",
                       }}
                     >
@@ -1545,14 +1547,16 @@ export default function CompanySettings() {
                     <div
                       style={{
                         flex: 1,
+                        minWidth: 0,
                         color: "#181D27",
                         fontFamily: "Public Sans",
                         fontSize: "16px",
                         fontWeight: 400,
                         lineHeight: "24px",
-                        overflow: "hidden",
+                        overflow: isCompactLayout ? "visible" : "hidden",
                         textOverflow: isCompactLayout ? "clip" : "ellipsis",
                         whiteSpace: isCompactLayout ? "normal" : "nowrap",
+                        overflowWrap: isCompactLayout ? "anywhere" : "normal",
                         wordBreak: isCompactLayout ? "break-word" : "normal",
                       }}
                     >
@@ -1647,14 +1651,16 @@ export default function CompanySettings() {
                     <div
                       style={{
                         flex: 1,
+                        minWidth: 0,
                         color: "#181D27",
                         fontFamily: "Public Sans",
                         fontSize: "16px",
                         fontWeight: 400,
                         lineHeight: "24px",
-                        overflow: "hidden",
+                        overflow: isCompactLayout ? "visible" : "hidden",
                         textOverflow: isCompactLayout ? "clip" : "ellipsis",
                         whiteSpace: isCompactLayout ? "normal" : "nowrap",
+                        overflowWrap: isCompactLayout ? "anywhere" : "normal",
                         wordBreak: isCompactLayout ? "break-word" : "normal",
                       }}
                     >
@@ -1749,14 +1755,16 @@ export default function CompanySettings() {
                     <div
                       style={{
                         flex: 1,
+                        minWidth: 0,
                         color: "#181D27",
                         fontFamily: "Public Sans",
                         fontSize: "16px",
                         fontWeight: 400,
                         lineHeight: "24px",
-                        overflow: "hidden",
+                        overflow: isCompactLayout ? "visible" : "hidden",
                         textOverflow: isCompactLayout ? "clip" : "ellipsis",
                         whiteSpace: isCompactLayout ? "normal" : "nowrap",
+                        overflowWrap: isCompactLayout ? "anywhere" : "normal",
                         wordBreak: isCompactLayout ? "break-word" : "normal",
                       }}
                     >
