@@ -371,34 +371,50 @@ export default function AccountSettings() {
                       gap: isMobile ? "16px" : "32px",
                     }}
                   >
-                    <div
-                      style={{
-                        minWidth: isMobile ? "auto" : "200px",
-                        maxWidth: isMobile ? "auto" : "280px",
-                        flex: isMobile ? "none" : "1 0 0",
-                      }}
-                    >
-                      <label
+                    {!isMobile && (
+                      <div
                         style={{
-                          color: "#414651",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 600,
-                          lineHeight: "20px",
+                          minWidth: "200px",
+                          maxWidth: "280px",
+                          flex: "1 0 0",
                         }}
                       >
-                        Name<span style={{ color: "#344698" }}>*</span>
-                      </label>
-                    </div>
+                        <label
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Name<span style={{ color: "#344698" }}>*</span>
+                        </label>
+                      </div>
+                    )}
                     <div
                       style={{
                         display: "flex",
+                        flexDirection: isMobile ? "column" : "row",
                         gap: "24px",
                         flex: "1 0 0",
                         minWidth: isMobile ? "auto" : "480px",
                         maxWidth: isMobile ? "auto" : "512px",
                       }}
                     >
+                      {isMobile && (
+                        <label
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Name<span style={{ color: "#344698" }}>*</span>
+                        </label>
+                      )}
                       <input
                         type="text"
                         placeholder="Name"
@@ -411,7 +427,7 @@ export default function AccountSettings() {
                           border: "1px solid #D5D7DA",
                           background: "#FFF",
                           boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          color: "#717680",
+                          color: firstName ? "#181D27" : "#717680",
                           fontFamily: "Public Sans",
                           fontSize: "16px",
                           fontWeight: 400,
@@ -431,7 +447,7 @@ export default function AccountSettings() {
                           border: "1px solid #D5D7DA",
                           background: "#FFF",
                           boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          color: "#717680",
+                          color: lastName ? "#181D27" : "#717680",
                           fontFamily: "Public Sans",
                           fontSize: "16px",
                           fontWeight: 400,
@@ -472,6 +488,22 @@ export default function AccountSettings() {
                         }}
                       >
                         Your photo<span style={{ color: "#344698" }}>*</span>
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          style={{ marginLeft: "2px" }}
+                        >
+                          <path
+                            d="M6.06016 6.00016C6.2169 5.55461 6.52626 5.1789 6.93347 4.93958C7.34067 4.70027 7.81943 4.61279 8.28495 4.69264C8.75047 4.77249 9.17271 5.01451 9.47688 5.37585C9.78106 5.73718 9.94753 6.19451 9.94683 6.66683C9.94683 8.00016 7.94683 8.66683 7.94683 8.66683M8.00016 11.3335H8.00683M14.6668 8.00016C14.6668 11.6821 11.6821 14.6668 8.00016 14.6668C4.31826 14.6668 1.3335 11.6821 1.3335 8.00016C1.3335 4.31826 4.31826 1.3335 8.00016 1.3335C11.6821 1.3335 14.6668 4.31826 14.6668 8.00016Z"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.33333"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
                       </label>
                       <p
                         style={{
@@ -489,6 +521,8 @@ export default function AccountSettings() {
                     <div
                       style={{
                         display: "flex",
+                        flexDirection: isMobile ? "column" : "row",
+                        alignItems: isMobile ? "center" : "flex-start",
                         gap: "20px",
                         flex: "1 0 0",
                         minWidth: isMobile ? "auto" : "480px",
