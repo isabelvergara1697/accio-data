@@ -193,8 +193,8 @@ export default function CompanySettings() {
           style={{
             display: "flex",
             flexDirection: "column",
-            padding: isMobile ? "0 16px 24px" : "0 32px 32px",
-            gap: isMobile ? "20px" : "32px",
+            padding: isMobile ? "24px 16px 24px" : "32px 32px 32px",
+            gap: isMobile ? "20px" : "24px",
             maxWidth: "1200px",
             width: "100%",
             margin: "0 auto",
@@ -204,7 +204,6 @@ export default function CompanySettings() {
             style={{
               display: "flex",
               flexDirection: "column",
-              padding: isMobile ? "0 0" : "0 0",
               gap: isMobile ? "16px" : "20px",
             }}
           >
@@ -223,11 +222,10 @@ export default function CompanySettings() {
 
             <HorizontalTabs
               tabs={tabs}
-              activeTab={activeTab}
+              currentTab={activeTab}
               onTabChange={(tabId) => setActiveTab(tabId as CompanyTabType)}
-              size="sm"
-              fullWidth={false}
-              type="button-border"
+              isMobile={isMobile}
+              isTablet={isTablet}
             />
           </div>
 
