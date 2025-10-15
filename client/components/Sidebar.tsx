@@ -69,12 +69,19 @@ export const Sidebar: React.FC<SidebarProps> = ({
     return params.get("q") || "";
   });
   const [isMobileSearchFocused, setIsMobileSearchFocused] = useState(false);
+  const [mobileQuickCreateOpen, setMobileQuickCreateOpen] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const query = params.get("q") || "";
     setMobileSearchQuery(query);
   }, [location.search]);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) {
+      setMobileQuickCreateOpen(false);
+    }
+  }, [mobileMenuOpen]);
 
   const handleMobileSearchSubmit = () => {
     const trimmedQuery = mobileSearchQuery.trim();
@@ -86,6 +93,23 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
   const isMobileSearchActive =
     isMobileSearchFocused || mobileSearchQuery.length > 0;
+
+  const openQuickOrderFromMobile = () => {
+    setMobileQuickCreateOpen(false);
+    setMobileMenuOpen?.(false);
+    onOpenQuickOrderDrawer?.();
+  };
+
+  const openSSNOrderFromMobile = () => {
+    setMobileQuickCreateOpen(false);
+    setMobileMenuOpen?.(false);
+    onOpenSSNOrderDrawer?.();
+  };
+
+  const handleOpenNotification = () => {
+    setMobileMenuOpen?.(false);
+    onOpenNotificationModal?.();
+  };
 
   const menuSections = {
     tools: [
