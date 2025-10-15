@@ -399,6 +399,9 @@ export default function InviteNewMemberValidation() {
                     <span style={{ color: "#181D27", fontSize: "16px" }}>
                       {formData.reportVisibility}
                     </span>
+                    <span style={{ color: "#535862", fontSize: "14px" }}>
+                      {reportViewDescription}
+                    </span>
                   </div>
                   <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
                     <span style={{ color: "#717680", fontSize: "14px", fontWeight: 500 }}>
