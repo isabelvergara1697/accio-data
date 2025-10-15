@@ -1077,11 +1077,15 @@ export default function InviteNewMember() {
                         display: "block",
                         marginBottom: "6px",
                       }}
-                    >
+>
                       Telephone
                     </label>
                     <input
                       type="tel"
+                      value={formData.telephone}
+                      onChange={(event) =>
+                        updateFormField("telephone", event.target.value)
+                      }
                       style={{
                         width: "100%",
                         height: "40px",
