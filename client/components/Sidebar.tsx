@@ -947,36 +947,153 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   </svg>
                 </button>
               )}
-              <button
-                onClick={() => setMobileMenuOpen?.(false)}
-                className="lg:hidden"
+              <div
                 style={{
-                  display: isDesktop ? "none" : "flex",
-                  padding: "8px",
-                  justifyContent: "center",
+                  display: "flex",
                   alignItems: "center",
-                  borderRadius: "8px",
+                  gap: "8px",
                 }}
               >
-                <svg
-                  style={{ width: "24px", height: "24px", opacity: 0.7 }}
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+                {!isDesktop && (
+                  <>
+                    <div style={{ position: "relative" }}>
+                      <button
+                        onClick={() => setMobileQuickCreateOpen((prev) => !prev)}
+                        aria-label="Open quick create"
+                        style={{
+                          display: "flex",
+                          width: "40px",
+                          height: "40px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "12px",
+                          border: "2px solid rgba(255, 255, 255, 0.12)",
+                          background: mobileQuickCreateOpen ? "#273572" : "#344698",
+                          boxShadow:
+                            "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                          cursor: "pointer",
+                          transition: "background 0.2s ease",
+                        }}
+                        onMouseEnter={(e) => {
+                          if (!mobileQuickCreateOpen) {
+                            e.currentTarget.style.background = "#273572";
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          if (!mobileQuickCreateOpen) {
+                            e.currentTarget.style.background = "#344698";
+                          }
+                        }}
+                      >
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          style={{ display: "block" }}
+                        >
+                          <g clipPath="url(#sidebar-mobile-plus)">
+                            <path
+                              d="M10 6.6665V13.3332M6.66669 9.99984H13.3334M18.3334 9.99984C18.3334 14.6022 14.6025 18.3332 10 18.3332C5.39763 18.3332 1.66669 14.6022 1.66669 9.99984C1.66669 5.39746 5.39763 1.6665 10 1.6665C14.6025 1.6665 18.3334 5.39746 18.3334 9.99984Z"
+                              stroke="#8D9BD8"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </g>
+                          <defs>
+                            <clipPath id="sidebar-mobile-plus">
+                              <rect width="20" height="20" fill="white" />
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </button>
+                    </div>
+                    <button
+                      onClick={handleOpenNotification}
+                      aria-label="Open notifications"
+                      style={{
+                        display: "flex",
+                        width: "40px",
+                        height: "40px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        borderRadius: "12px",
+                        background: "transparent",
+                        border: "none",
+                        cursor: "pointer",
+                        position: "relative",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = "#F5F5F5";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = "transparent";
+                      }}
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style={{ display: "block" }}
+                      >
+                        <path
+                          d="M9.35419 21C10.0593 21.6224 10.9856 22 12 22C13.0145 22 13.9407 21.6224 14.6458 21M18 8C18 6.4087 17.3679 4.88258 16.2427 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.8826 2.63214 7.75738 3.75736C6.63216 4.88258 6.00002 6.4087 6.00002 8C6.00002 11.0902 5.22049 13.206 4.34968 14.6054C3.61515 15.7859 3.24788 16.3761 3.26134 16.5408C3.27626 16.7231 3.31488 16.7926 3.46179 16.9016C3.59448 17 4.19261 17 5.38887 17H18.6112C19.8074 17 20.4056 17 20.5382 16.9016C20.6852 16.7926 20.7238 16.7231 20.7387 16.5408C20.7522 16.3761 20.3849 15.7859 19.6504 14.6054C18.7795 13.206 18 11.0902 18 8Z"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      <div
+                        style={{
+                          position: "absolute",
+                          top: "8px",
+                          right: "8px",
+                          width: "8px",
+                          height: "8px",
+                          borderRadius: "50%",
+                          background: "#17B26A",
+                          border: "1.5px solid #FFF",
+                        }}
+                      />
+                    </button>
+                  </>
+                )}
+                <button
+                  onClick={() => setMobileMenuOpen?.(false)}
+                  className="lg:hidden"
+                  style={{
+                    display: isDesktop ? "none" : "flex",
+                    padding: "8px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    borderRadius: "8px",
+                  }}
                 >
-                  <g opacity="0.7">
-                    <path
-                      d="M18 6L6 18M6 6L18 18"
-                      stroke="#A4A7AE"
-                      strokeWidth="1.66667"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </g>
-                </svg>
-              </button>
+                  <svg
+                    style={{ width: "24px", height: "24px", opacity: 0.7 }}
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g opacity="0.7">
+                      <path
+                        d="M18 6L6 18M6 6L18 18"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </g>
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
 
