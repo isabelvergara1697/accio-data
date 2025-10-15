@@ -290,7 +290,7 @@ export default function InviteNewMember() {
                 overflow: "hidden",
               }}
             >
-              <div style={{ padding: "16px" }}>
+              <div style={{ padding: "16px 16px 12px 16px" }}>
                 <h2
                   style={{
                     color: "#181D27",
@@ -440,7 +440,7 @@ export default function InviteNewMember() {
                 overflow: "hidden",
               }}
             >
-              <div style={{ padding: "16px" }}>
+              <div style={{ padding: "16px 16px 12px 16px" }}>
                 <h2
                   style={{
                     color: "#181D27",
@@ -574,7 +574,7 @@ export default function InviteNewMember() {
                 overflow: "hidden",
               }}
             >
-              <div style={{ padding: "16px" }}>
+              <div style={{ padding: "16px 16px 12px 16px" }}>
                 <h2
                   style={{
                     color: "#181D27",
