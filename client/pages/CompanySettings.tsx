@@ -401,6 +401,7 @@ export default function CompanySettings() {
                       gap: isCompactLayout ? "12px" : "24px",
                       width: "100%",
                       maxWidth: isCompactLayout ? "100%" : "512px",
+                      minWidth: 0,
                       boxSizing: "border-box" as const,
                     }}
                   >
