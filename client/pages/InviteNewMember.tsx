@@ -268,6 +268,51 @@ export default function InviteNewMember() {
     );
   };
 
+  const updateFormField = useCallback(
+    (field: keyof InviteMemberFormData, value: string) => {
+      setFormData((previous) => ({ ...previous, [field]: value }));
+    },
+    [],
+  );
+
+  const handleStateChange = useCallback((value: string) => {
+    setFormData((previous) => {
+      const options = CITY_OPTIONS_BY_STATE[value] ||
+        CITY_OPTIONS_BY_STATE["Select"];
+      const nextCity = options.includes(previous.city)
+        ? previous.city
+        : options[0] || "Select";
+      return {
+        ...previous,
+        state: value,
+        city: nextCity,
+      };
+    });
+  }, []);
+
+  const handleCityChange = useCallback(
+    (value: string) => {
+      updateFormField("city", value);
+    },
+    [updateFormField],
+  );
+
+  const handleReportVisibilityChange = useCallback(
+    (value: string) => {
+      updateFormField("reportVisibility", value);
+    },
+    [updateFormField],
+  );
+
+  const toggleAdjudicationOption = useCallback((option: string) => {
+    setAdjudicationSelections((previous) => {
+      if (previous.includes(option)) {
+        return previous.filter((item) => item !== option);
+      }
+      return [...previous, option];
+    });
+  }, []);
+
   const getRequirementIconColor = (requirementId: string) => {
     if (!password) return "#D5D7DA"; // Gray when no password
     if (requirementStates[requirementId]) return "#079455"; // Green when met
