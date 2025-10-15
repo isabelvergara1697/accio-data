@@ -36,8 +36,12 @@ export default function CompanySettings() {
   const [showMobileUserMenu, setShowMobileUserMenu] = React.useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [isCollapsed, setIsCollapsed] = React.useState(false);
-  const [openDropdownIndex, setOpenDropdownIndex] = React.useState<number | null>(null);
-  const [hoveredRowIndex, setHoveredRowIndex] = React.useState<number | null>(null);
+  const [openDropdownIndex, setOpenDropdownIndex] = React.useState<
+    number | null
+  >(null);
+  const [hoveredRowIndex, setHoveredRowIndex] = React.useState<number | null>(
+    null,
+  );
 
   React.useEffect(() => {
     if (typeof window === "undefined") return;
@@ -56,14 +60,17 @@ export default function CompanySettings() {
     const handleClickOutside = (event: MouseEvent) => {
       if (openDropdownIndex !== null) {
         const target = event.target as HTMLElement;
-        if (!target.closest('[data-dropdown-menu]') && !target.closest('button')) {
+        if (
+          !target.closest("[data-dropdown-menu]") &&
+          !target.closest("button")
+        ) {
           setOpenDropdownIndex(null);
         }
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [openDropdownIndex]);
 
   const getUserMenuStyles = () => {
@@ -108,19 +115,33 @@ export default function CompanySettings() {
   // General Settings state
   const [manualRescreening, setManualRescreening] = React.useState("12");
   const [minPasswordLength, setMinPasswordLength] = React.useState("6");
-  const [maxPasswordExpiration, setMaxPasswordExpiration] = React.useState("15 Days");
+  const [maxPasswordExpiration, setMaxPasswordExpiration] =
+    React.useState("15 Days");
   const [inactivityLogout, setInactivityLogout] = React.useState("60 Minutes");
   const [printFCRA, setPrintFCRA] = React.useState("60 Minutes");
-  const [duplicateOrderCheck1, setDuplicateOrderCheck1] = React.useState("60 Minutes");
-  const [duplicateOrderCheck2, setDuplicateOrderCheck2] = React.useState("No Check");
-  const [sendHitsEmail, setSendHitsEmail] = React.useState("olivia@acciodata.com");
+  const [duplicateOrderCheck1, setDuplicateOrderCheck1] =
+    React.useState("60 Minutes");
+  const [duplicateOrderCheck2, setDuplicateOrderCheck2] =
+    React.useState("No Check");
+  const [sendHitsEmail, setSendHitsEmail] = React.useState(
+    "olivia@acciodata.com",
+  );
 
   // SAML Integration state
-  const [samlIdpValue, setSamlIdpValue] = React.useState("Value to give to your IdP");
-  const [samlAcsUrl, setSamlAcsUrl] = React.useState("https://demoh.acciodata.com/c/p/saml?account=flatirons");
-  const [samlSpEntityId, setSamlSpEntityId] = React.useState("https://demoh.acciodata.com/c/p/saml_logout?account=flatirons");
-  const [samlEnableAuth, setSamlEnableAuth] = React.useState("Disable SAML Single Signon for this account");
-  const [samlUseMappedUsernames, setSamlUseMappedUsernames] = React.useState("No");
+  const [samlIdpValue, setSamlIdpValue] = React.useState(
+    "Value to give to your IdP",
+  );
+  const [samlAcsUrl, setSamlAcsUrl] = React.useState(
+    "https://demoh.acciodata.com/c/p/saml?account=flatirons",
+  );
+  const [samlSpEntityId, setSamlSpEntityId] = React.useState(
+    "https://demoh.acciodata.com/c/p/saml_logout?account=flatirons",
+  );
+  const [samlEnableAuth, setSamlEnableAuth] = React.useState(
+    "Disable SAML Single Signon for this account",
+  );
+  const [samlUseMappedUsernames, setSamlUseMappedUsernames] =
+    React.useState("No");
   const [samlSsoUrl, setSamlSsoUrl] = React.useState("");
   const [samlIdpCertificate, setSamlIdpCertificate] = React.useState("");
   const [samlIdpIssuer, setSamlIdpIssuer] = React.useState("");
@@ -381,13 +402,19 @@ export default function CompanySettings() {
                       type="text"
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
-                      style={{ ...inputStyle, flex: isMobile ? "unset" : "1 0 0" }}
+                      style={{
+                        ...inputStyle,
+                        flex: isMobile ? "unset" : "1 0 0",
+                      }}
                     />
                     <input
                       type="text"
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
-                      style={{ ...inputStyle, flex: isMobile ? "unset" : "1 0 0" }}
+                      style={{
+                        ...inputStyle,
+                        flex: isMobile ? "unset" : "1 0 0",
+                      }}
                     />
                   </div>
                 </div>
@@ -685,7 +712,13 @@ export default function CompanySettings() {
                     gap: "20px",
                   }}
                 >
-                  <div style={{ height: "1px", width: "100%", background: "#E9EAEB" }} />
+                  <div
+                    style={{
+                      height: "1px",
+                      width: "100%",
+                      background: "#E9EAEB",
+                    }}
+                  />
                   <div
                     style={{
                       display: "flex",
@@ -1215,7 +1248,13 @@ export default function CompanySettings() {
                     gap: "20px",
                   }}
                 >
-                  <div style={{ height: "1px", width: "100%", background: "#E9EAEB" }} />
+                  <div
+                    style={{
+                      height: "1px",
+                      width: "100%",
+                      background: "#E9EAEB",
+                    }}
+                  />
                   <div
                     style={{
                       display: "flex",
@@ -1338,11 +1377,15 @@ export default function CompanySettings() {
                       margin: "2px 0 0 0",
                     }}
                   >
-                    Use this form to configure and enable single signon through the SAML 2.0 protocol.
-                    NOTE: Once you have enabled SAML authentication, if you do not have a bypass user, and the SAML authentication fails,
-                    you will be locked out of your account. Make sure you have at least one user on your account with SAML bypass enabled
-                    before turning on SAML authentication. If you wish to give a particular user the ability to bypass SAML authentication,
-                    change their 'User May Bypass SAML Authentication' setting to 'Yes'.
+                    Use this form to configure and enable single signon through
+                    the SAML 2.0 protocol. NOTE: Once you have enabled SAML
+                    authentication, if you do not have a bypass user, and the
+                    SAML authentication fails, you will be locked out of your
+                    account. Make sure you have at least one user on your
+                    account with SAML bypass enabled before turning on SAML
+                    authentication. If you wish to give a particular user the
+                    ability to bypass SAML authentication, change their 'User
+                    May Bypass SAML Authentication' setting to 'Yes'.
                   </p>
                 </div>
 
@@ -1422,8 +1465,20 @@ export default function CompanySettings() {
                         cursor: "pointer",
                       }}
                     >
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8.74984 1.66908C8.1873 1.6767 7.84959 1.70927 7.57652 1.8484C7.26292 2.00819 7.00795 2.26316 6.84816 2.57676C6.70903 2.84983 6.67646 3.18754 6.66883 3.75008M16.2498 1.66908C16.8124 1.6767 17.1501 1.70927 17.4232 1.8484C17.7368 2.00819 17.9917 2.26316 18.1515 2.57676C18.2906 2.84983 18.3232 3.18754 18.3308 3.75007M18.3308 11.2501C18.3232 11.8126 18.2907 12.1503 18.1515 12.4234C17.9917 12.737 17.7368 12.992 17.4232 13.1518C17.1501 13.2909 16.8124 13.3235 16.2498 13.3311M18.3332 6.66674V8.33341M11.6665 1.66675H13.3331M4.33317 18.3334H10.6665C11.5999 18.3334 12.0666 18.3334 12.4232 18.1518C12.7368 17.992 12.9917 17.737 13.1515 17.4234C13.3332 17.0669 13.3332 16.6002 13.3332 15.6667V9.33341C13.3332 8.39999 13.3332 7.93328 13.1515 7.57676C12.9917 7.26316 12.7368 7.00819 12.4232 6.8484C12.0666 6.66675 11.5999 6.66675 10.6665 6.66675H4.33317C3.39975 6.66675 2.93304 6.66675 2.57652 6.8484C2.26292 7.00819 2.00795 7.26316 1.84816 7.57676C1.6665 7.93328 1.6665 8.39999 1.6665 9.33341V15.6667C1.6665 16.6002 1.6665 17.0669 1.84816 17.4234C2.00795 17.737 2.26292 17.992 2.57652 18.1518C2.93304 18.3334 3.39975 18.3334 4.33317 18.3334Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8.74984 1.66908C8.1873 1.6767 7.84959 1.70927 7.57652 1.8484C7.26292 2.00819 7.00795 2.26316 6.84816 2.57676C6.70903 2.84983 6.67646 3.18754 6.66883 3.75008M16.2498 1.66908C16.8124 1.6767 17.1501 1.70927 17.4232 1.8484C17.7368 2.00819 17.9917 2.26316 18.1515 2.57676C18.2906 2.84983 18.3232 3.18754 18.3308 3.75007M18.3308 11.2501C18.3232 11.8126 18.2907 12.1503 18.1515 12.4234C17.9917 12.737 17.7368 12.992 17.4232 13.1518C17.1501 13.2909 16.8124 13.3235 16.2498 13.3311M18.3332 6.66674V8.33341M11.6665 1.66675H13.3331M4.33317 18.3334H10.6665C11.5999 18.3334 12.0666 18.3334 12.4232 18.1518C12.7368 17.992 12.9917 17.737 13.1515 17.4234C13.3332 17.0669 13.3332 16.6002 13.3332 15.6667V9.33341C13.3332 8.39999 13.3332 7.93328 13.1515 7.57676C12.9917 7.26316 12.7368 7.00819 12.4232 6.8484C12.0666 6.66675 11.5999 6.66675 10.6665 6.66675H4.33317C3.39975 6.66675 2.93304 6.66675 2.57652 6.8484C2.26292 7.00819 2.00795 7.26316 1.84816 7.57676C1.6665 7.93328 1.6665 8.39999 1.6665 9.33341V15.6667C1.6665 16.6002 1.6665 17.0669 1.84816 17.4234C2.00795 17.737 2.26292 17.992 2.57652 18.1518C2.93304 18.3334 3.39975 18.3334 4.33317 18.3334Z"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                     </button>
                   </div>
@@ -1508,8 +1563,20 @@ export default function CompanySettings() {
                         cursor: "pointer",
                       }}
                     >
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8.74984 1.66908C8.1873 1.6767 7.84959 1.70927 7.57652 1.8484C7.26292 2.00819 7.00795 2.26316 6.84816 2.57676C6.70903 2.84983 6.67646 3.18754 6.66883 3.75008M16.2498 1.66908C16.8124 1.6767 17.1501 1.70927 17.4232 1.8484C17.7368 2.00819 17.9917 2.26316 18.1515 2.57676C18.2906 2.84983 18.3232 3.18754 18.3308 3.75007M18.3308 11.2501C18.3232 11.8126 18.2907 12.1503 18.1515 12.4234C17.9917 12.737 17.7368 12.992 17.4232 13.1518C17.1501 13.2909 16.8124 13.3235 16.2498 13.3311M18.3332 6.66674V8.33341M11.6665 1.66675H13.3331M4.33317 18.3334H10.6665C11.5999 18.3334 12.0666 18.3334 12.4232 18.1518C12.7368 17.992 12.9917 17.737 13.1515 17.4234C13.3332 17.0669 13.3332 16.6002 13.3332 15.6667V9.33341C13.3332 8.39999 13.3332 7.93328 13.1515 7.57676C12.9917 7.26316 12.7368 7.00819 12.4232 6.8484C12.0666 6.66675 11.5999 6.66675 10.6665 6.66675H4.33317C3.39975 6.66675 2.93304 6.66675 2.57652 6.8484C2.26292 7.00819 2.00795 7.26316 1.84816 7.57676C1.6665 7.93328 1.6665 8.39999 1.6665 9.33341V15.6667C1.6665 16.6002 1.6665 17.0669 1.84816 17.4234C2.00795 17.737 2.26292 17.992 2.57652 18.1518C2.93304 18.3334 3.39975 18.3334 4.33317 18.3334Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8.74984 1.66908C8.1873 1.6767 7.84959 1.70927 7.57652 1.8484C7.26292 2.00819 7.00795 2.26316 6.84816 2.57676C6.70903 2.84983 6.67646 3.18754 6.66883 3.75008M16.2498 1.66908C16.8124 1.6767 17.1501 1.70927 17.4232 1.8484C17.7368 2.00819 17.9917 2.26316 18.1515 2.57676C18.2906 2.84983 18.3232 3.18754 18.3308 3.75007M18.3308 11.2501C18.3232 11.8126 18.2907 12.1503 18.1515 12.4234C17.9917 12.737 17.7368 12.992 17.4232 13.1518C17.1501 13.2909 16.8124 13.3235 16.2498 13.3311M18.3332 6.66674V8.33341M11.6665 1.66675H13.3331M4.33317 18.3334H10.6665C11.5999 18.3334 12.0666 18.3334 12.4232 18.1518C12.7368 17.992 12.9917 17.737 13.1515 17.4234C13.3332 17.0669 13.3332 16.6002 13.3332 15.6667V9.33341C13.3332 8.39999 13.3332 7.93328 13.1515 7.57676C12.9917 7.26316 12.7368 7.00819 12.4232 6.8484C12.0666 6.66675 11.5999 6.66675 10.6665 6.66675H4.33317C3.39975 6.66675 2.93304 6.66675 2.57652 6.8484C2.26292 7.00819 2.00795 7.26316 1.84816 7.57676C1.6665 7.93328 1.6665 8.39999 1.6665 9.33341V15.6667C1.6665 16.6002 1.6665 17.0669 1.84816 17.4234C2.00795 17.737 2.26292 17.992 2.57652 18.1518C2.93304 18.3334 3.39975 18.3334 4.33317 18.3334Z"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                     </button>
                   </div>
@@ -1594,8 +1661,20 @@ export default function CompanySettings() {
                         cursor: "pointer",
                       }}
                     >
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8.74984 1.66908C8.1873 1.6767 7.84959 1.70927 7.57652 1.8484C7.26292 2.00819 7.00795 2.26316 6.84816 2.57676C6.70903 2.84983 6.67646 3.18754 6.66883 3.75008M16.2498 1.66908C16.8124 1.6767 17.1501 1.70927 17.4232 1.8484C17.7368 2.00819 17.9917 2.26316 18.1515 2.57676C18.2906 2.84983 18.3232 3.18754 18.3308 3.75007M18.3308 11.2501C18.3232 11.8126 18.2907 12.1503 18.1515 12.4234C17.9917 12.737 17.7368 12.992 17.4232 13.1518C17.1501 13.2909 16.8124 13.3235 16.2498 13.3311M18.3332 6.66674V8.33341M11.6665 1.66675H13.3331M4.33317 18.3334H10.6665C11.5999 18.3334 12.0666 18.3334 12.4232 18.1518C12.7368 17.992 12.9917 17.737 13.1515 17.4234C13.3332 17.0669 13.3332 16.6002 13.3332 15.6667V9.33341C13.3332 8.39999 13.3332 7.93328 13.1515 7.57676C12.9917 7.26316 12.7368 7.00819 12.4232 6.8484C12.0666 6.66675 11.5999 6.66675 10.6665 6.66675H4.33317C3.39975 6.66675 2.93304 6.66675 2.57652 6.8484C2.26292 7.00819 2.00795 7.26316 1.84816 7.57676C1.6665 7.93328 1.6665 8.39999 1.6665 9.33341V15.6667C1.6665 16.6002 1.6665 17.0669 1.84816 17.4234C2.00795 17.737 2.26292 17.992 2.57652 18.1518C2.93304 18.3334 3.39975 18.3334 4.33317 18.3334Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8.74984 1.66908C8.1873 1.6767 7.84959 1.70927 7.57652 1.8484C7.26292 2.00819 7.00795 2.26316 6.84816 2.57676C6.70903 2.84983 6.67646 3.18754 6.66883 3.75008M16.2498 1.66908C16.8124 1.6767 17.1501 1.70927 17.4232 1.8484C17.7368 2.00819 17.9917 2.26316 18.1515 2.57676C18.2906 2.84983 18.3232 3.18754 18.3308 3.75007M18.3308 11.2501C18.3232 11.8126 18.2907 12.1503 18.1515 12.4234C17.9917 12.737 17.7368 12.992 17.4232 13.1518C17.1501 13.2909 16.8124 13.3235 16.2498 13.3311M18.3332 6.66674V8.33341M11.6665 1.66675H13.3331M4.33317 18.3334H10.6665C11.5999 18.3334 12.0666 18.3334 12.4232 18.1518C12.7368 17.992 12.9917 17.737 13.1515 17.4234C13.3332 17.0669 13.3332 16.6002 13.3332 15.6667V9.33341C13.3332 8.39999 13.3332 7.93328 13.1515 7.57676C12.9917 7.26316 12.7368 7.00819 12.4232 6.8484C12.0666 6.66675 11.5999 6.66675 10.6665 6.66675H4.33317C3.39975 6.66675 2.93304 6.66675 2.57652 6.8484C2.26292 7.00819 2.00795 7.26316 1.84816 7.57676C1.6665 7.93328 1.6665 8.39999 1.6665 9.33341V15.6667C1.6665 16.6002 1.6665 17.0669 1.84816 17.4234C2.00795 17.737 2.26292 17.992 2.57652 18.1518C2.93304 18.3334 3.39975 18.3334 4.33317 18.3334Z"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                     </button>
                   </div>
@@ -1680,8 +1759,20 @@ export default function CompanySettings() {
                         cursor: "pointer",
                       }}
                     >
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8.74984 1.66908C8.1873 1.6767 7.84959 1.70927 7.57652 1.8484C7.26292 2.00819 7.00795 2.26316 6.84816 2.57676C6.70903 2.84983 6.67646 3.18754 6.66883 3.75008M16.2498 1.66908C16.8124 1.6767 17.1501 1.70927 17.4232 1.8484C17.7368 2.00819 17.9917 2.26316 18.1515 2.57676C18.2906 2.84983 18.3232 3.18754 18.3308 3.75007M18.3308 11.2501C18.3232 11.8126 18.2907 12.1503 18.1515 12.4234C17.9917 12.737 17.7368 12.992 17.4232 13.1518C17.1501 13.2909 16.8124 13.3235 16.2498 13.3311M18.3332 6.66674V8.33341M11.6665 1.66675H13.3331M4.33317 18.3334H10.6665C11.5999 18.3334 12.0666 18.3334 12.4232 18.1518C12.7368 17.992 12.9917 17.737 13.1515 17.4234C13.3332 17.0669 13.3332 16.6002 13.3332 15.6667V9.33341C13.3332 8.39999 13.3332 7.93328 13.1515 7.57676C12.9917 7.26316 12.7368 7.00819 12.4232 6.8484C12.0666 6.66675 11.5999 6.66675 10.6665 6.66675H4.33317C3.39975 6.66675 2.93304 6.66675 2.57652 6.8484C2.26292 7.00819 2.00795 7.26316 1.84816 7.57676C1.6665 7.93328 1.6665 8.39999 1.6665 9.33341V15.6667C1.6665 16.6002 1.6665 17.0669 1.84816 17.4234C2.00795 17.737 2.26292 17.992 2.57652 18.1518C2.93304 18.3334 3.39975 18.3334 4.33317 18.3334Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8.74984 1.66908C8.1873 1.6767 7.84959 1.70927 7.57652 1.8484C7.26292 2.00819 7.00795 2.26316 6.84816 2.57676C6.70903 2.84983 6.67646 3.18754 6.66883 3.75008M16.2498 1.66908C16.8124 1.6767 17.1501 1.70927 17.4232 1.8484C17.7368 2.00819 17.9917 2.26316 18.1515 2.57676C18.2906 2.84983 18.3232 3.18754 18.3308 3.75007M18.3308 11.2501C18.3232 11.8126 18.2907 12.1503 18.1515 12.4234C17.9917 12.737 17.7368 12.992 17.4232 13.1518C17.1501 13.2909 16.8124 13.3235 16.2498 13.3311M18.3332 6.66674V8.33341M11.6665 1.66675H13.3331M4.33317 18.3334H10.6665C11.5999 18.3334 12.0666 18.3334 12.4232 18.1518C12.7368 17.992 12.9917 17.737 13.1515 17.4234C13.3332 17.0669 13.3332 16.6002 13.3332 15.6667V9.33341C13.3332 8.39999 13.3332 7.93328 13.1515 7.57676C12.9917 7.26316 12.7368 7.00819 12.4232 6.8484C12.0666 6.66675 11.5999 6.66675 10.6665 6.66675H4.33317C3.39975 6.66675 2.93304 6.66675 2.57652 6.8484C2.26292 7.00819 2.00795 7.26316 1.84816 7.57676C1.6665 7.93328 1.6665 8.39999 1.6665 9.33341V15.6667C1.6665 16.6002 1.6665 17.0669 1.84816 17.4234C2.00795 17.737 2.26292 17.992 2.57652 18.1518C2.93304 18.3334 3.39975 18.3334 4.33317 18.3334Z"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                     </button>
                   </div>
@@ -1724,8 +1815,21 @@ export default function CompanySettings() {
                       }}
                     >
                       Enable SAML Authentication
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginLeft: "2px" }}>
-                        <path d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style={{ marginLeft: "2px" }}
+                      >
+                        <path
+                          d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.33333"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                     </label>
                   </div>
@@ -1743,8 +1847,12 @@ export default function CompanySettings() {
                       paddingRight: "48px",
                     }}
                   >
-                    <option value="Disable SAML Single Signon for this account">Disable SAML Single Signon for this account</option>
-                    <option value="Enable SAML Single Signon for this account">Enable SAML Single Signon for this account</option>
+                    <option value="Disable SAML Single Signon for this account">
+                      Disable SAML Single Signon for this account
+                    </option>
+                    <option value="Enable SAML Single Signon for this account">
+                      Enable SAML Single Signon for this account
+                    </option>
                   </select>
                 </div>
 
@@ -1785,8 +1893,21 @@ export default function CompanySettings() {
                       }}
                     >
                       SAML Use Mapped Usernames
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginLeft: "2px" }}>
-                        <path d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style={{ marginLeft: "2px" }}
+                      >
+                        <path
+                          d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.33333"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                     </label>
                   </div>
@@ -1846,8 +1967,21 @@ export default function CompanySettings() {
                       }}
                     >
                       SAML SSO URL
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginLeft: "2px" }}>
-                        <path d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style={{ marginLeft: "2px" }}
+                      >
+                        <path
+                          d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.33333"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                     </label>
                   </div>
@@ -1900,8 +2034,21 @@ export default function CompanySettings() {
                       }}
                     >
                       SAML IdP Certificate
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginLeft: "2px" }}>
-                        <path d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style={{ marginLeft: "2px" }}
+                      >
+                        <path
+                          d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.33333"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                     </label>
                   </div>
@@ -1956,8 +2103,21 @@ export default function CompanySettings() {
                       }}
                     >
                       SAML Idp Issuer
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginLeft: "2px" }}>
-                        <path d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style={{ marginLeft: "2px" }}
+                      >
+                        <path
+                          d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.33333"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                     </label>
                   </div>
@@ -2010,8 +2170,21 @@ export default function CompanySettings() {
                       }}
                     >
                       SAML Email Attribute
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginLeft: "2px" }}>
-                        <path d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style={{ marginLeft: "2px" }}
+                      >
+                        <path
+                          d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.33333"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                     </label>
                   </div>
@@ -2064,8 +2237,21 @@ export default function CompanySettings() {
                       }}
                     >
                       SAML Private Key
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginLeft: "2px" }}>
-                        <path d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style={{ marginLeft: "2px" }}
+                      >
+                        <path
+                          d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.33333"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                     </label>
                   </div>
@@ -2120,8 +2306,21 @@ export default function CompanySettings() {
                       }}
                     >
                       SAML Accio Certificate
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginLeft: "2px" }}>
-                        <path d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style={{ marginLeft: "2px" }}
+                      >
+                        <path
+                          d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.33333"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                     </label>
                   </div>
@@ -2149,7 +2348,13 @@ export default function CompanySettings() {
                     width: "100%",
                   }}
                 >
-                  <div style={{ height: "1px", width: "100%", background: "#E9EAEB" }} />
+                  <div
+                    style={{
+                      height: "1px",
+                      width: "100%",
+                      background: "#E9EAEB",
+                    }}
+                  />
                   <div
                     style={{
                       display: "flex",
@@ -2272,7 +2477,9 @@ export default function CompanySettings() {
                       margin: "2px 0 0 0",
                     }}
                   >
-                    Invite new users, assign roles, and customize permissions to control what each team member can access or do within the platform.
+                    Invite new users, assign roles, and customize permissions to
+                    control what each team member can access or do within the
+                    platform.
                   </p>
                 </div>
 
@@ -2508,18 +2715,38 @@ export default function CompanySettings() {
                               textAlign: "left",
                             }}
                           >
-                            <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                              <span style={{
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "12px",
-                                fontWeight: 700,
-                                lineHeight: "18px",
-                              }}>
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "4px",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "12px",
+                                  fontWeight: 700,
+                                  lineHeight: "18px",
+                                }}
+                              >
                                 Name
                               </span>
-                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.66669 10.0001L8.00002 13.3334L11.3334 10.0001M4.66669 6.00008L8.00002 2.66675L11.3334 6.00008" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M4.66669 10.0001L8.00002 13.3334L11.3334 10.0001M4.66669 6.00008L8.00002 2.66675L11.3334 6.00008"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
                             </div>
                           </th>
@@ -2529,18 +2756,38 @@ export default function CompanySettings() {
                               textAlign: "left",
                             }}
                           >
-                            <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                              <span style={{
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "12px",
-                                fontWeight: 700,
-                                lineHeight: "18px",
-                              }}>
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "4px",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "12px",
+                                  fontWeight: 700,
+                                  lineHeight: "18px",
+                                }}
+                              >
                                 Email
                               </span>
-                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.66669 10.0001L8.00002 13.3334L11.3334 10.0001M4.66669 6.00008L8.00002 2.66675L11.3334 6.00008" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M4.66669 10.0001L8.00002 13.3334L11.3334 10.0001M4.66669 6.00008L8.00002 2.66675L11.3334 6.00008"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
                             </div>
                           </th>
@@ -2550,18 +2797,38 @@ export default function CompanySettings() {
                               textAlign: "left",
                             }}
                           >
-                            <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                              <span style={{
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "12px",
-                                fontWeight: 700,
-                                lineHeight: "18px",
-                              }}>
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "4px",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "12px",
+                                  fontWeight: 700,
+                                  lineHeight: "18px",
+                                }}
+                              >
                                 Role
                               </span>
-                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.66669 10.0001L8.00002 13.3334L11.3334 10.0001M4.66669 6.00008L8.00002 2.66675L11.3334 6.00008" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M4.66669 10.0001L8.00002 13.3334L11.3334 10.0001M4.66669 6.00008L8.00002 2.66675L11.3334 6.00008"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
                             </div>
                           </th>
@@ -2571,18 +2838,38 @@ export default function CompanySettings() {
                               textAlign: "left",
                             }}
                           >
-                            <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                              <span style={{
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "12px",
-                                fontWeight: 700,
-                                lineHeight: "18px",
-                              }}>
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "4px",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "12px",
+                                  fontWeight: 700,
+                                  lineHeight: "18px",
+                                }}
+                              >
                                 Department
                               </span>
-                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.66669 10.0001L8.00002 13.3334L11.3334 10.0001M4.66669 6.00008L8.00002 2.66675L11.3334 6.00008" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M4.66669 10.0001L8.00002 13.3334L11.3334 10.0001M4.66669 6.00008L8.00002 2.66675L11.3334 6.00008"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
                             </div>
                           </th>
@@ -2592,18 +2879,38 @@ export default function CompanySettings() {
                               textAlign: "left",
                             }}
                           >
-                            <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                              <span style={{
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "12px",
-                                fontWeight: 700,
-                                lineHeight: "18px",
-                              }}>
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "4px",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "12px",
+                                  fontWeight: 700,
+                                  lineHeight: "18px",
+                                }}
+                              >
                                 Last Active/ Invited
                               </span>
-                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.66667 10.0001L8 13.3334L11.3333 10.0001M4.66667 6.00008L8 2.66675L11.3333 6.00008" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M4.66667 10.0001L8 13.3334L11.3333 10.0001M4.66667 6.00008L8 2.66675L11.3333 6.00008"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
                             </div>
                           </th>
@@ -2613,18 +2920,38 @@ export default function CompanySettings() {
                               textAlign: "left",
                             }}
                           >
-                            <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                              <span style={{
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "12px",
-                                fontWeight: 700,
-                                lineHeight: "18px",
-                              }}>
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "4px",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "12px",
+                                  fontWeight: 700,
+                                  lineHeight: "18px",
+                                }}
+                              >
                                 Status
                               </span>
-                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.66666 10.0001L8 13.3334L11.3333 10.0001M4.66666 6.00008L8 2.66675L11.3333 6.00008" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M4.66666 10.0001L8 13.3334L11.3333 10.0001M4.66666 6.00008L8 2.66675L11.3333 6.00008"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
                             </div>
                           </th>
@@ -2634,18 +2961,38 @@ export default function CompanySettings() {
                               textAlign: "left",
                             }}
                           >
-                            <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                              <span style={{
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "12px",
-                                fontWeight: 700,
-                                lineHeight: "18px",
-                              }}>
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "4px",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "12px",
+                                  fontWeight: 700,
+                                  lineHeight: "18px",
+                                }}
+                              >
                                 Actions
                               </span>
-                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.66667 10.0001L8 13.3334L11.3333 10.0001M4.66667 6.00008L8 2.66675L11.3333 6.00008" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M4.66667 10.0001L8 13.3334L11.3333 10.0001M4.66667 6.00008L8 2.66675L11.3333 6.00008"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
                             </div>
                           </th>
@@ -2740,7 +3087,10 @@ export default function CompanySettings() {
                             onMouseLeave={() => setHoveredRowIndex(null)}
                             style={{
                               borderBottom: "1px solid #E9EAEB",
-                              background: hoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                              background:
+                                hoveredRowIndex === index
+                                  ? "#F5F5F5"
+                                  : "transparent",
                               transition: "background-color 0.15s ease",
                             }}
                           >
@@ -2850,7 +3200,11 @@ export default function CompanySettings() {
                               }}
                             >
                               <button
-                                onClick={() => setOpenDropdownIndex(openDropdownIndex === index ? null : index)}
+                                onClick={() =>
+                                  setOpenDropdownIndex(
+                                    openDropdownIndex === index ? null : index,
+                                  )
+                                }
                                 style={{
                                   display: "inline-flex",
                                   padding: "8px",
@@ -2858,7 +3212,10 @@ export default function CompanySettings() {
                                   alignItems: "center",
                                   borderRadius: "8px",
                                   border: "none",
-                                  background: hoveredRowIndex === index ? "#FDFDFD" : "transparent",
+                                  background:
+                                    hoveredRowIndex === index
+                                      ? "#FDFDFD"
+                                      : "transparent",
                                   cursor: "pointer",
                                 }}
                               >
@@ -2903,17 +3260,30 @@ export default function CompanySettings() {
                                     borderRadius: "8px",
                                     border: "1px solid rgba(0, 0, 0, 0.08)",
                                     background: "#FFF",
-                                    boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                                    boxShadow:
+                                      "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
                                   }}
                                 >
-                                  <div style={{ display: "flex", padding: "4px 0", flexDirection: "column" }}>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      padding: "4px 0",
+                                      flexDirection: "column",
+                                    }}
+                                  >
                                     <div
                                       onClick={() => {
                                         console.log("Edit Member", member.name);
                                         setOpenDropdownIndex(null);
                                       }}
-                                      onMouseEnter={(e) => (e.currentTarget.style.background = "#F9FAFB")}
-                                      onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+                                      onMouseEnter={(e) =>
+                                        (e.currentTarget.style.background =
+                                          "#F9FAFB")
+                                      }
+                                      onMouseLeave={(e) =>
+                                        (e.currentTarget.style.background =
+                                          "transparent")
+                                      }
                                       style={{
                                         display: "flex",
                                         padding: "8px 12px",
@@ -2922,20 +3292,57 @@ export default function CompanySettings() {
                                         transition: "background 0.15s ease",
                                       }}
                                     >
-                                      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                          <path d="M2.87604 18.1157C2.92198 17.7022 2.94496 17.4955 3.00751 17.3022C3.06301 17.1308 3.14143 16.9676 3.24064 16.8172C3.35246 16.6476 3.49955 16.5005 3.79373 16.2063L17 3.00006C18.1046 1.89549 19.8955 1.89549 21 3.00006C22.1046 4.10463 22.1046 5.89549 21 7.00006L7.79373 20.2063C7.49955 20.5005 7.35245 20.6476 7.18289 20.7594C7.03245 20.8586 6.86929 20.937 6.69785 20.9925C6.5046 21.0551 6.29786 21.0781 5.88437 21.124L2.5 21.5001L2.87604 18.1157Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                        }}
+                                      >
+                                        <svg
+                                          width="24"
+                                          height="24"
+                                          viewBox="0 0 24 24"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M2.87604 18.1157C2.92198 17.7022 2.94496 17.4955 3.00751 17.3022C3.06301 17.1308 3.14143 16.9676 3.24064 16.8172C3.35246 16.6476 3.49955 16.5005 3.79373 16.2063L17 3.00006C18.1046 1.89549 19.8955 1.89549 21 3.00006C22.1046 4.10463 22.1046 5.89549 21 7.00006L7.79373 20.2063C7.49955 20.5005 7.35245 20.6476 7.18289 20.7594C7.03245 20.8586 6.86929 20.937 6.69785 20.9925C6.5046 21.0551 6.29786 21.0781 5.88437 21.124L2.5 21.5001L2.87604 18.1157Z"
+                                            stroke="#A4A7AE"
+                                            strokeWidth="1.66667"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
                                         </svg>
-                                        <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Edit Member</div>
+                                        <div
+                                          style={{
+                                            color: "#181D27",
+                                            fontFamily: "Public Sans",
+                                            fontSize: "14px",
+                                            fontWeight: 500,
+                                            lineHeight: "20px",
+                                          }}
+                                        >
+                                          Edit Member
+                                        </div>
                                       </div>
                                     </div>
                                     <div
                                       onClick={() => {
-                                        console.log("Resent Invite", member.name);
+                                        console.log(
+                                          "Resent Invite",
+                                          member.name,
+                                        );
                                         setOpenDropdownIndex(null);
                                       }}
-                                      onMouseEnter={(e) => (e.currentTarget.style.background = "#F9FAFB")}
-                                      onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+                                      onMouseEnter={(e) =>
+                                        (e.currentTarget.style.background =
+                                          "#F9FAFB")
+                                      }
+                                      onMouseLeave={(e) =>
+                                        (e.currentTarget.style.background =
+                                          "transparent")
+                                      }
                                       style={{
                                         display: "flex",
                                         padding: "8px 12px",
@@ -2944,20 +3351,57 @@ export default function CompanySettings() {
                                         transition: "background 0.15s ease",
                                       }}
                                     >
-                                      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                          <path d="M2 7L10.1649 12.7154C10.8261 13.1783 11.1567 13.4097 11.5163 13.4993C11.8339 13.5785 12.1661 13.5785 12.4837 13.4993C12.8433 13.4097 13.1739 13.1783 13.8351 12.7154L22 7M6.8 20H17.2C18.8802 20 19.7202 20 20.362 19.673C20.9265 19.3854 21.3854 18.9265 21.673 18.362C22 17.7202 22 16.8802 22 15.2V8.8C22 7.11984 22 6.27976 21.673 5.63803C21.3854 5.07354 20.9265 4.6146 20.362 4.32698C19.7202 4 18.8802 4 17.2 4H6.8C5.11984 4 4.27976 4 3.63803 4.32698C3.07354 4.6146 2.6146 5.07354 2.32698 5.63803C2 6.27976 2 7.11984 2 8.8V15.2C2 16.8802 2 17.7202 2.32698 18.362C2.6146 18.9265 3.07354 19.3854 3.63803 19.673C4.27976 20 5.11984 20 6.8 20Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                        }}
+                                      >
+                                        <svg
+                                          width="24"
+                                          height="24"
+                                          viewBox="0 0 24 24"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M2 7L10.1649 12.7154C10.8261 13.1783 11.1567 13.4097 11.5163 13.4993C11.8339 13.5785 12.1661 13.5785 12.4837 13.4993C12.8433 13.4097 13.1739 13.1783 13.8351 12.7154L22 7M6.8 20H17.2C18.8802 20 19.7202 20 20.362 19.673C20.9265 19.3854 21.3854 18.9265 21.673 18.362C22 17.7202 22 16.8802 22 15.2V8.8C22 7.11984 22 6.27976 21.673 5.63803C21.3854 5.07354 20.9265 4.6146 20.362 4.32698C19.7202 4 18.8802 4 17.2 4H6.8C5.11984 4 4.27976 4 3.63803 4.32698C3.07354 4.6146 2.6146 5.07354 2.32698 5.63803C2 6.27976 2 7.11984 2 8.8V15.2C2 16.8802 2 17.7202 2.32698 18.362C2.6146 18.9265 3.07354 19.3854 3.63803 19.673C4.27976 20 5.11984 20 6.8 20Z"
+                                            stroke="#A4A7AE"
+                                            strokeWidth="1.66667"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
                                         </svg>
-                                        <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Resent Invite</div>
+                                        <div
+                                          style={{
+                                            color: "#181D27",
+                                            fontFamily: "Public Sans",
+                                            fontSize: "14px",
+                                            fontWeight: 500,
+                                            lineHeight: "20px",
+                                          }}
+                                        >
+                                          Resent Invite
+                                        </div>
                                       </div>
                                     </div>
                                     <div
                                       onClick={() => {
-                                        console.log("Remove Users", member.name);
+                                        console.log(
+                                          "Remove Users",
+                                          member.name,
+                                        );
                                         setOpenDropdownIndex(null);
                                       }}
-                                      onMouseEnter={(e) => (e.currentTarget.style.background = "#F9FAFB")}
-                                      onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+                                      onMouseEnter={(e) =>
+                                        (e.currentTarget.style.background =
+                                          "#F9FAFB")
+                                      }
+                                      onMouseLeave={(e) =>
+                                        (e.currentTarget.style.background =
+                                          "transparent")
+                                      }
                                       style={{
                                         display: "flex",
                                         padding: "8px 12px",
@@ -2966,11 +3410,39 @@ export default function CompanySettings() {
                                         transition: "background 0.15s ease",
                                       }}
                                     >
-                                      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                          <path d="M16 6V5.2C16 4.0799 16 3.51984 15.782 3.09202C15.5903 2.71569 15.2843 2.40973 14.908 2.21799C14.4802 2 13.9201 2 12.8 2H11.2C10.0799 2 9.51984 2 9.09202 2.21799C8.71569 2.40973 8.40973 2.71569 8.21799 3.09202C8 3.51984 8 4.0799 8 5.2V6M3 6H21M19 6V17.2C19 18.8802 19 19.7202 18.673 20.362C18.3854 20.9265 17.9265 21.3854 17.362 21.673C16.7202 22 15.8802 22 14.2 22H9.8C8.11984 22 7.27976 22 6.63803 21.673C6.07354 21.3854 5.6146 20.9265 5.32698 20.362C5 19.7202 5 18.8802 5 17.2V6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                        }}
+                                      >
+                                        <svg
+                                          width="24"
+                                          height="24"
+                                          viewBox="0 0 24 24"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M16 6V5.2C16 4.0799 16 3.51984 15.782 3.09202C15.5903 2.71569 15.2843 2.40973 14.908 2.21799C14.4802 2 13.9201 2 12.8 2H11.2C10.0799 2 9.51984 2 9.09202 2.21799C8.71569 2.40973 8.40973 2.71569 8.21799 3.09202C8 3.51984 8 4.0799 8 5.2V6M3 6H21M19 6V17.2C19 18.8802 19 19.7202 18.673 20.362C18.3854 20.9265 17.9265 21.3854 17.362 21.673C16.7202 22 15.8802 22 14.2 22H9.8C8.11984 22 7.27976 22 6.63803 21.673C6.07354 21.3854 5.6146 20.9265 5.32698 20.362C5 19.7202 5 18.8802 5 17.2V6"
+                                            stroke="#A4A7AE"
+                                            strokeWidth="1.66667"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
                                         </svg>
-                                        <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Remove Users</div>
+                                        <div
+                                          style={{
+                                            color: "#181D27",
+                                            fontFamily: "Public Sans",
+                                            fontSize: "14px",
+                                            fontWeight: 500,
+                                            lineHeight: "20px",
+                                          }}
+                                        >
+                                          Remove Users
+                                        </div>
                                       </div>
                                     </div>
                                   </div>

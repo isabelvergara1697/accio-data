@@ -33,8 +33,12 @@ export default function InviteNewMember() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
 
-  const [passwordOption, setPasswordOption] = useState<"auto" | "manual">("auto");
-  const [reportViewOption, setReportViewOption] = useState<"own" | "any" | "select">("select");
+  const [passwordOption, setPasswordOption] = useState<"auto" | "manual">(
+    "auto",
+  );
+  const [reportViewOption, setReportViewOption] = useState<
+    "own" | "any" | "select"
+  >("select");
   const [selectedTeamMembers, setSelectedTeamMembers] = useState([
     { id: 1, name: "[First Name Last Name]" },
     { id: 2, name: "[First Name Last Name]" },
@@ -97,7 +101,9 @@ export default function InviteNewMember() {
   };
 
   const removeTeamMember = (id: number) => {
-    setSelectedTeamMembers((members) => members.filter((member) => member.id !== id));
+    setSelectedTeamMembers((members) =>
+      members.filter((member) => member.id !== id),
+    );
   };
 
   return (
@@ -277,9 +283,9 @@ export default function InviteNewMember() {
                   margin: 0,
                 }}
               >
-                Invite new users to your account, assign roles, and configure access permissions. Fill
-                out the form below to set up user credentials, contact details, and report visibility
-                settings.
+                Invite new users to your account, assign roles, and configure
+                access permissions. Fill out the form below to set up user
+                credentials, contact details, and report visibility settings.
               </p>
             </div>
 
@@ -321,46 +327,53 @@ export default function InviteNewMember() {
                     gap: "16px",
                   }}
                 >
-                  {[{ label: "Email", type: "email" }, { label: "User", type: "text" }].map(
-                    ({ label, type }) => (
-                      <div key={label} style={{ flex: 1, minWidth: 0 }}>
-                        <label
-                          style={{
-                            color: "#414651",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontWeight: 500,
-                            lineHeight: "20px",
-                            display: "block",
-                            marginBottom: "6px",
-                          }}
-                        >
-                          {label}
-                        </label>
-                        <input
-                          type={type}
-                          style={{
-                            width: "100%",
-                            height: "40px",
-                            padding: "8px 12px",
-                            borderRadius: "8px",
-                            border: "1px solid #D5D7DA",
-                            background: "#FFF",
-                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            outline: "none",
-                            boxSizing: "border-box",
-                          }}
-                        />
-                      </div>
-                    ),
-                  )}
+                  {[
+                    { label: "Email", type: "email" },
+                    { label: "User", type: "text" },
+                  ].map(({ label, type }) => (
+                    <div key={label} style={{ flex: 1, minWidth: 0 }}>
+                      <label
+                        style={{
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                          display: "block",
+                          marginBottom: "6px",
+                        }}
+                      >
+                        {label}
+                      </label>
+                      <input
+                        type={type}
+                        style={{
+                          width: "100%",
+                          height: "40px",
+                          padding: "8px 12px",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          outline: "none",
+                          boxSizing: "border-box",
+                        }}
+                      />
+                    </div>
+                  ))}
                 </div>
 
                 <div style={{ height: "1px", background: "#E9EAEB" }} />
 
-                <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "16px",
+                  }}
+                >
                   <h3
                     style={{
                       color: "#181D27",
@@ -375,7 +388,9 @@ export default function InviteNewMember() {
                   </h3>
                   <RadioGroup
                     value={passwordOption}
-                    onValueChange={(value: "auto" | "manual") => setPasswordOption(value)}
+                    onValueChange={(value: "auto" | "manual") =>
+                      setPasswordOption(value)
+                    }
                     style={{
                       display: "flex",
                       flexDirection: isCompact ? "column" : "row",
@@ -392,8 +407,18 @@ export default function InviteNewMember() {
                         maxWidth: isCompact ? "100%" : "360px",
                       }}
                     >
-                      <RadioGroupItem value="auto" id="auto-password" style={{ marginTop: "2px" }} />
-                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                      <RadioGroupItem
+                        value="auto"
+                        id="auto-password"
+                        style={{ marginTop: "2px" }}
+                      />
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "4px",
+                        }}
+                      >
                         <Label
                           htmlFor="auto-password"
                           style={{
@@ -420,8 +445,18 @@ export default function InviteNewMember() {
                         </p>
                       </div>
                     </div>
-                    <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
-                      <RadioGroupItem value="manual" id="manual-password" style={{ marginTop: "2px" }} />
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "8px",
+                      }}
+                    >
+                      <RadioGroupItem
+                        value="manual"
+                        id="manual-password"
+                        style={{ marginTop: "2px" }}
+                      />
                       <Label
                         htmlFor="manual-password"
                         style={{
@@ -472,13 +507,19 @@ export default function InviteNewMember() {
                   style={{
                     display: "grid",
                     height: isCompact ? "auto" : "410px",
-                    gridTemplateRows: isCompact ? "auto" : "repeat(5, minmax(0, 1fr))",
-                    gridTemplateColumns: isCompact ? "1fr" : "repeat(2, minmax(0, 1fr))",
+                    gridTemplateRows: isCompact
+                      ? "auto"
+                      : "repeat(5, minmax(0, 1fr))",
+                    gridTemplateColumns: isCompact
+                      ? "1fr"
+                      : "repeat(2, minmax(0, 1fr))",
                     rowGap: isCompact ? "16px" : "20px",
                     columnGap: isCompact ? "16px" : "20px",
                   }}
                 >
-                  <div style={{ gridRow: "1 / span 1", gridColumn: "1 / span 1" }}>
+                  <div
+                    style={{ gridRow: "1 / span 1", gridColumn: "1 / span 1" }}
+                  >
                     <label
                       style={{
                         color: "#414651",
@@ -510,7 +551,9 @@ export default function InviteNewMember() {
                     />
                   </div>
 
-                  <div style={{ gridRow: "1 / span 1", gridColumn: "2 / span 1" }}>
+                  <div
+                    style={{ gridRow: "1 / span 1", gridColumn: "2 / span 1" }}
+                  >
                     <label
                       style={{
                         color: "#414651",
@@ -542,7 +585,9 @@ export default function InviteNewMember() {
                     />
                   </div>
 
-                  <div style={{ gridRow: "2 / span 1", gridColumn: "1 / span 1" }}>
+                  <div
+                    style={{ gridRow: "2 / span 1", gridColumn: "1 / span 1" }}
+                  >
                     <label
                       style={{
                         color: "#414651",
@@ -574,7 +619,9 @@ export default function InviteNewMember() {
                     />
                   </div>
 
-                  <div style={{ gridRow: "2 / span 1", gridColumn: "2 / span 1" }}>
+                  <div
+                    style={{ gridRow: "2 / span 1", gridColumn: "2 / span 1" }}
+                  >
                     <label
                       style={{
                         color: "#414651",
@@ -606,7 +653,9 @@ export default function InviteNewMember() {
                     />
                   </div>
 
-                  <div style={{ gridRow: "3 / span 1", gridColumn: "1 / span 1" }}>
+                  <div
+                    style={{ gridRow: "3 / span 1", gridColumn: "1 / span 1" }}
+                  >
                     <label
                       style={{
                         color: "#414651",
@@ -638,7 +687,9 @@ export default function InviteNewMember() {
                     />
                   </div>
 
-                  <div style={{ gridRow: "3 / span 1", gridColumn: "2 / span 1" }}>
+                  <div
+                    style={{ gridRow: "3 / span 1", gridColumn: "2 / span 1" }}
+                  >
                     <label
                       style={{
                         color: "#414651",
@@ -678,11 +729,14 @@ export default function InviteNewMember() {
                         lineHeight: "20px",
                       }}
                     >
-                      Optional. Used only for receiving system alerts or notification emails.
+                      Optional. Used only for receiving system alerts or
+                      notification emails.
                     </div>
                   </div>
 
-                  <div style={{ gridRow: "4 / span 1", gridColumn: "1 / span 1" }}>
+                  <div
+                    style={{ gridRow: "4 / span 1", gridColumn: "1 / span 1" }}
+                  >
                     <label
                       style={{
                         color: "#414651",
@@ -714,7 +768,9 @@ export default function InviteNewMember() {
                     />
                   </div>
 
-                  <div style={{ gridRow: "4 / span 1", gridColumn: "2 / span 1" }}>
+                  <div
+                    style={{ gridRow: "4 / span 1", gridColumn: "2 / span 1" }}
+                  >
                     <label
                       style={{
                         color: "#414651",
@@ -746,7 +802,9 @@ export default function InviteNewMember() {
                     />
                   </div>
 
-                  <div style={{ gridRow: "5 / span 1", gridColumn: "1 / span 1" }}>
+                  <div
+                    style={{ gridRow: "5 / span 1", gridColumn: "1 / span 1" }}
+                  >
                     <label
                       style={{
                         color: "#414651",
@@ -785,7 +843,9 @@ export default function InviteNewMember() {
                     </select>
                   </div>
 
-                  <div style={{ gridRow: "5 / span 1", gridColumn: "2 / span 1" }}>
+                  <div
+                    style={{ gridRow: "5 / span 1", gridColumn: "2 / span 1" }}
+                  >
                     <label
                       style={{
                         color: "#414651",
@@ -870,7 +930,13 @@ export default function InviteNewMember() {
                   gap: "24px",
                 }}
               >
-                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "12px",
+                  }}
+                >
                   <h3
                     style={{
                       color: "#181D27",
@@ -918,7 +984,9 @@ export default function InviteNewMember() {
                           style={{
                             padding: "12px",
                             borderBottom:
-                              index === permissions.length - 1 ? "none" : "1px solid #E9EAEB",
+                              index === permissions.length - 1
+                                ? "none"
+                                : "1px solid #E9EAEB",
                             minHeight: permission.locked ? "64px" : "36px",
                             display: "flex",
                             alignItems: "center",
@@ -953,7 +1021,11 @@ export default function InviteNewMember() {
                         </div>
                       ))}
                     </div>
-                    <div style={{ borderLeft: isCompact ? "none" : "1px solid #E9EAEB" }}>
+                    <div
+                      style={{
+                        borderLeft: isCompact ? "none" : "1px solid #E9EAEB",
+                      }}
+                    >
                       <div
                         style={{
                           padding: "6px 12px",
@@ -968,7 +1040,9 @@ export default function InviteNewMember() {
                           style={{
                             padding: "12px",
                             borderBottom:
-                              index === permissions.length - 1 ? "none" : "1px solid #E9EAEB",
+                              index === permissions.length - 1
+                                ? "none"
+                                : "1px solid #E9EAEB",
                             minHeight: permission.locked ? "64px" : "36px",
                             display: "flex",
                             alignItems: "center",
@@ -983,12 +1057,20 @@ export default function InviteNewMember() {
                               width: "36px",
                               height: "20px",
                               padding: "2px",
-                              justifyContent: permission.enabled ? "flex-end" : "flex-start",
+                              justifyContent: permission.enabled
+                                ? "flex-end"
+                                : "flex-start",
                               alignItems: "center",
                               borderRadius: "9999px",
-                              background: permission.enabled ? "#344698" : "#F5F5F5",
-                              border: permission.enabled ? "none" : "1px solid #E9EAEB",
-                              cursor: permission.locked ? "not-allowed" : "pointer",
+                              background: permission.enabled
+                                ? "#344698"
+                                : "#F5F5F5",
+                              border: permission.enabled
+                                ? "none"
+                                : "1px solid #E9EAEB",
+                              cursor: permission.locked
+                                ? "not-allowed"
+                                : "pointer",
                               transition: "all 0.2s",
                               opacity: permission.locked ? 0.6 : 1,
                             }}
@@ -999,7 +1081,8 @@ export default function InviteNewMember() {
                                 height: "16px",
                                 borderRadius: "9999px",
                                 background: "#FFF",
-                                boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10), 0 1px 2px -1px rgba(10, 13, 18, 0.10)",
+                                boxShadow:
+                                  "0 1px 3px 0 rgba(10, 13, 18, 0.10), 0 1px 2px -1px rgba(10, 13, 18, 0.10)",
                               }}
                             />
                           </button>
@@ -1011,7 +1094,13 @@ export default function InviteNewMember() {
 
                 <div style={{ height: "1px", background: "#E9EAEB" }} />
 
-                <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "16px",
+                  }}
+                >
                   <h3
                     style={{
                       color: "#181D27",
@@ -1025,8 +1114,14 @@ export default function InviteNewMember() {
                     Option to View Other User's Reports
                   </h3>
                   {[
-                    { value: "own" as const, label: "Only this user's reports" },
-                    { value: "any" as const, label: "Reports ordered by any user in this account" },
+                    {
+                      value: "own" as const,
+                      label: "Only this user's reports",
+                    },
+                    {
+                      value: "any" as const,
+                      label: "Reports ordered by any user in this account",
+                    },
                   ].map((option) => (
                     <label
                       key={option.value}
@@ -1040,8 +1135,13 @@ export default function InviteNewMember() {
                             height: "16px",
                             borderRadius: "9999px",
                             border:
-                              reportViewOption === option.value ? "5px solid #344698" : "1px solid #D5D7DA",
-                            background: reportViewOption === option.value ? "#344698" : "transparent",
+                              reportViewOption === option.value
+                                ? "5px solid #344698"
+                                : "1px solid #D5D7DA",
+                            background:
+                              reportViewOption === option.value
+                                ? "#344698"
+                                : "transparent",
                           }}
                         />
                       </div>
@@ -1080,8 +1180,13 @@ export default function InviteNewMember() {
                             height: "16px",
                             borderRadius: "9999px",
                             border:
-                              reportViewOption === "select" ? "5px solid #344698" : "1px solid #D5D7DA",
-                            background: reportViewOption === "select" ? "#344698" : "transparent",
+                              reportViewOption === "select"
+                                ? "5px solid #344698"
+                                : "1px solid #D5D7DA",
+                            background:
+                              reportViewOption === "select"
+                                ? "#344698"
+                                : "transparent",
                           }}
                         />
                       </div>
@@ -1100,8 +1205,20 @@ export default function InviteNewMember() {
 
                     <div style={{ height: "1px", background: "#E9EAEB" }} />
 
-                    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "12px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "4px",
+                        }}
+                      >
                         <label
                           style={{
                             color: "#414651",
@@ -1181,7 +1298,13 @@ export default function InviteNewMember() {
                           />
                         </svg>
                       </div>
-                      <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "6px",
+                        }}
+                      >
                         <span
                           style={{
                             color: "#717680",
@@ -1257,7 +1380,13 @@ export default function InviteNewMember() {
 
                 <div style={{ height: "1px", background: "#E9EAEB" }} />
 
-                <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "16px",
+                  }}
+                >
                   <h3
                     style={{
                       color: "#181D27",
@@ -1270,8 +1399,21 @@ export default function InviteNewMember() {
                   >
                     Report Visibility
                   </h3>
-                  <div style={{ maxWidth: "358px", display: "flex", flexDirection: "column", gap: "6px" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                  <div
+                    style={{
+                      maxWidth: "358px",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "6px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "4px",
+                      }}
+                    >
                       <label
                         style={{
                           color: "#414651",
@@ -1324,7 +1466,13 @@ export default function InviteNewMember() {
                     </select>
                   </div>
 
-                  <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "12px",
+                    }}
+                  >
                     <label
                       style={{
                         color: "#414651",
@@ -1336,41 +1484,58 @@ export default function InviteNewMember() {
                     >
                       Reports this user can see by adjudication status
                     </label>
-                    <div style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}>
-                      {["All", "Does not Meet Hiring Requirements", "Meet Hiring Requirements"].map(
-                        (label) => (
-                          <label key={label} style={{ display: "flex", gap: "8px", cursor: "pointer" }}>
-                            <div style={{ display: "flex", paddingTop: "2px" }}>
-                              <div
-                                style={{
-                                  width: "16px",
-                                  height: "16px",
-                                  borderRadius: "4px",
-                                  border: "1px solid #D5D7DA",
-                                }}
-                              />
-                            </div>
-                            <span
+                    <div
+                      style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}
+                    >
+                      {[
+                        "All",
+                        "Does not Meet Hiring Requirements",
+                        "Meet Hiring Requirements",
+                      ].map((label) => (
+                        <label
+                          key={label}
+                          style={{
+                            display: "flex",
+                            gap: "8px",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <div style={{ display: "flex", paddingTop: "2px" }}>
+                            <div
                               style={{
-                                color: "#414651",
-                                fontFamily: "Public Sans",
-                                fontSize: "14px",
-                                fontWeight: 500,
-                                lineHeight: "20px",
+                                width: "16px",
+                                height: "16px",
+                                borderRadius: "4px",
+                                border: "1px solid #D5D7DA",
                               }}
-                            >
-                              {label}
-                            </span>
-                          </label>
-                        ),
-                      )}
+                            />
+                          </div>
+                          <span
+                            style={{
+                              color: "#414651",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {label}
+                          </span>
+                        </label>
+                      ))}
                     </div>
                   </div>
                 </div>
 
                 <div style={{ height: "1px", background: "#E9EAEB" }} />
 
-                <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "16px",
+                  }}
+                >
                   <h3
                     style={{
                       color: "#181D27",
@@ -1386,45 +1551,52 @@ export default function InviteNewMember() {
                   <div
                     style={{
                       display: "grid",
-                      gridTemplateColumns: isCompact ? "1fr" : "repeat(2, minmax(0, 1fr))",
+                      gridTemplateColumns: isCompact
+                        ? "1fr"
+                        : "repeat(2, minmax(0, 1fr))",
                       gap: "16px",
                     }}
                   >
-                    {["iCIMS Customer ID", "iCIMS User ID", "iCIMS User name", "iCIMS Password"].map(
-                      (label) => (
-                        <div key={label}>
-                          <label
-                            style={{
-                              color: "#414651",
-                              fontFamily: "Public Sans",
-                              fontSize: "14px",
-                              fontWeight: 500,
-                              lineHeight: "20px",
-                              display: "block",
-                              marginBottom: "6px",
-                            }}
-                          >
-                            {label}
-                          </label>
-                          <input
-                            type={label === "iCIMS Password" ? "password" : "text"}
-                            style={{
-                              width: "100%",
-                              height: "40px",
-                              padding: "8px 12px",
-                              borderRadius: "8px",
-                              border: "1px solid #D5D7DA",
-                              background: "#FFF",
-                              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                              fontFamily: "Public Sans",
-                              fontSize: "14px",
-                              outline: "none",
-                              boxSizing: "border-box",
-                            }}
-                          />
-                        </div>
-                      ),
-                    )}
+                    {[
+                      "iCIMS Customer ID",
+                      "iCIMS User ID",
+                      "iCIMS User name",
+                      "iCIMS Password",
+                    ].map((label) => (
+                      <div key={label}>
+                        <label
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                            display: "block",
+                            marginBottom: "6px",
+                          }}
+                        >
+                          {label}
+                        </label>
+                        <input
+                          type={
+                            label === "iCIMS Password" ? "password" : "text"
+                          }
+                          style={{
+                            width: "100%",
+                            height: "40px",
+                            padding: "8px 12px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            outline: "none",
+                            boxSizing: "border-box",
+                          }}
+                        />
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
