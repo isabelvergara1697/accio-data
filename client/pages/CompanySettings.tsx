@@ -8333,20 +8333,55 @@ export default function CompanySettings() {
                     </div>
 
                     {loginImageEnabled && (
-                      <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
-                        <div style={{
-                          flex: 1,
-                          maxWidth: "424px",
-                          padding: "16px 24px",
-                          borderRadius: "12px",
-                          border: "1px solid #E9EAEB",
-                          background: "#FFF",
+                      <div
+                        style={{
                           display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                          gap: "4px",
-                          cursor: "pointer",
-                        }}>
+                          alignItems: isCompactLayout ? "stretch" : "center",
+                          gap: isCompactLayout ? "16px" : "24px",
+                          flexDirection: isCompactLayout ? "column" : "row",
+                          width: "100%",
+                        }}
+                      >
+                        <input
+                          ref={loginImageInputRef}
+                          type="file"
+                          accept="image/png,image/jpeg,image/gif,image/svg+xml"
+                          style={{ display: "none" }}
+                          onChange={(event) =>
+                            handleImageInputChange(event, setLoginImagePreview)
+                          }
+                        />
+                        <div
+                          role="button"
+                          tabIndex={0}
+                          aria-label="Upload login image"
+                          onClick={() => loginImageInputRef.current?.click()}
+                          onKeyDown={(event) => {
+                            if (event.key === "Enter" || event.key === " ") {
+                              event.preventDefault();
+                              loginImageInputRef.current?.click();
+                            }
+                          }}
+                          onDragOver={(event) => {
+                            event.preventDefault();
+                            event.dataTransfer.dropEffect = "copy";
+                          }}
+                          onDrop={(event) => handleImageDrop(event, setLoginImagePreview)}
+                          style={{
+                            flex: 1,
+                            maxWidth: isCompactLayout ? "100%" : "424px",
+                            padding: "16px 24px",
+                            borderRadius: "12px",
+                            border: "1px solid #E9EAEB",
+                            background: "#FFF",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            gap: "4px",
+                            cursor: "pointer",
+                            outline: "none",
+                          }}
+                        >
                           <div style={{ textAlign: "center" }}>
                             <span style={{
                               color: "#273572",
@@ -8381,10 +8416,11 @@ export default function CompanySettings() {
                           border: "1px solid #D5D7DA",
                           background: "#F5F5F5",
                           overflow: "hidden",
+                          flexShrink: 0,
                         }}>
                           <img
-                            src="https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F9160e695278645baa7e162772c838288?format=webp&width=800"
-                            alt="Login screen preview"
+                            src={loginImagePreview}
+                            alt="Login image preview"
                             style={{
                               width: "100%",
                               height: "100%",
