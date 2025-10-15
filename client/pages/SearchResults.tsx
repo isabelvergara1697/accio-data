@@ -422,19 +422,24 @@ const SearchResults = () => {
         <main
           style={{
             marginTop: `${headerHeight}px`,
-            padding: isMobile
-              ? `24px ${horizontalPadding}px ${bottomPadding}px`
-              : `${verticalPadding}px ${horizontalPadding}px ${bottomPadding}px`,
-            display: "flex",
-            flexDirection: "column",
-            gap: `${sectionGap}px`,
-            boxSizing: "border-box",
             width: "100%",
-            maxWidth: "1200px",
-            marginLeft: "auto",
-            marginRight: "auto",
+            boxSizing: "border-box",
           }}
         >
+          <div
+            style={{
+              padding: isMobile
+                ? `24px ${horizontalPadding}px ${bottomPadding}px`
+                : `${verticalPadding}px ${horizontalPadding}px ${bottomPadding}px`,
+              display: "flex",
+              flexDirection: "column",
+              gap: `${sectionGap}px`,
+              boxSizing: "border-box",
+              width: "100%",
+              maxWidth: "1200px",
+              margin: "0 auto",
+            }}
+          >
           <section
             style={{
               display: "flex",
@@ -1326,6 +1331,7 @@ const SearchResults = () => {
               </div>
             )}
           </section>
+          </div>
         </main>
       </div>
     </div>
