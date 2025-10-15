@@ -134,8 +134,6 @@ const REQUIRED_FIELDS: Array<keyof InviteMemberFormData> = [
   "lastName",
   "role",
   "telephone",
-  "fax",
-  "secondaryEmail",
   "zip",
   "address",
   "state",
