@@ -226,7 +226,11 @@ export default function InviteNewMemberConfirmation() {
               }}
             >
               <button
-                onClick={() => navigate("/company-settings")}
+                onClick={() =>
+                  navigate("/company-settings", {
+                    state: { initialTab: "team" },
+                  })
+                }
                 style={{
                   display: "flex",
                   padding: "12px",
