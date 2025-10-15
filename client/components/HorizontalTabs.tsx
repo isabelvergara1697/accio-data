@@ -109,6 +109,10 @@ export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
               -ms-overflow-style: none;
               scroll-behavior: smooth;
               user-select: none;
+              width: 100%;
+              max-width: 100%;
+              min-width: 0;
+              box-sizing: border-box;
             }
 
             .tabs-container.scrollable {
@@ -117,6 +121,8 @@ export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
               padding-right: 20px;
               touch-action: pan-x;
               cursor: grab;
+              max-width: 100%;
+              box-sizing: border-box;
             }
 
             .tabs-container.scrollable.dragging {
