@@ -236,6 +236,9 @@ export default function CompanySettings() {
           flexDirection: "column",
           background: "#FAFAFA",
           boxSizing: "border-box",
+          width: "100%",
+          minWidth: 0,
+          overflowX: "hidden",
         }}
       >
         {isDesktop && (
