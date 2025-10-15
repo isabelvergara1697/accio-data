@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { QuickCreateDropdown } from "./ui/quick-create-dropdown";
 
 interface SidebarProps {
   isDesktop: boolean;
@@ -18,6 +19,9 @@ interface SidebarProps {
   showNotification?: boolean;
   isCollapsed?: boolean;
   setIsCollapsed?: (collapsed: boolean) => void;
+  onOpenQuickOrderDrawer?: () => void;
+  onOpenSSNOrderDrawer?: () => void;
+  onOpenNotificationModal?: () => void;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
@@ -37,6 +41,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
   showNotification = false,
   isCollapsed = false,
   setIsCollapsed,
+  onOpenQuickOrderDrawer,
+  onOpenSSNOrderDrawer,
+  onOpenNotificationModal,
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
