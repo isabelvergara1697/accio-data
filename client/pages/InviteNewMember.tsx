@@ -591,7 +591,11 @@ export default function InviteNewMember({ mode = "invite" }: InviteMemberPagePro
               </button>
               <ChevronRight size={24} color="#A4A7AE" />
               <button
-                onClick={() => navigate("/company-settings")}
+                onClick={() =>
+                  navigate("/company-settings", {
+                    state: { initialTab: "team" },
+                  })
+                }
                 style={{
                   color: "#717680",
                   fontFamily: "Public Sans",
