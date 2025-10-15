@@ -63,8 +63,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
       }
     }
   }, [location.pathname, openAccordions]);
-  const isAccountSettingsPage =
-    currentPage === "account-settings" || location.pathname === "/account-settings";
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [mobileSearchQuery, setMobileSearchQuery] = useState(() => {
     const params = new URLSearchParams(location.search);
