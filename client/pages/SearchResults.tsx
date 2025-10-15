@@ -767,6 +767,277 @@ const SearchResults = () => {
           </section>
 
           <section style={cardContainerStyle}>
+            <div style={cardHeaderStyle}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  flex: "1 0 0",
+                }}
+              >
+                <span
+                  style={{
+                    color: "#181D27",
+                    fontFamily: "Public Sans",
+                    fontSize: "18px",
+                    fontWeight: 600,
+                    lineHeight: "28px",
+                  }}
+                >
+                  ID Verification Status
+                </span>
+                <span style={badgeStyle}>{idVerifications.length}</span>
+              </div>
+            </div>
+
+            <div style={{ padding: "0 16px 16px 16px" }}>
+              <div style={tableWrapperStyle}>
+                <table style={tableStyle}>
+                  <thead>
+                    <tr>
+                      <th style={tableHeaderCellStyle}>Order Number</th>
+                      <th style={tableHeaderCellStyle}>Ordering Account</th>
+                      <th style={tableHeaderCellStyle}>Applicant Name</th>
+                      <th style={tableHeaderCellStyle}>Pre Adverse Letter Name</th>
+                      <th style={tableHeaderCellStyle}>Pre Adverse Sent</th>
+                      <th style={tableHeaderCellStyle}>Pre Adverse Opened</th>
+                      <th style={tableHeaderCellStyle}>Adverse Letter Days Wait</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {idVerifications.map((item, index) => {
+                      const isLastRow = index === idVerifications.length - 1;
+                      const isFirstApplicantName = index === 1;
+                      const applicantNameParts = item.applicantName.split(" ");
+                      const isLorempFirst = applicantNameParts[0] === "Loremp";
+
+                      return (
+                        <tr key={item.id}>
+                          <td
+                            style={{
+                              padding: "12px",
+                              borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {item.orderNumber}
+                          </td>
+                          <td
+                            style={{
+                              padding: "12px",
+                              borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
+                              color: index === 0 ? "#344698" : "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: index === 0 ? 700 : 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {item.orderingAccount}
+                          </td>
+                          <td
+                            style={{
+                              padding: "12px",
+                              borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {isFirstApplicantName && isLorempFirst ? (
+                              <>
+                                <span style={{ color: "#344698", fontWeight: 700 }}>
+                                  Loremp
+                                </span>
+                                <span style={{ color: "#181D27", fontWeight: 400 }}>
+                                  {" "}
+                                  {applicantNameParts.slice(1).join(" ")}
+                                </span>
+                              </>
+                            ) : (
+                              <span style={{ color: "#181D27", fontWeight: 500 }}>
+                                {item.applicantName}
+                              </span>
+                            )}
+                          </td>
+                          <td
+                            style={{
+                              padding: "12px",
+                              borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {item.preAdverseLetterName}
+                          </td>
+                          <td
+                            style={{
+                              padding: "12px",
+                              borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {item.preAdverseSent}
+                          </td>
+                          <td
+                            style={{
+                              padding: "12px",
+                              borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {item.preAdverseOpened}
+                          </td>
+                          <td
+                            style={{
+                              padding: "12px",
+                              borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {item.adverseLetterDaysWait}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <section style={cardContainerStyle}>
+            <div style={cardHeaderStyle}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  flex: "1 0 0",
+                }}
+              >
+                <span
+                  style={{
+                    color: "#181D27",
+                    fontFamily: "Public Sans",
+                    fontSize: "18px",
+                    fontWeight: 600,
+                    lineHeight: "28px",
+                  }}
+                >
+                  Adverse Action Letters
+                </span>
+                <span style={badgeStyle}>{adverseActionLetters.length}</span>
+              </div>
+            </div>
+
+            <div style={{ padding: "0 16px 16px 16px" }}>
+              <div style={tableWrapperStyle}>
+                <table style={tableStyle}>
+                  <thead>
+                    <tr>
+                      <th style={tableHeaderCellStyle}>Status</th>
+                      <th style={tableHeaderCellStyle}>Order Number</th>
+                      <th style={tableHeaderCellStyle}>First Name</th>
+                      <th style={tableHeaderCellStyle}>Last Name</th>
+                      <th style={tableHeaderCellStyle}>Time Entered</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {adverseActionLetters.map((item, index) => {
+                      const isLastRow = index === adverseActionLetters.length - 1;
+                      return (
+                        <tr key={item.id}>
+                          <td
+                            style={{
+                              padding: "12px",
+                              borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
+                            }}
+                          >
+                            {renderStatusBadge(item.status)}
+                          </td>
+                          <td
+                            style={{
+                              padding: "12px",
+                              borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {item.orderNumber}
+                          </td>
+                          <td
+                            style={{
+                              padding: "12px",
+                              borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
+                              color: index === 0 ? "#344698" : "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: index === 0 ? 700 : 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {item.firstName}
+                          </td>
+                          <td
+                            style={{
+                              padding: "12px",
+                              borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
+                              color: index === 1 ? "#344698" : "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: index === 1 ? 700 : 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {item.lastName}
+                          </td>
+                          <td
+                            style={{
+                              padding: "12px",
+                              borderBottom: isLastRow ? "none" : "1px solid #E9EAEB",
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {item.timeEntered}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <section style={cardContainerStyle}>
             <div
               style={{
                 ...cardHeaderStyle,
