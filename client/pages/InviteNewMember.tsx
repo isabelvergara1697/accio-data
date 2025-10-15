@@ -496,9 +496,9 @@ export default function InviteNewMember() {
                   }}
                 >
                   {[
-                    { label: "Email", type: "email" },
-                    { label: "User", type: "text" },
-                  ].map(({ label, type }) => (
+                    { label: "Email", type: "email", field: "email" as const },
+                    { label: "User", type: "text", field: "username" as const },
+                  ].map(({ label, type, field }) => (
                     <div key={label} style={{ flex: 1, minWidth: 0 }}>
                       <label
                         style={{
@@ -515,6 +515,10 @@ export default function InviteNewMember() {
                       </label>
                       <input
                         type={type}
+                        value={formData[field]}
+                        onChange={(event) =>
+                          updateFormField(field, event.target.value)
+                        }
                         style={{
                           width: "100%",
                           height: "40px",
