@@ -20,18 +20,43 @@ const SearchResults = () => {
   const [notificationModalOpen, setNotificationModalOpen] = useState(false);
   const [documentsExpanded, setDocumentsExpanded] = useState(true);
 
-  useEffect(() => {
-    const updateBreakpoints = () => {
-      const width = window.innerWidth;
-      setIsMobile(width < 768);
-      setIsDesktop(width >= 1024);
-    };
+  const contentContainerRef = useRef<HTMLDivElement | null>(null);
 
+  const updateBreakpoints = useCallback(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    const containerWidth = contentContainerRef.current?.getBoundingClientRect().width;
+    const width =
+      typeof containerWidth === "number" && containerWidth > 0
+        ? Math.min(window.innerWidth, containerWidth)
+        : window.innerWidth;
+
+    setIsMobile(width < 768);
+    setIsDesktop(width >= 1024);
+  }, []);
+
+  useEffect(() => {
     updateBreakpoints();
+
     window.addEventListener("resize", updateBreakpoints);
 
-    return () => window.removeEventListener("resize", updateBreakpoints);
-  }, []);
+    const element = contentContainerRef.current;
+    let observer: ResizeObserver | undefined;
+
+    if (element && typeof ResizeObserver !== "undefined") {
+      observer = new ResizeObserver(() => {
+        updateBreakpoints();
+      });
+      observer.observe(element);
+    }
+
+    return () => {
+      window.removeEventListener("resize", updateBreakpoints);
+      observer?.disconnect();
+    };
+  }, [updateBreakpoints]);
 
   const handleSignOut = () => {
     navigate("/login");
