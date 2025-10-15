@@ -4408,19 +4408,6 @@ export default function CompanySettings() {
             </div>
           )}
 
-          {activeTab === "termination" && (
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "24px",
-              }}
-            >
-              <p style={{ color: "#535862", fontFamily: "Public Sans" }}>
-                Termination Dates content coming soon...
-              </p>
-            </div>
-          )}
 
           {activeTab === "adjudication" && (
             <div
