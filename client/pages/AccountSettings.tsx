@@ -1233,7 +1233,7 @@ export default function AccountSettings() {
                           border: "1px solid #D5D7DA",
                           background: "#FFF",
                           boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          color: "#717680",
+                          color: secondaryEmail ? "#181D27" : "#717680",
                           fontFamily: "Public Sans",
                           fontSize: "16px",
                           fontWeight: 400,
