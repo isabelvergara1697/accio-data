@@ -1775,33 +1775,37 @@ export default function AccountSettings() {
                     display: "flex",
                     justifyContent: "flex-end",
                     gap: "12px",
+                    flexDirection: isMobile ? "column" : "row",
                   }}
                 >
+                  {!isMobile && (
+                    <button
+                      style={{
+                        display: "flex",
+                        padding: "12px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "4px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                        cursor: "pointer",
+                      }}
+                    >
+                      Cancel
+                    </button>
+                  )}
                   <button
                     style={{
                       display: "flex",
-                      padding: "12px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      gap: "4px",
-                      borderRadius: "8px",
-                      border: "1px solid #D5D7DA",
-                      background: "#FFF",
-                      boxShadow:
-                        "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                      color: "#414651",
-                      fontFamily: "Public Sans",
-                      fontSize: "14px",
-                      fontWeight: 600,
-                      lineHeight: "20px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    style={{
-                      display: "flex",
+                      flex: isMobile ? "1 0 0" : "none",
                       padding: "12px",
                       justifyContent: "center",
                       alignItems: "center",
