@@ -299,6 +299,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -336,6 +337,7 @@ export default function CompanySettings() {
                       gap: isMobile ? "12px" : "24px",
                       width: "100%",
                       maxWidth: isMobile ? "100%" : "512px",
+                      boxSizing: "border-box" as const,
                     }}
                   >
                     <input
@@ -362,6 +364,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -407,6 +410,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -452,6 +456,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -506,6 +511,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -551,6 +557,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -596,6 +603,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -747,6 +755,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -792,6 +801,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -846,6 +856,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -900,6 +911,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -954,6 +966,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -1008,6 +1021,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -1062,6 +1076,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -1115,6 +1130,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -1293,6 +1309,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -1330,6 +1347,7 @@ export default function CompanySettings() {
                       gap: isMobile ? "12px" : "24px",
                       width: "100%",
                       maxWidth: isMobile ? "100%" : "512px",
+                      boxSizing: "border-box" as const,
                     }}
                   >
                     <input
@@ -1356,6 +1374,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -1401,6 +1420,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -1446,6 +1466,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -1500,6 +1521,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -1545,6 +1567,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -1590,6 +1613,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -1742,6 +1766,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -1787,6 +1812,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -1841,6 +1867,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -1895,6 +1922,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -1949,6 +1977,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -2003,6 +2032,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -2057,6 +2087,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
@@ -2111,6 +2142,7 @@ export default function CompanySettings() {
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
+                    boxSizing: "border-box" as const,
                   }}
                 >
                   <div
