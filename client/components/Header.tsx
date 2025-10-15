@@ -92,6 +92,33 @@ export const Header: React.FC<HeaderProps> = ({
     setSearchQuery("");
   };
 
+  const updateAdvancedModalPosition = React.useCallback(() => {
+    if (!searchContainerRef.current) return;
+    const rect = searchContainerRef.current.getBoundingClientRect();
+    setAdvancedModalAnchor({
+      top: rect.bottom + 16,
+      left: rect.left,
+      width: rect.width,
+    });
+  }, []);
+
+  React.useLayoutEffect(() => {
+    if (!showAdvancedSearchModal) {
+      setAdvancedModalAnchor(null);
+      return;
+    }
+
+    updateAdvancedModalPosition();
+
+    window.addEventListener("resize", updateAdvancedModalPosition);
+    window.addEventListener("scroll", updateAdvancedModalPosition, true);
+
+    return () => {
+      window.removeEventListener("resize", updateAdvancedModalPosition);
+      window.removeEventListener("scroll", updateAdvancedModalPosition, true);
+    };
+  }, [showAdvancedSearchModal, updateAdvancedModalPosition]);
+
   const isSearchActive =
     searchFocused || searchQuery.length > 0 || showAdvancedSearchModal;
 
