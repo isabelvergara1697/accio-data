@@ -2893,6 +2893,7 @@ export default function CompanySettings() {
                               </button>
                               {openDropdownIndex === index && (
                                 <div
+                                  data-dropdown-menu
                                   style={{
                                     position: "absolute",
                                     right: "20px",
