@@ -29,6 +29,7 @@ import EmailSent from "./pages/EmailSent";
 import SetNewPassword from "./pages/SetNewPassword";
 import PasswordResetSuccess from "./pages/PasswordResetSuccess";
 import ActivateAccount from "./pages/ActivateAccount";
+import AccountSettings from "./pages/AccountSettings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -51,6 +52,7 @@ const App = () => (
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/reporting" element={<Reporting />} />
           <Route path="/search" element={<SearchResults />} />
+          <Route path="/account-settings" element={<AccountSettings />} />
           <Route path="/online-ordering" element={<OnlineOrdering />} />
           <Route path="/submit-order" element={<SubmitOrSaveOrder />} />
           <Route path="/order-confirmation" element={<OrderConfirmation />} />
