@@ -37,6 +37,11 @@ export default function AccountSettings() {
   const [isHovering, setIsHovering] = useState(false);
   const fileInputRef = React.useRef<HTMLInputElement>(null);
 
+  // Security tab state
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
   const hasPhoto = photoUrl.length > 0;
 
   const handleSignOut = () => {
@@ -1180,17 +1185,531 @@ export default function AccountSettings() {
 
           {/* Security Tab Content */}
           {activeTab === "security" && (
-            <div
-              style={{
-                padding: "40px",
-                textAlign: "center",
-                color: "#535862",
-                fontFamily: "Public Sans",
-                fontSize: "14px",
-              }}
-            >
-              Security settings coming soon...
-            </div>
+            <>
+              {/* Password Section */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "20px",
+                }}
+              >
+                <div>
+                  <h2
+                    style={{
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "18px",
+                      fontWeight: 600,
+                      lineHeight: "28px",
+                      margin: 0,
+                    }}
+                  >
+                    Password
+                  </h2>
+                  <p
+                    style={{
+                      color: "#535862",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      lineHeight: "20px",
+                      margin: "2px 0 0 0",
+                    }}
+                  >
+                    Please enter your current password to change your password.
+                  </p>
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                {/* Current Password */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    gap: isMobile ? "16px" : "32px",
+                  }}
+                >
+                  <div
+                    style={{
+                      minWidth: isMobile ? "auto" : "200px",
+                      maxWidth: isMobile ? "auto" : "280px",
+                      flex: isMobile ? "none" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Current password<span style={{ color: "#344698" }}>*</span>
+                    </label>
+                  </div>
+                  <input
+                    type="password"
+                    placeholder="••••••••"
+                    value={currentPassword}
+                    onChange={(e) => setCurrentPassword(e.target.value)}
+                    style={{
+                      flex: "1 0 0",
+                      minWidth: isMobile ? "auto" : "480px",
+                      maxWidth: isMobile ? "auto" : "512px",
+                      padding: "10px 14px",
+                      borderRadius: "8px",
+                      border: "1px solid #D5D7DA",
+                      background: "#FFF",
+                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      color: "#717680",
+                      fontFamily: "Public Sans",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      lineHeight: "24px",
+                      outline: "none",
+                    }}
+                  />
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                {/* New Password */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    gap: isMobile ? "16px" : "32px",
+                  }}
+                >
+                  <div
+                    style={{
+                      minWidth: isMobile ? "auto" : "200px",
+                      maxWidth: isMobile ? "auto" : "280px",
+                      flex: isMobile ? "none" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      New password<span style={{ color: "#344698" }}>*</span>
+                    </label>
+                  </div>
+                  <div
+                    style={{
+                      flex: "1 0 0",
+                      minWidth: isMobile ? "auto" : "480px",
+                      maxWidth: isMobile ? "auto" : "512px",
+                    }}
+                  >
+                    <input
+                      type="password"
+                      placeholder="••••••••"
+                      value={newPassword}
+                      onChange={(e) => setNewPassword(e.target.value)}
+                      style={{
+                        width: "100%",
+                        padding: "10px 14px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        color: "#717680",
+                        fontFamily: "Public Sans",
+                        fontSize: "16px",
+                        fontWeight: 400,
+                        lineHeight: "24px",
+                        outline: "none",
+                      }}
+                    />
+                    <p
+                      style={{
+                        color: "#535862",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        lineHeight: "20px",
+                        margin: "6px 0 0 0",
+                      }}
+                    >
+                      Your new password must be more than 8 characters.
+                    </p>
+                  </div>
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                {/* Confirm Password */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    gap: isMobile ? "16px" : "32px",
+                  }}
+                >
+                  <div
+                    style={{
+                      minWidth: isMobile ? "auto" : "200px",
+                      maxWidth: isMobile ? "auto" : "280px",
+                      flex: isMobile ? "none" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Confirm new password<span style={{ color: "#344698" }}>*</span>
+                    </label>
+                  </div>
+                  <input
+                    type="password"
+                    placeholder="••••••••"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    style={{
+                      flex: "1 0 0",
+                      minWidth: isMobile ? "auto" : "480px",
+                      maxWidth: isMobile ? "auto" : "512px",
+                      padding: "10px 14px",
+                      borderRadius: "8px",
+                      border: "1px solid #D5D7DA",
+                      background: "#FFF",
+                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      color: "#717680",
+                      fontFamily: "Public Sans",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      lineHeight: "24px",
+                      outline: "none",
+                    }}
+                  />
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                {/* Buttons */}
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    gap: "12px",
+                  }}
+                >
+                  <button
+                    style={{
+                      display: "flex",
+                      padding: "12px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "4px",
+                      borderRadius: "8px",
+                      border: "1px solid #D5D7DA",
+                      background: "#FFF",
+                      boxShadow:
+                        "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      color: "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    style={{
+                      display: "flex",
+                      padding: "12px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "4px",
+                      borderRadius: "8px",
+                      border: "2px solid rgba(255, 255, 255, 0.12)",
+                      background: "#344698",
+                      boxShadow:
+                        "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      color: "#FFF",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Update password
+                  </button>
+                </div>
+              </div>
+
+              {/* Where You're Logged In Section */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "24px",
+                  marginTop: "24px",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <div>
+                    <h2
+                      style={{
+                        color: "#181D27",
+                        fontFamily: "Public Sans",
+                        fontSize: "18px",
+                        fontWeight: 600,
+                        lineHeight: "28px",
+                        margin: 0,
+                      }}
+                    >
+                      Where you're logged in
+                    </h2>
+                    <p
+                      style={{
+                        color: "#535862",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        lineHeight: "20px",
+                        margin: "2px 0 0 0",
+                      }}
+                    >
+                      We'll alert you via <strong>[mail.com]</strong> if there is any unusual activity on your account.
+                    </p>
+                  </div>
+                  <button
+                    style={{
+                      background: "transparent",
+                      border: "none",
+                      cursor: "pointer",
+                      padding: "0",
+                    }}
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                {/* Devices List */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "20px",
+                  }}
+                >
+                  {/* Device 1 - MacBook */}
+                  <div
+                    style={{
+                      display: "flex",
+                      paddingLeft: "16px",
+                      alignItems: "flex-start",
+                      gap: "16px",
+                    }}
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15 17V21H9V17M5.2 17H18.8C19.9201 17 20.4802 17 20.908 16.782C21.2843 16.5903 21.5903 16.2843 21.782 15.908C22 15.4802 22 14.9201 22 13.8V6.2C22 5.0799 22 4.51984 21.782 4.09202C21.5903 3.71569 21.2843 3.40973 20.908 3.21799C20.4802 3 19.9201 3 18.8 3H5.2C4.07989 3 3.51984 3 3.09202 3.21799C2.71569 3.40973 2.40973 3.71569 2.21799 4.09202C2 4.51984 2 5.07989 2 6.2V13.8C2 14.9201 2 15.4802 2.21799 15.908C2.40973 16.2843 2.71569 16.5903 3.09202 16.782C3.51984 17 4.0799 17 5.2 17Z"
+                        stroke="#A4A7AE"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "4px",
+                        flex: "1 0 0",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "8px",
+                        }}
+                      >
+                        <span
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          2024 MacBook Pro 14-inch
+                        </span>
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "2px 6px",
+                            alignItems: "center",
+                            gap: "4px",
+                            borderRadius: "6px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          }}
+                        >
+                          <svg
+                            width="8"
+                            height="8"
+                            viewBox="0 0 8 8"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <circle cx="4" cy="4" r="3" fill="#17B26A" />
+                          </svg>
+                          <span
+                            style={{
+                              color: "#414651",
+                              fontFamily: "Public Sans",
+                              fontSize: "12px",
+                              fontWeight: 500,
+                              lineHeight: "18px",
+                            }}
+                          >
+                            Active now
+                          </span>
+                        </div>
+                      </div>
+                      <p
+                        style={{
+                          color: "#535862",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                          margin: 0,
+                        }}
+                      >
+                        Minnesota, United States • 22 Jan at 10:40am
+                      </p>
+                    </div>
+                  </div>
+
+                  <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                  {/* Device 2 - iPhone */}
+                  <div
+                    style={{
+                      display: "flex",
+                      paddingLeft: "16px",
+                      alignItems: "flex-start",
+                      gap: "16px",
+                    }}
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 17.5H12.01M8.2 22H15.8C16.9201 22 17.4802 22 17.908 21.782C18.2843 21.5903 18.5903 21.2843 18.782 20.908C19 20.4802 19 19.9201 19 18.8V5.2C19 4.07989 19 3.51984 18.782 3.09202C18.5903 2.71569 18.2843 2.40973 17.908 2.21799C17.4802 2 16.9201 2 15.8 2H8.2C7.0799 2 6.51984 2 6.09202 2.21799C5.71569 2.40973 5.40973 2.71569 5.21799 3.09202C5 3.51984 5 4.0799 5 5.2V18.8C5 19.9201 5 20.4802 5.21799 20.908C5.40973 21.2843 5.71569 21.5903 6.09202 21.782C6.51984 22 7.07989 22 8.2 22ZM12.5 17.5C12.5 17.7761 12.2761 18 12 18C11.7239 18 11.5 17.7761 11.5 17.5C11.5 17.2239 11.7239 17 12 17C12.2761 17 12.5 17.2239 12.5 17.5Z"
+                        stroke="#A4A7AE"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "4px",
+                        flex: "1 0 0",
+                      }}
+                    >
+                      <span
+                        style={{
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                        }}
+                      >
+                        2025 Iphone 17 Pro
+                      </span>
+                      <p
+                        style={{
+                          color: "#535862",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                          margin: 0,
+                        }}
+                      >
+                        California, United States • 22 Jan at 4:20pm
+                      </p>
+                    </div>
+                  </div>
+
+                  <div style={{ height: "1px", background: "#E9EAEB" }} />
+                </div>
+              </div>
+            </>
           )}
 
           {/* Notifications Tab Content */}
