@@ -147,6 +147,26 @@ const REQUIRED_FIELDS: Array<keyof InviteMemberFormData> = [
   "icimsPassword",
 ];
 
+const FIELD_LABELS: Record<keyof InviteMemberFormData, string> = {
+  email: "Email",
+  username: "User",
+  firstName: "First Name",
+  lastName: "Last Name",
+  role: "Role",
+  telephone: "Telephone",
+  fax: "Fax",
+  secondaryEmail: "Secondary Email",
+  zip: "Zip",
+  address: "Address",
+  state: "State",
+  city: "City",
+  reportVisibility: "Report Visibility",
+  icimsCustomerId: "iCIMS Customer ID",
+  icimsUserId: "iCIMS User ID",
+  icimsUserName: "iCIMS User Name",
+  icimsPassword: "iCIMS Password",
+};
+
 export default function InviteNewMember() {
   const navigate = useNavigate();
   const { toast } = useToast();
