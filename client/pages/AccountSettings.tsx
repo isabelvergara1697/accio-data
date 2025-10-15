@@ -2128,12 +2128,18 @@ export default function AccountSettings() {
                   </h2>
                   <p
                     style={{
+                      display: "-webkit-box",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: 1,
+                      alignSelf: "stretch",
+                      overflow: "hidden",
                       color: "#535862",
+                      textOverflow: "ellipsis",
                       fontFamily: "Public Sans",
                       fontSize: "14px",
                       fontWeight: 400,
                       lineHeight: "20px",
-                      margin: "4px 0 0 0",
+                      margin: "2px 0 0 0",
                     }}
                   >
                     We may still send you important notifications about your account outside of your notification settings.
@@ -2184,7 +2190,20 @@ export default function AccountSettings() {
                         onCheckedChange={setOrderUpdatesFilled}
                         style={{ marginTop: "2px" }}
                       />
-                      <Label style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                      <Label
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          flex: "1 0 0",
+                          alignSelf: "stretch",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                        }}
+                      >
                         Whenever an order is completely filled
                       </Label>
                     </div>
@@ -2194,7 +2213,20 @@ export default function AccountSettings() {
                         onCheckedChange={setOrderUpdatesNewData}
                         style={{ marginTop: "2px" }}
                       />
-                      <Label style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                      <Label
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          flex: "1 0 0",
+                          alignSelf: "stretch",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                        }}
+                      >
                         Every time new data arrives
                       </Label>
                     </div>
@@ -2204,7 +2236,20 @@ export default function AccountSettings() {
                         onCheckedChange={setOrderUpdatesFirstUpdate}
                         style={{ marginTop: "2px" }}
                       />
-                      <Label style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                      <Label
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          flex: "1 0 0",
+                          alignSelf: "stretch",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                        }}
+                      >
                         If the first time there is an update since my last login
                       </Label>
                     </div>
@@ -2214,7 +2259,20 @@ export default function AccountSettings() {
                         onCheckedChange={setOrderUpdatesSMS}
                         style={{ marginTop: "2px" }}
                       />
-                      <Label style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                      <Label
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          flex: "1 0 0",
+                          alignSelf: "stretch",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                        }}
+                      >
                         SMS
                       </Label>
                     </div>
@@ -2263,14 +2321,40 @@ export default function AccountSettings() {
                   >
                     <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
                       <RadioGroupItem value="html" id="html" style={{ marginTop: "2px" }} />
-                      <Label htmlFor="html" style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                      <Label
+                        htmlFor="html"
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-end",
+                          gap: "4px",
+                          alignSelf: "stretch",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                        }}
+                      >
                         Link to HTML Report
                       </Label>
                     </div>
                     <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
                       <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
                         <RadioGroupItem value="colorpdf" id="colorpdf" style={{ marginTop: "2px" }} />
-                        <Label htmlFor="colorpdf" style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                        <Label
+                          htmlFor="colorpdf"
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-end",
+                            gap: "4px",
+                            alignSelf: "stretch",
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
                           Link to a color PDF File of the Report
                         </Label>
                       </div>
@@ -2289,7 +2373,20 @@ export default function AccountSettings() {
                     </div>
                     <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
                       <RadioGroupItem value="blackwhite" id="blackwhite" style={{ marginTop: "2px" }} />
-                      <Label htmlFor="blackwhite" style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                      <Label
+                        htmlFor="blackwhite"
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-end",
+                          gap: "4px",
+                          alignSelf: "stretch",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                        }}
+                      >
                         Link to a black and white PDF File of the Report
                       </Label>
                     </div>
@@ -2302,15 +2399,21 @@ export default function AccountSettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
-                    gap: isMobile ? "16px" : "64px",
+                    alignItems: "flex-start",
+                    alignContent: "flex-start",
+                    gap: isMobile ? "16px" : "16px 64px",
+                    alignSelf: "stretch",
+                    flexWrap: isMobile ? "wrap" : "nowrap",
                   }}
                 >
                   <div
                     style={{
-                      minWidth: isMobile ? "auto" : "200px",
-                      maxWidth: isMobile ? "auto" : "280px",
-                      flex: isMobile ? "none" : "1 0 0",
+                      minWidth: isMobile ? "200px" : "200px",
+                      maxWidth: isMobile ? "280px" : "280px",
+                      flex: "1 0 0",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
                     }}
                   >
                     <label
@@ -2320,14 +2423,16 @@ export default function AccountSettings() {
                         fontSize: "14px",
                         fontWeight: 600,
                         lineHeight: "20px",
-                        display: "block",
-                        marginBottom: "4px",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "2px",
                       }}
                     >
                       Reportal Archive
                     </label>
                     <p
                       style={{
+                        alignSelf: "stretch",
                         color: "#535862",
                         fontFamily: "Public Sans",
                         fontSize: "14px",
@@ -2342,12 +2447,23 @@ export default function AccountSettings() {
                   <div
                     style={{
                       display: "flex",
+                      minWidth: isMobile ? "320px" : "320px",
+                      maxWidth: isMobile ? "auto" : "512px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
                       gap: "16px",
                       flex: "1 0 0",
-                      maxWidth: isMobile ? "auto" : "512px",
                     }}
                   >
-                    <div style={{ flex: "1 0 0", display: "flex", flexDirection: "column", gap: "6px" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "6px",
+                        alignSelf: "stretch",
+                      }}
+                    >
                       <label
                         style={{
                           color: "#414651",
@@ -2364,7 +2480,11 @@ export default function AccountSettings() {
                         value={archiveDaysViewed}
                         onChange={(e) => setArchiveDaysViewed(e.target.value)}
                         style={{
+                          display: "flex",
                           padding: "10px 14px",
+                          alignItems: "center",
+                          gap: "8px",
+                          alignSelf: "stretch",
                           borderRadius: "8px",
                           border: "1px solid #D5D7DA",
                           background: "#FFF",
@@ -2378,7 +2498,15 @@ export default function AccountSettings() {
                         }}
                       />
                     </div>
-                    <div style={{ flex: "1 0 0", display: "flex", flexDirection: "column", gap: "6px" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "6px",
+                        alignSelf: "stretch",
+                      }}
+                    >
                       <label
                         style={{
                           color: "#414651",
@@ -2395,7 +2523,11 @@ export default function AccountSettings() {
                         value={archiveDaysCompleted}
                         onChange={(e) => setArchiveDaysCompleted(e.target.value)}
                         style={{
+                          display: "flex",
                           padding: "10px 14px",
+                          alignItems: "center",
+                          gap: "8px",
+                          alignSelf: "stretch",
                           borderRadius: "8px",
                           border: "1px solid #D5D7DA",
                           background: "#FFF",
@@ -2456,7 +2588,20 @@ export default function AccountSettings() {
                         onCheckedChange={setCallHistorySuppressed}
                         style={{ marginTop: "2px" }}
                       />
-                      <Label style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                      <Label
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          flex: "1 0 0",
+                          alignSelf: "stretch",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                        }}
+                      >
                         Suppress call history on completed reports
                       </Label>
                     </div>
@@ -2507,7 +2652,20 @@ export default function AccountSettings() {
                         onCheckedChange={setApplicantPortalNotify}
                         style={{ marginTop: "2px" }}
                       />
-                      <Label style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                      <Label
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          flex: "1 0 0",
+                          alignSelf: "stretch",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                        }}
+                      >
                         Notify me via email if an invitation expires unfilled
                       </Label>
                     </div>
@@ -2540,12 +2698,18 @@ export default function AccountSettings() {
                   </h2>
                   <p
                     style={{
+                      display: "-webkit-box",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: 1,
+                      alignSelf: "stretch",
+                      overflow: "hidden",
                       color: "#535862",
+                      textOverflow: "ellipsis",
                       fontFamily: "Public Sans",
                       fontSize: "14px",
                       fontWeight: 400,
                       lineHeight: "20px",
-                      margin: "4px 0 0 0",
+                      margin: "2px 0 0 0",
                     }}
                   >
                     Choose how you'd like to receive your notifications.
@@ -2596,7 +2760,20 @@ export default function AccountSettings() {
                         onCheckedChange={setChannelEmail}
                         style={{ marginTop: "2px" }}
                       />
-                      <Label style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                      <Label
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          flex: "1 0 0",
+                          alignSelf: "stretch",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                        }}
+                      >
                         Email
                       </Label>
                     </div>
@@ -2606,7 +2783,20 @@ export default function AccountSettings() {
                         onCheckedChange={setChannelSecondaryEmail}
                         style={{ marginTop: "2px" }}
                       />
-                      <Label style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                      <Label
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          flex: "1 0 0",
+                          alignSelf: "stretch",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                        }}
+                      >
                         Secondary Email
                       </Label>
                     </div>
@@ -2617,18 +2807,28 @@ export default function AccountSettings() {
                           onCheckedChange={setChannelFax}
                           style={{ marginTop: "2px" }}
                         />
-                        <Label style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                        <Label
+                          style={{
+                            alignSelf: "stretch",
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
                           Fax
                         </Label>
                       </div>
                       <p
                         style={{
+                          alignSelf: "stretch",
                           color: "#535862",
                           fontFamily: "Public Sans",
                           fontSize: "14px",
                           fontWeight: 400,
                           lineHeight: "20px",
-                          margin: "0 0 0 36px",
+                          margin: 0,
                         }}
                       >
                         Faxes will be sent to the number Fax in your Profile.
