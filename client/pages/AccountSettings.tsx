@@ -148,8 +148,6 @@ export default function AccountSettings() {
     setIsDragging(false);
   };
 
-  const headerHeight = isMobile ? 64 : 72;
-
   return (
     <div
       style={{
