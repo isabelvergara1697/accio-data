@@ -461,8 +461,8 @@ const SearchResults = () => {
             style={{
               paddingTop: verticalPadding,
               paddingBottom: bottomPadding,
-              paddingLeft: horizontalPadding,
-              paddingRight: horizontalPadding,
+              paddingLeft: responsiveInlinePadding,
+              paddingRight: responsiveInlinePadding,
               display: "flex",
               flexDirection: "column",
               gap: sectionGap,
