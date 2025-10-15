@@ -367,7 +367,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -438,7 +438,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -484,7 +484,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -530,7 +530,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -585,7 +585,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -631,7 +631,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -677,7 +677,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -838,7 +838,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -884,7 +884,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -939,7 +939,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -994,7 +994,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -1049,7 +1049,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -1104,7 +1104,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -1159,7 +1159,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -1213,7 +1213,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -1409,7 +1409,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -1504,7 +1504,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -1602,7 +1602,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -1700,7 +1700,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -1798,7 +1798,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -1876,7 +1876,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -1950,7 +1950,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -2017,7 +2017,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -2086,7 +2086,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -2153,7 +2153,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -2220,7 +2220,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
@@ -2289,7 +2289,7 @@ export default function CompanySettings() {
                       flexDirection: "column",
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
-                      minWidth: isMobile ? "100%" : "200px",
+                      minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isMobile ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
