@@ -258,7 +258,7 @@ export const Header: React.FC<HeaderProps> = ({
                 type="button"
                 aria-label="Toggle advanced search"
                 aria-pressed={showAdvancedSearchModal}
-                onClick={() => setShowAdvancedSearchModal(!showAdvancedSearchModal)}
+                onClick={() => setShowAdvancedSearchModal(true)}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = showAdvancedSearchModal
                     ? "#ECEEF9"
