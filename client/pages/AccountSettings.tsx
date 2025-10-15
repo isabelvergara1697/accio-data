@@ -86,7 +86,7 @@ export default function AccountSettings() {
 
       <main
         style={{
-          marginTop: isMobile ? `${headerHeight}px` : 0,
+          marginTop: `${headerHeight}px`,
           marginLeft: isDesktop && !isCollapsed ? "280px" : "0",
           width: "100%",
           display: "flex",
