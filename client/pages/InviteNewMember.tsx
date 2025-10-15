@@ -1070,10 +1070,6 @@ export default function InviteNewMember() {
                 <div
                   style={{
                     display: "grid",
-                    height: isCompact ? "auto" : "410px",
-                    gridTemplateRows: isCompact
-                      ? "auto"
-                      : "repeat(5, minmax(0, 1fr))",
                     gridTemplateColumns: isCompact
                       ? "1fr"
                       : "repeat(2, minmax(0, 1fr))",
