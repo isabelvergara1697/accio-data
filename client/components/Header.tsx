@@ -86,35 +86,6 @@ export const Header: React.FC<HeaderProps> = ({
 
   const handleClearSearch = () => {
     setSearchQuery("");
-    setShowAdvancedSearch(false);
-  };
-
-  const handleAdvancedSearchChange = (field: string, value: string) => {
-    setAdvancedSearchForm((prev) => ({ ...prev, [field]: value }));
-  };
-
-  const clearAdvancedSearch = () => {
-    setAdvancedSearchForm({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phoneNumber: "",
-    });
-  };
-
-  const handleAdvancedSearch = () => {
-    // Build search query from advanced search form
-    const parts = [];
-    if (advancedSearchForm.firstName) parts.push(advancedSearchForm.firstName);
-    if (advancedSearchForm.lastName) parts.push(advancedSearchForm.lastName);
-    if (advancedSearchForm.email) parts.push(advancedSearchForm.email);
-    if (advancedSearchForm.phoneNumber) parts.push(advancedSearchForm.phoneNumber);
-
-    const query = parts.join(" ");
-    if (query.trim()) {
-      navigate(`/search?q=${encodeURIComponent(query.trim())}`);
-      setShowAdvancedSearch(false);
-    }
   };
 
   const isSearchActive =
