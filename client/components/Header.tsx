@@ -257,15 +257,15 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 type="button"
                 aria-label="Toggle advanced search"
-                aria-pressed={showAdvancedSearch}
-                onClick={() => setShowAdvancedSearch(!showAdvancedSearch)}
+                aria-pressed={showAdvancedSearchModal}
+                onClick={() => setShowAdvancedSearchModal(!showAdvancedSearchModal)}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = showAdvancedSearch
+                  e.currentTarget.style.background = showAdvancedSearchModal
                     ? "#ECEEF9"
                     : "#F5F5F5";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = showAdvancedSearch
+                  e.currentTarget.style.background = showAdvancedSearchModal
                     ? "#ECEEF9"
                     : "#FFF";
                 }}
@@ -278,7 +278,7 @@ export const Header: React.FC<HeaderProps> = ({
                   alignItems: "center",
                   borderRadius: "6px",
                   border: "1px solid #D5D7DA",
-                  background: showAdvancedSearch ? "#ECEEF9" : "#FFF",
+                  background: showAdvancedSearchModal ? "#ECEEF9" : "#FFF",
                   boxShadow:
                     "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                   cursor: "pointer",
