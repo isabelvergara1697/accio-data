@@ -1204,11 +1204,15 @@ export default function InviteNewMember() {
                         display: "block",
                         marginBottom: "6px",
                       }}
-                    >
+>
                       Zip
                     </label>
                     <input
                       type="text"
+                      value={formData.zip}
+                      onChange={(event) =>
+                        updateFormField("zip", event.target.value)
+                      }
                       style={{
                         width: "100%",
                         height: "40px",
