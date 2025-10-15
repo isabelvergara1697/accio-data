@@ -8039,14 +8039,21 @@ export default function CompanySettings() {
                           fontWeight: 600,
                           lineHeight: "20px",
                         }}>Custom</span>
-                        <div style={{
-                          width: "28px",
-                          height: "28px",
-                          borderRadius: "9999px",
-                          border: "1px solid rgba(0, 0, 0, 0.10)",
-                          background: brandColor,
-                          boxShadow: "0 0 0 2px #FFF, 0 0 0 4px #34479A",
-                        }} />
+                        <div
+                          onClick={() => {
+                            setTempColor(brandColor);
+                            setShowColorPicker(true);
+                          }}
+                          style={{
+                            width: "28px",
+                            height: "28px",
+                            borderRadius: "9999px",
+                            border: "1px solid rgba(0, 0, 0, 0.10)",
+                            background: brandColor,
+                            boxShadow: "0 0 0 2px #FFF, 0 0 0 4px #34479A",
+                            cursor: "pointer",
+                          }}
+                        />
                         <input
                           type="text"
                           value={brandColor}
