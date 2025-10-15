@@ -801,6 +801,12 @@ export default function CompanySettings() {
   const [brandColor, setBrandColor] = React.useState("#7F56D9");
   const [displayPreference, setDisplayPreference] = React.useState<'system' | 'light' | 'dark'>('system');
   const [uiStyling, setUiStyling] = React.useState<'pill' | 'round' | 'sharp'>('pill');
+  const [showColorPicker, setShowColorPicker] = React.useState(false);
+  const [tempColor, setTempColor] = React.useState("#7F56D9");
+  const [huePosition, setHuePosition] = React.useState(0.7);
+  const [saturationPosition, setSaturationPosition] = React.useState(0.98);
+  const [colorspaceX, setColorspaceX] = React.useState(192);
+  const [colorspaceY, setColorspaceY] = React.useState(14);
   const [loginImageEnabled, setLoginImageEnabled] = React.useState(true);
   const [portalInstructionsEnabled, setPortalInstructionsEnabled] = React.useState(true);
   const loginImageInputRef = React.useRef<HTMLInputElement | null>(null);
