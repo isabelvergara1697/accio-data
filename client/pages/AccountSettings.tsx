@@ -5,6 +5,9 @@ import { MobileHeader } from "../components/MobileHeader";
 import { Sidebar } from "../components/Sidebar";
 import { HorizontalTabs } from "../components/HorizontalTabs";
 import { useIsMobile } from "../hooks/use-mobile";
+import { Switch } from "../components/ui/switch";
+import { RadioGroup, RadioGroupItem } from "../components/ui/radio-group";
+import { Label } from "../components/ui/label";
 
 type TabType = "profile" | "security" | "notifications";
 
@@ -68,6 +71,20 @@ export default function AccountSettings() {
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  // Notifications tab state
+  const [orderUpdatesFilled, setOrderUpdatesFilled] = useState(true);
+  const [orderUpdatesNewData, setOrderUpdatesNewData] = useState(true);
+  const [orderUpdatesFirstUpdate, setOrderUpdatesFirstUpdate] = useState(true);
+  const [orderUpdatesSMS, setOrderUpdatesSMS] = useState(false);
+  const [emailReportLink, setEmailReportLink] = useState("blackwhite");
+  const [archiveDaysViewed, setArchiveDaysViewed] = useState("0");
+  const [archiveDaysCompleted, setArchiveDaysCompleted] = useState("0");
+  const [callHistorySuppressed, setCallHistorySuppressed] = useState(true);
+  const [applicantPortalNotify, setApplicantPortalNotify] = useState(true);
+  const [channelEmail, setChannelEmail] = useState(true);
+  const [channelSecondaryEmail, setChannelSecondaryEmail] = useState(false);
+  const [channelFax, setChannelFax] = useState(false);
 
   // Password validation requirements
   const passwordRequirements = [
