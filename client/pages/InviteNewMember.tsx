@@ -489,7 +489,7 @@ export default function InviteNewMember() {
         <div
           style={{
             marginTop: isDesktop ? "80px" : "64px",
-            padding: isMobile ? "16px" : "32px 24px 32px 32px",
+            padding: isMobile ? "16px" : "32px",
             paddingBottom: isMobile ? "80px" : "32px",
             display: "flex",
             justifyContent: "flex-start",
