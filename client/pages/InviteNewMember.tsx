@@ -437,6 +437,21 @@ export default function InviteNewMember({ mode = "invite" }: InviteMemberPagePro
       return;
     }
 
+    if (mode === "edit") {
+      toast({
+        title: "Member updated",
+        description: `${formData.firstName} ${formData.lastName}'s details have been saved.`,
+      });
+      navigate("/company-settings", { state: { initialTab: "team" } });
+      return;
+    }
+
+    toast({
+      title: "Invite details ready",
+      description:
+        "All required information is filled out. Continue to the next step to send the invite.",
+    });
+
     navigate("/invite-new-member/confirmation", {
       state: {
         email: formData.email,
@@ -446,6 +461,7 @@ export default function InviteNewMember({ mode = "invite" }: InviteMemberPagePro
     adjudicationSelections,
     confirmPassword,
     formData,
+    mode,
     navigate,
     password,
     passwordOption,
