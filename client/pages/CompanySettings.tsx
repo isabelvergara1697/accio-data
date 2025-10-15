@@ -405,7 +405,7 @@ export default function CompanySettings() {
                       onChange={(e) => setFirstName(e.target.value)}
                       style={{
                         ...inputStyle,
-                        flex: isMobile ? "unset" : "1 0 0",
+                        flex: isCompactLayout ? "unset" : "1 0 0",
                       }}
                     />
                     <input
@@ -414,7 +414,7 @@ export default function CompanySettings() {
                       onChange={(e) => setLastName(e.target.value)}
                       style={{
                         ...inputStyle,
-                        flex: isMobile ? "unset" : "1 0 0",
+                        flex: isCompactLayout ? "unset" : "1 0 0",
                       }}
                     />
                   </div>
