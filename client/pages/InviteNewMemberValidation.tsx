@@ -416,7 +416,9 @@ export default function InviteNewMemberValidation() {
                       Team members
                     </span>
                     <span style={{ color: "#181D27", fontSize: "16px" }}>
-                      {selectedTeamMembers.map((member) => member.name).join(", ")}
+                      {selectedTeamMembers.length > 0
+                        ? selectedTeamMembers.map((member) => member.name).join(", ")
+                        : "No team members selected"}
                     </span>
                   </div>
                 </div>
