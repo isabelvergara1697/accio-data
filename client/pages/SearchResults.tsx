@@ -415,7 +415,9 @@ const SearchResults = () => {
         <main
           style={{
             marginTop: `${headerHeight}px`,
-            padding: `${verticalPadding}px ${horizontalPadding}px ${bottomPadding}px`,
+            padding: isMobile
+              ? `24px ${horizontalPadding}px ${bottomPadding}px`
+              : `${verticalPadding}px ${horizontalPadding}px ${bottomPadding}px`,
             display: "flex",
             flexDirection: "column",
             gap: `${sectionGap}px`,
