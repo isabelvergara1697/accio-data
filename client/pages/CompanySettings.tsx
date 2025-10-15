@@ -380,9 +380,7 @@ export default function CompanySettings() {
                     onChange={(e) => setTitle(e.target.value)}
                     style={{
                       ...inputStyle,
-                      minWidth: isMobile ? "auto" : "480px",
-                      maxWidth: isMobile ? "auto" : "512px",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      maxWidth: isMobile ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -427,9 +425,7 @@ export default function CompanySettings() {
                     onChange={(e) => setCity(e.target.value)}
                     style={{
                       ...inputStyle,
-                      minWidth: isMobile ? "auto" : "480px",
-                      maxWidth: isMobile ? "auto" : "512px",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      maxWidth: isMobile ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -530,9 +526,7 @@ export default function CompanySettings() {
                     onChange={(e) => setTelephone(e.target.value)}
                     style={{
                       ...inputStyle,
-                      minWidth: isMobile ? "auto" : "480px",
-                      maxWidth: isMobile ? "auto" : "512px",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      maxWidth: isMobile ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -577,9 +571,7 @@ export default function CompanySettings() {
                     onChange={(e) => setFax(e.target.value)}
                     style={{
                       ...inputStyle,
-                      minWidth: isMobile ? "auto" : "480px",
-                      maxWidth: isMobile ? "auto" : "512px",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      maxWidth: isMobile ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -624,9 +616,7 @@ export default function CompanySettings() {
                     onChange={(e) => setEmail(e.target.value)}
                     style={{
                       ...inputStyle,
-                      minWidth: isMobile ? "auto" : "480px",
-                      maxWidth: isMobile ? "auto" : "512px",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      maxWidth: isMobile ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -772,9 +762,7 @@ export default function CompanySettings() {
                     onChange={(e) => setManualRescreening(e.target.value)}
                     style={{
                       ...inputStyle,
-                      minWidth: isMobile ? "auto" : "480px",
-                      maxWidth: isMobile ? "auto" : "512px",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      maxWidth: isMobile ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -1154,9 +1142,7 @@ export default function CompanySettings() {
                     onChange={(e) => setSendHitsEmail(e.target.value)}
                     style={{
                       ...inputStyle,
-                      minWidth: isMobile ? "auto" : "480px",
-                      maxWidth: isMobile ? "auto" : "512px",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      maxWidth: isMobile ? "100%" : "512px",
                     }}
                   />
                 </div>
