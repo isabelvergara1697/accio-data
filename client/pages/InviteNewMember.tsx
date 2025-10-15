@@ -1529,7 +1529,7 @@ export default function InviteNewMember() {
                   borderTop: "1px solid #E9EAEB",
                   display: "flex",
                   flexDirection: "column",
-                  gap: "24px",
+                  gap: "16px",
                 }}
               >
                 <div
