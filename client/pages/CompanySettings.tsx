@@ -2288,7 +2288,7 @@ export default function CompanySettings() {
                       color: "#273572",
                       fontFamily: "Public Sans",
                       fontSize: "14px",
-                      fontWeight: 600,
+                      fontWeight: 700,
                       lineHeight: "20px",
                       cursor: "pointer",
                     }}
@@ -2309,7 +2309,7 @@ export default function CompanySettings() {
                       color: "#717680",
                       fontFamily: "Public Sans",
                       fontSize: "14px",
-                      fontWeight: 600,
+                      fontWeight: 700,
                       lineHeight: "20px",
                       cursor: "pointer",
                     }}
@@ -2489,92 +2489,148 @@ export default function CompanySettings() {
                             style={{
                               padding: "6px 12px",
                               textAlign: "left",
-                              color: "#717680",
-                              fontFamily: "Public Sans",
-                              fontSize: "12px",
-                              fontWeight: 600,
-                              lineHeight: "18px",
                             }}
                           >
-                            Name
+                            <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                              <span style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontWeight: 700,
+                                lineHeight: "18px",
+                              }}>
+                                Name
+                              </span>
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.66669 10.0001L8.00002 13.3334L11.3334 10.0001M4.66669 6.00008L8.00002 2.66675L11.3334 6.00008" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
+                            </div>
                           </th>
                           <th
                             style={{
                               padding: "6px 12px",
                               textAlign: "left",
-                              color: "#717680",
-                              fontFamily: "Public Sans",
-                              fontSize: "12px",
-                              fontWeight: 600,
-                              lineHeight: "18px",
                             }}
                           >
-                            Email
+                            <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                              <span style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontWeight: 700,
+                                lineHeight: "18px",
+                              }}>
+                                Email
+                              </span>
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.66669 10.0001L8.00002 13.3334L11.3334 10.0001M4.66669 6.00008L8.00002 2.66675L11.3334 6.00008" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
+                            </div>
                           </th>
                           <th
                             style={{
                               padding: "6px 12px",
                               textAlign: "left",
-                              color: "#717680",
-                              fontFamily: "Public Sans",
-                              fontSize: "12px",
-                              fontWeight: 600,
-                              lineHeight: "18px",
                             }}
                           >
-                            Role
+                            <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                              <span style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontWeight: 700,
+                                lineHeight: "18px",
+                              }}>
+                                Role
+                              </span>
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.66669 10.0001L8.00002 13.3334L11.3334 10.0001M4.66669 6.00008L8.00002 2.66675L11.3334 6.00008" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
+                            </div>
                           </th>
                           <th
                             style={{
                               padding: "6px 12px",
                               textAlign: "left",
-                              color: "#717680",
-                              fontFamily: "Public Sans",
-                              fontSize: "12px",
-                              fontWeight: 600,
-                              lineHeight: "18px",
                             }}
                           >
-                            Department
+                            <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                              <span style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontWeight: 700,
+                                lineHeight: "18px",
+                              }}>
+                                Department
+                              </span>
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.66669 10.0001L8.00002 13.3334L11.3334 10.0001M4.66669 6.00008L8.00002 2.66675L11.3334 6.00008" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
+                            </div>
                           </th>
                           <th
                             style={{
                               padding: "6px 12px",
                               textAlign: "left",
-                              color: "#717680",
-                              fontFamily: "Public Sans",
-                              fontSize: "12px",
-                              fontWeight: 600,
-                              lineHeight: "18px",
                             }}
                           >
-                            Last Active/Invited
+                            <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                              <span style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontWeight: 700,
+                                lineHeight: "18px",
+                              }}>
+                                Last Active/ Invited
+                              </span>
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.66667 10.0001L8 13.3334L11.3333 10.0001M4.66667 6.00008L8 2.66675L11.3333 6.00008" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
+                            </div>
                           </th>
                           <th
                             style={{
                               padding: "6px 12px",
                               textAlign: "left",
-                              color: "#717680",
-                              fontFamily: "Public Sans",
-                              fontSize: "12px",
-                              fontWeight: 600,
-                              lineHeight: "18px",
                             }}
                           >
-                            Status
+                            <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                              <span style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontWeight: 700,
+                                lineHeight: "18px",
+                              }}>
+                                Status
+                              </span>
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.66666 10.0001L8 13.3334L11.3333 10.0001M4.66666 6.00008L8 2.66675L11.3333 6.00008" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
+                            </div>
                           </th>
                           <th
                             style={{
                               padding: "6px 12px",
                               textAlign: "left",
-                              color: "#717680",
-                              fontFamily: "Public Sans",
-                              fontSize: "12px",
-                              fontWeight: 600,
-                              lineHeight: "18px",
                             }}
                           >
-                            Actions
+                            <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                              <span style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontWeight: 700,
+                                lineHeight: "18px",
+                              }}>
+                                Actions
+                              </span>
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.66667 10.0001L8 13.3334L11.3333 10.0001M4.66667 6.00008L8 2.66675L11.3333 6.00008" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
+                            </div>
                           </th>
                         </tr>
                       </thead>
