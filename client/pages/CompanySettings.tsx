@@ -273,7 +273,7 @@ export default function CompanySettings() {
                       margin: "2px 0 0 0",
                     }}
                   >
-                    Main point of contact of your companuy
+                    Main point of contact of your company
                   </p>
                 </div>
 
