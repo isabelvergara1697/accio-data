@@ -703,7 +703,7 @@ export default function InviteNewMember() {
                               type={showPassword ? "text" : "password"}
                               value={password}
                               onChange={(e) => setPassword(e.target.value)}
-                              placeholder="••••••••"
+                              placeholder="••••���•••"
                               style={{
                                 width: "100%",
                                 height: "48px",
@@ -1115,11 +1115,15 @@ export default function InviteNewMember() {
                         display: "block",
                         marginBottom: "6px",
                       }}
-                    >
+>
                       Fax
                     </label>
                     <input
                       type="tel"
+                      value={formData.fax}
+                      onChange={(event) =>
+                        updateFormField("fax", event.target.value)
+                      }
                       style={{
                         width: "100%",
                         height: "40px",
