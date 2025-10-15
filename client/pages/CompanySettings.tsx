@@ -8178,26 +8178,18 @@ export default function CompanySettings() {
                               boxShadow: uiStyling === option.id ? "0 0 0 2px #FFF, 0 0 0 4px #34479A" : "none",
                               cursor: "pointer",
                               position: "relative",
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
+                              overflow: "hidden",
                             }}
                           >
-                            <button type="button" style={{
-                              padding: "6px",
-                              borderRadius: option.radius,
-                              border: "1px solid #D5D7DA",
-                              background: "#FFF",
-                              boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                              color: "#414651",
-                              fontFamily: "Public Sans",
-                              fontSize: "12px",
-                              fontWeight: 600,
-                              lineHeight: "18px",
-                              pointerEvents: "none",
-                            }}>
-                              Start
-                            </button>
+                            <img
+                              src={option.image}
+                              alt={option.label}
+                              style={{
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                              }}
+                            />
                             {uiStyling === option.id && (
                               <div style={{
                                 position: "absolute",
