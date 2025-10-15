@@ -282,9 +282,10 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "flex-start",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
-                    flexWrap: isMobile ? "wrap" : "nowrap",
+                    width: "100%",
                   }}
                 >
                   <div
@@ -343,9 +344,10 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "flex-start",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
-                    flexWrap: isMobile ? "wrap" : "nowrap",
+                    width: "100%",
                   }}
                 >
                   <div
@@ -388,9 +390,10 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "flex-start",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
-                    flexWrap: isMobile ? "wrap" : "nowrap",
+                    width: "100%",
                   }}
                 >
                   <div
@@ -433,9 +436,10 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "flex-start",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
-                    flexWrap: isMobile ? "wrap" : "nowrap",
+                    width: "100%",
                   }}
                 >
                   <div
@@ -487,9 +491,10 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "flex-start",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
-                    flexWrap: isMobile ? "wrap" : "nowrap",
+                    width: "100%",
                   }}
                 >
                   <div
@@ -532,9 +537,10 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "flex-start",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
-                    flexWrap: isMobile ? "wrap" : "nowrap",
+                    width: "100%",
                   }}
                 >
                   <div
@@ -577,9 +583,10 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "flex-start",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
-                    flexWrap: isMobile ? "wrap" : "nowrap",
+                    width: "100%",
                   }}
                 >
                   <div
@@ -723,9 +730,10 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "flex-start",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
-                    flexWrap: isMobile ? "wrap" : "nowrap",
+                    width: "100%",
                   }}
                 >
                   <div
@@ -768,9 +776,10 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "flex-start",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
-                    flexWrap: isMobile ? "wrap" : "nowrap",
+                    width: "100%",
                   }}
                 >
                   <div
@@ -822,9 +831,10 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "flex-start",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
-                    flexWrap: isMobile ? "wrap" : "nowrap",
+                    width: "100%",
                   }}
                 >
                   <div
@@ -876,9 +886,10 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "flex-start",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
-                    flexWrap: isMobile ? "wrap" : "nowrap",
+                    width: "100%",
                   }}
                 >
                   <div
@@ -930,9 +941,10 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "flex-start",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
-                    flexWrap: isMobile ? "wrap" : "nowrap",
+                    width: "100%",
                   }}
                 >
                   <div
@@ -984,9 +996,10 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "flex-start",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
-                    flexWrap: isMobile ? "wrap" : "nowrap",
+                    width: "100%",
                   }}
                 >
                   <div
@@ -1038,9 +1051,10 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "flex-start",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
-                    flexWrap: isMobile ? "wrap" : "nowrap",
+                    width: "100%",
                   }}
                 >
                   <div
@@ -1091,9 +1105,10 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "flex-start",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
-                    flexWrap: isMobile ? "wrap" : "nowrap",
+                    width: "100%",
                   }}
                 >
                   <div
