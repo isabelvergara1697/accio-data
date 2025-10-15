@@ -2065,11 +2065,18 @@ export default function InviteNewMember() {
                     }}
                   >
                     {[
-                      "iCIMS Customer ID",
-                      "iCIMS User ID",
-                      "iCIMS User name",
-                      "iCIMS Password",
-                    ].map((label) => (
+                      {
+                        label: "iCIMS Customer ID",
+                        field: "icimsCustomerId" as const,
+                      },
+                      { label: "iCIMS User ID", field: "icimsUserId" as const },
+                      { label: "iCIMS User name", field: "icimsUserName" as const },
+                      {
+                        label: "iCIMS Password",
+                        field: "icimsPassword" as const,
+                        type: "password" as const,
+                      },
+                    ].map(({ label, field, type = "text" }) => (
                       <div key={label}>
                         <label
                           style={{
@@ -2085,8 +2092,10 @@ export default function InviteNewMember() {
                           {label}
                         </label>
                         <input
-                          type={
-                            label === "iCIMS Password" ? "password" : "text"
+                          type={type}
+                          value={formData[field]}
+                          onChange={(event) =>
+                            updateFormField(field, event.target.value)
                           }
                           style={{
                             width: "100%",
