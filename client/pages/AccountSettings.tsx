@@ -116,7 +116,7 @@ export default function AccountSettings() {
           isDesktop={isDesktop}
           isMobile={isMobile}
           mobileMenuOpen={mobileMenuOpen}
-          currentPage="settings"
+          currentPage="account-settings"
           userMenuOpen={userMenuOpen}
           setUserMenuOpen={setUserMenuOpen}
           userMenuHovered={userMenuHovered}
@@ -136,7 +136,7 @@ export default function AccountSettings() {
           showMobileUserMenu={showMobileUserMenu}
           setShowMobileUserMenu={setShowMobileUserMenu}
           handleSignOut={handleSignOut}
-          currentPage="settings"
+          currentPage="account-settings"
         />
       )}
 
