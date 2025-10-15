@@ -89,7 +89,7 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   const isSearchActive =
-    searchFocused || searchQuery.length > 0 || showAdvancedSearch;
+    searchFocused || searchQuery.length > 0 || showAdvancedSearchModal;
 
   // Enhanced responsive icon sizes with container awareness
   const searchIconSize = useIconSizeEnhanced(20, {
