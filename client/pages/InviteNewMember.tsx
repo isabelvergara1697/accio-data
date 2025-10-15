@@ -598,7 +598,7 @@ export default function InviteNewMember({ mode = "invite" }: InviteMemberPagePro
                   fontWeight: 600,
                 }}
               >
-                Invite New User
+                {breadcrumbLabel}
               </span>
             </div>
 
