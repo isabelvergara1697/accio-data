@@ -37,6 +37,8 @@ export default function AccountSettings() {
   const [isHovering, setIsHovering] = useState(false);
   const fileInputRef = React.useRef<HTMLInputElement>(null);
 
+  const hasPhoto = photoUrl.length > 0;
+
   const handleSignOut = () => {
     navigate("/login");
   };
@@ -68,6 +70,14 @@ export default function AccountSettings() {
     setIsDragging(false);
     const file = e.dataTransfer.files[0];
     if (file) handleFileSelect(file);
+  };
+
+  const handleDeletePhoto = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setPhotoUrl("");
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
   };
 
   const handleDragOver = (e: React.DragEvent) => {
@@ -403,49 +413,69 @@ export default function AccountSettings() {
                       }}
                     >
                       <div
-                        onClick={() => fileInputRef.current?.click()}
+                        onClick={() => {
+                          if (hasPhoto) return;
+                          fileInputRef.current?.click();
+                        }}
                         onMouseEnter={() => setIsHovering(true)}
                         onMouseLeave={() => setIsHovering(false)}
                         style={{
                           width: "64px",
                           height: "64px",
                           borderRadius: "9999px",
-                          border: isHovering ? "2px solid #344698" : "1px solid rgba(0, 0, 0, 0.10)",
-                          background: photoUrl ? `url(${photoUrl}) center/cover` : "#E0E0E0",
+                          border: isHovering || hasPhoto ? "2px solid #344698" : "1px solid rgba(0, 0, 0, 0.10)",
+                          background: hasPhoto ? `url(${photoUrl}) center/cover` : "#E0E0E0",
                           cursor: "pointer",
                           position: "relative",
                           transition: "all 0.2s ease",
-                          opacity: isHovering ? 0.8 : 1,
+                          opacity: isHovering ? 0.85 : 1,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
                         }}
                       >
-                        {isHovering && (
-                          <div
+                        {!hasPhoto && (
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            style={{ pointerEvents: "none" }}
+                          >
+                            <path
+                              d="M8 16L12 12M12 12L16 16M12 12V21M20 16.7428C21.2215 15.734 22 14.2079 22 12.5C22 9.46243 19.5376 7 16.5 7C16.2815 7 16.0771 6.886 15.9661 6.69774C14.6621 4.48484 12.2544 3 9.5 3C5.35786 3 2 6.35786 2 10.5C2 12.5661 2.83545 14.4371 4.18695 15.7935"
+                              stroke="#344698"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        )}
+
+                        {hasPhoto && (
+                          <button
+                            type="button"
+                            onClick={handleDeletePhoto}
                             style={{
                               position: "absolute",
-                              inset: 0,
+                              top: "-6px",
+                              right: "-6px",
+                              width: "20px",
+                              height: "20px",
                               borderRadius: "9999px",
-                              background: "rgba(52, 70, 152, 0.1)",
+                              border: "none",
+                              background: "#344698",
+                              color: "#FFF",
                               display: "flex",
                               alignItems: "center",
                               justifyContent: "center",
+                              cursor: "pointer",
+                              boxShadow: "0 1px 4px rgba(0, 0, 0, 0.15)",
                             }}
                           >
-                            <svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M8 16L12 12M12 12L16 16M12 12V21M20 16.7428C21.2215 15.734 22 14.2079 22 12.5C22 9.46243 19.5376 7 16.5 7C16.2815 7 16.0771 6.886 15.9661 6.69774C14.6621 4.48484 12.2544 3 9.5 3C5.35786 3 2 6.35786 2 10.5C2 12.5661 2.83545 14.4371 4.18695 15.7935"
-                                stroke="#344698"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                          </div>
+                            ×
+                          </button>
                         )}
                       </div>
                       <input
@@ -472,8 +502,52 @@ export default function AccountSettings() {
                           background: isDragging ? "#ECEEF9" : "#FFF",
                           cursor: "pointer",
                           transition: "all 0.2s ease",
+                          position: "relative",
+                          overflow: "hidden",
                         }}
                       >
+                        {hasPhoto && (
+                          <button
+                            type="button"
+                            onClick={(e) => handleDeletePhoto(e)}
+                            style={{
+                              position: "absolute",
+                              top: "12px",
+                              right: "12px",
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "6px",
+                              padding: "6px 10px",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              color: "#414651",
+                              fontFamily: "Public Sans",
+                              fontSize: "12px",
+                              fontWeight: 600,
+                              lineHeight: "18px",
+                              cursor: "pointer",
+                              boxShadow: "0 1px 2px rgba(10, 13, 18, 0.08)",
+                            }}
+                          >
+                            <svg
+                              width="14"
+                              height="14"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M3.33301 4.66667H12.6663M6.66634 7.33333V11.3333M9.33301 7.33333V11.3333M4.66634 4.66667L5.33301 12C5.33301 12.7364 5.33301 13.1046 5.51134 13.382C5.66769 13.6253 5.91099 13.8041 6.19419 13.8813C6.51537 13.9667 6.91827 13.9667 7.72407 13.9667H8.2756C9.0814 13.9667 9.4843 13.9667 9.80548 13.8813C10.0887 13.8041 10.332 13.6253 10.4883 13.382C10.6667 13.1046 10.6667 12.7364 10.6667 12L11.3333 4.66667M6.66634 4.66667C6.66634 4.11283 6.66634 3.83591 6.78208 3.63228C6.88473 3.45651 7.04364 3.32174 7.23567 3.25479C7.45293 3.17889 7.73575 3.21927 8.30139 3.30002C8.53381 3.33333 8.65002 3.35 8.75202 3.38363C8.9079 3.4342 9.04923 3.52185 9.1647 3.63732C9.28017 3.75278 9.36782 3.89411 9.41838 4.04999C9.45168 4.15199 9.46834 4.26821 9.50166 4.50062M6.66634 4.66667H9.33301"
+                                stroke="#414651"
+                                strokeWidth="1.3"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                            Remove photo
+                          </button>
+                        )}
                         <div
                           style={{
                             display: "flex",
