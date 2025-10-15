@@ -63,6 +63,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
       }
     }
   }, [location.pathname, openAccordions]);
+  const isAccountSettingsPage =
+    currentPage === "account-settings" || location.pathname === "/account-settings";
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [mobileSearchQuery, setMobileSearchQuery] = useState(() => {
     const params = new URLSearchParams(location.search);
@@ -1352,13 +1354,21 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         borderRadius: "6px",
                         cursor: "pointer",
                         position: "relative",
+                        border: isAccountSettingsPage
+                          ? "1px solid #B3BCE5"
+                          : "1px solid transparent",
+                        background: isAccountSettingsPage ? "#ECEEF9" : "transparent",
+                        transition: "background 0.2s ease, border 0.2s ease",
                       }}
                       onClick={() => navigate("/account-settings")}
                       onMouseEnter={(e) => {
+                        if (isAccountSettingsPage) return;
                         e.currentTarget.style.background = "#F5F5F5";
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.background = "transparent";
+                        e.currentTarget.style.background = isAccountSettingsPage
+                          ? "#ECEEF9"
+                          : "transparent";
                       }}
                     >
                       <div
@@ -1384,7 +1394,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         >
                           <path
                             d="M13.3327 14C13.3327 13.0696 13.3327 12.6044 13.2179 12.2259C12.9593 11.3736 12.2924 10.7067 11.4401 10.4482C11.0616 10.3333 10.5964 10.3333 9.66601 10.3333H6.33268C5.40231 10.3333 4.93712 10.3333 4.55859 10.4482C3.70632 10.7067 3.03938 11.3736 2.78084 12.2259C2.66602 12.6044 2.66602 13.0696 2.66602 14M10.9993 5C10.9993 6.65685 9.6562 8 7.99935 8C6.34249 8 4.99935 6.65685 4.99935 5C4.99935 3.34315 6.34249 2 7.99935 2C9.6562 2 10.9993 3.34315 10.9993 5Z"
-                            stroke="#A4A7AE"
+                            stroke={isAccountSettingsPage ? "#344698" : "#A4A7AE"}
                             strokeWidth="1.67"
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -1393,7 +1403,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         <div
                           style={{
                             flex: "1 0 0",
-                            color: "#414651",
+                            color: isAccountSettingsPage ? "#273572" : "#414651",
                             fontFamily: "Public Sans",
                             fontSize: "14px",
                             fontStyle: "normal",
@@ -1408,7 +1418,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                 "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                               fontWeight: 600,
                               fontSize: "14px",
-                              color: "rgba(65,70,81,1)",
+                              color: isAccountSettingsPage
+                                ? "rgba(39,53,114,1)"
+                                : "rgba(65,70,81,1)",
                             }}
                           >
                             Account
