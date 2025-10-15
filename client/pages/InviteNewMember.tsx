@@ -44,6 +44,31 @@ const passwordRequirements: PasswordRequirement[] = [
   },
 ];
 
+interface TeamMember {
+  id: number;
+  name: string;
+}
+
+type InviteMemberFormData = {
+  email: string;
+  username: string;
+  firstName: string;
+  lastName: string;
+  role: string;
+  telephone: string;
+  fax: string;
+  secondaryEmail: string;
+  zip: string;
+  address: string;
+  state: string;
+  city: string;
+  reportVisibility: string;
+  icimsCustomerId: string;
+  icimsUserId: string;
+  icimsUserName: string;
+  icimsPassword: string;
+};
+
 export default function InviteNewMember() {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
