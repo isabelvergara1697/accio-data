@@ -52,6 +52,20 @@ export default function CompanySettings() {
     return () => window.removeEventListener("resize", updateViewport);
   }, []);
 
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (openDropdownIndex !== null) {
+        const target = event.target as HTMLElement;
+        if (!target.closest('[data-dropdown-menu]') && !target.closest('button')) {
+          setOpenDropdownIndex(null);
+        }
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [openDropdownIndex]);
+
   const getUserMenuStyles = () => {
     if (userMenuHovered || userMenuOpen) {
       return {
