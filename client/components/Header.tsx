@@ -197,112 +197,114 @@ export const Header: React.FC<HeaderProps> = ({
           >
             ⌘K
           </div>
-          {isSearchActive && (
-            <div
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "4px",
+              marginLeft: "4px",
+            }}
+          >
+            {isSearchActive && (
+              <>
+                <button
+                  type="button"
+                  aria-label="Clear search"
+                  onClick={handleClearSearch}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F5F5F5";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                  style={{
+                    display: "flex",
+                    width: "24px",
+                    height: "24px",
+                    padding: "4px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    borderRadius: "6px",
+                    border: "none",
+                    background: "transparent",
+                    cursor: "pointer",
+                    transition: "background 0.2s ease",
+                  }}
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.3334 4.66669L4.66675 11.3334M4.66675 4.66669L11.3334 11.3334"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.66667"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+                <span
+                  aria-hidden="true"
+                  style={{
+                    width: "1px",
+                    height: "24px",
+                    background: "#E9EAEB",
+                  }}
+                />
+              </>
+            )}
+            <button
+              type="button"
+              aria-label="Open advanced search"
+              aria-pressed={showAdvancedSearchModal}
+              onClick={() => setShowAdvancedSearchModal(true)}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = showAdvancedSearchModal
+                  ? "#ECEEF9"
+                  : "#F5F5F5";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = showAdvancedSearchModal
+                  ? "#ECEEF9"
+                  : "#FFF";
+              }}
               style={{
                 display: "flex",
+                width: "24px",
+                height: "24px",
+                padding: "4px",
+                justifyContent: "center",
                 alignItems: "center",
-                gap: "4px",
-                marginLeft: "4px",
+                borderRadius: "6px",
+                border: "1px solid #D5D7DA",
+                background: showAdvancedSearchModal ? "#ECEEF9" : "#FFF",
+                boxShadow:
+                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                cursor: "pointer",
+                transition: "background 0.2s ease",
               }}
             >
-              <button
-                type="button"
-                aria-label="Clear search"
-                onClick={handleClearSearch}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#F5F5F5";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "transparent";
-                }}
-                style={{
-                  display: "flex",
-                  width: "24px",
-                  height: "24px",
-                  padding: "4px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  borderRadius: "6px",
-                  border: "none",
-                  background: "transparent",
-                  cursor: "pointer",
-                  transition: "background 0.2s ease",
-                }}
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M11.3334 4.66669L4.66675 11.3334M4.66675 4.66669L11.3334 11.3334"
-                    stroke="#A4A7AE"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-              <span
-                aria-hidden="true"
-                style={{
-                  width: "1px",
-                  height: "24px",
-                  background: "#E9EAEB",
-                }}
-              />
-              <button
-                type="button"
-                aria-label="Toggle advanced search"
-                aria-pressed={showAdvancedSearchModal}
-                onClick={() => setShowAdvancedSearchModal(true)}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = showAdvancedSearchModal
-                    ? "#ECEEF9"
-                    : "#F5F5F5";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = showAdvancedSearchModal
-                    ? "#ECEEF9"
-                    : "#FFF";
-                }}
-                style={{
-                  display: "flex",
-                  width: "24px",
-                  height: "24px",
-                  padding: "4px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  borderRadius: "6px",
-                  border: "1px solid #D5D7DA",
-                  background: showAdvancedSearchModal ? "#ECEEF9" : "#FFF",
-                  boxShadow:
-                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                  cursor: "pointer",
-                  transition: "background 0.2s ease",
-                }}
-              >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M2 5.33331L10 5.33331M10 5.33331C10 6.43788 10.8954 7.33331 12 7.33331C13.1046 7.33331 14 6.43788 14 5.33331C14 4.22874 13.1046 3.33331 12 3.33331C10.8954 3.33331 10 4.22874 10 5.33331ZM6 10.6666L14 10.6666M6 10.6666C6 11.7712 5.10457 12.6666 4 12.6666C2.89543 12.6666 2 11.7712 2 10.6666C2 9.56208 2.89543 8.66665 4 8.66665C5.10457 8.66665 6 9.56208 6 10.6666Z"
-                    stroke="#A4A7AE"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-            </div>
-          )}
+                <path
+                  d="M2 5.33331L10 5.33331M10 5.33331C10 6.43788 10.8954 7.33331 12 7.33331C13.1046 7.33331 14 6.43788 14 5.33331C14 4.22874 13.1046 3.33331 12 3.33331C10.8954 3.33331 10 4.22874 10 5.33331ZM6 10.6666L14 10.6666M6 10.6666C6 11.7712 5.10457 12.6666 4 12.6666C2.89543 12.6666 2 11.7712 2 10.6666C2 9.56208 2.89543 8.66665 4 8.66665C5.10457 8.66665 6 9.56208 6 10.6666Z"
+                  stroke="#A4A7AE"
+                  strokeWidth="1.66667"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
