@@ -401,7 +401,7 @@ export default function InviteNewMember() {
     password,
     passwordOption,
     reportViewOption,
-    selectedTeamMembers.length,
+    selectedTeamMembers,
     toast,
   ]);
 
