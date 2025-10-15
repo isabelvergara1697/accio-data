@@ -1346,7 +1346,6 @@ export default function InviteNewMember() {
                       style={{
                         display: "flex",
                         flexDirection: "column",
-                        flex: "1 0 0",
                       }}
                     >
                       {/* Empty Header */}
