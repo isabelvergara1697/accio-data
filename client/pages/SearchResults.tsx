@@ -177,7 +177,6 @@ const SearchResults = () => {
 
   const headerHeight = isDesktop ? 72 : 64;
   const verticalPadding = isMobile ? 24 : 32;
-  const horizontalPadding = isMobile ? 16 : 32;
   const bottomPadding = isMobile ? 80 : 32;
   const sectionGap = isMobile ? 16 : 24;
   const responsiveInlinePadding = "clamp(16px, 5vw, 32px)";
