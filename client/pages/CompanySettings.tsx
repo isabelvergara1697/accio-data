@@ -468,6 +468,7 @@ export default function CompanySettings() {
                     style={{
                       ...inputStyle,
                       maxWidth: isCompactLayout ? "100%" : "512px",
+                      minWidth: 0,
                     }}
                   />
                 </div>
@@ -514,6 +515,7 @@ export default function CompanySettings() {
                     style={{
                       ...inputStyle,
                       maxWidth: isCompactLayout ? "100%" : "512px",
+                      minWidth: 0,
                     }}
                   />
                 </div>
@@ -615,6 +617,7 @@ export default function CompanySettings() {
                     style={{
                       ...inputStyle,
                       maxWidth: isCompactLayout ? "100%" : "512px",
+                      minWidth: 0,
                     }}
                   />
                 </div>
@@ -661,6 +664,7 @@ export default function CompanySettings() {
                     style={{
                       ...inputStyle,
                       maxWidth: isCompactLayout ? "100%" : "512px",
+                      minWidth: 0,
                     }}
                   />
                 </div>
@@ -707,6 +711,7 @@ export default function CompanySettings() {
                     style={{
                       ...inputStyle,
                       maxWidth: isCompactLayout ? "100%" : "512px",
+                      minWidth: 0,
                     }}
                   />
                 </div>
@@ -868,6 +873,7 @@ export default function CompanySettings() {
                     style={{
                       ...inputStyle,
                       maxWidth: isCompactLayout ? "100%" : "512px",
+                      minWidth: 0,
                     }}
                   />
                 </div>
@@ -1243,6 +1249,7 @@ export default function CompanySettings() {
                     style={{
                       ...inputStyle,
                       maxWidth: isCompactLayout ? "100%" : "512px",
+                      minWidth: 0,
                     }}
                   />
                 </div>
@@ -1445,6 +1452,7 @@ export default function CompanySettings() {
                       gap: isCompactLayout ? "12px" : "24px",
                       width: "100%",
                       maxWidth: isCompactLayout ? "100%" : "512px",
+                      minWidth: 0,
                     }}
                   >
                     <div
@@ -1549,6 +1557,7 @@ export default function CompanySettings() {
                       gap: isCompactLayout ? "12px" : "24px",
                       width: "100%",
                       maxWidth: isCompactLayout ? "100%" : "512px",
+                      minWidth: 0,
                     }}
                   >
                     <div
@@ -1653,6 +1662,7 @@ export default function CompanySettings() {
                       gap: isCompactLayout ? "12px" : "24px",
                       width: "100%",
                       maxWidth: isCompactLayout ? "100%" : "512px",
+                      minWidth: 0,
                     }}
                   >
                     <div
@@ -1757,6 +1767,7 @@ export default function CompanySettings() {
                       gap: isCompactLayout ? "12px" : "24px",
                       width: "100%",
                       maxWidth: isCompactLayout ? "100%" : "512px",
+                      minWidth: 0,
                     }}
                   >
                     <div
@@ -2028,6 +2039,7 @@ export default function CompanySettings() {
                     style={{
                       ...inputStyle,
                       maxWidth: isCompactLayout ? "100%" : "512px",
+                      minWidth: 0,
                     }}
                   />
                 </div>
@@ -2164,6 +2176,7 @@ export default function CompanySettings() {
                     style={{
                       ...inputStyle,
                       maxWidth: isCompactLayout ? "100%" : "512px",
+                      minWidth: 0,
                     }}
                   />
                 </div>
@@ -2231,6 +2244,7 @@ export default function CompanySettings() {
                     style={{
                       ...inputStyle,
                       maxWidth: isCompactLayout ? "100%" : "512px",
+                      minWidth: 0,
                     }}
                   />
                 </div>
