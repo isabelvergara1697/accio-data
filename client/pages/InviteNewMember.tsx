@@ -393,10 +393,22 @@ export default function InviteNewMember() {
       description:
         "All required information is filled out. Continue to the next step to send the invite.",
     });
+
+    navigate("/invite-new-member/validation", {
+      state: {
+        formData,
+        passwordOption,
+        password,
+        selectedTeamMembers,
+        adjudicationSelections,
+        reportViewOption,
+      },
+    });
   }, [
     adjudicationSelections,
     confirmPassword,
     formData,
+    navigate,
     password,
     passwordOption,
     reportViewOption,
