@@ -12,6 +12,7 @@ export default function AccountSettings() {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
   const isDesktop = !isMobile;
+  const headerHeight = isDesktop ? 72 : 64;
 
   const [isTablet, setIsTablet] = useState(false);
   const [activeTab, setActiveTab] = useState<TabType>("profile");
