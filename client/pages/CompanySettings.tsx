@@ -103,6 +103,14 @@ export default function CompanySettings() {
     navigate("/login");
   };
 
+  const handleDeleteUser = () => {
+    if (userToDelete) {
+      console.log("Deleting user:", userToDelete.name);
+      // TODO: Add actual delete user API call here
+      setUserToDelete(null);
+    }
+  };
+
   const tabs = React.useMemo(
     () => [
       { id: "company" as CompanyTabType, label: "Company" },
