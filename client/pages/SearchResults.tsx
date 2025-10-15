@@ -347,11 +347,15 @@ const SearchResults = () => {
 
   const tableWrapperStyle: React.CSSProperties = {
     width: "100%",
+    maxWidth: "100%",
     boxSizing: "border-box",
     overflowX: "auto",
     overflowY: isMobile ? "auto" : "visible",
     maxHeight: isMobile ? "176px" : "none",
-    padding: isMobile ? "12px 16px 16px 16px" : "0",
+    paddingTop: isMobile ? 12 : 0,
+    paddingBottom: isMobile ? 16 : 0,
+    paddingLeft: isMobile ? horizontalPadding : 0,
+    paddingRight: isMobile ? horizontalPadding : 0,
     borderTop: isMobile ? "1px solid #E9EAEB" : "none",
     borderRadius: isMobile ? "0 0 12px 12px" : "0",
     borderRight: isMobile ? "1px solid #E9EAEB" : "none",
