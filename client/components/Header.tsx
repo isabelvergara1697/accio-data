@@ -176,6 +176,7 @@ export const Header: React.FC<HeaderProps> = ({
             background: "#FFF",
             padding: "10px 14px",
             boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+            transition: "border 0.2s ease",
           }}
         >
           <svg
@@ -218,40 +219,36 @@ export const Header: React.FC<HeaderProps> = ({
               lineHeight: "24px",
             }}
           />
-          {!isSearchActive && (
-            <div
-              style={{
-                display: "flex",
-                padding: "1px 4px",
-                alignItems: "flex-start",
-                borderRadius: "4px",
-                border: "1px solid #E9EAEB",
-                background: "#FAFAFA",
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: "Public Sans",
-                  fontSize: "12px",
-                  fontWeight: 500,
-                  color: "#717680",
-                  lineHeight: "18px",
-                }}
-              >
-                ⌘K
-              </span>
-            </div>
-          )}
+          <div
+            style={{
+              display: "flex",
+              padding: "1px 4px",
+              alignItems: "center",
+              borderRadius: "4px",
+              border: "1px solid #E9EAEB",
+              background: "#FAFAFA",
+              color: "#717680",
+              fontFamily: "Public Sans",
+              fontSize: "12px",
+              fontWeight: 500,
+              lineHeight: "18px",
+              whiteSpace: "nowrap",
+            }}
+          >
+            ⌘K
+          </div>
           {isSearchActive && (
             <div
               style={{
                 display: "flex",
-                height: "24px",
-                alignItems: "flex-start",
-                gap: "2px",
+                alignItems: "center",
+                gap: "4px",
+                marginLeft: "4px",
               }}
             >
               <button
+                type="button"
+                aria-label="Clear search"
                 onClick={handleClearSearch}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = "#F5F5F5";
@@ -289,31 +286,28 @@ export const Header: React.FC<HeaderProps> = ({
                   />
                 </svg>
               </button>
-              <div
+              <span
+                aria-hidden="true"
                 style={{
-                  display: "flex",
-                  width: "24px",
-                  height: "1px",
-                  transform: "rotate(90deg)",
-                  justifyContent: "center",
-                  alignItems: "flex-start",
+                  width: "1px",
+                  height: "24px",
+                  background: "#E9EAEB",
                 }}
-              >
-                <div
-                  style={{
-                    width: "1px",
-                    height: "24px",
-                    background: "#E9EAEB",
-                  }}
-                />
-              </div>
+              />
               <button
+                type="button"
+                aria-label="Toggle advanced search"
+                aria-pressed={showAdvancedSearch}
                 onClick={() => setShowAdvancedSearch(!showAdvancedSearch)}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#F5F5F5";
+                  e.currentTarget.style.background = showAdvancedSearch
+                    ? "#ECEEF9"
+                    : "#F5F5F5";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "transparent";
+                  e.currentTarget.style.background = showAdvancedSearch
+                    ? "#ECEEF9"
+                    : "#FFF";
                 }}
                 style={{
                   display: "flex",
@@ -323,8 +317,10 @@ export const Header: React.FC<HeaderProps> = ({
                   justifyContent: "center",
                   alignItems: "center",
                   borderRadius: "6px",
-                  border: "none",
-                  background: showAdvancedSearch ? "#F5F5F5" : "transparent",
+                  border: "1px solid #D5D7DA",
+                  background: showAdvancedSearch ? "#ECEEF9" : "#FFF",
+                  boxShadow:
+                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                   cursor: "pointer",
                   transition: "background 0.2s ease",
                 }}
@@ -359,6 +355,7 @@ export const Header: React.FC<HeaderProps> = ({
           dropdownRef={advancedSearchRef}
           style={{
             width: "280px",
+            right: "0",
           }}
         />
       </div>
