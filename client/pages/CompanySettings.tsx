@@ -233,7 +233,7 @@ export default function CompanySettings() {
                 margin: 0,
               }}
             >
-              Company settings
+              Account Settings
             </h1>
 
             <HorizontalTabs
