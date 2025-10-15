@@ -158,10 +158,7 @@ export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
             className="tab-button"
             style={{
               background: currentTab === tab.id ? "#ECEEF9" : "transparent",
-              boxShadow:
-                currentTab === tab.id
-                  ? "0px 1px 3px 0px rgba(10, 13, 18, 0.10), 0px 1px 2px -1px rgba(10, 13, 18, 0.10)"
-                  : "none",
+              border: currentTab === tab.id ? "1px solid #B3BCE5" : "none",
             }}
             onMouseEnter={(e) => {
               if (currentTab !== tab.id) {
