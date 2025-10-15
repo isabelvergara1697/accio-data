@@ -180,6 +180,7 @@ const SearchResults = () => {
   const horizontalPadding = isMobile ? 16 : 32;
   const bottomPadding = isMobile ? 80 : 32;
   const sectionGap = isMobile ? 16 : 24;
+  const responsiveInlinePadding = "clamp(16px, 5vw, 32px)";
 
   const renderStatusBadge = (status: string) => {
     const statusStyles: Record<string, { background: string; border: string; color: string }> = {
