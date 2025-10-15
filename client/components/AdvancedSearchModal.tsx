@@ -16,6 +16,7 @@ interface AdvancedSearchModalProps {
 export const AdvancedSearchModal: React.FC<AdvancedSearchModalProps> = ({
   isOpen,
   onClose,
+  anchor,
 }) => {
   const navigate = useNavigate();
   const [searchOrdersForm, setSearchOrdersForm] = useState({
