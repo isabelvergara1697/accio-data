@@ -365,9 +365,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
               position: "relative",
               cursor: isDisabled
                 ? "not-allowed"
-                : hasChevron
+                : onClick
                   ? "pointer"
-                  : "default",
+                  : hasChevron
+                    ? "pointer"
+                    : "default",
               opacity: isDisabled ? 0.5 : 1,
               ...(!isActive && !isDisabled ? getHoverStyles(section) : {}),
             }}
