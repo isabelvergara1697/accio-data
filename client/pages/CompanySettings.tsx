@@ -306,6 +306,7 @@ export default function CompanySettings() {
                 gap: "24px",
                 width: "100%",
                 maxWidth: "100%",
+                minWidth: 0,
                 overflowX: "hidden",
                 boxSizing: "border-box",
               }}
@@ -1344,6 +1345,7 @@ export default function CompanySettings() {
                 gap: "24px",
                 width: "100%",
                 maxWidth: "100%",
+                minWidth: 0,
                 overflowX: "hidden",
                 boxSizing: "border-box",
               }}
@@ -2471,6 +2473,7 @@ export default function CompanySettings() {
                 gap: "24px",
                 width: "100%",
                 maxWidth: "100%",
+                minWidth: 0,
                 overflowX: "hidden",
                 boxSizing: "border-box",
               }}
