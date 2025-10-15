@@ -318,11 +318,11 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      minWidth: isMobile ? "auto" : "480px",
-                      maxWidth: isMobile ? "auto" : "512px",
+                      flexDirection: isMobile ? "column" : "row",
                       alignItems: "flex-start",
-                      gap: "24px",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      gap: isMobile ? "12px" : "24px",
+                      width: "100%",
+                      maxWidth: isMobile ? "100%" : "512px",
                     }}
                   >
                     <input
