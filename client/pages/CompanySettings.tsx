@@ -393,7 +393,7 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: isCompactLayout ? "column" : "row",
                       alignItems: "flex-start",
-                      gap: isMobile ? "12px" : "24px",
+                      gap: isCompactLayout ? "12px" : "24px",
                       width: "100%",
                       maxWidth: isCompactLayout ? "100%" : "512px",
                       boxSizing: "border-box" as const,
