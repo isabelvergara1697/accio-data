@@ -60,6 +60,7 @@ const App = () => (
           <Route path="/account-settings" element={<AccountSettings />} />
           <Route path="/company-settings" element={<CompanySettings />} />
           <Route path="/invite-new-member" element={<InviteNewMember />} />
+          <Route path="/edit-member" element={<EditMember />} />
           <Route
             path="/invite-new-member/validation"
             element={<InviteNewMemberValidation />}
