@@ -64,6 +64,25 @@ export default function InviteNewMemberValidation() {
     return width >= 768 && width < 1024;
   });
   const isDesktop = !isMobile && !isTablet;
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [userMenuHovered, setUserMenuHovered] = useState(false);
+  const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  const handleSignOut = useCallback(() => {
+    navigate("/login");
+  }, [navigate]);
+
+  const getUserMenuStyles = useCallback(() => {
+    if (userMenuHovered || userMenuOpen) {
+      return {
+        border: "1px solid #E9EAEB",
+        background: "#F5F5F5",
+      } as const;
+    }
+    return {} as const;
+  }, [userMenuHovered, userMenuOpen]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
