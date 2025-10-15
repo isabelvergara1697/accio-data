@@ -564,9 +564,9 @@ export default function InviteNewMember() {
                 style={{
                   color: "#181D27",
                   fontFamily: "Public Sans",
-                  fontSize: isCompact ? "22px" : "24px",
+                  fontSize: isTablet ? "20px" : isCompact ? "22px" : "24px",
                   fontWeight: 600,
-                  lineHeight: isCompact ? "30px" : "32px",
+                  lineHeight: isTablet ? "30px" : isCompact ? "30px" : "32px",
                   margin: 0,
                 }}
               >
