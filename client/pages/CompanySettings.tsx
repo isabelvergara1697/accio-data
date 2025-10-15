@@ -115,14 +115,53 @@ const INITIAL_ROLE_PERMISSIONS: RolePermissionCategory[] = [
 ];
 
 
+// Uploaded File Type
+interface UploadedFile {
+  id: string;
+  file: File;
+  progress: number;
+  status: "uploading" | "complete" | "error";
+}
+
 // Termination Upload Area Component
 function TerminationUploadArea({ isMobile }: { isMobile: boolean }) {
-  const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
+  const [uploadedFiles, setUploadedFiles] = React.useState<UploadedFile[]>([]);
   const [isDragging, setIsDragging] = React.useState(false);
   const fileInputRef = React.useRef<HTMLInputElement>(null);
 
   const handleFileSelect = (file: File) => {
-    setSelectedFile(file);
+    const newFile: UploadedFile = {
+      id: Math.random().toString(36).substring(7),
+      file,
+      progress: 0,
+      status: "uploading",
+    };
+
+    setUploadedFiles((prev) => [...prev, newFile]);
+
+    // Simulate upload progress
+    simulateUpload(newFile.id);
+  };
+
+  const simulateUpload = (fileId: string) => {
+    let progress = 0;
+    const interval = setInterval(() => {
+      progress += 10;
+      setUploadedFiles((prev) =>
+        prev.map((f) =>
+          f.id === fileId ? { ...f, progress: Math.min(progress, 100) } : f
+        )
+      );
+
+      if (progress >= 100) {
+        clearInterval(interval);
+        setUploadedFiles((prev) =>
+          prev.map((f) =>
+            f.id === fileId ? { ...f, status: "complete" as const } : f
+          )
+        );
+      }
+    }, 100);
   };
 
   const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -155,12 +194,26 @@ function TerminationUploadArea({ isMobile }: { isMobile: boolean }) {
     fileInputRef.current?.click();
   };
 
-  const handleUploadClick = () => {
-    if (!selectedFile) return;
-    // TODO: Implement actual upload logic
-    console.log("Uploading file:", selectedFile.name);
-    // Reset after upload
-    setSelectedFile(null);
+  const handleRemoveFile = (fileId: string) => {
+    setUploadedFiles((prev) => prev.filter((f) => f.id !== fileId));
+  };
+
+  const formatFileSize = (bytes: number): string => {
+    if (bytes < 1024) return bytes + " B";
+    if (bytes < 1024 * 1024) return Math.round(bytes / 1024) + " KB";
+    return Math.round(bytes / (1024 * 1024)) + " MB";
+  };
+
+  const getFileExtension = (filename: string): string => {
+    const ext = filename.split(".").pop()?.toUpperCase() || "";
+    return ext;
+  };
+
+  const getFileTypeColor = (ext: string): string => {
+    if (ext === "PDF") return "#D92D20";
+    if (ext === "XLSX" || ext === "XLS") return "#079455";
+    if (ext === "CSV") return "#344698";
+    return "#A4A7AE";
   };
 
   return (
