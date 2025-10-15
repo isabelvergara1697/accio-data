@@ -8298,7 +8298,18 @@ export default function CompanySettings() {
                           borderRadius: "10px",
                           border: "1px solid #D5D7DA",
                           background: "#F5F5F5",
-                        }} />
+                          overflow: "hidden",
+                        }}>
+                          <img
+                            src="https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F9160e695278645baa7e162772c838288?format=webp&width=800"
+                            alt="Login screen preview"
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "cover",
+                            }}
+                          />
+                        </div>
                       </div>
                     )}
                   </div>
@@ -8358,7 +8369,18 @@ export default function CompanySettings() {
                       borderRadius: "10px",
                       border: "1px solid #D5D7DA",
                       background: "#F5F5F5",
-                    }} />
+                      overflow: "hidden",
+                    }}>
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F67d571b6d4e44b9d89c7487a4b1437be?format=webp&width=800"
+                        alt="Applicant portal instructions preview"
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                        }}
+                      />
+                    </div>
                   </div>
 
                   {/* Footer */}
