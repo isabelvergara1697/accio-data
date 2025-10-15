@@ -7528,12 +7528,877 @@ export default function CompanySettings() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                gap: "24px",
+                gap: "32px",
+                width: "100%",
               }}
             >
-              <p style={{ color: "#535862", fontFamily: "Public Sans" }}>
-                Customization content coming soon...
-              </p>
+              {/* Platform Customization */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+                <div>
+                  <h2 style={{
+                    color: "#181D27",
+                    fontFamily: "Public Sans",
+                    fontSize: "18px",
+                    fontWeight: 600,
+                    lineHeight: "28px",
+                    margin: 0,
+                  }}>
+                    Platform Customization
+                  </h2>
+                  <p style={{
+                    color: "#535862",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontWeight: 400,
+                    lineHeight: "20px",
+                    margin: "2px 0 0 0",
+                  }}>
+                    Customize your platform's branding and appearance
+                  </p>
+                </div>
+
+                {/* Brand Identity Card */}
+                <div style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  borderRadius: "12px",
+                  border: "1px solid #E9EAEB",
+                  background: "#FFF",
+                  overflow: "hidden",
+                }}>
+                  {/* Header */}
+                  <div style={{
+                    padding: "16px 16px 12px 16px",
+                    borderBottom: "1px solid #E9EAEB",
+                  }}>
+                    <h3 style={{
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "18px",
+                      fontWeight: 600,
+                      lineHeight: "28px",
+                      margin: 0,
+                    }}>
+                      Brand Identity
+                    </h3>
+                  </div>
+
+                  {/* Content */}
+                  <div style={{
+                    padding: "12px 16px 40px 16px",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "16px",
+                  }}>
+                    {/* Company Name & Custom Domain */}
+                    <div style={{
+                      display: "flex",
+                      gap: "16px",
+                      flexDirection: isCompactLayout ? "column" : "row",
+                    }}>
+                      <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "6px" }}>
+                        <label style={{
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                        }}>
+                          Company Name
+                        </label>
+                        <input
+                          type="text"
+                          value={companyName}
+                          onChange={(e) => setCompanyName(e.target.value)}
+                          style={{
+                            padding: "8px 12px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            outline: "none",
+                          }}
+                        />
+                      </div>
+                      <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "6px" }}>
+                        <label style={{
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                        }}>
+                          Custom Domain (Optional)
+                        </label>
+                        <input
+                          type="text"
+                          value={customDomain}
+                          onChange={(e) => setCustomDomain(e.target.value)}
+                          style={{
+                            padding: "8px 12px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            outline: "none",
+                          }}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Logo & Favicon Uploaders */}
+                    <div style={{
+                      display: "flex",
+                      gap: "16px",
+                      flexDirection: isCompactLayout ? "column" : "row",
+                    }}>
+                      {/* Logo */}
+                      <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "4px" }}>
+                        <label style={{
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                        }}>
+                          Logo
+                        </label>
+                        <div style={{ display: "flex", alignItems: "flex-start", gap: "20px" }}>
+                          <div style={{
+                            width: "72px",
+                            height: "72px",
+                            borderRadius: "9999px",
+                            border: "1px solid rgba(0, 0, 0, 0.08)",
+                            background: "#FFF",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            padding: "4px",
+                          }}>
+                            <div style={{
+                              width: "100%",
+                              height: "100%",
+                              borderRadius: "9999px",
+                              border: "1px solid rgba(0, 0, 0, 0.08)",
+                              background: "#F5F5F5",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                            }}>
+                              <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                                <path d="M18.75 4.5H11.7C9.17976 4.5 7.91965 4.5 6.95704 4.99047C6.11031 5.4219 5.4219 6.11031 4.99047 6.95704C4.5 7.91965 4.5 9.17976 4.5 11.7V24.3C4.5 26.8202 4.5 28.0804 4.99047 29.043C5.4219 29.8897 6.11031 30.5781 6.95704 31.0095C7.91965 31.5 9.17976 31.5 11.7 31.5H25.5C26.895 31.5 27.5924 31.5 28.1647 31.3467C29.7176 30.9306 30.9306 29.7176 31.3467 28.1647C31.5 27.5924 31.5 26.895 31.5 25.5M28.5 12V3M24 7.5H33M15.75 12.75C15.75 14.4069 14.4069 15.75 12.75 15.75C11.0931 15.75 9.75 14.4069 9.75 12.75C9.75 11.0931 11.0931 9.75 12.75 9.75C14.4069 9.75 15.75 11.0931 15.75 12.75Z" stroke="#A4A7AE" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
+                            </div>
+                          </div>
+                          <div style={{
+                            flex: 1,
+                            padding: "16px 24px",
+                            borderRadius: "12px",
+                            border: "1px solid #E9EAEB",
+                            background: "#FFF",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            gap: "4px",
+                            cursor: "pointer",
+                          }}>
+                            <div style={{ textAlign: "center" }}>
+                              <span style={{
+                                color: "#273572",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 600,
+                                lineHeight: "20px",
+                              }}>Click to upload</span>
+                              <span style={{
+                                color: "#535862",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 400,
+                                lineHeight: "20px",
+                              }}> or drag and drop</span>
+                            </div>
+                            <p style={{
+                              color: "#535862",
+                              fontFamily: "Roboto Mono",
+                              fontSize: "12px",
+                              fontWeight: 400,
+                              lineHeight: "18px",
+                              margin: 0,
+                            }}>
+                              SVG, PNG, JPG or GIF (max. 800x400px)
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Favicon */}
+                      <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "4px" }}>
+                        <label style={{
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                        }}>
+                          Favicon
+                        </label>
+                        <div style={{ display: "flex", alignItems: "flex-start", gap: "20px" }}>
+                          <div style={{
+                            width: "72px",
+                            height: "72px",
+                            borderRadius: "9999px",
+                            border: "1px solid rgba(0, 0, 0, 0.08)",
+                            background: "#FFF",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            padding: "4px",
+                          }}>
+                            <div style={{
+                              width: "100%",
+                              height: "100%",
+                              borderRadius: "9999px",
+                              border: "1px solid rgba(0, 0, 0, 0.08)",
+                              background: "#F5F5F5",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                            }}>
+                              <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                                <path d="M18.75 4.5H11.7C9.17976 4.5 7.91965 4.5 6.95704 4.99047C6.11031 5.4219 5.4219 6.11031 4.99047 6.95704C4.5 7.91965 4.5 9.17976 4.5 11.7V24.3C4.5 26.8202 4.5 28.0804 4.99047 29.043C5.4219 29.8897 6.11031 30.5781 6.95704 31.0095C7.91965 31.5 9.17976 31.5 11.7 31.5H25.5C26.895 31.5 27.5924 31.5 28.1647 31.3467C29.7176 30.9306 30.9306 29.7176 31.3467 28.1647C31.5 27.5924 31.5 26.895 31.5 25.5M28.5 12V3M24 7.5H33M15.75 12.75C15.75 14.4069 14.4069 15.75 12.75 15.75C11.0931 15.75 9.75 14.4069 9.75 12.75C9.75 11.0931 11.0931 9.75 12.75 9.75C14.4069 9.75 15.75 11.0931 15.75 12.75Z" stroke="#A4A7AE" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
+                            </div>
+                          </div>
+                          <div style={{
+                            flex: 1,
+                            padding: "16px 24px",
+                            borderRadius: "12px",
+                            border: "1px solid #E9EAEB",
+                            background: "#FFF",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            gap: "4px",
+                            cursor: "pointer",
+                          }}>
+                            <div style={{ textAlign: "center" }}>
+                              <span style={{
+                                color: "#273572",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 600,
+                                lineHeight: "20px",
+                              }}>Click to upload</span>
+                              <span style={{
+                                color: "#535862",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 400,
+                                lineHeight: "20px",
+                              }}> or drag and drop</span>
+                            </div>
+                            <p style={{
+                              color: "#535862",
+                              fontFamily: "Roboto Mono",
+                              fontSize: "12px",
+                              fontWeight: 400,
+                              lineHeight: "18px",
+                              margin: 0,
+                            }}>
+                              SVG, PNG, JPG or GIF (max. 800x400px)
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Hint Text */}
+                    <p style={{
+                      color: "#535862",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      lineHeight: "20px",
+                      margin: 0,
+                    }}>
+                      Main logo: Recommended size 200x60px, PNG or SVG format<br/>
+                      Favicon: Must be 32x32px or 16x16px, ICO, PNG, or SVG format<br/>
+                      Use transparent backgrounds for best results
+                    </p>
+
+                    {/* Footer */}
+                    <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                      <div style={{ height: "1px", background: "#E9EAEB" }} />
+                      <div style={{ display: "flex", justifyContent: "flex-end", gap: "12px" }}>
+                        <button type="button" style={{
+                          padding: "12px",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          cursor: "pointer",
+                        }}>
+                          Cancel
+                        </button>
+                        <button type="button" style={{
+                          padding: "12px",
+                          borderRadius: "8px",
+                          border: "2px solid rgba(255, 255, 255, 0.12)",
+                          background: "#344698",
+                          boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          color: "#FFF",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          cursor: "pointer",
+                        }}>
+                          Update
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Theme Appearance */}
+              <div style={{
+                display: "flex",
+                flexDirection: "column",
+                borderRadius: "12px",
+                border: "1px solid #E9EAEB",
+                background: "#FFF",
+                overflow: "hidden",
+              }}>
+                <div style={{
+                  padding: "16px 16px 12px 16px",
+                  borderBottom: "1px solid #E9EAEB",
+                }}>
+                  <h3 style={{
+                    color: "#181D27",
+                    fontFamily: "Public Sans",
+                    fontSize: "18px",
+                    fontWeight: 600,
+                    lineHeight: "28px",
+                    margin: 0,
+                  }}>
+                    Theme Appearance
+                  </h3>
+                </div>
+
+                <div style={{ padding: "12px 16px 16px 16px", display: "flex", flexDirection: "column", gap: "24px" }}>
+                  {/* Brand Color */}
+                  <div style={{ display: "flex", flexDirection: "column", gap: "16px", maxWidth: "504px" }}>
+                    <div>
+                      <h4 style={{
+                        color: "#181D27",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                        margin: 0,
+                      }}>Brand color</h4>
+                      <p style={{
+                        color: "#535862",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        lineHeight: "20px",
+                        margin: 0,
+                      }}>Update your dashboard to your brand color.</p>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
+                      <div style={{ display: "flex", gap: "8px" }}>
+                        {['#535862', '#099250', '#1570EF', '#444CE7', '#6938EF', '#BA24D5', '#DD2590', '#E04F16'].map((color) => (
+                          <div
+                            key={color}
+                            onClick={() => setBrandColor(color)}
+                            style={{
+                              width: "28px",
+                              height: "28px",
+                              borderRadius: "9999px",
+                              border: "1px solid rgba(0, 0, 0, 0.10)",
+                              background: color,
+                              cursor: "pointer",
+                            }}
+                          />
+                        ))}
+                      </div>
+                      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                        <span style={{
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                        }}>Custom</span>
+                        <div style={{
+                          width: "28px",
+                          height: "28px",
+                          borderRadius: "9999px",
+                          border: "1px solid rgba(0, 0, 0, 0.10)",
+                          background: brandColor,
+                          boxShadow: "0 0 0 2px #FFF, 0 0 0 4px #34479A",
+                        }} />
+                        <input
+                          type="text"
+                          value={brandColor}
+                          onChange={(e) => setBrandColor(e.target.value)}
+                          style={{
+                            width: "96px",
+                            padding: "8px 12px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            outline: "none",
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                  {/* Display Preference */}
+                  <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+                    <div>
+                      <h4 style={{
+                        color: "#181D27",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                        margin: 0,
+                      }}>Display preference</h4>
+                      <p style={{
+                        color: "#535862",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        lineHeight: "20px",
+                        margin: 0,
+                      }}>Switch between light and dark modes.</p>
+                    </div>
+                    <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+                      {[
+                        { id: 'system', label: 'System preference' },
+                        { id: 'light', label: 'Light mode' },
+                        { id: 'dark', label: 'Dark mode' },
+                      ].map((option) => (
+                        <div key={option.id} style={{ display: "flex", flexDirection: "column", gap: "12px", maxWidth: "240px" }}>
+                          <div
+                            onClick={() => setDisplayPreference(option.id as any)}
+                            style={{
+                              width: "200px",
+                              height: "132px",
+                              borderRadius: "10px",
+                              border: displayPreference === option.id ? "1px solid #D5D7DA" : "1px solid #D5D7DA",
+                              background: "#F5F5F5",
+                              boxShadow: displayPreference === option.id ? "0 0 0 2px #FFF, 0 0 0 4px #34479A" : "none",
+                              cursor: "pointer",
+                              position: "relative",
+                            }}
+                          >
+                            {displayPreference === option.id && (
+                              <div style={{
+                                position: "absolute",
+                                left: "8px",
+                                top: "104px",
+                                width: "20px",
+                                height: "20px",
+                                borderRadius: "9999px",
+                                background: "#344698",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                              }}>
+                                <div style={{
+                                  width: "8px",
+                                  height: "8px",
+                                  borderRadius: "9999px",
+                                  background: "#FFF",
+                                }} />
+                              </div>
+                            )}
+                          </div>
+                          <span style={{
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}>{option.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                  {/* UI Styling */}
+                  <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+                    <div>
+                      <h4 style={{
+                        color: "#181D27",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                        margin: 0,
+                      }}>UI Styling</h4>
+                      <p style={{
+                        color: "#535862",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        lineHeight: "20px",
+                        margin: 0,
+                      }}>Choose the corner style for the interface throughout your platform</p>
+                    </div>
+                    <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+                      {[
+                        { id: 'pill', label: 'Pill', radius: '9999px' },
+                        { id: 'round', label: 'Round', radius: '10px' },
+                        { id: 'sharp', label: 'Sharp', radius: '0px' },
+                      ].map((option) => (
+                        <div key={option.id} style={{ display: "flex", flexDirection: "column", gap: "12px", maxWidth: "240px" }}>
+                          <div
+                            onClick={() => setUiStyling(option.id as any)}
+                            style={{
+                              width: "200px",
+                              height: "132px",
+                              borderRadius: "10px",
+                              border: "1px solid #D5D7DA",
+                              background: "#F5F5F5",
+                              boxShadow: uiStyling === option.id ? "0 0 0 2px #FFF, 0 0 0 4px #34479A" : "none",
+                              cursor: "pointer",
+                              position: "relative",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                            }}
+                          >
+                            <button type="button" style={{
+                              padding: "6px",
+                              borderRadius: option.radius,
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              color: "#414651",
+                              fontFamily: "Public Sans",
+                              fontSize: "12px",
+                              fontWeight: 600,
+                              lineHeight: "18px",
+                              pointerEvents: "none",
+                            }}>
+                              Start
+                            </button>
+                            {uiStyling === option.id && (
+                              <div style={{
+                                position: "absolute",
+                                left: "8px",
+                                top: "104px",
+                                width: "20px",
+                                height: "20px",
+                                borderRadius: "9999px",
+                                background: "#344698",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                              }}>
+                                <div style={{
+                                  width: "8px",
+                                  height: "8px",
+                                  borderRadius: "9999px",
+                                  background: "#FFF",
+                                }} />
+                              </div>
+                            )}
+                          </div>
+                          <span style={{
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}>{option.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Footer */}
+                  <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                    <div style={{ display: "flex", justifyContent: "flex-end", gap: "12px" }}>
+                      <button type="button" style={{
+                        padding: "12px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                        cursor: "pointer",
+                      }}>
+                        Cancel
+                      </button>
+                      <button type="button" style={{
+                        padding: "12px",
+                        borderRadius: "8px",
+                        border: "2px solid rgba(255, 255, 255, 0.12)",
+                        background: "#344698",
+                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        color: "#FFF",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                        cursor: "pointer",
+                      }}>
+                        Update
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Additional Customization */}
+              <div style={{
+                display: "flex",
+                flexDirection: "column",
+                borderRadius: "12px",
+                border: "1px solid #E9EAEB",
+                background: "#FFF",
+                overflow: "hidden",
+              }}>
+                <div style={{
+                  padding: "16px 16px 12px 16px",
+                  borderBottom: "1px solid #E9EAEB",
+                }}>
+                  <h3 style={{
+                    color: "#181D27",
+                    fontFamily: "Public Sans",
+                    fontSize: "18px",
+                    fontWeight: 600,
+                    lineHeight: "28px",
+                    margin: 0,
+                  }}>
+                    Additional Customization
+                  </h3>
+                </div>
+
+                <div style={{ padding: "12px 16px 16px 16px", display: "flex", flexDirection: "column", gap: "24px" }}>
+                  {/* Login Image */}
+                  <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", width: "344px" }}>
+                      <div
+                        onClick={() => setLoginImageEnabled(!loginImageEnabled)}
+                        style={{
+                          width: "36px",
+                          height: "20px",
+                          padding: "2px",
+                          borderRadius: "9999px",
+                          background: loginImageEnabled ? "#344698" : "#F5F5F5",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: loginImageEnabled ? "flex-end" : "flex-start",
+                          cursor: "pointer",
+                          transition: "all 0.15s ease",
+                        }}
+                      >
+                        <div style={{
+                          width: "16px",
+                          height: "16px",
+                          borderRadius: "9999px",
+                          background: "#FFF",
+                          boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)",
+                        }} />
+                      </div>
+                      <div style={{ flex: 1 }}>
+                        <p style={{
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                          margin: 0,
+                        }}>Login Image</p>
+                        <p style={{
+                          color: "#535862",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                          margin: 0,
+                        }}>Customize the login screen with an additional image.</p>
+                      </div>
+                    </div>
+
+                    {loginImageEnabled && (
+                      <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+                        <div style={{
+                          flex: 1,
+                          maxWidth: "424px",
+                          padding: "16px 24px",
+                          borderRadius: "12px",
+                          border: "1px solid #E9EAEB",
+                          background: "#FFF",
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          gap: "4px",
+                          cursor: "pointer",
+                        }}>
+                          <div style={{ textAlign: "center" }}>
+                            <span style={{
+                              color: "#273572",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 600,
+                              lineHeight: "20px",
+                            }}>Click to upload</span>
+                            <span style={{
+                              color: "#535862",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 400,
+                              lineHeight: "20px",
+                            }}> or drag and drop</span>
+                          </div>
+                          <p style={{
+                            color: "#535862",
+                            fontFamily: "Roboto Mono",
+                            fontSize: "12px",
+                            fontWeight: 400,
+                            lineHeight: "18px",
+                            margin: 0,
+                          }}>
+                            SVG, PNG, JPG or GIF (max. 800x400px)
+                          </p>
+                        </div>
+                        <div style={{
+                          width: "200px",
+                          height: "132px",
+                          borderRadius: "10px",
+                          border: "1px solid #D5D7DA",
+                          background: "#F5F5F5",
+                        }} />
+                      </div>
+                    )}
+                  </div>
+
+                  <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                  {/* Applicant Portal Instructions */}
+                  <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", width: "424px" }}>
+                      <div
+                        onClick={() => setPortalInstructionsEnabled(!portalInstructionsEnabled)}
+                        style={{
+                          width: "36px",
+                          height: "20px",
+                          padding: "2px",
+                          borderRadius: "9999px",
+                          background: portalInstructionsEnabled ? "#344698" : "#F5F5F5",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: portalInstructionsEnabled ? "flex-end" : "flex-start",
+                          cursor: "pointer",
+                          transition: "all 0.15s ease",
+                        }}
+                      >
+                        <div style={{
+                          width: "16px",
+                          height: "16px",
+                          borderRadius: "9999px",
+                          background: "#FFF",
+                          boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)",
+                        }} />
+                      </div>
+                      <div style={{ flex: 1 }}>
+                        <p style={{
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                          margin: 0,
+                        }}>Applicant Portal Instructions</p>
+                        <p style={{
+                          color: "#535862",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                          margin: 0,
+                        }}>
+                          Allow users to get an understanding and instructions of the upcoming steps. <span style={{ color: "#273572", textDecoration: "underline", cursor: "pointer" }}>Preview here</span>
+                        </p>
+                      </div>
+                    </div>
+                    <div style={{
+                      width: "200px",
+                      height: "132px",
+                      borderRadius: "10px",
+                      border: "1px solid #D5D7DA",
+                      background: "#F5F5F5",
+                    }} />
+                  </div>
+
+                  {/* Footer */}
+                  <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                    <div style={{ height: "1px", background: "#E9EAEB" }} />
+                    <div style={{ display: "flex", justifyContent: "flex-end", gap: "12px" }}>
+                      <button type="button" style={{
+                        padding: "12px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                        cursor: "pointer",
+                      }}>
+                        Cancel
+                      </button>
+                      <button type="button" style={{
+                        padding: "12px",
+                        borderRadius: "8px",
+                        border: "2px solid rgba(255, 255, 255, 0.12)",
+                        background: "#344698",
+                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        color: "#FFF",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                        cursor: "pointer",
+                      }}>
+                        Update
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
         </div>
