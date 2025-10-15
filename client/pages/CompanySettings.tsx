@@ -469,9 +469,7 @@ export default function CompanySettings() {
                     onChange={(e) => setState(e.target.value)}
                     style={{
                       ...inputStyle,
-                      minWidth: isMobile ? "auto" : "480px",
-                      maxWidth: isMobile ? "auto" : "512px",
-                      flex: isMobile ? "1 0 100%" : "1 0 0",
+                      maxWidth: isMobile ? "100%" : "512px",
                       appearance: "none",
                       backgroundImage:
                         "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
