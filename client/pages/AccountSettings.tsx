@@ -20,8 +20,8 @@ export default function AccountSettings() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   
   // Form state
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [firstName, setFirstName] = useState("Alexandra");
+  const [lastName, setLastName] = useState("Fitzwilliam");
   const [role, setRole] = useState("Director of Human Resources");
   const [address, setAddress] = useState("123456 Street");
   const [zipCode, setZipCode] = useState("18735");
@@ -45,9 +45,34 @@ export default function AccountSettings() {
   const hasPhoto = photoUrl.length > 0;
 
   const getInitials = () => {
-    const firstInitial = firstName.trim().charAt(0).toUpperCase();
-    const lastInitial = lastName.trim().charAt(0).toUpperCase();
-    return `${firstInitial}${lastInitial}`;
+    const trimmedFirst = firstName.trim();
+    const trimmedLast = lastName.trim();
+    const nameInitials = [trimmedFirst.charAt(0), trimmedLast.charAt(0)]
+      .filter(Boolean)
+      .join("")
+      .toUpperCase();
+
+    if (nameInitials) {
+      return nameInitials;
+    }
+
+    const emailLocalPart = primaryEmail.split("@")[0] || "";
+    if (emailLocalPart) {
+      const emailSegments = emailLocalPart.split(/[._-]+/).filter(Boolean);
+      if (emailSegments.length > 0) {
+        const [firstSegment, secondSegment] = emailSegments;
+        const emailInitials = `${firstSegment?.charAt(0) || ""}${
+          secondSegment?.charAt(0) || ""
+        }`.toUpperCase();
+        if (emailInitials.trim()) {
+          return emailInitials.trim();
+        }
+        return firstSegment.charAt(0).toUpperCase() || "U";
+      }
+      return emailLocalPart.charAt(0).toUpperCase() || "U";
+    }
+
+    return "U";
   };
 
   const handleSignOut = () => {
