@@ -789,6 +789,15 @@ export default function CompanySettings() {
   const [rolePermissions, setRolePermissions] =
     React.useState<RolePermissionCategory[]>(() => INITIAL_ROLE_PERMISSIONS);
 
+  // Customization state
+  const [companyName, setCompanyName] = React.useState("");
+  const [customDomain, setCustomDomain] = React.useState("");
+  const [brandColor, setBrandColor] = React.useState("#7F56D9");
+  const [displayPreference, setDisplayPreference] = React.useState<'system' | 'light' | 'dark'>('system');
+  const [uiStyling, setUiStyling] = React.useState<'pill' | 'round' | 'sharp'>('pill');
+  const [loginImageEnabled, setLoginImageEnabled] = React.useState(true);
+  const [portalInstructionsEnabled, setPortalInstructionsEnabled] = React.useState(true);
+
   const handlePermissionToggle = React.useCallback(
     (categoryIndex: number, permissionIndex: number, roleKey: RoleKey) => {
       const roleMeta = ROLE_COLUMNS.find((role) => role.key === roleKey);
