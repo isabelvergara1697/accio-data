@@ -57,6 +57,28 @@ export const Sidebar: React.FC<SidebarProps> = ({
     }
   }, [location.pathname, openAccordions]);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [mobileSearchQuery, setMobileSearchQuery] = useState(() => {
+    const params = new URLSearchParams(location.search);
+    return params.get("q") || "";
+  });
+  const [isMobileSearchFocused, setIsMobileSearchFocused] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const query = params.get("q") || "";
+    setMobileSearchQuery(query);
+  }, [location.search]);
+
+  const handleMobileSearchSubmit = () => {
+    const trimmedQuery = mobileSearchQuery.trim();
+    if (!trimmedQuery) return;
+    navigate(`/search?q=${encodeURIComponent(trimmedQuery)}`);
+    setMobileMenuOpen?.(false);
+    setShowMobileUserMenu?.(false);
+  };
+
+  const isMobileSearchActive =
+    isMobileSearchFocused || mobileSearchQuery.length > 0;
 
   const menuSections = {
     tools: [
@@ -946,10 +968,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 gap: "8px",
                 alignSelf: "stretch",
                 borderRadius: "8px",
-                border: "1px solid #D5D7DA",
+                border: isMobileSearchActive ? "2px solid #34479A" : "1px solid #D5D7DA",
                 background: "#FFF",
                 boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                 position: "relative",
+                transition: "border 0.2s ease",
               }}
             >
               <div
@@ -984,37 +1007,33 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     strokeLinejoin="round"
                   />
                 </svg>
-                <div
+                <input
+                  type="text"
+                  value={mobileSearchQuery}
+                  onChange={(e) => setMobileSearchQuery(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      handleMobileSearchSubmit();
+                    }
+                  }}
+                  onFocus={() => setIsMobileSearchFocused(true)}
+                  onBlur={() => setIsMobileSearchFocused(false)}
+                  placeholder="Search"
+                  aria-label="Search"
                   style={{
-                    display: "flex",
-                    height: "20px",
-                    flexDirection: "column",
-                    justifyContent: "center",
                     flex: "1 0 0",
-                    overflow: "hidden",
-                    color: "#717680",
-                    textOverflow: "ellipsis",
-                    whiteSpace: "nowrap",
+                    border: "none",
+                    outline: "none",
+                    background: "transparent",
                     fontFamily: "Public Sans",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 500,
                     lineHeight: "20px",
-                    position: "relative",
+                    color: "#181D27",
+                    minWidth: 0,
                   }}
-                >
-                  <span
-                    style={{
-                      fontFamily:
-                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 400,
-                      fontSize: "14px",
-                      color: "rgba(113,118,128,1)",
-                    }}
-                  >
-                    Search
-                  </span>
-                </div>
+                />
               </div>
               <div
                 style={{
