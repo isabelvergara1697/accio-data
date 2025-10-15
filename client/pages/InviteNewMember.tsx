@@ -83,6 +83,70 @@ const DEFAULT_SELECTED_MEMBERS = TEAM_MEMBERS.filter((member) =>
   DEFAULT_SELECTED_MEMBER_IDS.includes(member.id),
 );
 
+const STATE_OPTIONS = ["Select", "California", "Georgia", "New York"] as const;
+
+const CITY_OPTIONS_BY_STATE: Record<string, string[]> = {
+  Select: ["Select"],
+  California: ["Select", "San Francisco", "Los Angeles", "San Diego"],
+  Georgia: ["Select", "Atlanta", "Savannah"],
+  "New York": ["Select", "New York City", "Buffalo", "Rochester"],
+};
+
+const REPORT_VISIBILITY_OPTIONS = [
+  "Select",
+  "All Reports",
+  "Only Own Reports",
+  "Custom Selection",
+] as const;
+
+const ADJUDICATION_OPTIONS = [
+  "All",
+  "Does not Meet Hiring Requirements",
+  "Meet Hiring Requirements",
+] as const;
+
+const DEFAULT_PASSWORD_VALUE = "SecurePass!23";
+
+const DEFAULT_FORM_DATA: InviteMemberFormData = {
+  email: "olivia.rhye@example.com",
+  username: "olivia.rhye",
+  firstName: "Olivia",
+  lastName: "Rhye",
+  role: "Account Administrator",
+  telephone: "(415) 555-0149",
+  fax: "(415) 555-0150",
+  secondaryEmail: "olivia.rhye+alerts@example.com",
+  zip: "94103",
+  address: "548 Market Street, Suite 201",
+  state: "California",
+  city: "San Francisco",
+  reportVisibility: "All Reports",
+  icimsCustomerId: "CUST-3021",
+  icimsUserId: "US-88421",
+  icimsUserName: "olivia.rhye",
+  icimsPassword: DEFAULT_PASSWORD_VALUE,
+};
+
+const REQUIRED_FIELDS: Array<keyof InviteMemberFormData> = [
+  "email",
+  "username",
+  "firstName",
+  "lastName",
+  "role",
+  "telephone",
+  "fax",
+  "secondaryEmail",
+  "zip",
+  "address",
+  "state",
+  "city",
+  "reportVisibility",
+  "icimsCustomerId",
+  "icimsUserId",
+  "icimsUserName",
+  "icimsPassword",
+];
+
 export default function InviteNewMember() {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
