@@ -104,6 +104,7 @@ export default function CompanySettings() {
 
   const inputStyle = {
     width: "100%",
+    maxWidth: "100%",
     padding: "10px 14px",
     borderRadius: "8px",
     border: "1px solid #D5D7DA",
@@ -116,6 +117,7 @@ export default function CompanySettings() {
     lineHeight: "24px",
     outline: "none",
     boxSizing: "border-box" as const,
+    minWidth: 0,
   };
 
   return (
