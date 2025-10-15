@@ -77,6 +77,10 @@ export const Header: React.FC<HeaderProps> = ({
   const [searchQuery, setSearchQuery] = React.useState(initialSearchQuery);
   const [searchFocused, setSearchFocused] = React.useState(false);
   const [showAdvancedSearchModal, setShowAdvancedSearchModal] = React.useState(false);
+  const [advancedModalAnchor, setAdvancedModalAnchor] = React.useState<
+    { top: number; left: number; width: number } | null
+  >(null);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
 
   const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && searchQuery.trim()) {
