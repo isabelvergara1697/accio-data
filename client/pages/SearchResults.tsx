@@ -276,6 +276,7 @@ const SearchResults = () => {
     padding: "6px 12px",
     textAlign: "left",
     borderBottom: "1px solid #E9EAEB",
+    background: "#FFF",
     color: "#717680",
     fontFamily: "Public Sans",
     fontSize: "12px",
@@ -322,15 +323,17 @@ const SearchResults = () => {
   const tableWrapperStyle: React.CSSProperties = {
     width: "100%",
     overflowX: "auto",
-    overflowY: "auto",
-    maxHeight: isMobile ? "400px" : "none",
+    overflowY: isMobile ? "auto" : "visible",
+    maxHeight: isMobile ? "200px" : "none",
+    padding: isMobile ? "12px 16px 16px 16px" : "0",
+    borderTop: isMobile ? "1px solid #E9EAEB" : "none",
     WebkitOverflowScrolling: "touch",
   };
 
   const tableStyle: React.CSSProperties = {
     width: "100%",
     borderCollapse: "collapse",
-    minWidth: "720px",
+    minWidth: isMobile ? "600px" : "720px",
   };
 
   return (
