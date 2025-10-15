@@ -1280,10 +1280,12 @@ export default function InviteNewMember() {
                         display: "block",
                         marginBottom: "6px",
                       }}
-                    >
+>
                       State
                     </label>
                     <select
+                      value={formData.state}
+                      onChange={(event) => handleStateChange(event.target.value)}
                       style={{
                         width: "100%",
                         height: "40px",
@@ -1302,9 +1304,12 @@ export default function InviteNewMember() {
                         backgroundRepeat: "no-repeat",
                         backgroundPosition: "right 8px center",
                       }}
-                      defaultValue="Select"
                     >
-                      <option value="Select">Select</option>
+                      {STATE_OPTIONS.map((state) => (
+                        <option key={state} value={state}>
+                          {state}
+                        </option>
+                      ))}
                     </select>
                   </div>
 
