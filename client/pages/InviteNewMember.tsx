@@ -1257,19 +1257,28 @@ export default function InviteNewMember() {
                   </h3>
                   <div
                     style={{
-                      display: "grid",
-                      gridTemplateColumns: isCompact ? "1fr" : "1fr 120px",
-                      border: "1px solid #E9EAEB",
-                      borderRadius: "8px",
-                      overflow: "hidden",
+                      display: "flex",
+                      flexDirection: isCompact ? "column" : "row",
+                      alignSelf: "stretch",
                     }}
                   >
-                    <div>
+                    {/* Left Column - Configuration */}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        flex: 1,
+                      }}
+                    >
+                      {/* Header */}
                       <div
                         style={{
+                          display: "flex",
+                          height: "36px",
                           padding: "6px 12px",
-                          background: "#FFF",
+                          alignItems: "center",
                           borderBottom: "1px solid #E9EAEB",
+                          background: "#FFF",
                         }}
                       >
                         <span
@@ -1277,34 +1286,40 @@ export default function InviteNewMember() {
                             color: "#717680",
                             fontFamily: "Public Sans",
                             fontSize: "12px",
-                            fontWeight: 600,
+                            fontWeight: 700,
                             lineHeight: "18px",
                           }}
                         >
                           Configuration
                         </span>
                       </div>
+                      {/* Rows */}
                       {permissions.map((permission, index) => (
                         <div
                           key={`${permission.name}-${index}`}
                           style={{
+                            display: "flex",
                             padding: "12px",
+                            alignItems: "center",
                             borderBottom:
                               index === permissions.length - 1
                                 ? "none"
                                 : "1px solid #E9EAEB",
                             minHeight: permission.locked ? "64px" : "36px",
-                            display: "flex",
-                            alignItems: "center",
                           }}
                         >
-                          <div>
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                            }}
+                          >
                             <div
                               style={{
                                 color: "#181D27",
                                 fontFamily: "Public Sans",
                                 fontSize: "14px",
-                                fontWeight: 500,
+                                fontWeight: 400,
                                 lineHeight: "20px",
                               }}
                             >
@@ -1327,32 +1342,38 @@ export default function InviteNewMember() {
                         </div>
                       ))}
                     </div>
+                    {/* Right Column - Toggles */}
                     <div
                       style={{
-                        borderLeft: isCompact ? "none" : "1px solid #E9EAEB",
+                        display: "flex",
+                        flexDirection: "column",
+                        flex: isCompact ? 1 : "0 0 auto",
                       }}
                     >
+                      {/* Empty Header */}
                       <div
                         style={{
+                          display: "flex",
+                          height: "36px",
                           padding: "6px 12px",
-                          background: "#FFF",
+                          alignItems: "center",
                           borderBottom: "1px solid #E9EAEB",
-                          minHeight: "36px",
+                          background: "#FFF",
                         }}
                       />
+                      {/* Toggle Rows */}
                       {permissions.map((permission, index) => (
                         <div
                           key={`${permission.name}-${index}-toggle`}
                           style={{
+                            display: "flex",
                             padding: "12px",
+                            alignItems: "center",
                             borderBottom:
                               index === permissions.length - 1
                                 ? "none"
                                 : "1px solid #E9EAEB",
                             minHeight: permission.locked ? "64px" : "36px",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: isCompact ? "flex-start" : "center",
                           }}
                         >
                           <button
@@ -1378,7 +1399,6 @@ export default function InviteNewMember() {
                                 ? "not-allowed"
                                 : "pointer",
                               transition: "all 0.2s",
-                              opacity: permission.locked ? 0.6 : 1,
                             }}
                           >
                             <div
