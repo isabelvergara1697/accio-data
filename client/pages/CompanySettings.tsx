@@ -114,6 +114,12 @@ const INITIAL_ROLE_PERMISSIONS: RolePermissionCategory[] = [
   },
 ];
 
+const LOGIN_IMAGE_PLACEHOLDER =
+  "https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F9160e695278645baa7e162772c838288?format=webp&width=800";
+
+const PORTAL_INSTRUCTIONS_PLACEHOLDER =
+  "https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F67d571b6d4e44b9d89c7487a4b1437be?format=webp&width=800";
+
 
 // Uploaded File Type
 interface UploadedFile {
