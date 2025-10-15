@@ -324,10 +324,15 @@ const SearchResults = () => {
     width: "100%",
     overflowX: "auto",
     overflowY: isMobile ? "auto" : "visible",
-    maxHeight: isMobile ? "200px" : "none",
+    maxHeight: isMobile ? "176px" : "none",
     padding: isMobile ? "12px 16px 16px 16px" : "0",
     borderTop: isMobile ? "1px solid #E9EAEB" : "none",
+    borderRadius: isMobile ? "0 0 12px 12px" : "0",
+    borderRight: isMobile ? "1px solid #E9EAEB" : "none",
+    borderBottom: isMobile ? "1px solid #E9EAEB" : "none",
+    borderLeft: isMobile ? "1px solid #E9EAEB" : "none",
     WebkitOverflowScrolling: "touch",
+    background: "#FFF",
   };
 
   const tableStyle: React.CSSProperties = {
