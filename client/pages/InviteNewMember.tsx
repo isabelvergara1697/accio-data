@@ -784,7 +784,7 @@ export default function InviteNewMember() {
                               type={showConfirmPassword ? "text" : "password"}
                               value={confirmPassword}
                               onChange={(e) => setConfirmPassword(e.target.value)}
-                              placeholder="••••���•••"
+                              placeholder="••••••••"
                               style={{
                                 width: "100%",
                                 height: "48px",
@@ -1942,6 +1942,10 @@ export default function InviteNewMember() {
                       </svg>
                     </div>
                     <select
+                      value={formData.reportVisibility}
+                      onChange={(event) =>
+                        handleReportVisibilityChange(event.target.value)
+                      }
                       style={{
                         width: "100%",
                         height: "40px",
@@ -1960,9 +1964,12 @@ export default function InviteNewMember() {
                         backgroundRepeat: "no-repeat",
                         backgroundPosition: "right 8px center",
                       }}
-                      defaultValue="Select"
                     >
-                      <option value="Select">Select</option>
+                      {REPORT_VISIBILITY_OPTIONS.map((option) => (
+                        <option key={option} value={option}>
+                          {option}
+                        </option>
+                      ))}
                     </select>
                   </div>
 
