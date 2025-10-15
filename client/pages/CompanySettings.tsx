@@ -4108,8 +4108,16 @@ export default function CompanySettings() {
                             overflow: "hidden",
                           }}
                         >
-                          <table style={{ width: "100%", borderCollapse: "collapse" }}>
-                            <thead>
+                          <div
+                            style={{
+                              maxHeight: isMobile ? "320px" : "none",
+                              overflowY: isMobile ? "auto" : "visible",
+                              overflowX: "auto",
+                              WebkitOverflowScrolling: "touch",
+                            }}
+                          >
+                            <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                              <thead>
                               <tr style={{ borderBottom: "1px solid #E9EAEB" }}>
                                 <th
                                   style={{
@@ -4226,6 +4234,7 @@ export default function CompanySettings() {
                             </tbody>
                           </table>
                         </div>
+                      </div>
                       </div>
                     ))}
                   </div>
