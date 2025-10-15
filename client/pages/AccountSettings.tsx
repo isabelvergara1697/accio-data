@@ -2104,17 +2104,542 @@ export default function AccountSettings() {
 
           {/* Notifications Tab Content */}
           {activeTab === "notifications" && (
-            <div
-              style={{
-                padding: "40px",
-                textAlign: "center",
-                color: "#535862",
-                fontFamily: "Public Sans",
-                fontSize: "14px",
-              }}
-            >
-              Notification settings coming soon...
-            </div>
+            <>
+              {/* Notification Settings Section */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "20px",
+                }}
+              >
+                <div>
+                  <h2
+                    style={{
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "18px",
+                      fontWeight: 600,
+                      lineHeight: "28px",
+                      margin: 0,
+                    }}
+                  >
+                    Notification settings
+                  </h2>
+                  <p
+                    style={{
+                      color: "#535862",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      lineHeight: "20px",
+                      margin: "4px 0 0 0",
+                    }}
+                  >
+                    We may still send you important notifications about your account outside of your notification settings.
+                  </p>
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                {/* Order Updates */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    gap: isMobile ? "16px" : "64px",
+                  }}
+                >
+                  <div
+                    style={{
+                      minWidth: isMobile ? "auto" : "200px",
+                      maxWidth: isMobile ? "auto" : "280px",
+                      flex: isMobile ? "none" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Order Updates
+                    </label>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "16px",
+                      flex: "1 0 0",
+                      maxWidth: isMobile ? "auto" : "512px",
+                    }}
+                  >
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                      <Switch
+                        checked={orderUpdatesFilled}
+                        onCheckedChange={setOrderUpdatesFilled}
+                        style={{ marginTop: "2px" }}
+                      />
+                      <Label style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                        Whenever an order is completely filled
+                      </Label>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                      <Switch
+                        checked={orderUpdatesNewData}
+                        onCheckedChange={setOrderUpdatesNewData}
+                        style={{ marginTop: "2px" }}
+                      />
+                      <Label style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                        Every time new data arrives
+                      </Label>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                      <Switch
+                        checked={orderUpdatesFirstUpdate}
+                        onCheckedChange={setOrderUpdatesFirstUpdate}
+                        style={{ marginTop: "2px" }}
+                      />
+                      <Label style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                        If the first time there is an update since my last login
+                      </Label>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                      <Switch
+                        checked={orderUpdatesSMS}
+                        onCheckedChange={setOrderUpdatesSMS}
+                        style={{ marginTop: "2px" }}
+                      />
+                      <Label style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                        SMS
+                      </Label>
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                {/* Email Report Link */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    gap: isMobile ? "16px" : "64px",
+                  }}
+                >
+                  <div
+                    style={{
+                      minWidth: isMobile ? "auto" : "200px",
+                      maxWidth: isMobile ? "auto" : "280px",
+                      flex: isMobile ? "none" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Email Report Link
+                    </label>
+                  </div>
+                  <RadioGroup
+                    value={emailReportLink}
+                    onValueChange={setEmailReportLink}
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "16px",
+                      flex: "1 0 0",
+                      maxWidth: isMobile ? "auto" : "512px",
+                    }}
+                  >
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                      <RadioGroupItem value="html" id="html" style={{ marginTop: "2px" }} />
+                      <Label htmlFor="html" style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                        Link to HTML Report
+                      </Label>
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                      <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                        <RadioGroupItem value="colorpdf" id="colorpdf" style={{ marginTop: "2px" }} />
+                        <Label htmlFor="colorpdf" style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                          Link to a color PDF File of the Report
+                        </Label>
+                      </div>
+                      <p
+                        style={{
+                          color: "#535862",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                          margin: "0 0 0 28px",
+                        }}
+                      >
+                        Only notify me if I'm mentioned in a comment.
+                      </p>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                      <RadioGroupItem value="blackwhite" id="blackwhite" style={{ marginTop: "2px" }} />
+                      <Label htmlFor="blackwhite" style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                        Link to a black and white PDF File of the Report
+                      </Label>
+                    </div>
+                  </RadioGroup>
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                {/* Reportal Archive */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    gap: isMobile ? "16px" : "64px",
+                  }}
+                >
+                  <div
+                    style={{
+                      minWidth: isMobile ? "auto" : "200px",
+                      maxWidth: isMobile ? "auto" : "280px",
+                      flex: isMobile ? "none" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                        display: "block",
+                        marginBottom: "4px",
+                      }}
+                    >
+                      Reportal Archive
+                    </label>
+                    <p
+                      style={{
+                        color: "#535862",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        lineHeight: "20px",
+                        margin: 0,
+                      }}
+                    >
+                      Archive Reviewed Reports
+                    </p>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "16px",
+                      flex: "1 0 0",
+                      maxWidth: isMobile ? "auto" : "512px",
+                    }}
+                  >
+                    <div style={{ flex: "1 0 0", display: "flex", flexDirection: "column", gap: "6px" }}>
+                      <label
+                        style={{
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                        }}
+                      >
+                        Days After Last Time Viewed
+                      </label>
+                      <input
+                        type="number"
+                        value={archiveDaysViewed}
+                        onChange={(e) => setArchiveDaysViewed(e.target.value)}
+                        style={{
+                          padding: "10px 14px",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          color: "#717680",
+                          fontFamily: "Public Sans",
+                          fontSize: "16px",
+                          fontWeight: 400,
+                          lineHeight: "24px",
+                          outline: "none",
+                        }}
+                      />
+                    </div>
+                    <div style={{ flex: "1 0 0", display: "flex", flexDirection: "column", gap: "6px" }}>
+                      <label
+                        style={{
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                        }}
+                      >
+                        Days After Completion
+                      </label>
+                      <input
+                        type="number"
+                        value={archiveDaysCompleted}
+                        onChange={(e) => setArchiveDaysCompleted(e.target.value)}
+                        style={{
+                          padding: "10px 14px",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          color: "#717680",
+                          fontFamily: "Public Sans",
+                          fontSize: "16px",
+                          fontWeight: 400,
+                          lineHeight: "24px",
+                          outline: "none",
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                {/* Call History */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    gap: isMobile ? "16px" : "64px",
+                  }}
+                >
+                  <div
+                    style={{
+                      minWidth: isMobile ? "auto" : "200px",
+                      maxWidth: isMobile ? "auto" : "280px",
+                      flex: isMobile ? "none" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Call History
+                    </label>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "16px",
+                      flex: "1 0 0",
+                      maxWidth: isMobile ? "auto" : "512px",
+                    }}
+                  >
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                      <Switch
+                        checked={callHistorySuppressed}
+                        onCheckedChange={setCallHistorySuppressed}
+                        style={{ marginTop: "2px" }}
+                      />
+                      <Label style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                        Suppress call history on completed reports
+                      </Label>
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                {/* Applicant Portal */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    gap: isMobile ? "16px" : "64px",
+                  }}
+                >
+                  <div
+                    style={{
+                      minWidth: isMobile ? "auto" : "200px",
+                      maxWidth: isMobile ? "auto" : "280px",
+                      flex: isMobile ? "none" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Applicant Portal
+                    </label>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "16px",
+                      flex: "1 0 0",
+                      maxWidth: isMobile ? "auto" : "512px",
+                    }}
+                  >
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                      <Switch
+                        checked={applicantPortalNotify}
+                        onCheckedChange={setApplicantPortalNotify}
+                        style={{ marginTop: "2px" }}
+                      />
+                      <Label style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                        Notify me via email if an invitation expires unfilled
+                      </Label>
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+              </div>
+
+              {/* Notification Channels Section */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "20px",
+                }}
+              >
+                <div>
+                  <h2
+                    style={{
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "18px",
+                      fontWeight: 600,
+                      lineHeight: "28px",
+                      margin: 0,
+                    }}
+                  >
+                    Notification Channels
+                  </h2>
+                  <p
+                    style={{
+                      color: "#535862",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      lineHeight: "20px",
+                      margin: "4px 0 0 0",
+                    }}
+                  >
+                    Choose how you'd like to receive your notifications.
+                  </p>
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                {/* Channel Options */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    gap: isMobile ? "16px" : "64px",
+                  }}
+                >
+                  <div
+                    style={{
+                      minWidth: isMobile ? "auto" : "200px",
+                      maxWidth: isMobile ? "auto" : "280px",
+                      flex: isMobile ? "none" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Order Updates
+                    </label>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "16px",
+                      flex: "1 0 0",
+                      maxWidth: isMobile ? "auto" : "512px",
+                    }}
+                  >
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                      <Switch
+                        checked={channelEmail}
+                        onCheckedChange={setChannelEmail}
+                        style={{ marginTop: "2px" }}
+                      />
+                      <Label style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                        Email
+                      </Label>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                      <Switch
+                        checked={channelSecondaryEmail}
+                        onCheckedChange={setChannelSecondaryEmail}
+                        style={{ marginTop: "2px" }}
+                      />
+                      <Label style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                        Secondary Email
+                      </Label>
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                      <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                        <Switch
+                          checked={channelFax}
+                          onCheckedChange={setChannelFax}
+                          style={{ marginTop: "2px" }}
+                        />
+                        <Label style={{ flex: "1 0 0", color: "#414651", fontWeight: 500 }}>
+                          Fax
+                        </Label>
+                      </div>
+                      <p
+                        style={{
+                          color: "#535862",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                          margin: "0 0 0 36px",
+                        }}
+                      >
+                        Faxes will be sent to the number Fax in your Profile.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+              </div>
+            </>
           )}
         </div>
       </main>
