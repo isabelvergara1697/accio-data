@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
@@ -19,6 +19,16 @@ interface PasswordRequirement {
   id: string;
   text: string;
   validator: (password: string) => boolean;
+}
+
+interface InviteMemberPageProps {
+  mode?: "invite" | "edit";
+}
+
+interface MemberRecord {
+  name?: string;
+  email?: string;
+  role?: string;
 }
 
 const passwordRequirements: PasswordRequirement[] = [
@@ -165,8 +175,9 @@ const FIELD_LABELS: Record<keyof InviteMemberFormData, string> = {
   icimsPassword: "iCIMS Password",
 };
 
-export default function InviteNewMember() {
+export default function InviteNewMember({ mode = "invite" }: InviteMemberPageProps) {
   const navigate = useNavigate();
+  const location = useLocation();
   const { toast } = useToast();
   const isMobile = useIsMobile();
   const [isTablet, setIsTablet] = useState(() => {
@@ -178,6 +189,40 @@ export default function InviteNewMember() {
   });
   const isDesktop = !isMobile && !isTablet;
   const isCompact = isMobile;
+  const breadcrumbLabel = mode === "edit" ? "Edit Member" : "Invite New User";
+  const pageTitle = mode === "edit" ? "Edit Member" : "Invite New Member";
+  const pageDescription =
+    mode === "edit"
+      ? "Update this member's details, roles, and permissions. Adjust credentials, contact information, and visibility settings below."
+      : "Invite new users to your account, assign roles, and configure access permissions. Fill out the form below to set up user credentials, contact details, and report visibility settings.";
+  const primaryActionLabel = mode === "edit" ? "Save Changes" : "Create User";
+  const routeMember = (
+    location.state as { member?: MemberRecord } | null | undefined
+  )?.member;
+  const initialFormData = useMemo(() => {
+    if (!routeMember || mode !== "edit") {
+      return { ...DEFAULT_FORM_DATA };
+    }
+
+    const nameParts = (routeMember.name ?? "").split(" ").filter(Boolean);
+    const [firstNamePart, ...restNameParts] = nameParts;
+    const firstName = firstNamePart || DEFAULT_FORM_DATA.firstName;
+    const lastName = restNameParts.length
+      ? restNameParts.join(" ")
+      : DEFAULT_FORM_DATA.lastName;
+    const usernameFromEmail = routeMember.email
+      ? routeMember.email.split("@")[0] || DEFAULT_FORM_DATA.username
+      : DEFAULT_FORM_DATA.username;
+
+    return {
+      ...DEFAULT_FORM_DATA,
+      email: routeMember.email ?? DEFAULT_FORM_DATA.email,
+      username: usernameFromEmail,
+      firstName,
+      lastName,
+      role: routeMember.role ?? DEFAULT_FORM_DATA.role,
+    };
+  }, [routeMember, mode]);
 
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [userMenuHovered, setUserMenuHovered] = useState(false);
@@ -203,7 +248,7 @@ export default function InviteNewMember() {
     DEFAULT_SELECTED_MEMBERS,
   );
   const [formData, setFormData] = useState<InviteMemberFormData>(
-    DEFAULT_FORM_DATA,
+    initialFormData,
   );
   const [adjudicationSelections, setAdjudicationSelections] = useState<string[]>(
     () => [...ADJUDICATION_OPTIONS],
@@ -250,6 +295,10 @@ export default function InviteNewMember() {
   }, []);
 
   // Update requirement states whenever password changes
+  useEffect(() => {
+    setFormData(initialFormData);
+  }, [initialFormData]);
+
   useEffect(() => {
     const newStates: { [key: string]: boolean } = {};
     passwordRequirements.forEach((req) => {
