@@ -111,11 +111,17 @@ export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
                 overflow-x: auto;
                 padding-right: 20px;
                 touch-action: pan-x;
-                cursor: grab;
               }
+            }
 
-              .tabs-container.dragging {
-                cursor: grabbing;
+            /* Mobile specific styles */
+            @media (max-width: 767px) {
+              .tabs-container {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-right: 20px;
+                touch-action: pan-x;
+                cursor: default;
               }
             }
 
