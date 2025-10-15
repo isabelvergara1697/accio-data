@@ -87,11 +87,12 @@ export default function AccountSettings() {
       <main
         style={{
           marginTop: `${headerHeight}px`,
-          marginLeft: isDesktop && !isCollapsed ? "280px" : "0",
-          width: "100%",
+          marginLeft: isDesktop ? (isCollapsed ? "80px" : "296px") : "0",
+          flex: "1 0 0",
           display: "flex",
           flexDirection: "column",
           background: "#FAFAFA",
+          boxSizing: "border-box",
         }}
       >
         {isDesktop && (
