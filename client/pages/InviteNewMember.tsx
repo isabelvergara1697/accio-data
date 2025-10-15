@@ -319,6 +319,72 @@ export default function InviteNewMember() {
     return "#D5D7DA"; // Gray when not met
   };
 
+  const handleSubmit = useCallback(() => {
+    const missingFields = REQUIRED_FIELDS.filter((field) => {
+      const value = formData[field];
+      return typeof value === "string" ? value.trim().length === 0 : !value;
+    });
+
+    if (missingFields.length > 0) {
+      const missingLabels = missingFields.map((field) => FIELD_LABELS[field]);
+      toast({
+        title: "Missing required information",
+        description: `Please complete: ${missingLabels.join(", ")}.`,
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (passwordOption === "manual") {
+      const unmetRequirements = passwordRequirements.filter(
+        (requirement) => !requirement.validator(password),
+      );
+
+      if (password !== confirmPassword) {
+        toast({
+          title: "Passwords do not match",
+          description: "Make sure both password fields match.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (unmetRequirements.length > 0) {
+        toast({
+          title: "Update the password",
+          description: `Please address: ${unmetRequirements
+            .map((requirement) => requirement.text)
+            .join("; ")}.`,
+          variant: "destructive",
+        });
+        return;
+      }
+    }
+
+    if (reportViewOption === "select" && selectedTeamMembers.length === 0) {
+      toast({
+        title: "Add at least one team member",
+        description: "Select team members whose reports will be visible.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    toast({
+      title: "Invite details ready",
+      description:
+        "All required information is filled out. Continue to the next step to send the invite.",
+    });
+  }, [
+    confirmPassword,
+    formData,
+    password,
+    passwordOption,
+    reportViewOption,
+    selectedTeamMembers.length,
+    toast,
+  ]);
+
   return (
     <div
       style={{
