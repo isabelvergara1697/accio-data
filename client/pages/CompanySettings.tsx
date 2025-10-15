@@ -6,6 +6,8 @@ import { MobileHeader } from "../components/MobileHeader";
 import { HorizontalTabs } from "../components/HorizontalTabs";
 import { useIsMobile } from "../hooks/use-mobile";
 import DeleteUserModal from "../components/ui/delete-user-modal";
+import { toast } from "../hooks/use-toast";
+import { Toaster } from "../components/ui/toaster";
 
 type CompanyTabType =
   | "company"
@@ -107,6 +109,13 @@ export default function CompanySettings() {
     if (userToDelete) {
       console.log("Deleting user:", userToDelete.name);
       // TODO: Add actual delete user API call here
+
+      // Show success toast notification
+      toast({
+        title: "User account deleted",
+        description: `The user ${userToDelete.name || userToDelete.email} has been successfully removed from your team.`,
+      });
+
       setUserToDelete(null);
     }
   };
@@ -3816,6 +3825,9 @@ export default function CompanySettings() {
         onConfirmDelete={handleDeleteUser}
         userName={userToDelete?.name}
       />
+
+      {/* Toast Notifications */}
+      <Toaster />
     </div>
   );
 }
