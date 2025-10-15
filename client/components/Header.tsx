@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserMenuDropdown } from "./UserMenuDropdown";
 import { QuickCreateDropdown } from "./ui/quick-create-dropdown";
 import QuickOrderDrawer from "./ui/quick-order-drawer";
 import SSNOrderDrawer from "./ui/ssn-order-drawer";
 import NotificationModal from "./ui/notification-modal";
+import { AdvancedSearchDropdown } from "./AdvancedSearchDropdown";
 import { formatContactText } from "../lib/order-utils";
 import {
   useResponsiveSVGEnhanced,
@@ -74,12 +75,57 @@ export const Header: React.FC<HeaderProps> = ({
   const navigate = useNavigate();
   const [quickCreateOpen, setQuickCreateOpen] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState(initialSearchQuery);
+  const [searchFocused, setSearchFocused] = React.useState(false);
+  const [showAdvancedSearch, setShowAdvancedSearch] = React.useState(false);
+  const [advancedSearchForm, setAdvancedSearchForm] = React.useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+  });
+  const [focusedAdvancedField, setFocusedAdvancedField] = React.useState<string | null>(null);
+  const advancedSearchRef = useRef<HTMLDivElement>(null);
 
   const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && searchQuery.trim()) {
       navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
     }
   };
+
+  const handleClearSearch = () => {
+    setSearchQuery("");
+    setShowAdvancedSearch(false);
+  };
+
+  const handleAdvancedSearchChange = (field: string, value: string) => {
+    setAdvancedSearchForm((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const clearAdvancedSearch = () => {
+    setAdvancedSearchForm({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: "",
+    });
+  };
+
+  const handleAdvancedSearch = () => {
+    // Build search query from advanced search form
+    const parts = [];
+    if (advancedSearchForm.firstName) parts.push(advancedSearchForm.firstName);
+    if (advancedSearchForm.lastName) parts.push(advancedSearchForm.lastName);
+    if (advancedSearchForm.email) parts.push(advancedSearchForm.email);
+    if (advancedSearchForm.phoneNumber) parts.push(advancedSearchForm.phoneNumber);
+
+    const query = parts.join(" ");
+    if (query.trim()) {
+      navigate(`/search?q=${encodeURIComponent(query.trim())}`);
+      setShowAdvancedSearch(false);
+    }
+  };
+
+  const isSearchActive = searchFocused || searchQuery.length > 0;
 
   // Enhanced responsive icon sizes with container awareness
   const searchIconSize = useIconSizeEnhanced(20, {
@@ -118,80 +164,202 @@ export const Header: React.FC<HeaderProps> = ({
       }}
     >
       {/* Search Bar */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "8px",
-          flex: "1 0 0",
-          borderRadius: "8px",
-          border: "1px solid #D5D7DA",
-          background: "#FFF",
-          padding: "10px 14px",
-          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-          marginRight: "16px",
-        }}
-      >
-        <svg
-          style={{
-            width: "24px",
-            height: "24px",
-            flexShrink: 0,
-          }}
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M21 21L17.5001 17.5M20 11.5C20 16.1944 16.1944 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3C16.1944 3 20 6.80558 20 11.5Z"
-            stroke="#A4A7AE"
-            strokeWidth="1.66667"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-        <input
-          type="text"
-          placeholder="Search"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          onKeyDown={handleSearch}
-          style={{
-            flex: "1 0 0",
-            border: "none",
-            outline: "none",
-            background: "transparent",
-            fontFamily: "Public Sans",
-            fontSize: "16px",
-            fontWeight: 400,
-            color: "#181D27",
-            lineHeight: "24px",
-          }}
-        />
+      <div style={{ flex: "1 0 0", position: "relative", marginRight: "16px" }}>
         <div
           style={{
             display: "flex",
-            padding: "1px 4px",
-            alignItems: "flex-start",
-            borderRadius: "4px",
-            border: "1px solid #E9EAEB",
-            background: "#FAFAFA",
+            alignItems: "center",
+            gap: "8px",
+            borderRadius: "8px",
+            border: isSearchActive ? "2px solid #34479A" : "1px solid #D5D7DA",
+            background: "#FFF",
+            padding: "10px 14px",
+            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
           }}
         >
-          <span
+          <svg
             style={{
-              fontFamily: "Public Sans",
-              fontSize: "12px",
-              fontWeight: 500,
-              color: "#717680",
-              lineHeight: "18px",
+              width: "24px",
+              height: "24px",
+              flexShrink: 0,
             }}
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            ⌘K
-          </span>
+            <path
+              d="M21 21L17.5001 17.5M20 11.5C20 16.1944 16.1944 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3C16.1944 3 20 6.80558 20 11.5Z"
+              stroke="#A4A7AE"
+              strokeWidth="1.66667"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyDown={handleSearch}
+            onFocus={() => setSearchFocused(true)}
+            onBlur={() => setSearchFocused(false)}
+            style={{
+              flex: "1 0 0",
+              border: "none",
+              outline: "none",
+              background: "transparent",
+              fontFamily: "Public Sans",
+              fontSize: "16px",
+              fontWeight: 400,
+              color: "#181D27",
+              lineHeight: "24px",
+            }}
+          />
+          {!isSearchActive && (
+            <div
+              style={{
+                display: "flex",
+                padding: "1px 4px",
+                alignItems: "flex-start",
+                borderRadius: "4px",
+                border: "1px solid #E9EAEB",
+                background: "#FAFAFA",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "Public Sans",
+                  fontSize: "12px",
+                  fontWeight: 500,
+                  color: "#717680",
+                  lineHeight: "18px",
+                }}
+              >
+                ⌘K
+              </span>
+            </div>
+          )}
+          {isSearchActive && (
+            <div
+              style={{
+                display: "flex",
+                height: "24px",
+                alignItems: "flex-start",
+                gap: "2px",
+              }}
+            >
+              <button
+                onClick={handleClearSearch}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "#F5F5F5";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                }}
+                style={{
+                  display: "flex",
+                  width: "24px",
+                  height: "24px",
+                  padding: "4px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: "6px",
+                  border: "none",
+                  background: "transparent",
+                  cursor: "pointer",
+                  transition: "background 0.2s ease",
+                }}
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.3334 4.66669L4.66675 11.3334M4.66675 4.66669L11.3334 11.3334"
+                    stroke="#A4A7AE"
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+              <div
+                style={{
+                  display: "flex",
+                  width: "24px",
+                  height: "1px",
+                  transform: "rotate(90deg)",
+                  justifyContent: "center",
+                  alignItems: "flex-start",
+                }}
+              >
+                <div
+                  style={{
+                    width: "1px",
+                    height: "24px",
+                    background: "#E9EAEB",
+                  }}
+                />
+              </div>
+              <button
+                onClick={() => setShowAdvancedSearch(!showAdvancedSearch)}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "#F5F5F5";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                }}
+                style={{
+                  display: "flex",
+                  width: "24px",
+                  height: "24px",
+                  padding: "4px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: "6px",
+                  border: "none",
+                  background: showAdvancedSearch ? "#F5F5F5" : "transparent",
+                  cursor: "pointer",
+                  transition: "background 0.2s ease",
+                }}
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2 5.33331L10 5.33331M10 5.33331C10 6.43788 10.8954 7.33331 12 7.33331C13.1046 7.33331 14 6.43788 14 5.33331C14 4.22874 13.1046 3.33331 12 3.33331C10.8954 3.33331 10 4.22874 10 5.33331ZM6 10.6666L14 10.6666M6 10.6666C6 11.7712 5.10457 12.6666 4 12.6666C2.89543 12.6666 2 11.7712 2 10.6666C2 9.56208 2.89543 8.66665 4 8.66665C5.10457 8.66665 6 9.56208 6 10.6666Z"
+                    stroke="#A4A7AE"
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+          )}
         </div>
+        <AdvancedSearchDropdown
+          showAdvancedSearch={showAdvancedSearch}
+          advancedSearchForm={advancedSearchForm}
+          focusedAdvancedField={focusedAdvancedField}
+          onFieldChange={handleAdvancedSearchChange}
+          onFieldFocus={setFocusedAdvancedField}
+          onClear={clearAdvancedSearch}
+          onSearch={handleAdvancedSearch}
+          dropdownRef={advancedSearchRef}
+          style={{
+            width: "280px",
+          }}
+        />
       </div>
 
       {/* Right Side - Quick Create, Notifications, User Menu */}
