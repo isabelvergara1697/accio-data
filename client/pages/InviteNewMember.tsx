@@ -14,6 +14,35 @@ interface Permission {
   locked?: boolean;
 }
 
+interface PasswordRequirement {
+  id: string;
+  text: string;
+  validator: (password: string) => boolean;
+}
+
+const passwordRequirements: PasswordRequirement[] = [
+  {
+    id: "length",
+    text: "Must be at least 8 characters",
+    validator: (password) => password.length >= 8,
+  },
+  {
+    id: "special",
+    text: "Must contain one special character (e.g. !, @, #, $)",
+    validator: (password) => /[!@#$%^&*(),.?":{}|<>]/.test(password),
+  },
+  {
+    id: "uppercase",
+    text: "Must include at least one uppercase letter",
+    validator: (password) => /[A-Z]/.test(password),
+  },
+  {
+    id: "number",
+    text: "Must include at least one number",
+    validator: (password) => /[0-9]/.test(password),
+  },
+];
+
 export default function InviteNewMember() {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
