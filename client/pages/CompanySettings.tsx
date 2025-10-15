@@ -1241,9 +1241,992 @@ export default function CompanySettings() {
                 gap: "24px",
               }}
             >
-              <p style={{ color: "#535862", fontFamily: "Public Sans" }}>
-                SAML Integration content coming soon...
-              </p>
+              {/* Administration Contact Section */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "20px",
+                }}
+              >
+                <div>
+                  <h2
+                    style={{
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "18px",
+                      fontWeight: 600,
+                      lineHeight: "28px",
+                      margin: 0,
+                    }}
+                  >
+                    Administration Contact
+                  </h2>
+                  <p
+                    style={{
+                      display: "-webkit-box",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: 1,
+                      overflow: "hidden",
+                      color: "#535862",
+                      textOverflow: "ellipsis",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      lineHeight: "20px",
+                      margin: "2px 0 0 0",
+                    }}
+                  >
+                    Main point of contact of your company
+                  </p>
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
+                    width: "100%",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "2px",
+                      }}
+                    >
+                      Name
+                      <span style={{ color: "#344698" }}>*</span>
+                    </label>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: isMobile ? "column" : "row",
+                      alignItems: "flex-start",
+                      gap: isMobile ? "12px" : "24px",
+                      width: "100%",
+                      maxWidth: isMobile ? "100%" : "512px",
+                    }}
+                  >
+                    <input
+                      type="text"
+                      value={samlFirstName}
+                      onChange={(e) => setSamlFirstName(e.target.value)}
+                      style={{ ...inputStyle, flex: isMobile ? "unset" : "1 0 0" }}
+                    />
+                    <input
+                      type="text"
+                      value={samlLastName}
+                      onChange={(e) => setSamlLastName(e.target.value)}
+                      style={{ ...inputStyle, flex: isMobile ? "unset" : "1 0 0" }}
+                    />
+                  </div>
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
+                    width: "100%",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Title
+                    </label>
+                  </div>
+                  <input
+                    type="text"
+                    value={samlTitle}
+                    onChange={(e) => setSamlTitle(e.target.value)}
+                    style={{
+                      ...inputStyle,
+                      maxWidth: isMobile ? "100%" : "512px",
+                    }}
+                  />
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
+                    width: "100%",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      City
+                    </label>
+                  </div>
+                  <input
+                    type="text"
+                    value={samlCity}
+                    onChange={(e) => setSamlCity(e.target.value)}
+                    style={{
+                      ...inputStyle,
+                      maxWidth: isMobile ? "100%" : "512px",
+                    }}
+                  />
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
+                    width: "100%",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      State
+                    </label>
+                  </div>
+                  <select
+                    value={samlState}
+                    onChange={(e) => setSamlState(e.target.value)}
+                    style={{
+                      ...inputStyle,
+                      maxWidth: isMobile ? "100%" : "512px",
+                      appearance: "none",
+                      backgroundImage:
+                        "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "right 14px center",
+                      paddingRight: "48px",
+                    }}
+                  >
+                    <option value="Alabama">Alabama</option>
+                    <option value="Texas">Texas</option>
+                    <option value="California">California</option>
+                  </select>
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
+                    width: "100%",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Telephone
+                    </label>
+                  </div>
+                  <input
+                    type="text"
+                    value={samlTelephone}
+                    onChange={(e) => setSamlTelephone(e.target.value)}
+                    style={{
+                      ...inputStyle,
+                      maxWidth: isMobile ? "100%" : "512px",
+                    }}
+                  />
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
+                    width: "100%",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Fax
+                    </label>
+                  </div>
+                  <input
+                    type="text"
+                    value={samlFax}
+                    onChange={(e) => setSamlFax(e.target.value)}
+                    style={{
+                      ...inputStyle,
+                      maxWidth: isMobile ? "100%" : "512px",
+                    }}
+                  />
+                </div>
+
+                <div style={{ height: "2px", background: "#E9EAEB" }} />
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
+                    width: "100%",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Email
+                    </label>
+                  </div>
+                  <input
+                    type="email"
+                    value={samlEmail}
+                    onChange={(e) => setSamlEmail(e.target.value)}
+                    style={{
+                      ...inputStyle,
+                      maxWidth: isMobile ? "100%" : "512px",
+                    }}
+                  />
+                </div>
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: "20px",
+                    width: "100%",
+                  }}
+                >
+                  <div style={{ height: "1px", width: "100%", background: "#E9EAEB" }} />
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: isMobile ? "column" : "row",
+                      justifyContent: isMobile ? "flex-start" : "flex-end",
+                      alignItems: isMobile ? "stretch" : "center",
+                      gap: isMobile ? "12px" : "20px",
+                      width: "100%",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: isMobile ? "column" : "row",
+                        justifyContent: isMobile ? "flex-start" : "flex-end",
+                        alignItems: "center",
+                        gap: isMobile ? "8px" : "12px",
+                        flex: "1 0 0",
+                        width: isMobile ? "100%" : "auto",
+                      }}
+                    >
+                      <button
+                        type="button"
+                        style={{
+                          display: "flex",
+                          padding: "12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          width: isMobile ? "100%" : "auto",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          cursor: "pointer",
+                        }}
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        type="button"
+                        style={{
+                          display: "flex",
+                          padding: "12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          width: isMobile ? "100%" : "auto",
+                          borderRadius: "8px",
+                          border: "2px solid rgba(255, 255, 255, 0.12)",
+                          background: "#344698",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          color: "#FFF",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          cursor: "pointer",
+                        }}
+                      >
+                        Update
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* General Settings Section */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "20px",
+                }}
+              >
+                <div>
+                  <h2
+                    style={{
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "18px",
+                      fontWeight: 600,
+                      lineHeight: "28px",
+                      margin: 0,
+                    }}
+                  >
+                    General Settings
+                  </h2>
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
+                    width: "100%",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Manual rescreening interval (months)
+                    </label>
+                  </div>
+                  <input
+                    type="text"
+                    value={manualRescreening}
+                    onChange={(e) => setManualRescreening(e.target.value)}
+                    style={{
+                      ...inputStyle,
+                      maxWidth: isMobile ? "100%" : "512px",
+                    }}
+                  />
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
+                    width: "100%",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Minimum Password Length
+                    </label>
+                  </div>
+                  <select
+                    value={minPasswordLength}
+                    onChange={(e) => setMinPasswordLength(e.target.value)}
+                    style={{
+                      ...inputStyle,
+                      maxWidth: isMobile ? "100%" : "512px",
+                      appearance: "none",
+                      backgroundImage:
+                        "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "right 14px center",
+                      paddingRight: "48px",
+                    }}
+                  >
+                    <option value="6">6</option>
+                    <option value="8">8</option>
+                    <option value="10">10</option>
+                  </select>
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
+                    width: "100%",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Maximum Password Expiration
+                    </label>
+                  </div>
+                  <select
+                    value={maxPasswordExpiration}
+                    onChange={(e) => setMaxPasswordExpiration(e.target.value)}
+                    style={{
+                      ...inputStyle,
+                      maxWidth: isMobile ? "100%" : "512px",
+                      appearance: "none",
+                      backgroundImage:
+                        "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "right 14px center",
+                      paddingRight: "48px",
+                    }}
+                  >
+                    <option value="15 Days">15 Days</option>
+                    <option value="30 Days">30 Days</option>
+                    <option value="60 Days">60 Days</option>
+                  </select>
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
+                    width: "100%",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Inactivity Logout
+                    </label>
+                  </div>
+                  <select
+                    value={inactivityLogout}
+                    onChange={(e) => setInactivityLogout(e.target.value)}
+                    style={{
+                      ...inputStyle,
+                      maxWidth: isMobile ? "100%" : "512px",
+                      appearance: "none",
+                      backgroundImage:
+                        "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "right 14px center",
+                      paddingRight: "48px",
+                    }}
+                  >
+                    <option value="60 Minutes">60 Minutes</option>
+                    <option value="30 Minutes">30 Minutes</option>
+                    <option value="90 Minutes">90 Minutes</option>
+                  </select>
+                </div>
+
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
+                    width: "100%",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Print FCRA Rights on Report
+                    </label>
+                  </div>
+                  <select
+                    value={printFCRA}
+                    onChange={(e) => setPrintFCRA(e.target.value)}
+                    style={{
+                      ...inputStyle,
+                      maxWidth: isMobile ? "100%" : "512px",
+                      appearance: "none",
+                      backgroundImage:
+                        "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "right 14px center",
+                      paddingRight: "48px",
+                    }}
+                  >
+                    <option value="60 Minutes">60 Minutes</option>
+                    <option value="30 Minutes">30 Minutes</option>
+                    <option value="90 Minutes">90 Minutes</option>
+                  </select>
+                </div>
+
+                <div style={{ height: "2px", background: "#E9EAEB" }} />
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
+                    width: "100%",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Duplicate Order Check
+                    </label>
+                  </div>
+                  <select
+                    value={duplicateOrderCheck1}
+                    onChange={(e) => setDuplicateOrderCheck1(e.target.value)}
+                    style={{
+                      ...inputStyle,
+                      maxWidth: isMobile ? "100%" : "512px",
+                      appearance: "none",
+                      backgroundImage:
+                        "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "right 14px center",
+                      paddingRight: "48px",
+                    }}
+                  >
+                    <option value="60 Minutes">60 Minutes</option>
+                    <option value="30 Minutes">30 Minutes</option>
+                    <option value="90 Minutes">90 Minutes</option>
+                  </select>
+                </div>
+
+                <div style={{ height: "2px", background: "#E9EAEB" }} />
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
+                    width: "100%",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Duplicate Order Check
+                    </label>
+                  </div>
+                  <select
+                    value={duplicateOrderCheck2}
+                    onChange={(e) => setDuplicateOrderCheck2(e.target.value)}
+                    style={{
+                      ...inputStyle,
+                      maxWidth: isMobile ? "100%" : "512px",
+                      appearance: "none",
+                      backgroundImage:
+                        "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "right 14px center",
+                      paddingRight: "48px",
+                    }}
+                  >
+                    <option value="No Check">No Check</option>
+                    <option value="30 Minutes">30 Minutes</option>
+                    <option value="60 Minutes">60 Minutes</option>
+                  </select>
+                </div>
+
+                <div style={{ height: "2px", background: "#E9EAEB" }} />
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
+                    width: "100%",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                    }}
+                  >
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Send Hits E-mail
+                    </label>
+                  </div>
+                  <input
+                    type="email"
+                    value={sendHitsEmail}
+                    onChange={(e) => setSendHitsEmail(e.target.value)}
+                    style={{
+                      ...inputStyle,
+                      maxWidth: isMobile ? "100%" : "512px",
+                    }}
+                  />
+                </div>
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: "20px",
+                    width: "100%",
+                  }}
+                >
+                  <div style={{ height: "1px", width: "100%", background: "#E9EAEB" }} />
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: isMobile ? "column" : "row",
+                      justifyContent: isMobile ? "flex-start" : "flex-end",
+                      alignItems: isMobile ? "stretch" : "center",
+                      gap: isMobile ? "12px" : "20px",
+                      width: "100%",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: isMobile ? "column" : "row",
+                        justifyContent: isMobile ? "flex-start" : "flex-end",
+                        alignItems: "center",
+                        gap: isMobile ? "8px" : "12px",
+                        flex: "1 0 0",
+                        width: isMobile ? "100%" : "auto",
+                      }}
+                    >
+                      <button
+                        type="button"
+                        style={{
+                          display: "flex",
+                          padding: "12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          width: isMobile ? "100%" : "auto",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          cursor: "pointer",
+                        }}
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        type="button"
+                        style={{
+                          display: "flex",
+                          padding: "12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          width: isMobile ? "100%" : "auto",
+                          borderRadius: "8px",
+                          border: "2px solid rgba(255, 255, 255, 0.12)",
+                          background: "#344698",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          color: "#FFF",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          cursor: "pointer",
+                        }}
+                      >
+                        Update
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
 
