@@ -1039,11 +1039,15 @@ export default function InviteNewMember() {
                         display: "block",
                         marginBottom: "6px",
                       }}
-                    >
+>
                       Role
                     </label>
                     <input
                       type="text"
+                      value={formData.role}
+                      onChange={(event) =>
+                        updateFormField("role", event.target.value)
+                      }
                       style={{
                         width: "100%",
                         height: "40px",
