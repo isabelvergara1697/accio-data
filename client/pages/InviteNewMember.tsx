@@ -79,6 +79,10 @@ const TEAM_MEMBERS: TeamMember[] = [
 
 const DEFAULT_SELECTED_MEMBER_IDS = [1, 2, 3];
 
+const DEFAULT_SELECTED_MEMBERS = TEAM_MEMBERS.filter((member) =>
+  DEFAULT_SELECTED_MEMBER_IDS.includes(member.id),
+);
+
 export default function InviteNewMember() {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
