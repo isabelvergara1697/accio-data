@@ -115,6 +115,15 @@ export default function InviteNewMember() {
     return () => window.removeEventListener("resize", updateViewport);
   }, []);
 
+  // Update requirement states whenever password changes
+  useEffect(() => {
+    const newStates: { [key: string]: boolean } = {};
+    passwordRequirements.forEach((req) => {
+      newStates[req.id] = req.validator(password);
+    });
+    setRequirementStates(newStates);
+  }, [password]);
+
   const getUserMenuStyles = useCallback(() => {
     if (userMenuHovered || userMenuOpen) {
       return {
