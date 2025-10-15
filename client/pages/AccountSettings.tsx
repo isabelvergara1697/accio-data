@@ -137,12 +137,15 @@ export default function AccountSettings() {
     navigate("/login");
   };
 
-  const getUserMenuStyles = () => ({
-    position: "absolute" as const,
-    top: "100%",
-    right: 0,
-    marginTop: "8px",
-  });
+  const getUserMenuStyles = () => {
+    if (userMenuHovered || userMenuOpen) {
+      return {
+        border: "1px solid #E9EAEB",
+        background: "#F5F5F5",
+      } as const;
+    }
+    return {};
+  };
 
   const handleFileSelect = (file: File) => {
     if (file && file.type.startsWith('image/')) {
