@@ -2642,6 +2642,7 @@ export default function CompanySettings() {
                 </div>
 
                 {/* Members Table Section */}
+                {teamSubTab === 'members' && (
                 <div
                   style={{
                     display: "flex",
@@ -3893,6 +3894,14 @@ export default function CompanySettings() {
                     </div>
                   </div>
                 </div>
+                )}
+
+                {/* Role Permissions Section */}
+                {teamSubTab === 'permissions' && (
+                  <div style={{ display: "flex", flexDirection: "column", gap: "24px", width: "100%" }}>
+                    <p style={{ color: "#535862", fontFamily: "Public Sans" }}>Role Permissions content will go here</p>
+                  </div>
+                )}
               </div>
             </div>
           )}
