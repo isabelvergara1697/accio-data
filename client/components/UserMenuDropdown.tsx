@@ -161,6 +161,7 @@ export const UserMenuDropdown: React.FC<UserMenuDropdownProps> = ({
                 cursor: "pointer",
                 position: "relative",
               }}
+              onClick={() => navigate("/company-settings")}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "#F5F5F5";
               }}
