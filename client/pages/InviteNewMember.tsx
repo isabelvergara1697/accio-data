@@ -2212,7 +2212,8 @@ export default function InviteNewMember() {
                       gridTemplateColumns: isCompact
                         ? "1fr"
                         : "repeat(2, minmax(0, 1fr))",
-                      gap: "16px",
+                      rowGap: isCompact ? "16px" : "8px",
+                      columnGap: "16px",
                     }}
                   >
                     {[
