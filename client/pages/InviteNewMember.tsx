@@ -546,7 +546,7 @@ export default function InviteNewMember() {
                           margin: 0,
                         }}
                       >
-                        Asign User Password
+                        Assign User Password
                       </h3>
 
                       <div
