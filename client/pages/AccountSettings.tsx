@@ -65,6 +65,40 @@ export default function AccountSettings() {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  // Password validation requirements
+  const passwordRequirements = [
+    {
+      id: "length",
+      text: "Must be at least 8 characters",
+      validator: (password: string) => password.length >= 8,
+    },
+    {
+      id: "special",
+      text: "Must contain one special character (e.g. !, @, #, $)",
+      validator: (password: string) => /[!@#$%^&*(),.?":{}|<>]/.test(password),
+    },
+    {
+      id: "uppercase",
+      text: "Must include at least one uppercase letter",
+      validator: (password: string) => /[A-Z]/.test(password),
+    },
+    {
+      id: "number",
+      text: "Must include at least one number",
+      validator: (password: string) => /[0-9]/.test(password),
+    },
+  ];
+
+  const getRequirementIconColor = (requirementId: string) => {
+    if (!newPassword) return "#D5D7DA";
+    const requirement = passwordRequirements.find(r => r.id === requirementId);
+    if (requirement && requirement.validator(newPassword)) return "#079455";
+    return "#D5D7DA";
+  };
 
   const hasPhoto = photoUrl.length > 0;
 
