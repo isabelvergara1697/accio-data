@@ -92,6 +92,16 @@ export default function CompanySettings() {
   const [duplicateOrderCheck2, setDuplicateOrderCheck2] = React.useState("No Check");
   const [sendHitsEmail, setSendHitsEmail] = React.useState("olivia@acciodata.com");
 
+  // SAML Integration state
+  const [samlFirstName, setSamlFirstName] = React.useState("Oliva");
+  const [samlLastName, setSamlLastName] = React.useState("Rhye");
+  const [samlTitle, setSamlTitle] = React.useState("HR Manager");
+  const [samlCity, setSamlCity] = React.useState("Austin");
+  const [samlState, setSamlState] = React.useState("Alabama");
+  const [samlTelephone, setSamlTelephone] = React.useState("Austin");
+  const [samlFax, setSamlFax] = React.useState("2849193");
+  const [samlEmail, setSamlEmail] = React.useState("olivia@acciodata.com");
+
   const inputStyle = {
     width: "100%",
     padding: "10px 14px",
