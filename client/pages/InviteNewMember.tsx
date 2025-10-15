@@ -1267,7 +1267,7 @@ export default function InviteNewMember() {
                       style={{
                         display: "flex",
                         flexDirection: "column",
-                        flex: 1,
+                        flex: "1 0 0",
                       }}
                     >
                       {/* Header */}
@@ -1301,17 +1301,16 @@ export default function InviteNewMember() {
                             display: "flex",
                             padding: "12px",
                             alignItems: "center",
-                            borderBottom:
-                              index === permissions.length - 1
-                                ? "none"
-                                : "1px solid #E9EAEB",
-                            minHeight: permission.locked ? "64px" : "36px",
+                            alignSelf: "stretch",
+                            borderBottom: "1px solid #E9EAEB",
+                            height: permission.locked ? "64px" : "36px",
                           }}
                         >
                           <div
                             style={{
                               display: "flex",
                               flexDirection: "column",
+                              alignItems: "flex-start",
                             }}
                           >
                             <div
@@ -1347,6 +1346,7 @@ export default function InviteNewMember() {
                       style={{
                         display: "flex",
                         flexDirection: "column",
+                        flex: "1 0 0",
                       }}
                     >
                       {/* Empty Header */}
@@ -1356,6 +1356,8 @@ export default function InviteNewMember() {
                           height: "36px",
                           padding: "6px 12px",
                           alignItems: "center",
+                          gap: "12px",
+                          alignSelf: "stretch",
                           borderBottom: "1px solid #E9EAEB",
                           background: "#FFF",
                         }}
@@ -1366,13 +1368,12 @@ export default function InviteNewMember() {
                           key={`${permission.name}-${index}-toggle`}
                           style={{
                             display: "flex",
+                            height: permission.locked ? "64px" : "36px",
                             padding: "12px",
                             alignItems: "center",
-                            borderBottom:
-                              index === permissions.length - 1
-                                ? "none"
-                                : "1px solid #E9EAEB",
-                            minHeight: permission.locked ? "64px" : "36px",
+                            gap: "12px",
+                            alignSelf: "stretch",
+                            borderBottom: "1px solid #E9EAEB",
                           }}
                         >
                           <button
@@ -1398,6 +1399,7 @@ export default function InviteNewMember() {
                                 ? "not-allowed"
                                 : "pointer",
                               transition: "all 0.2s",
+                              flexShrink: 0,
                             }}
                           >
                             <div
