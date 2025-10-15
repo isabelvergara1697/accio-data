@@ -355,7 +355,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -426,7 +426,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -472,7 +472,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -518,7 +518,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -573,7 +573,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -619,7 +619,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -665,7 +665,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -826,7 +826,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -872,7 +872,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -927,7 +927,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -982,7 +982,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -1037,7 +1037,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -1092,7 +1092,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -1147,7 +1147,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -1201,7 +1201,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -1397,7 +1397,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -1492,7 +1492,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -1590,7 +1590,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -1688,7 +1688,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -1786,7 +1786,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -1864,7 +1864,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -1938,7 +1938,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -2005,7 +2005,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -2074,7 +2074,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -2141,7 +2141,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -2208,7 +2208,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
@@ -2277,7 +2277,7 @@ export default function CompanySettings() {
                   style={{
                     display: "flex",
                     flexDirection: isCompactLayout ? "column" : "row",
-                    alignItems: isMobile ? "stretch" : "flex-start",
+                    alignItems: isCompactLayout ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
