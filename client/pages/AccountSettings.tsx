@@ -423,12 +423,11 @@ export default function AccountSettings() {
                           width: "64px",
                           height: "64px",
                           borderRadius: "9999px",
-                          border: isHovering || hasPhoto ? "2px solid #344698" : "1px solid rgba(0, 0, 0, 0.10)",
+                          border: hasPhoto ? "1px solid rgba(0, 0, 0, 0.10)" : "1px solid rgba(0, 0, 0, 0.10)",
                           background: hasPhoto ? `url(${photoUrl}) center/cover` : "#E0E0E0",
-                          cursor: "pointer",
+                          cursor: hasPhoto ? "default" : "pointer",
                           position: "relative",
                           transition: "all 0.2s ease",
-                          opacity: isHovering ? 0.85 : 1,
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
@@ -453,29 +452,51 @@ export default function AccountSettings() {
                           </svg>
                         )}
 
-                        {hasPhoto && (
-                          <button
-                            type="button"
-                            onClick={handleDeletePhoto}
+                        {hasPhoto && isHovering && (
+                          <div
                             style={{
                               position: "absolute",
-                              top: "-6px",
-                              right: "-6px",
-                              width: "20px",
-                              height: "20px",
+                              inset: 0,
                               borderRadius: "9999px",
-                              border: "none",
-                              background: "#344698",
-                              color: "#FFF",
+                              background: "rgba(0, 0, 0, 0.5)",
                               display: "flex",
                               alignItems: "center",
                               justifyContent: "center",
-                              cursor: "pointer",
-                              boxShadow: "0 1px 4px rgba(0, 0, 0, 0.15)",
                             }}
                           >
-                            ×
-                          </button>
+                            <button
+                              type="button"
+                              onClick={handleDeletePhoto}
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                borderRadius: "8px",
+                                border: "1px solid #D5D7DA",
+                                background: "#FFF",
+                                boxShadow:
+                                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                cursor: "pointer",
+                              }}
+                            >
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M10.6667 4.00016V3.46683C10.6667 2.72009 10.6667 2.34672 10.5213 2.06151C10.3935 1.81063 10.1895 1.60665 9.93865 1.47882C9.65344 1.3335 9.28007 1.3335 8.53333 1.3335H7.46667C6.71993 1.3335 6.34656 1.3335 6.06135 1.47882C5.81046 1.60665 5.60649 1.81063 5.47866 2.06151C5.33333 2.34672 5.33333 2.72009 5.33333 3.46683V4.00016M2 4.00016H14M12.6667 4.00016V11.4668C12.6667 12.5869 12.6667 13.147 12.4487 13.5748C12.2569 13.9511 11.951 14.2571 11.5746 14.4488C11.1468 14.6668 10.5868 14.6668 9.46667 14.6668H6.53333C5.41323 14.6668 4.85318 14.6668 4.42535 14.4488C4.04903 14.2571 3.74307 13.9511 3.55132 13.5748C3.33333 13.147 3.33333 12.5869 3.33333 11.4668V4.00016"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.66667"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                            </button>
+                          </div>
                         )}
                       </div>
                       <input
