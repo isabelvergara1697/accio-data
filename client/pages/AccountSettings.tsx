@@ -174,22 +174,23 @@ export default function AccountSettings() {
         />
       )}
 
-      {isDesktop && (
-        <Sidebar
-          isDesktop={isDesktop}
-          isMobile={isMobile}
-          mobileMenuOpen={mobileMenuOpen}
-          currentPage="account-settings"
-          userMenuOpen={userMenuOpen}
-          setUserMenuOpen={setUserMenuOpen}
-          userMenuHovered={userMenuHovered}
-          setUserMenuHovered={setUserMenuHovered}
-          handleSignOut={handleSignOut}
-          getUserMenuStyles={getUserMenuStyles}
-          isCollapsed={isCollapsed}
-          setIsCollapsed={setIsCollapsed}
-        />
-      )}
+      <Sidebar
+        isDesktop={isDesktop}
+        isMobile={isMobile}
+        mobileMenuOpen={mobileMenuOpen}
+        currentPage="account-settings"
+        showMobileUserMenu={showMobileUserMenu}
+        setShowMobileUserMenu={setShowMobileUserMenu}
+        setMobileMenuOpen={setMobileMenuOpen}
+        userMenuOpen={userMenuOpen}
+        setUserMenuOpen={setUserMenuOpen}
+        userMenuHovered={userMenuHovered}
+        setUserMenuHovered={setUserMenuHovered}
+        handleSignOut={handleSignOut}
+        getUserMenuStyles={getUserMenuStyles}
+        isCollapsed={isCollapsed}
+        setIsCollapsed={setIsCollapsed}
+      />
 
       {isMobile && (
         <MobileHeader
