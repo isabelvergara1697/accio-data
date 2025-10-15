@@ -619,7 +619,7 @@ export default function InviteNewMember({ mode = "invite" }: InviteMemberPagePro
                   margin: 0,
                 }}
               >
-                Invite New Member
+                {pageTitle}
               </h1>
               <p
                 style={{
