@@ -631,19 +631,22 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      justifyContent: "flex-end",
-                      alignItems: "center",
-                      gap: "20px",
+                      flexDirection: isMobile ? "column" : "row",
+                      justifyContent: isMobile ? "flex-start" : "flex-end",
+                      alignItems: isMobile ? "stretch" : "center",
+                      gap: isMobile ? "12px" : "20px",
                       width: "100%",
                     }}
                   >
                     <div
                       style={{
                         display: "flex",
-                        justifyContent: "flex-end",
+                        flexDirection: isMobile ? "column" : "row",
+                        justifyContent: isMobile ? "flex-start" : "flex-end",
                         alignItems: "center",
-                        gap: "12px",
+                        gap: isMobile ? "8px" : "12px",
                         flex: "1 0 0",
+                        width: isMobile ? "100%" : "auto",
                       }}
                     >
                       <button
@@ -1145,19 +1148,22 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      justifyContent: "flex-end",
-                      alignItems: "center",
-                      gap: "20px",
+                      flexDirection: isMobile ? "column" : "row",
+                      justifyContent: isMobile ? "flex-start" : "flex-end",
+                      alignItems: isMobile ? "stretch" : "center",
+                      gap: isMobile ? "12px" : "20px",
                       width: "100%",
                     }}
                   >
                     <div
                       style={{
                         display: "flex",
-                        justifyContent: "flex-end",
+                        flexDirection: isMobile ? "column" : "row",
+                        justifyContent: isMobile ? "flex-start" : "flex-end",
                         alignItems: "center",
-                        gap: "12px",
+                        gap: isMobile ? "8px" : "12px",
                         flex: "1 0 0",
+                        width: isMobile ? "100%" : "auto",
                       }}
                     >
                       <button
