@@ -2563,7 +2563,9 @@ export default function CompanySettings() {
                     display: "flex",
                     padding: "4px",
                     alignItems: "center",
+                    alignContent: "center",
                     gap: "8px",
+                    flexWrap: "wrap",
                     width: isCompactLayout ? "100%" : "auto",
                     borderRadius: "8px",
                     border: "1px solid #E9EAEB",
@@ -2585,7 +2587,7 @@ export default function CompanySettings() {
                       color: "#273572",
                       fontFamily: "Public Sans",
                       fontSize: "14px",
-                      fontWeight: 700,
+                      fontWeight: 600,
                       lineHeight: "20px",
                       cursor: "pointer",
                     }}
@@ -2606,7 +2608,7 @@ export default function CompanySettings() {
                       color: "#717680",
                       fontFamily: "Public Sans",
                       fontSize: "14px",
-                      fontWeight: 700,
+                      fontWeight: 600,
                       lineHeight: "20px",
                       cursor: "pointer",
                     }}
