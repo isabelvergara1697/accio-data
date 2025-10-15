@@ -527,48 +527,6 @@ export default function AccountSettings() {
                           overflow: "hidden",
                         }}
                       >
-                        {hasPhoto && (
-                          <button
-                            type="button"
-                            onClick={(e) => handleDeletePhoto(e)}
-                            style={{
-                              position: "absolute",
-                              top: "12px",
-                              right: "12px",
-                              display: "flex",
-                              alignItems: "center",
-                              gap: "6px",
-                              padding: "6px 10px",
-                              borderRadius: "8px",
-                              border: "1px solid #D5D7DA",
-                              background: "#FFF",
-                              color: "#414651",
-                              fontFamily: "Public Sans",
-                              fontSize: "12px",
-                              fontWeight: 600,
-                              lineHeight: "18px",
-                              cursor: "pointer",
-                              boxShadow: "0 1px 2px rgba(10, 13, 18, 0.08)",
-                            }}
-                          >
-                            <svg
-                              width="14"
-                              height="14"
-                              viewBox="0 0 16 16"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M3.33301 4.66667H12.6663M6.66634 7.33333V11.3333M9.33301 7.33333V11.3333M4.66634 4.66667L5.33301 12C5.33301 12.7364 5.33301 13.1046 5.51134 13.382C5.66769 13.6253 5.91099 13.8041 6.19419 13.8813C6.51537 13.9667 6.91827 13.9667 7.72407 13.9667H8.2756C9.0814 13.9667 9.4843 13.9667 9.80548 13.8813C10.0887 13.8041 10.332 13.6253 10.4883 13.382C10.6667 13.1046 10.6667 12.7364 10.6667 12L11.3333 4.66667M6.66634 4.66667C6.66634 4.11283 6.66634 3.83591 6.78208 3.63228C6.88473 3.45651 7.04364 3.32174 7.23567 3.25479C7.45293 3.17889 7.73575 3.21927 8.30139 3.30002C8.53381 3.33333 8.65002 3.35 8.75202 3.38363C8.9079 3.4342 9.04923 3.52185 9.1647 3.63732C9.28017 3.75278 9.36782 3.89411 9.41838 4.04999C9.45168 4.15199 9.46834 4.26821 9.50166 4.50062M6.66634 4.66667H9.33301"
-                                stroke="#414651"
-                                strokeWidth="1.3"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                            Remove photo
-                          </button>
-                        )}
                         <div
                           style={{
                             display: "flex",
