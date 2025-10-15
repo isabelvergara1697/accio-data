@@ -175,6 +175,9 @@ export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
         onMouseLeave={handleMouseLeave}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         {tabs.map((tab) => (
           <button
