@@ -736,6 +736,9 @@ export default function CompanySettings() {
                   display: "flex",
                   flexDirection: "column",
                   gap: "20px",
+                  width: "100%",
+                  maxWidth: "100%",
+                  boxSizing: "border-box",
                 }}
               >
                 <div>
@@ -1754,6 +1757,9 @@ export default function CompanySettings() {
                   display: "flex",
                   flexDirection: "column",
                   gap: "20px",
+                  width: "100%",
+                  maxWidth: "100%",
+                  boxSizing: "border-box",
                 }}
               >
                 <div>
