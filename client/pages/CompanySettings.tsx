@@ -369,7 +369,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -440,7 +440,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -486,7 +486,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -532,7 +532,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -587,7 +587,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -633,7 +633,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -679,7 +679,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -840,7 +840,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -886,7 +886,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -941,7 +941,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -996,7 +996,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1051,7 +1051,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1106,7 +1106,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1161,7 +1161,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1215,7 +1215,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1411,7 +1411,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1506,7 +1506,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1604,7 +1604,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1702,7 +1702,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1800,7 +1800,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1878,7 +1878,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1952,7 +1952,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -2019,7 +2019,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -2088,7 +2088,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -2155,7 +2155,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -2222,7 +2222,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -2291,7 +2291,7 @@ export default function CompanySettings() {
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
                       maxWidth: isCompactLayout ? "100%" : "280px",
-                      flex: isMobile ? "0 0 auto" : "1 0 0",
+                      flex: isCompactLayout ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
