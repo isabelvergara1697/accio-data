@@ -8076,9 +8076,9 @@ export default function CompanySettings() {
                     </div>
                     <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
                       {[
-                        { id: 'system', label: 'System preference', image: 'https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2Fca32016b7e2a487da3c1f68ed93d8ecb?format=webp&width=400' },
-                        { id: 'light', label: 'Light mode', image: 'https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F7a6ae071236d46eb8447ef865a5c2f0d?format=webp&width=400' },
-                        { id: 'dark', label: 'Dark mode', image: 'https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F88fbbd75ad0243b696827f53aeee4856?format=webp&width=400' },
+                        { id: 'system', label: 'System preference', image: 'https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F28061e34c4fb41358cd8bdc18c168d5d?format=webp&width=400' },
+                        { id: 'light', label: 'Light mode', image: 'https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2Fca32016b7e2a487da3c1f68ed93d8ecb?format=webp&width=400' },
+                        { id: 'dark', label: 'Dark mode', image: 'https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F7a6ae071236d46eb8447ef865a5c2f0d?format=webp&width=400' },
                       ].map((option) => (
                         <div key={option.id} style={{ display: "flex", flexDirection: "column", gap: "12px", maxWidth: "240px" }}>
                           <div
@@ -8162,7 +8162,7 @@ export default function CompanySettings() {
                     </div>
                     <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
                       {[
-                        { id: 'pill', label: 'Pill', radius: '9999px', image: 'https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F28061e34c4fb41358cd8bdc18c168d5d?format=webp&width=400' },
+                        { id: 'pill', label: 'Pill', radius: '9999px', image: 'https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F7a6ae071236d46eb8447ef865a5c2f0d?format=webp&width=400' },
                         { id: 'round', label: 'Round', radius: '10px', image: 'https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2Fff2448386a5e4990b1f225aac0912e40?format=webp&width=400' },
                         { id: 'sharp', label: 'Sharp', radius: '0px', image: 'https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F15117fd38f6f4cee9704fbdf57934fd7?format=webp&width=400' },
                       ].map((option) => (
