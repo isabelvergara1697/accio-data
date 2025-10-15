@@ -1362,6 +1362,7 @@ export default function InviteNewMember() {
                           borderBottom: "1px solid #E9EAEB",
                           background: "#FFF",
                           width: isCompact ? "100%" : "72px",
+                          boxSizing: "border-box",
                         }}
                       />
                       {/* Toggle Rows */}
@@ -1376,6 +1377,7 @@ export default function InviteNewMember() {
                             justifyContent: isCompact ? "flex-start" : "center",
                             borderBottom: "1px solid #E9EAEB",
                             width: isCompact ? "100%" : "72px",
+                            boxSizing: "border-box",
                           }}
                         >
                           <button
