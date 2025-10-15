@@ -1596,6 +1596,7 @@ export default function InviteNewMember() {
                       display: "flex",
                       flexDirection: isCompact ? "column" : "row",
                       alignSelf: "stretch",
+                      gap: isCompact ? "0" : "24px",
                     }}
                   >
                     {/* Left Column - Configuration */}
