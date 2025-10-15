@@ -3476,10 +3476,8 @@ export default function CompanySettings() {
                                     </div>
                                     <div
                                       onClick={() => {
-                                        console.log(
-                                          "Remove Users",
-                                          member.name,
-                                        );
+                                        setUserToDelete({ id: index, name: member.name });
+                                        setDeleteUserModalOpen(true);
                                         setOpenDropdownIndex(null);
                                       }}
                                       style={{
