@@ -36,6 +36,8 @@ export default function CompanySettings() {
   const [showMobileUserMenu, setShowMobileUserMenu] = React.useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [isCollapsed, setIsCollapsed] = React.useState(false);
+  const [openDropdownIndex, setOpenDropdownIndex] = React.useState<number | null>(null);
+  const [hoveredRowIndex, setHoveredRowIndex] = React.useState<number | null>(null);
 
   React.useEffect(() => {
     if (typeof window === "undefined") return;
@@ -2719,8 +2721,12 @@ export default function CompanySettings() {
                         ].map((member, index) => (
                           <tr
                             key={index}
+                            onMouseEnter={() => setHoveredRowIndex(index)}
+                            onMouseLeave={() => setHoveredRowIndex(null)}
                             style={{
                               borderBottom: "1px solid #E9EAEB",
+                              background: hoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                              transition: "background-color 0.15s ease",
                             }}
                           >
                             <td
@@ -2825,9 +2831,11 @@ export default function CompanySettings() {
                               style={{
                                 padding: "12px",
                                 textAlign: "center",
+                                position: "relative",
                               }}
                             >
                               <button
+                                onClick={() => setOpenDropdownIndex(openDropdownIndex === index ? null : index)}
                                 style={{
                                   display: "inline-flex",
                                   padding: "8px",
@@ -2835,7 +2843,7 @@ export default function CompanySettings() {
                                   alignItems: "center",
                                   borderRadius: "8px",
                                   border: "none",
-                                  background: "transparent",
+                                  background: hoveredRowIndex === index ? "#FDFDFD" : "transparent",
                                   cursor: "pointer",
                                 }}
                               >
@@ -2848,27 +2856,107 @@ export default function CompanySettings() {
                                 >
                                   <path
                                     d="M8 8.66675C8.36819 8.66675 8.66667 8.36827 8.66667 8.00008C8.66667 7.63189 8.36819 7.33341 8 7.33341C7.63181 7.33341 7.33333 7.63189 7.33333 8.00008C7.33333 8.36827 7.63181 8.66675 8 8.66675Z"
-                                    stroke="#A4A7AE"
-                                    strokeWidth="1.5"
+                                    stroke="#717680"
+                                    strokeWidth="1.66667"
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
                                   />
                                   <path
                                     d="M8 4.00008C8.36819 4.00008 8.66667 3.7016 8.66667 3.33341C8.66667 2.96522 8.36819 2.66675 8 2.66675C7.63181 2.66675 7.33333 2.96522 7.33333 3.33341C7.33333 3.7016 7.63181 4.00008 8 4.00008Z"
-                                    stroke="#A4A7AE"
-                                    strokeWidth="1.5"
+                                    stroke="#717680"
+                                    strokeWidth="1.66667"
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
                                   />
                                   <path
                                     d="M8 13.3334C8.36819 13.3334 8.66667 13.0349 8.66667 12.6667C8.66667 12.2986 8.36819 12.0001 8 12.0001C7.63181 12.0001 7.33333 12.2986 7.33333 12.6667C7.33333 13.0349 7.63181 13.3334 8 13.3334Z"
-                                    stroke="#A4A7AE"
-                                    strokeWidth="1.5"
+                                    stroke="#717680"
+                                    strokeWidth="1.66667"
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
                                   />
                                 </svg>
                               </button>
+                              {openDropdownIndex === index && (
+                                <div
+                                  style={{
+                                    position: "absolute",
+                                    right: "20px",
+                                    top: "50px",
+                                    zIndex: 1000,
+                                    borderRadius: "8px",
+                                    border: "1px solid rgba(0, 0, 0, 0.08)",
+                                    background: "#FFF",
+                                    boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                                  }}
+                                >
+                                  <div style={{ display: "flex", padding: "4px 0", flexDirection: "column" }}>
+                                    <div
+                                      onClick={() => {
+                                        console.log("Edit Member", member.name);
+                                        setOpenDropdownIndex(null);
+                                      }}
+                                      style={{
+                                        display: "flex",
+                                        padding: "1px 6px",
+                                        alignItems: "center",
+                                        cursor: "pointer",
+                                      }}
+                                    >
+                                      <div style={{ display: "flex", padding: "8px", flexDirection: "column", alignItems: "flex-start", gap: "8px", borderRadius: "6px" }}>
+                                        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2.87604 18.1157C2.92198 17.7022 2.94496 17.4955 3.00751 17.3022C3.06301 17.1308 3.14143 16.9676 3.24064 16.8172C3.35246 16.6476 3.49955 16.5005 3.79373 16.2063L17 3.00006C18.1046 1.89549 19.8955 1.89549 21 3.00006C22.1046 4.10463 22.1046 5.89549 21 7.00006L7.79373 20.2063C7.49955 20.5005 7.35245 20.6476 7.18289 20.7594C7.03245 20.8586 6.86929 20.937 6.69785 20.9925C6.5046 21.0551 6.29786 21.0781 5.88437 21.124L2.5 21.5001L2.87604 18.1157Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                          </svg>
+                                          <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Edit Member</div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div
+                                      onClick={() => {
+                                        console.log("Resent Invite", member.name);
+                                        setOpenDropdownIndex(null);
+                                      }}
+                                      style={{
+                                        display: "flex",
+                                        padding: "1px 6px",
+                                        alignItems: "center",
+                                        cursor: "pointer",
+                                      }}
+                                    >
+                                      <div style={{ display: "flex", padding: "8px", flexDirection: "column", alignItems: "flex-start", gap: "8px", borderRadius: "6px" }}>
+                                        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2 7L10.1649 12.7154C10.8261 13.1783 11.1567 13.4097 11.5163 13.4993C11.8339 13.5785 12.1661 13.5785 12.4837 13.4993C12.8433 13.4097 13.1739 13.1783 13.8351 12.7154L22 7M6.8 20H17.2C18.8802 20 19.7202 20 20.362 19.673C20.9265 19.3854 21.3854 18.9265 21.673 18.362C22 17.7202 22 16.8802 22 15.2V8.8C22 7.11984 22 6.27976 21.673 5.63803C21.3854 5.07354 20.9265 4.6146 20.362 4.32698C19.7202 4 18.8802 4 17.2 4H6.8C5.11984 4 4.27976 4 3.63803 4.32698C3.07354 4.6146 2.6146 5.07354 2.32698 5.63803C2 6.27976 2 7.11984 2 8.8V15.2C2 16.8802 2 17.7202 2.32698 18.362C2.6146 18.9265 3.07354 19.3854 3.63803 19.673C4.27976 20 5.11984 20 6.8 20Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                          </svg>
+                                          <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Resent Invite</div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div
+                                      onClick={() => {
+                                        console.log("Remove Users", member.name);
+                                        setOpenDropdownIndex(null);
+                                      }}
+                                      style={{
+                                        display: "flex",
+                                        padding: "1px 6px",
+                                        alignItems: "center",
+                                        cursor: "pointer",
+                                      }}
+                                    >
+                                      <div style={{ display: "flex", padding: "8px", flexDirection: "column", alignItems: "flex-start", gap: "8px", borderRadius: "6px" }}>
+                                        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16 6V5.2C16 4.0799 16 3.51984 15.782 3.09202C15.5903 2.71569 15.2843 2.40973 14.908 2.21799C14.4802 2 13.9201 2 12.8 2H11.2C10.0799 2 9.51984 2 9.09202 2.21799C8.71569 2.40973 8.40973 2.71569 8.21799 3.09202C8 3.51984 8 4.0799 8 5.2V6M3 6H21M19 6V17.2C19 18.8802 19 19.7202 18.673 20.362C18.3854 20.9265 17.9265 21.3854 17.362 21.673C16.7202 22 15.8802 22 14.2 22H9.8C8.11984 22 7.27976 22 6.63803 21.673C6.07354 21.3854 5.6146 20.9265 5.32698 20.362C5 19.7202 5 18.8802 5 17.2V6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                          </svg>
+                                          <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Remove Users</div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              )}
                             </td>
                           </tr>
                         ))}
@@ -2882,8 +2970,8 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: isMobile ? "column" : "row",
                       padding: "12px 16px",
-                      justifyContent: "space-between",
-                      alignItems: isMobile ? "stretch" : "center",
+                      justifyContent: isMobile ? "center" : "space-between",
+                      alignItems: "center",
                       width: "100%",
                       borderTop: "1px solid #E9EAEB",
                       gap: isMobile ? "12px" : "0",
@@ -2897,6 +2985,7 @@ export default function CompanySettings() {
                         fontSize: "14px",
                         fontWeight: 400,
                         lineHeight: "20px",
+                        minWidth: isMobile ? "auto" : "150px",
                       }}
                     >
                       Showing [X] of [X]
@@ -2907,6 +2996,8 @@ export default function CompanySettings() {
                         flexDirection: isMobile ? "column" : "row",
                         alignItems: "center",
                         gap: "12px",
+                        justifyContent: "center",
+                        flex: isMobile ? "0" : "1",
                       }}
                     >
                       <div
