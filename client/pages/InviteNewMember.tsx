@@ -1477,7 +1477,11 @@ export default function InviteNewMember() {
                   </div>
 
                   <div
-                    style={{ gridRow: "5 / span 1", gridColumn: "2 / span 1" }}
+                    style={
+                      isDesktop
+                        ? { gridRow: "5 / span 1", gridColumn: "2 / span 1" }
+                        : {}
+                    }
                   >
                     <label
                       style={{
