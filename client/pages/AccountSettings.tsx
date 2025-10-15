@@ -155,8 +155,25 @@ export default function AccountSettings() {
         width: "100%",
         minHeight: "100vh",
         background: "#FAFAFA",
+        position: "relative",
       }}
     >
+      {mobileMenuOpen && !isDesktop && (
+        <div
+          className="fixed inset-0 z-[9998]"
+          style={{
+            width: "100vw",
+            height: "100vh",
+            background: "rgba(10, 13, 18, 0.7)",
+            backdropFilter: "blur(8px)",
+            position: "fixed",
+            left: 0,
+            top: 0,
+          }}
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+
       {isDesktop && (
         <Sidebar
           isDesktop={isDesktop}
