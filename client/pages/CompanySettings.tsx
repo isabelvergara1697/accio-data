@@ -736,7 +736,7 @@ export default function CompanySettings() {
                         flexDirection: isCompactLayout ? "column" : "row",
                         justifyContent: isCompactLayout ? "flex-start" : "flex-end",
                         alignItems: "center",
-                        gap: isMobile ? "8px" : "12px",
+                        gap: isCompactLayout ? "8px" : "12px",
                         flex: "1 0 0",
                         width: isCompactLayout ? "100%" : "auto",
                       }}
@@ -1272,7 +1272,7 @@ export default function CompanySettings() {
                         flexDirection: isCompactLayout ? "column" : "row",
                         justifyContent: isCompactLayout ? "flex-start" : "flex-end",
                         alignItems: "center",
-                        gap: isMobile ? "8px" : "12px",
+                        gap: isCompactLayout ? "8px" : "12px",
                         flex: "1 0 0",
                         width: isCompactLayout ? "100%" : "auto",
                       }}
@@ -2372,7 +2372,7 @@ export default function CompanySettings() {
                         flexDirection: isCompactLayout ? "column" : "row",
                         justifyContent: isCompactLayout ? "flex-start" : "flex-end",
                         alignItems: "center",
-                        gap: isMobile ? "8px" : "12px",
+                        gap: isCompactLayout ? "8px" : "12px",
                         flex: "1 0 0",
                         width: isCompactLayout ? "100%" : "auto",
                       }}
