@@ -6349,11 +6349,1168 @@ export default function CompanySettings() {
                 display: "flex",
                 flexDirection: "column",
                 gap: "24px",
+                width: "100%",
+                maxWidth: "100%",
+                minWidth: 0,
+                overflowX: "hidden",
+                boxSizing: "border-box",
               }}
             >
-              <p style={{ color: "#535862", fontFamily: "Public Sans" }}>
-                Audit Logs content coming soon...
-              </p>
+              {/* Audit Logs Section */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "20px",
+                  width: "100%",
+                  maxWidth: "100%",
+                  boxSizing: "border-box",
+                }}
+              >
+                <div>
+                  <h2
+                    style={{
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "18px",
+                      fontWeight: 600,
+                      lineHeight: "28px",
+                      margin: 0,
+                    }}
+                  >
+                    Audit Logs
+                  </h2>
+                  <p
+                    style={{
+                      color: "#535862",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      lineHeight: "20px",
+                      margin: "2px 0 0 0",
+                    }}
+                  >
+                    View and track all administrative changes and security events
+                  </p>
+                </div>
+
+                {/* Logs Table */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    alignSelf: "stretch",
+                  }}
+                >
+                  {/* Table Header */}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "20px",
+                      alignSelf: "stretch",
+                      borderRadius: "12px 12px 0 0",
+                      border: "1px solid #E9EAEB",
+                      background: "#FFF",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "16px 16px 12px 16px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "16px",
+                          alignSelf: "stretch",
+                          flexWrap: "wrap",
+                        }}
+                      >
+                        {/* Title */}
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                            flex: isMobile ? "1 1 100%" : "1 0 0",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyContent: "center",
+                              alignItems: "flex-start",
+                              gap: "2px",
+                              flex: "1 0 0",
+                            }}
+                          >
+                            <h3
+                              style={{
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "18px",
+                                fontWeight: 600,
+                                lineHeight: "28px",
+                                margin: 0,
+                              }}
+                            >
+                              Logs
+                            </h3>
+                          </div>
+                        </div>
+
+                        {/* Actions */}
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "12px",
+                            flexWrap: "wrap",
+                            flex: isMobile ? "1 1 100%" : "0 0 auto",
+                          }}
+                        >
+                          {/* Search Input */}
+                          <div
+                            style={{
+                              display: "flex",
+                              height: "40px",
+                              padding: "8px",
+                              alignItems: "center",
+                              gap: "8px",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              width: isMobile ? "100%" : "234px",
+                            }}
+                          >
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M14 14L11.6667 11.6667M13.3333 7.66667C13.3333 10.7963 10.7963 13.3333 7.66667 13.3333C4.53705 13.3333 2 10.7963 2 7.66667C2 4.53705 4.53705 2 7.66667 2C10.7963 2 13.3333 4.53705 13.3333 7.66667Z"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.66667"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                            <input
+                              type="text"
+                              placeholder="Search by logs or user"
+                              style={{
+                                border: "none",
+                                outline: "none",
+                                background: "transparent",
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                                lineHeight: "20px",
+                                flex: "1 0 0",
+                              }}
+                            />
+                          </div>
+
+                          {/* Filters Button */}
+                          <button
+                            type="button"
+                            style={{
+                              display: "flex",
+                              minHeight: "36px",
+                              padding: "6px 8px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              gap: "4px",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              cursor: "pointer",
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.background = "#F5F5F5";
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.background = "#FFF";
+                            }}
+                          >
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M3.33333 14L3.33333 10M3.33333 10C4.06971 10 4.66667 9.40305 4.66667 8.66667C4.66667 7.93029 4.06971 7.33333 3.33333 7.33333C2.59695 7.33333 2 7.93029 2 8.66667C2 9.40305 2.59695 10 3.33333 10ZM3.33333 4.66667V2M8 14V10M8 4.66667V2M8 4.66667C7.26362 4.66667 6.66667 5.26362 6.66667 6C6.66667 6.73638 7.26362 7.33333 8 7.33333C8.73638 7.33333 9.33333 6.73638 9.33333 6C9.33333 5.26362 8.73638 4.66667 8 4.66667ZM12.6667 14V11.3333M12.6667 11.3333C13.403 11.3333 14 10.7364 14 10C14 9.26362 13.403 8.66667 12.6667 8.66667C11.9303 8.66667 11.3333 9.26362 11.3333 10C11.3333 10.7364 11.9303 11.3333 12.6667 11.3333ZM12.6667 6V2"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.66667"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                            <span
+                              style={{
+                                color: "#414651",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 600,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              Filters
+                            </span>
+                          </button>
+
+                          {/* Download Button */}
+                          <button
+                            type="button"
+                            style={{
+                              display: "flex",
+                              minHeight: "36px",
+                              padding: "6px 8px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              gap: "4px",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              cursor: "pointer",
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.background = "#F5F5F5";
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.background = "#FFF";
+                            }}
+                          >
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M14 10V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V10M11.3333 6.66667L8 10M8 10L4.66667 6.66667M8 10V2"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.66667"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                            <span
+                              style={{
+                                color: "#414651",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 600,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              Download
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Table Content */}
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "12px 16px 16px 16px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      alignSelf: "stretch",
+                      borderRadius: "0px 0px 12px 12px",
+                      borderRight: "1px solid #E9EAEB",
+                      borderBottom: "1px solid #E9EAEB",
+                      borderLeft: "1px solid #E9EAEB",
+                      background: "#FFF",
+                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      overflowX: "auto",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        alignSelf: "stretch",
+                        minWidth: isMobile ? "1000px" : "auto",
+                      }}
+                    >
+                      {/* Timestamp Column */}
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "108px",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          alignSelf: "stretch",
+                        }}
+                      >
+                        {/* Header */}
+                        <div
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "6px 12px",
+                            alignItems: "center",
+                            gap: "12px",
+                            alignSelf: "stretch",
+                            borderBottom: "1px solid #E9EAEB",
+                            background: "#FFF",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "4px",
+                            }}
+                          >
+                            <span
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                              }}
+                            >
+                              Timestamp
+                            </span>
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M4.66602 10.0001L7.99935 13.3334L11.3327 10.0001M4.66602 6.00008L7.99935 2.66675L11.3327 6.00008"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                        {/* Rows */}
+                        {Array(10)
+                          .fill("Oct 01,  13:15")
+                          .map((timestamp, idx) => (
+                            <div
+                              key={idx}
+                              style={{
+                                display: "flex",
+                                height: "52px",
+                                padding: "12px",
+                                alignItems: "center",
+                                gap: "6px",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                }}
+                              >
+                                {timestamp}
+                              </span>
+                            </div>
+                          ))}
+                      </div>
+
+                      {/* User & IP Column */}
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "158px",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          alignSelf: "stretch",
+                        }}
+                      >
+                        {/* Header */}
+                        <div
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "6px 12px",
+                            alignItems: "center",
+                            gap: "12px",
+                            alignSelf: "stretch",
+                            borderBottom: "1px solid #E9EAEB",
+                            background: "#FFF",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "4px",
+                            }}
+                          >
+                            <span
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                              }}
+                            >
+                              User & IP
+                            </span>
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M4.66602 10.0001L7.99935 13.3334L11.3327 10.0001M4.66602 6.00008L7.99935 2.66675L11.3327 6.00008"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                        {/* Rows */}
+                        {[
+                          { name: "Olivia Rhye", ip: "172.20.10.5" },
+                          { name: "Olivia Rhye", ip: "10.0.1.15" },
+                          { name: "Olivia Rhye", ip: "192.168.1.200" },
+                          { name: "Olivia Rhye", ip: "10.0.0.1" },
+                          { name: "Olivia Rhye", ip: "10.1.1.5" },
+                          { name: "Olivia Rhye", ip: "172.16.254.3" },
+                          { name: "Olivia Rhye", ip: "172.31.0.2" },
+                          { name: "Olivia Rhye", ip: "192.168.100.25" },
+                          { name: "Olivia Rhye", ip: "10.10.10.10" },
+                          { name: "Olivia Rhye", ip: "192.168.50.10" },
+                        ].map((user, idx) => (
+                          <div
+                            key={idx}
+                            style={{
+                              display: "flex",
+                              height: "52px",
+                              padding: "12px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              borderBottom: "1px solid #E9EAEB",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                }}
+                              >
+                                {user.name}
+                              </span>
+                              <span
+                                style={{
+                                  color: "#535862",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 400,
+                                  lineHeight: "20px",
+                                }}
+                              >
+                                {user.ip}
+                              </span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Description Column */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          flex: "1 0 0",
+                          alignSelf: "stretch",
+                        }}
+                      >
+                        {/* Header */}
+                        <div
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "6px 12px",
+                            alignItems: "center",
+                            gap: "12px",
+                            alignSelf: "stretch",
+                            borderBottom: "1px solid #E9EAEB",
+                            background: "#FFF",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "4px",
+                            }}
+                          >
+                            <span
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                              }}
+                            >
+                              Description
+                            </span>
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M4.66602 10.0001L7.99935 13.3334L11.3327 10.0001M4.66602 6.00008L7.99935 2.66675L11.3327 6.00008"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                        {/* Rows */}
+                        {[
+                          "User Role Administration",
+                          "API Rate Limit",
+                          "SSO Configuration",
+                          "User Account Deactivation",
+                          "Two Factor Authentication",
+                          "New Device Login",
+                          "Email Notifications",
+                          "User Data Export",
+                          "Session Timeout",
+                          "Notification Settings",
+                        ].map((desc, idx) => (
+                          <div
+                            key={idx}
+                            style={{
+                              display: "flex",
+                              height: "52px",
+                              padding: "12px",
+                              alignItems: "center",
+                              gap: "6px",
+                              alignSelf: "stretch",
+                              borderBottom: "1px solid #E9EAEB",
+                            }}
+                          >
+                            <span
+                              style={{
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              {desc}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Change Column */}
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "228px",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          alignSelf: "stretch",
+                        }}
+                      >
+                        {/* Header */}
+                        <div
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "6px 12px",
+                            alignItems: "center",
+                            gap: "12px",
+                            alignSelf: "stretch",
+                            borderBottom: "1px solid #E9EAEB",
+                            background: "#FFF",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "4px",
+                            }}
+                          >
+                            <span
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                              }}
+                            >
+                              Change
+                            </span>
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M4.66602 10.0001L7.99935 13.3334L11.3327 10.0001M4.66602 6.00008L7.99935 2.66675L11.3327 6.00008"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                        {/* Rows */}
+                        {[
+                          { from: "Enable", to: "Disable", arrow: true },
+                          { from: "Off", to: "On", arrow: true },
+                          { from: "Enable", to: "Disable", arrow: true },
+                          { from: "Active Account", to: "Deactivated", arrow: true },
+                          { from: "On", to: "Off", arrow: true },
+                          { from: "New device detected", to: null, arrow: false },
+                          { from: "Weekly", to: "Off", arrow: true },
+                          { from: "Exported 1,250 Records", to: null, arrow: false },
+                          { from: "30 mins", to: "60 mins", arrow: true },
+                          { from: "Active", to: "Inactive", arrow: true },
+                        ].map((change, idx) => (
+                          <div
+                            key={idx}
+                            style={{
+                              display: "flex",
+                              height: "52px",
+                              padding: "12px",
+                              alignItems: "center",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                              borderBottom: "1px solid #E9EAEB",
+                            }}
+                          >
+                            <span
+                              style={{
+                                color: change.to ? "#535862" : "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              {change.from}
+                            </span>
+                            {change.arrow && (
+                              <>
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M2.66797 8H13.3346M13.3346 8L9.33464 4M13.3346 8L9.33464 12"
+                                    stroke="#717680"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                                <span
+                                  style={{
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  {change.to}
+                                </span>
+                              </>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Severity Column */}
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "108px",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                        }}
+                      >
+                        {/* Header */}
+                        <div
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "6px 12px",
+                            alignItems: "center",
+                            gap: "12px",
+                            alignSelf: "stretch",
+                            borderBottom: "1px solid #E9EAEB",
+                            background: "#FFF",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "4px",
+                            }}
+                          >
+                            <span
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                              }}
+                            >
+                              Severity
+                            </span>
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M4.66602 10.0001L7.99935 13.3334L11.3327 10.0001M4.66602 6.00008L7.99935 2.66675L11.3327 6.00008"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                        {/* Rows */}
+                        {[
+                          { level: "Low", type: "low" },
+                          { level: "Medium", type: "medium" },
+                          { level: "High", type: "high" },
+                          { level: "High", type: "high" },
+                          { level: "Low", type: "low" },
+                          { level: "Medium", type: "medium" },
+                          { level: "Low", type: "low" },
+                          { level: "High", type: "high" },
+                          { level: "Medium", type: "medium" },
+                          { level: "Medium", type: "medium" },
+                        ].map((severity, idx) => (
+                          <div
+                            key={idx}
+                            style={{
+                              display: "flex",
+                              height: "52px",
+                              padding: "12px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              borderBottom: "1px solid #E9EAEB",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "2px 8px 2px 6px",
+                                alignItems: "center",
+                                gap: "2px",
+                                borderRadius: "9999px",
+                                border: `1px solid ${
+                                  severity.type === "low"
+                                    ? "#E9EAEB"
+                                    : severity.type === "medium"
+                                    ? "#FEDF89"
+                                    : "#FECDCA"
+                                }`,
+                                background:
+                                  severity.type === "low"
+                                    ? "#FAFAFA"
+                                    : severity.type === "medium"
+                                    ? "#FFFAEB"
+                                    : "#FEF3F2",
+                              }}
+                            >
+                              {severity.type === "low" && (
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M7.9987 5.33325V7.99992M7.9987 10.6666H8.00536M1.33203 5.68175V10.3181C1.33203 10.4812 1.33203 10.5627 1.35045 10.6394C1.36678 10.7074 1.39372 10.7725 1.43027 10.8321C1.4715 10.8994 1.52915 10.957 1.64445 11.0723L4.92628 14.3542C5.04158 14.4695 5.09923 14.5271 5.16651 14.5683C5.22616 14.6049 5.29119 14.6318 5.35921 14.6482C5.43594 14.6666 5.51747 14.6666 5.68053 14.6666H10.3169C10.4799 14.6666 10.5615 14.6666 10.6382 14.6482C10.7062 14.6318 10.7712 14.6049 10.8309 14.5683C10.8982 14.5271 10.9558 14.4695 11.0711 14.3542L14.3529 11.0723C14.4682 10.957 14.5259 10.8994 14.5671 10.8321C14.6037 10.7725 14.6306 10.7074 14.6469 10.6394C14.6654 10.5627 14.6654 10.4812 14.6654 10.3181V5.68175C14.6654 5.51869 14.6654 5.43716 14.6469 5.36043C14.6306 5.29241 14.6037 5.22738 14.5671 5.16773C14.5259 5.10045 14.4682 5.0428 14.3529 4.9275L11.0711 1.64567C10.9558 1.53037 10.8982 1.47272 10.8309 1.43149C10.7712 1.39494 10.7062 1.368 10.6382 1.35167C10.5615 1.33325 10.4799 1.33325 10.3169 1.33325H5.68053C5.51747 1.33325 5.43594 1.33325 5.35921 1.35167C5.29119 1.368 5.22616 1.39494 5.16651 1.43149C5.09923 1.47272 5.04158 1.53037 4.92628 1.64567L1.64445 4.9275C1.52915 5.0428 1.4715 5.10045 1.43027 5.16773C1.39372 5.22738 1.36678 5.29241 1.35045 5.36043C1.33203 5.43716 1.33203 5.51869 1.33203 5.68175Z"
+                                    stroke="#717680"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              )}
+                              {severity.type === "medium" && (
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M7.9987 5.33325V7.99992M7.9987 10.6666H8.00536M14.6654 7.99992C14.6654 11.6818 11.6806 14.6666 7.9987 14.6666C4.3168 14.6666 1.33203 11.6818 1.33203 7.99992C1.33203 4.31802 4.3168 1.33325 7.9987 1.33325C11.6806 1.33325 14.6654 4.31802 14.6654 7.99992Z"
+                                    stroke="#F79009"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              )}
+                              {severity.type === "high" && (
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M7.99853 5.99991V8.66658M7.99853 11.3332H8.0052M7.07541 2.59439L1.59216 12.0655C1.28802 12.5908 1.13595 12.8535 1.15843 13.069C1.17803 13.2571 1.27654 13.4279 1.42945 13.5391C1.60475 13.6666 1.90826 13.6666 2.51528 13.6666H13.4818C14.0888 13.6666 14.3923 13.6666 14.5676 13.5391C14.7205 13.4279 14.819 13.2571 14.8386 13.069C14.8611 12.8535 14.709 12.5908 14.4049 12.0655L8.92166 2.59439C8.61861 2.07095 8.46709 1.80923 8.2694 1.72132C8.09696 1.64465 7.90011 1.64465 7.72767 1.72132C7.52998 1.80923 7.37846 2.07095 7.07541 2.59439Z"
+                                    stroke="#F04438"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              )}
+                              <span
+                                style={{
+                                  color:
+                                    severity.type === "low"
+                                      ? "#414651"
+                                      : severity.type === "medium"
+                                      ? "#B54708"
+                                      : "#B42318",
+                                  textAlign: "center",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "12px",
+                                  fontWeight: 500,
+                                  lineHeight: "18px",
+                                }}
+                              >
+                                {severity.level}
+                              </span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Pagination */}
+                    <div
+                      style={{
+                        display: "flex",
+                        paddingTop: "12px",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        alignSelf: "stretch",
+                        borderTop: "1px solid #E9EAEB",
+                        flexWrap: isMobile ? "wrap" : "nowrap",
+                        gap: isMobile ? "12px" : "0",
+                      }}
+                    >
+                      {/* Showing Total */}
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "10px",
+                        }}
+                      >
+                        <span
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 400,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Showing [X] of [X]
+                        </span>
+                      </div>
+
+                      {/* Pagination Numbers */}
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "12px",
+                        }}
+                      >
+                        {/* Previous Button */}
+                        <button
+                          type="button"
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M19 12H5M5 12L12 19M5 12L12 5"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+
+                        {/* Page Numbers */}
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "32px",
+                            height: "32px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #E9EAEB",
+                            background: "#F5F5F5",
+                          }}
+                        >
+                          <span
+                            style={{
+                              color: "#414651",
+                              textAlign: "center",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            1
+                          </span>
+                        </div>
+                        {[2, 3].map((num) => (
+                          <div
+                            key={num}
+                            style={{
+                              display: "flex",
+                              width: "32px",
+                              height: "32px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "8px",
+                              cursor: "pointer",
+                            }}
+                          >
+                            <span
+                              style={{
+                                color: "#717680",
+                                textAlign: "center",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              {num}
+                            </span>
+                          </div>
+                        ))}
+                        <span
+                          style={{
+                            color: "#717680",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                          }}
+                        >
+                          ...
+                        </span>
+                        {[8, 9, 10].map((num) => (
+                          <div
+                            key={num}
+                            style={{
+                              display: "flex",
+                              width: "32px",
+                              height: "32px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "8px",
+                              cursor: "pointer",
+                            }}
+                          >
+                            <span
+                              style={{
+                                color: "#717680",
+                                textAlign: "center",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              {num}
+                            </span>
+                          </div>
+                        ))}
+
+                        {/* Next Button */}
+                        <button
+                          type="button"
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M5 12H19M19 12L12 5M19 12L12 19"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+
+                      {/* Go to */}
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "flex-end",
+                          alignItems: "center",
+                          gap: "12px",
+                        }}
+                      >
+                        <span
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 400,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Go to
+                        </span>
+                        <input
+                          type="text"
+                          placeholder="1010"
+                          style={{
+                            display: "flex",
+                            width: "72px",
+                            height: "32px",
+                            padding: "6px 8px",
+                            alignItems: "center",
+                            gap: "8px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            color: "#717680",
+                            textAlign: "center",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 400,
+                            lineHeight: "20px",
+                            outline: "none",
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
 
