@@ -3348,7 +3348,7 @@ export default function CompanySettings() {
                                   >
                                     <div
                                       onClick={() => {
-                                        console.log("Edit Member", member.name);
+                                        navigate("/edit-member", { state: { member } });
                                         setOpenDropdownIndex(null);
                                       }}
                                       style={{
