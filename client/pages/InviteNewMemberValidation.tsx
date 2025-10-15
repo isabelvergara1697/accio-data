@@ -152,27 +152,43 @@ export default function InviteNewMemberValidation() {
         position: "relative",
       }}
     >
+      {mobileMenuOpen && !isDesktop && (
+        <div
+          className="fixed inset-0 z-[9998]"
+          style={{
+            width: "100vw",
+            height: "100vh",
+            background: "rgba(10, 13, 18, 0.7)",
+            backdropFilter: "blur(8px)",
+            position: "fixed",
+            left: 0,
+            top: 0,
+          }}
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+
       <Sidebar
         isDesktop={isDesktop}
         isMobile={isMobile}
-        mobileMenuOpen={false}
+        mobileMenuOpen={mobileMenuOpen}
         currentPage="company-settings"
-        showMobileUserMenu={false}
-        setShowMobileUserMenu={() => {}}
-        setMobileMenuOpen={() => {}}
-        userMenuOpen={false}
-        setUserMenuOpen={() => {}}
-        userMenuHovered={false}
-        setUserMenuHovered={() => {}}
-        handleSignOut={() => navigate("/login")}
-        getUserMenuStyles={() => ({})}
-        isCollapsed={false}
-        setIsCollapsed={() => {}}
+        showMobileUserMenu={showMobileUserMenu}
+        setShowMobileUserMenu={setShowMobileUserMenu}
+        setMobileMenuOpen={setMobileMenuOpen}
+        userMenuOpen={userMenuOpen}
+        setUserMenuOpen={setUserMenuOpen}
+        userMenuHovered={userMenuHovered}
+        setUserMenuHovered={setUserMenuHovered}
+        handleSignOut={handleSignOut}
+        getUserMenuStyles={getUserMenuStyles}
+        isCollapsed={isCollapsed}
+        setIsCollapsed={setIsCollapsed}
       />
 
       <div
         style={{
-          marginLeft: isDesktop ? "296px" : "0",
+          marginLeft: isDesktop ? (isCollapsed ? "80px" : "296px") : "0",
           flex: "1 0 0",
           display: "flex",
           flexDirection: "column",
@@ -180,24 +196,32 @@ export default function InviteNewMemberValidation() {
           minHeight: "100vh",
         }}
       >
-        {isDesktop ? (
+        {isDesktop && (
           <Header
-            isDesktop
-            userMenuOpen={false}
-            setUserMenuOpen={() => {}}
-            userMenuHovered={false}
-            setUserMenuHovered={() => {}}
-            handleSignOut={() => navigate("/login")}
-            getUserMenuStyles={() => ({})}
-          />
-        ) : (
-          <MobileHeader
-            title="Validate Invite"
-            onBack={() => navigate(-1)}
-            onOpenSidebar={() => {}}
-            onOpenUserMenu={() => {}}
+            isDesktop={isDesktop}
+            userMenuOpen={userMenuOpen}
+            setUserMenuOpen={setUserMenuOpen}
+            userMenuHovered={userMenuHovered}
+            setUserMenuHovered={setUserMenuHovered}
+            handleSignOut={handleSignOut}
+            getUserMenuStyles={getUserMenuStyles}
+            showMobileUserMenu={showMobileUserMenu}
+            sidebarCollapsed={isCollapsed}
           />
         )}
+
+        <MobileHeader
+          isDesktop={isDesktop}
+          isMobile={isMobile}
+          setMobileMenuOpen={setMobileMenuOpen}
+          userMenuOpen={userMenuOpen}
+          setUserMenuOpen={setUserMenuOpen}
+          userMenuHovered={userMenuHovered}
+          setUserMenuHovered={setUserMenuHovered}
+          handleSignOut={handleSignOut}
+          getUserMenuStyles={getUserMenuStyles}
+          showMobileUserMenu={showMobileUserMenu}
+        />
 
         <div
           style={{
