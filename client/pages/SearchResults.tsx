@@ -390,6 +390,7 @@ const SearchResults = () => {
       />
 
       <div
+        ref={contentContainerRef}
         className={isMobile ? "mobile-container" : ""}
         style={{
           flex: "1 0 0",
