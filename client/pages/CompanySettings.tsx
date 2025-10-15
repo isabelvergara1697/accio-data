@@ -223,174 +223,487 @@ function TerminationUploadArea({ isMobile }: { isMobile: boolean }) {
         padding: "12px 16px 16px 16px",
         flexDirection: "column",
         alignItems: "flex-start",
-        gap: "8px",
+        gap: "16px",
         alignSelf: "stretch",
         borderTop: "1px solid #E9EAEB",
         background: "#FFF",
       }}
     >
-      {/* File upload base */}
-      <div
-        onDragOver={handleDragOver}
-        onDragLeave={handleDragLeave}
-        onDrop={handleDrop}
-        onClick={handleBrowseClick}
-        style={{
-          display: "flex",
-          padding: "16px 24px",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "4px",
-          alignSelf: "stretch",
-          borderRadius: "12px",
-          border: `1px ${isDragging ? "dashed" : "solid"} ${
-            isDragging ? "#344698" : "#E9EAEB"
-          }`,
-          background: isDragging ? "#F8F9FC" : "#FFF",
-          cursor: "pointer",
-          transition: "all 0.2s ease",
-        }}
-      >
+      {/* Uploaded Files List */}
+      {uploadedFiles.length > 0 && (
         <div
           style={{
             display: "flex",
-            justifyContent: "center",
+            flexDirection: "column",
             alignItems: "flex-start",
             gap: "12px",
             alignSelf: "stretch",
           }}
         >
-          {/* Upload icon */}
-          <div
-            style={{
-              display: "flex",
-              padding: "10px",
-              alignItems: "center",
-              gap: "10px",
-              borderRadius: "8px",
-              border: "1px solid #D5D7DA",
-              background: "#FFF",
-              boxShadow:
-                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-            }}
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M8 16L12 12M12 12L16 16M12 12V21M20 16.7428C21.2215 15.734 22 14.2079 22 12.5C22 9.46243 19.5376 7 16.5 7C16.2815 7 16.0771 6.886 15.9661 6.69774C14.6621 4.48484 12.2544 3 9.5 3C5.35786 3 2 6.35786 2 10.5C2 12.5661 2.83545 14.4371 4.18695 15.7935"
-                stroke="#414651"
-                strokeWidth="1.66667"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
+          {uploadedFiles.map((uploadedFile) => {
+            const fileExt = getFileExtension(uploadedFile.file.name);
+            const fileColor = getFileTypeColor(fileExt);
+            const fileSize = formatFileSize(uploadedFile.file.size);
+            const uploadedSize =
+              uploadedFile.status === "complete"
+                ? fileSize
+                : formatFileSize(
+                    Math.round(
+                      (uploadedFile.file.size * uploadedFile.progress) / 100
+                    )
+                  );
 
-          {/* Text content */}
+            return (
+              <div
+                key={uploadedFile.id}
+                style={{
+                  display: "flex",
+                  padding: "16px",
+                  alignItems: "flex-start",
+                  alignSelf: "stretch",
+                  borderRadius: "12px",
+                  border: "1px solid #E9EAEB",
+                  background: "#FFF",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "12px",
+                    flex: "1 0 0",
+                  }}
+                >
+                  {/* File Type Icon */}
+                  <div
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      position: "relative",
+                    }}
+                  >
+                    <svg
+                      width="32"
+                      height="40"
+                      viewBox="0 0 32 40"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      style={{
+                        position: "absolute",
+                        left: "7px",
+                        top: "0px",
+                      }}
+                    >
+                      <path
+                        d="M4 0.75H20C20.1212 0.75 20.2375 0.798089 20.3232 0.883789L31.1162 11.6768C31.2019 11.7625 31.25 11.8788 31.25 12V36C31.25 37.7949 29.7949 39.25 28 39.25H4C2.20507 39.25 0.75 37.7949 0.75 36V4C0.750001 2.20507 2.20508 0.75 4 0.75Z"
+                        stroke="#D5D7DA"
+                        strokeWidth="1.5"
+                      />
+                      <path
+                        d="M20 0.5V8C20 10.2091 21.7909 12 24 12H31.5"
+                        stroke="#D5D7DA"
+                        strokeWidth="1.5"
+                      />
+                    </svg>
+                    <div
+                      style={{
+                        display: "inline-flex",
+                        padding: "2px 3px",
+                        alignItems: "flex-start",
+                        gap: "8px",
+                        borderRadius: "2px",
+                        background: fileColor,
+                        position: "absolute",
+                        left: "1px",
+                        top: "18px",
+                        minWidth: "26px",
+                        height: "16px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#FFF",
+                          textAlign: "center",
+                          fontFamily: "Inter",
+                          fontSize: "10px",
+                          fontWeight: 700,
+                          lineHeight: "normal",
+                        }}
+                      >
+                        {fileExt}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* File Content */}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "4px",
+                      flex: "1 0 0",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "2px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "-webkit-box",
+                          WebkitBoxOrient: "vertical",
+                          WebkitLineClamp: 1,
+                          alignSelf: "stretch",
+                          overflow: "hidden",
+                          color: "#414651",
+                          textOverflow: "ellipsis",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                        }}
+                      >
+                        {uploadedFile.file.name}
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "-webkit-box",
+                            WebkitBoxOrient: "vertical",
+                            WebkitLineClamp: 1,
+                            overflow: "hidden",
+                            color: "#535862",
+                            textOverflow: "ellipsis",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 400,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          {uploadedSize} of {fileSize}
+                        </div>
+                        <svg
+                          width="2"
+                          height="14"
+                          viewBox="0 0 2 14"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M1 1V13"
+                            stroke="#D5D7DA"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                        {uploadedFile.status === "complete" && (
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "4px",
+                            }}
+                          >
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clipPath="url(#clip0)">
+                                <path
+                                  d="M5.00065 7.99992L7.00065 9.99992L11.0007 5.99992M14.6673 7.99992C14.6673 11.6818 11.6826 14.6666 8.00065 14.6666C4.31875 14.6666 1.33398 11.6818 1.33398 7.99992C1.33398 4.31802 4.31875 1.33325 8.00065 1.33325C11.6826 1.33325 14.6673 4.31802 14.6673 7.99992Z"
+                                  stroke="#079455"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0">
+                                  <rect width="16" height="16" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                            <div
+                              style={{
+                                color: "#079455",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              Complete
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Progress Bar */}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "12px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div
+                        style={{
+                          height: "8px",
+                          flex: "1 0 0",
+                          borderRadius: "8px",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            width: "100%",
+                            height: "8px",
+                            borderRadius: "9999px",
+                            background: "#D5D7DA",
+                            position: "absolute",
+                            left: 0,
+                            top: 0,
+                          }}
+                        />
+                        <div
+                          style={{
+                            width: `${uploadedFile.progress}%`,
+                            height: "8px",
+                            borderRadius: "9999px",
+                            background: "#344698",
+                            position: "absolute",
+                            left: 0,
+                            top: 0,
+                            transition: "width 0.3s ease",
+                          }}
+                        />
+                      </div>
+                      <div
+                        style={{
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                        }}
+                      >
+                        {uploadedFile.progress}%
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Delete Button */}
+                <button
+                  type="button"
+                  onClick={() => handleRemoveFile(uploadedFile.id)}
+                  style={{
+                    display: "flex",
+                    width: "32px",
+                    height: "32px",
+                    padding: "8px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    borderRadius: "6px",
+                    border: "none",
+                    background: "transparent",
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F5F5F5";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16 6V5.2C16 4.0799 16 3.51984 15.782 3.09202C15.5903 2.71569 15.2843 2.40973 14.908 2.21799C14.4802 2 13.9201 2 12.8 2H11.2C10.0799 2 9.51984 2 9.09202 2.21799C8.71569 2.40973 8.40973 2.71569 8.21799 3.09202C8 3.51984 8 4.0799 8 5.2V6M10 11.5V16.5M14 11.5V16.5M3 6H21M19 6V17.2C19 18.8802 19 19.7202 18.673 20.362C18.3854 20.9265 17.9265 21.3854 17.362 21.673C16.7202 22 15.8802 22 14.2 22H9.8C8.11984 22 7.27976 22 6.63803 21.673C6.07354 21.3854 5.6146 20.9265 5.32698 20.362C5 19.7202 5 18.8802 5 17.2V6"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* File upload area - only show if no files uploaded */}
+      {uploadedFiles.length === 0 && (
+        <div
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onDrop={handleDrop}
+          onClick={handleBrowseClick}
+          style={{
+            display: "flex",
+            padding: "16px 24px",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "4px",
+            alignSelf: "stretch",
+            borderRadius: "12px",
+            border: `1px ${isDragging ? "dashed" : "solid"} ${
+              isDragging ? "#344698" : "#E9EAEB"
+            }`,
+            background: isDragging ? "#F8F9FC" : "#FFF",
+            cursor: "pointer",
+            transition: "all 0.2s ease",
+          }}
+        >
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "4px",
-              flex: "1 0 0",
+              justifyContent: "center",
+              alignItems: "flex-start",
+              gap: "12px",
+              alignSelf: "stretch",
             }}
           >
+            {/* Upload icon */}
             <div
               style={{
                 display: "flex",
-                justifyContent: "center",
-                alignItems: "flex-start",
-                gap: "4px",
-                alignSelf: "stretch",
+                padding: "10px",
+                alignItems: "center",
+                gap: "10px",
+                borderRadius: "8px",
+                border: "1px solid #D5D7DA",
+                background: "#FFF",
+                boxShadow:
+                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
               }}
             >
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleBrowseClick();
-                }}
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 16L12 12M12 12L16 16M12 12V21M20 16.7428C21.2215 15.734 22 14.2079 22 12.5C22 9.46243 19.5376 7 16.5 7C16.2815 7 16.0771 6.886 15.9661 6.69774C14.6621 4.48484 12.2544 3 9.5 3C5.35786 3 2 6.35786 2 10.5C2 12.5661 2.83545 14.4371 4.18695 15.7935"
+                  stroke="#414651"
+                  strokeWidth="1.66667"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+
+            {/* Text content */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "4px",
+                flex: "1 0 0",
+              }}
+            >
+              <div
                 style={{
-                  background: "transparent",
-                  border: "none",
-                  padding: 0,
-                  cursor: "pointer",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "flex-start",
+                  gap: "4px",
+                  alignSelf: "stretch",
                 }}
               >
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleBrowseClick();
+                  }}
+                  style={{
+                    background: "transparent",
+                    border: "none",
+                    padding: 0,
+                    cursor: "pointer",
+                  }}
+                >
+                  <span
+                    style={{
+                      color: "#273572",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                    }}
+                  >
+                    Click to upload
+                  </span>
+                </button>
                 <span
                   style={{
-                    color: "#273572",
+                    color: "#535862",
                     fontFamily: "Public Sans",
                     fontSize: "14px",
-                    fontWeight: 600,
+                    fontWeight: 400,
                     lineHeight: "20px",
                   }}
                 >
-                  Click to upload
+                  or drag and drop
                 </span>
-              </button>
-              <span
-                style={{
-                  color: "#535862",
-                  fontFamily: "Public Sans",
-                  fontSize: "14px",
-                  fontWeight: 400,
-                  lineHeight: "20px",
-                }}
-              >
-                or drag and drop
-              </span>
-            </div>
-            <div
-              style={{
-                alignSelf: "stretch",
-                color: "#535862",
-                textAlign: "center",
-                fontFamily: "Roboto Mono",
-                fontSize: "12px",
-                fontWeight: 400,
-                lineHeight: "18px",
-              }}
-            >
-              XLSX or CSV Files
-            </div>
-            {selectedFile && (
+              </div>
               <div
                 style={{
-                  marginTop: "8px",
-                  color: "#344698",
-                  fontFamily: "Public Sans",
-                  fontSize: "14px",
-                  fontWeight: 600,
-                  lineHeight: "20px",
+                  alignSelf: "stretch",
+                  color: "#535862",
+                  textAlign: "center",
+                  fontFamily: "Roboto Mono",
+                  fontSize: "12px",
+                  fontWeight: 400,
+                  lineHeight: "18px",
                 }}
               >
-                Selected: {selectedFile.name}
+                XLSX or CSV Files
               </div>
-            )}
+            </div>
           </div>
-        </div>
 
-        {/* Hidden file input */}
-        <input
-          ref={fileInputRef}
-          type="file"
-          onChange={handleFileInputChange}
-          style={{ display: "none" }}
-          accept=".xlsx,.xls,.csv"
-        />
-      </div>
+          {/* Hidden file input */}
+          <input
+            ref={fileInputRef}
+            type="file"
+            onChange={handleFileInputChange}
+            style={{ display: "none" }}
+            accept=".xlsx,.xls,.csv,.pdf"
+          />
+        </div>
+      )}
 
       {/* Upload File Button */}
       <button
-        onClick={handleUploadClick}
-        disabled={!selectedFile}
+        onClick={handleBrowseClick}
         type="button"
         style={{
           display: "flex",
@@ -401,21 +714,16 @@ function TerminationUploadArea({ isMobile }: { isMobile: boolean }) {
           alignSelf: "stretch",
           borderRadius: "8px",
           border: "2px solid rgba(255, 255, 255, 0.12)",
-          background: !selectedFile ? "#A4A7AE" : "#344698",
+          background: "#344698",
           boxShadow:
             "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-          cursor: !selectedFile ? "not-allowed" : "pointer",
-          opacity: !selectedFile ? 0.6 : 1,
+          cursor: "pointer",
         }}
         onMouseEnter={(e) => {
-          if (selectedFile) {
-            e.currentTarget.style.background = "#2A3A7D";
-          }
+          e.currentTarget.style.background = "#2A3A7D";
         }}
         onMouseLeave={(e) => {
-          if (selectedFile) {
-            e.currentTarget.style.background = "#344698";
-          }
+          e.currentTarget.style.background = "#344698";
         }}
       >
         <div
