@@ -77,8 +77,10 @@ export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
               display: flex;
               padding: 4px;
               align-items: center;
+              align-content: center;
               gap: 4px;
               align-self: stretch;
+              flex-wrap: wrap;
               border-radius: 10px;
               border: 1px solid #E9EAEB;
               background: #FFF;
@@ -91,6 +93,7 @@ export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
             }
 
             .tabs-container.scrollable {
+              flex-wrap: nowrap;
               overflow-x: auto;
               padding-right: 20px;
               touch-action: pan-x;
@@ -104,6 +107,7 @@ export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
             /* Enable scrolling on tablet and mobile viewports */
             @media (max-width: 1023px) {
               .tabs-container {
+                flex-wrap: nowrap;
                 overflow-x: auto;
                 padding-right: 20px;
                 touch-action: pan-x;
