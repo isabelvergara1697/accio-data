@@ -322,6 +322,9 @@ const SearchResults = () => {
   const tableWrapperStyle: React.CSSProperties = {
     width: "100%",
     overflowX: "auto",
+    overflowY: "auto",
+    maxHeight: isMobile ? "400px" : "none",
+    WebkitOverflowScrolling: "touch",
   };
 
   const tableStyle: React.CSSProperties = {
