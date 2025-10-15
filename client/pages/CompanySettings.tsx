@@ -368,7 +368,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -439,7 +439,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -485,7 +485,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -531,7 +531,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -586,7 +586,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -632,7 +632,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -678,7 +678,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -839,7 +839,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -885,7 +885,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -940,7 +940,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -995,7 +995,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -1050,7 +1050,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -1105,7 +1105,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -1160,7 +1160,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -1214,7 +1214,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -1410,7 +1410,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -1505,7 +1505,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -1603,7 +1603,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -1701,7 +1701,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -1799,7 +1799,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -1877,7 +1877,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -1951,7 +1951,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -2018,7 +2018,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -2087,7 +2087,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -2154,7 +2154,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -2221,7 +2221,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
@@ -2290,7 +2290,7 @@ export default function CompanySettings() {
                       alignItems: "flex-start",
                       width: isCompactLayout ? "100%" : "auto",
                       minWidth: isCompactLayout ? "100%" : "200px",
-                      maxWidth: isMobile ? "100%" : "280px",
+                      maxWidth: isCompactLayout ? "100%" : "280px",
                       flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
