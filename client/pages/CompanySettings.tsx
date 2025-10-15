@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
@@ -19,6 +19,7 @@ type CompanyTabType =
 
 export default function CompanySettings() {
   const navigate = useNavigate();
+  const location = useLocation();
   const isMobile = useIsMobile();
   const [isTablet, setIsTablet] = React.useState(() => {
     if (typeof window === "undefined") {
@@ -32,6 +33,11 @@ export default function CompanySettings() {
   const headerHeight = isDesktop ? 72 : 64;
 
   const [activeTab, setActiveTab] = React.useState<CompanyTabType>("company");
+  const initialTab = React.useMemo(
+    () =>
+      (location.state as { initialTab?: CompanyTabType } | null)?.initialTab,
+    [location.state],
+  );
   const [userMenuOpen, setUserMenuOpen] = React.useState(false);
   const [userMenuHovered, setUserMenuHovered] = React.useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = React.useState(false);
@@ -43,6 +49,12 @@ export default function CompanySettings() {
   const [hoveredRowIndex, setHoveredRowIndex] = React.useState<number | null>(
     null,
   );
+
+  React.useEffect(() => {
+    if (initialTab) {
+      setActiveTab(initialTab);
+    }
+  }, [initialTab]);
 
   React.useEffect(() => {
     if (typeof window === "undefined") return;
