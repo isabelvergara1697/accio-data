@@ -34,18 +34,33 @@ export const AdvancedSearchModal: React.FC<AdvancedSearchModalProps> = ({
     name: "",
   });
   const [focusedField, setFocusedField] = useState<string | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
+    if (!isOpen || !anchor) {
+      return;
     }
 
-    return () => {
-      document.body.style.overflow = "unset";
+    const handleClickOutside = (event: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        onClose();
+      }
     };
-  }, [isOpen]);
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [anchor, isOpen, onClose]);
 
   const handleClear = () => {
     setSearchOrdersForm({
