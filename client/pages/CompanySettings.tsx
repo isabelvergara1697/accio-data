@@ -115,6 +115,281 @@ const INITIAL_ROLE_PERMISSIONS: RolePermissionCategory[] = [
 ];
 
 
+// Termination Upload Area Component
+function TerminationUploadArea({ isMobile }: { isMobile: boolean }) {
+  const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
+  const [isDragging, setIsDragging] = React.useState(false);
+  const fileInputRef = React.useRef<HTMLInputElement>(null);
+
+  const handleFileSelect = (file: File) => {
+    setSelectedFile(file);
+  };
+
+  const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      handleFileSelect(file);
+    }
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+    const file = e.dataTransfer.files?.[0];
+    if (file) {
+      handleFileSelect(file);
+    }
+  };
+
+  const handleBrowseClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleUploadClick = () => {
+    if (!selectedFile) return;
+    // TODO: Implement actual upload logic
+    console.log("Uploading file:", selectedFile.name);
+    // Reset after upload
+    setSelectedFile(null);
+  };
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        padding: "12px 16px 16px 16px",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        gap: "8px",
+        alignSelf: "stretch",
+        borderTop: "1px solid #E9EAEB",
+        background: "#FFF",
+      }}
+    >
+      {/* File upload base */}
+      <div
+        onDragOver={handleDragOver}
+        onDragLeave={handleDragLeave}
+        onDrop={handleDrop}
+        onClick={handleBrowseClick}
+        style={{
+          display: "flex",
+          padding: "16px 24px",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "4px",
+          alignSelf: "stretch",
+          borderRadius: "12px",
+          border: `1px ${isDragging ? "dashed" : "solid"} ${
+            isDragging ? "#344698" : "#E9EAEB"
+          }`,
+          background: isDragging ? "#F8F9FC" : "#FFF",
+          cursor: "pointer",
+          transition: "all 0.2s ease",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "flex-start",
+            gap: "12px",
+            alignSelf: "stretch",
+          }}
+        >
+          {/* Upload icon */}
+          <div
+            style={{
+              display: "flex",
+              padding: "10px",
+              alignItems: "center",
+              gap: "10px",
+              borderRadius: "8px",
+              border: "1px solid #D5D7DA",
+              background: "#FFF",
+              boxShadow:
+                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+            }}
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8 16L12 12M12 12L16 16M12 12V21M20 16.7428C21.2215 15.734 22 14.2079 22 12.5C22 9.46243 19.5376 7 16.5 7C16.2815 7 16.0771 6.886 15.9661 6.69774C14.6621 4.48484 12.2544 3 9.5 3C5.35786 3 2 6.35786 2 10.5C2 12.5661 2.83545 14.4371 4.18695 15.7935"
+                stroke="#414651"
+                strokeWidth="1.66667"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+
+          {/* Text content */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "4px",
+              flex: "1 0 0",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "flex-start",
+                gap: "4px",
+                alignSelf: "stretch",
+              }}
+            >
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleBrowseClick();
+                }}
+                style={{
+                  background: "transparent",
+                  border: "none",
+                  padding: 0,
+                  cursor: "pointer",
+                }}
+              >
+                <span
+                  style={{
+                    color: "#273572",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    lineHeight: "20px",
+                  }}
+                >
+                  Click to upload
+                </span>
+              </button>
+              <span
+                style={{
+                  color: "#535862",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontWeight: 400,
+                  lineHeight: "20px",
+                }}
+              >
+                or drag and drop
+              </span>
+            </div>
+            <div
+              style={{
+                alignSelf: "stretch",
+                color: "#535862",
+                textAlign: "center",
+                fontFamily: "Roboto Mono",
+                fontSize: "12px",
+                fontWeight: 400,
+                lineHeight: "18px",
+              }}
+            >
+              XLSX or CSV Files
+            </div>
+            {selectedFile && (
+              <div
+                style={{
+                  marginTop: "8px",
+                  color: "#344698",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontWeight: 600,
+                  lineHeight: "20px",
+                }}
+              >
+                Selected: {selectedFile.name}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Hidden file input */}
+        <input
+          ref={fileInputRef}
+          type="file"
+          onChange={handleFileInputChange}
+          style={{ display: "none" }}
+          accept=".xlsx,.xls,.csv"
+        />
+      </div>
+
+      {/* Upload File Button */}
+      <button
+        onClick={handleUploadClick}
+        disabled={!selectedFile}
+        type="button"
+        style={{
+          display: "flex",
+          padding: "12px",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "4px",
+          alignSelf: "stretch",
+          borderRadius: "8px",
+          border: "2px solid rgba(255, 255, 255, 0.12)",
+          background: !selectedFile ? "#A4A7AE" : "#344698",
+          boxShadow:
+            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+          cursor: !selectedFile ? "not-allowed" : "pointer",
+          opacity: !selectedFile ? 0.6 : 1,
+        }}
+        onMouseEnter={(e) => {
+          if (selectedFile) {
+            e.currentTarget.style.background = "#2A3A7D";
+          }
+        }}
+        onMouseLeave={(e) => {
+          if (selectedFile) {
+            e.currentTarget.style.background = "#344698";
+          }
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            padding: "0 2px",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <span
+            style={{
+              color: "#FFF",
+              fontFamily: "Public Sans",
+              fontSize: "14px",
+              fontWeight: 600,
+              lineHeight: "20px",
+            }}
+          >
+            Upload File
+          </span>
+        </div>
+      </button>
+    </div>
+  );
+}
+
 export default function CompanySettings() {
   const navigate = useNavigate();
   const location = useLocation();
