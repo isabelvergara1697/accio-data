@@ -630,7 +630,7 @@ export default function InviteNewMember() {
                     />
                   </div>
 
-                  <div style={{ gridRow: "3 / span 1", gridColumn: "2 / span 1", display: "flex", flexDirection: "column", gap: "6px" }}>
+                  <div style={{ gridRow: "3 / span 1", gridColumn: "2 / span 1" }}>
                     <label
                       style={{
                         color: "#414651",
@@ -658,9 +658,10 @@ export default function InviteNewMember() {
                         fontSize: "14px",
                         outline: "none",
                         boxSizing: "border-box",
+                        marginBottom: "6px",
                       }}
                     />
-                    <span
+                    <div
                       style={{
                         color: "#535862",
                         fontFamily: "Public Sans",
@@ -670,7 +671,7 @@ export default function InviteNewMember() {
                       }}
                     >
                       Optional. Used only for receiving system alerts or notification emails.
-                    </span>
+                    </div>
                   </div>
 
                   <div style={{ gridRow: "4 / span 1", gridColumn: "1 / span 1" }}>
