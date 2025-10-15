@@ -175,15 +175,18 @@ export default function CompanySettings() {
         setIsCollapsed={setIsCollapsed}
       />
 
-      {isMobile && (
+      {!isDesktop && (
         <MobileHeader
+          isDesktop={isDesktop}
           isMobile={isMobile}
-          mobileMenuOpen={mobileMenuOpen}
           setMobileMenuOpen={setMobileMenuOpen}
-          showMobileUserMenu={showMobileUserMenu}
-          setShowMobileUserMenu={setShowMobileUserMenu}
+          userMenuOpen={userMenuOpen}
+          setUserMenuOpen={setUserMenuOpen}
+          userMenuHovered={userMenuHovered}
+          setUserMenuHovered={setUserMenuHovered}
           handleSignOut={handleSignOut}
-          currentPage="company-settings"
+          getUserMenuStyles={getUserMenuStyles}
+          showMobileUserMenu={showMobileUserMenu}
         />
       )}
 
