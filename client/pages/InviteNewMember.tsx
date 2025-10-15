@@ -463,105 +463,357 @@ export default function InviteNewMember() {
                 <div
                   style={{
                     display: "grid",
+                    height: isCompact ? "auto" : "410px",
+                    gridTemplateRows: isCompact ? "auto" : "repeat(5, minmax(0, 1fr))",
                     gridTemplateColumns: isCompact ? "1fr" : "repeat(2, minmax(0, 1fr))",
-                    gap: isCompact ? "16px" : "20px",
+                    rowGap: isCompact ? "16px" : "20px",
+                    columnGap: isCompact ? "16px" : "20px",
                   }}
                 >
-                  {[
-                    { label: "First Name", type: "text" },
-                    { label: "Last Name", type: "text" },
-                    { label: "Role", type: "text" },
-                    { label: "Telephone", type: "tel" },
-                    { label: "Fax", type: "tel" },
-                    { label: "Secondary Mail", type: "email", helper: "Optional. Used only for receiving system alerts or notification emails." },
-                    { label: "Zip", type: "text" },
-                    { label: "Address", type: "text" },
-                  ].map(({ label, type, helper }) => (
-                    <div key={label} style={{ display: "flex", flexDirection: "column", gap: helper ? "6px" : "0" }}>
-                      <label
-                        style={{
-                          color: "#414651",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 500,
-                          lineHeight: "20px",
-                          display: "block",
-                          marginBottom: "6px",
-                        }}
-                      >
-                        {label}
-                      </label>
-                      <input
-                        type={type}
-                        style={{
-                          width: "100%",
-                          height: "40px",
-                          padding: "8px 12px",
-                          borderRadius: "8px",
-                          border: "1px solid #D5D7DA",
-                          background: "#FFF",
-                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          outline: "none",
-                          boxSizing: "border-box",
-                        }}
-                      />
-                      {helper && (
-                        <span
-                          style={{
-                            color: "#535862",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontWeight: 400,
-                            lineHeight: "20px",
-                          }}
-                        >
-                          {helper}
-                        </span>
-                      )}
-                    </div>
-                  ))}
-                  {["State", "City"].map((label) => (
-                    <div key={label}>
-                      <label
-                        style={{
-                          color: "#414651",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 500,
-                          lineHeight: "20px",
-                          display: "block",
-                          marginBottom: "6px",
-                        }}
-                      >
-                        {label}
-                      </label>
-                      <select
-                        style={{
-                          width: "100%",
-                          height: "40px",
-                          padding: "8px 12px",
-                          borderRadius: "8px",
-                          border: "1px solid #D5D7DA",
-                          background: "#FFF",
-                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          fontFamily: "Public Sans",
-                          fontSize: "16px",
-                          color: "#717680",
-                          outline: "none",
-                          boxSizing: "border-box",
-                          appearance: "none",
-                          backgroundImage: `url("${selectChevronDataUri}")`,
-                          backgroundRepeat: "no-repeat",
-                          backgroundPosition: "right 8px center",
-                        }}
-                        defaultValue="Select"
-                      >
-                        <option value="Select">Select</option>
-                      </select>
-                    </div>
-                  ))}
+                  <div style={{ gridRow: "1 / span 1", gridColumn: "1 / span 1" }}>
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 500,
+                        lineHeight: "20px",
+                        display: "block",
+                        marginBottom: "6px",
+                      }}
+                    >
+                      First Name
+                    </label>
+                    <input
+                      type="text"
+                      style={{
+                        width: "100%",
+                        height: "40px",
+                        padding: "8px 12px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        outline: "none",
+                        boxSizing: "border-box",
+                      }}
+                    />
+                  </div>
+
+                  <div style={{ gridRow: "1 / span 1", gridColumn: "2 / span 1" }}>
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 500,
+                        lineHeight: "20px",
+                        display: "block",
+                        marginBottom: "6px",
+                      }}
+                    >
+                      Last Name
+                    </label>
+                    <input
+                      type="text"
+                      style={{
+                        width: "100%",
+                        height: "40px",
+                        padding: "8px 12px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        outline: "none",
+                        boxSizing: "border-box",
+                      }}
+                    />
+                  </div>
+
+                  <div style={{ gridRow: "2 / span 1", gridColumn: "1 / span 1" }}>
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 500,
+                        lineHeight: "20px",
+                        display: "block",
+                        marginBottom: "6px",
+                      }}
+                    >
+                      Role
+                    </label>
+                    <input
+                      type="text"
+                      style={{
+                        width: "100%",
+                        height: "40px",
+                        padding: "8px 12px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        outline: "none",
+                        boxSizing: "border-box",
+                      }}
+                    />
+                  </div>
+
+                  <div style={{ gridRow: "2 / span 1", gridColumn: "2 / span 1" }}>
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 500,
+                        lineHeight: "20px",
+                        display: "block",
+                        marginBottom: "6px",
+                      }}
+                    >
+                      Telephone
+                    </label>
+                    <input
+                      type="tel"
+                      style={{
+                        width: "100%",
+                        height: "40px",
+                        padding: "8px 12px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        outline: "none",
+                        boxSizing: "border-box",
+                      }}
+                    />
+                  </div>
+
+                  <div style={{ gridRow: "3 / span 1", gridColumn: "1 / span 1" }}>
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 500,
+                        lineHeight: "20px",
+                        display: "block",
+                        marginBottom: "6px",
+                      }}
+                    >
+                      Fax
+                    </label>
+                    <input
+                      type="tel"
+                      style={{
+                        width: "100%",
+                        height: "40px",
+                        padding: "8px 12px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        outline: "none",
+                        boxSizing: "border-box",
+                      }}
+                    />
+                  </div>
+
+                  <div style={{ gridRow: "3 / span 1", gridColumn: "2 / span 1", display: "flex", flexDirection: "column", gap: "6px" }}>
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 500,
+                        lineHeight: "20px",
+                        display: "block",
+                        marginBottom: "6px",
+                      }}
+                    >
+                      Secondary Mail
+                    </label>
+                    <input
+                      type="email"
+                      style={{
+                        width: "100%",
+                        height: "40px",
+                        padding: "8px 12px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        outline: "none",
+                        boxSizing: "border-box",
+                      }}
+                    />
+                    <span
+                      style={{
+                        color: "#535862",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Optional. Used only for receiving system alerts or notification emails.
+                    </span>
+                  </div>
+
+                  <div style={{ gridRow: "4 / span 1", gridColumn: "1 / span 1" }}>
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 500,
+                        lineHeight: "20px",
+                        display: "block",
+                        marginBottom: "6px",
+                      }}
+                    >
+                      Zip
+                    </label>
+                    <input
+                      type="text"
+                      style={{
+                        width: "100%",
+                        height: "40px",
+                        padding: "8px 12px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        outline: "none",
+                        boxSizing: "border-box",
+                      }}
+                    />
+                  </div>
+
+                  <div style={{ gridRow: "4 / span 1", gridColumn: "2 / span 1" }}>
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 500,
+                        lineHeight: "20px",
+                        display: "block",
+                        marginBottom: "6px",
+                      }}
+                    >
+                      Address
+                    </label>
+                    <input
+                      type="text"
+                      style={{
+                        width: "100%",
+                        height: "40px",
+                        padding: "8px 12px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        outline: "none",
+                        boxSizing: "border-box",
+                      }}
+                    />
+                  </div>
+
+                  <div style={{ gridRow: "5 / span 1", gridColumn: "1 / span 1" }}>
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 500,
+                        lineHeight: "20px",
+                        display: "block",
+                        marginBottom: "6px",
+                      }}
+                    >
+                      State
+                    </label>
+                    <select
+                      style={{
+                        width: "100%",
+                        height: "40px",
+                        padding: "8px 12px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        fontFamily: "Public Sans",
+                        fontSize: "16px",
+                        color: "#717680",
+                        outline: "none",
+                        boxSizing: "border-box",
+                        appearance: "none",
+                        backgroundImage: `url("${selectChevronDataUri}")`,
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "right 8px center",
+                      }}
+                      defaultValue="Select"
+                    >
+                      <option value="Select">Select</option>
+                    </select>
+                  </div>
+
+                  <div style={{ gridRow: "5 / span 1", gridColumn: "2 / span 1" }}>
+                    <label
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 500,
+                        lineHeight: "20px",
+                        display: "block",
+                        marginBottom: "6px",
+                      }}
+                    >
+                      City
+                    </label>
+                    <select
+                      style={{
+                        width: "100%",
+                        height: "40px",
+                        padding: "8px 12px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        fontFamily: "Public Sans",
+                        fontSize: "16px",
+                        color: "#717680",
+                        outline: "none",
+                        boxSizing: "border-box",
+                        appearance: "none",
+                        backgroundImage: `url("${selectChevronDataUri}")`,
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "right 8px center",
+                      }}
+                      defaultValue="Select"
+                    >
+                      <option value="Select">Select</option>
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>
