@@ -5,6 +5,8 @@ import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import { Home, ChevronRight, User, XCircle } from "lucide-react";
 import { useIsMobile } from "../hooks/use-mobile";
+import { RadioGroup, RadioGroupItem } from "../components/ui/radio-group";
+import { Label } from "../components/ui/label";
 
 interface Permission {
   name: string;
@@ -371,37 +373,25 @@ export default function InviteNewMember() {
                   >
                     Password
                   </h3>
-                  {[
-                    {
-                      value: "auto" as const,
-                      title: "Automatically generate a secure 16-character password",
-                      description: "It will be emailed to the user",
-                    },
-                    {
-                      value: "manual" as const,
-                      title: "Create password",
-                    },
-                  ].map((option) => (
-                    <label
-                      key={option.value}
-                      style={{ display: "flex", gap: "8px", cursor: "pointer" }}
-                      onClick={() => setPasswordOption(option.value)}
-                    >
-                      <div style={{ display: "flex", paddingTop: "2px" }}>
-                        <div
+                  <RadioGroup
+                    value={passwordOption}
+                    onValueChange={(value: "auto" | "manual") => setPasswordOption(value)}
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "16px",
+                    }}
+                  >
+                    <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                      <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                        <RadioGroupItem value="auto" id="auto-password" style={{ marginTop: "2px" }} />
+                        <Label
+                          htmlFor="auto-password"
                           style={{
-                            width: "16px",
-                            height: "16px",
-                            borderRadius: "9999px",
-                            border:
-                              passwordOption === option.value ? "5px solid #344698" : "1px solid #D5D7DA",
-                            background: passwordOption === option.value ? "#344698" : "transparent",
-                          }}
-                        />
-                      </div>
-                      <div style={{ display: "flex", flexDirection: "column", gap: option.description ? "4px" : "0" }}>
-                        <span
-                          style={{
+                            display: "flex",
+                            alignItems: "flex-end",
+                            gap: "4px",
+                            alignSelf: "stretch",
                             color: "#414651",
                             fontFamily: "Public Sans",
                             fontSize: "14px",
@@ -409,24 +399,42 @@ export default function InviteNewMember() {
                             lineHeight: "20px",
                           }}
                         >
-                          {option.title}
-                        </span>
-                        {option.description && (
-                          <span
-                            style={{
-                              color: "#535862",
-                              fontFamily: "Public Sans",
-                              fontSize: "14px",
-                              fontWeight: 400,
-                              lineHeight: "20px",
-                            }}
-                          >
-                            {option.description}
-                          </span>
-                        )}
+                          Automatically generate a secure 16-character password
+                        </Label>
                       </div>
-                    </label>
-                  ))}
+                      <p
+                        style={{
+                          color: "#535862",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                          margin: "0 0 0 24px",
+                        }}
+                      >
+                        It will be emailed to the user
+                      </p>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                      <RadioGroupItem value="manual" id="manual-password" style={{ marginTop: "2px" }} />
+                      <Label
+                        htmlFor="manual-password"
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-end",
+                          gap: "4px",
+                          alignSelf: "stretch",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                        }}
+                      >
+                        Create password
+                      </Label>
+                    </div>
+                  </RadioGroup>
                 </div>
               </div>
             </div>
