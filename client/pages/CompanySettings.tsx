@@ -3331,6 +3331,7 @@ export default function CompanySettings() {
                                     right: "20px",
                                     top: "50px",
                                     zIndex: 1000,
+                                    minWidth: "180px",
                                     borderRadius: "8px",
                                     border: "1px solid rgba(0, 0, 0, 0.08)",
                                     background: "#FFF",
@@ -3350,27 +3351,30 @@ export default function CompanySettings() {
                                         console.log("Edit Member", member.name);
                                         setOpenDropdownIndex(null);
                                       }}
-                                      onMouseEnter={(e) =>
-                                        (e.currentTarget.style.background =
-                                          "#F9FAFB")
-                                      }
-                                      onMouseLeave={(e) =>
-                                        (e.currentTarget.style.background =
-                                          "transparent")
-                                      }
                                       style={{
                                         display: "flex",
-                                        padding: "8px 12px",
+                                        padding: "1px 6px",
                                         alignItems: "center",
-                                        cursor: "pointer",
-                                        transition: "background 0.15s ease",
                                       }}
                                     >
                                       <div
+                                        onMouseEnter={(e) =>
+                                          (e.currentTarget.style.background =
+                                            "#F9FAFB")
+                                        }
+                                        onMouseLeave={(e) =>
+                                          (e.currentTarget.style.background =
+                                            "transparent")
+                                        }
                                         style={{
                                           display: "flex",
+                                          padding: "8px",
                                           alignItems: "center",
                                           gap: "8px",
+                                          borderRadius: "6px",
+                                          cursor: "pointer",
+                                          transition: "background 0.15s ease",
+                                          width: "100%",
                                         }}
                                       >
                                         <svg
@@ -3395,6 +3399,7 @@ export default function CompanySettings() {
                                             fontSize: "14px",
                                             fontWeight: 500,
                                             lineHeight: "20px",
+                                            whiteSpace: "nowrap",
                                           }}
                                         >
                                           Edit Member
@@ -3409,27 +3414,30 @@ export default function CompanySettings() {
                                         );
                                         setOpenDropdownIndex(null);
                                       }}
-                                      onMouseEnter={(e) =>
-                                        (e.currentTarget.style.background =
-                                          "#F9FAFB")
-                                      }
-                                      onMouseLeave={(e) =>
-                                        (e.currentTarget.style.background =
-                                          "transparent")
-                                      }
                                       style={{
                                         display: "flex",
-                                        padding: "8px 12px",
+                                        padding: "1px 6px",
                                         alignItems: "center",
-                                        cursor: "pointer",
-                                        transition: "background 0.15s ease",
                                       }}
                                     >
                                       <div
+                                        onMouseEnter={(e) =>
+                                          (e.currentTarget.style.background =
+                                            "#F9FAFB")
+                                        }
+                                        onMouseLeave={(e) =>
+                                          (e.currentTarget.style.background =
+                                            "transparent")
+                                        }
                                         style={{
                                           display: "flex",
+                                          padding: "8px",
                                           alignItems: "center",
                                           gap: "8px",
+                                          borderRadius: "6px",
+                                          cursor: "pointer",
+                                          transition: "background 0.15s ease",
+                                          width: "100%",
                                         }}
                                       >
                                         <svg
@@ -3454,6 +3462,7 @@ export default function CompanySettings() {
                                             fontSize: "14px",
                                             fontWeight: 500,
                                             lineHeight: "20px",
+                                            whiteSpace: "nowrap",
                                           }}
                                         >
                                           Resent Invite
@@ -3468,27 +3477,30 @@ export default function CompanySettings() {
                                         );
                                         setOpenDropdownIndex(null);
                                       }}
-                                      onMouseEnter={(e) =>
-                                        (e.currentTarget.style.background =
-                                          "#F9FAFB")
-                                      }
-                                      onMouseLeave={(e) =>
-                                        (e.currentTarget.style.background =
-                                          "transparent")
-                                      }
                                       style={{
                                         display: "flex",
-                                        padding: "8px 12px",
+                                        padding: "1px 6px",
                                         alignItems: "center",
-                                        cursor: "pointer",
-                                        transition: "background 0.15s ease",
                                       }}
                                     >
                                       <div
+                                        onMouseEnter={(e) =>
+                                          (e.currentTarget.style.background =
+                                            "#F9FAFB")
+                                        }
+                                        onMouseLeave={(e) =>
+                                          (e.currentTarget.style.background =
+                                            "transparent")
+                                        }
                                         style={{
                                           display: "flex",
+                                          padding: "8px",
                                           alignItems: "center",
                                           gap: "8px",
+                                          borderRadius: "6px",
+                                          cursor: "pointer",
+                                          transition: "background 0.15s ease",
+                                          width: "100%",
                                         }}
                                       >
                                         <svg
@@ -3513,6 +3525,7 @@ export default function CompanySettings() {
                                             fontSize: "14px",
                                             fontWeight: 500,
                                             lineHeight: "20px",
+                                            whiteSpace: "nowrap",
                                           }}
                                         >
                                           Remove Users
