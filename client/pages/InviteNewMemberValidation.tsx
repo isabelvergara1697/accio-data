@@ -113,7 +113,21 @@ export default function InviteNewMemberValidation() {
     password,
     selectedTeamMembers,
     adjudicationSelections,
+    reportViewOption,
   } = state;
+
+  const reportViewDescription = useMemo(() => {
+    switch (reportViewOption) {
+      case "own":
+        return "Limited to this user's own reports";
+      case "any":
+        return "Access to all reports in the account";
+      case "select":
+        return "Reports visible based on selected team members";
+      default:
+        return "Custom visibility configuration";
+    }
+  }, [reportViewOption]);
 
   const breadcrumbItems = useMemo(
     () => [
