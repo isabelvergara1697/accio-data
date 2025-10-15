@@ -1911,7 +1911,13 @@ export default function InviteNewMember() {
                             lineHeight: "20px",
                           }}
                         >
-                          Select Team Member
+                          {selectedTeamMembers.length > 0
+                            ? `${selectedTeamMembers[0].name}${
+                                selectedTeamMembers.length > 1
+                                  ? ` +${selectedTeamMembers.length - 1}`
+                                  : ""
+                              }`
+                            : "Select Team Member"}
                         </span>
                         <svg
                           width="16"
