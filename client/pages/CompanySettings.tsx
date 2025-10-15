@@ -943,15 +943,15 @@ export default function CompanySettings() {
   // Customization state
   const [companyName, setCompanyName] = React.useState("");
   const [customDomain, setCustomDomain] = React.useState("");
-  const [brandColor, setBrandColor] = React.useState("#7F56D9");
+  const [brandColor, setBrandColor] = React.useState(DEFAULT_BRAND_COLOR);
   const [displayPreference, setDisplayPreference] = React.useState<'system' | 'light' | 'dark'>('system');
   const [uiStyling, setUiStyling] = React.useState<'pill' | 'round' | 'sharp'>('pill');
-  const [showColorPicker, setShowColorPicker] = React.useState(false);
-  const [tempColor, setTempColor] = React.useState("#7F56D9");
-  const [huePosition, setHuePosition] = React.useState(0.7);
-  const [saturationPosition, setSaturationPosition] = React.useState(0.98);
-  const [colorspaceX, setColorspaceX] = React.useState(192);
-  const [colorspaceY, setColorspaceY] = React.useState(14);
+  const [isColorPickerOpen, setIsColorPickerOpen] = React.useState(false);
+  const [hue, setHue] = React.useState(DEFAULT_HSV.h);
+  const [saturation, setSaturation] = React.useState(DEFAULT_HSV.s);
+  const [value, setValue] = React.useState(DEFAULT_HSV.v);
+  const [hexInput, setHexInput] = React.useState(DEFAULT_BRAND_COLOR);
+  const [isEditingHex, setIsEditingHex] = React.useState(false);
   const [loginImageEnabled, setLoginImageEnabled] = React.useState(true);
   const [portalInstructionsEnabled, setPortalInstructionsEnabled] = React.useState(true);
   const loginImageInputRef = React.useRef<HTMLInputElement | null>(null);
