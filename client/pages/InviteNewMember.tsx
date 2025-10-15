@@ -63,7 +63,7 @@ export default function InviteNewMember() {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const [passwordOption, setPasswordOption] = useState<"auto" | "manual">(
-    "manual",
+    "auto",
   );
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
