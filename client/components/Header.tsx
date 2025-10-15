@@ -76,15 +76,7 @@ export const Header: React.FC<HeaderProps> = ({
   const [quickCreateOpen, setQuickCreateOpen] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState(initialSearchQuery);
   const [searchFocused, setSearchFocused] = React.useState(false);
-  const [showAdvancedSearch, setShowAdvancedSearch] = React.useState(false);
-  const [advancedSearchForm, setAdvancedSearchForm] = React.useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phoneNumber: "",
-  });
-  const [focusedAdvancedField, setFocusedAdvancedField] = React.useState<string | null>(null);
-  const advancedSearchRef = useRef<HTMLDivElement>(null);
+  const [showAdvancedSearchModal, setShowAdvancedSearchModal] = React.useState(false);
 
   const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && searchQuery.trim()) {
