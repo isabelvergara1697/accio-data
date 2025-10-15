@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import { Sidebar } from "../components/Sidebar";
+import { HorizontalTabs } from "../components/HorizontalTabs";
 import { useIsMobile } from "../hooks/use-mobile";
 
 type TabType = "profile" | "security" | "notifications";
@@ -11,7 +12,8 @@ export default function AccountSettings() {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
   const isDesktop = !isMobile;
-  
+
+  const [isTablet, setIsTablet] = useState(false);
   const [activeTab, setActiveTab] = useState<TabType>("profile");
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [userMenuHovered, setUserMenuHovered] = useState(false);
@@ -19,6 +21,27 @@ export default function AccountSettings() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   
+  React.useEffect(() => {
+    const updateViewport = () => {
+      if (typeof window === "undefined") return;
+      const width = window.innerWidth;
+      setIsTablet(width >= 768 && width < 1024);
+    };
+
+    updateViewport();
+    window.addEventListener("resize", updateViewport);
+    return () => window.removeEventListener("resize", updateViewport);
+  }, []);
+
+  const tabs = React.useMemo(
+    () => [
+      { id: "profile" as TabType, label: "Profile" },
+      { id: "security" as TabType, label: "Security" },
+      { id: "notifications" as TabType, label: "Notifications" },
+    ],
+    [],
+  );
+
   // Form state
   const [firstName, setFirstName] = useState("Alexandra");
   const [lastName, setLastName] = useState("Fitzwilliam");
@@ -225,47 +248,17 @@ export default function AccountSettings() {
             {/* Tabs */}
             <div
               style={{
-                display: "flex",
-                padding: "4px",
-                alignItems: "center",
-                gap: "4px",
                 alignSelf: "stretch",
-                borderRadius: "10px",
-                border: "1px solid #E9EAEB",
-                background: "#FFF",
-                overflowX: "auto",
+                width: "100%",
               }}
             >
-              {[
-                { id: "profile" as TabType, label: "Profile" },
-                { id: "security" as TabType, label: "Security" },
-                { id: "notifications" as TabType, label: "Notifications" },
-              ].map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  style={{
-                    display: "flex",
-                    height: "36px",
-                    padding: "8px 12px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "8px",
-                    borderRadius: "6px",
-                    border: activeTab === tab.id ? "1px solid #B3BCE5" : "none",
-                    background: activeTab === tab.id ? "#ECEEF9" : "transparent",
-                    color: activeTab === tab.id ? "#273572" : "#717680",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontWeight: 600,
-                    lineHeight: "20px",
-                    cursor: "pointer",
-                    transition: "all 0.2s",
-                  }}
-                >
-                  {tab.label}
-                </button>
-              ))}
+              <HorizontalTabs
+                tabs={tabs}
+                currentTab={activeTab}
+                onTabChange={(tabId) => setActiveTab(tabId as TabType)}
+                isMobile={isMobile}
+                isTablet={isTablet}
+              />
             </div>
           </div>
 
