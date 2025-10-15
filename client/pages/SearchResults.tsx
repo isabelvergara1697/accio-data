@@ -637,22 +637,21 @@ const SearchResults = () => {
               </div>
             </div>
 
-            <div style={{ padding: "0 0 16px 0" }}>
-              <div style={tableWrapperStyle}>
-                <table style={tableStyle}>
-                  <thead>
-                    <tr>
-                      <th style={tableHeaderCellStyle}>Status</th>
-                      <th style={tableHeaderCellStyle}>First Name</th>
-                      <th style={tableHeaderCellStyle}>Last Name</th>
-                      <th style={tableHeaderCellStyle}>Applicant Email</th>
-                      <th style={tableHeaderCellStyle}>Phone</th>
-                      <th style={tableHeaderCellStyle}>New Update</th>
-                      <th style={tableHeaderCellStyle}>Completed</th>
-                      <th style={tableHeaderCellStyle}>Last Update</th>
-                      <th style={tableHeaderCellStyle}>ETA</th>
-                    </tr>
-                  </thead>
+            <div style={tableWrapperStyle}>
+              <table style={tableStyle}>
+                <thead>
+                  <tr>
+                    <th style={tableHeaderCellStyle}>Status</th>
+                    <th style={tableHeaderCellStyle}>First Name</th>
+                    <th style={tableHeaderCellStyle}>Last Name</th>
+                    <th style={tableHeaderCellStyle}>Applicant Email</th>
+                    <th style={tableHeaderCellStyle}>Phone</th>
+                    <th style={tableHeaderCellStyle}>New Update</th>
+                    <th style={tableHeaderCellStyle}>Completed</th>
+                    <th style={tableHeaderCellStyle}>Last Update</th>
+                    <th style={tableHeaderCellStyle}>ETA</th>
+                  </tr>
+                </thead>
                   <tbody>
                     {orders.map((order, index) => {
                       const isLastRow = index === orders.length - 1;
@@ -767,9 +766,8 @@ const SearchResults = () => {
                         </tr>
                       );
                     })}
-                  </tbody>
-                </table>
-              </div>
+                </tbody>
+              </table>
             </div>
           </section>
 
@@ -798,8 +796,7 @@ const SearchResults = () => {
               </div>
             </div>
 
-            <div style={{ padding: "0 0 16px 0" }}>
-              <div style={tableWrapperStyle}>
+            <div style={tableWrapperStyle}>
                 <table style={tableStyle}>
                   <thead>
                     <tr>
@@ -929,7 +926,6 @@ const SearchResults = () => {
                     })}
                   </tbody>
                 </table>
-              </div>
             </div>
           </section>
 
@@ -958,8 +954,7 @@ const SearchResults = () => {
               </div>
             </div>
 
-            <div style={{ padding: "0 0 16px 0" }}>
-              <div style={tableWrapperStyle}>
+            <div style={tableWrapperStyle}>
                 <table style={tableStyle}>
                   <thead>
                     <tr>
@@ -1040,7 +1035,6 @@ const SearchResults = () => {
                     })}
                   </tbody>
                 </table>
-              </div>
             </div>
           </section>
 
