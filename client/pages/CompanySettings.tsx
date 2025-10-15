@@ -263,6 +263,7 @@ export default function CompanySettings() {
             gap: isMobile ? "20px" : "24px",
             maxWidth: "1200px",
             width: "100%",
+            minWidth: 0,
             margin: "0 auto",
             overflowX: "hidden",
             boxSizing: "border-box",
