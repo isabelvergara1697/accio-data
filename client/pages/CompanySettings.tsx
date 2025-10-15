@@ -2216,11 +2216,731 @@ export default function CompanySettings() {
                 display: "flex",
                 flexDirection: "column",
                 gap: "24px",
+                width: "100%",
+                maxWidth: "100%",
+                overflowX: "hidden",
+                boxSizing: "border-box",
               }}
             >
-              <p style={{ color: "#535862", fontFamily: "Public Sans" }}>
-                Team & Permissions content coming soon...
-              </p>
+              {/* Team & Permissions Section */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "20px",
+                  width: "100%",
+                  maxWidth: "100%",
+                  boxSizing: "border-box",
+                }}
+              >
+                <div>
+                  <h2
+                    style={{
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "18px",
+                      fontWeight: 600,
+                      lineHeight: "28px",
+                      margin: 0,
+                    }}
+                  >
+                    Team & Permissions
+                  </h2>
+                  <p
+                    style={{
+                      color: "#535862",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      lineHeight: "20px",
+                      margin: "2px 0 0 0",
+                    }}
+                  >
+                    Invite new users, assign roles, and customize permissions to control what each team member can access or do within the platform.
+                  </p>
+                </div>
+
+                {/* Sub-tabs for Members and Role Permissions */}
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "4px",
+                    alignItems: "center",
+                    gap: "8px",
+                    width: isMobile ? "100%" : "auto",
+                    borderRadius: "8px",
+                    border: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    boxSizing: "border-box",
+                  }}
+                >
+                  <button
+                    style={{
+                      display: "flex",
+                      height: "36px",
+                      padding: "8px 12px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "8px",
+                      borderRadius: "6px",
+                      border: "1px solid #B3BCE5",
+                      background: "#ECEEF9",
+                      color: "#273572",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Members
+                  </button>
+                  <button
+                    style={{
+                      display: "flex",
+                      height: "36px",
+                      padding: "8px 12px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "8px",
+                      borderRadius: "6px",
+                      border: "none",
+                      background: "transparent",
+                      color: "#717680",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Role Permissions
+                  </button>
+                </div>
+
+                {/* Members Table Section */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    width: "100%",
+                    borderRadius: "12px",
+                    border: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    overflow: "hidden",
+                    boxSizing: "border-box",
+                  }}
+                >
+                  {/* Table Header */}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: isMobile ? "column" : "row",
+                      padding: "16px",
+                      gap: "16px",
+                      width: "100%",
+                      boxSizing: "border-box",
+                      borderBottom: "1px solid #E9EAEB",
+                    }}
+                  >
+                    <div
+                      style={{
+                        flex: "1 0 0",
+                        color: "#181D27",
+                        fontFamily: "Public Sans",
+                        fontSize: "18px",
+                        fontWeight: 600,
+                        lineHeight: "28px",
+                      }}
+                    >
+                      Members
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: isMobile ? "column" : "row",
+                        alignItems: isMobile ? "stretch" : "center",
+                        gap: "12px",
+                        width: isMobile ? "100%" : "auto",
+                      }}
+                    >
+                      <input
+                        type="text"
+                        placeholder="Search by users or by roles"
+                        style={{
+                          display: "flex",
+                          height: "40px",
+                          padding: "8px",
+                          alignItems: "center",
+                          gap: "8px",
+                          width: isMobile ? "100%" : "234px",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          color: "#717680",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          lineHeight: "20px",
+                          outline: "none",
+                          boxSizing: "border-box",
+                        }}
+                      />
+                      <button
+                        style={{
+                          display: "flex",
+                          minHeight: "36px",
+                          padding: "6px 8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          cursor: "pointer",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        Filters
+                      </button>
+                      <button
+                        style={{
+                          display: "flex",
+                          minHeight: "36px",
+                          padding: "6px 8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          cursor: "pointer",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        Download
+                      </button>
+                      <button
+                        style={{
+                          display: "flex",
+                          minHeight: "36px",
+                          padding: "6px 8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          borderRadius: "8px",
+                          border: "2px solid rgba(255, 255, 255, 0.12)",
+                          background: "#344698",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          color: "#FFF",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          cursor: "pointer",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        Invite New Member
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Table Content - Responsive */}
+                  <div
+                    style={{
+                      width: "100%",
+                      overflowX: isMobile ? "auto" : "visible",
+                      boxSizing: "border-box",
+                    }}
+                  >
+                    <table
+                      style={{
+                        width: "100%",
+                        minWidth: isMobile ? "800px" : "100%",
+                        borderCollapse: "collapse",
+                      }}
+                    >
+                      <thead>
+                        <tr
+                          style={{
+                            borderBottom: "1px solid #E9EAEB",
+                            background: "#FFF",
+                          }}
+                        >
+                          <th
+                            style={{
+                              padding: "6px 12px",
+                              textAlign: "left",
+                              color: "#717680",
+                              fontFamily: "Public Sans",
+                              fontSize: "12px",
+                              fontWeight: 600,
+                              lineHeight: "18px",
+                            }}
+                          >
+                            Name
+                          </th>
+                          <th
+                            style={{
+                              padding: "6px 12px",
+                              textAlign: "left",
+                              color: "#717680",
+                              fontFamily: "Public Sans",
+                              fontSize: "12px",
+                              fontWeight: 600,
+                              lineHeight: "18px",
+                            }}
+                          >
+                            Email
+                          </th>
+                          <th
+                            style={{
+                              padding: "6px 12px",
+                              textAlign: "left",
+                              color: "#717680",
+                              fontFamily: "Public Sans",
+                              fontSize: "12px",
+                              fontWeight: 600,
+                              lineHeight: "18px",
+                            }}
+                          >
+                            Role
+                          </th>
+                          <th
+                            style={{
+                              padding: "6px 12px",
+                              textAlign: "left",
+                              color: "#717680",
+                              fontFamily: "Public Sans",
+                              fontSize: "12px",
+                              fontWeight: 600,
+                              lineHeight: "18px",
+                            }}
+                          >
+                            Department
+                          </th>
+                          <th
+                            style={{
+                              padding: "6px 12px",
+                              textAlign: "left",
+                              color: "#717680",
+                              fontFamily: "Public Sans",
+                              fontSize: "12px",
+                              fontWeight: 600,
+                              lineHeight: "18px",
+                            }}
+                          >
+                            Last Active/Invited
+                          </th>
+                          <th
+                            style={{
+                              padding: "6px 12px",
+                              textAlign: "left",
+                              color: "#717680",
+                              fontFamily: "Public Sans",
+                              fontSize: "12px",
+                              fontWeight: 600,
+                              lineHeight: "18px",
+                            }}
+                          >
+                            Status
+                          </th>
+                          <th
+                            style={{
+                              padding: "6px 12px",
+                              textAlign: "left",
+                              color: "#717680",
+                              fontFamily: "Public Sans",
+                              fontSize: "12px",
+                              fontWeight: 600,
+                              lineHeight: "18px",
+                            }}
+                          >
+                            Actions
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {[
+                          {
+                            name: "Lucas Hernandez",
+                            email: "admin@acciodata.com",
+                            role: "Editor",
+                            department: "Finance",
+                            lastActive: "Feb 22, 2025, 08:10 PM",
+                            status: "Inactive",
+                          },
+                          {
+                            name: "Isabella Rodriguez",
+                            email: "support@acciodata.com",
+                            role: "Editor",
+                            department: "Human Resources",
+                            lastActive: "Mar 10, 2025, 09:30 AM",
+                            status: "Active",
+                          },
+                          {
+                            name: "Mason Martinez",
+                            email: "sso@acciodata.com",
+                            role: "Orders Only",
+                            department: "Talent Acquisition",
+                            lastActive: "Invited Jan 10, 2025",
+                            status: "Pending",
+                          },
+                          {
+                            name: "Emma Johnson",
+                            email: "deactivate@acciodata.com",
+                            role: "Admin",
+                            department: "Accounting",
+                            lastActive: "May 18, 2025, 11:45 AM",
+                            status: "Active",
+                          },
+                          {
+                            name: "Noah Davis",
+                            email: "security@acciodata.com",
+                            role: "Orders Only",
+                            department: "Customer Support",
+                            lastActive: "Jun 30, 2025, 03:00 PM",
+                            status: "Inactive",
+                          },
+                        ].map((member, index) => (
+                          <tr
+                            key={index}
+                            style={{
+                              borderBottom: "1px solid #E9EAEB",
+                            }}
+                          >
+                            <td
+                              style={{
+                                padding: "12px",
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              {member.name}
+                            </td>
+                            <td
+                              style={{
+                                padding: "12px",
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              {member.email}
+                            </td>
+                            <td
+                              style={{
+                                padding: "12px",
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              {member.role}
+                            </td>
+                            <td
+                              style={{
+                                padding: "12px",
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              {member.department}
+                            </td>
+                            <td
+                              style={{
+                                padding: "12px",
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              {member.lastActive}
+                            </td>
+                            <td
+                              style={{
+                                padding: "12px",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  display: "inline-flex",
+                                  padding: "2px 8px",
+                                  alignItems: "center",
+                                  borderRadius: "9999px",
+                                  border:
+                                    member.status === "Active"
+                                      ? "1px solid #ABEFC6"
+                                      : member.status === "Pending"
+                                        ? "1px solid #B2DDFF"
+                                        : "1px solid #E9EAEB",
+                                  background:
+                                    member.status === "Active"
+                                      ? "#ECFDF3"
+                                      : member.status === "Pending"
+                                        ? "#EFF8FF"
+                                        : "#FAFAFA",
+                                  color:
+                                    member.status === "Active"
+                                      ? "#067647"
+                                      : member.status === "Pending"
+                                        ? "#175CD3"
+                                        : "#414651",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "12px",
+                                  fontWeight: 500,
+                                  lineHeight: "18px",
+                                }}
+                              >
+                                {member.status}
+                              </span>
+                            </td>
+                            <td
+                              style={{
+                                padding: "12px",
+                                textAlign: "center",
+                              }}
+                            >
+                              <button
+                                style={{
+                                  display: "inline-flex",
+                                  padding: "8px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  borderRadius: "8px",
+                                  border: "none",
+                                  background: "transparent",
+                                  cursor: "pointer",
+                                }}
+                              >
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M8 8.66675C8.36819 8.66675 8.66667 8.36827 8.66667 8.00008C8.66667 7.63189 8.36819 7.33341 8 7.33341C7.63181 7.33341 7.33333 7.63189 7.33333 8.00008C7.33333 8.36827 7.63181 8.66675 8 8.66675Z"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                  <path
+                                    d="M8 4.00008C8.36819 4.00008 8.66667 3.7016 8.66667 3.33341C8.66667 2.96522 8.36819 2.66675 8 2.66675C7.63181 2.66675 7.33333 2.96522 7.33333 3.33341C7.33333 3.7016 7.63181 4.00008 8 4.00008Z"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                  <path
+                                    d="M8 13.3334C8.36819 13.3334 8.66667 13.0349 8.66667 12.6667C8.66667 12.2986 8.36819 12.0001 8 12.0001C7.63181 12.0001 7.33333 12.2986 7.33333 12.6667C7.33333 13.0349 7.63181 13.3334 8 13.3334Z"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {/* Pagination */}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: isMobile ? "column" : "row",
+                      padding: "12px 16px",
+                      justifyContent: "space-between",
+                      alignItems: isMobile ? "stretch" : "center",
+                      width: "100%",
+                      borderTop: "1px solid #E9EAEB",
+                      gap: isMobile ? "12px" : "0",
+                      boxSizing: "border-box",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Showing [X] of [X]
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: isMobile ? "column" : "row",
+                        alignItems: "center",
+                        gap: "12px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "12px",
+                        }}
+                      >
+                        <button
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          ←
+                        </button>
+                        <div style={{ display: "flex", gap: "4px" }}>
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "32px",
+                              height: "32px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "8px",
+                              border: "1px solid #E9EAEB",
+                              background: "#F5F5F5",
+                              color: "#414651",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            1
+                          </div>
+                          {[2, 3, "...", 8, 9, 10].map((page, idx) => (
+                            <div
+                              key={idx}
+                              style={{
+                                display: "flex",
+                                width: "32px",
+                                height: "32px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                borderRadius: "8px",
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                                lineHeight: "20px",
+                                cursor: page === "..." ? "default" : "pointer",
+                              }}
+                            >
+                              {page}
+                            </div>
+                          ))}
+                        </div>
+                        <button
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          →
+                        </button>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "12px",
+                        }}
+                      >
+                        <span
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 400,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Go to
+                        </span>
+                        <input
+                          type="text"
+                          defaultValue="1010"
+                          style={{
+                            display: "flex",
+                            height: "32px",
+                            width: "72px",
+                            padding: "6px 8px",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            color: "#717680",
+                            textAlign: "center",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 400,
+                            lineHeight: "20px",
+                            outline: "none",
+                            boxSizing: "border-box",
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
 
