@@ -3805,6 +3805,17 @@ export default function CompanySettings() {
           )}
         </div>
       </main>
+
+      {/* Delete User Modal */}
+      <DeleteUserModal
+        isOpen={deleteUserModalOpen}
+        onClose={() => {
+          setDeleteUserModalOpen(false);
+          setUserToDelete(null);
+        }}
+        onConfirmDelete={handleDeleteUser}
+        userName={userToDelete?.name}
+      />
     </div>
   );
 }
