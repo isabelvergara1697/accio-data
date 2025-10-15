@@ -224,6 +224,7 @@ export default function CompanySettings() {
             width: "100%",
             margin: "0 auto",
             overflowX: "hidden",
+            boxSizing: "border-box",
           }}
         >
           <div
