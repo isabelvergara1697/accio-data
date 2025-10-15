@@ -703,7 +703,7 @@ export default function InviteNewMember() {
                               type={showPassword ? "text" : "password"}
                               value={password}
                               onChange={(e) => setPassword(e.target.value)}
-                              placeholder="••••���•••"
+                              placeholder="••••••••"
                               style={{
                                 width: "100%",
                                 height: "48px",
@@ -1153,11 +1153,15 @@ export default function InviteNewMember() {
                         display: "block",
                         marginBottom: "6px",
                       }}
-                    >
+>
                       Secondary Mail
                     </label>
                     <input
                       type="email"
+                      value={formData.secondaryEmail}
+                      onChange={(event) =>
+                        updateFormField("secondaryEmail", event.target.value)
+                      }
                       style={{
                         width: "100%",
                         height: "40px",
