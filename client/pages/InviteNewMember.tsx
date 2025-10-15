@@ -69,7 +69,13 @@ type InviteMemberFormData = {
   icimsPassword: string;
 };
 
-const TEAM_MEMBERS: TeamMember[] = [];
+const TEAM_MEMBERS: TeamMember[] = [
+  { id: 1, name: "Olivia Rhye" },
+  { id: 2, name: "Phoenix Baker" },
+  { id: 3, name: "Lana Steiner" },
+  { id: 4, name: "Demi Wilkinson" },
+  { id: 5, name: "Candice Wu" },
+];
 
 export default function InviteNewMember() {
   const navigate = useNavigate();
