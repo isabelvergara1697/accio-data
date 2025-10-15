@@ -735,7 +735,9 @@ export default function CompanySettings() {
                     style={{
                       display: "flex",
                       flexDirection: isCompactLayout ? "column" : "row",
-                      justifyContent: isCompactLayout ? "flex-start" : "flex-end",
+                      justifyContent: isCompactLayout
+                        ? "flex-start"
+                        : "flex-end",
                       alignItems: isCompactLayout ? "stretch" : "center",
                       gap: isCompactLayout ? "12px" : "20px",
                       width: "100%",
@@ -745,7 +747,9 @@ export default function CompanySettings() {
                       style={{
                         display: "flex",
                         flexDirection: isCompactLayout ? "column" : "row",
-                        justifyContent: isCompactLayout ? "flex-start" : "flex-end",
+                        justifyContent: isCompactLayout
+                          ? "flex-start"
+                          : "flex-end",
                         alignItems: "center",
                         gap: isCompactLayout ? "8px" : "12px",
                         flex: "1 0 0",
@@ -1273,7 +1277,9 @@ export default function CompanySettings() {
                     style={{
                       display: "flex",
                       flexDirection: isCompactLayout ? "column" : "row",
-                      justifyContent: isCompactLayout ? "flex-start" : "flex-end",
+                      justifyContent: isCompactLayout
+                        ? "flex-start"
+                        : "flex-end",
                       alignItems: isCompactLayout ? "stretch" : "center",
                       gap: isCompactLayout ? "12px" : "20px",
                       width: "100%",
@@ -1283,7 +1289,9 @@ export default function CompanySettings() {
                       style={{
                         display: "flex",
                         flexDirection: isCompactLayout ? "column" : "row",
-                        justifyContent: isCompactLayout ? "flex-start" : "flex-end",
+                        justifyContent: isCompactLayout
+                          ? "flex-start"
+                          : "flex-end",
                         alignItems: "center",
                         gap: isCompactLayout ? "8px" : "12px",
                         flex: "1 0 0",
@@ -2408,7 +2416,9 @@ export default function CompanySettings() {
                     style={{
                       display: "flex",
                       flexDirection: isCompactLayout ? "column" : "row",
-                      justifyContent: isCompactLayout ? "flex-start" : "flex-end",
+                      justifyContent: isCompactLayout
+                        ? "flex-start"
+                        : "flex-end",
                       alignItems: isCompactLayout ? "stretch" : "center",
                       gap: isCompactLayout ? "12px" : "20px",
                       width: "100%",
@@ -2418,7 +2428,9 @@ export default function CompanySettings() {
                       style={{
                         display: "flex",
                         flexDirection: isCompactLayout ? "column" : "row",
-                        justifyContent: isCompactLayout ? "flex-start" : "flex-end",
+                        justifyContent: isCompactLayout
+                          ? "flex-start"
+                          : "flex-end",
                         alignItems: "center",
                         gap: isCompactLayout ? "8px" : "12px",
                         flex: "1 0 0",
