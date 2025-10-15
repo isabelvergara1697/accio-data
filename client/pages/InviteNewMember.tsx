@@ -963,11 +963,15 @@ export default function InviteNewMember() {
                         display: "block",
                         marginBottom: "6px",
                       }}
-                    >
+>
                       First Name
                     </label>
                     <input
                       type="text"
+                      value={formData.firstName}
+                      onChange={(event) =>
+                        updateFormField("firstName", event.target.value)
+                      }
                       style={{
                         width: "100%",
                         height: "40px",
