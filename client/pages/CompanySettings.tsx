@@ -8238,7 +8238,7 @@ export default function CompanySettings() {
                     <div style={{ display: "flex", justifyContent: "flex-end", gap: "12px" }}>
                       <button type="button" style={{
                         padding: "12px",
-                        borderRadius: "8px",
+                        borderRadius: buttonCornerRadius,
                         border: "1px solid #D5D7DA",
                         background: "#FFF",
                         boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
@@ -8253,7 +8253,7 @@ export default function CompanySettings() {
                       </button>
                       <button type="button" style={{
                         padding: "12px",
-                        borderRadius: "8px",
+                        borderRadius: buttonCornerRadius,
                         border: "2px solid rgba(255, 255, 255, 0.12)",
                         background: "#344698",
                         boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
@@ -8574,7 +8574,7 @@ export default function CompanySettings() {
                     <div style={{ display: "flex", justifyContent: "flex-end", gap: "12px" }}>
                       <button type="button" style={{
                         padding: "12px",
-                        borderRadius: "8px",
+                        borderRadius: buttonCornerRadius,
                         border: "1px solid #D5D7DA",
                         background: "#FFF",
                         boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
@@ -8589,7 +8589,7 @@ export default function CompanySettings() {
                       </button>
                       <button type="button" style={{
                         padding: "12px",
-                        borderRadius: "8px",
+                        borderRadius: buttonCornerRadius,
                         border: "2px solid rgba(255, 255, 255, 0.12)",
                         background: "#344698",
                         boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
