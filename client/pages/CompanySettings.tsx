@@ -218,8 +218,8 @@ export default function CompanySettings() {
           style={{
             display: "flex",
             flexDirection: "column",
-            padding: isSmallScreen ? "24px 16px 24px" : "32px 32px 32px",
-            gap: isSmallScreen ? "20px" : "24px",
+            padding: isMobile ? "24px 16px 24px" : "32px 32px 32px",
+            gap: isMobile ? "20px" : "24px",
             maxWidth: "1200px",
             width: "100%",
             margin: "0 auto",
@@ -230,16 +230,16 @@ export default function CompanySettings() {
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: isSmallScreen ? "16px" : "20px",
+              gap: isMobile ? "16px" : "20px",
             }}
           >
             <h1
               style={{
                 color: "#181D27",
                 fontFamily: "Public Sans",
-                fontSize: isSmallScreen ? "20px" : "24px",
+                fontSize: isMobile ? "20px" : "24px",
                 fontWeight: 600,
-                lineHeight: isSmallScreen ? "28px" : "32px",
+                lineHeight: isMobile ? "28px" : "32px",
                 margin: 0,
               }}
             >
@@ -315,9 +315,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -327,10 +327,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -352,11 +352,11 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      flexDirection: isSmallScreen ? "column" : "row",
+                      flexDirection: isMobile ? "column" : "row",
                       alignItems: "flex-start",
-                      gap: isSmallScreen ? "12px" : "24px",
+                      gap: isMobile ? "12px" : "24px",
                       width: "100%",
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                       boxSizing: "border-box" as const,
                     }}
                   >
@@ -364,13 +364,13 @@ export default function CompanySettings() {
                       type="text"
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
-                      style={{ ...inputStyle, flex: isSmallScreen ? "unset" : "1 0 0" }}
+                      style={{ ...inputStyle, flex: isMobile ? "unset" : "1 0 0" }}
                     />
                     <input
                       type="text"
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
-                      style={{ ...inputStyle, flex: isSmallScreen ? "unset" : "1 0 0" }}
+                      style={{ ...inputStyle, flex: isMobile ? "unset" : "1 0 0" }}
                     />
                   </div>
                 </div>
@@ -380,9 +380,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -392,10 +392,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -416,7 +416,7 @@ export default function CompanySettings() {
                     onChange={(e) => setTitle(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -426,9 +426,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -438,10 +438,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -462,7 +462,7 @@ export default function CompanySettings() {
                     onChange={(e) => setCity(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -472,9 +472,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -484,10 +484,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -507,7 +507,7 @@ export default function CompanySettings() {
                     onChange={(e) => setState(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                       appearance: "none",
                       backgroundImage:
                         "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
@@ -527,9 +527,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -539,10 +539,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -563,7 +563,7 @@ export default function CompanySettings() {
                     onChange={(e) => setTelephone(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -573,9 +573,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -585,10 +585,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -609,7 +609,7 @@ export default function CompanySettings() {
                     onChange={(e) => setFax(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -619,9 +619,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -631,10 +631,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -655,7 +655,7 @@ export default function CompanySettings() {
                     onChange={(e) => setEmail(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -672,22 +672,22 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      flexDirection: isSmallScreen ? "column" : "row",
-                      justifyContent: isSmallScreen ? "flex-start" : "flex-end",
-                      alignItems: isSmallScreen ? "stretch" : "center",
-                      gap: isSmallScreen ? "12px" : "20px",
+                      flexDirection: isMobile ? "column" : "row",
+                      justifyContent: isMobile ? "flex-start" : "flex-end",
+                      alignItems: isMobile ? "stretch" : "center",
+                      gap: isMobile ? "12px" : "20px",
                       width: "100%",
                     }}
                   >
                     <div
                       style={{
                         display: "flex",
-                        flexDirection: isSmallScreen ? "column" : "row",
-                        justifyContent: isSmallScreen ? "flex-start" : "flex-end",
+                        flexDirection: isMobile ? "column" : "row",
+                        justifyContent: isMobile ? "flex-start" : "flex-end",
                         alignItems: "center",
-                        gap: isSmallScreen ? "8px" : "12px",
+                        gap: isMobile ? "8px" : "12px",
                         flex: "1 0 0",
-                        width: isSmallScreen ? "100%" : "auto",
+                        width: isMobile ? "100%" : "auto",
                       }}
                     >
                       <button
@@ -698,7 +698,7 @@ export default function CompanySettings() {
                           justifyContent: "center",
                           alignItems: "center",
                           gap: "4px",
-                          width: isSmallScreen ? "100%" : "auto",
+                          width: isMobile ? "100%" : "auto",
                           borderRadius: "8px",
                           border: "1px solid #D5D7DA",
                           background: "#FFF",
@@ -722,7 +722,7 @@ export default function CompanySettings() {
                           justifyContent: "center",
                           alignItems: "center",
                           gap: "4px",
-                          width: isSmallScreen ? "100%" : "auto",
+                          width: isMobile ? "100%" : "auto",
                           borderRadius: "8px",
                           border: "2px solid rgba(255, 255, 255, 0.12)",
                           background: "#344698",
@@ -774,9 +774,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -786,10 +786,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -810,7 +810,7 @@ export default function CompanySettings() {
                     onChange={(e) => setManualRescreening(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -820,9 +820,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -832,10 +832,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -855,7 +855,7 @@ export default function CompanySettings() {
                     onChange={(e) => setMinPasswordLength(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                       appearance: "none",
                       backgroundImage:
                         "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
@@ -875,9 +875,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -887,10 +887,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -910,7 +910,7 @@ export default function CompanySettings() {
                     onChange={(e) => setMaxPasswordExpiration(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                       appearance: "none",
                       backgroundImage:
                         "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
@@ -930,9 +930,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -942,10 +942,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -965,7 +965,7 @@ export default function CompanySettings() {
                     onChange={(e) => setInactivityLogout(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                       appearance: "none",
                       backgroundImage:
                         "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
@@ -985,9 +985,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -997,10 +997,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1020,7 +1020,7 @@ export default function CompanySettings() {
                     onChange={(e) => setPrintFCRA(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                       appearance: "none",
                       backgroundImage:
                         "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
@@ -1040,9 +1040,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -1052,10 +1052,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1075,7 +1075,7 @@ export default function CompanySettings() {
                     onChange={(e) => setDuplicateOrderCheck1(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                       appearance: "none",
                       backgroundImage:
                         "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
@@ -1095,9 +1095,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -1107,10 +1107,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1130,7 +1130,7 @@ export default function CompanySettings() {
                     onChange={(e) => setDuplicateOrderCheck2(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                       appearance: "none",
                       backgroundImage:
                         "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
@@ -1149,9 +1149,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -1161,10 +1161,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1185,7 +1185,7 @@ export default function CompanySettings() {
                     onChange={(e) => setSendHitsEmail(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -1202,22 +1202,22 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      flexDirection: isSmallScreen ? "column" : "row",
-                      justifyContent: isSmallScreen ? "flex-start" : "flex-end",
-                      alignItems: isSmallScreen ? "stretch" : "center",
-                      gap: isSmallScreen ? "12px" : "20px",
+                      flexDirection: isMobile ? "column" : "row",
+                      justifyContent: isMobile ? "flex-start" : "flex-end",
+                      alignItems: isMobile ? "stretch" : "center",
+                      gap: isMobile ? "12px" : "20px",
                       width: "100%",
                     }}
                   >
                     <div
                       style={{
                         display: "flex",
-                        flexDirection: isSmallScreen ? "column" : "row",
-                        justifyContent: isSmallScreen ? "flex-start" : "flex-end",
+                        flexDirection: isMobile ? "column" : "row",
+                        justifyContent: isMobile ? "flex-start" : "flex-end",
                         alignItems: "center",
-                        gap: isSmallScreen ? "8px" : "12px",
+                        gap: isMobile ? "8px" : "12px",
                         flex: "1 0 0",
-                        width: isSmallScreen ? "100%" : "auto",
+                        width: isMobile ? "100%" : "auto",
                       }}
                     >
                       <button
@@ -1228,7 +1228,7 @@ export default function CompanySettings() {
                           justifyContent: "center",
                           alignItems: "center",
                           gap: "4px",
-                          width: isSmallScreen ? "100%" : "auto",
+                          width: isMobile ? "100%" : "auto",
                           borderRadius: "8px",
                           border: "1px solid #D5D7DA",
                           background: "#FFF",
@@ -1252,7 +1252,7 @@ export default function CompanySettings() {
                           justifyContent: "center",
                           alignItems: "center",
                           gap: "4px",
-                          width: isSmallScreen ? "100%" : "auto",
+                          width: isMobile ? "100%" : "auto",
                           borderRadius: "8px",
                           border: "2px solid rgba(255, 255, 255, 0.12)",
                           background: "#344698",
@@ -1335,9 +1335,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -1347,10 +1347,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1375,7 +1375,7 @@ export default function CompanySettings() {
                       alignItems: "center",
                       gap: "24px",
                       width: "100%",
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                     }}
                   >
                     <div
@@ -1418,9 +1418,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -1430,10 +1430,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1458,7 +1458,7 @@ export default function CompanySettings() {
                       alignItems: "center",
                       gap: "24px",
                       width: "100%",
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                     }}
                   >
                     <div
@@ -1504,9 +1504,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -1516,10 +1516,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1544,7 +1544,7 @@ export default function CompanySettings() {
                       alignItems: "center",
                       gap: "24px",
                       width: "100%",
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                     }}
                   >
                     <div
@@ -1590,9 +1590,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -1602,10 +1602,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1630,7 +1630,7 @@ export default function CompanySettings() {
                       alignItems: "center",
                       gap: "24px",
                       width: "100%",
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                     }}
                   >
                     <div
@@ -1676,9 +1676,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -1688,10 +1688,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1717,7 +1717,7 @@ export default function CompanySettings() {
                     onChange={(e) => setSamlEnableAuth(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                       appearance: "none",
                       backgroundImage:
                         "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
@@ -1737,9 +1737,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -1749,10 +1749,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1778,7 +1778,7 @@ export default function CompanySettings() {
                     onChange={(e) => setSamlUseMappedUsernames(e.target.value)}
                     style={{
                       ...inputStyle,
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                       appearance: "none",
                       backgroundImage:
                         "url(\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")",
@@ -1798,9 +1798,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -1810,10 +1810,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1841,7 +1841,7 @@ export default function CompanySettings() {
                     placeholder="[Value]"
                     style={{
                       ...inputStyle,
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -1852,9 +1852,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -1864,10 +1864,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1894,7 +1894,7 @@ export default function CompanySettings() {
                     placeholder="[Value]"
                     style={{
                       ...inputStyle,
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                       minHeight: "154px",
                       resize: "vertical",
                       padding: "12px 14px",
@@ -1908,9 +1908,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -1920,10 +1920,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -1951,7 +1951,7 @@ export default function CompanySettings() {
                     placeholder="[Value]"
                     style={{
                       ...inputStyle,
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -1962,9 +1962,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -1974,10 +1974,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -2005,7 +2005,7 @@ export default function CompanySettings() {
                     placeholder="[Value]"
                     style={{
                       ...inputStyle,
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                     }}
                   />
                 </div>
@@ -2016,9 +2016,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -2028,10 +2028,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -2058,7 +2058,7 @@ export default function CompanySettings() {
                     placeholder="[Value]"
                     style={{
                       ...inputStyle,
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                       minHeight: "154px",
                       resize: "vertical",
                       padding: "12px 14px",
@@ -2072,9 +2072,9 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isSmallScreen ? "column" : "row",
-                    alignItems: isSmallScreen ? "stretch" : "flex-start",
-                    gap: isSmallScreen ? "16px" : "16px 32px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "flex-start",
+                    gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
                     boxSizing: "border-box" as const,
                   }}
@@ -2084,10 +2084,10 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      width: isSmallScreen ? "100%" : "auto",
-                      minWidth: isSmallScreen ? "100%" : "200px",
-                      maxWidth: isSmallScreen ? "100%" : "280px",
-                      flex: isSmallScreen ? "0 0 auto" : "1 0 0",
+                      width: isMobile ? "100%" : "auto",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "280px",
+                      flex: isMobile ? "0 0 auto" : "1 0 0",
                     }}
                   >
                     <label
@@ -2114,7 +2114,7 @@ export default function CompanySettings() {
                     placeholder="[Value]"
                     style={{
                       ...inputStyle,
-                      maxWidth: isSmallScreen ? "100%" : "512px",
+                      maxWidth: isMobile ? "100%" : "512px",
                       minHeight: "154px",
                       resize: "vertical",
                       padding: "12px 14px",
@@ -2136,22 +2136,22 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      flexDirection: isSmallScreen ? "column" : "row",
-                      justifyContent: isSmallScreen ? "flex-start" : "flex-end",
-                      alignItems: isSmallScreen ? "stretch" : "center",
-                      gap: isSmallScreen ? "12px" : "20px",
+                      flexDirection: isMobile ? "column" : "row",
+                      justifyContent: isMobile ? "flex-start" : "flex-end",
+                      alignItems: isMobile ? "stretch" : "center",
+                      gap: isMobile ? "12px" : "20px",
                       width: "100%",
                     }}
                   >
                     <div
                       style={{
                         display: "flex",
-                        flexDirection: isSmallScreen ? "column" : "row",
-                        justifyContent: isSmallScreen ? "flex-start" : "flex-end",
+                        flexDirection: isMobile ? "column" : "row",
+                        justifyContent: isMobile ? "flex-start" : "flex-end",
                         alignItems: "center",
-                        gap: isSmallScreen ? "8px" : "12px",
+                        gap: isMobile ? "8px" : "12px",
                         flex: "1 0 0",
-                        width: isSmallScreen ? "100%" : "auto",
+                        width: isMobile ? "100%" : "auto",
                       }}
                     >
                       <button
@@ -2162,7 +2162,7 @@ export default function CompanySettings() {
                           justifyContent: "center",
                           alignItems: "center",
                           gap: "4px",
-                          width: isSmallScreen ? "100%" : "auto",
+                          width: isMobile ? "100%" : "auto",
                           borderRadius: "8px",
                           border: "1px solid #D5D7DA",
                           background: "#FFF",
@@ -2186,7 +2186,7 @@ export default function CompanySettings() {
                           justifyContent: "center",
                           alignItems: "center",
                           gap: "4px",
-                          width: isSmallScreen ? "100%" : "auto",
+                          width: isMobile ? "100%" : "auto",
                           borderRadius: "8px",
                           border: "2px solid rgba(255, 255, 255, 0.12)",
                           background: "#344698",
