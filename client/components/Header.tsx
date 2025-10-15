@@ -161,6 +161,7 @@ export const Header: React.FC<HeaderProps> = ({
       {/* Search Bar */}
       <div style={{ flex: "1 0 0", position: "relative", marginRight: "16px" }}>
         <div
+          ref={searchContainerRef}
           style={{
             display: "flex",
             alignItems: "center",
