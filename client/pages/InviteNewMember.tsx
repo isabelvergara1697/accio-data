@@ -149,6 +149,7 @@ const REQUIRED_FIELDS: Array<keyof InviteMemberFormData> = [
 
 export default function InviteNewMember() {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const isMobile = useIsMobile();
   const [isTablet, setIsTablet] = useState(() => {
     if (typeof window === "undefined") {
@@ -167,10 +168,10 @@ export default function InviteNewMember() {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const [passwordOption, setPasswordOption] = useState<"auto" | "manual">(
-    "auto",
+    "manual",
   );
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [password, setPassword] = useState(DEFAULT_PASSWORD_VALUE);
+  const [confirmPassword, setConfirmPassword] = useState(DEFAULT_PASSWORD_VALUE);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [requirementStates, setRequirementStates] = useState<{
@@ -180,12 +181,9 @@ export default function InviteNewMember() {
   const [reportViewOption, setReportViewOption] = useState<
     "own" | "any" | "select"
   >("select");
-  const [selectedTeamMembers, setSelectedTeamMembers] = useState([
-    { id: 1, name: "[First Name Last Name]" },
-    { id: 2, name: "[First Name Last Name]" },
-    { id: 3, name: "[First Name Last Name]" },
-    { id: 4, name: "[First Name Last Name]" },
-  ]);
+  const [selectedTeamMembers, setSelectedTeamMembers] = useState(
+    DEFAULT_SELECTED_MEMBERS,
+  );
 
   const selectChevronDataUri =
     "data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E";
