@@ -101,7 +101,54 @@ const SearchResults = () => {
     { id: 2, name: "Loremp", size: "200 KB", type: "PDF" },
   ];
 
-  const totalResults = invites.length + orders.length + documents.length;
+  const idVerifications = [
+    {
+      id: 1,
+      orderNumber: "334213",
+      orderingAccount: "Loremp",
+      applicantName: "Chloe Anderson",
+      preAdverseLetterName: "[Value]",
+      preAdverseSent: "[Value]",
+      preAdverseOpened: "[Value]",
+      adverseLetterDaysWait: "[Value]",
+    },
+    {
+      id: 2,
+      orderNumber: "334213",
+      orderingAccount: "[Value]",
+      applicantName: "Loremp Thompson",
+      preAdverseLetterName: "[Value]",
+      preAdverseSent: "[Value]",
+      preAdverseOpened: "[Value]",
+      adverseLetterDaysWait: "[Value]",
+    },
+  ];
+
+  const adverseActionLetters = [
+    {
+      id: 1,
+      status: "Waiting on Applicant",
+      orderNumber: "234",
+      firstName: "Loremp",
+      lastName: "Young",
+      timeEntered: "07/19/22",
+    },
+    {
+      id: 2,
+      status: "Passed",
+      orderNumber: "3456",
+      firstName: "Ava",
+      lastName: "Loremp",
+      timeEntered: "09/05/23",
+    },
+  ];
+
+  const totalResults =
+    invites.length +
+    orders.length +
+    idVerifications.length +
+    adverseActionLetters.length +
+    documents.length;
 
   const headerHeight = isDesktop ? 72 : 64;
   const verticalPadding = isMobile ? 24 : 32;
@@ -125,6 +172,16 @@ const SearchResults = () => {
         background: "#F4F3FF",
         border: "1px solid #D9D6FE",
         color: "#5925DC",
+      },
+      "Waiting on Applicant": {
+        background: "#F0F9FF",
+        border: "1px solid #B9E6FE",
+        color: "#026AA2",
+      },
+      Passed: {
+        background: "#FAFAFA",
+        border: "1px solid #E9EAEB",
+        color: "#414651",
       },
     };
 
