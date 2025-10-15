@@ -39,8 +39,9 @@ export default function CompanySettings() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
 
   React.useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const updateViewport = () => {
-      if (typeof window === "undefined") return;
       const width = window.innerWidth;
       setIsTablet(width >= 768 && width < 1024);
     };
