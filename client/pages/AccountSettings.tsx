@@ -32,6 +32,10 @@ export default function AccountSettings() {
   const [timezone, setTimezone] = useState("Pacific Standard Time (PST)");
   const [primaryEmail, setPrimaryEmail] = useState("alexandra@acciodata.com");
   const [secondaryEmail, setSecondaryEmail] = useState("");
+  const [photoUrl, setPhotoUrl] = useState("");
+  const [isDragging, setIsDragging] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+  const fileInputRef = React.useRef<HTMLInputElement>(null);
 
   const handleSignOut = () => {
     navigate("/login");
@@ -43,6 +47,37 @@ export default function AccountSettings() {
     right: 0,
     marginTop: "8px",
   });
+
+  const handleFileSelect = (file: File) => {
+    if (file && file.type.startsWith('image/')) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setPhotoUrl(e.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) handleFileSelect(file);
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+    const file = e.dataTransfer.files[0];
+    if (file) handleFileSelect(file);
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = () => {
+    setIsDragging(false);
+  };
 
   const headerHeight = isMobile ? 64 : 72;
 
@@ -368,15 +403,63 @@ export default function AccountSettings() {
                       }}
                     >
                       <div
+                        onClick={() => fileInputRef.current?.click()}
+                        onMouseEnter={() => setIsHovering(true)}
+                        onMouseLeave={() => setIsHovering(false)}
                         style={{
                           width: "64px",
                           height: "64px",
                           borderRadius: "9999px",
-                          border: "1px solid rgba(0, 0, 0, 0.10)",
-                          background: "#E0E0E0",
+                          border: isHovering ? "2px solid #344698" : "1px solid rgba(0, 0, 0, 0.10)",
+                          background: photoUrl ? `url(${photoUrl}) center/cover` : "#E0E0E0",
+                          cursor: "pointer",
+                          position: "relative",
+                          transition: "all 0.2s ease",
+                          opacity: isHovering ? 0.8 : 1,
                         }}
+                      >
+                        {isHovering && (
+                          <div
+                            style={{
+                              position: "absolute",
+                              inset: 0,
+                              borderRadius: "9999px",
+                              background: "rgba(52, 70, 152, 0.1)",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                            }}
+                          >
+                            <svg
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M8 16L12 12M12 12L16 16M12 12V21M20 16.7428C21.2215 15.734 22 14.2079 22 12.5C22 9.46243 19.5376 7 16.5 7C16.2815 7 16.0771 6.886 15.9661 6.69774C14.6621 4.48484 12.2544 3 9.5 3C5.35786 3 2 6.35786 2 10.5C2 12.5661 2.83545 14.4371 4.18695 15.7935"
+                                stroke="#344698"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        )}
+                      </div>
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        accept="image/svg+xml,image/png,image/jpeg,image/gif"
+                        onChange={handleFileInputChange}
+                        style={{ display: "none" }}
                       />
                       <div
+                        onClick={() => fileInputRef.current?.click()}
+                        onDrop={handleDrop}
+                        onDragOver={handleDragOver}
+                        onDragLeave={handleDragLeave}
                         style={{
                           flex: "1 0 0",
                           display: "flex",
@@ -385,8 +468,10 @@ export default function AccountSettings() {
                           alignItems: "center",
                           gap: "4px",
                           borderRadius: "12px",
-                          border: "1px solid #E9EAEB",
-                          background: "#FFF",
+                          border: isDragging ? "2px solid #344698" : "1px solid #E9EAEB",
+                          background: isDragging ? "#ECEEF9" : "#FFF",
+                          cursor: "pointer",
+                          transition: "all 0.2s ease",
                         }}
                       >
                         <div
