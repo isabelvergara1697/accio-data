@@ -8435,8 +8435,16 @@ export default function CompanySettings() {
                   <div style={{ height: "1px", background: "#E9EAEB" }} />
 
                   {/* Applicant Portal Instructions */}
-                  <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
-                    <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", width: "424px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: isCompactLayout ? "stretch" : "center",
+                      gap: isCompactLayout ? "16px" : "24px",
+                      flexDirection: isCompactLayout ? "column" : "row",
+                      width: "100%",
+                    }}
+                  >
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", width: isCompactLayout ? "100%" : "424px" }}>
                       <div
                         onClick={() => setPortalInstructionsEnabled(!portalInstructionsEnabled)}
                         style={{
@@ -8481,17 +8489,65 @@ export default function CompanySettings() {
                         </p>
                       </div>
                     </div>
-                    <div style={{
-                      width: "200px",
-                      height: "132px",
-                      borderRadius: "10px",
-                      border: "1px solid #D5D7DA",
-                      background: "#F5F5F5",
-                      overflow: "hidden",
-                    }}>
+                    <input
+                      ref={portalInstructionsInputRef}
+                      type="file"
+                      accept="image/png,image/jpeg,image/gif,image/svg+xml"
+                      style={{ display: "none" }}
+                      onChange={(event) =>
+                        handleImageInputChange(event, setPortalInstructionsPreview)
+                      }
+                    />
+                    <div
+                      role="button"
+                      tabIndex={portalInstructionsEnabled ? 0 : -1}
+                      aria-label="Upload applicant portal preview image"
+                      aria-disabled={!portalInstructionsEnabled}
+                      onClick={() => {
+                        if (!portalInstructionsEnabled) {
+                          return;
+                        }
+                        portalInstructionsInputRef.current?.click();
+                      }}
+                      onKeyDown={(event) => {
+                        if (!portalInstructionsEnabled) {
+                          return;
+                        }
+                        if (event.key === "Enter" || event.key === " ") {
+                          event.preventDefault();
+                          portalInstructionsInputRef.current?.click();
+                        }
+                      }}
+                      onDragOver={(event) => {
+                        event.preventDefault();
+                        if (!portalInstructionsEnabled) {
+                          return;
+                        }
+                        event.dataTransfer.dropEffect = "copy";
+                      }}
+                      onDrop={(event) => {
+                        if (!portalInstructionsEnabled) {
+                          event.preventDefault();
+                          return;
+                        }
+                        handleImageDrop(event, setPortalInstructionsPreview);
+                      }}
+                      style={{
+                        width: "200px",
+                        height: "132px",
+                        borderRadius: "10px",
+                        border: "1px solid #D5D7DA",
+                        background: "#F5F5F5",
+                        overflow: "hidden",
+                        flexShrink: 0,
+                        cursor: portalInstructionsEnabled ? "pointer" : "default",
+                        opacity: portalInstructionsEnabled ? 1 : 0.6,
+                        outline: "none",
+                      }}
+                    >
                       <img
-                        src="https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F67d571b6d4e44b9d89c7487a4b1437be?format=webp&width=800"
-                        alt="Applicant portal instructions preview"
+                        src={portalInstructionsPreview}
+                        alt="Applicant portal preview"
                         style={{
                           width: "100%",
                           height: "100%",
