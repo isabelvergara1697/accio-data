@@ -2453,6 +2453,7 @@ export default function CompanySettings() {
                         Download
                       </button>
                       <button
+                        onClick={() => navigate("/invite-new-member")}
                         style={{
                           display: "flex",
                           minHeight: "36px",
@@ -2911,20 +2912,21 @@ export default function CompanySettings() {
                                         console.log("Edit Member", member.name);
                                         setOpenDropdownIndex(null);
                                       }}
+                                      onMouseEnter={(e) => (e.currentTarget.style.background = "#F9FAFB")}
+                                      onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                                       style={{
                                         display: "flex",
-                                        padding: "1px 6px",
+                                        padding: "8px 12px",
                                         alignItems: "center",
                                         cursor: "pointer",
+                                        transition: "background 0.15s ease",
                                       }}
                                     >
-                                      <div style={{ display: "flex", padding: "8px", flexDirection: "column", alignItems: "flex-start", gap: "8px", borderRadius: "6px" }}>
-                                        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M2.87604 18.1157C2.92198 17.7022 2.94496 17.4955 3.00751 17.3022C3.06301 17.1308 3.14143 16.9676 3.24064 16.8172C3.35246 16.6476 3.49955 16.5005 3.79373 16.2063L17 3.00006C18.1046 1.89549 19.8955 1.89549 21 3.00006C22.1046 4.10463 22.1046 5.89549 21 7.00006L7.79373 20.2063C7.49955 20.5005 7.35245 20.6476 7.18289 20.7594C7.03245 20.8586 6.86929 20.937 6.69785 20.9925C6.5046 21.0551 6.29786 21.0781 5.88437 21.124L2.5 21.5001L2.87604 18.1157Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
-                                          </svg>
-                                          <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Edit Member</div>
-                                        </div>
+                                      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M2.87604 18.1157C2.92198 17.7022 2.94496 17.4955 3.00751 17.3022C3.06301 17.1308 3.14143 16.9676 3.24064 16.8172C3.35246 16.6476 3.49955 16.5005 3.79373 16.2063L17 3.00006C18.1046 1.89549 19.8955 1.89549 21 3.00006C22.1046 4.10463 22.1046 5.89549 21 7.00006L7.79373 20.2063C7.49955 20.5005 7.35245 20.6476 7.18289 20.7594C7.03245 20.8586 6.86929 20.937 6.69785 20.9925C6.5046 21.0551 6.29786 21.0781 5.88437 21.124L2.5 21.5001L2.87604 18.1157Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                        </svg>
+                                        <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Edit Member</div>
                                       </div>
                                     </div>
                                     <div
@@ -2932,20 +2934,21 @@ export default function CompanySettings() {
                                         console.log("Resent Invite", member.name);
                                         setOpenDropdownIndex(null);
                                       }}
+                                      onMouseEnter={(e) => (e.currentTarget.style.background = "#F9FAFB")}
+                                      onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                                       style={{
                                         display: "flex",
-                                        padding: "1px 6px",
+                                        padding: "8px 12px",
                                         alignItems: "center",
                                         cursor: "pointer",
+                                        transition: "background 0.15s ease",
                                       }}
                                     >
-                                      <div style={{ display: "flex", padding: "8px", flexDirection: "column", alignItems: "flex-start", gap: "8px", borderRadius: "6px" }}>
-                                        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M2 7L10.1649 12.7154C10.8261 13.1783 11.1567 13.4097 11.5163 13.4993C11.8339 13.5785 12.1661 13.5785 12.4837 13.4993C12.8433 13.4097 13.1739 13.1783 13.8351 12.7154L22 7M6.8 20H17.2C18.8802 20 19.7202 20 20.362 19.673C20.9265 19.3854 21.3854 18.9265 21.673 18.362C22 17.7202 22 16.8802 22 15.2V8.8C22 7.11984 22 6.27976 21.673 5.63803C21.3854 5.07354 20.9265 4.6146 20.362 4.32698C19.7202 4 18.8802 4 17.2 4H6.8C5.11984 4 4.27976 4 3.63803 4.32698C3.07354 4.6146 2.6146 5.07354 2.32698 5.63803C2 6.27976 2 7.11984 2 8.8V15.2C2 16.8802 2 17.7202 2.32698 18.362C2.6146 18.9265 3.07354 19.3854 3.63803 19.673C4.27976 20 5.11984 20 6.8 20Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
-                                          </svg>
-                                          <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Resent Invite</div>
-                                        </div>
+                                      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M2 7L10.1649 12.7154C10.8261 13.1783 11.1567 13.4097 11.5163 13.4993C11.8339 13.5785 12.1661 13.5785 12.4837 13.4993C12.8433 13.4097 13.1739 13.1783 13.8351 12.7154L22 7M6.8 20H17.2C18.8802 20 19.7202 20 20.362 19.673C20.9265 19.3854 21.3854 18.9265 21.673 18.362C22 17.7202 22 16.8802 22 15.2V8.8C22 7.11984 22 6.27976 21.673 5.63803C21.3854 5.07354 20.9265 4.6146 20.362 4.32698C19.7202 4 18.8802 4 17.2 4H6.8C5.11984 4 4.27976 4 3.63803 4.32698C3.07354 4.6146 2.6146 5.07354 2.32698 5.63803C2 6.27976 2 7.11984 2 8.8V15.2C2 16.8802 2 17.7202 2.32698 18.362C2.6146 18.9265 3.07354 19.3854 3.63803 19.673C4.27976 20 5.11984 20 6.8 20Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                        </svg>
+                                        <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Resent Invite</div>
                                       </div>
                                     </div>
                                     <div
@@ -2953,20 +2956,21 @@ export default function CompanySettings() {
                                         console.log("Remove Users", member.name);
                                         setOpenDropdownIndex(null);
                                       }}
+                                      onMouseEnter={(e) => (e.currentTarget.style.background = "#F9FAFB")}
+                                      onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                                       style={{
                                         display: "flex",
-                                        padding: "1px 6px",
+                                        padding: "8px 12px",
                                         alignItems: "center",
                                         cursor: "pointer",
+                                        transition: "background 0.15s ease",
                                       }}
                                     >
-                                      <div style={{ display: "flex", padding: "8px", flexDirection: "column", alignItems: "flex-start", gap: "8px", borderRadius: "6px" }}>
-                                        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M16 6V5.2C16 4.0799 16 3.51984 15.782 3.09202C15.5903 2.71569 15.2843 2.40973 14.908 2.21799C14.4802 2 13.9201 2 12.8 2H11.2C10.0799 2 9.51984 2 9.09202 2.21799C8.71569 2.40973 8.40973 2.71569 8.21799 3.09202C8 3.51984 8 4.0799 8 5.2V6M3 6H21M19 6V17.2C19 18.8802 19 19.7202 18.673 20.362C18.3854 20.9265 17.9265 21.3854 17.362 21.673C16.7202 22 15.8802 22 14.2 22H9.8C8.11984 22 7.27976 22 6.63803 21.673C6.07354 21.3854 5.6146 20.9265 5.32698 20.362C5 19.7202 5 18.8802 5 17.2V6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
-                                          </svg>
-                                          <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Remove Users</div>
-                                        </div>
+                                      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M16 6V5.2C16 4.0799 16 3.51984 15.782 3.09202C15.5903 2.71569 15.2843 2.40973 14.908 2.21799C14.4802 2 13.9201 2 12.8 2H11.2C10.0799 2 9.51984 2 9.09202 2.21799C8.71569 2.40973 8.40973 2.71569 8.21799 3.09202C8 3.51984 8 4.0799 8 5.2V6M3 6H21M19 6V17.2C19 18.8802 19 19.7202 18.673 20.362C18.3854 20.9265 17.9265 21.3854 17.362 21.673C16.7202 22 15.8802 22 14.2 22H9.8C8.11984 22 7.27976 22 6.63803 21.673C6.07354 21.3854 5.6146 20.9265 5.32698 20.362C5 19.7202 5 18.8802 5 17.2V6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                        </svg>
+                                        <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Remove Users</div>
                                       </div>
                                     </div>
                                   </div>
