@@ -2274,7 +2274,6 @@ export default function InviteNewMember() {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                marginTop: isCompact ? "8px" : "16px",
               }}
             >
               <button
