@@ -784,7 +784,7 @@ export default function InviteNewMember() {
                               type={showConfirmPassword ? "text" : "password"}
                               value={confirmPassword}
                               onChange={(e) => setConfirmPassword(e.target.value)}
-                              placeholder="••••••••"
+                              placeholder="••••���•••"
                               style={{
                                 width: "100%",
                                 height: "48px",
@@ -1326,10 +1326,12 @@ export default function InviteNewMember() {
                         display: "block",
                         marginBottom: "6px",
                       }}
-                    >
+>
                       City
                     </label>
                     <select
+                      value={formData.city}
+                      onChange={(event) => handleCityChange(event.target.value)}
                       style={{
                         width: "100%",
                         height: "40px",
@@ -1348,9 +1350,12 @@ export default function InviteNewMember() {
                         backgroundRepeat: "no-repeat",
                         backgroundPosition: "right 8px center",
                       }}
-                      defaultValue="Select"
                     >
-                      <option value="Select">Select</option>
+                      {cityOptions.map((city) => (
+                        <option key={city} value={city}>
+                          {city}
+                        </option>
+                      ))}
                     </select>
                   </div>
                 </div>
