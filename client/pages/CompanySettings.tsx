@@ -8162,7 +8162,7 @@ export default function CompanySettings() {
                     </div>
                     <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
                       {[
-                        { id: 'pill', label: 'Pill', radius: '9999px', image: 'https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F7a6ae071236d46eb8447ef865a5c2f0d?format=webp&width=400' },
+                        { id: 'pill', label: 'Pill', radius: '9999px', image: 'https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F8458897a322d4066ad368c6e476937c6?format=webp&width=400' },
                         { id: 'round', label: 'Round', radius: '10px', image: 'https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2Fff2448386a5e4990b1f225aac0912e40?format=webp&width=400' },
                         { id: 'sharp', label: 'Sharp', radius: '0px', image: 'https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F66c5c9fcc91a40b78e29244937203673?format=webp&width=400' },
                       ].map((option) => (
