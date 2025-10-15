@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 interface UserMenuDropdownProps {
   isOpen: boolean;
@@ -9,6 +10,8 @@ export const UserMenuDropdown: React.FC<UserMenuDropdownProps> = ({
   isOpen,
   onSignOut,
 }) => {
+  const navigate = useNavigate();
+
   if (!isOpen) return null;
 
   return (
