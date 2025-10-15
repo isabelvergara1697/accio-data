@@ -354,7 +354,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -391,7 +391,7 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      flexDirection: isMobile ? "column" : "row",
+                      flexDirection: isCompactLayout ? "column" : "row",
                       alignItems: "flex-start",
                       gap: isMobile ? "12px" : "24px",
                       width: "100%",
@@ -425,7 +425,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -471,7 +471,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -517,7 +517,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -572,7 +572,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -618,7 +618,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -664,7 +664,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -723,7 +723,7 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      flexDirection: isMobile ? "column" : "row",
+                      flexDirection: isCompactLayout ? "column" : "row",
                       justifyContent: isMobile ? "flex-start" : "flex-end",
                       alignItems: isMobile ? "stretch" : "center",
                       gap: isMobile ? "12px" : "20px",
@@ -733,7 +733,7 @@ export default function CompanySettings() {
                     <div
                       style={{
                         display: "flex",
-                        flexDirection: isMobile ? "column" : "row",
+                        flexDirection: isCompactLayout ? "column" : "row",
                         justifyContent: isMobile ? "flex-start" : "flex-end",
                         alignItems: "center",
                         gap: isMobile ? "8px" : "12px",
@@ -825,7 +825,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -871,7 +871,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -926,7 +926,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -981,7 +981,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -1036,7 +1036,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -1091,7 +1091,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -1146,7 +1146,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -1200,7 +1200,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -1259,7 +1259,7 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      flexDirection: isMobile ? "column" : "row",
+                      flexDirection: isCompactLayout ? "column" : "row",
                       justifyContent: isMobile ? "flex-start" : "flex-end",
                       alignItems: isMobile ? "stretch" : "center",
                       gap: isMobile ? "12px" : "20px",
@@ -1269,7 +1269,7 @@ export default function CompanySettings() {
                     <div
                       style={{
                         display: "flex",
-                        flexDirection: isMobile ? "column" : "row",
+                        flexDirection: isCompactLayout ? "column" : "row",
                         justifyContent: isMobile ? "flex-start" : "flex-end",
                         alignItems: "center",
                         gap: isMobile ? "8px" : "12px",
@@ -1396,7 +1396,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -1491,7 +1491,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -1589,7 +1589,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -1687,7 +1687,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -1785,7 +1785,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -1863,7 +1863,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -1937,7 +1937,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -2004,7 +2004,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -2073,7 +2073,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -2140,7 +2140,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -2207,7 +2207,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -2276,7 +2276,7 @@ export default function CompanySettings() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: isMobile ? "column" : "row",
+                    flexDirection: isCompactLayout ? "column" : "row",
                     alignItems: isMobile ? "stretch" : "flex-start",
                     gap: isMobile ? "16px" : "16px 32px",
                     width: "100%",
@@ -2359,7 +2359,7 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      flexDirection: isMobile ? "column" : "row",
+                      flexDirection: isCompactLayout ? "column" : "row",
                       justifyContent: isMobile ? "flex-start" : "flex-end",
                       alignItems: isMobile ? "stretch" : "center",
                       gap: isMobile ? "12px" : "20px",
@@ -2369,7 +2369,7 @@ export default function CompanySettings() {
                     <div
                       style={{
                         display: "flex",
-                        flexDirection: isMobile ? "column" : "row",
+                        flexDirection: isCompactLayout ? "column" : "row",
                         justifyContent: isMobile ? "flex-start" : "flex-end",
                         alignItems: "center",
                         gap: isMobile ? "8px" : "12px",
@@ -2560,7 +2560,7 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      flexDirection: isMobile ? "column" : "row",
+                      flexDirection: isCompactLayout ? "column" : "row",
                       padding: "16px",
                       gap: "16px",
                       width: "100%",
@@ -2583,7 +2583,7 @@ export default function CompanySettings() {
                     <div
                       style={{
                         display: "flex",
-                        flexDirection: isMobile ? "column" : "row",
+                        flexDirection: isCompactLayout ? "column" : "row",
                         alignItems: isMobile ? "stretch" : "center",
                         gap: "12px",
                         width: isMobile ? "100%" : "auto",
@@ -3460,7 +3460,7 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      flexDirection: isMobile ? "column" : "row",
+                      flexDirection: isCompactLayout ? "column" : "row",
                       padding: "12px 16px",
                       justifyContent: isMobile ? "center" : "space-between",
                       alignItems: "center",
@@ -3485,7 +3485,7 @@ export default function CompanySettings() {
                     <div
                       style={{
                         display: "flex",
-                        flexDirection: isMobile ? "column" : "row",
+                        flexDirection: isCompactLayout ? "column" : "row",
                         alignItems: "center",
                         gap: "12px",
                         justifyContent: "center",
