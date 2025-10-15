@@ -805,6 +805,15 @@ export default function CompanySettings() {
   const [portalInstructionsEnabled, setPortalInstructionsEnabled] = React.useState(true);
   const loginImageInputRef = React.useRef<HTMLInputElement | null>(null);
   const portalInstructionsInputRef = React.useRef<HTMLInputElement | null>(null);
+  const buttonCornerRadius = React.useMemo(() => {
+    if (uiStyling === "pill") {
+      return "9999px";
+    }
+    if (uiStyling === "round") {
+      return "10px";
+    }
+    return "0px";
+  }, [uiStyling]);
   const [loginImagePreview, setLoginImagePreview] = React.useState<string>(
     LOGIN_IMAGE_PLACEHOLDER,
   );
