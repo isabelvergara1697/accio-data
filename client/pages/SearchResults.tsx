@@ -628,7 +628,7 @@ const SearchResults = () => {
               </div>
             </div>
 
-            <div style={{ padding: "0 16px 16px 16px" }}>
+            <div style={{ padding: "0 0 16px 0" }}>
               <div style={tableWrapperStyle}>
                 <table style={tableStyle}>
                   <thead>
@@ -789,7 +789,7 @@ const SearchResults = () => {
               </div>
             </div>
 
-            <div style={{ padding: "0 16px 16px 16px" }}>
+            <div style={{ padding: "0 0 16px 0" }}>
               <div style={tableWrapperStyle}>
                 <table style={tableStyle}>
                   <thead>
@@ -949,7 +949,7 @@ const SearchResults = () => {
               </div>
             </div>
 
-            <div style={{ padding: "0 16px 16px 16px" }}>
+            <div style={{ padding: "0 0 16px 0" }}>
               <div style={tableWrapperStyle}>
                 <table style={tableStyle}>
                   <thead>
