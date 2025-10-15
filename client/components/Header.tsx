@@ -673,6 +673,7 @@ export const Header: React.FC<HeaderProps> = ({
       <AdvancedSearchModal
         isOpen={showAdvancedSearchModal}
         onClose={() => setShowAdvancedSearchModal(false)}
+        anchor={advancedModalAnchor}
       />
     </div>
   );
