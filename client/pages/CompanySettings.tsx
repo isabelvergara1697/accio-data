@@ -118,6 +118,9 @@ export default function CompanySettings() {
     outline: "none",
     boxSizing: "border-box" as const,
     minWidth: 0,
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap" as const,
   };
 
   return (
