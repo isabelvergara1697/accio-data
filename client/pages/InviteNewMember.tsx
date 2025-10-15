@@ -152,6 +152,12 @@ export default function InviteNewMember() {
     );
   };
 
+  const getRequirementIconColor = (requirementId: string) => {
+    if (!password) return "#D5D7DA"; // Gray when no password
+    if (requirementStates[requirementId]) return "#079455"; // Green when met
+    return "#D5D7DA"; // Gray when not met
+  };
+
   return (
     <div
       style={{
