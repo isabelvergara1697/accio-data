@@ -634,6 +634,12 @@ export const Header: React.FC<HeaderProps> = ({
           setNotificationModalOpen && setNotificationModalOpen(false)
         }
       />
+
+      {/* Advanced Search Modal */}
+      <AdvancedSearchModal
+        isOpen={showAdvancedSearchModal}
+        onClose={() => setShowAdvancedSearchModal(false)}
+      />
     </div>
   );
 };
