@@ -1433,8 +1433,9 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      alignItems: "center",
-                      gap: "24px",
+                      flexDirection: isCompactLayout ? "column" : "row",
+                      alignItems: isCompactLayout ? "stretch" : "center",
+                      gap: isCompactLayout ? "12px" : "24px",
                       width: "100%",
                       maxWidth: isCompactLayout ? "100%" : "512px",
                     }}
@@ -1447,6 +1448,10 @@ export default function CompanySettings() {
                         fontSize: "16px",
                         fontWeight: 400,
                         lineHeight: "24px",
+                        overflow: "hidden",
+                        textOverflow: isCompactLayout ? "clip" : "ellipsis",
+                        whiteSpace: isCompactLayout ? "normal" : "nowrap",
+                        wordBreak: isCompactLayout ? "break-word" : "normal",
                       }}
                     >
                       {samlIdpValue}
@@ -1464,6 +1469,8 @@ export default function CompanySettings() {
                         boxShadow:
                           "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                         cursor: "pointer",
+                        width: isCompactLayout ? "100%" : "auto",
+                        alignSelf: isCompactLayout ? "stretch" : "auto",
                       }}
                     >
                       <svg
@@ -1528,8 +1535,9 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      alignItems: "center",
-                      gap: "24px",
+                      flexDirection: isCompactLayout ? "column" : "row",
+                      alignItems: isCompactLayout ? "stretch" : "center",
+                      gap: isCompactLayout ? "12px" : "24px",
                       width: "100%",
                       maxWidth: isCompactLayout ? "100%" : "512px",
                     }}
@@ -1543,8 +1551,9 @@ export default function CompanySettings() {
                         fontWeight: 400,
                         lineHeight: "24px",
                         overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        whiteSpace: "nowrap",
+                        textOverflow: isCompactLayout ? "clip" : "ellipsis",
+                        whiteSpace: isCompactLayout ? "normal" : "nowrap",
+                        wordBreak: isCompactLayout ? "break-word" : "normal",
                       }}
                     >
                       {samlAcsUrl}
@@ -1562,6 +1571,8 @@ export default function CompanySettings() {
                         boxShadow:
                           "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                         cursor: "pointer",
+                        width: isCompactLayout ? "100%" : "auto",
+                        alignSelf: isCompactLayout ? "stretch" : "auto",
                       }}
                     >
                       <svg
@@ -1626,8 +1637,9 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      alignItems: "center",
-                      gap: "24px",
+                      flexDirection: isCompactLayout ? "column" : "row",
+                      alignItems: isCompactLayout ? "stretch" : "center",
+                      gap: isCompactLayout ? "12px" : "24px",
                       width: "100%",
                       maxWidth: isCompactLayout ? "100%" : "512px",
                     }}
@@ -1641,8 +1653,9 @@ export default function CompanySettings() {
                         fontWeight: 400,
                         lineHeight: "24px",
                         overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        whiteSpace: "nowrap",
+                        textOverflow: isCompactLayout ? "clip" : "ellipsis",
+                        whiteSpace: isCompactLayout ? "normal" : "nowrap",
+                        wordBreak: isCompactLayout ? "break-word" : "normal",
                       }}
                     >
                       {samlSpEntityId}
@@ -1660,6 +1673,8 @@ export default function CompanySettings() {
                         boxShadow:
                           "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                         cursor: "pointer",
+                        width: isCompactLayout ? "100%" : "auto",
+                        alignSelf: isCompactLayout ? "stretch" : "auto",
                       }}
                     >
                       <svg
@@ -1724,8 +1739,9 @@ export default function CompanySettings() {
                   <div
                     style={{
                       display: "flex",
-                      alignItems: "center",
-                      gap: "24px",
+                      flexDirection: isCompactLayout ? "column" : "row",
+                      alignItems: isCompactLayout ? "stretch" : "center",
+                      gap: isCompactLayout ? "12px" : "24px",
                       width: "100%",
                       maxWidth: isCompactLayout ? "100%" : "512px",
                     }}
@@ -1739,8 +1755,9 @@ export default function CompanySettings() {
                         fontWeight: 400,
                         lineHeight: "24px",
                         overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        whiteSpace: "nowrap",
+                        textOverflow: isCompactLayout ? "clip" : "ellipsis",
+                        whiteSpace: isCompactLayout ? "normal" : "nowrap",
+                        wordBreak: isCompactLayout ? "break-word" : "normal",
                       }}
                     >
                       {samlSpEntityId}
@@ -1758,6 +1775,8 @@ export default function CompanySettings() {
                         boxShadow:
                           "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                         cursor: "pointer",
+                        width: isCompactLayout ? "100%" : "auto",
+                        alignSelf: isCompactLayout ? "stretch" : "auto",
                       }}
                     >
                       <svg
