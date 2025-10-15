@@ -248,6 +248,10 @@ export default function CompanySettings() {
                 display: "flex",
                 flexDirection: "column",
                 gap: "24px",
+                width: "100%",
+                maxWidth: "100%",
+                overflowX: "hidden",
+                boxSizing: "border-box",
               }}
             >
               {/* Administration Contact Section */}
