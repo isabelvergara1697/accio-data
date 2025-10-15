@@ -3,7 +3,19 @@ import { useNavigate } from "react-router-dom";
 import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
+import { HorizontalTabs } from "../components/HorizontalTabs";
 import { useIsMobile } from "../hooks/use-mobile";
+
+type CompanyTabType =
+  | "company"
+  | "saml"
+  | "team"
+  | "termination"
+  | "adjudication"
+  | "resources"
+  | "invoices"
+  | "audit"
+  | "customization";
 
 export default function CompanySettings() {
   const navigate = useNavigate();
@@ -12,6 +24,7 @@ export default function CompanySettings() {
   const headerHeight = isDesktop ? 72 : 64;
 
   const [isTablet, setIsTablet] = React.useState(false);
+  const [activeTab, setActiveTab] = React.useState<CompanyTabType>("company");
   const [userMenuOpen, setUserMenuOpen] = React.useState(false);
   const [userMenuHovered, setUserMenuHovered] = React.useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = React.useState(false);
@@ -43,6 +56,21 @@ export default function CompanySettings() {
   const handleSignOut = () => {
     navigate("/login");
   };
+
+  const tabs = React.useMemo(
+    () => [
+      { id: "company" as CompanyTabType, label: "Company" },
+      { id: "saml" as CompanyTabType, label: "SAML Integration" },
+      { id: "team" as CompanyTabType, label: "Team & Permissions" },
+      { id: "termination" as CompanyTabType, label: "Termination Dates" },
+      { id: "adjudication" as CompanyTabType, label: "Adjudication Emails" },
+      { id: "resources" as CompanyTabType, label: "Resources" },
+      { id: "invoices" as CompanyTabType, label: "Invoices" },
+      { id: "audit" as CompanyTabType, label: "Audit Logs" },
+      { id: "customization" as CompanyTabType, label: "Customization" },
+    ],
+    [],
+  );
 
   const [companyName, setCompanyName] = React.useState("Accio Data Inc.");
   const [legalName, setLegalName] = React.useState("Accio Data Incorporated");
@@ -244,27 +272,25 @@ export default function CompanySettings() {
             >
               Company Settings
             </h1>
-            <p
-              style={{
-                color: "#535862",
-                fontFamily: "Public Sans",
-                fontSize: "14px",
-                fontWeight: 400,
-                lineHeight: "20px",
-                margin: 0,
-              }}
-            >
-              Maintain up-to-date organization details, branding preferences, and key contacts so your team stays aligned across the platform.
-            </p>
           </div>
 
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "24px",
-            }}
-          >
+          <HorizontalTabs
+            tabs={tabs}
+            activeTab={activeTab}
+            onTabChange={(tabId) => setActiveTab(tabId as CompanyTabType)}
+            size="sm"
+            fullWidth={false}
+            type="button-border"
+          />
+
+          {activeTab === "company" && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "24px",
+              }}
+            >
             <div
               style={{
                 display: "flex",
@@ -916,6 +942,127 @@ export default function CompanySettings() {
               </div>
             </div>
           </div>
+          )}
+
+          {activeTab === "saml" && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "24px",
+                padding: isMobile ? "16px" : "32px",
+              }}
+            >
+              <p style={{ color: "#535862", fontFamily: "Public Sans" }}>
+                SAML Integration content coming soon...
+              </p>
+            </div>
+          )}
+
+          {activeTab === "team" && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "24px",
+                padding: isMobile ? "16px" : "32px",
+              }}
+            >
+              <p style={{ color: "#535862", fontFamily: "Public Sans" }}>
+                Team & Permissions content coming soon...
+              </p>
+            </div>
+          )}
+
+          {activeTab === "termination" && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "24px",
+                padding: isMobile ? "16px" : "32px",
+              }}
+            >
+              <p style={{ color: "#535862", fontFamily: "Public Sans" }}>
+                Termination Dates content coming soon...
+              </p>
+            </div>
+          )}
+
+          {activeTab === "adjudication" && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "24px",
+                padding: isMobile ? "16px" : "32px",
+              }}
+            >
+              <p style={{ color: "#535862", fontFamily: "Public Sans" }}>
+                Adjudication Emails content coming soon...
+              </p>
+            </div>
+          )}
+
+          {activeTab === "resources" && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "24px",
+                padding: isMobile ? "16px" : "32px",
+              }}
+            >
+              <p style={{ color: "#535862", fontFamily: "Public Sans" }}>
+                Resources content coming soon...
+              </p>
+            </div>
+          )}
+
+          {activeTab === "invoices" && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "24px",
+                padding: isMobile ? "16px" : "32px",
+              }}
+            >
+              <p style={{ color: "#535862", fontFamily: "Public Sans" }}>
+                Invoices content coming soon...
+              </p>
+            </div>
+          )}
+
+          {activeTab === "audit" && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "24px",
+                padding: isMobile ? "16px" : "32px",
+              }}
+            >
+              <p style={{ color: "#535862", fontFamily: "Public Sans" }}>
+                Audit Logs content coming soon...
+              </p>
+            </div>
+          )}
+
+          {activeTab === "customization" && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "24px",
+                padding: isMobile ? "16px" : "32px",
+              }}
+            >
+              <p style={{ color: "#535862", fontFamily: "Public Sans" }}>
+                Customization content coming soon...
+              </p>
+            </div>
+          )}
         </div>
       </main>
     </div>
