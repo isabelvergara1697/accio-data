@@ -1334,101 +1334,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     position: "relative",
                   }}
                 >
-                  {/* Account Item */}
-                  <div
-                    style={{
-                      display: "flex",
-                      padding: "0px 6px",
-                      alignItems: "center",
-                      alignSelf: "stretch",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        padding: "8px",
-                        alignItems: "center",
-                        gap: "12px",
-                        flex: "1 0 0",
-                        borderRadius: "6px",
-                        cursor: "pointer",
-                        position: "relative",
-                        border: isAccountSettingsPage
-                          ? "1px solid #B3BCE5"
-                          : "1px solid transparent",
-                        background: isAccountSettingsPage ? "#ECEEF9" : "transparent",
-                        transition: "background 0.2s ease, border 0.2s ease",
-                      }}
-                      onClick={() => navigate("/account-settings")}
-                      onMouseEnter={(e) => {
-                        if (isAccountSettingsPage) return;
-                        e.currentTarget.style.background = "#F5F5F5";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.background = isAccountSettingsPage
-                          ? "#ECEEF9"
-                          : "transparent";
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "8px",
-                          flex: "1 0 0",
-                          position: "relative",
-                        }}
-                      >
-                        <svg
-                          style={{
-                            width: "14px",
-                            height: "14px",
-                            position: "relative",
-                          }}
-                          width="14"
-                          height="14"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M13.3327 14C13.3327 13.0696 13.3327 12.6044 13.2179 12.2259C12.9593 11.3736 12.2924 10.7067 11.4401 10.4482C11.0616 10.3333 10.5964 10.3333 9.66601 10.3333H6.33268C5.40231 10.3333 4.93712 10.3333 4.55859 10.4482C3.70632 10.7067 3.03938 11.3736 2.78084 12.2259C2.66602 12.6044 2.66602 13.0696 2.66602 14M10.9993 5C10.9993 6.65685 9.6562 8 7.99935 8C6.34249 8 4.99935 6.65685 4.99935 5C4.99935 3.34315 6.34249 2 7.99935 2C9.6562 2 10.9993 3.34315 10.9993 5Z"
-                            stroke={isAccountSettingsPage ? "#344698" : "#A4A7AE"}
-                            strokeWidth="1.67"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        <div
-                          style={{
-                            flex: "1 0 0",
-                            color: isAccountSettingsPage ? "#273572" : "#414651",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontStyle: "normal",
-                            fontWeight: 600,
-                            lineHeight: "20px",
-                            position: "relative",
-                          }}
-                        >
-                          <span
-                            style={{
-                              fontFamily:
-                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                              fontWeight: 600,
-                              fontSize: "14px",
-                              color: isAccountSettingsPage
-                                ? "rgba(39,53,114,1)"
-                                : "rgba(65,70,81,1)",
-                            }}
-                          >
-                            Account
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <NavItem
+                    section="account"
+                    label="Account"
+                    isActive={currentPage === "account-settings"}
+                    hasChevron={false}
+                    onClick={() => navigate("/account-settings")}
+                  />
 
                   {/* Company Item */}
                   <div
