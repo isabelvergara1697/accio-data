@@ -150,6 +150,77 @@ export default function CompanySettings() {
   const [deleteUserModalOpen, setDeleteUserModalOpen] = React.useState(false);
   const [userToDelete, setUserToDelete] = React.useState<{ id: number; name: string } | null>(null);
   const [teamSubTab, setTeamSubTab] = React.useState<'members' | 'permissions'>('members');
+  const [rolePermissions, setRolePermissions] =
+    React.useState<RolePermissionCategory[]>(() => INITIAL_ROLE_PERMISSIONS);
+
+  const handlePermissionToggle = React.useCallback(
+    (categoryIndex: number, permissionIndex: number, roleKey: RoleKey) => {
+      const roleMeta = ROLE_COLUMNS.find((role) => role.key === roleKey);
+      if (roleMeta?.locked) {
+        return;
+      }
+
+      setRolePermissions((prev) =>
+        prev.map((category, catIdx) => {
+          if (catIdx !== categoryIndex) {
+            return category;
+          }
+
+          return {
+            ...category,
+            permissions: category.permissions.map((permission, permIdx) => {
+              if (permIdx !== permissionIndex) {
+                return permission;
+              }
+
+              return {
+                ...permission,
+                roles: {
+                  ...permission.roles,
+                  [roleKey]: !permission.roles[roleKey],
+                },
+              };
+            }),
+          };
+        }),
+      );
+    },
+    [],
+  );
+
+  const getToggleStyle = React.useCallback(
+    (isOn: boolean, locked: boolean) => ({
+      display: "flex",
+      width: "36px",
+      height: "20px",
+      padding: "2px",
+      alignItems: "center",
+      borderRadius: "9999px",
+      border: locked
+        ? "1px solid #E9EAEB"
+        : isOn
+          ? "1px solid transparent"
+          : "1px solid #E9EAEB",
+      background: locked ? "#8D9BD8" : isOn ? "#344698" : "#F5F5F5",
+      justifyContent: isOn ? "flex-end" : "flex-start",
+      cursor: locked ? "not-allowed" : "pointer",
+      opacity: locked ? 0.6 : 1,
+      transition: "all 0.15s ease",
+    }),
+    [],
+  );
+
+  const getToggleKnobStyle = React.useCallback(
+    (locked: boolean) => ({
+      width: "16px",
+      height: "16px",
+      borderRadius: "9999px",
+      background: locked ? "#FAFAFA" : "#FFF",
+      boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)",
+      transition: "transform 0.15s ease",
+    }),
+    [],
+  );
 
   React.useEffect(() => {
     if (initialTab) {
