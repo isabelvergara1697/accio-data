@@ -1097,6 +1097,17 @@ export const Sidebar: React.FC<SidebarProps> = ({
             </div>
           </div>
 
+          {/* Mobile Quick Create Dropdown */}
+          {!isDesktop && (
+            <QuickCreateDropdown
+              isOpen={mobileQuickCreateOpen}
+              onClose={() => setMobileQuickCreateOpen(false)}
+              breakpoint="mobile"
+              onOpenDrawer={openQuickOrderFromMobile}
+              onOpenSSNDrawer={openSSNOrderFromMobile}
+            />
+          )}
+
           {/* Search Bar - Mobile/Tablet Only */}
           <div
             style={{
