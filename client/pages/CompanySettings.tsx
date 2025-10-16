@@ -8569,7 +8569,7 @@ export default function CompanySettings() {
                                 textAlign: "center",
                               }}
                             >
-                              To ensure legibility, the color {isColorAdjusted && "and text "}will be modified automatically according to the{" "}
+                              To ensure legibility, the text color will be modified automatically according to the{" "}
                               <span style={{ color: "#273572", textDecoration: "underline" }}>
                                 Accessibility Compliance Guidelines.
                               </span>
