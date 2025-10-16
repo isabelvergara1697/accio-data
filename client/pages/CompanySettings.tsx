@@ -996,6 +996,7 @@ export default function CompanySettings() {
   const huePosition = hue / 360;
   const saturationPosition = saturation;
   const brightnessPosition = value;
+  const isCustomColorActive = !PRESET_BRAND_COLORS.includes(appliedBrandColor);
 
   React.useEffect(() => {
     if (!isEditingHex) {
