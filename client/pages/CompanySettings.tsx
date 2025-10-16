@@ -8626,6 +8626,22 @@ export default function CompanySettings() {
                             type="text"
                             value={hexInput}
                             onFocus={() => setIsEditingHex(true)}
+                            onKeyDown={(event) => {
+                              if (event.key === "Enter") {
+                                event.preventDefault();
+                                const normalized = normalizeHex(hexInput);
+                                if (normalized) {
+                                  const hsvColor = hexToHsv(normalized);
+                                  setBrandColor(normalized);
+                                  setHue(hsvColor.h);
+                                  setSaturation(hsvColor.s);
+                                  setValue(hsvColor.v);
+                                  setHexInput(normalized);
+                                  setIsEditingHex(false);
+                                  setIsColorPickerOpen(false);
+                                }
+                              }
+                            }}
                             onChange={(event) => {
                               const rawValue = event.target.value.replace(/[^0-9a-fA-F#]/g, "");
                               const prefixedValue = rawValue.startsWith("#") ? rawValue : `#${rawValue}`;
