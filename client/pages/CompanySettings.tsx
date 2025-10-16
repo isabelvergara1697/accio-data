@@ -5869,6 +5869,7 @@ export default function CompanySettings() {
                   {/* Action Button */}
                   <button
                     type="button"
+                    onClick={() => setIsCreateCategoryModalOpen(true)}
                     style={{
                       display: "flex",
                       height: "44px",
