@@ -8538,14 +8538,14 @@ export default function CompanySettings() {
                                 gap: "4px",
                                 borderRadius: "8px",
                                 border: "2px solid rgba(255, 255, 255, 0.12)",
-                                background: accessiblePreviewColor,
+                                background: previewColor,
                                 boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 cursor: "default",
                               }}
                             >
                               <span
                                 style={{
-                                  color: accessibleTextColor,
+                                  color: previewTextColor,
                                   fontFamily: "Public Sans",
                                   fontSize: "14px",
                                   fontWeight: 400,
