@@ -1002,7 +1002,7 @@ export default function CompanySettings() {
   const [isCreateCategoryModalOpen, setIsCreateCategoryModalOpen] = React.useState(false);
   const [categoryName, setCategoryName] = React.useState("");
   const [categoryDescription, setCategoryDescription] = React.useState("");
-  const [subcategoryName, setSubcategoryName] = React.useState("");
+  const [subcategories, setSubcategories] = React.useState<string[]>([]);
 
   const appliedBrandColor = React.useMemo(
     () => normalizeHex(brandColor) ?? DEFAULT_BRAND_COLOR,
