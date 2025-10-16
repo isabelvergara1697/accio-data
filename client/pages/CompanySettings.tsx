@@ -9000,14 +9000,14 @@ export default function CompanySettings() {
                   <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                     <div style={{ display: "flex", justifyContent: "flex-end", gap: "12px" }}>
                       <button type="button" onClick={() => {
-                        setBrandColor(initialBrandColor.current);
-                        setDisplayPreference(initialDisplayPreference.current);
-                        setUiStyling(initialUiStyling.current);
-                        const hsvColor = hexToHsv(initialBrandColor.current);
+                        setBrandColor(initialState.brandColor);
+                        setDisplayPreference(initialState.displayPreference);
+                        setUiStyling(initialState.uiStyling);
+                        const hsvColor = hexToHsv(initialState.brandColor);
                         setHue(hsvColor.h);
                         setSaturation(hsvColor.s);
                         setValue(hsvColor.v);
-                        setHexInput(initialBrandColor.current);
+                        setHexInput(initialState.brandColor);
                         setIsColorPickerOpen(false);
                         setIsEditingHex(false);
                       }} style={{
