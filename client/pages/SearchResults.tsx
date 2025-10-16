@@ -467,8 +467,6 @@ const SearchResults = () => {
               gap: sectionGap,
               boxSizing: "border-box",
               width: "100%",
-              maxWidth: "1200px",
-              margin: "0 auto",
             }}
           >
           <section
