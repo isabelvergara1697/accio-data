@@ -998,6 +998,12 @@ export default function CompanySettings() {
   const [hexInput, setHexInput] = React.useState(DEFAULT_BRAND_COLOR);
   const [isEditingHex, setIsEditingHex] = React.useState(false);
 
+  // Create Category Modal State
+  const [isCreateCategoryModalOpen, setIsCreateCategoryModalOpen] = React.useState(false);
+  const [categoryName, setCategoryName] = React.useState("");
+  const [categoryDescription, setCategoryDescription] = React.useState("");
+  const [subcategoryName, setSubcategoryName] = React.useState("");
+
   const appliedBrandColor = React.useMemo(
     () => normalizeHex(brandColor) ?? DEFAULT_BRAND_COLOR,
     [brandColor],
