@@ -977,9 +977,20 @@ export default function CompanySettings() {
   const [displayPreference, setDisplayPreference] = React.useState<'system' | 'light' | 'dark'>('system');
   const [uiStyling, setUiStyling] = React.useState<'pill' | 'round' | 'sharp'>('pill');
 
-  const initialBrandColor = React.useRef(DEFAULT_BRAND_COLOR);
-  const initialDisplayPreference = React.useRef<'system' | 'light' | 'dark'>('system');
-  const initialUiStyling = React.useRef<'pill' | 'round' | 'sharp'>('pill');
+  const [initialState, setInitialState] = React.useState({
+    brandColor: DEFAULT_BRAND_COLOR,
+    displayPreference: 'system' as const,
+    uiStyling: 'pill' as const,
+  });
+
+  React.useEffect(() => {
+    setInitialState({
+      brandColor,
+      displayPreference,
+      uiStyling,
+    });
+  }, []);
+
   const [isColorPickerOpen, setIsColorPickerOpen] = React.useState(false);
   const [hue, setHue] = React.useState(DEFAULT_HSV.h);
   const [saturation, setSaturation] = React.useState(DEFAULT_HSV.s);
