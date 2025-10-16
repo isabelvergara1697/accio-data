@@ -1010,6 +1010,86 @@ export default function CompanySettings() {
     };
   }, [isColorPickerOpen]);
 
+  const handleColorspacePointerDown = React.useCallback(
+    (event: React.PointerEvent<HTMLDivElement>) => {
+      const rect = event.currentTarget.getBoundingClientRect();
+      const updateFromPointer = (clientX: number, clientY: number) => {
+        const saturationValue = clamp((clientX - rect.left) / rect.width, 0, 1);
+        const brightnessValue = clamp(1 - (clientY - rect.top) / rect.height, 0, 1);
+        setSaturation(saturationValue);
+        setValue(brightnessValue);
+      };
+
+      updateFromPointer(event.clientX, event.clientY);
+
+      const handlePointerMove = (moveEvent: PointerEvent) => {
+        moveEvent.preventDefault();
+        updateFromPointer(moveEvent.clientX, moveEvent.clientY);
+      };
+
+      const handlePointerUp = () => {
+        window.removeEventListener("pointermove", handlePointerMove);
+        window.removeEventListener("pointerup", handlePointerUp);
+      };
+
+      window.addEventListener("pointermove", handlePointerMove);
+      window.addEventListener("pointerup", handlePointerUp);
+    },
+    [setSaturation, setValue],
+  );
+
+  const handleHuePointerDown = React.useCallback(
+    (event: React.PointerEvent<HTMLDivElement>) => {
+      const rect = event.currentTarget.getBoundingClientRect();
+      const updateHue = (clientX: number) => {
+        const ratio = clamp((clientX - rect.left) / rect.width, 0, 1);
+        setHue(ratio * 360);
+      };
+
+      updateHue(event.clientX);
+
+      const handlePointerMove = (moveEvent: PointerEvent) => {
+        moveEvent.preventDefault();
+        updateHue(moveEvent.clientX);
+      };
+
+      const handlePointerUp = () => {
+        window.removeEventListener("pointermove", handlePointerMove);
+        window.removeEventListener("pointerup", handlePointerUp);
+      };
+
+      window.addEventListener("pointermove", handlePointerMove);
+      window.addEventListener("pointerup", handlePointerUp);
+    },
+    [setHue],
+  );
+
+  const handleSaturationPointerDown = React.useCallback(
+    (event: React.PointerEvent<HTMLDivElement>) => {
+      const rect = event.currentTarget.getBoundingClientRect();
+      const updateSaturationValue = (clientX: number) => {
+        const ratio = clamp((clientX - rect.left) / rect.width, 0, 1);
+        setSaturation(ratio);
+      };
+
+      updateSaturationValue(event.clientX);
+
+      const handlePointerMove = (moveEvent: PointerEvent) => {
+        moveEvent.preventDefault();
+        updateSaturationValue(moveEvent.clientX);
+      };
+
+      const handlePointerUp = () => {
+        window.removeEventListener("pointermove", handlePointerMove);
+        window.removeEventListener("pointerup", handlePointerUp);
+      };
+
+      window.addEventListener("pointermove", handlePointerMove);
+      window.addEventListener("pointerup", handlePointerUp);
+    },
+    [setSaturation],
+  );
+
   const [loginImageEnabled, setLoginImageEnabled] = React.useState(true);
   const [portalInstructionsEnabled, setPortalInstructionsEnabled] = React.useState(true);
   const loginImageInputRef = React.useRef<HTMLInputElement | null>(null);
