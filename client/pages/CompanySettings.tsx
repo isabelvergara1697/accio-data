@@ -5713,6 +5713,7 @@ export default function CompanySettings() {
                   </div>
                   <button
                     type="button"
+                    onClick={() => setIsCreateCategoryModalOpen(true)}
                     style={{
                       display: "flex",
                       minHeight: "36px",
