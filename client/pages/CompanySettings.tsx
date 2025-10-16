@@ -976,6 +976,10 @@ export default function CompanySettings() {
   const [brandColor, setBrandColor] = React.useState(DEFAULT_BRAND_COLOR);
   const [displayPreference, setDisplayPreference] = React.useState<'system' | 'light' | 'dark'>('system');
   const [uiStyling, setUiStyling] = React.useState<'pill' | 'round' | 'sharp'>('pill');
+
+  const initialBrandColor = React.useRef(DEFAULT_BRAND_COLOR);
+  const initialDisplayPreference = React.useRef<'system' | 'light' | 'dark'>('system');
+  const initialUiStyling = React.useRef<'pill' | 'round' | 'sharp'>('pill');
   const [isColorPickerOpen, setIsColorPickerOpen] = React.useState(false);
   const [hue, setHue] = React.useState(DEFAULT_HSV.h);
   const [saturation, setSaturation] = React.useState(DEFAULT_HSV.s);
@@ -8846,7 +8850,7 @@ export default function CompanySettings() {
                               borderRadius: "10px",
                               border: displayPreference === option.id ? "1px solid #D5D7DA" : "1px solid #D5D7DA",
                               background: "#F5F5F5",
-                              boxShadow: displayPreference === option.id ? "0 0 0 2px #FFF, 0 0 0 4px #34479A" : "none",
+                              boxShadow: displayPreference === option.id ? `0 0 0 2px #FFF, 0 0 0 4px ${brandColor}` : "none",
                               cursor: "pointer",
                               position: "relative",
                               overflow: "hidden",
@@ -8869,7 +8873,7 @@ export default function CompanySettings() {
                                 width: "20px",
                                 height: "20px",
                                 borderRadius: "9999px",
-                                background: "#344698",
+                                background: brandColor,
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
