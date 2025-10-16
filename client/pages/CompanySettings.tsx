@@ -1017,11 +1017,6 @@ export default function CompanySettings() {
     [previewColor],
   );
 
-  const isTextColorAdjusted = React.useMemo(() => {
-    const normalized = normalizeHex(previewTextColor);
-    return normalized != null && normalized !== "#FFFFFF";
-  }, [previewTextColor]);
-
   const hueColor = React.useMemo(
     () => hsvToHex(hue, 1, 1),
     [hue],
