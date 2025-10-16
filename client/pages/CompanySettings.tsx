@@ -1000,9 +1000,9 @@ export default function CompanySettings() {
 
   // Create Category Modal State
   const [isCreateCategoryModalOpen, setIsCreateCategoryModalOpen] = React.useState(false);
-  const [categoryName, setCategoryName] = React.useState("");
+  const [categoryName, setCategoryName] = React.useState("Institutional Instructions");
   const [categoryDescription, setCategoryDescription] = React.useState("");
-  const [subcategories, setSubcategories] = React.useState<string[]>([""]);  // Start with one empty subcategory
+  const [subcategories, setSubcategories] = React.useState<string[]>(["Web Resources"]);  // Start with one empty subcategory
 
   const appliedBrandColor = React.useMemo(
     () => normalizeHex(brandColor) ?? DEFAULT_BRAND_COLOR,
@@ -6046,7 +6046,7 @@ export default function CompanySettings() {
                           ))}
                       </div>
                     </div>
-                    <button type="button" onClick={() => { console.log({ categoryName, categoryDescription, subcategories }); setCategoryName(""); setCategoryDescription(""); setSubcategories([""]); setIsCreateCategoryModalOpen(false); }} style={{ display: "flex", padding: "12px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer", marginBottom: "24px" }}>
+                    <button type="button" onClick={() => { console.log({ categoryName, categoryDescription, subcategories }); setCategoryName("Institutional Instructions"); setCategoryDescription(""); setSubcategories(["Web Resources"]); setIsCreateCategoryModalOpen(false); }} style={{ display: "flex", padding: "12px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer", marginBottom: "24px" }}>
                       <span style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center", color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Create Category</span>
                     </button>
                   </div>
