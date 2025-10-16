@@ -968,6 +968,21 @@ export default function CompanySettings() {
     [previewColor],
   );
 
+  const hueColor = React.useMemo(
+    () => hsvToHex(hue, 1, 1),
+    [hue],
+  );
+
+  const saturationGradientLeft = React.useMemo(
+    () => hsvToHex(hue, 0, value),
+    [hue, value],
+  );
+
+  const saturationGradientRight = React.useMemo(
+    () => hsvToHex(hue, 1, value),
+    [hue, value],
+  );
+
   const huePosition = hue / 360;
   const saturationPosition = saturation;
   const brightnessPosition = value;
