@@ -1035,6 +1035,21 @@ export default function CompanySettings() {
     [previewColor],
   );
 
+  const accessiblePreviewColor = React.useMemo(
+    () => adjustColorForAccessibility(previewColor),
+    [previewColor],
+  );
+
+  const isColorAdjusted = React.useMemo(
+    () => previewColor.toUpperCase() !== accessiblePreviewColor.toUpperCase(),
+    [previewColor, accessiblePreviewColor],
+  );
+
+  const accessibleTextColor = React.useMemo(
+    () => getContrastingTextColor(accessiblePreviewColor),
+    [accessiblePreviewColor],
+  );
+
   const hueColor = React.useMemo(
     () => hsvToHex(hue, 1, 1),
     [hue],
