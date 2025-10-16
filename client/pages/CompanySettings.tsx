@@ -8322,6 +8322,7 @@ export default function CompanySettings() {
                               borderRadius: "9999px",
                               border: "1px solid rgba(0, 0, 0, 0.10)",
                               background: color,
+                              boxShadow: appliedBrandColor === normalizeHex(color) ? "0 0 0 2px #FFF, 0 0 0 4px #34479A" : "none",
                               cursor: "pointer",
                             }}
                           />
