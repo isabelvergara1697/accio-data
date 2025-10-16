@@ -8392,6 +8392,352 @@ export default function CompanySettings() {
                         />
                       </div>
                     </div>
+                    {isColorPickerOpen && (
+                      <div
+                        style={{
+                          position: "absolute",
+                          top: "72px",
+                          right: 0,
+                          width: "min(498px, calc(100vw - 64px))",
+                          maxWidth: "100%",
+                          padding: "16px",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "16px",
+                          zIndex: 20,
+                        }}
+                      >
+                        <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+                          <div
+                            onPointerDown={handleColorspacePointerDown}
+                            style={{
+                              position: "relative",
+                              flex: "1 1 240px",
+                              minWidth: "240px",
+                              height: "168px",
+                              borderRadius: "8px",
+                              background: `linear-gradient(90deg, #FFFFFF 0%, ${hueColor} 100%), linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%)`,
+                              cursor: "crosshair",
+                              touchAction: "none",
+                            }}
+                          >
+                            <div
+                              style={{
+                                position: "absolute",
+                                left: `${saturationPosition * 100}%`,
+                                top: `${(1 - brightnessPosition) * 100}%`,
+                                transform: "translate(-50%, -50%)",
+                                width: "16px",
+                                height: "16px",
+                                borderRadius: "9999px",
+                                border: "2px solid #FFF",
+                                boxShadow: "0 4px 6px rgba(31, 41, 55, 0.10), 0 2px 4px rgba(31, 41, 55, 0.06)",
+                                pointerEvents: "none",
+                              }}
+                            />
+                          </div>
+                          <div
+                            style={{
+                              flex: "1 1 200px",
+                              minWidth: "200px",
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "center",
+                              gap: "8px",
+                            }}
+                          >
+                            <button
+                              type="button"
+                              style={{
+                                display: "flex",
+                                padding: "12px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                gap: "4px",
+                                borderRadius: "8px",
+                                border: "2px solid rgba(255, 255, 255, 0.12)",
+                                background: previewColor,
+                                boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                cursor: "default",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  color: previewTextColor,
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 400,
+                                  lineHeight: "20px",
+                                }}
+                              >
+                                Button Preview
+                              </span>
+                            </button>
+                            <p
+                              style={{
+                                height: "77px",
+                                overflow: "hidden",
+                                color: "#535862",
+                                textOverflow: "ellipsis",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontWeight: 400,
+                                lineHeight: "18px",
+                                margin: 0,
+                                textAlign: "center",
+                              }}
+                            >
+                              To ensure legibility, the color of the text will be modified automatically according to the{" "}
+                              <span style={{ color: "#273572", textDecoration: "underline" }}>
+                                Accessibility Compliance Guidelines.
+                              </span>
+                            </p>
+                          </div>
+                        </div>
+                        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                          <div style={{ position: "relative", height: "8px" }}>
+                            <div
+                              onPointerDown={handleHuePointerDown}
+                              style={{
+                                width: "100%",
+                                height: "8px",
+                                borderRadius: "100px",
+                                background:
+                                  "linear-gradient(90deg, #FF0000 0%, #FF8A00 16.48%, #FFE600 27.74%, #14FF00 39.35%, #00A3FF 49.37%, #0500FF 61.18%, #AD00FF 72.26%, #FF00C7 83.53%, #FF0000 100%)",
+                                cursor: "pointer",
+                                position: "relative",
+                                touchAction: "none",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  position: "absolute",
+                                  left: `${huePosition * 100}%`,
+                                  top: "50%",
+                                  transform: "translate(-50%, -50%)",
+                                  width: "12px",
+                                  height: "12px",
+                                  borderRadius: "9999px",
+                                  border: "2px solid #FFF",
+                                  boxShadow: "0 4px 6px rgba(31, 41, 55, 0.10), 0 2px 4px rgba(31, 41, 55, 0.06)",
+                                  pointerEvents: "none",
+                                }}
+                              />
+                            </div>
+                          </div>
+                          <div style={{ position: "relative", height: "8px" }}>
+                            <div
+                              onPointerDown={handleSaturationPointerDown}
+                              style={{
+                                width: "100%",
+                                height: "8px",
+                                borderRadius: "100px",
+                                background: `linear-gradient(90deg, ${saturationGradientLeft} 0%, ${saturationGradientRight} 100%)`,
+                                cursor: "pointer",
+                                position: "relative",
+                                touchAction: "none",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  position: "absolute",
+                                  left: `${saturationPosition * 100}%`,
+                                  top: "50%",
+                                  transform: "translate(-50%, -50%)",
+                                  width: "12px",
+                                  height: "12px",
+                                  borderRadius: "9999px",
+                                  border: "2px solid #FFF",
+                                  boxShadow: "0 4px 6px rgba(31, 41, 55, 0.10), 0 2px 4px rgba(31, 41, 55, 0.06)",
+                                  pointerEvents: "none",
+                                }}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", flexWrap: "wrap" }}>
+                          <div style={{ display: "flex", width: "96px", flexDirection: "column", gap: "6px" }}>
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px 12px",
+                                alignItems: "center",
+                                gap: "8px",
+                                borderRadius: "8px",
+                                border: "1px solid #D5D7DA",
+                                background: "#FFF",
+                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  flex: 1,
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                HEX
+                              </span>
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+                              </svg>
+                            </div>
+                          </div>
+                          <input
+                            type="text"
+                            value={hexInput}
+                            onFocus={() => setIsEditingHex(true)}
+                            onChange={(event) => {
+                              const rawValue = event.target.value.replace(/[^0-9a-fA-F#]/g, "");
+                              const prefixedValue = rawValue.startsWith("#") ? rawValue : `#${rawValue}`;
+                              if (/^#?[0-9A-Fa-f]{0,6}$/.test(prefixedValue.replace(/#/g, ""))) {
+                                const uppercaseValue = prefixedValue.toUpperCase();
+                                setHexInput(uppercaseValue);
+                                const normalized = normalizeHex(uppercaseValue);
+                                if (normalized) {
+                                  const hsvColor = hexToHsv(normalized);
+                                  setHue(hsvColor.h);
+                                  setSaturation(hsvColor.s);
+                                  setValue(hsvColor.v);
+                                }
+                              }
+                            }}
+                            onBlur={() => {
+                              setIsEditingHex(false);
+                              const normalized = normalizeHex(hexInput);
+                              if (normalized) {
+                                const hsvColor = hexToHsv(normalized);
+                                setHexInput(normalized);
+                                setHue(hsvColor.h);
+                                setSaturation(hsvColor.s);
+                                setValue(hsvColor.v);
+                              } else {
+                                setHexInput(previewColor);
+                              }
+                            }}
+                            style={{
+                              width: "96px",
+                              padding: "8px 12px",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              outline: "none",
+                            }}
+                          />
+                          <div
+                            style={{
+                              display: "flex",
+                              padding: "8px 12px",
+                              alignItems: "center",
+                              gap: "8px",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            }}
+                          >
+                            <span
+                              style={{
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                              }}
+                            >
+                              100%
+                            </span>
+                          </div>
+                        </div>
+                        <div style={{ display: "flex", justifyContent: "flex-end", gap: "12px" }}>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const normalized = normalizeHex(brandColor) ?? DEFAULT_BRAND_COLOR;
+                              const hsvColor = hexToHsv(normalized);
+                              setHue(hsvColor.h);
+                              setSaturation(hsvColor.s);
+                              setValue(hsvColor.v);
+                              setHexInput(normalized);
+                              setIsEditingHex(false);
+                              setIsColorPickerOpen(false);
+                            }}
+                            style={{
+                              display: "flex",
+                              padding: "12px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              gap: "4px",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              cursor: "pointer",
+                            }}
+                          >
+                            <span
+                              style={{
+                                color: "#414651",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 600,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              Cancel
+                            </span>
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const normalized = normalizeHex(hexInput) ?? previewColor;
+                              setBrandColor(normalized);
+                              const hsvColor = hexToHsv(normalized);
+                              setHue(hsvColor.h);
+                              setSaturation(hsvColor.s);
+                              setValue(hsvColor.v);
+                              setHexInput(normalized);
+                              setIsEditingHex(false);
+                              setIsColorPickerOpen(false);
+                            }}
+                            style={{
+                              display: "flex",
+                              padding: "12px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              gap: "4px",
+                              borderRadius: "8px",
+                              border: "2px solid rgba(255, 255, 255, 0.12)",
+                              background: "#344698",
+                              boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              cursor: "pointer",
+                            }}
+                          >
+                            <span
+                              style={{
+                                color: "#FFF",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 600,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              Update
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   <div style={{ height: "1px", background: "#E9EAEB" }} />
