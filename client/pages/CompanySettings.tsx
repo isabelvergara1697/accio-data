@@ -8265,7 +8265,7 @@ export default function CompanySettings() {
                           onChange={(event) => {
                             const rawValue = event.target.value.replace(/[^0-9a-fA-F#]/g, "");
                             const prefixedValue = rawValue.startsWith("#") ? rawValue : `#${rawValue}`;
-                            if (/^#?[0-9A-Fa-f]{0,6}$/.test(prefixedValue.replace("#", ""))) {
+                            if (/^#?[0-9A-Fa-f]{0,6}$/.test(prefixedValue.replace(/#/g, ""))) {
                               setBrandColor(prefixedValue.toUpperCase());
                             }
                           }}
