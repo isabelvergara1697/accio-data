@@ -8351,6 +8351,7 @@ export default function CompanySettings() {
                           role="button"
                           tabIndex={0}
                           aria-label="Select custom brand color"
+                          aria-pressed={isCustomColorActive || isColorPickerOpen}
                           onClick={() => {
                             const normalized = normalizeHex(brandColor) ?? DEFAULT_BRAND_COLOR;
                             const hsvColor = hexToHsv(normalized);
