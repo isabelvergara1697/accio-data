@@ -6027,13 +6027,24 @@ export default function CompanySettings() {
                         <span style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center", color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Add Subcategory</span>
                         <svg width="16" height="16" viewBox="0 0 17 16" fill="none"><path d="M8.49992 5.33325V10.6666M5.83325 7.99992H11.1666M15.1666 7.99992C15.1666 11.6818 12.1818 14.6666 8.49992 14.6666C4.81802 14.6666 1.83325 11.6818 1.83325 7.99992C1.83325 4.31802 4.81802 1.33325 8.49992 1.33325C12.1818 1.33325 15.1666 4.31802 15.1666 7.99992Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" /></svg>
                       </button>
-                      <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginTop: "10px" }}>
-                        <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                          <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Subcategory Name</label>
-                          <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
+                      {subcategories.length > 0 && (
+                        <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "10px" }}>
+                          {subcategories.map((subcategory, index) => (
+                            <div key={index} style={{ display: "flex", alignItems: "flex-end", gap: "10px" }}>
+                              <div style={{ display: "flex", flexDirection: "column", gap: "6px", flex: "1 0 0" }}>
+                                <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                                  <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Subcategory Name</label>
+                                  <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
+                                </div>
+                                <input type="text" value={subcategory} onChange={(e) => { const newSubcategories = [...subcategories]; newSubcategories[index] = e.target.value; setSubcategories(newSubcategories); }} placeholder="Name this group" style={{ display: "flex", padding: "10px 14px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#181D27", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none" }} />
+                              </div>
+                              <button type="button" onClick={() => { const newSubcategories = subcategories.filter((_, i) => i !== index); setSubcategories(newSubcategories); }} style={{ display: "flex", padding: "12px", justifyContent: "center", alignItems: "center", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><g clipPath="url(#clip0_minus)"><path d="M6.6665 10.0001H13.3332M18.3332 10.0001C18.3332 14.6025 14.6022 18.3334 9.99984 18.3334C5.39746 18.3334 1.6665 14.6025 1.6665 10.0001C1.6665 5.39771 5.39746 1.66675 9.99984 1.66675C14.6022 1.66675 18.3332 5.39771 18.3332 10.0001Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" /></g><defs><clipPath id="clip0_minus"><rect width="20" height="20" fill="white" /></clipPath></defs></svg>
+                              </button>
+                            </div>
+                          ))}
                         </div>
-                        <input type="text" value={subcategoryName} onChange={(e) => setSubcategoryName(e.target.value)} placeholder="Name this group" style={{ display: "flex", padding: "10px 14px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#717680", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none" }} />
-                      </div>
+                      )}
                     </div>
                     <button type="button" onClick={() => { console.log({ categoryName, categoryDescription, subcategoryName }); setCategoryName(""); setCategoryDescription(""); setSubcategoryName(""); setIsCreateCategoryModalOpen(false); }} style={{ display: "flex", padding: "12px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer", marginBottom: "24px" }}>
                       <span style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center", color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Update Category</span>
