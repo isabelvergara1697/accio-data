@@ -5653,13 +5653,14 @@ export default function CompanySettings() {
           )}
 
           {activeTab === "resources" && (
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "24px",
-              }}
-            >
+            <>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "24px",
+                }}
+              >
               {/* Section Header */}
               <div
                 style={{
@@ -5918,6 +5919,130 @@ export default function CompanySettings() {
                 </div>
               </div>
             </div>
+
+            {/* Create Category Modal */}
+            {isCreateCategoryModalOpen && (
+              <div
+                style={{
+                  position: "fixed",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  zIndex: 9999,
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  alignItems: "flex-start",
+                }}
+              >
+                <div
+                  onClick={() => setIsCreateCategoryModalOpen(false)}
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: "rgba(10, 13, 18, 0.7)",
+                    backdropFilter: "blur(4px)",
+                  }}
+                />
+                <div
+                  onClick={(e) => e.stopPropagation()}
+                  style={{
+                    position: "relative",
+                    display: "flex",
+                    flexDirection: "column",
+                    width: "400px",
+                    height: "100vh",
+                    background: "#FFF",
+                    borderLeft: "1px solid rgba(0, 0, 0, 0.08)",
+                    boxShadow: "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "24px",
+                      alignItems: "flex-start",
+                      gap: "8px",
+                      background: "#FFF",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "16px",
+                        flex: "1 0 0",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "44px",
+                          height: "44px",
+                          padding: "12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "9999px",
+                          background: "#D9DEF2",
+                        }}
+                      >
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                          <g clipPath="url(#clip0_modal)">
+                            <path d="M10.0001 6.66675V13.3334M6.66675 10.0001H13.3334M18.3334 10.0001C18.3334 14.6025 14.6025 18.3334 10.0001 18.3334C5.39771 18.3334 1.66675 14.6025 1.66675 10.0001C1.66675 5.39771 5.39771 1.66675 10.0001 1.66675C14.6025 1.66675 18.3334 5.39771 18.3334 10.0001Z" stroke="#344698" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_modal"><rect width="20" height="20" fill="white" /></clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px", flex: "1 0 0" }}>
+                        <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "18px", fontWeight: 600, lineHeight: "28px" }}>Create Category</div>
+                        <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>Categories help you organize the content in a logical way, so your team members can find it easily.</div>
+                      </div>
+                    </div>
+                    <button type="button" onClick={() => setIsCreateCategoryModalOpen(false)} style={{ display: "flex", width: "40px", height: "40px", padding: "8px", justifyContent: "center", alignItems: "center", borderRadius: "8px", border: "none", background: "transparent", cursor: "pointer" }}>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6L18 18" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    </button>
+                  </div>
+                  <div style={{ display: "flex", padding: "0 24px", flexDirection: "column", gap: "24px" }}>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                        <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Name</label>
+                        <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
+                      </div>
+                      <input type="text" value={categoryName} onChange={(e) => setCategoryName(e.target.value)} placeholder="Name this category" style={{ display: "flex", padding: "10px 14px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#717680", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none" }} />
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                      <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Description</label>
+                      <textarea value={categoryDescription} onChange={(e) => setCategoryDescription(e.target.value)} placeholder="Add a description to help others understand the purpose of this category." style={{ display: "flex", padding: "12px 14px", alignItems: "flex-start", gap: "8px", minHeight: "140px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#717680", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none", resize: "vertical" }} />
+                    </div>
+                    <div style={{ height: "1px", background: "#E9EAEB" }} />
+                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                      <div style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Manage subcategories</div>
+                      <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>Rename, add or delete subcategories</div>
+                      <button type="button" style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}>
+                        <span style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center", color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Add Subcategory</span>
+                        <svg width="16" height="16" viewBox="0 0 17 16" fill="none"><path d="M8.49992 5.33325V10.6666M5.83325 7.99992H11.1666M15.1666 7.99992C15.1666 11.6818 12.1818 14.6666 8.49992 14.6666C4.81802 14.6666 1.83325 11.6818 1.83325 7.99992C1.83325 4.31802 4.81802 1.33325 8.49992 1.33325C12.1818 1.33325 15.1666 4.31802 15.1666 7.99992Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                      </button>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginTop: "10px" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                          <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Subcategory Name</label>
+                          <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
+                        </div>
+                        <input type="text" value={subcategoryName} onChange={(e) => setSubcategoryName(e.target.value)} placeholder="Name this group" style={{ display: "flex", padding: "10px 14px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#717680", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none" }} />
+                      </div>
+                    </div>
+                    <button type="button" onClick={() => { console.log({ categoryName, categoryDescription, subcategoryName }); setCategoryName(""); setCategoryDescription(""); setSubcategoryName(""); setIsCreateCategoryModalOpen(false); }} style={{ display: "flex", padding: "12px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer", marginBottom: "24px" }}>
+                      <span style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center", color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Update Category</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+            </>
           )}
 
           {activeTab === "invoices" && (
