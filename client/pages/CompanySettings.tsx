@@ -5654,9 +5654,261 @@ export default function CompanySettings() {
                 gap: "24px",
               }}
             >
-              <p style={{ color: "#535862", fontFamily: "Public Sans" }}>
-                Resources content coming soon...
-              </p>
+              {/* Section Header */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "20px",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "16px",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      gap: "2px",
+                      flex: "1 0 0",
+                    }}
+                  >
+                    <h2
+                      style={{
+                        color: "#181D27",
+                        fontFamily: "Public Sans",
+                        fontSize: "18px",
+                        fontWeight: 600,
+                        lineHeight: "28px",
+                        margin: 0,
+                      }}
+                    >
+                      Resources
+                    </h2>
+                    <p
+                      style={{
+                        color: "#535862",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        lineHeight: "20px",
+                        margin: 0,
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                      }}
+                    >
+                      Centralize your documents and media by uploading and managing your resources efficiently. Keep everything organized and within reach.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    style={{
+                      display: "flex",
+                      minHeight: "36px",
+                      padding: "6px 8px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "4px",
+                      borderRadius: "8px",
+                      border: "1px solid #D5D7DA",
+                      background: "#FFF",
+                      boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <span
+                      style={{
+                        display: "flex",
+                        padding: "0 2px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Create New Category
+                    </span>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g clipPath="url(#clip0_category)">
+                        <path
+                          d="M8.00004 5.33325V10.6666M5.33337 7.99992H10.6667M14.6667 7.99992C14.6667 11.6818 11.6819 14.6666 8.00004 14.6666C4.31814 14.6666 1.33337 11.6818 1.33337 7.99992C1.33337 4.31802 4.31814 1.33325 8.00004 1.33325C11.6819 1.33325 14.6667 4.31802 14.6667 7.99992Z"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_category">
+                          <rect width="16" height="16" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </button>
+                </div>
+                <div style={{ height: "1px", background: "#E9EAEB" }} />
+              </div>
+
+              {/* Empty State */}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: "24px",
+                    flex: "1 0 0",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: "16px",
+                    }}
+                  >
+                    {/* Featured Icon */}
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "48px",
+                        height: "48px",
+                        padding: "12px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        borderRadius: "10px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      }}
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M21 21L17.5001 17.5M20 11.5C20 16.1944 16.1944 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3C16.1944 3 20 6.80558 20 11.5Z"
+                          stroke="#414651"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+
+                    {/* Text Content */}
+                    <div
+                      style={{
+                        display: "flex",
+                        maxWidth: "352px",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: "4px",
+                      }}
+                    >
+                      <h3
+                        style={{
+                          color: "#181D27",
+                          textAlign: "center",
+                          fontFamily: "Public Sans",
+                          fontSize: "16px",
+                          fontWeight: 600,
+                          lineHeight: "24px",
+                          margin: 0,
+                        }}
+                      >
+                        No Documents Uploaded Yet
+                      </h3>
+                      <p
+                        style={{
+                          color: "#535862",
+                          textAlign: "center",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                          margin: 0,
+                        }}
+                      >
+                        Create categories to organize your resources
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Action Button */}
+                  <button
+                    type="button"
+                    style={{
+                      display: "flex",
+                      height: "44px",
+                      padding: "12px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "4px",
+                      borderRadius: "8px",
+                      border: "2px solid rgba(255, 255, 255, 0.12)",
+                      background: brandColor,
+                      boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 25 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12.5 5V19M5.5 12H19.5"
+                        stroke="#8D9BD8"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    <span
+                      style={{
+                        display: "flex",
+                        padding: "0 2px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        color: getAccessibleTextColor(brandColor),
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Create Category
+                    </span>
+                  </button>
+                </div>
+              </div>
             </div>
           )}
 
