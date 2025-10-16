@@ -6021,9 +6021,9 @@ export default function CompanySettings() {
                     </div>
                     <div style={{ height: "1px", background: "#E9EAEB" }} />
                     <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                      <div style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Manage subcategories</div>
-                      <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>Rename, add or delete subcategories</div>
-                      <button type="button" style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}>
+                      <div style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Create Sub Categories</div>
+                      <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>Groups allow you to further organize your documents, by topics, dates or any other selection.</div>
+                      <button type="button" onClick={() => setSubcategories([...subcategories, ""])} style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}>
                         <span style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center", color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Add Subcategory</span>
                         <svg width="16" height="16" viewBox="0 0 17 16" fill="none"><path d="M8.49992 5.33325V10.6666M5.83325 7.99992H11.1666M15.1666 7.99992C15.1666 11.6818 12.1818 14.6666 8.49992 14.6666C4.81802 14.6666 1.83325 11.6818 1.83325 7.99992C1.83325 4.31802 4.81802 1.33325 8.49992 1.33325C12.1818 1.33325 15.1666 4.31802 15.1666 7.99992Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" /></svg>
                       </button>
