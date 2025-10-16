@@ -1002,7 +1002,7 @@ export default function CompanySettings() {
   const [isCreateCategoryModalOpen, setIsCreateCategoryModalOpen] = React.useState(false);
   const [categoryName, setCategoryName] = React.useState("");
   const [categoryDescription, setCategoryDescription] = React.useState("");
-  const [subcategories, setSubcategories] = React.useState<string[]>([]);
+  const [subcategories, setSubcategories] = React.useState<string[]>([""]);  // Start with one empty subcategory
 
   const appliedBrandColor = React.useMemo(
     () => normalizeHex(brandColor) ?? DEFAULT_BRAND_COLOR,
@@ -6027,8 +6027,7 @@ export default function CompanySettings() {
                         <span style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center", color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Add Subcategory</span>
                         <svg width="16" height="16" viewBox="0 0 17 16" fill="none"><path d="M8.49992 5.33325V10.6666M5.83325 7.99992H11.1666M15.1666 7.99992C15.1666 11.6818 12.1818 14.6666 8.49992 14.6666C4.81802 14.6666 1.83325 11.6818 1.83325 7.99992C1.83325 4.31802 4.81802 1.33325 8.49992 1.33325C12.1818 1.33325 15.1666 4.31802 15.1666 7.99992Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" /></svg>
                       </button>
-                      {subcategories.length > 0 && (
-                        <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "10px" }}>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "10px" }}>
                           {subcategories.map((subcategory, index) => (
                             <div key={index} style={{ display: "flex", alignItems: "flex-end", gap: "10px" }}>
                               <div style={{ display: "flex", flexDirection: "column", gap: "6px", flex: "1 0 0" }}>
@@ -6045,10 +6044,10 @@ export default function CompanySettings() {
                               )}
                             </div>
                           ))}
-                        </div>
-                      )}
+                      </div>
                     </div>
-                    <button type="button" onClick={() => { console.log({ categoryName, categoryDescription, subcategories }); setCategoryName(""); setCategoryDescription(""); setSubcategories([]); setIsCreateCategoryModalOpen(false); }} style={{ display: "flex", padding: "12px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer", marginBottom: "24px" }}>
+                    <button type="button" onClick={() => { console.log({ categoryName, categoryDescription, subcategories }); setCategoryName(""); setCategoryDescription(""); setSubcategories([""]);  // Reset to one empty subcategory
+setIsCreateCategoryModalOpen(false); }} style={{ display: "flex", padding: "12px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer", marginBottom: "24px" }}>
                       <span style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center", color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Create Category</span>
                     </button>
                   </div>
