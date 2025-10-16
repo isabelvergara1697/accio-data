@@ -1068,6 +1068,7 @@ export default function CompanySettings() {
 
   const handleSaturationPointerDown = React.useCallback(
     (event: React.PointerEvent<HTMLDivElement>) => {
+      event.preventDefault();
       const rect = event.currentTarget.getBoundingClientRect();
       const updateSaturationValue = (clientX: number) => {
         const ratio = clamp((clientX - rect.left) / rect.width, 0, 1);
