@@ -151,6 +151,63 @@ function getContrastingTextColor(hex: string) {
   return luminance > 0.55 ? "#181D27" : "#FFF";
 }
 
+function getLuminance(rgb: { r: number; g: number; b: number }): number {
+  const toLinear = (channel: number) => {
+    const normalized = channel / 255;
+    return normalized <= 0.03928
+      ? normalized / 12.92
+      : Math.pow((normalized + 0.055) / 1.055, 2.4);
+  };
+  return 0.2126 * toLinear(rgb.r) + 0.7152 * toLinear(rgb.g) + 0.0722 * toLinear(rgb.b);
+}
+
+function getContrastRatio(color1: string, color2: string): number {
+  const rgb1 = hexToRgb(color1);
+  const rgb2 = hexToRgb(color2);
+  if (!rgb1 || !rgb2) {
+    return 1;
+  }
+  const lum1 = getLuminance(rgb1);
+  const lum2 = getLuminance(rgb2);
+  const lighter = Math.max(lum1, lum2);
+  const darker = Math.min(lum1, lum2);
+  return (lighter + 0.05) / (darker + 0.05);
+}
+
+function adjustColorForAccessibility(hex: string, targetContrast: number = 4.5): string {
+  const backgroundColor = "#FFFFFF";
+  const currentContrast = getContrastRatio(hex, backgroundColor);
+
+  if (currentContrast >= targetContrast) {
+    return hex;
+  }
+
+  const hsv = hexToHsv(hex);
+  let adjustedValue = hsv.v;
+  let iterations = 0;
+  const maxIterations = 50;
+
+  while (iterations < maxIterations) {
+    adjustedValue = adjustedValue * 0.95;
+
+    if (adjustedValue <= 0.1) {
+      adjustedValue = 0.1;
+      break;
+    }
+
+    const testColor = hsvToHex(hsv.h, hsv.s, adjustedValue);
+    const testContrast = getContrastRatio(testColor, backgroundColor);
+
+    if (testContrast >= targetContrast) {
+      return testColor;
+    }
+
+    iterations++;
+  }
+
+  return hsvToHex(hsv.h, hsv.s, adjustedValue);
+}
+
 const DEFAULT_BRAND_COLOR = "#7F56D9";
 const DEFAULT_HSV = hexToHsv(DEFAULT_BRAND_COLOR);
 const PRESET_BRAND_COLORS = [
