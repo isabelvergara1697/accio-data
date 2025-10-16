@@ -952,6 +952,49 @@ export default function CompanySettings() {
   const [value, setValue] = React.useState(DEFAULT_HSV.v);
   const [hexInput, setHexInput] = React.useState(DEFAULT_BRAND_COLOR);
   const [isEditingHex, setIsEditingHex] = React.useState(false);
+
+  const appliedBrandColor = React.useMemo(
+    () => normalizeHex(brandColor) ?? DEFAULT_BRAND_COLOR,
+    [brandColor],
+  );
+
+  const previewColor = React.useMemo(
+    () => hsvToHex(hue, saturation, value),
+    [hue, saturation, value],
+  );
+
+  const previewTextColor = React.useMemo(
+    () => getContrastingTextColor(previewColor),
+    [previewColor],
+  );
+
+  const huePosition = hue / 360;
+  const saturationPosition = saturation;
+  const brightnessPosition = value;
+
+  React.useEffect(() => {
+    if (!isEditingHex) {
+      setHexInput(previewColor);
+    }
+  }, [isEditingHex, previewColor]);
+
+  React.useEffect(() => {
+    if (!isColorPickerOpen) {
+      return;
+    }
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setIsColorPickerOpen(false);
+        setIsEditingHex(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isColorPickerOpen]);
+
   const [loginImageEnabled, setLoginImageEnabled] = React.useState(true);
   const [portalInstructionsEnabled, setPortalInstructionsEnabled] = React.useState(true);
   const loginImageInputRef = React.useRef<HTMLInputElement | null>(null);
