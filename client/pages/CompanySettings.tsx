@@ -1002,7 +1002,16 @@ export default function CompanySettings() {
   const [isCreateCategoryModalOpen, setIsCreateCategoryModalOpen] = React.useState(false);
   const [categoryName, setCategoryName] = React.useState("");
   const [categoryDescription, setCategoryDescription] = React.useState("");
-  const [subcategories, setSubcategories] = React.useState<string[]>([""]);  // Start with one empty subcategory
+  const [subcategories, setSubcategories] = React.useState<string[]>([""]);
+
+  // Categories State
+  interface Category {
+    id: string;
+    name: string;
+    description: string;
+    subcategories: { id: string; name: string }[];
+  }
+  const [categories, setCategories] = React.useState<Category[]>([]);  // Start with one empty subcategory
 
   const appliedBrandColor = React.useMemo(
     () => normalizeHex(brandColor) ?? DEFAULT_BRAND_COLOR,
@@ -5771,21 +5780,13 @@ export default function CompanySettings() {
                 <div style={{ height: "1px", background: "#E9EAEB" }} />
               </div>
 
-              {/* Empty State */}
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
+              {/* Categories List or Empty State */}
+              {categories.length === 0 ? (
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: "column",
+                    justifyContent: "center",
                     alignItems: "center",
-                    gap: "24px",
-                    flex: "1 0 0",
                   }}
                 >
                   <div
@@ -5793,131 +5794,141 @@ export default function CompanySettings() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "center",
-                      gap: "16px",
+                      gap: "24px",
+                      flex: "1 0 0",
                     }}
                   >
-                    {/* Featured Icon */}
                     <div
                       style={{
                         display: "flex",
-                        width: "48px",
-                        height: "48px",
-                        padding: "12px",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        borderRadius: "10px",
-                        border: "1px solid #D5D7DA",
-                        background: "#FFF",
-                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                      }}
-                    >
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M21 21L17.5001 17.5M20 11.5C20 16.1944 16.1944 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3C16.1944 3 20 6.80558 20 11.5Z"
-                          stroke="#414651"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-
-                    {/* Text Content */}
-                    <div
-                      style={{
-                        display: "flex",
-                        maxWidth: "352px",
                         flexDirection: "column",
                         alignItems: "center",
-                        gap: "4px",
+                        gap: "16px",
                       }}
                     >
-                      <h3
+                      <div
                         style={{
-                          color: "#181D27",
-                          textAlign: "center",
-                          fontFamily: "Public Sans",
-                          fontSize: "16px",
-                          fontWeight: 600,
-                          lineHeight: "24px",
-                          margin: 0,
+                          display: "flex",
+                          width: "48px",
+                          height: "48px",
+                          padding: "12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "10px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                         }}
                       >
-                        No Documents Uploaded Yet
-                      </h3>
-                      <p
-                        style={{
-                          color: "#535862",
-                          textAlign: "center",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 400,
-                          lineHeight: "20px",
-                          margin: 0,
-                        }}
-                      >
-                        Create categories to organize your resources
-                      </p>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <path d="M21 21L17.5001 17.5M20 11.5C20 16.1944 16.1944 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3C16.1944 3 20 6.80558 20 11.5Z" stroke="#414651" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </div>
+                      <div style={{ display: "flex", maxWidth: "352px", flexDirection: "column", alignItems: "center", gap: "4px" }}>
+                        <h3 style={{ color: "#181D27", textAlign: "center", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 600, lineHeight: "24px", margin: 0 }}>No Documents Uploaded Yet</h3>
+                        <p style={{ color: "#535862", textAlign: "center", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px", margin: 0 }}>Create categories to organize your resources</p>
+                      </div>
                     </div>
+                    <button type="button" onClick={() => setIsCreateCategoryModalOpen(true)} style={{ display: "flex", height: "44px", padding: "12px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: brandColor, boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}>
+                      <svg width="24" height="24" viewBox="0 0 25 24" fill="none"><path d="M12.5 5V19M5.5 12H19.5" stroke="#8D9BD8" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                      <span style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center", color: getAccessibleTextColor(brandColor), fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Create Category</span>
+                    </button>
                   </div>
-
-                  {/* Action Button */}
-                  <button
-                    type="button"
-                    onClick={() => setIsCreateCategoryModalOpen(true)}
-                    style={{
-                      display: "flex",
-                      height: "44px",
-                      padding: "12px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      gap: "4px",
-                      borderRadius: "8px",
-                      border: "2px solid rgba(255, 255, 255, 0.12)",
-                      background: brandColor,
-                      boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 25 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12.5 5V19M5.5 12H19.5"
-                        stroke="#8D9BD8"
-                        strokeWidth="1.66667"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                    <span
-                      style={{
-                        display: "flex",
-                        padding: "0 2px",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        color: getAccessibleTextColor(brandColor),
-                        fontFamily: "Public Sans",
-                        fontSize: "14px",
-                        fontWeight: 600,
-                        lineHeight: "20px",
-                      }}
-                    >
-                      Create Category
-                    </span>
-                  </button>
                 </div>
-              </div>
+              ) : (
+                <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+                  {categories.map((category) => (
+                    <div key={category.id} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", alignSelf: "stretch", borderRadius: "12px", border: "1px solid #E9EAEB", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
+                      {/* Category Header */}
+                      <div style={{ display: "flex", padding: "20px 24px 0 24px", flexDirection: "column", alignItems: "center", gap: "16px", alignSelf: "stretch", background: "#FFF" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "16px", alignSelf: "stretch" }}>
+                          <div style={{ display: "flex", alignItems: "flex-start", gap: "4px", flex: "1 0 0" }}>
+                            <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-start", gap: "2px", flex: "1 0 0" }}>
+                              <div style={{ display: "flex", alignItems: "center", gap: "8px", alignSelf: "stretch" }}>
+                                <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "18px", fontWeight: 600, lineHeight: "28px" }}>{category.name}</div>
+                                <div style={{ display: "flex", padding: "2px 8px", alignItems: "center", borderRadius: "9999px", border: "1px solid #E9EAEB", background: "#FAFAFA" }}>
+                                  <div style={{ color: "#414651", textAlign: "center", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 500, lineHeight: "18px" }}>0</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                            <button type="button" style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "none", background: "transparent", cursor: "pointer" }}>
+                              <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                                <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Edit Category</div>
+                              </div>
+                            </button>
+                            <button type="button" style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}>
+                              <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                                <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Primary</div>
+                              </div>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Subcategories */}
+                      <div style={{ display: "flex", padding: "20px 24px", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: "16px", alignSelf: "stretch" }}>
+                        {category.subcategories.map((subcategory) => (
+                          <div key={subcategory.id} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", alignSelf: "stretch", borderRadius: "12px", border: "1px solid #E9EAEB", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
+                            {/* Subcategory Header */}
+                            <div style={{ display: "flex", padding: "20px 24px 0 24px", flexDirection: "column", alignItems: "center", gap: "16px", alignSelf: "stretch", background: "#FFF" }}>
+                              <div style={{ display: "flex", alignItems: "center", gap: "16px", alignSelf: "stretch" }}>
+                                <div style={{ display: "flex", alignItems: "flex-start", gap: "4px", flex: "1 0 0" }}>
+                                  <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-start", gap: "2px", flex: "1 0 0" }}>
+                                    <div style={{ display: "flex", alignItems: "center", gap: "8px", alignSelf: "stretch" }}>
+                                      <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "18px", fontWeight: 600, lineHeight: "28px" }}>{subcategory.name}</div>
+                                      <div style={{ display: "flex", padding: "2px 8px", alignItems: "center", borderRadius: "9999px", border: "1px solid #E9EAEB", background: "#FAFAFA" }}>
+                                        <div style={{ color: "#414651", textAlign: "center", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 500, lineHeight: "18px" }}>0</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                                  <button type="button" style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "none", background: "transparent", cursor: "pointer" }}>
+                                    <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                                      <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Edit Category</div>
+                                    </div>
+                                  </button>
+                                  <button type="button" style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}>
+                                    <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                                      <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Primary</div>
+                                    </div>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Empty State for Subcategory */}
+                            <div style={{ display: "flex", padding: "20px 24px", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: "16px", alignSelf: "stretch" }}>
+                              <div style={{ display: "flex", width: "512px", justifyContent: "center", alignItems: "center" }}>
+                                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "24px", flex: "1 0 0" }}>
+                                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", alignSelf: "stretch" }}>
+                                    <div style={{ display: "flex", width: "48px", height: "48px", padding: "12px", justifyContent: "center", alignItems: "center", borderRadius: "10px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
+                                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14 11H8M10 15H8M16 7H8M20 12V6.8C20 5.11984 20 4.27976 19.673 3.63803C19.3854 3.07354 18.9265 2.6146 18.362 2.32698C17.7202 2 16.8802 2 15.2 2H8.8C7.11984 2 6.27976 2 5.63803 2.32698C5.07354 2.6146 4.6146 3.07354 4.32698 3.63803C4 4.27976 4 5.11984 4 6.8V17.2C4 18.8802 4 19.7202 4.32698 20.362C4.6146 20.9265 5.07354 21.3854 5.63803 21.673C6.27976 22 7.11984 22 8.8 22H12M16 16L21 21M21 16L16 21" stroke="#414651" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                                    </div>
+                                    <div style={{ display: "flex", maxWidth: "352px", flexDirection: "column", alignItems: "center", gap: "4px", alignSelf: "stretch" }}>
+                                      <div style={{ alignSelf: "stretch", color: "#181D27", textAlign: "center", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 600, lineHeight: "24px" }}>No documents in this subcategory</div>
+                                    </div>
+                                  </div>
+                                  <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+                                    <button type="button" style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}>
+                                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8.00016 3.33325V12.6666M3.3335 7.99992H12.6668" stroke="#8D9BD8" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                                      <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                                        <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Add documents</div>
+                                      </div>
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Create Category Modal */}
@@ -6046,7 +6057,25 @@ export default function CompanySettings() {
                           ))}
                       </div>
                     </div>
-                    <button type="button" onClick={() => { console.log({ categoryName, categoryDescription, subcategories }); setCategoryName(""); setCategoryDescription(""); setSubcategories([""]); setIsCreateCategoryModalOpen(false); }} style={{ display: "flex", padding: "12px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer", marginBottom: "24px" }}>
+                    <button type="button" onClick={() => {
+                      // Create new category
+                      const newCategory: Category = {
+                        id: Date.now().toString(),
+                        name: categoryName,
+                        description: categoryDescription,
+                        subcategories: subcategories.filter(s => s.trim()).map(s => ({
+                          id: Date.now().toString() + Math.random(),
+                          name: s
+                        }))
+                      };
+                      setCategories([...categories, newCategory]);
+
+                      // Reset form
+                      setCategoryName("");
+                      setCategoryDescription("");
+                      setSubcategories([""]);
+                      setIsCreateCategoryModalOpen(false);
+                    }} style={{ display: "flex", padding: "12px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer", marginBottom: "24px" }}>
                       <span style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center", color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Create Category</span>
                     </button>
                   </div>
