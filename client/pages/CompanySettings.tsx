@@ -8262,7 +8262,27 @@ export default function CompanySettings() {
                         <input
                           type="text"
                           value={brandColor}
-                          onChange={(e) => setBrandColor(e.target.value)}
+                          onChange={(event) => {
+                            const rawValue = event.target.value.replace(/[^0-9a-fA-F#]/g, "");
+                            const prefixedValue = rawValue.startsWith("#") ? rawValue : `#${rawValue}`;
+                            if (/^#?[0-9A-Fa-f]{0,6}$/.test(prefixedValue.replace("#", ""))) {
+                              setBrandColor(prefixedValue.toUpperCase());
+                            }
+                          }}
+                          onBlur={() => {
+                            const normalized = normalizeHex(brandColor);
+                            if (normalized) {
+                              const hsvColor = hexToHsv(normalized);
+                              setBrandColor(normalized);
+                              setHue(hsvColor.h);
+                              setSaturation(hsvColor.s);
+                              setValue(hsvColor.v);
+                              setHexInput(normalized);
+                              setIsEditingHex(false);
+                            } else {
+                              setBrandColor(DEFAULT_BRAND_COLOR);
+                            }
+                          }}
                           style={{
                             width: "96px",
                             padding: "8px 12px",
