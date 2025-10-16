@@ -1041,6 +1041,7 @@ export default function CompanySettings() {
 
   const handleHuePointerDown = React.useCallback(
     (event: React.PointerEvent<HTMLDivElement>) => {
+      event.preventDefault();
       const rect = event.currentTarget.getBoundingClientRect();
       const updateHue = (clientX: number) => {
         const ratio = clamp((clientX - rect.left) / rect.width, 0, 1);
