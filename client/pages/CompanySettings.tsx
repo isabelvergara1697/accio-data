@@ -153,6 +153,16 @@ function getContrastingTextColor(hex: string) {
 
 const DEFAULT_BRAND_COLOR = "#7F56D9";
 const DEFAULT_HSV = hexToHsv(DEFAULT_BRAND_COLOR);
+const PRESET_BRAND_COLORS = [
+  "#535862",
+  "#099250",
+  "#1570EF",
+  "#444CE7",
+  "#6938EF",
+  "#BA24D5",
+  "#DD2590",
+  "#E04F16",
+] as const;
 
 type CompanyTabType =
   | "company"
