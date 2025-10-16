@@ -8822,12 +8822,13 @@ export default function CompanySettings() {
                             type="button"
                             onClick={() => {
                               const normalized = normalizeHex(hexInput) ?? previewColor;
-                              setBrandColor(normalized);
-                              const hsvColor = hexToHsv(normalized);
+                              const accessibleColor = adjustColorForAccessibility(normalized);
+                              setBrandColor(accessibleColor);
+                              const hsvColor = hexToHsv(accessibleColor);
                               setHue(hsvColor.h);
                               setSaturation(hsvColor.s);
                               setValue(hsvColor.v);
-                              setHexInput(normalized);
+                              setHexInput(accessibleColor);
                               setIsEditingHex(false);
                               setIsColorPickerOpen(false);
                             }}
