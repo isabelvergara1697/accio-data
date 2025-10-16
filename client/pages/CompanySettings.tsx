@@ -171,7 +171,7 @@ function getAccessibleTextColor(backgroundHex: string): string {
   return whiteContrast >= blackContrast ? "#FFFFFF" : "#000000";
 }
 
-const DEFAULT_BRAND_COLOR = "#7F56D9";
+const DEFAULT_BRAND_COLOR = "#344698";
 const DEFAULT_HSV = hexToHsv(DEFAULT_BRAND_COLOR);
 const PRESET_BRAND_COLORS = [
   "#535862",
