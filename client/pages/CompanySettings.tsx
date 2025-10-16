@@ -1012,6 +1012,7 @@ export default function CompanySettings() {
 
   const handleColorspacePointerDown = React.useCallback(
     (event: React.PointerEvent<HTMLDivElement>) => {
+      event.preventDefault();
       const rect = event.currentTarget.getBoundingClientRect();
       const updateFromPointer = (clientX: number, clientY: number) => {
         const saturationValue = clamp((clientX - rect.left) / rect.width, 0, 1);
