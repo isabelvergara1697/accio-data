@@ -8207,7 +8207,17 @@ export default function CompanySettings() {
                         {['#535862', '#099250', '#1570EF', '#444CE7', '#6938EF', '#BA24D5', '#DD2590', '#E04F16'].map((color) => (
                           <div
                             key={color}
-                            onClick={() => setBrandColor(color)}
+                            onClick={() => {
+                              const normalized = normalizeHex(color) ?? DEFAULT_BRAND_COLOR;
+                              const hsvColor = hexToHsv(normalized);
+                              setBrandColor(normalized);
+                              setHue(hsvColor.h);
+                              setSaturation(hsvColor.s);
+                              setValue(hsvColor.v);
+                              setHexInput(normalized);
+                              setIsEditingHex(false);
+                              setIsColorPickerOpen(false);
+                            }}
                             style={{
                               width: "28px",
                               height: "28px",
