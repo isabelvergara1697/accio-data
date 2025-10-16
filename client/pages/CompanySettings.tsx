@@ -8747,7 +8747,7 @@ export default function CompanySettings() {
                               justifyContent: "center",
                               alignItems: "center",
                               gap: "4px",
-                              borderRadius: "8px",
+                              borderRadius: buttonCornerRadius,
                               border: "1px solid #D5D7DA",
                               background: "#FFF",
                               boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
@@ -8785,16 +8785,16 @@ export default function CompanySettings() {
                               justifyContent: "center",
                               alignItems: "center",
                               gap: "4px",
-                              borderRadius: "8px",
+                              borderRadius: buttonCornerRadius,
                               border: "2px solid rgba(255, 255, 255, 0.12)",
-                              background: "#344698",
+                              background: previewColor,
                               boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               cursor: "pointer",
                             }}
                           >
                             <span
                               style={{
-                                color: "#FFF",
+                                color: previewTextColor,
                                 fontFamily: "Public Sans",
                                 fontSize: "14px",
                                 fontWeight: 600,
