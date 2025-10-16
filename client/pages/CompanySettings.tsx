@@ -8932,7 +8932,7 @@ export default function CompanySettings() {
                               borderRadius: "10px",
                               border: "1px solid #D5D7DA",
                               background: "#F5F5F5",
-                              boxShadow: uiStyling === option.id ? "0 0 0 2px #FFF, 0 0 0 4px #34479A" : "none",
+                              boxShadow: uiStyling === option.id ? `0 0 0 2px #FFF, 0 0 0 4px ${brandColor}` : "none",
                               cursor: "pointer",
                               position: "relative",
                               overflow: "hidden",
