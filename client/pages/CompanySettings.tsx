@@ -1013,24 +1013,14 @@ export default function CompanySettings() {
   );
 
   const previewTextColor = React.useMemo(
-    () => getContrastingTextColor(previewColor),
+    () => getAccessibleTextColor(previewColor),
     [previewColor],
   );
 
-  const accessiblePreviewColor = React.useMemo(
-    () => adjustColorForAccessibility(previewColor),
-    [previewColor],
-  );
-
-  const isColorAdjusted = React.useMemo(
-    () => previewColor.toUpperCase() !== accessiblePreviewColor.toUpperCase(),
-    [previewColor, accessiblePreviewColor],
-  );
-
-  const accessibleTextColor = React.useMemo(
-    () => getContrastingTextColor(accessiblePreviewColor),
-    [accessiblePreviewColor],
-  );
+  const isTextColorAdjusted = React.useMemo(() => {
+    const normalized = normalizeHex(previewTextColor);
+    return normalized != null && normalized !== "#FFFFFF";
+  }, [previewTextColor]);
 
   const hueColor = React.useMemo(
     () => hsvToHex(hue, 1, 1),
