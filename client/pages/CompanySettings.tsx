@@ -8312,7 +8312,7 @@ export default function CompanySettings() {
                     </div>
                     <div style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
                       <div style={{ display: "flex", gap: "8px" }}>
-                        {['#535862', '#099250', '#1570EF', '#444CE7', '#6938EF', '#BA24D5', '#DD2590', '#E04F16'].map((color) => (
+                        {PRESET_BRAND_COLORS.map((color) => (
                           <div
                             key={color}
                             onClick={() => {
@@ -8332,7 +8332,7 @@ export default function CompanySettings() {
                               borderRadius: "9999px",
                               border: "1px solid rgba(0, 0, 0, 0.10)",
                               background: color,
-                              boxShadow: appliedBrandColor === normalizeHex(color) ? "0 0 0 2px #FFF, 0 0 0 4px #34479A" : "none",
+                              boxShadow: appliedBrandColor === color ? "0 0 0 2px #FFF, 0 0 0 4px #34479A" : "none",
                               cursor: "pointer",
                             }}
                           />
