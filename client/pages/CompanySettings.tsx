@@ -8183,7 +8183,7 @@ export default function CompanySettings() {
 
                 <div style={{ padding: "12px 16px 16px 16px", display: "flex", flexDirection: "column", gap: "24px" }}>
                   {/* Brand Color */}
-                  <div style={{ display: "flex", flexDirection: "column", gap: "16px", maxWidth: "504px" }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "16px", maxWidth: "504px", position: "relative" }}>
                     <div>
                       <h4 style={{
                         color: "#181D27",
