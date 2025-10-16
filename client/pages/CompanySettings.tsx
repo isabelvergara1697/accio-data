@@ -8348,6 +8348,9 @@ export default function CompanySettings() {
                           lineHeight: "20px",
                         }}>Custom</span>
                         <div
+                          role="button"
+                          tabIndex={0}
+                          aria-label="Select custom brand color"
                           onClick={() => {
                             const normalized = normalizeHex(brandColor) ?? DEFAULT_BRAND_COLOR;
                             const hsvColor = hexToHsv(normalized);
@@ -8358,6 +8361,20 @@ export default function CompanySettings() {
                             setHexInput(normalized);
                             setIsEditingHex(false);
                             setIsColorPickerOpen((previous) => !previous);
+                          }}
+                          onKeyDown={(event) => {
+                            if (event.key === "Enter" || event.key === " ") {
+                              event.preventDefault();
+                              const normalized = normalizeHex(brandColor) ?? DEFAULT_BRAND_COLOR;
+                              const hsvColor = hexToHsv(normalized);
+                              setBrandColor(normalized);
+                              setHue(hsvColor.h);
+                              setSaturation(hsvColor.s);
+                              setValue(hsvColor.v);
+                              setHexInput(normalized);
+                              setIsEditingHex(false);
+                              setIsColorPickerOpen((previous) => !previous);
+                            }
                           }}
                           style={{
                             width: "28px",
