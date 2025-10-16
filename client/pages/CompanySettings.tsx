@@ -8362,13 +8362,12 @@ export default function CompanySettings() {
                             key={color}
                             onClick={() => {
                               const normalized = normalizeHex(color) ?? DEFAULT_BRAND_COLOR;
-                              const accessibleColor = adjustColorForAccessibility(normalized);
-                              const hsvColor = hexToHsv(accessibleColor);
-                              setBrandColor(accessibleColor);
+                              const hsvColor = hexToHsv(normalized);
+                              setBrandColor(normalized);
                               setHue(hsvColor.h);
                               setSaturation(hsvColor.s);
                               setValue(hsvColor.v);
-                              setHexInput(accessibleColor);
+                              setHexInput(normalized);
                               setIsEditingHex(false);
                               setIsColorPickerOpen(false);
                             }}
