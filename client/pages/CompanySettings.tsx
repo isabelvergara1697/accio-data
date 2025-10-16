@@ -980,7 +980,7 @@ export default function CompanySettings() {
   const [initialState, setInitialState] = React.useState({
     brandColor: DEFAULT_BRAND_COLOR,
     displayPreference: 'system' as const,
-    uiStyling: 'pill' as const,
+    uiStyling: 'round' as const,
   });
 
   React.useEffect(() => {
