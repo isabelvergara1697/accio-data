@@ -171,7 +171,7 @@ function getAccessibleTextColor(backgroundHex: string): string {
   return whiteContrast >= blackContrast ? "#FFFFFF" : "#000000";
 }
 
-const DEFAULT_BRAND_COLOR = "#7F56D9";
+const DEFAULT_BRAND_COLOR = "#1570EF";
 const DEFAULT_HSV = hexToHsv(DEFAULT_BRAND_COLOR);
 const PRESET_BRAND_COLORS = [
   "#535862",
@@ -975,7 +975,7 @@ export default function CompanySettings() {
   const [customDomain, setCustomDomain] = React.useState("");
   const [brandColor, setBrandColor] = React.useState(DEFAULT_BRAND_COLOR);
   const [displayPreference, setDisplayPreference] = React.useState<'system' | 'light' | 'dark'>('system');
-  const [uiStyling, setUiStyling] = React.useState<'pill' | 'round' | 'sharp'>('pill');
+  const [uiStyling, setUiStyling] = React.useState<'pill' | 'round' | 'sharp'>('round');
 
   const [initialState, setInitialState] = React.useState({
     brandColor: DEFAULT_BRAND_COLOR,
