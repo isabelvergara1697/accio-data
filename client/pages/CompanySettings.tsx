@@ -8341,7 +8341,7 @@ export default function CompanySettings() {
                       </div>
                       <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                         <span style={{
-                          color: "#414651",
+                          color: isCustomColorActive || isColorPickerOpen ? "#181D27" : "#414651",
                           fontFamily: "Public Sans",
                           fontSize: "14px",
                           fontWeight: 600,
