@@ -8988,7 +8988,18 @@ export default function CompanySettings() {
                   {/* Footer */}
                   <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                     <div style={{ display: "flex", justifyContent: "flex-end", gap: "12px" }}>
-                      <button type="button" style={{
+                      <button type="button" onClick={() => {
+                        setBrandColor(initialBrandColor.current);
+                        setDisplayPreference(initialDisplayPreference.current);
+                        setUiStyling(initialUiStyling.current);
+                        const hsvColor = hexToHsv(initialBrandColor.current);
+                        setHue(hsvColor.h);
+                        setSaturation(hsvColor.s);
+                        setValue(hsvColor.v);
+                        setHexInput(initialBrandColor.current);
+                        setIsColorPickerOpen(false);
+                        setIsEditingHex(false);
+                      }} style={{
                         padding: "12px",
                         borderRadius: buttonCornerRadius,
                         border: "1px solid #D5D7DA",
