@@ -8239,15 +8239,22 @@ export default function CompanySettings() {
                         }}>Custom</span>
                         <div
                           onClick={() => {
-                            setTempColor(brandColor);
-                            setShowColorPicker(true);
+                            const normalized = normalizeHex(brandColor) ?? DEFAULT_BRAND_COLOR;
+                            const hsvColor = hexToHsv(normalized);
+                            setBrandColor(normalized);
+                            setHue(hsvColor.h);
+                            setSaturation(hsvColor.s);
+                            setValue(hsvColor.v);
+                            setHexInput(normalized);
+                            setIsEditingHex(false);
+                            setIsColorPickerOpen((previous) => !previous);
                           }}
                           style={{
                             width: "28px",
                             height: "28px",
                             borderRadius: "9999px",
                             border: "1px solid rgba(0, 0, 0, 0.10)",
-                            background: brandColor,
+                            background: appliedBrandColor,
                             boxShadow: "0 0 0 2px #FFF, 0 0 0 4px #34479A",
                             cursor: "pointer",
                           }}
