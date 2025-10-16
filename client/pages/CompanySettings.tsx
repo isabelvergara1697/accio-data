@@ -163,31 +163,12 @@ function getContrastRatio(color1: string, color2: string): number {
   return (lighter + 0.05) / (darker + 0.05);
 }
 
-function getAccessibleTextColor(backgroundHex: string, targetContrast: number = 4.5): string {
+function getAccessibleTextColor(backgroundHex: string): string {
   const normalizedBackground = normalizeHex(backgroundHex) ?? backgroundHex;
-  const candidates = [
-    "#FFFFFF",
-    "#F5F7FB",
-    "#181D27",
-    "#101522",
-    "#0A0D12",
-    "#000000",
-  ];
-  let bestColor = candidates[0];
-  let bestRatio = 0;
+  const whiteContrast = getContrastRatio("#FFFFFF", normalizedBackground);
+  const blackContrast = getContrastRatio("#000000", normalizedBackground);
 
-  for (const candidate of candidates) {
-    const ratio = getContrastRatio(candidate, normalizedBackground);
-    if (ratio >= targetContrast) {
-      return candidate;
-    }
-    if (ratio > bestRatio) {
-      bestRatio = ratio;
-      bestColor = candidate;
-    }
-  }
-
-  return bestColor;
+  return whiteContrast >= blackContrast ? "#FFFFFF" : "#000000";
 }
 
 const DEFAULT_BRAND_COLOR = "#7F56D9";
