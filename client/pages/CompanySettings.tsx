@@ -6374,6 +6374,337 @@ export default function CompanySettings() {
                 </div>
               </div>
             )}
+
+            {/* Add Resource Modal */}
+            {isAddResourceModalOpen && (
+              <div
+                style={{
+                  position: "fixed",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  zIndex: 9999,
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  alignItems: "flex-start",
+                }}
+              >
+                <div
+                  onClick={() => setIsAddResourceModalOpen(false)}
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: "rgba(10, 13, 18, 0.7)",
+                    backdropFilter: "blur(4px)",
+                  }}
+                />
+                <div
+                  onClick={(e) => e.stopPropagation()}
+                  style={{
+                    position: "relative",
+                    display: "flex",
+                    flexDirection: "column",
+                    width: "400px",
+                    height: "100vh",
+                    background: "#FFF",
+                    borderLeft: "1px solid rgba(0, 0, 0, 0.08)",
+                    boxShadow: "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
+                  }}
+                >
+                  {/* Modal Header */}
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "24px",
+                      alignItems: "flex-start",
+                      gap: "8px",
+                      background: "#FFF",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "16px",
+                        flex: "1 0 0",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "44px",
+                          height: "44px",
+                          padding: "12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "9999px",
+                          background: "#D9DEF2",
+                        }}
+                      >
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                          <path d="M3.33329 13.5352C2.3283 12.8625 1.66663 11.7168 1.66663 10.4167C1.66663 8.46369 3.15955 6.85941 5.06641 6.68281C5.45647 4.31011 7.51683 2.5 9.99996 2.5C12.4831 2.5 14.5434 4.31011 14.9335 6.68281C16.8404 6.85941 18.3333 8.46369 18.3333 10.4167C18.3333 11.7168 17.6716 12.8625 16.6666 13.5352M6.66663 13.3333L9.99996 10M9.99996 10L13.3333 13.3333M9.99996 10V17.5" stroke="#344698" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px", flex: "1 0 0" }}>
+                        <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "18px", fontWeight: 600, lineHeight: "28px" }}>Add Resource</div>
+                        <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>Add supporting materials via file upload or video link.</div>
+                      </div>
+                    </div>
+                    <button type="button" onClick={() => setIsAddResourceModalOpen(false)} style={{ display: "flex", width: "40px", height: "40px", padding: "8px", justifyContent: "center", alignItems: "center", borderRadius: "8px", border: "none", background: "transparent", cursor: "pointer" }}>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6L18 18" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    </button>
+                  </div>
+
+                  {/* Modal Content */}
+                  <div style={{ display: "flex", padding: "0 24px", flexDirection: "column", gap: "24px", overflowY: "auto", flex: 1 }}>
+                    {/* Tabs */}
+                    <div style={{ display: "flex", padding: "4px", alignItems: "center", gap: "4px", alignSelf: "stretch", borderRadius: "10px", border: "1px solid #E9EAEB", background: "#FFF" }}>
+                      <button
+                        type="button"
+                        onClick={() => setResourceUploadType("upload")}
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "8px 12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "8px",
+                          flex: "1 0 0",
+                          borderRadius: "6px",
+                          background: resourceUploadType === "upload" ? "#ECEEF9" : "transparent",
+                          boxShadow: resourceUploadType === "upload" ? "0 1px 3px 0 rgba(10, 13, 18, 0.10), 0 1px 2px -1px rgba(10, 13, 18, 0.10)" : "none",
+                          border: "none",
+                          cursor: "pointer",
+                          color: resourceUploadType === "upload" ? "#273572" : "#717680",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                        }}
+                      >
+                        Upload files
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setResourceUploadType("link")}
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "8px 12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "8px",
+                          flex: "1 0 0",
+                          borderRadius: "6px",
+                          background: resourceUploadType === "link" ? "#ECEEF9" : "transparent",
+                          boxShadow: resourceUploadType === "link" ? "0 1px 3px 0 rgba(10, 13, 18, 0.10), 0 1px 2px -1px rgba(10, 13, 18, 0.10)" : "none",
+                          border: "none",
+                          cursor: "pointer",
+                          color: resourceUploadType === "link" ? "#273572" : "#717680",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                        }}
+                      >
+                        Link (Files or Videos)
+                      </button>
+                    </div>
+
+                    {/* File Upload Area */}
+                    {resourceUploadType === "upload" && (
+                      <div style={{ display: "flex", padding: "16px 24px", flexDirection: "column", alignItems: "center", gap: "4px", alignSelf: "stretch", borderRadius: "12px", border: "1px solid #E9EAEB", background: "#FFF" }}>
+                        <input
+                          type="file"
+                          id="resource-file-upload"
+                          style={{ display: "none" }}
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            if (file) {
+                              setUploadedFile(file);
+                              setResourceFileName(file.name);
+                            }
+                          }}
+                        />
+                        <label
+                          htmlFor="resource-file-upload"
+                          style={{ display: "flex", justifyContent: "center", alignItems: "flex-start", gap: "12px", alignSelf: "stretch", cursor: "pointer" }}
+                        >
+                          <div style={{ display: "flex", padding: "10px", alignItems: "center", gap: "10px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                              <path d="M8 16L12 12M12 12L16 16M12 12V21M20 16.7428C21.2215 15.734 22 14.2079 22 12.5C22 9.46243 19.5376 7 16.5 7C16.2815 7 16.0771 6.886 15.9661 6.69774C14.6621 4.48484 12.2544 3 9.5 3C5.35786 3 2 6.35786 2 10.5C2 12.5661 2.83545 14.4371 4.18695 15.7935" stroke="#414651" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </div>
+                          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "4px", flex: "1 0 0" }}>
+                            <div style={{ display: "flex", justifyContent: "center", alignItems: "flex-start", gap: "4px", alignSelf: "stretch" }}>
+                              <div style={{ color: "#273572", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Click to upload</div>
+                              <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>or drag and drop</div>
+                            </div>
+                            <div style={{ alignSelf: "stretch", color: "#535862", textAlign: "center", fontFamily: "Roboto Mono", fontSize: "12px", fontWeight: 400, lineHeight: "18px" }}>SVG, PNG, JPG or GIF (max. 800x400px)</div>
+                          </div>
+                        </label>
+                      </div>
+                    )}
+
+                    {/* File Name Input */}
+                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                        <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>File name</label>
+                        <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
+                      </div>
+                      <input
+                        type="text"
+                        value={resourceFileName}
+                        onChange={(e) => setResourceFileName(e.target.value)}
+                        placeholder="Form Guidelines"
+                        style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#717680", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none" }}
+                      />
+                    </div>
+
+                    {/* Description Textarea */}
+                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                      <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Description</label>
+                      <textarea
+                        value={resourceDescription}
+                        onChange={(e) => setResourceDescription(e.target.value)}
+                        placeholder="Enter a description..."
+                        style={{ display: "flex", padding: "12px 14px", alignItems: "flex-start", gap: "8px", minHeight: "100px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#717680", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none", resize: "vertical" }}
+                      />
+                    </div>
+
+                    {/* Main Category Dropdown */}
+                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                        <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Main Category</label>
+                        <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
+                        <div style={{ display: "flex", width: "16px", height: "16px", justifyContent: "center", alignItems: "center", marginLeft: "2px" }}>
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <g clipPath="url(#clip0_help1)">
+                              <path d="M6.06004 6.00016C6.21678 5.55461 6.52614 5.1789 6.93334 4.93958C7.34055 4.70027 7.8193 4.61279 8.28483 4.69264C8.75035 4.77249 9.17259 5.01451 9.47676 5.37585C9.78093 5.73718 9.94741 6.19451 9.94671 6.66683C9.94671 8.00016 7.94671 8.66683 7.94671 8.66683M8.00004 11.3335H8.00671M14.6667 8.00016C14.6667 11.6821 11.6819 14.6668 8.00004 14.6668C4.31814 14.6668 1.33337 11.6821 1.33337 8.00016C1.33337 4.31826 4.31814 1.3335 8.00004 1.3335C11.6819 1.3335 14.6667 4.31826 14.6667 8.00016Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_help1"><rect width="16" height="16" fill="white"/></clipPath>
+                            </defs>
+                          </svg>
+                        </div>
+                      </div>
+                      <select
+                        value={resourceMainCategory}
+                        onChange={(e) => {
+                          setResourceMainCategory(e.target.value);
+                          setResourceSubCategory("");
+                        }}
+                        style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#181D27", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 500, lineHeight: "24px", outline: "none", cursor: "pointer" }}
+                      >
+                        <option value="">Select a category</option>
+                        {categories.map(cat => (
+                          <option key={cat.id} value={cat.name}>{cat.name}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Sub Category Dropdown */}
+                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                        <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Sub Category</label>
+                        <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
+                        <div style={{ display: "flex", width: "16px", height: "16px", justifyContent: "center", alignItems: "center", marginLeft: "2px" }}>
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <g clipPath="url(#clip0_help2)">
+                              <path d="M6.06004 6.00016C6.21678 5.55461 6.52614 5.1789 6.93334 4.93958C7.34055 4.70027 7.8193 4.61279 8.28483 4.69264C8.75035 4.77249 9.17259 5.01451 9.47676 5.37585C9.78093 5.73718 9.94741 6.19451 9.94671 6.66683C9.94671 8.00016 7.94671 8.66683 7.94671 8.66683M8.00004 11.3335H8.00671M14.6667 8.00016C14.6667 11.6821 11.6819 14.6668 8.00004 14.6668C4.31814 14.6668 1.33337 11.6821 1.33337 8.00016C1.33337 4.31826 4.31814 1.3335 8.00004 1.3335C11.6819 1.3335 14.6667 4.31826 14.6667 8.00016Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_help2"><rect width="16" height="16" fill="white"/></clipPath>
+                            </defs>
+                          </svg>
+                        </div>
+                      </div>
+                      <select
+                        value={resourceSubCategory}
+                        onChange={(e) => setResourceSubCategory(e.target.value)}
+                        disabled={!resourceMainCategory}
+                        style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#181D27", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 500, lineHeight: "24px", outline: "none", cursor: "pointer", opacity: !resourceMainCategory ? 0.5 : 1 }}
+                      >
+                        <option value="">Select a subcategory</option>
+                        {resourceMainCategory && categories
+                          .find(cat => cat.name === resourceMainCategory)
+                          ?.subcategories.map(subcat => (
+                            <option key={subcat.id} value={subcat.name}>{subcat.name}</option>
+                          ))}
+                      </select>
+                    </div>
+
+                    {/* Checkbox */}
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+                      <div style={{ display: "flex", paddingTop: "2px", justifyContent: "center", alignItems: "center" }}>
+                        <input
+                          type="checkbox"
+                          checked={showInQuickResources}
+                          onChange={(e) => setShowInQuickResources(e.target.checked)}
+                          style={{ width: "20px", height: "20px", borderRadius: "6px", border: "1px solid #D5D7DA", cursor: "pointer" }}
+                        />
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px", flex: "1 0 0" }}>
+                        <div style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 500, lineHeight: "24px" }}>Show in Quick Resources Widget</div>
+                      </div>
+                    </div>
+
+                    {/* Add Resource Button */}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        // Validate
+                        if (!resourceFileName.trim()) {
+                          alert("Please enter a file name");
+                          return;
+                        }
+                        if (!resourceMainCategory) {
+                          alert("Please select a main category");
+                          return;
+                        }
+                        if (!resourceSubCategory) {
+                          alert("Please select a subcategory");
+                          return;
+                        }
+
+                        // TODO: Handle file upload and save resource
+                        console.log("Adding resource:", {
+                          fileName: resourceFileName,
+                          description: resourceDescription,
+                          mainCategory: resourceMainCategory,
+                          subCategory: resourceSubCategory,
+                          showInQuickResources,
+                          file: uploadedFile,
+                        });
+
+                        // Reset and close
+                        setResourceFileName("");
+                        setResourceDescription("");
+                        setResourceMainCategory("");
+                        setResourceSubCategory("");
+                        setShowInQuickResources(false);
+                        setUploadedFile(null);
+                        setIsAddResourceModalOpen(false);
+
+                        toast({
+                          title: "Resource added",
+                          description: "Your resource has been successfully uploaded.",
+                        });
+                      }}
+                      style={{ display: "flex", padding: "12px", justifyContent: "center", alignItems: "center", gap: "4px", alignSelf: "stretch", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer", marginBottom: "24px" }}
+                    >
+                      <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                        <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Add Resource</div>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
             </>
           )}
 
