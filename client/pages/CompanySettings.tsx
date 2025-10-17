@@ -5858,11 +5858,6 @@ export default function CompanySettings() {
                                 <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Edit Category</div>
                               </div>
                             </button>
-                            <button type="button" style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}>
-                              <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
-                                <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Primary</div>
-                              </div>
-                            </button>
                           </div>
                         </div>
                       </div>
@@ -5888,11 +5883,6 @@ export default function CompanySettings() {
                                   <button type="button" style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "none", background: "transparent", cursor: "pointer" }}>
                                     <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
                                       <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Edit Category</div>
-                                    </div>
-                                  </button>
-                                  <button type="button" style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}>
-                                    <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
-                                      <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Primary</div>
                                     </div>
                                   </button>
                                 </div>
