@@ -6369,7 +6369,8 @@ export default function CompanySettings() {
                         description: categoryDescription,
                         subcategories: validSubcategories.map(s => ({
                           id: Date.now().toString() + Math.random(),
-                          name: s
+                          name: s,
+                          documents: []
                         }))
                       };
                       setCategories([...categories, newCategory]);
