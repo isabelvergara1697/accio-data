@@ -1005,11 +1005,21 @@ export default function CompanySettings() {
   const [subcategories, setSubcategories] = React.useState<string[]>([""]);
 
   // Categories State
+  interface Resource {
+    id: string;
+    name: string;
+    description: string;
+    type: "upload" | "link";
+    url?: string;
+    fileName?: string;
+    fileSize?: number;
+  }
+
   interface Category {
     id: string;
     name: string;
     description: string;
-    subcategories: { id: string; name: string }[];
+    subcategories: { id: string; name: string; documents: Resource[] }[];
   }
   const [categories, setCategories] = React.useState<Category[]>([]);
 
