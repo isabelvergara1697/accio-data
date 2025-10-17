@@ -1029,6 +1029,8 @@ export default function CompanySettings() {
   const [resourceSubCategory, setResourceSubCategory] = React.useState("");
   const [showInQuickResources, setShowInQuickResources] = React.useState(false);
   const [uploadedFile, setUploadedFile] = React.useState<File | null>(null);
+  const [resourceUrl, setResourceUrl] = React.useState("");
+  const [resourceVideoName, setResourceVideoName] = React.useState("");
 
   const appliedBrandColor = React.useMemo(
     () => normalizeHex(brandColor) ?? DEFAULT_BRAND_COLOR,
