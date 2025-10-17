@@ -6179,7 +6179,8 @@ export default function CompanySettings() {
                                 description: editCategoryDescription,
                                 subcategories: validSubcategories.map((s, idx) => ({
                                   id: editingCategory.subcategories[idx]?.id || Date.now().toString() + Math.random(),
-                                  name: s
+                                  name: s,
+                                  documents: editingCategory.subcategories[idx]?.documents || []
                                 }))
                               }
                             : cat
