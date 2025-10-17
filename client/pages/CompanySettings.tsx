@@ -1042,6 +1042,19 @@ export default function CompanySettings() {
   const [resourceUrl, setResourceUrl] = React.useState("");
   const [resourceVideoName, setResourceVideoName] = React.useState("");
 
+  // Delete Resource Modal State
+  const [isDeleteResourceModalOpen, setIsDeleteResourceModalOpen] = React.useState(false);
+  const [resourceToDelete, setResourceToDelete] = React.useState<{resource: Resource, categoryName: string, subcategoryName: string} | null>(null);
+
+  // Edit Resource Modal State
+  const [isEditResourceModalOpen, setIsEditResourceModalOpen] = React.useState(false);
+  const [editingResource, setEditingResource] = React.useState<{resource: Resource, categoryName: string, subcategoryName: string} | null>(null);
+  const [editResourceName, setEditResourceName] = React.useState("");
+  const [editResourceDescription, setEditResourceDescription] = React.useState("");
+  const [editResourceCategory, setEditResourceCategory] = React.useState("");
+  const [editResourceSubCategory, setEditResourceSubCategory] = React.useState("");
+  const [editShowInQuickResources, setEditShowInQuickResources] = React.useState(false);
+
   const appliedBrandColor = React.useMemo(
     () => normalizeHex(brandColor) ?? DEFAULT_BRAND_COLOR,
     [brandColor],
