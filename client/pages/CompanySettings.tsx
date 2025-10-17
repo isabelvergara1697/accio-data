@@ -5943,6 +5943,255 @@ export default function CompanySettings() {
               )}
             </div>
 
+            {/* Edit Category Modal */}
+            {isEditCategoryModalOpen && editingCategory && (
+              <div
+                style={{
+                  position: "fixed",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  zIndex: 9999,
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  alignItems: "flex-start",
+                }}
+              >
+                <div
+                  onClick={() => setIsEditCategoryModalOpen(false)}
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: "rgba(10, 13, 18, 0.7)",
+                    backdropFilter: "blur(4px)",
+                  }}
+                />
+                <div
+                  onClick={(e) => e.stopPropagation()}
+                  style={{
+                    position: "relative",
+                    display: "flex",
+                    flexDirection: "column",
+                    width: "400px",
+                    height: "100vh",
+                    background: "#FFF",
+                    borderLeft: "1px solid rgba(0, 0, 0, 0.08)",
+                    boxShadow: "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
+                  }}
+                >
+                  {/* Modal Header */}
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "24px",
+                      alignItems: "flex-start",
+                      gap: "8px",
+                      background: "#FFF",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "16px",
+                        flex: "1 0 0",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "44px",
+                          height: "44px",
+                          padding: "12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "9999px",
+                          background: "#D9DEF2",
+                        }}
+                      >
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                          <g clipPath="url(#clip0_edit_modal)">
+                            <path d="M10.0001 6.66675V13.3334M6.66675 10.0001H13.3334M18.3334 10.0001C18.3334 14.6025 14.6025 18.3334 10.0001 18.3334C5.39771 18.3334 1.66675 14.6025 1.66675 10.0001C1.66675 5.39771 5.39771 1.66675 10.0001 1.66675C14.6025 1.66675 18.3334 5.39771 18.3334 10.0001Z" stroke="#344698" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_edit_modal"><rect width="20" height="20" fill="white" /></clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px", flex: "1 0 0" }}>
+                        <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "18px", fontWeight: 600, lineHeight: "28px" }}>Create Category</div>
+                        <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>Categories help you organize the content in a logical way, so your team members can find it easily.</div>
+                      </div>
+                    </div>
+                    <button type="button" onClick={() => setIsEditCategoryModalOpen(false)} style={{ display: "flex", width: "40px", height: "40px", padding: "8px", justifyContent: "center", alignItems: "center", borderRadius: "8px", border: "none", background: "transparent", cursor: "pointer" }}>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6L18 18" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    </button>
+                  </div>
+
+                  {/* Modal Content */}
+                  <div style={{ display: "flex", padding: "0 24px", flexDirection: "column", gap: "24px", overflowY: "auto", flex: 1 }}>
+                    {/* Category Name Input */}
+                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                        <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Name</label>
+                        <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
+                      </div>
+                      <input
+                        type="text"
+                        value={editCategoryName}
+                        onChange={(e) => setEditCategoryName(e.target.value)}
+                        style={{ display: "flex", padding: "10px 14px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#181D27", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none" }}
+                      />
+                    </div>
+
+                    {/* Category Description Textarea */}
+                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                      <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Description</label>
+                      <textarea
+                        value={editCategoryDescription}
+                        onChange={(e) => setEditCategoryDescription(e.target.value)}
+                        placeholder="Add a description to help others understand the purpose of this category."
+                        style={{ display: "flex", padding: "12px 14px", alignItems: "flex-start", gap: "8px", minHeight: "140px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#717680", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none", resize: "vertical" }}
+                      />
+                    </div>
+
+                    <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                    {/* Manage Subcategories Section */}
+                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                      <div style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Manage subcategories</div>
+                      <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>Rename, add or delete subcategories</div>
+
+                      {/* Add Subcategory Button */}
+                      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "10px", alignSelf: "stretch" }}>
+                        <button
+                          type="button"
+                          onClick={() => setEditSubcategories([...editSubcategories, ""])}
+                          style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}
+                        >
+                          <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                            <div style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Add Subcategory</div>
+                          </div>
+                          <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
+                            <path d="M8.50004 5.3335V10.6668M5.83337 8.00016H11.1667M15.1667 8.00016C15.1667 11.6821 12.1819 14.6668 8.50004 14.6668C4.81814 14.6668 1.83337 11.6821 1.83337 8.00016C1.83337 4.31826 4.81814 1.3335 8.50004 1.3335C12.1819 1.3335 15.1667 4.31826 15.1667 8.00016Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </button>
+                      </div>
+
+                      {/* Subcategories List */}
+                      <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "10px" }}>
+                        {editSubcategories.map((subcategory, index) => (
+                          <div key={index} style={{ display: "flex", alignItems: "flex-end", gap: "10px" }}>
+                            <div style={{ display: "flex", flexDirection: "column", gap: "6px", flex: "1 0 0" }}>
+                              <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                                <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Subcategory Name</label>
+                                <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
+                              </div>
+                              <input
+                                type="text"
+                                value={subcategory}
+                                onChange={(e) => {
+                                  const newSubcategories = [...editSubcategories];
+                                  newSubcategories[index] = e.target.value;
+                                  setEditSubcategories(newSubcategories);
+                                }}
+                                style={{ display: "flex", padding: "10px 14px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#181D27", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none" }}
+                              />
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const newSubcategories = editSubcategories.filter((_, i) => i !== index);
+                                setEditSubcategories(newSubcategories);
+                              }}
+                              style={{ display: "flex", padding: "12px", justifyContent: "center", alignItems: "center", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}
+                            >
+                              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <g clipPath="url(#clip0_minus_edit)">
+                                  <path d="M6.66663 10.0003H13.3333M18.3333 10.0003C18.3333 14.6027 14.6023 18.3337 9.99996 18.3337C5.39759 18.3337 1.66663 14.6027 1.66663 10.0003C1.66663 5.39795 5.39759 1.66699 9.99996 1.66699C14.6023 1.66699 18.3333 5.39795 18.3333 10.0003Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_minus_edit"><rect width="20" height="20" fill="white"/></clipPath>
+                                </defs>
+                              </svg>
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Update Category Button */}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        // Validate
+                        if (!editCategoryName.trim()) {
+                          alert("Please enter a category name");
+                          return;
+                        }
+
+                        const validSubcategories = editSubcategories.filter(s => s.trim());
+                        if (validSubcategories.length === 0) {
+                          alert("Please add at least one subcategory");
+                          return;
+                        }
+
+                        // Update category
+                        setCategories(categories.map(cat =>
+                          cat.id === editingCategory.id
+                            ? {
+                                ...cat,
+                                name: editCategoryName,
+                                description: editCategoryDescription,
+                                subcategories: validSubcategories.map((s, idx) => ({
+                                  id: editingCategory.subcategories[idx]?.id || Date.now().toString() + Math.random(),
+                                  name: s
+                                }))
+                              }
+                            : cat
+                        ));
+
+                        // Close modal
+                        setIsEditCategoryModalOpen(false);
+                        setEditingCategory(null);
+                      }}
+                      style={{ display: "flex", padding: "12px", justifyContent: "center", alignItems: "center", gap: "4px", alignSelf: "stretch", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}
+                    >
+                      <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                        <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Update Category</div>
+                      </div>
+                    </button>
+
+                    {/* Delete Category Button */}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (confirm(`Are you sure you want to delete the category "${editingCategory.name}"? This action cannot be undone.`)) {
+                          setCategories(categories.filter(cat => cat.id !== editingCategory.id));
+                          setIsEditCategoryModalOpen(false);
+                          setEditingCategory(null);
+
+                          toast({
+                            title: "Category deleted",
+                            description: `The category "${editingCategory.name}" has been successfully deleted.`,
+                          });
+                        }
+                      }}
+                      style={{ display: "flex", padding: "10px 14px", justifyContent: "center", alignItems: "center", gap: "4px", alignSelf: "stretch", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#D92D20", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer", marginBottom: "24px" }}
+                    >
+                      <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                        <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Delete Category</div>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Create Category Modal */}
             {isCreateCategoryModalOpen && (
               <div
