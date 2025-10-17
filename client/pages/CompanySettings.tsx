@@ -5918,7 +5918,7 @@ export default function CompanySettings() {
                                     <div style={{ display: "flex", alignItems: "center", gap: "8px", alignSelf: "stretch" }}>
                                       <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "18px", fontWeight: 600, lineHeight: "28px" }}>{subcategory.name}</div>
                                       <div style={{ display: "flex", padding: "2px 8px", alignItems: "center", borderRadius: "9999px", border: "1px solid #E9EAEB", background: "#FAFAFA" }}>
-                                        <div style={{ color: "#414651", textAlign: "center", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 500, lineHeight: "18px" }}>0</div>
+                                        <div style={{ color: "#414651", textAlign: "center", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 500, lineHeight: "18px" }}>{subcategory.documents.length}</div>
                                       </div>
                                     </div>
                                   </div>
