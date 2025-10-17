@@ -1011,7 +1011,14 @@ export default function CompanySettings() {
     description: string;
     subcategories: { id: string; name: string }[];
   }
-  const [categories, setCategories] = React.useState<Category[]>([]);  // Start with one empty subcategory
+  const [categories, setCategories] = React.useState<Category[]>([]);
+
+  // Edit Category Modal State
+  const [isEditCategoryModalOpen, setIsEditCategoryModalOpen] = React.useState(false);
+  const [editingCategory, setEditingCategory] = React.useState<Category | null>(null);
+  const [editCategoryName, setEditCategoryName] = React.useState("");
+  const [editCategoryDescription, setEditCategoryDescription] = React.useState("");
+  const [editSubcategories, setEditSubcategories] = React.useState<string[]>([""]);
 
   const appliedBrandColor = React.useMemo(
     () => normalizeHex(brandColor) ?? DEFAULT_BRAND_COLOR,
