@@ -6914,6 +6914,235 @@ export default function CompanySettings() {
                 </div>
               </div>
             )}
+
+            {/* Delete Resource Modal */}
+            {isDeleteResourceModalOpen && resourceToDelete && (
+              <div style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 10000, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+                {/* Backdrop */}
+                <div onClick={() => setIsDeleteResourceModalOpen(false)} style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "#0A0D12", opacity: 0.7, backdropFilter: "blur(8px)" }} />
+
+                {/* Modal */}
+                <div onClick={(e) => e.stopPropagation()} style={{ position: "relative", display: "flex", maxWidth: "400px", flexDirection: "column", alignItems: "center", alignSelf: "stretch", borderRadius: "16px", background: "#FFF", boxShadow: "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)" }}>
+                  {/* Modal Header */}
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", alignSelf: "stretch" }}>
+                    <div style={{ display: "flex", padding: "24px 24px 0 24px", flexDirection: "column", alignItems: "flex-start", gap: "16px", alignSelf: "stretch" }}>
+                      {/* Featured Icon */}
+                      <div style={{ display: "flex", width: "48px", height: "48px", padding: "12px", justifyContent: "center", alignItems: "center", borderRadius: "9999px", background: "#FEE4E2" }}>
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none">
+                          <path d="M16 6.5V5.7C16 4.5799 16 4.01984 15.782 3.59202C15.5903 3.21569 15.2843 2.90973 14.908 2.71799C14.4802 2.5 13.9201 2.5 12.8 2.5H11.2C10.0799 2.5 9.51984 2.5 9.09202 2.71799C8.71569 2.90973 8.40973 3.21569 8.21799 3.59202C8 4.01984 8 4.5799 8 5.7V6.5M3 6.5H21M19 6.5V17.7C19 19.3802 19 20.2202 18.673 20.862C18.3854 21.4265 17.9265 21.8854 17.362 22.173C16.7202 22.5 15.8802 22.5 14.2 22.5H9.8C8.11984 22.5 7.27976 22.5 6.63803 22.173C6.07354 21.8854 5.6146 21.4265 5.32698 20.862C5 20.2202 5 19.3802 5 17.7V6.5" stroke="#D92D20" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </div>
+                      {/* Text */}
+                      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px", alignSelf: "stretch" }}>
+                        <div style={{ alignSelf: "stretch", color: "#181D27", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 600, lineHeight: "24px" }}>Delete Document</div>
+                        <div style={{ alignSelf: "stretch", color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>
+                          Removing {resourceToDelete.resource.name} will permanently eliminate it from the platform, and users will no longer have access to it. This action cannot be undone.
+                        </div>
+                      </div>
+                    </div>
+                    {/* Close Button */}
+                    <button type="button" onClick={() => setIsDeleteResourceModalOpen(false)} style={{ display: "flex", width: "44px", height: "44px", padding: "8px", justifyContent: "center", alignItems: "center", position: "absolute", right: "12px", top: "12px", borderRadius: "8px", border: "none", background: "transparent", cursor: "pointer" }}>
+                      <svg width="24" height="25" viewBox="0 0 24 25" fill="none">
+                        <path d="M18 6.5L6 18.5M6 6.5L18 18.5" stroke="#A4A7AE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </button>
+                  </div>
+
+                  {/* Actions */}
+                  <div style={{ display: "flex", paddingTop: "32px", flexDirection: "column", alignItems: "flex-start", alignSelf: "stretch" }}>
+                    <div style={{ display: "flex", padding: "0 24px 24px 24px", alignItems: "flex-start", gap: "12px", alignSelf: "stretch" }}>
+                      {/* Cancel Button */}
+                      <button
+                        type="button"
+                        onClick={() => setIsDeleteResourceModalOpen(false)}
+                        style={{ display: "flex", padding: "12px 16px", justifyContent: "center", alignItems: "center", gap: "6px", flex: "1 0 0", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}
+                      >
+                        <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                          <div style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 600, lineHeight: "24px" }}>Cancel</div>
+                        </div>
+                      </button>
+                      {/* Delete Button */}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setCategories(categories.map(cat => {
+                            if (cat.name === resourceToDelete.categoryName) {
+                              return {
+                                ...cat,
+                                subcategories: cat.subcategories.map(subcat => {
+                                  if (subcat.name === resourceToDelete.subcategoryName) {
+                                    return {
+                                      ...subcat,
+                                      documents: subcat.documents.filter(d => d.id !== resourceToDelete.resource.id)
+                                    };
+                                  }
+                                  return subcat;
+                                })
+                              };
+                            }
+                            return cat;
+                          }));
+
+                          toast({
+                            title: "Document deleted",
+                            description: `"${resourceToDelete.resource.name}" has been removed.`,
+                          });
+
+                          setIsDeleteResourceModalOpen(false);
+                          setResourceToDelete(null);
+                        }}
+                        style={{ display: "flex", padding: "12px 16px", justifyContent: "center", alignItems: "center", gap: "6px", flex: "1 0 0", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#D92D20", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}
+                      >
+                        <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                          <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 600, lineHeight: "24px" }}>Delete</div>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Edit Resource Modal */}
+            {isEditResourceModalOpen && editingResource && (
+              <div style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 9999, display: "flex", justifyContent: "flex-end", alignItems: "flex-start" }}>
+                <div onClick={() => setIsEditResourceModalOpen(false)} style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "rgba(10, 13, 18, 0.7)", backdropFilter: "blur(4px)" }} />
+                <div onClick={(e) => e.stopPropagation()} style={{ position: "relative", display: "flex", flexDirection: "column", width: "400px", height: "100vh", background: "#FFF", borderLeft: "1px solid rgba(0, 0, 0, 0.08)", boxShadow: "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)" }}>
+                  {/* Modal Header */}
+                  <div style={{ display: "flex", padding: "24px", alignItems: "flex-start", gap: "8px", background: "#FFF" }}>
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: "16px", flex: "1 0 0" }}>
+                      <div style={{ display: "flex", width: "44px", height: "44px", padding: "12px", justifyContent: "center", alignItems: "center", borderRadius: "9999px", background: "#D9DEF2" }}>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                          <path d="M2.39686 15.0963C2.43515 14.7517 2.45429 14.5794 2.50642 14.4184C2.55268 14.2755 2.61802 14.1396 2.70069 14.0142C2.79388 13.8729 2.91645 13.7503 3.1616 13.5052L14.1669 2.49992C15.0873 1.57945 16.5797 1.57945 17.5002 2.49993C18.4207 3.4204 18.4207 4.91279 17.5002 5.83326L6.49493 16.8385C6.24978 17.0836 6.12721 17.2062 5.9859 17.2994C5.86054 17.3821 5.72457 17.4474 5.5817 17.4937C5.42067 17.5458 5.24838 17.5649 4.9038 17.6032L2.0835 17.9166L2.39686 15.0963Z" stroke="#344698" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px", flex: "1 0 0" }}>
+                        <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "18px", fontWeight: 600, lineHeight: "28px" }}>Edit Resource</div>
+                        <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>Rename, update description or remove resource</div>
+                      </div>
+                    </div>
+                    <button type="button" onClick={() => setIsEditResourceModalOpen(false)} style={{ display: "flex", width: "40px", height: "40px", padding: "8px", justifyContent: "center", alignItems: "center", borderRadius: "8px", border: "none", background: "transparent", cursor: "pointer" }}>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6L18 18" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    </button>
+                  </div>
+
+                  {/* Modal Content */}
+                  <div style={{ display: "flex", padding: "0 24px", flexDirection: "column", gap: "24px", overflowY: "auto", flex: 1 }}>
+                    {/* File Name Input */}
+                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                        <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>File name</label>
+                        <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
+                      </div>
+                      <input type="text" value={editResourceName} onChange={(e) => setEditResourceName(e.target.value)} style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#181D27", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none" }} />
+                    </div>
+
+                    {/* Description Textarea */}
+                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                      <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Description</label>
+                      <textarea value={editResourceDescription} onChange={(e) => setEditResourceDescription(e.target.value)} placeholder="Enter a description..." style={{ display: "flex", padding: "12px 14px", alignItems: "flex-start", gap: "8px", minHeight: "100px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#181D27", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none", resize: "vertical" }} />
+                    </div>
+
+                    {/* Category Dropdown */}
+                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                        <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Category</label>
+                        <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
+                      </div>
+                      <select value={editResourceCategory} onChange={(e) => { setEditResourceCategory(e.target.value); setEditResourceSubCategory(""); }} style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#181D27", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 500, lineHeight: "24px", outline: "none", cursor: "pointer" }}>
+                        <option value="">Select a category</option>
+                        {categories.map(cat => (<option key={cat.id} value={cat.name}>{cat.name}</option>))}
+                      </select>
+                    </div>
+
+                    {/* Sub Category Dropdown */}
+                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                        <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Sub Category</label>
+                        <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
+                      </div>
+                      <select value={editResourceSubCategory} onChange={(e) => setEditResourceSubCategory(e.target.value)} disabled={!editResourceCategory} style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#181D27", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 500, lineHeight: "24px", outline: "none", cursor: "pointer", opacity: !editResourceCategory ? 0.5 : 1 }}>
+                        <option value="">Select a subcategory</option>
+                        {editResourceCategory && categories.find(cat => cat.name === editResourceCategory)?.subcategories.map(subcat => (<option key={subcat.id} value={subcat.name}>{subcat.name}</option>))}
+                      </select>
+                    </div>
+
+                    {/* Checkbox */}
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+                      <div style={{ display: "flex", paddingTop: "2px", justifyContent: "center", alignItems: "center" }}>
+                        <input type="checkbox" checked={editShowInQuickResources} onChange={(e) => setEditShowInQuickResources(e.target.checked)} style={{ width: "20px", height: "20px", borderRadius: "6px", border: "1px solid #D5D7DA", cursor: "pointer" }} />
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px", flex: "1 0 0" }}>
+                        <div style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 500, lineHeight: "24px" }}>Show in Quick Resources Widget</div>
+                      </div>
+                    </div>
+
+                    {/* Update Resource Button */}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (!editResourceName.trim()) { alert("Please enter a file name"); return; }
+                        if (!editResourceCategory) { alert("Please select a category"); return; }
+                        if (!editResourceSubCategory) { alert("Please select a subcategory"); return; }
+
+                        // Remove from old location
+                        let updatedCategories = categories.map(cat => ({
+                          ...cat,
+                          subcategories: cat.subcategories.map(subcat => ({
+                            ...subcat,
+                            documents: subcat.documents.filter(d => d.id !== editingResource.resource.id)
+                          }))
+                        }));
+
+                        // Add to new location with updated data
+                        updatedCategories = updatedCategories.map(cat => {
+                          if (cat.name === editResourceCategory) {
+                            return {
+                              ...cat,
+                              subcategories: cat.subcategories.map(subcat => {
+                                if (subcat.name === editResourceSubCategory) {
+                                  return {
+                                    ...subcat,
+                                    documents: [...subcat.documents, { ...editingResource.resource, name: editResourceName, description: editResourceDescription }]
+                                  };
+                                }
+                                return subcat;
+                              })
+                            };
+                          }
+                          return cat;
+                        });
+
+                        setCategories(updatedCategories);
+                        setIsEditResourceModalOpen(false);
+                        setEditingResource(null);
+                        toast({ title: "Resource updated", description: "Your changes have been saved." });
+                      }}
+                      style={{ display: "flex", padding: "12px", justifyContent: "center", alignItems: "center", gap: "4px", alignSelf: "stretch", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}
+                    >
+                      <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                        <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Update Resource</div>
+                      </div>
+                    </button>
+
+                    {/* Delete Resource Button */}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsEditResourceModalOpen(false);
+                        setResourceToDelete(editingResource);
+                        setIsDeleteResourceModalOpen(true);
+                      }}
+                      style={{ display: "flex", padding: "10px 14px", justifyContent: "center", alignItems: "center", gap: "4px", alignSelf: "stretch", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#D92D20", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer", marginBottom: "24px" }}
+                    >
+                      <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                        <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Delete Resource</div>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
             </>
           )}
 
