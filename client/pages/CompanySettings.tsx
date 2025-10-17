@@ -1020,6 +1020,16 @@ export default function CompanySettings() {
   const [editCategoryDescription, setEditCategoryDescription] = React.useState("");
   const [editSubcategories, setEditSubcategories] = React.useState<string[]>([""]);
 
+  // Add Resource Modal State
+  const [isAddResourceModalOpen, setIsAddResourceModalOpen] = React.useState(false);
+  const [resourceUploadType, setResourceUploadType] = React.useState<"upload" | "link">("upload");
+  const [resourceFileName, setResourceFileName] = React.useState("");
+  const [resourceDescription, setResourceDescription] = React.useState("");
+  const [resourceMainCategory, setResourceMainCategory] = React.useState("");
+  const [resourceSubCategory, setResourceSubCategory] = React.useState("");
+  const [showInQuickResources, setShowInQuickResources] = React.useState(false);
+  const [uploadedFile, setUploadedFile] = React.useState<File | null>(null);
+
   const appliedBrandColor = React.useMemo(
     () => normalizeHex(brandColor) ?? DEFAULT_BRAND_COLOR,
     [brandColor],
