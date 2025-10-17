@@ -6704,11 +6704,24 @@ export default function CompanySettings() {
                     <button
                       type="button"
                       onClick={() => {
-                        // Validate
-                        if (!resourceFileName.trim()) {
-                          alert("Please enter a file name");
-                          return;
+                        // Validate based on upload type
+                        if (resourceUploadType === "upload") {
+                          if (!resourceFileName.trim()) {
+                            alert("Please enter a file name");
+                            return;
+                          }
+                        } else {
+                          // Link mode validation
+                          if (!resourceUrl.trim()) {
+                            alert("Please enter a video, file or website URL");
+                            return;
+                          }
+                          if (!resourceVideoName.trim()) {
+                            alert("Please enter a video name");
+                            return;
+                          }
                         }
+
                         if (!resourceMainCategory) {
                           alert("Please select a main category");
                           return;
@@ -6718,9 +6731,12 @@ export default function CompanySettings() {
                           return;
                         }
 
-                        // TODO: Handle file upload and save resource
+                        // TODO: Handle file upload/link and save resource
                         console.log("Adding resource:", {
+                          type: resourceUploadType,
                           fileName: resourceFileName,
+                          url: resourceUrl,
+                          videoName: resourceVideoName,
                           description: resourceDescription,
                           mainCategory: resourceMainCategory,
                           subCategory: resourceSubCategory,
@@ -6730,6 +6746,8 @@ export default function CompanySettings() {
 
                         // Reset and close
                         setResourceFileName("");
+                        setResourceUrl("");
+                        setResourceVideoName("");
                         setResourceDescription("");
                         setResourceMainCategory("");
                         setResourceSubCategory("");
@@ -6739,7 +6757,7 @@ export default function CompanySettings() {
 
                         toast({
                           title: "Resource added",
-                          description: "Your resource has been successfully uploaded.",
+                          description: resourceUploadType === "upload" ? "Your file has been successfully uploaded." : "Your link has been successfully added.",
                         });
                       }}
                       style={{ display: "flex", padding: "12px", justifyContent: "center", alignItems: "center", gap: "4px", alignSelf: "stretch", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer", marginBottom: "24px" }}
