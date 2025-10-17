@@ -5865,7 +5865,17 @@ export default function CompanySettings() {
                             </div>
                           </div>
                           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                            <button type="button" style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "none", background: "transparent", cursor: "pointer" }}>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setEditingCategory(category);
+                                setEditCategoryName(category.name);
+                                setEditCategoryDescription(category.description);
+                                setEditSubcategories(category.subcategories.map(s => s.name));
+                                setIsEditCategoryModalOpen(true);
+                              }}
+                              style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "none", background: "transparent", cursor: "pointer" }}
+                            >
                               <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
                                 <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Edit Category</div>
                               </div>
