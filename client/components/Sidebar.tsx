@@ -977,7 +977,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   <>
                     <div style={{ position: "relative" }}>
                       <button
-                        onClick={() => setMobileQuickCreateOpen((prev) => !prev)}
+                        onClick={() =>
+                          setMobileQuickCreateOpen((prev) => !prev)
+                        }
                         aria-label="Open quick create"
                         style={{
                           display: "flex",
@@ -987,7 +989,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                           alignItems: "center",
                           borderRadius: "12px",
                           border: "2px solid rgba(255, 255, 255, 0.12)",
-                          background: mobileQuickCreateOpen ? "#273572" : "#344698",
+                          background: mobileQuickCreateOpen
+                            ? "#273572"
+                            : "#344698",
                           boxShadow:
                             "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                           cursor: "pointer",
@@ -1146,7 +1150,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 gap: "8px",
                 alignSelf: "stretch",
                 borderRadius: "8px",
-                border: isMobileSearchActive ? "2px solid #34479A" : "1px solid #D5D7DA",
+                border: isMobileSearchActive
+                  ? "2px solid #34479A"
+                  : "1px solid #D5D7DA",
                 background: "#FFF",
                 boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                 position: "relative",
