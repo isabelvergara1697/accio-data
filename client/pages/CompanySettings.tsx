@@ -5934,7 +5934,15 @@ export default function CompanySettings() {
                                     </div>
                                   </div>
                                   <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
-                                    <button type="button" style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}>
+                                    <button
+                                      type="button"
+                                      onClick={() => {
+                                        setResourceMainCategory(category.name);
+                                        setResourceSubCategory(subcategory.name);
+                                        setIsAddResourceModalOpen(true);
+                                      }}
+                                      style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}
+                                    >
                                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8.00016 3.33325V12.6666M3.3335 7.99992H12.6668" stroke="#8D9BD8" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" /></svg>
                                       <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
                                         <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Add documents</div>
