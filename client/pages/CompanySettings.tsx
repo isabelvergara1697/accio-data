@@ -6519,53 +6519,98 @@ export default function CompanySettings() {
 
                     {/* File Upload Area */}
                     {resourceUploadType === "upload" && (
-                      <div style={{ display: "flex", padding: "16px 24px", flexDirection: "column", alignItems: "center", gap: "4px", alignSelf: "stretch", borderRadius: "12px", border: "1px solid #E9EAEB", background: "#FFF" }}>
-                        <input
-                          type="file"
-                          id="resource-file-upload"
-                          style={{ display: "none" }}
-                          onChange={(e) => {
-                            const file = e.target.files?.[0];
-                            if (file) {
-                              setUploadedFile(file);
-                              setResourceFileName(file.name);
-                            }
-                          }}
-                        />
-                        <label
-                          htmlFor="resource-file-upload"
-                          style={{ display: "flex", justifyContent: "center", alignItems: "flex-start", gap: "12px", alignSelf: "stretch", cursor: "pointer" }}
-                        >
-                          <div style={{ display: "flex", padding: "10px", alignItems: "center", gap: "10px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                              <path d="M8 16L12 12M12 12L16 16M12 12V21M20 16.7428C21.2215 15.734 22 14.2079 22 12.5C22 9.46243 19.5376 7 16.5 7C16.2815 7 16.0771 6.886 15.9661 6.69774C14.6621 4.48484 12.2544 3 9.5 3C5.35786 3 2 6.35786 2 10.5C2 12.5661 2.83545 14.4371 4.18695 15.7935" stroke="#414651" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                          </div>
-                          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "4px", flex: "1 0 0" }}>
-                            <div style={{ display: "flex", justifyContent: "center", alignItems: "flex-start", gap: "4px", alignSelf: "stretch" }}>
-                              <div style={{ color: "#273572", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Click to upload</div>
-                              <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>or drag and drop</div>
+                      uploadedFile ? (
+                        <div style={{ display: "flex", padding: "16px", alignItems: "flex-start", alignSelf: "stretch", borderRadius: "12px", border: "1px solid #E9EAEB", background: "#FFF", position: "relative" }}>
+                          <div style={{ display: "flex", alignItems: "flex-start", gap: "12px", flex: "1 0 0" }}>
+                            <div style={{ width: "40px", height: "40px", position: "relative" }}>
+                              <svg width="32" height="40" viewBox="0 0 32 40" fill="none" style={{ position: "absolute", left: "7px", top: "0" }}>
+                                <path d="M4 0.75H20C20.1212 0.75 20.2375 0.798089 20.3232 0.883789L31.1162 11.6768C31.2019 11.7625 31.25 11.8788 31.25 12V36C31.25 37.7949 29.7949 39.25 28 39.25H4C2.20507 39.25 0.75 37.7949 0.75 36V4C0.750001 2.20507 2.20508 0.75 4 0.75Z" stroke="#D5D7DA" strokeWidth="1.5"/>
+                                <path d="M20 0.5V8C20 10.2091 21.7909 12 24 12H31.5" stroke="#D5D7DA" strokeWidth="1.5"/>
+                              </svg>
+                              <div style={{ position: "absolute", left: "1px", top: "18px", width: "26px", height: "16px", padding: "2px 3px", borderRadius: "2px", background: "#D92D20" }}>
+                                <div style={{ color: "#FFF", textAlign: "center", fontFamily: "Inter", fontSize: "10px", fontWeight: 700, lineHeight: "normal" }}>PDF</div>
+                              </div>
                             </div>
-                            <div style={{ alignSelf: "stretch", color: "#535862", textAlign: "center", fontFamily: "Roboto Mono", fontSize: "12px", fontWeight: 400, lineHeight: "18px" }}>SVG, PNG, JPG or GIF (max. 800x400px)</div>
+                            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "4px", flex: "1 0 0" }}>
+                              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px", alignSelf: "stretch" }}>
+                                <div style={{ alignSelf: "stretch", overflow: "hidden", color: "#414651", textOverflow: "ellipsis", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px", whiteSpace: "nowrap" }}>{uploadedFile.name}</div>
+                                <div style={{ display: "flex", alignItems: "center", gap: "8px", alignSelf: "stretch" }}>
+                                  <div style={{ overflow: "hidden", color: "#535862", textOverflow: "ellipsis", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>{Math.round(uploadedFile.size / 1024)} KB of {Math.round(uploadedFile.size / 1024)} KB</div>
+                                  <svg width="2" height="14" viewBox="0 0 2 14" fill="none"><path d="M1 1V13" stroke="#D5D7DA" strokeLinecap="round"/></svg>
+                                  <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><g clipPath="url(#clip0_complete)"><path d="M5.00004 8.00016L7.00004 10.0002L11 6.00016M14.6667 8.00016C14.6667 11.6821 11.6819 14.6668 8.00004 14.6668C4.31814 14.6668 1.33337 11.6821 1.33337 8.00016C1.33337 4.31826 4.31814 1.3335 8.00004 1.3335C11.6819 1.3335 14.6667 4.31826 14.6667 8.00016Z" stroke="#079455" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></g><defs><clipPath id="clip0_complete"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>
+                                    <div style={{ color: "#079455", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Complete</div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div style={{ display: "flex", alignItems: "center", gap: "12px", alignSelf: "stretch" }}>
+                                <div style={{ height: "8px", flex: "1 0 0", position: "relative" }}>
+                                  <div style={{ width: "100%", height: "8px", borderRadius: "9999px", background: "#D5D7DA", position: "absolute", left: "0", top: "0" }}></div>
+                                  <div style={{ width: "100%", height: "8px", borderRadius: "9999px", background: "#344698", position: "absolute", left: "0", top: "0" }}></div>
+                                </div>
+                                <div style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>100%</div>
+                              </div>
+                            </div>
                           </div>
-                        </label>
-                      </div>
+                          <button type="button" onClick={() => { setUploadedFile(null); setResourceFileName(""); }} style={{ display: "flex", width: "32px", height: "32px", padding: "8px", justifyContent: "center", alignItems: "center", position: "absolute", right: "8px", top: "8px", borderRadius: "6px", border: "none", background: "transparent", cursor: "pointer" }}>
+                            <svg width="24" height="16" viewBox="0 0 24 16" fill="none"><path d="M16 4.00016V3.46683C16 2.72009 16 2.34672 15.782 2.06151C15.5903 1.81063 15.2843 1.60665 14.908 1.47882C14.4802 1.3335 13.9201 1.3335 12.8 1.3335H11.2C10.0799 1.3335 9.51984 1.3335 9.09202 1.47882C8.71569 1.60665 8.40973 1.81063 8.21799 2.06151C8 2.34672 8 2.72009 8 3.46683V4.00016M10 7.66683V11.0002M14 7.66683V11.0002M3 4.00016H21M19 4.00016V11.4668C19 12.5869 19 13.147 18.673 13.5748C18.3854 13.9511 17.9265 14.2571 17.362 14.4488C16.7202 14.6668 15.8802 14.6668 14.2 14.6668H9.8C8.11984 14.6668 7.27976 14.6668 6.63803 14.4488C6.07354 14.2571 5.6146 13.9511 5.32698 13.5748C5 13.147 5 12.5869 5 11.4668V4.00016" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                          </button>
+                        </div>
+                      ) : (
+                        <div style={{ display: "flex", padding: "16px 24px", flexDirection: "column", alignItems: "center", gap: "4px", alignSelf: "stretch", borderRadius: "12px", border: "1px solid #E9EAEB", background: "#FFF" }}>
+                          <input type="file" id="resource-file-upload" style={{ display: "none" }} onChange={(e) => { const file = e.target.files?.[0]; if (file) { setUploadedFile(file); setResourceFileName(file.name); } }} />
+                          <label htmlFor="resource-file-upload" style={{ display: "flex", justifyContent: "center", alignItems: "flex-start", gap: "12px", alignSelf: "stretch", cursor: "pointer" }}>
+                            <div style={{ display: "flex", padding: "10px", alignItems: "center", gap: "10px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 16L12 12M12 12L16 16M12 12V21M20 16.7428C21.2215 15.734 22 14.2079 22 12.5C22 9.46243 19.5376 7 16.5 7C16.2815 7 16.0771 6.886 15.9661 6.69774C14.6621 4.48484 12.2544 3 9.5 3C5.35786 3 2 6.35786 2 10.5C2 12.5661 2.83545 14.4371 4.18695 15.7935" stroke="#414651" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                            </div>
+                            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "4px", flex: "1 0 0" }}>
+                              <div style={{ display: "flex", justifyContent: "center", alignItems: "flex-start", gap: "4px", alignSelf: "stretch" }}>
+                                <div style={{ color: "#273572", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Click to upload</div>
+                                <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>or drag and drop</div>
+                              </div>
+                              <div style={{ alignSelf: "stretch", color: "#535862", textAlign: "center", fontFamily: "Roboto Mono", fontSize: "12px", fontWeight: 400, lineHeight: "18px" }}>SVG, PNG, JPG or GIF (max. 800x400px)</div>
+                            </div>
+                          </label>
+                        </div>
+                      )
                     )}
 
-                    {/* File Name Input */}
-                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                        <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>File name</label>
-                        <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
-                      </div>
+                    {/* Link Tab Content */}
+                    {resourceUploadType === "link" && (
+                      <>
+                        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                            <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Video, File or Website URL</label>
+                            <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
+                          </div>
+                          <input type="text" value={resourceUrl} onChange={(e) => setResourceUrl(e.target.value)} placeholder="2025 Guidelines" style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#181D27", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none" }} />
+                        </div>
+                        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                            <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Video Name</label>
+                            <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
+                          </div>
+                          <input type="text" value={resourceVideoName} onChange={(e) => setResourceVideoName(e.target.value)} placeholder="Order Tutorial" style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#717680", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none" }} />
+                        </div>
+                      </>
+                    )}
+
+                    {/* File Name Input (only for upload mode) */}
+                    {resourceUploadType === "upload" && (
+                      <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                          <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>File name</label>
+                          <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
+                        </div>
                       <input
                         type="text"
                         value={resourceFileName}
                         onChange={(e) => setResourceFileName(e.target.value)}
-                        placeholder="Form Guidelines"
-                        style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#717680", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none" }}
-                      />
-                    </div>
+                          placeholder="Form Guidelines"
+                          style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#717680", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none" }}
+                        />
+                      </div>
+                    )}
 
                     {/* Description Textarea */}
                     <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
