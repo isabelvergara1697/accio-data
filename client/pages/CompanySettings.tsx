@@ -6048,12 +6048,25 @@ export default function CompanySettings() {
                       </div>
                     </div>
                     <button type="button" onClick={() => {
+                      // Validate that category name is provided
+                      if (!categoryName.trim()) {
+                        alert("Please enter a category name");
+                        return;
+                      }
+
+                      // Validate that at least one subcategory is provided
+                      const validSubcategories = subcategories.filter(s => s.trim());
+                      if (validSubcategories.length === 0) {
+                        alert("Please add at least one subcategory");
+                        return;
+                      }
+
                       // Create new category
                       const newCategory: Category = {
                         id: Date.now().toString(),
                         name: categoryName,
                         description: categoryDescription,
-                        subcategories: subcategories.filter(s => s.trim()).map(s => ({
+                        subcategories: validSubcategories.map(s => ({
                           id: Date.now().toString() + Math.random(),
                           name: s
                         }))
