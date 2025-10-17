@@ -6743,18 +6743,35 @@ export default function CompanySettings() {
                           return;
                         }
 
-                        // TODO: Handle file upload/link and save resource
-                        console.log("Adding resource:", {
-                          type: resourceUploadType,
-                          fileName: resourceFileName,
-                          url: resourceUrl,
-                          videoName: resourceVideoName,
+                        // Create new resource
+                        const newResource: Resource = {
+                          id: Date.now().toString() + Math.random(),
+                          name: resourceUploadType === "upload" ? resourceFileName : resourceVideoName,
                           description: resourceDescription,
-                          mainCategory: resourceMainCategory,
-                          subCategory: resourceSubCategory,
-                          showInQuickResources,
-                          file: uploadedFile,
-                        });
+                          type: resourceUploadType,
+                          url: resourceUploadType === "link" ? resourceUrl : undefined,
+                          fileName: resourceUploadType === "upload" ? resourceFileName : undefined,
+                          fileSize: uploadedFile?.size,
+                        };
+
+                        // Add resource to the correct subcategory
+                        setCategories(categories.map(cat => {
+                          if (cat.name === resourceMainCategory) {
+                            return {
+                              ...cat,
+                              subcategories: cat.subcategories.map(subcat => {
+                                if (subcat.name === resourceSubCategory) {
+                                  return {
+                                    ...subcat,
+                                    documents: [...subcat.documents, newResource]
+                                  };
+                                }
+                                return subcat;
+                              })
+                            };
+                          }
+                          return cat;
+                        }));
 
                         // Reset and close
                         setResourceFileName("");
