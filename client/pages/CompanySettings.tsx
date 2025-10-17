@@ -15,7 +15,8 @@ interface HSVColor {
   v: number;
 }
 
-const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
+const clamp = (value: number, min: number, max: number) =>
+  Math.min(Math.max(value, min), max);
 
 function hexToRgb(hex: string): { r: number; g: number; b: number } | null {
   const sanitized = hex.trim().replace(/^#/, "");
@@ -38,7 +39,8 @@ function hexToRgb(hex: string): { r: number; g: number; b: number } | null {
 }
 
 function rgbToHex(r: number, g: number, b: number) {
-  const toHex = (channel: number) => channel.toString(16).padStart(2, "0").toUpperCase();
+  const toHex = (channel: number) =>
+    channel.toString(16).padStart(2, "0").toUpperCase();
   return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
 }
 
@@ -72,7 +74,11 @@ function rgbToHsv(r: number, g: number, b: number): HSVColor {
   return { h, s, v };
 }
 
-function hsvToRgb(h: number, s: number, v: number): { r: number; g: number; b: number } {
+function hsvToRgb(
+  h: number,
+  s: number,
+  v: number,
+): { r: number; g: number; b: number } {
   const c = v * s;
   const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
   const m = v - c;
@@ -147,7 +153,11 @@ function getRelativeLuminanceFromHex(hex: string): number | null {
       ? normalized / 12.92
       : Math.pow((normalized + 0.055) / 1.055, 2.4);
   };
-  return 0.2126 * toLinear(rgb.r) + 0.7152 * toLinear(rgb.g) + 0.0722 * toLinear(rgb.b);
+  return (
+    0.2126 * toLinear(rgb.r) +
+    0.7152 * toLinear(rgb.g) +
+    0.0722 * toLinear(rgb.b)
+  );
 }
 
 function getContrastRatio(color1: string, color2: string): number {
@@ -220,19 +230,39 @@ const INITIAL_ROLE_PERMISSIONS: RolePermissionCategory[] = [
     permissions: [
       {
         label: "View Users",
-        roles: { superAdmin: true, admin: true, recruiter: false, support: true },
+        roles: {
+          superAdmin: true,
+          admin: true,
+          recruiter: false,
+          support: true,
+        },
       },
       {
         label: "Create User",
-        roles: { superAdmin: true, admin: true, recruiter: true, support: false },
+        roles: {
+          superAdmin: true,
+          admin: true,
+          recruiter: true,
+          support: false,
+        },
       },
       {
         label: "Edit Users",
-        roles: { superAdmin: true, admin: true, recruiter: true, support: false },
+        roles: {
+          superAdmin: true,
+          admin: true,
+          recruiter: true,
+          support: false,
+        },
       },
       {
         label: "Delete Users",
-        roles: { superAdmin: true, admin: true, recruiter: true, support: false },
+        roles: {
+          superAdmin: true,
+          admin: true,
+          recruiter: true,
+          support: false,
+        },
       },
     ],
   },
@@ -241,19 +271,39 @@ const INITIAL_ROLE_PERMISSIONS: RolePermissionCategory[] = [
     permissions: [
       {
         label: "[Permission Label]",
-        roles: { superAdmin: true, admin: true, recruiter: false, support: true },
+        roles: {
+          superAdmin: true,
+          admin: true,
+          recruiter: false,
+          support: true,
+        },
       },
       {
         label: "[Permission Label]",
-        roles: { superAdmin: true, admin: true, recruiter: true, support: false },
+        roles: {
+          superAdmin: true,
+          admin: true,
+          recruiter: true,
+          support: false,
+        },
       },
       {
         label: "[Permission Label]",
-        roles: { superAdmin: true, admin: true, recruiter: true, support: false },
+        roles: {
+          superAdmin: true,
+          admin: true,
+          recruiter: true,
+          support: false,
+        },
       },
       {
         label: "[Permission Label]",
-        roles: { superAdmin: true, admin: true, recruiter: true, support: false },
+        roles: {
+          superAdmin: true,
+          admin: true,
+          recruiter: true,
+          support: false,
+        },
       },
     ],
   },
@@ -262,11 +312,21 @@ const INITIAL_ROLE_PERMISSIONS: RolePermissionCategory[] = [
     permissions: [
       {
         label: "View Billing",
-        roles: { superAdmin: true, admin: true, recruiter: false, support: true },
+        roles: {
+          superAdmin: true,
+          admin: true,
+          recruiter: false,
+          support: true,
+        },
       },
       {
         label: "Configure Billing",
-        roles: { superAdmin: true, admin: true, recruiter: true, support: false },
+        roles: {
+          superAdmin: true,
+          admin: true,
+          recruiter: true,
+          support: false,
+        },
       },
     ],
   },
@@ -275,15 +335,30 @@ const INITIAL_ROLE_PERMISSIONS: RolePermissionCategory[] = [
     permissions: [
       {
         label: "Company Settings",
-        roles: { superAdmin: true, admin: true, recruiter: true, support: true },
+        roles: {
+          superAdmin: true,
+          admin: true,
+          recruiter: true,
+          support: true,
+        },
       },
       {
         label: "SAML Integration",
-        roles: { superAdmin: true, admin: true, recruiter: false, support: false },
+        roles: {
+          superAdmin: true,
+          admin: true,
+          recruiter: false,
+          support: false,
+        },
       },
       {
         label: "Customization",
-        roles: { superAdmin: true, admin: true, recruiter: false, support: false },
+        roles: {
+          superAdmin: true,
+          admin: true,
+          recruiter: false,
+          support: false,
+        },
       },
     ],
   },
@@ -294,7 +369,6 @@ const LOGIN_IMAGE_PLACEHOLDER =
 
 const PORTAL_INSTRUCTIONS_PLACEHOLDER =
   "https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F67d571b6d4e44b9d89c7487a4b1437be?format=webp&width=800";
-
 
 // Uploaded File Type
 interface UploadedFile {
@@ -330,16 +404,16 @@ function TerminationUploadArea({ isMobile }: { isMobile: boolean }) {
       progress += 10;
       setUploadedFiles((prev) =>
         prev.map((f) =>
-          f.id === fileId ? { ...f, progress: Math.min(progress, 100) } : f
-        )
+          f.id === fileId ? { ...f, progress: Math.min(progress, 100) } : f,
+        ),
       );
 
       if (progress >= 100) {
         clearInterval(interval);
         setUploadedFiles((prev) =>
           prev.map((f) =>
-            f.id === fileId ? { ...f, status: "complete" as const } : f
-          )
+            f.id === fileId ? { ...f, status: "complete" as const } : f,
+          ),
         );
       }
     }, 100);
@@ -430,8 +504,8 @@ function TerminationUploadArea({ isMobile }: { isMobile: boolean }) {
                 ? fileSize
                 : formatFileSize(
                     Math.round(
-                      (uploadedFile.file.size * uploadedFile.progress) / 100
-                    )
+                      (uploadedFile.file.size * uploadedFile.progress) / 100,
+                    ),
                   );
 
             return (
@@ -965,22 +1039,32 @@ export default function CompanySettings() {
     null,
   );
   const [deleteUserModalOpen, setDeleteUserModalOpen] = React.useState(false);
-  const [userToDelete, setUserToDelete] = React.useState<{ id: number; name: string } | null>(null);
-  const [teamSubTab, setTeamSubTab] = React.useState<'members' | 'permissions'>('members');
-  const [rolePermissions, setRolePermissions] =
-    React.useState<RolePermissionCategory[]>(() => INITIAL_ROLE_PERMISSIONS);
+  const [userToDelete, setUserToDelete] = React.useState<{
+    id: number;
+    name: string;
+  } | null>(null);
+  const [teamSubTab, setTeamSubTab] = React.useState<"members" | "permissions">(
+    "members",
+  );
+  const [rolePermissions, setRolePermissions] = React.useState<
+    RolePermissionCategory[]
+  >(() => INITIAL_ROLE_PERMISSIONS);
 
   // Customization state
   const [companyName, setCompanyName] = React.useState("");
   const [customDomain, setCustomDomain] = React.useState("");
   const [brandColor, setBrandColor] = React.useState(DEFAULT_BRAND_COLOR);
-  const [displayPreference, setDisplayPreference] = React.useState<'system' | 'light' | 'dark'>('system');
-  const [uiStyling, setUiStyling] = React.useState<'pill' | 'round' | 'sharp'>('round');
+  const [displayPreference, setDisplayPreference] = React.useState<
+    "system" | "light" | "dark"
+  >("system");
+  const [uiStyling, setUiStyling] = React.useState<"pill" | "round" | "sharp">(
+    "round",
+  );
 
   const [initialState, setInitialState] = React.useState({
     brandColor: DEFAULT_BRAND_COLOR,
-    displayPreference: 'system' as const,
-    uiStyling: 'round' as const,
+    displayPreference: "system" as const,
+    uiStyling: "round" as const,
   });
 
   React.useEffect(() => {
@@ -999,7 +1083,8 @@ export default function CompanySettings() {
   const [isEditingHex, setIsEditingHex] = React.useState(false);
 
   // Create Category Modal State
-  const [isCreateCategoryModalOpen, setIsCreateCategoryModalOpen] = React.useState(false);
+  const [isCreateCategoryModalOpen, setIsCreateCategoryModalOpen] =
+    React.useState(false);
   const [categoryName, setCategoryName] = React.useState("");
   const [categoryDescription, setCategoryDescription] = React.useState("");
   const [subcategories, setSubcategories] = React.useState<string[]>([""]);
@@ -1024,15 +1109,24 @@ export default function CompanySettings() {
   const [categories, setCategories] = React.useState<Category[]>([]);
 
   // Edit Category Modal State
-  const [isEditCategoryModalOpen, setIsEditCategoryModalOpen] = React.useState(false);
-  const [editingCategory, setEditingCategory] = React.useState<Category | null>(null);
+  const [isEditCategoryModalOpen, setIsEditCategoryModalOpen] =
+    React.useState(false);
+  const [editingCategory, setEditingCategory] = React.useState<Category | null>(
+    null,
+  );
   const [editCategoryName, setEditCategoryName] = React.useState("");
-  const [editCategoryDescription, setEditCategoryDescription] = React.useState("");
-  const [editSubcategories, setEditSubcategories] = React.useState<string[]>([""]);
+  const [editCategoryDescription, setEditCategoryDescription] =
+    React.useState("");
+  const [editSubcategories, setEditSubcategories] = React.useState<string[]>([
+    "",
+  ]);
 
   // Add Resource Modal State
-  const [isAddResourceModalOpen, setIsAddResourceModalOpen] = React.useState(false);
-  const [resourceUploadType, setResourceUploadType] = React.useState<"upload" | "link">("upload");
+  const [isAddResourceModalOpen, setIsAddResourceModalOpen] =
+    React.useState(false);
+  const [resourceUploadType, setResourceUploadType] = React.useState<
+    "upload" | "link"
+  >("upload");
   const [resourceFileName, setResourceFileName] = React.useState("");
   const [resourceDescription, setResourceDescription] = React.useState("");
   const [resourceMainCategory, setResourceMainCategory] = React.useState("");
@@ -1043,17 +1137,30 @@ export default function CompanySettings() {
   const [resourceVideoName, setResourceVideoName] = React.useState("");
 
   // Delete Resource Modal State
-  const [isDeleteResourceModalOpen, setIsDeleteResourceModalOpen] = React.useState(false);
-  const [resourceToDelete, setResourceToDelete] = React.useState<{resource: Resource, categoryName: string, subcategoryName: string} | null>(null);
+  const [isDeleteResourceModalOpen, setIsDeleteResourceModalOpen] =
+    React.useState(false);
+  const [resourceToDelete, setResourceToDelete] = React.useState<{
+    resource: Resource;
+    categoryName: string;
+    subcategoryName: string;
+  } | null>(null);
 
   // Edit Resource Modal State
-  const [isEditResourceModalOpen, setIsEditResourceModalOpen] = React.useState(false);
-  const [editingResource, setEditingResource] = React.useState<{resource: Resource, categoryName: string, subcategoryName: string} | null>(null);
+  const [isEditResourceModalOpen, setIsEditResourceModalOpen] =
+    React.useState(false);
+  const [editingResource, setEditingResource] = React.useState<{
+    resource: Resource;
+    categoryName: string;
+    subcategoryName: string;
+  } | null>(null);
   const [editResourceName, setEditResourceName] = React.useState("");
-  const [editResourceDescription, setEditResourceDescription] = React.useState("");
+  const [editResourceDescription, setEditResourceDescription] =
+    React.useState("");
   const [editResourceCategory, setEditResourceCategory] = React.useState("");
-  const [editResourceSubCategory, setEditResourceSubCategory] = React.useState("");
-  const [editShowInQuickResources, setEditShowInQuickResources] = React.useState(false);
+  const [editResourceSubCategory, setEditResourceSubCategory] =
+    React.useState("");
+  const [editShowInQuickResources, setEditShowInQuickResources] =
+    React.useState(false);
 
   const appliedBrandColor = React.useMemo(
     () => normalizeHex(brandColor) ?? DEFAULT_BRAND_COLOR,
@@ -1070,10 +1177,7 @@ export default function CompanySettings() {
     [previewColor],
   );
 
-  const hueColor = React.useMemo(
-    () => hsvToHex(hue, 1, 1),
-    [hue],
-  );
+  const hueColor = React.useMemo(() => hsvToHex(hue, 1, 1), [hue]);
 
   const saturationGradientLeft = React.useMemo(
     () => hsvToHex(hue, 0, value),
@@ -1119,7 +1223,11 @@ export default function CompanySettings() {
       const rect = event.currentTarget.getBoundingClientRect();
       const updateFromPointer = (clientX: number, clientY: number) => {
         const saturationValue = clamp((clientX - rect.left) / rect.width, 0, 1);
-        const brightnessValue = clamp(1 - (clientY - rect.top) / rect.height, 0, 1);
+        const brightnessValue = clamp(
+          1 - (clientY - rect.top) / rect.height,
+          0,
+          1,
+        );
         setSaturation(saturationValue);
         setValue(brightnessValue);
       };
@@ -1197,9 +1305,12 @@ export default function CompanySettings() {
   );
 
   const [loginImageEnabled, setLoginImageEnabled] = React.useState(true);
-  const [portalInstructionsEnabled, setPortalInstructionsEnabled] = React.useState(true);
+  const [portalInstructionsEnabled, setPortalInstructionsEnabled] =
+    React.useState(true);
   const loginImageInputRef = React.useRef<HTMLInputElement | null>(null);
-  const portalInstructionsInputRef = React.useRef<HTMLInputElement | null>(null);
+  const portalInstructionsInputRef = React.useRef<HTMLInputElement | null>(
+    null,
+  );
   const buttonCornerRadius = React.useMemo(() => {
     if (uiStyling === "pill") {
       return "9999px";
@@ -1212,9 +1323,8 @@ export default function CompanySettings() {
   const [loginImagePreview, setLoginImagePreview] = React.useState<string>(
     LOGIN_IMAGE_PLACEHOLDER,
   );
-  const [portalInstructionsPreview, setPortalInstructionsPreview] = React.useState<string>(
-    PORTAL_INSTRUCTIONS_PLACEHOLDER,
-  );
+  const [portalInstructionsPreview, setPortalInstructionsPreview] =
+    React.useState<string>(PORTAL_INSTRUCTIONS_PLACEHOLDER);
 
   const processImageSelection = React.useCallback(
     (
@@ -1229,7 +1339,8 @@ export default function CompanySettings() {
       if (!file.type.startsWith("image/")) {
         toast({
           title: "Unsupported file type",
-          description: "Please upload an image in SVG, PNG, JPG, or GIF format.",
+          description:
+            "Please upload an image in SVG, PNG, JPG, or GIF format.",
           variant: "destructive",
         });
         return;
@@ -1673,7 +1784,9 @@ export default function CompanySettings() {
                       margin: "2px 0 0 0",
                     }}
                   >
-                    Update multiple users at once by uploading a spreadsheet with their termination dates. You can use our sample file to get started.
+                    Update multiple users at once by uploading a spreadsheet
+                    with their termination dates. You can use our sample file to
+                    get started.
                   </p>
                 </div>
 
@@ -1735,7 +1848,8 @@ export default function CompanySettings() {
                         borderRadius: "8px",
                         border: "1px solid #D5D7DA",
                         background: "#FFF",
-                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                         cursor: "pointer",
                       }}
                       onMouseEnter={(e) => {
@@ -4056,7 +4170,7 @@ export default function CompanySettings() {
                   }}
                 >
                   <button
-                    onClick={() => setTeamSubTab('members')}
+                    onClick={() => setTeamSubTab("members")}
                     style={{
                       display: "flex",
                       height: "36px",
@@ -4065,9 +4179,11 @@ export default function CompanySettings() {
                       alignItems: "center",
                       gap: "8px",
                       borderRadius: "6px",
-                      border: teamSubTab === 'members' ? "1px solid #B3BCE5" : "none",
-                      background: teamSubTab === 'members' ? "#ECEEF9" : "transparent",
-                      color: teamSubTab === 'members' ? "#273572" : "#717680",
+                      border:
+                        teamSubTab === "members" ? "1px solid #B3BCE5" : "none",
+                      background:
+                        teamSubTab === "members" ? "#ECEEF9" : "transparent",
+                      color: teamSubTab === "members" ? "#273572" : "#717680",
                       fontFamily: "Public Sans",
                       fontSize: "14px",
                       fontWeight: 600,
@@ -4078,7 +4194,7 @@ export default function CompanySettings() {
                     Members
                   </button>
                   <button
-                    onClick={() => setTeamSubTab('permissions')}
+                    onClick={() => setTeamSubTab("permissions")}
                     style={{
                       display: "flex",
                       height: "36px",
@@ -4087,9 +4203,16 @@ export default function CompanySettings() {
                       alignItems: "center",
                       gap: "8px",
                       borderRadius: "6px",
-                      border: teamSubTab === 'permissions' ? "1px solid #B3BCE5" : "none",
-                      background: teamSubTab === 'permissions' ? "#ECEEF9" : "transparent",
-                      color: teamSubTab === 'permissions' ? "#273572" : "#717680",
+                      border:
+                        teamSubTab === "permissions"
+                          ? "1px solid #B3BCE5"
+                          : "none",
+                      background:
+                        teamSubTab === "permissions"
+                          ? "#ECEEF9"
+                          : "transparent",
+                      color:
+                        teamSubTab === "permissions" ? "#273572" : "#717680",
                       fontFamily: "Public Sans",
                       fontSize: "14px",
                       fontWeight: 600,
@@ -4102,146 +4225,181 @@ export default function CompanySettings() {
                 </div>
 
                 {/* Members Table Section */}
-                {teamSubTab === 'members' && (
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    width: "100%",
-                    borderRadius: "12px",
-                    border: "1px solid #E9EAEB",
-                    background: "#FFF",
-                    overflow: "hidden",
-                    boxSizing: "border-box",
-                  }}
-                >
-                  {/* Table Header */}
+                {teamSubTab === "members" && (
                   <div
                     style={{
                       display: "flex",
-                      padding: "16px 16px 12px 16px",
                       flexDirection: "column",
-                      gap: "16px",
+                      alignItems: "flex-start",
                       width: "100%",
+                      borderRadius: "12px",
+                      border: "1px solid #E9EAEB",
+                      background: "#FFF",
+                      overflow: "hidden",
                       boxSizing: "border-box",
-                      borderBottom: "1px solid #E9EAEB",
                     }}
                   >
-                    {/* Top row with title and search/view toggle */}
+                    {/* Table Header */}
                     <div
                       style={{
                         display: "flex",
-                        flexDirection: isTablet ? "row" : isMobile ? "column" : "row",
-                        alignItems: isTablet ? "flex-end" : isMobile ? "flex-start" : "center",
-                        gap: isTablet ? "4px" : "16px",
+                        padding: "16px 16px 12px 16px",
+                        flexDirection: "column",
+                        gap: "16px",
                         width: "100%",
+                        boxSizing: "border-box",
+                        borderBottom: "1px solid #E9EAEB",
                       }}
                     >
+                      {/* Top row with title and search/view toggle */}
                       <div
                         style={{
-                          flex: isTablet || isDesktop ? "1 0 0" : "auto",
-                          color: "#181D27",
-                          fontFamily: "Public Sans",
-                          fontSize: "18px",
-                          fontWeight: 600,
-                          lineHeight: "28px",
+                          display: "flex",
+                          flexDirection: isTablet
+                            ? "row"
+                            : isMobile
+                              ? "column"
+                              : "row",
+                          alignItems: isTablet
+                            ? "flex-end"
+                            : isMobile
+                              ? "flex-start"
+                              : "center",
+                          gap: isTablet ? "4px" : "16px",
+                          width: "100%",
                         }}
                       >
-                        Members
-                      </div>
-
-                      {isTablet && (
                         <div
                           style={{
-                            display: "flex",
-                            alignItems: "flex-start",
-                            gap: "10px",
-                            flex: "1 0 0",
+                            flex: isTablet || isDesktop ? "1 0 0" : "auto",
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "18px",
+                            fontWeight: 600,
+                            lineHeight: "28px",
                           }}
                         >
-                          {/* View Toggle Button Group */}
+                          Members
+                        </div>
+
+                        {isTablet && (
                           <div
                             style={{
                               display: "flex",
                               alignItems: "flex-start",
-                              borderRadius: "8px",
-                              border: "1px solid #D5D7DA",
-                              boxShadow:
-                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              gap: "10px",
+                              flex: "1 0 0",
                             }}
                           >
-                            <button
+                            {/* View Toggle Button Group */}
+                            <div
                               style={{
                                 display: "flex",
-                                minHeight: "40px",
-                                padding: "8px 12px",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                gap: "6px",
-                                borderRight: "1px solid #D5D7DA",
-                                background: "#D9DEF2",
-                                border: "none",
-                                borderRadius: "0",
-                                cursor: "pointer",
+                                alignItems: "flex-start",
+                                borderRadius: "8px",
+                                border: "1px solid #D5D7DA",
+                                boxShadow:
+                                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               }}
                             >
-                              <svg
-                                width="24"
-                                height="20"
-                                viewBox="0 0 24 20"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
+                              <button
+                                style={{
+                                  display: "flex",
+                                  minHeight: "40px",
+                                  padding: "8px 12px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  gap: "6px",
+                                  borderRight: "1px solid #D5D7DA",
+                                  background: "#D9DEF2",
+                                  border: "none",
+                                  borderRadius: "0",
+                                  cursor: "pointer",
+                                }}
                               >
-                                <path
-                                  d="M3 7.5L21 7.5M9 2.5L9 17.5M7.8 2.5H16.2C17.8802 2.5 18.7202 2.5 19.362 2.77248C19.9265 3.01217 20.3854 3.39462 20.673 3.86502C21 4.3998 21 5.09987 21 6.5V13.5C21 14.9001 21 15.6002 20.673 16.135C20.3854 16.6054 19.9265 16.9878 19.362 17.2275C18.7202 17.5 17.8802 17.5 16.2 17.5H7.8C6.11984 17.5 5.27976 17.5 4.63803 17.2275C4.07354 16.9878 3.6146 16.6054 3.32698 16.135C3 15.6002 3 14.9001 3 13.5V6.5C3 5.09987 3 4.3998 3.32698 3.86502C3.6146 3.39462 4.07354 3.01217 4.63803 2.77248C5.27976 2.5 6.11984 2.5 7.8 2.5Z"
-                                  stroke="#344698"
-                                  strokeWidth="1.66667"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            </button>
-                            <button
-                              style={{
-                                display: "flex",
-                                minHeight: "40px",
-                                padding: "8px 12px",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                gap: "6px",
-                                background: "#FFF",
-                                border: "none",
-                                borderRadius: "0",
-                                cursor: "pointer",
-                              }}
-                            >
-                              <svg
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
+                                <svg
+                                  width="24"
+                                  height="20"
+                                  viewBox="0 0 24 20"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M3 7.5L21 7.5M9 2.5L9 17.5M7.8 2.5H16.2C17.8802 2.5 18.7202 2.5 19.362 2.77248C19.9265 3.01217 20.3854 3.39462 20.673 3.86502C21 4.3998 21 5.09987 21 6.5V13.5C21 14.9001 21 15.6002 20.673 16.135C20.3854 16.6054 19.9265 16.9878 19.362 17.2275C18.7202 17.5 17.8802 17.5 16.2 17.5H7.8C6.11984 17.5 5.27976 17.5 4.63803 17.2275C4.07354 16.9878 3.6146 16.6054 3.32698 16.135C3 15.6002 3 14.9001 3 13.5V6.5C3 5.09987 3 4.3998 3.32698 3.86502C3.6146 3.39462 4.07354 3.01217 4.63803 2.77248C5.27976 2.5 6.11984 2.5 7.8 2.5Z"
+                                    stroke="#344698"
+                                    strokeWidth="1.66667"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              </button>
+                              <button
+                                style={{
+                                  display: "flex",
+                                  minHeight: "40px",
+                                  padding: "8px 12px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  gap: "6px",
+                                  background: "#FFF",
+                                  border: "none",
+                                  borderRadius: "0",
+                                  cursor: "pointer",
+                                }}
                               >
-                                <path
-                                  d="M17.8 10C18.9201 10 19.4802 10 19.908 9.78201C20.2843 9.59027 20.5903 9.28431 20.782 8.90798C21 8.48016 21 7.92011 21 6.8V6.2C21 5.0799 21 4.51984 20.782 4.09202C20.5903 3.7157 20.2843 3.40973 19.908 3.21799C19.4802 3 18.9201 3 17.8 3L6.2 3C5.0799 3 4.51984 3 4.09202 3.21799C3.71569 3.40973 3.40973 3.71569 3.21799 4.09202C3 4.51984 3 5.07989 3 6.2L3 6.8C3 7.9201 3 8.48016 3.21799 8.90798C3.40973 9.28431 3.71569 9.59027 4.09202 9.78201C4.51984 10 5.07989 10 6.2 10L17.8 10Z"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.66667"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                                <path
-                                  d="M17.8 21C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V17.2C21 16.0799 21 15.5198 20.782 15.092C20.5903 14.7157 20.2843 14.4097 19.908 14.218C19.4802 14 18.9201 14 17.8 14L6.2 14C5.0799 14 4.51984 14 4.09202 14.218C3.71569 14.4097 3.40973 14.7157 3.21799 15.092C3 15.5198 3 16.0799 3 17.2L3 17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21H17.8Z"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.66667"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            </button>
-                          </div>
+                                <svg
+                                  width="24"
+                                  height="24"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M17.8 10C18.9201 10 19.4802 10 19.908 9.78201C20.2843 9.59027 20.5903 9.28431 20.782 8.90798C21 8.48016 21 7.92011 21 6.8V6.2C21 5.0799 21 4.51984 20.782 4.09202C20.5903 3.7157 20.2843 3.40973 19.908 3.21799C19.4802 3 18.9201 3 17.8 3L6.2 3C5.0799 3 4.51984 3 4.09202 3.21799C3.71569 3.40973 3.40973 3.71569 3.21799 4.09202C3 4.51984 3 5.07989 3 6.2L3 6.8C3 7.9201 3 8.48016 3.21799 8.90798C3.40973 9.28431 3.71569 9.59027 4.09202 9.78201C4.51984 10 5.07989 10 6.2 10L17.8 10Z"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.66667"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                  <path
+                                    d="M17.8 21C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V17.2C21 16.0799 21 15.5198 20.782 15.092C20.5903 14.7157 20.2843 14.4097 19.908 14.218C19.4802 14 18.9201 14 17.8 14L6.2 14C5.0799 14 4.51984 14 4.09202 14.218C3.71569 14.4097 3.40973 14.7157 3.21799 15.092C3 15.5198 3 16.0799 3 17.2L3 17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21H17.8Z"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.66667"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              </button>
+                            </div>
 
-                          {/* Search Input */}
+                            {/* Search Input */}
+                            <input
+                              type="text"
+                              placeholder="Search by users or by roles"
+                              style={{
+                                display: "flex",
+                                height: "40px",
+                                padding: "8px",
+                                alignItems: "center",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "8px",
+                                border: "1px solid #D5D7DA",
+                                background: "#FFF",
+                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                                lineHeight: "20px",
+                                outline: "none",
+                                boxSizing: "border-box",
+                              }}
+                            />
+                          </div>
+                        )}
+
+                        {!isTablet && !isMobile && (
                           <input
                             type="text"
                             placeholder="Search by users or by roles"
@@ -4251,7 +4409,7 @@ export default function CompanySettings() {
                               padding: "8px",
                               alignItems: "center",
                               gap: "8px",
-                              flex: "1 0 0",
+                              width: "234px",
                               borderRadius: "8px",
                               border: "1px solid #D5D7DA",
                               background: "#FFF",
@@ -4265,685 +4423,185 @@ export default function CompanySettings() {
                               boxSizing: "border-box",
                             }}
                           />
-                        </div>
-                      )}
+                        )}
+                      </div>
 
-                      {!isTablet && !isMobile && (
-                        <input
-                          type="text"
-                          placeholder="Search by users or by roles"
+                      {/* Action buttons row */}
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "12px",
+                          alignSelf:
+                            isTablet || isMobile ? "stretch" : "flex-end",
+                          flexDirection: isMobile ? "column" : "row",
+                        }}
+                      >
+                        {isMobile && (
+                          <input
+                            type="text"
+                            placeholder="Search by users or by roles"
+                            style={{
+                              display: "flex",
+                              height: "40px",
+                              padding: "8px",
+                              alignItems: "center",
+                              gap: "8px",
+                              width: "100%",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              color: "#717680",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                              outline: "none",
+                              boxSizing: "border-box",
+                            }}
+                          />
+                        )}
+                        <button
                           style={{
                             display: "flex",
-                            height: "40px",
-                            padding: "8px",
+                            minHeight: "36px",
+                            padding: "6px 8px",
+                            justifyContent: "center",
                             alignItems: "center",
-                            gap: "8px",
-                            width: "234px",
+                            gap: "4px",
+                            flex: isTablet
+                              ? "1 0 0"
+                              : isMobile
+                                ? "auto"
+                                : "auto",
+                            width: isMobile ? "100%" : "auto",
                             borderRadius: "8px",
                             border: "1px solid #D5D7DA",
                             background: "#FFF",
-                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                            color: "#717680",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            color: "#414651",
                             fontFamily: "Public Sans",
                             fontSize: "14px",
-                            fontWeight: 500,
+                            fontWeight: 600,
                             lineHeight: "20px",
-                            outline: "none",
-                            boxSizing: "border-box",
-                          }}
-                        />
-                      )}
-                    </div>
-
-                    {/* Action buttons row */}
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "12px",
-                        alignSelf: isTablet || isMobile ? "stretch" : "flex-end",
-                        flexDirection: isMobile ? "column" : "row",
-                      }}
-                    >
-                      {isMobile && (
-                        <input
-                          type="text"
-                          placeholder="Search by users or by roles"
-                          style={{
-                            display: "flex",
-                            height: "40px",
-                            padding: "8px",
-                            alignItems: "center",
-                            gap: "8px",
-                            width: "100%",
-                            borderRadius: "8px",
-                            border: "1px solid #D5D7DA",
-                            background: "#FFF",
-                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                            color: "#717680",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontWeight: 500,
-                            lineHeight: "20px",
-                            outline: "none",
-                            boxSizing: "border-box",
-                          }}
-                        />
-                      )}
-                      <button
-                        style={{
-                          display: "flex",
-                          minHeight: "36px",
-                          padding: "6px 8px",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          gap: "4px",
-                          flex: isTablet ? "1 0 0" : isMobile ? "auto" : "auto",
-                          width: isMobile ? "100%" : "auto",
-                          borderRadius: "8px",
-                          border: "1px solid #D5D7DA",
-                          background: "#FFF",
-                          boxShadow:
-                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          color: "#414651",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 600,
-                          lineHeight: "20px",
-                          cursor: "pointer",
-                          whiteSpace: "nowrap",
-                        }}
-                      >
-                        Filters
-                      </button>
-                      <button
-                        style={{
-                          display: "flex",
-                          minHeight: "36px",
-                          padding: "6px 8px",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          gap: "4px",
-                          flex: isTablet ? "1 0 0" : isMobile ? "auto" : "auto",
-                          width: isMobile ? "100%" : "auto",
-                          borderRadius: "8px",
-                          border: "1px solid #D5D7DA",
-                          background: "#FFF",
-                          boxShadow:
-                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          color: "#414651",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 600,
-                          lineHeight: "20px",
-                          cursor: "pointer",
-                          whiteSpace: "nowrap",
-                        }}
-                      >
-                        Download
-                      </button>
-                      <button
-                        onClick={() => navigate("/invite-new-member")}
-                        style={{
-                          display: "flex",
-                          minHeight: "36px",
-                          padding: "6px 8px",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          gap: "4px",
-                          flex: isTablet ? "1 0 0" : isMobile ? "auto" : "auto",
-                          width: isMobile ? "100%" : "auto",
-                          borderRadius: "8px",
-                          border: "2px solid rgba(255, 255, 255, 0.12)",
-                          background: "#344698",
-                          boxShadow:
-                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          color: "#FFF",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 600,
-                          lineHeight: "20px",
-                          cursor: "pointer",
-                          whiteSpace: "nowrap",
-                        }}
-                      >
-                        Invite New Member
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Table Content - Responsive */}
-                  <div
-                    style={{
-                      width: "100%",
-                      overflowX: isMobile ? "auto" : "visible",
-                      boxSizing: "border-box",
-                    }}
-                  >
-                    <table
-                      style={{
-                        width: "100%",
-                        minWidth: isMobile ? "800px" : "100%",
-                        borderCollapse: "collapse",
-                      }}
-                    >
-                      <thead>
-                        <tr
-                          style={{
-                            borderBottom: "1px solid #E9EAEB",
-                            background: "#FFF",
+                            cursor: "pointer",
+                            whiteSpace: "nowrap",
                           }}
                         >
-                          <th
-                            style={{
-                              padding: "6px 12px",
-                              textAlign: "left",
-                            }}
-                          >
-                            <div
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "4px",
-                              }}
-                            >
-                              <span
-                                style={{
-                                  color: "#717680",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "12px",
-                                  fontWeight: 700,
-                                  lineHeight: "18px",
-                                }}
-                              >
-                                Name
-                              </span>
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M4.66669 10.0001L8.00002 13.3334L11.3334 10.0001M4.66669 6.00008L8.00002 2.66675L11.3334 6.00008"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.5"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            </div>
-                          </th>
-                          <th
-                            style={{
-                              padding: "6px 12px",
-                              textAlign: "left",
-                            }}
-                          >
-                            <div
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "4px",
-                              }}
-                            >
-                              <span
-                                style={{
-                                  color: "#717680",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "12px",
-                                  fontWeight: 700,
-                                  lineHeight: "18px",
-                                }}
-                              >
-                                Email
-                              </span>
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M4.66669 10.0001L8.00002 13.3334L11.3334 10.0001M4.66669 6.00008L8.00002 2.66675L11.3334 6.00008"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.5"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            </div>
-                          </th>
-                          <th
-                            style={{
-                              padding: "6px 12px",
-                              textAlign: "left",
-                            }}
-                          >
-                            <div
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "4px",
-                              }}
-                            >
-                              <span
-                                style={{
-                                  color: "#717680",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "12px",
-                                  fontWeight: 700,
-                                  lineHeight: "18px",
-                                }}
-                              >
-                                Role
-                              </span>
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M4.66669 10.0001L8.00002 13.3334L11.3334 10.0001M4.66669 6.00008L8.00002 2.66675L11.3334 6.00008"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.5"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            </div>
-                          </th>
-                          <th
-                            style={{
-                              padding: "6px 12px",
-                              textAlign: "left",
-                            }}
-                          >
-                            <div
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "4px",
-                              }}
-                            >
-                              <span
-                                style={{
-                                  color: "#717680",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "12px",
-                                  fontWeight: 700,
-                                  lineHeight: "18px",
-                                }}
-                              >
-                                Department
-                              </span>
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M4.66669 10.0001L8.00002 13.3334L11.3334 10.0001M4.66669 6.00008L8.00002 2.66675L11.3334 6.00008"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.5"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            </div>
-                          </th>
-                          <th
-                            style={{
-                              padding: "6px 12px",
-                              textAlign: "left",
-                            }}
-                          >
-                            <div
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "4px",
-                              }}
-                            >
-                              <span
-                                style={{
-                                  color: "#717680",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "12px",
-                                  fontWeight: 700,
-                                  lineHeight: "18px",
-                                }}
-                              >
-                                Last Active/ Invited
-                              </span>
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M4.66667 10.0001L8 13.3334L11.3333 10.0001M4.66667 6.00008L8 2.66675L11.3333 6.00008"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.5"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            </div>
-                          </th>
-                          <th
-                            style={{
-                              padding: "6px 12px",
-                              textAlign: "left",
-                            }}
-                          >
-                            <div
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "4px",
-                              }}
-                            >
-                              <span
-                                style={{
-                                  color: "#717680",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "12px",
-                                  fontWeight: 700,
-                                  lineHeight: "18px",
-                                }}
-                              >
-                                Status
-                              </span>
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M4.66666 10.0001L8 13.3334L11.3333 10.0001M4.66666 6.00008L8 2.66675L11.3333 6.00008"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.5"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            </div>
-                          </th>
-                          <th
-                            style={{
-                              padding: "6px 12px",
-                              textAlign: "left",
-                            }}
-                          >
-                            <div
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "4px",
-                              }}
-                            >
-                              <span
-                                style={{
-                                  color: "#717680",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "12px",
-                                  fontWeight: 700,
-                                  lineHeight: "18px",
-                                }}
-                              >
-                                Actions
-                              </span>
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M4.66667 10.0001L8 13.3334L11.3333 10.0001M4.66667 6.00008L8 2.66675L11.3333 6.00008"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.5"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            </div>
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {[
-                          {
-                            name: "Lucas Hernandez",
-                            email: "admin@acciodata.com",
-                            role: "Editor",
-                            department: "Finance",
-                            lastActive: "Feb 22, 2025, 08:10 PM",
-                            status: "Inactive",
-                          },
-                          {
-                            name: "Isabella Rodriguez",
-                            email: "support@acciodata.com",
-                            role: "Editor",
-                            department: "Human Resources",
-                            lastActive: "Mar 10, 2025, 09:30 AM",
-                            status: "Active",
-                          },
-                          {
-                            name: "Mason Martinez",
-                            email: "sso@acciodata.com",
-                            role: "Orders Only",
-                            department: "Talent Acquisition",
-                            lastActive: "Invited Jan 10, 2025",
-                            status: "Pending",
-                          },
-                          {
-                            name: "Emma Johnson",
-                            email: "deactivate@acciodata.com",
-                            role: "Admin",
-                            department: "Accounting",
-                            lastActive: "May 18, 2025, 11:45 AM",
-                            status: "Active",
-                          },
-                          {
-                            name: "Noah Davis",
-                            email: "security@acciodata.com",
-                            role: "Orders Only",
-                            department: "Customer Support",
-                            lastActive: "Jun 30, 2025, 03:00 PM",
-                            status: "Inactive",
-                          },
-                          {
-                            name: "Liam Smith",
-                            email: "newdevice@acciodata.com",
-                            role: "Admin",
-                            department: "Recruitment",
-                            lastActive: "Invited Jan 10, 2025",
-                            status: "Pending",
-                          },
-                          {
-                            name: "Ethan Miller",
-                            email: "alerts@acciodata.com",
-                            role: "Admin",
-                            department: "Employee Relations",
-                            lastActive: "Aug 25, 2025, 01:30 PM",
-                            status: "Inactive",
-                          },
-                          {
-                            name: "Olivia Brown",
-                            email: "export@acciodata.com",
-                            role: "Orders Only",
-                            department: "Training and Development",
-                            lastActive: "Sep 14, 2025, 04:00 PM",
-                            status: "Active",
-                          },
-                          {
-                            name: "Sophia Garcia",
-                            email: "timeout@acciodata.com",
-                            role: "Editor",
-                            department: "Payroll",
-                            lastActive: "Oct 29, 2025, 12:00 PM",
-                            status: "Active",
-                          },
-                          {
-                            name: "Ava Wilson",
-                            email: "settings@acciodata.com",
-                            role: "Editor",
-                            department: "Workplace Culture",
-                            lastActive: "Nov 11, 2025, 05:15 PM",
-                            status: "Active",
-                          },
-                        ].map((member, index) => (
+                          Filters
+                        </button>
+                        <button
+                          style={{
+                            display: "flex",
+                            minHeight: "36px",
+                            padding: "6px 8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "4px",
+                            flex: isTablet
+                              ? "1 0 0"
+                              : isMobile
+                                ? "auto"
+                                : "auto",
+                            width: isMobile ? "100%" : "auto",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                            cursor: "pointer",
+                            whiteSpace: "nowrap",
+                          }}
+                        >
+                          Download
+                        </button>
+                        <button
+                          onClick={() => navigate("/invite-new-member")}
+                          style={{
+                            display: "flex",
+                            minHeight: "36px",
+                            padding: "6px 8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "4px",
+                            flex: isTablet
+                              ? "1 0 0"
+                              : isMobile
+                                ? "auto"
+                                : "auto",
+                            width: isMobile ? "100%" : "auto",
+                            borderRadius: "8px",
+                            border: "2px solid rgba(255, 255, 255, 0.12)",
+                            background: "#344698",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            color: "#FFF",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                            cursor: "pointer",
+                            whiteSpace: "nowrap",
+                          }}
+                        >
+                          Invite New Member
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Table Content - Responsive */}
+                    <div
+                      style={{
+                        width: "100%",
+                        overflowX: isMobile ? "auto" : "visible",
+                        boxSizing: "border-box",
+                      }}
+                    >
+                      <table
+                        style={{
+                          width: "100%",
+                          minWidth: isMobile ? "800px" : "100%",
+                          borderCollapse: "collapse",
+                        }}
+                      >
+                        <thead>
                           <tr
-                            key={index}
-                            onMouseEnter={() => setHoveredRowIndex(index)}
-                            onMouseLeave={() => setHoveredRowIndex(null)}
                             style={{
                               borderBottom: "1px solid #E9EAEB",
-                              background:
-                                hoveredRowIndex === index
-                                  ? "#F5F5F5"
-                                  : "transparent",
-                              transition: "background-color 0.15s ease",
+                              background: "#FFF",
                             }}
                           >
-                            <td
+                            <th
                               style={{
-                                padding: "12px",
-                                color: "#181D27",
-                                fontFamily: "Public Sans",
-                                fontSize: "14px",
-                                fontWeight: 500,
-                                lineHeight: "20px",
+                                padding: "6px 12px",
+                                textAlign: "left",
                               }}
                             >
-                              {member.name}
-                            </td>
-                            <td
-                              style={{
-                                padding: "12px",
-                                color: "#181D27",
-                                fontFamily: "Public Sans",
-                                fontSize: "14px",
-                                fontWeight: 500,
-                                lineHeight: "20px",
-                              }}
-                            >
-                              {member.email}
-                            </td>
-                            <td
-                              style={{
-                                padding: "12px",
-                                color: "#181D27",
-                                fontFamily: "Public Sans",
-                                fontSize: "14px",
-                                fontWeight: 500,
-                                lineHeight: "20px",
-                              }}
-                            >
-                              {member.role}
-                            </td>
-                            <td
-                              style={{
-                                padding: "12px",
-                                color: "#181D27",
-                                fontFamily: "Public Sans",
-                                fontSize: "14px",
-                                fontWeight: 500,
-                                lineHeight: "20px",
-                              }}
-                            >
-                              {member.department}
-                            </td>
-                            <td
-                              style={{
-                                padding: "12px",
-                                color: "#181D27",
-                                fontFamily: "Public Sans",
-                                fontSize: "14px",
-                                fontWeight: 500,
-                                lineHeight: "20px",
-                              }}
-                            >
-                              {member.lastActive}
-                            </td>
-                            <td
-                              style={{
-                                padding: "12px",
-                              }}
-                            >
-                              <span
+                              <div
                                 style={{
-                                  display: "inline-flex",
-                                  padding: "2px 8px",
+                                  display: "flex",
                                   alignItems: "center",
-                                  borderRadius: "9999px",
-                                  border:
-                                    member.status === "Active"
-                                      ? "1px solid #ABEFC6"
-                                      : member.status === "Pending"
-                                        ? "1px solid #B2DDFF"
-                                        : "1px solid #E9EAEB",
-                                  background:
-                                    member.status === "Active"
-                                      ? "#ECFDF3"
-                                      : member.status === "Pending"
-                                        ? "#EFF8FF"
-                                        : "#FAFAFA",
-                                  color:
-                                    member.status === "Active"
-                                      ? "#067647"
-                                      : member.status === "Pending"
-                                        ? "#175CD3"
-                                        : "#414651",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "12px",
-                                  fontWeight: 500,
-                                  lineHeight: "18px",
+                                  gap: "4px",
                                 }}
                               >
-                                {member.status}
-                              </span>
-                            </td>
-                            <td
-                              style={{
-                                padding: "12px",
-                                textAlign: "center",
-                                position: "relative",
-                              }}
-                            >
-                              <button
-                                onClick={() =>
-                                  setOpenDropdownIndex(
-                                    openDropdownIndex === index ? null : index,
-                                  )
-                                }
-                                style={{
-                                  display: "inline-flex",
-                                  padding: "8px",
-                                  justifyContent: "center",
-                                  alignItems: "center",
-                                  borderRadius: "8px",
-                                  border: "none",
-                                  background:
-                                    hoveredRowIndex === index
-                                      ? "#FDFDFD"
-                                      : "transparent",
-                                  cursor: "pointer",
-                                }}
-                              >
+                                <span
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontWeight: 700,
+                                    lineHeight: "18px",
+                                  }}
+                                >
+                                  Name
+                                </span>
                                 <svg
                                   width="16"
                                   height="16"
@@ -4952,327 +4610,799 @@ export default function CompanySettings() {
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
                                   <path
-                                    d="M8 8.66675C8.36819 8.66675 8.66667 8.36827 8.66667 8.00008C8.66667 7.63189 8.36819 7.33341 8 7.33341C7.63181 7.33341 7.33333 7.63189 7.33333 8.00008C7.33333 8.36827 7.63181 8.66675 8 8.66675Z"
-                                    stroke="#717680"
-                                    strokeWidth="1.66667"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                  />
-                                  <path
-                                    d="M8 4.00008C8.36819 4.00008 8.66667 3.7016 8.66667 3.33341C8.66667 2.96522 8.36819 2.66675 8 2.66675C7.63181 2.66675 7.33333 2.96522 7.33333 3.33341C7.33333 3.7016 7.63181 4.00008 8 4.00008Z"
-                                    stroke="#717680"
-                                    strokeWidth="1.66667"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                  />
-                                  <path
-                                    d="M8 13.3334C8.36819 13.3334 8.66667 13.0349 8.66667 12.6667C8.66667 12.2986 8.36819 12.0001 8 12.0001C7.63181 12.0001 7.33333 12.2986 7.33333 12.6667C7.33333 13.0349 7.63181 13.3334 8 13.3334Z"
-                                    stroke="#717680"
-                                    strokeWidth="1.66667"
+                                    d="M4.66669 10.0001L8.00002 13.3334L11.3334 10.0001M4.66669 6.00008L8.00002 2.66675L11.3334 6.00008"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.5"
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
                                   />
                                 </svg>
-                              </button>
-                              {openDropdownIndex === index && (
-                                <div
-                                  data-dropdown-menu
+                              </div>
+                            </th>
+                            <th
+                              style={{
+                                padding: "6px 12px",
+                                textAlign: "left",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                }}
+                              >
+                                <span
                                   style={{
-                                    position: "absolute",
-                                    right: "20px",
-                                    top: "50px",
-                                    zIndex: 1000,
-                                    minWidth: "180px",
-                                    borderRadius: "8px",
-                                    border: "1px solid rgba(0, 0, 0, 0.08)",
-                                    background: "#FFF",
-                                    boxShadow:
-                                      "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontWeight: 700,
+                                    lineHeight: "18px",
                                   }}
                                 >
+                                  Email
+                                </span>
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M4.66669 10.0001L8.00002 13.3334L11.3334 10.0001M4.66669 6.00008L8.00002 2.66675L11.3334 6.00008"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              </div>
+                            </th>
+                            <th
+                              style={{
+                                padding: "6px 12px",
+                                textAlign: "left",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontWeight: 700,
+                                    lineHeight: "18px",
+                                  }}
+                                >
+                                  Role
+                                </span>
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M4.66669 10.0001L8.00002 13.3334L11.3334 10.0001M4.66669 6.00008L8.00002 2.66675L11.3334 6.00008"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              </div>
+                            </th>
+                            <th
+                              style={{
+                                padding: "6px 12px",
+                                textAlign: "left",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontWeight: 700,
+                                    lineHeight: "18px",
+                                  }}
+                                >
+                                  Department
+                                </span>
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M4.66669 10.0001L8.00002 13.3334L11.3334 10.0001M4.66669 6.00008L8.00002 2.66675L11.3334 6.00008"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              </div>
+                            </th>
+                            <th
+                              style={{
+                                padding: "6px 12px",
+                                textAlign: "left",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontWeight: 700,
+                                    lineHeight: "18px",
+                                  }}
+                                >
+                                  Last Active/ Invited
+                                </span>
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M4.66667 10.0001L8 13.3334L11.3333 10.0001M4.66667 6.00008L8 2.66675L11.3333 6.00008"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              </div>
+                            </th>
+                            <th
+                              style={{
+                                padding: "6px 12px",
+                                textAlign: "left",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontWeight: 700,
+                                    lineHeight: "18px",
+                                  }}
+                                >
+                                  Status
+                                </span>
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M4.66666 10.0001L8 13.3334L11.3333 10.0001M4.66666 6.00008L8 2.66675L11.3333 6.00008"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              </div>
+                            </th>
+                            <th
+                              style={{
+                                padding: "6px 12px",
+                                textAlign: "left",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontWeight: 700,
+                                    lineHeight: "18px",
+                                  }}
+                                >
+                                  Actions
+                                </span>
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M4.66667 10.0001L8 13.3334L11.3333 10.0001M4.66667 6.00008L8 2.66675L11.3333 6.00008"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              </div>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {[
+                            {
+                              name: "Lucas Hernandez",
+                              email: "admin@acciodata.com",
+                              role: "Editor",
+                              department: "Finance",
+                              lastActive: "Feb 22, 2025, 08:10 PM",
+                              status: "Inactive",
+                            },
+                            {
+                              name: "Isabella Rodriguez",
+                              email: "support@acciodata.com",
+                              role: "Editor",
+                              department: "Human Resources",
+                              lastActive: "Mar 10, 2025, 09:30 AM",
+                              status: "Active",
+                            },
+                            {
+                              name: "Mason Martinez",
+                              email: "sso@acciodata.com",
+                              role: "Orders Only",
+                              department: "Talent Acquisition",
+                              lastActive: "Invited Jan 10, 2025",
+                              status: "Pending",
+                            },
+                            {
+                              name: "Emma Johnson",
+                              email: "deactivate@acciodata.com",
+                              role: "Admin",
+                              department: "Accounting",
+                              lastActive: "May 18, 2025, 11:45 AM",
+                              status: "Active",
+                            },
+                            {
+                              name: "Noah Davis",
+                              email: "security@acciodata.com",
+                              role: "Orders Only",
+                              department: "Customer Support",
+                              lastActive: "Jun 30, 2025, 03:00 PM",
+                              status: "Inactive",
+                            },
+                            {
+                              name: "Liam Smith",
+                              email: "newdevice@acciodata.com",
+                              role: "Admin",
+                              department: "Recruitment",
+                              lastActive: "Invited Jan 10, 2025",
+                              status: "Pending",
+                            },
+                            {
+                              name: "Ethan Miller",
+                              email: "alerts@acciodata.com",
+                              role: "Admin",
+                              department: "Employee Relations",
+                              lastActive: "Aug 25, 2025, 01:30 PM",
+                              status: "Inactive",
+                            },
+                            {
+                              name: "Olivia Brown",
+                              email: "export@acciodata.com",
+                              role: "Orders Only",
+                              department: "Training and Development",
+                              lastActive: "Sep 14, 2025, 04:00 PM",
+                              status: "Active",
+                            },
+                            {
+                              name: "Sophia Garcia",
+                              email: "timeout@acciodata.com",
+                              role: "Editor",
+                              department: "Payroll",
+                              lastActive: "Oct 29, 2025, 12:00 PM",
+                              status: "Active",
+                            },
+                            {
+                              name: "Ava Wilson",
+                              email: "settings@acciodata.com",
+                              role: "Editor",
+                              department: "Workplace Culture",
+                              lastActive: "Nov 11, 2025, 05:15 PM",
+                              status: "Active",
+                            },
+                          ].map((member, index) => (
+                            <tr
+                              key={index}
+                              onMouseEnter={() => setHoveredRowIndex(index)}
+                              onMouseLeave={() => setHoveredRowIndex(null)}
+                              style={{
+                                borderBottom: "1px solid #E9EAEB",
+                                background:
+                                  hoveredRowIndex === index
+                                    ? "#F5F5F5"
+                                    : "transparent",
+                                transition: "background-color 0.15s ease",
+                              }}
+                            >
+                              <td
+                                style={{
+                                  padding: "12px",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                }}
+                              >
+                                {member.name}
+                              </td>
+                              <td
+                                style={{
+                                  padding: "12px",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                }}
+                              >
+                                {member.email}
+                              </td>
+                              <td
+                                style={{
+                                  padding: "12px",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                }}
+                              >
+                                {member.role}
+                              </td>
+                              <td
+                                style={{
+                                  padding: "12px",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                }}
+                              >
+                                {member.department}
+                              </td>
+                              <td
+                                style={{
+                                  padding: "12px",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                }}
+                              >
+                                {member.lastActive}
+                              </td>
+                              <td
+                                style={{
+                                  padding: "12px",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    display: "inline-flex",
+                                    padding: "2px 8px",
+                                    alignItems: "center",
+                                    borderRadius: "9999px",
+                                    border:
+                                      member.status === "Active"
+                                        ? "1px solid #ABEFC6"
+                                        : member.status === "Pending"
+                                          ? "1px solid #B2DDFF"
+                                          : "1px solid #E9EAEB",
+                                    background:
+                                      member.status === "Active"
+                                        ? "#ECFDF3"
+                                        : member.status === "Pending"
+                                          ? "#EFF8FF"
+                                          : "#FAFAFA",
+                                    color:
+                                      member.status === "Active"
+                                        ? "#067647"
+                                        : member.status === "Pending"
+                                          ? "#175CD3"
+                                          : "#414651",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontWeight: 500,
+                                    lineHeight: "18px",
+                                  }}
+                                >
+                                  {member.status}
+                                </span>
+                              </td>
+                              <td
+                                style={{
+                                  padding: "12px",
+                                  textAlign: "center",
+                                  position: "relative",
+                                }}
+                              >
+                                <button
+                                  onClick={() =>
+                                    setOpenDropdownIndex(
+                                      openDropdownIndex === index
+                                        ? null
+                                        : index,
+                                    )
+                                  }
+                                  style={{
+                                    display: "inline-flex",
+                                    padding: "8px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    borderRadius: "8px",
+                                    border: "none",
+                                    background:
+                                      hoveredRowIndex === index
+                                        ? "#FDFDFD"
+                                        : "transparent",
+                                    cursor: "pointer",
+                                  }}
+                                >
+                                  <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M8 8.66675C8.36819 8.66675 8.66667 8.36827 8.66667 8.00008C8.66667 7.63189 8.36819 7.33341 8 7.33341C7.63181 7.33341 7.33333 7.63189 7.33333 8.00008C7.33333 8.36827 7.63181 8.66675 8 8.66675Z"
+                                      stroke="#717680"
+                                      strokeWidth="1.66667"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                    <path
+                                      d="M8 4.00008C8.36819 4.00008 8.66667 3.7016 8.66667 3.33341C8.66667 2.96522 8.36819 2.66675 8 2.66675C7.63181 2.66675 7.33333 2.96522 7.33333 3.33341C7.33333 3.7016 7.63181 4.00008 8 4.00008Z"
+                                      stroke="#717680"
+                                      strokeWidth="1.66667"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                    <path
+                                      d="M8 13.3334C8.36819 13.3334 8.66667 13.0349 8.66667 12.6667C8.66667 12.2986 8.36819 12.0001 8 12.0001C7.63181 12.0001 7.33333 12.2986 7.33333 12.6667C7.33333 13.0349 7.63181 13.3334 8 13.3334Z"
+                                      stroke="#717680"
+                                      strokeWidth="1.66667"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </button>
+                                {openDropdownIndex === index && (
                                   <div
+                                    data-dropdown-menu
                                     style={{
-                                      display: "flex",
-                                      padding: "4px 0",
-                                      flexDirection: "column",
+                                      position: "absolute",
+                                      right: "20px",
+                                      top: "50px",
+                                      zIndex: 1000,
+                                      minWidth: "180px",
+                                      borderRadius: "8px",
+                                      border: "1px solid rgba(0, 0, 0, 0.08)",
+                                      background: "#FFF",
+                                      boxShadow:
+                                        "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
                                     }}
                                   >
                                     <div
-                                      onClick={() => {
-                                        navigate("/edit-member", { state: { member } });
-                                        setOpenDropdownIndex(null);
-                                      }}
                                       style={{
                                         display: "flex",
-                                        padding: "1px 6px",
-                                        alignItems: "center",
+                                        padding: "4px 0",
+                                        flexDirection: "column",
                                       }}
                                     >
                                       <div
-                                        onMouseEnter={(e) =>
-                                          (e.currentTarget.style.background =
-                                            "#F9FAFB")
-                                        }
-                                        onMouseLeave={(e) =>
-                                          (e.currentTarget.style.background =
-                                            "transparent")
-                                        }
+                                        onClick={() => {
+                                          navigate("/edit-member", {
+                                            state: { member },
+                                          });
+                                          setOpenDropdownIndex(null);
+                                        }}
                                         style={{
                                           display: "flex",
-                                          padding: "8px",
+                                          padding: "1px 6px",
                                           alignItems: "center",
-                                          gap: "8px",
-                                          borderRadius: "6px",
-                                          cursor: "pointer",
-                                          transition: "background 0.15s ease",
-                                          width: "100%",
                                         }}
                                       >
-                                        <svg
-                                          width="24"
-                                          height="24"
-                                          viewBox="0 0 24 24"
-                                          fill="none"
-                                          xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                          <path
-                                            d="M2.87604 18.1157C2.92198 17.7022 2.94496 17.4955 3.00751 17.3022C3.06301 17.1308 3.14143 16.9676 3.24064 16.8172C3.35246 16.6476 3.49955 16.5005 3.79373 16.2063L17 3.00006C18.1046 1.89549 19.8955 1.89549 21 3.00006C22.1046 4.10463 22.1046 5.89549 21 7.00006L7.79373 20.2063C7.49955 20.5005 7.35245 20.6476 7.18289 20.7594C7.03245 20.8586 6.86929 20.937 6.69785 20.9925C6.5046 21.0551 6.29786 21.0781 5.88437 21.124L2.5 21.5001L2.87604 18.1157Z"
-                                            stroke="#A4A7AE"
-                                            strokeWidth="1.66667"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                          />
-                                        </svg>
                                         <div
+                                          onMouseEnter={(e) =>
+                                            (e.currentTarget.style.background =
+                                              "#F9FAFB")
+                                          }
+                                          onMouseLeave={(e) =>
+                                            (e.currentTarget.style.background =
+                                              "transparent")
+                                          }
                                           style={{
-                                            color: "#181D27",
-                                            fontFamily: "Public Sans",
-                                            fontSize: "14px",
-                                            fontWeight: 500,
-                                            lineHeight: "20px",
-                                            whiteSpace: "nowrap",
+                                            display: "flex",
+                                            padding: "8px",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            borderRadius: "6px",
+                                            cursor: "pointer",
+                                            transition: "background 0.15s ease",
+                                            width: "100%",
                                           }}
                                         >
-                                          Edit Member
+                                          <svg
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <path
+                                              d="M2.87604 18.1157C2.92198 17.7022 2.94496 17.4955 3.00751 17.3022C3.06301 17.1308 3.14143 16.9676 3.24064 16.8172C3.35246 16.6476 3.49955 16.5005 3.79373 16.2063L17 3.00006C18.1046 1.89549 19.8955 1.89549 21 3.00006C22.1046 4.10463 22.1046 5.89549 21 7.00006L7.79373 20.2063C7.49955 20.5005 7.35245 20.6476 7.18289 20.7594C7.03245 20.8586 6.86929 20.937 6.69785 20.9925C6.5046 21.0551 6.29786 21.0781 5.88437 21.124L2.5 21.5001L2.87604 18.1157Z"
+                                              stroke="#A4A7AE"
+                                              strokeWidth="1.66667"
+                                              strokeLinecap="round"
+                                              strokeLinejoin="round"
+                                            />
+                                          </svg>
+                                          <div
+                                            style={{
+                                              color: "#181D27",
+                                              fontFamily: "Public Sans",
+                                              fontSize: "14px",
+                                              fontWeight: 500,
+                                              lineHeight: "20px",
+                                              whiteSpace: "nowrap",
+                                            }}
+                                          >
+                                            Edit Member
+                                          </div>
                                         </div>
                                       </div>
-                                    </div>
-                                    <div
-                                      onClick={() => {
-                                        console.log(
-                                          "Resent Invite",
-                                          member.name,
-                                        );
-                                        setOpenDropdownIndex(null);
-                                      }}
-                                      style={{
-                                        display: "flex",
-                                        padding: "1px 6px",
-                                        alignItems: "center",
-                                      }}
-                                    >
                                       <div
-                                        onMouseEnter={(e) =>
-                                          (e.currentTarget.style.background =
-                                            "#F9FAFB")
-                                        }
-                                        onMouseLeave={(e) =>
-                                          (e.currentTarget.style.background =
-                                            "transparent")
-                                        }
+                                        onClick={() => {
+                                          console.log(
+                                            "Resent Invite",
+                                            member.name,
+                                          );
+                                          setOpenDropdownIndex(null);
+                                        }}
                                         style={{
                                           display: "flex",
-                                          padding: "8px",
+                                          padding: "1px 6px",
                                           alignItems: "center",
-                                          gap: "8px",
-                                          borderRadius: "6px",
-                                          cursor: "pointer",
-                                          transition: "background 0.15s ease",
-                                          width: "100%",
                                         }}
                                       >
-                                        <svg
-                                          width="24"
-                                          height="24"
-                                          viewBox="0 0 24 24"
-                                          fill="none"
-                                          xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                          <path
-                                            d="M2 7L10.1649 12.7154C10.8261 13.1783 11.1567 13.4097 11.5163 13.4993C11.8339 13.5785 12.1661 13.5785 12.4837 13.4993C12.8433 13.4097 13.1739 13.1783 13.8351 12.7154L22 7M6.8 20H17.2C18.8802 20 19.7202 20 20.362 19.673C20.9265 19.3854 21.3854 18.9265 21.673 18.362C22 17.7202 22 16.8802 22 15.2V8.8C22 7.11984 22 6.27976 21.673 5.63803C21.3854 5.07354 20.9265 4.6146 20.362 4.32698C19.7202 4 18.8802 4 17.2 4H6.8C5.11984 4 4.27976 4 3.63803 4.32698C3.07354 4.6146 2.6146 5.07354 2.32698 5.63803C2 6.27976 2 7.11984 2 8.8V15.2C2 16.8802 2 17.7202 2.32698 18.362C2.6146 18.9265 3.07354 19.3854 3.63803 19.673C4.27976 20 5.11984 20 6.8 20Z"
-                                            stroke="#A4A7AE"
-                                            strokeWidth="1.66667"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                          />
-                                        </svg>
                                         <div
+                                          onMouseEnter={(e) =>
+                                            (e.currentTarget.style.background =
+                                              "#F9FAFB")
+                                          }
+                                          onMouseLeave={(e) =>
+                                            (e.currentTarget.style.background =
+                                              "transparent")
+                                          }
                                           style={{
-                                            color: "#181D27",
-                                            fontFamily: "Public Sans",
-                                            fontSize: "14px",
-                                            fontWeight: 500,
-                                            lineHeight: "20px",
-                                            whiteSpace: "nowrap",
+                                            display: "flex",
+                                            padding: "8px",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            borderRadius: "6px",
+                                            cursor: "pointer",
+                                            transition: "background 0.15s ease",
+                                            width: "100%",
                                           }}
                                         >
-                                          Resent Invite
+                                          <svg
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <path
+                                              d="M2 7L10.1649 12.7154C10.8261 13.1783 11.1567 13.4097 11.5163 13.4993C11.8339 13.5785 12.1661 13.5785 12.4837 13.4993C12.8433 13.4097 13.1739 13.1783 13.8351 12.7154L22 7M6.8 20H17.2C18.8802 20 19.7202 20 20.362 19.673C20.9265 19.3854 21.3854 18.9265 21.673 18.362C22 17.7202 22 16.8802 22 15.2V8.8C22 7.11984 22 6.27976 21.673 5.63803C21.3854 5.07354 20.9265 4.6146 20.362 4.32698C19.7202 4 18.8802 4 17.2 4H6.8C5.11984 4 4.27976 4 3.63803 4.32698C3.07354 4.6146 2.6146 5.07354 2.32698 5.63803C2 6.27976 2 7.11984 2 8.8V15.2C2 16.8802 2 17.7202 2.32698 18.362C2.6146 18.9265 3.07354 19.3854 3.63803 19.673C4.27976 20 5.11984 20 6.8 20Z"
+                                              stroke="#A4A7AE"
+                                              strokeWidth="1.66667"
+                                              strokeLinecap="round"
+                                              strokeLinejoin="round"
+                                            />
+                                          </svg>
+                                          <div
+                                            style={{
+                                              color: "#181D27",
+                                              fontFamily: "Public Sans",
+                                              fontSize: "14px",
+                                              fontWeight: 500,
+                                              lineHeight: "20px",
+                                              whiteSpace: "nowrap",
+                                            }}
+                                          >
+                                            Resent Invite
+                                          </div>
                                         </div>
                                       </div>
-                                    </div>
-                                    <div
-                                      onClick={() => {
-                                        setUserToDelete({ id: index, name: member.name });
-                                        setDeleteUserModalOpen(true);
-                                        setOpenDropdownIndex(null);
-                                      }}
-                                      style={{
-                                        display: "flex",
-                                        padding: "1px 6px",
-                                        alignItems: "center",
-                                      }}
-                                    >
                                       <div
-                                        onMouseEnter={(e) =>
-                                          (e.currentTarget.style.background =
-                                            "#F9FAFB")
-                                        }
-                                        onMouseLeave={(e) =>
-                                          (e.currentTarget.style.background =
-                                            "transparent")
-                                        }
+                                        onClick={() => {
+                                          setUserToDelete({
+                                            id: index,
+                                            name: member.name,
+                                          });
+                                          setDeleteUserModalOpen(true);
+                                          setOpenDropdownIndex(null);
+                                        }}
                                         style={{
                                           display: "flex",
-                                          padding: "8px",
+                                          padding: "1px 6px",
                                           alignItems: "center",
-                                          gap: "8px",
-                                          borderRadius: "6px",
-                                          cursor: "pointer",
-                                          transition: "background 0.15s ease",
-                                          width: "100%",
                                         }}
                                       >
-                                        <svg
-                                          width="24"
-                                          height="24"
-                                          viewBox="0 0 24 24"
-                                          fill="none"
-                                          xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                          <path
-                                            d="M16 6V5.2C16 4.0799 16 3.51984 15.782 3.09202C15.5903 2.71569 15.2843 2.40973 14.908 2.21799C14.4802 2 13.9201 2 12.8 2H11.2C10.0799 2 9.51984 2 9.09202 2.21799C8.71569 2.40973 8.40973 2.71569 8.21799 3.09202C8 3.51984 8 4.0799 8 5.2V6M3 6H21M19 6V17.2C19 18.8802 19 19.7202 18.673 20.362C18.3854 20.9265 17.9265 21.3854 17.362 21.673C16.7202 22 15.8802 22 14.2 22H9.8C8.11984 22 7.27976 22 6.63803 21.673C6.07354 21.3854 5.6146 20.9265 5.32698 20.362C5 19.7202 5 18.8802 5 17.2V6"
-                                            stroke="#A4A7AE"
-                                            strokeWidth="1.66667"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                          />
-                                        </svg>
                                         <div
+                                          onMouseEnter={(e) =>
+                                            (e.currentTarget.style.background =
+                                              "#F9FAFB")
+                                          }
+                                          onMouseLeave={(e) =>
+                                            (e.currentTarget.style.background =
+                                              "transparent")
+                                          }
                                           style={{
-                                            color: "#181D27",
-                                            fontFamily: "Public Sans",
-                                            fontSize: "14px",
-                                            fontWeight: 500,
-                                            lineHeight: "20px",
-                                            whiteSpace: "nowrap",
+                                            display: "flex",
+                                            padding: "8px",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            borderRadius: "6px",
+                                            cursor: "pointer",
+                                            transition: "background 0.15s ease",
+                                            width: "100%",
                                           }}
                                         >
-                                          Remove Users
+                                          <svg
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <path
+                                              d="M16 6V5.2C16 4.0799 16 3.51984 15.782 3.09202C15.5903 2.71569 15.2843 2.40973 14.908 2.21799C14.4802 2 13.9201 2 12.8 2H11.2C10.0799 2 9.51984 2 9.09202 2.21799C8.71569 2.40973 8.40973 2.71569 8.21799 3.09202C8 3.51984 8 4.0799 8 5.2V6M3 6H21M19 6V17.2C19 18.8802 19 19.7202 18.673 20.362C18.3854 20.9265 17.9265 21.3854 17.362 21.673C16.7202 22 15.8802 22 14.2 22H9.8C8.11984 22 7.27976 22 6.63803 21.673C6.07354 21.3854 5.6146 20.9265 5.32698 20.362C5 19.7202 5 18.8802 5 17.2V6"
+                                              stroke="#A4A7AE"
+                                              strokeWidth="1.66667"
+                                              strokeLinecap="round"
+                                              strokeLinejoin="round"
+                                            />
+                                          </svg>
+                                          <div
+                                            style={{
+                                              color: "#181D27",
+                                              fontFamily: "Public Sans",
+                                              fontSize: "14px",
+                                              fontWeight: 500,
+                                              lineHeight: "20px",
+                                              whiteSpace: "nowrap",
+                                            }}
+                                          >
+                                            Remove Users
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
                                   </div>
-                                </div>
-                              )}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-
-                  {/* Pagination */}
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: isCompactLayout ? "column" : "row",
-                      padding: "12px 16px",
-                      justifyContent: isMobile ? "center" : "space-between",
-                      alignItems: "center",
-                      width: "100%",
-                      borderTop: "1px solid #E9EAEB",
-                      gap: isMobile ? "12px" : "0",
-                      boxSizing: "border-box",
-                    }}
-                  >
-                    <div
-                      style={{
-                        color: "#414651",
-                        fontFamily: "Public Sans",
-                        fontSize: "14px",
-                        fontWeight: 400,
-                        lineHeight: "20px",
-                        minWidth: isMobile ? "auto" : "150px",
-                      }}
-                    >
-                      Showing [X] of [X]
+                                )}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
                     </div>
+
+                    {/* Pagination */}
                     <div
                       style={{
                         display: "flex",
                         flexDirection: isCompactLayout ? "column" : "row",
+                        padding: "12px 16px",
+                        justifyContent: isMobile ? "center" : "space-between",
                         alignItems: "center",
-                        gap: "12px",
-                        justifyContent: "center",
-                        flex: isMobile ? "0" : "1",
+                        width: "100%",
+                        borderTop: "1px solid #E9EAEB",
+                        gap: isMobile ? "12px" : "0",
+                        boxSizing: "border-box",
                       }}
                     >
                       <div
                         style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "12px",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                          minWidth: isMobile ? "auto" : "150px",
                         }}
                       >
-                        <button
+                        Showing [X] of [X]
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: isCompactLayout ? "column" : "row",
+                          alignItems: "center",
+                          gap: "12px",
+                          justifyContent: "center",
+                          flex: isMobile ? "0" : "1",
+                        }}
+                      >
+                        <div
                           style={{
                             display: "flex",
-                            padding: "8px",
-                            justifyContent: "center",
                             alignItems: "center",
-                            borderRadius: "8px",
-                            border: "1px solid #D5D7DA",
-                            background: "#FFF",
-                            boxShadow:
-                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                            cursor: "pointer",
+                            gap: "12px",
                           }}
                         >
-                          ←
-                        </button>
-                        <div style={{ display: "flex", gap: "4px" }}>
-                          <div
+                          <button
                             style={{
                               display: "flex",
-                              width: "32px",
-                              height: "32px",
+                              padding: "8px",
                               justifyContent: "center",
                               alignItems: "center",
                               borderRadius: "8px",
-                              border: "1px solid #E9EAEB",
-                              background: "#F5F5F5",
-                              color: "#414651",
-                              fontFamily: "Public Sans",
-                              fontSize: "14px",
-                              fontWeight: 500,
-                              lineHeight: "20px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow:
+                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              cursor: "pointer",
                             }}
                           >
-                            1
-                          </div>
-                          {[2, 3, "...", 8, 9, 10].map((page, idx) => (
+                            ←
+                          </button>
+                          <div style={{ display: "flex", gap: "4px" }}>
                             <div
-                              key={idx}
                               style={{
                                 display: "flex",
                                 width: "32px",
@@ -5280,84 +5410,106 @@ export default function CompanySettings() {
                                 justifyContent: "center",
                                 alignItems: "center",
                                 borderRadius: "8px",
-                                color: "#717680",
+                                border: "1px solid #E9EAEB",
+                                background: "#F5F5F5",
+                                color: "#414651",
                                 fontFamily: "Public Sans",
                                 fontSize: "14px",
                                 fontWeight: 500,
                                 lineHeight: "20px",
-                                cursor: page === "..." ? "default" : "pointer",
                               }}
                             >
-                              {page}
+                              1
                             </div>
-                          ))}
+                            {[2, 3, "...", 8, 9, 10].map((page, idx) => (
+                              <div
+                                key={idx}
+                                style={{
+                                  display: "flex",
+                                  width: "32px",
+                                  height: "32px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  borderRadius: "8px",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                  cursor:
+                                    page === "..." ? "default" : "pointer",
+                                }}
+                              >
+                                {page}
+                              </div>
+                            ))}
+                          </div>
+                          <button
+                            style={{
+                              display: "flex",
+                              padding: "8px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow:
+                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              cursor: "pointer",
+                            }}
+                          >
+                            →
+                          </button>
                         </div>
-                        <button
+                        <div
                           style={{
                             display: "flex",
-                            padding: "8px",
-                            justifyContent: "center",
                             alignItems: "center",
-                            borderRadius: "8px",
-                            border: "1px solid #D5D7DA",
-                            background: "#FFF",
-                            boxShadow:
-                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                            cursor: "pointer",
+                            gap: "12px",
                           }}
                         >
-                          →
-                        </button>
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "12px",
-                        }}
-                      >
-                        <span
-                          style={{
-                            color: "#414651",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontWeight: 400,
-                            lineHeight: "20px",
-                          }}
-                        >
-                          Go to
-                        </span>
-                        <input
-                          type="text"
-                          defaultValue="1010"
-                          style={{
-                            display: "flex",
-                            height: "32px",
-                            width: "72px",
-                            padding: "6px 8px",
-                            alignItems: "center",
-                            borderRadius: "8px",
-                            border: "1px solid #D5D7DA",
-                            background: "#FFF",
-                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                            color: "#717680",
-                            textAlign: "center",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontWeight: 400,
-                            lineHeight: "20px",
-                            outline: "none",
-                            boxSizing: "border-box",
-                          }}
-                        />
+                          <span
+                            style={{
+                              color: "#414651",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 400,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Go to
+                          </span>
+                          <input
+                            type="text"
+                            defaultValue="1010"
+                            style={{
+                              display: "flex",
+                              height: "32px",
+                              width: "72px",
+                              padding: "6px 8px",
+                              alignItems: "center",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              color: "#717680",
+                              textAlign: "center",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 400,
+                              lineHeight: "20px",
+                              outline: "none",
+                              boxSizing: "border-box",
+                            }}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
                 )}
 
                 {/* Role Permissions Section */}
-                {teamSubTab === 'permissions' && (
+                {teamSubTab === "permissions" && (
                   <div
                     style={{
                       display: "flex",
@@ -5369,7 +5521,11 @@ export default function CompanySettings() {
                     {rolePermissions.map((category, categoryIndex) => (
                       <div
                         key={category.title}
-                        style={{ display: "flex", flexDirection: "column", width: "100%" }}
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          width: "100%",
+                        }}
                       >
                         <div
                           style={{
@@ -5410,9 +5566,16 @@ export default function CompanySettings() {
                               WebkitOverflowScrolling: "touch",
                             }}
                           >
-                            <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                            <table
+                              style={{
+                                width: "100%",
+                                borderCollapse: "collapse",
+                              }}
+                            >
                               <thead>
-                                <tr style={{ borderBottom: "1px solid #E9EAEB" }}>
+                                <tr
+                                  style={{ borderBottom: "1px solid #E9EAEB" }}
+                                >
                                   <th
                                     style={{
                                       padding: "6px 12px",
@@ -5437,7 +5600,13 @@ export default function CompanySettings() {
                                         color: "#717680",
                                       }}
                                     >
-                                      <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          alignItems: "center",
+                                          gap: "4px",
+                                        }}
+                                      >
                                         {role.label}
                                         {role.locked && (
                                           <svg
@@ -5462,69 +5631,88 @@ export default function CompanySettings() {
                                 </tr>
                               </thead>
                               <tbody>
-                                {category.permissions.map((permission, permissionIndex) => (
-                                  <tr
-                                    key={`${category.title}-${permission.label}-${permissionIndex}`}
-                                    style={{
-                                      borderBottom:
-                                        permissionIndex < category.permissions.length - 1
-                                          ? "1px solid #E9EAEB"
-                                          : "none",
-                                    }}
-                                  >
-                                    <td
+                                {category.permissions.map(
+                                  (permission, permissionIndex) => (
+                                    <tr
+                                      key={`${category.title}-${permission.label}-${permissionIndex}`}
                                       style={{
-                                        padding: "12px",
-                                        fontFamily: "Public Sans",
-                                        fontSize: "14px",
-                                        color: "#181D27",
+                                        borderBottom:
+                                          permissionIndex <
+                                          category.permissions.length - 1
+                                            ? "1px solid #E9EAEB"
+                                            : "none",
                                       }}
                                     >
-                                      <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                                        {permission.label}
-                                        <svg
-                                          width="16"
-                                          height="16"
-                                          viewBox="0 0 16 16"
-                                          fill="none"
-                                          xmlns="http://www.w3.org/2000/svg"
+                                      <td
+                                        style={{
+                                          padding: "12px",
+                                          fontFamily: "Public Sans",
+                                          fontSize: "14px",
+                                          color: "#181D27",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: "6px",
+                                          }}
                                         >
-                                          <path
-                                            d="M6.05967 5.99992C6.21641 5.55436 6.52578 5.17866 6.93298 4.93934C7.34018 4.70002 7.81894 4.61254 8.28446 4.69239C8.74998 4.77224 9.17222 5.01427 9.47639 5.3756C9.78057 5.73694 9.94705 6.19427 9.94634 6.66659C9.94634 7.99992 7.94634 8.66659 7.94634 8.66659M7.99967 11.3333H8.00634M14.6663 7.99992C14.6663 11.6818 11.6816 14.6666 7.99967 14.6666C4.31778 14.6666 1.33301 11.6818 1.33301 7.99992C1.33301 4.31802 4.31778 1.33325 7.99967 1.33325C11.6816 1.33325 14.6663 4.31802 14.6663 7.99992Z"
-                                            stroke="#A4A7AE"
-                                            strokeWidth="1.33333"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                          />
-                                        </svg>
-                                      </div>
-                                    </td>
-                                    {ROLE_COLUMNS.map((role) => {
-                                      const locked = Boolean(role.locked);
-                                      const isOn = permission.roles[role.key];
-                                      return (
-                                        <td key={role.key} style={{ padding: "12px" }}>
-                                          <button
-                                            type="button"
-                                            aria-pressed={isOn}
-                                            aria-label={`${role.label} permission for ${permission.label}${locked ? " (locked)" : ""}`}
-                                            disabled={locked}
-                                            onClick={() =>
-                                              handlePermissionToggle(
-                                                categoryIndex,
-                                                permissionIndex,
-                                                role.key,
-                                              )
-                                            }
-                                            style={getToggleStyle(isOn, locked)}
+                                          {permission.label}
+                                          <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 16 16"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
                                           >
-                                            <span style={getToggleKnobStyle(locked)} />
-                                          </button>
-                                        </td>
-                                      );
-                                    })}
-                                  </tr>
-                                ))}
+                                            <path
+                                              d="M6.05967 5.99992C6.21641 5.55436 6.52578 5.17866 6.93298 4.93934C7.34018 4.70002 7.81894 4.61254 8.28446 4.69239C8.74998 4.77224 9.17222 5.01427 9.47639 5.3756C9.78057 5.73694 9.94705 6.19427 9.94634 6.66659C9.94634 7.99992 7.94634 8.66659 7.94634 8.66659M7.99967 11.3333H8.00634M14.6663 7.99992C14.6663 11.6818 11.6816 14.6666 7.99967 14.6666C4.31778 14.6666 1.33301 11.6818 1.33301 7.99992C1.33301 4.31802 4.31778 1.33325 7.99967 1.33325C11.6816 1.33325 14.6663 4.31802 14.6663 7.99992Z"
+                                              stroke="#A4A7AE"
+                                              strokeWidth="1.33333"
+                                              strokeLinecap="round"
+                                              strokeLinejoin="round"
+                                            />
+                                          </svg>
+                                        </div>
+                                      </td>
+                                      {ROLE_COLUMNS.map((role) => {
+                                        const locked = Boolean(role.locked);
+                                        const isOn = permission.roles[role.key];
+                                        return (
+                                          <td
+                                            key={role.key}
+                                            style={{ padding: "12px" }}
+                                          >
+                                            <button
+                                              type="button"
+                                              aria-pressed={isOn}
+                                              aria-label={`${role.label} permission for ${permission.label}${locked ? " (locked)" : ""}`}
+                                              disabled={locked}
+                                              onClick={() =>
+                                                handlePermissionToggle(
+                                                  categoryIndex,
+                                                  permissionIndex,
+                                                  role.key,
+                                                )
+                                              }
+                                              style={getToggleStyle(
+                                                isOn,
+                                                locked,
+                                              )}
+                                            >
+                                              <span
+                                                style={getToggleKnobStyle(
+                                                  locked,
+                                                )}
+                                              />
+                                            </button>
+                                          </td>
+                                        );
+                                      })}
+                                    </tr>
+                                  ),
+                                )}
                               </tbody>
                             </table>
                           </div>
@@ -5536,7 +5724,6 @@ export default function CompanySettings() {
               </div>
             </div>
           )}
-
 
           {activeTab === "adjudication" && (
             <div
@@ -5585,7 +5772,9 @@ export default function CompanySettings() {
                       margin: "2px 0 0 0",
                     }}
                   >
-                    Easily upload or export adjudication email addresses to manage your review notifications. Use our template to get started or drag and drop your file below.
+                    Easily upload or export adjudication email addresses to
+                    manage your review notifications. Use our template to get
+                    started or drag and drop your file below.
                   </p>
                 </div>
 
@@ -5647,7 +5836,8 @@ export default function CompanySettings() {
                         borderRadius: "8px",
                         border: "1px solid #D5D7DA",
                         background: "#FFF",
-                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                         cursor: "pointer",
                       }}
                       onMouseEnter={(e) => {
@@ -5712,132 +5902,126 @@ export default function CompanySettings() {
                   gap: "24px",
                 }}
               >
-              {/* Section Header */}
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "20px",
-                }}
-              >
+                {/* Section Header */}
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "flex-start",
-                    gap: "16px",
+                    flexDirection: "column",
+                    gap: "20px",
                   }}
                 >
                   <div
                     style={{
                       display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "center",
-                      gap: "2px",
-                      flex: "1 0 0",
+                      alignItems: "flex-start",
+                      gap: "16px",
                     }}
                   >
-                    <h2
-                      style={{
-                        color: "#181D27",
-                        fontFamily: "Public Sans",
-                        fontSize: "18px",
-                        fontWeight: 600,
-                        lineHeight: "28px",
-                        margin: 0,
-                      }}
-                    >
-                      Resources
-                    </h2>
-                    <p
-                      style={{
-                        color: "#535862",
-                        fontFamily: "Public Sans",
-                        fontSize: "14px",
-                        fontWeight: 400,
-                        lineHeight: "20px",
-                        margin: 0,
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                      }}
-                    >
-                      Centralize your documents and media by uploading and managing your resources efficiently. Keep everything organized and within reach.
-                    </p>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => setIsCreateCategoryModalOpen(true)}
-                    style={{
-                      display: "flex",
-                      minHeight: "36px",
-                      padding: "6px 8px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      gap: "4px",
-                      borderRadius: "8px",
-                      border: "1px solid #D5D7DA",
-                      background: "#FFF",
-                      boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <span
+                    <div
                       style={{
                         display: "flex",
-                        padding: "0 2px",
+                        flexDirection: "column",
                         justifyContent: "center",
-                        alignItems: "center",
-                        color: "#414651",
-                        fontFamily: "Public Sans",
-                        fontSize: "14px",
-                        fontWeight: 600,
-                        lineHeight: "20px",
+                        gap: "2px",
+                        flex: "1 0 0",
                       }}
                     >
-                      Create New Category
-                    </span>
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                      <h2
+                        style={{
+                          color: "#181D27",
+                          fontFamily: "Public Sans",
+                          fontSize: "18px",
+                          fontWeight: 600,
+                          lineHeight: "28px",
+                          margin: 0,
+                        }}
+                      >
+                        Resources
+                      </h2>
+                      <p
+                        style={{
+                          color: "#535862",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                          margin: 0,
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                        }}
+                      >
+                        Centralize your documents and media by uploading and
+                        managing your resources efficiently. Keep everything
+                        organized and within reach.
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setIsCreateCategoryModalOpen(true)}
+                      style={{
+                        display: "flex",
+                        minHeight: "36px",
+                        padding: "6px 8px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "4px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        cursor: "pointer",
+                      }}
                     >
-                      <g clipPath="url(#clip0_category)">
-                        <path
-                          d="M8.00004 5.33325V10.6666M5.33337 7.99992H10.6667M14.6667 7.99992C14.6667 11.6818 11.6819 14.6666 8.00004 14.6666C4.31814 14.6666 1.33337 11.6818 1.33337 7.99992C1.33337 4.31802 4.31814 1.33325 8.00004 1.33325C11.6819 1.33325 14.6667 4.31802 14.6667 7.99992Z"
-                          stroke="#A4A7AE"
-                          strokeWidth="1.66667"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_category">
-                          <rect width="16" height="16" fill="white" />
-                        </clipPath>
-                      </defs>
-                    </svg>
-                  </button>
+                      <span
+                        style={{
+                          display: "flex",
+                          padding: "0 2px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                        }}
+                      >
+                        Create New Category
+                      </span>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clipPath="url(#clip0_category)">
+                          <path
+                            d="M8.00004 5.33325V10.6666M5.33337 7.99992H10.6667M14.6667 7.99992C14.6667 11.6818 11.6819 14.6666 8.00004 14.6666C4.31814 14.6666 1.33337 11.6818 1.33337 7.99992C1.33337 4.31802 4.31814 1.33325 8.00004 1.33325C11.6819 1.33325 14.6667 4.31802 14.6667 7.99992Z"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_category">
+                            <rect width="16" height="16" fill="white" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </button>
+                  </div>
+                  <div style={{ height: "1px", background: "#E9EAEB" }} />
                 </div>
-                <div style={{ height: "1px", background: "#E9EAEB" }} />
-              </div>
 
-              {/* Categories List or Empty State */}
-              {categories.length === 0 ? (
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
+                {/* Categories List or Empty State */}
+                {categories.length === 0 ? (
                   <div
                     style={{
                       display: "flex",
-                      flexDirection: "column",
+                      justifyContent: "center",
                       alignItems: "center",
-                      gap: "24px",
-                      flex: "1 0 0",
                     }}
                   >
                     <div
@@ -5845,1304 +6029,4505 @@ export default function CompanySettings() {
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
-                        gap: "16px",
+                        gap: "24px",
+                        flex: "1 0 0",
                       }}
                     >
                       <div
                         style={{
                           display: "flex",
-                          width: "48px",
-                          height: "48px",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          gap: "16px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "48px",
+                            height: "48px",
+                            padding: "12px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "10px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          }}
+                        >
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                          >
+                            <path
+                              d="M21 21L17.5001 17.5M20 11.5C20 16.1944 16.1944 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3C16.1944 3 20 6.80558 20 11.5Z"
+                              stroke="#414651"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            maxWidth: "352px",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            gap: "4px",
+                          }}
+                        >
+                          <h3
+                            style={{
+                              color: "#181D27",
+                              textAlign: "center",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontWeight: 600,
+                              lineHeight: "24px",
+                              margin: 0,
+                            }}
+                          >
+                            No Documents Uploaded Yet
+                          </h3>
+                          <p
+                            style={{
+                              color: "#535862",
+                              textAlign: "center",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 400,
+                              lineHeight: "20px",
+                              margin: 0,
+                            }}
+                          >
+                            Create categories to organize your resources
+                          </p>
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setIsCreateCategoryModalOpen(true)}
+                        style={{
+                          display: "flex",
+                          height: "44px",
                           padding: "12px",
                           justifyContent: "center",
                           alignItems: "center",
-                          borderRadius: "10px",
-                          border: "1px solid #D5D7DA",
-                          background: "#FFF",
-                          boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          gap: "4px",
+                          borderRadius: "8px",
+                          border: "2px solid rgba(255, 255, 255, 0.12)",
+                          background: brandColor,
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          cursor: "pointer",
                         }}
                       >
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          <path d="M21 21L17.5001 17.5M20 11.5C20 16.1944 16.1944 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3C16.1944 3 20 6.80558 20 11.5Z" stroke="#414651" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 25 24"
+                          fill="none"
+                        >
+                          <path
+                            d="M12.5 5V19M5.5 12H19.5"
+                            stroke="#8D9BD8"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
                         </svg>
-                      </div>
-                      <div style={{ display: "flex", maxWidth: "352px", flexDirection: "column", alignItems: "center", gap: "4px" }}>
-                        <h3 style={{ color: "#181D27", textAlign: "center", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 600, lineHeight: "24px", margin: 0 }}>No Documents Uploaded Yet</h3>
-                        <p style={{ color: "#535862", textAlign: "center", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px", margin: 0 }}>Create categories to organize your resources</p>
-                      </div>
+                        <span
+                          style={{
+                            display: "flex",
+                            padding: "0 2px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            color: getAccessibleTextColor(brandColor),
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Create Category
+                        </span>
+                      </button>
                     </div>
-                    <button type="button" onClick={() => setIsCreateCategoryModalOpen(true)} style={{ display: "flex", height: "44px", padding: "12px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: brandColor, boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}>
-                      <svg width="24" height="24" viewBox="0 0 25 24" fill="none"><path d="M12.5 5V19M5.5 12H19.5" stroke="#8D9BD8" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                      <span style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center", color: getAccessibleTextColor(brandColor), fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Create Category</span>
-                    </button>
                   </div>
-                </div>
-              ) : (
-                <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-                  {categories.map((category) => (
-                    <div key={category.id} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", alignSelf: "stretch", borderRadius: "12px", border: "1px solid #E9EAEB", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
-                      {/* Category Header */}
-                      <div style={{ display: "flex", padding: "20px 24px 0 24px", flexDirection: "column", alignItems: "center", gap: "16px", alignSelf: "stretch", background: "#FFF" }}>
-                        <div style={{ display: "flex", alignItems: "center", gap: "16px", alignSelf: "stretch" }}>
-                          <div style={{ display: "flex", alignItems: "flex-start", gap: "4px", flex: "1 0 0" }}>
-                            <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-start", gap: "2px", flex: "1 0 0" }}>
-                              <div style={{ display: "flex", alignItems: "center", gap: "8px", alignSelf: "stretch" }}>
-                                <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "18px", fontWeight: 600, lineHeight: "28px" }}>{category.name}</div>
-                                <div style={{ display: "flex", padding: "2px 8px", alignItems: "center", borderRadius: "9999px", border: "1px solid #E9EAEB", background: "#FAFAFA" }}>
-                                  <div style={{ color: "#414651", textAlign: "center", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 500, lineHeight: "18px" }}>{category.subcategories.reduce((total, subcat) => total + subcat.documents.length, 0)}</div>
-                                </div>
-                              </div>
-                              {category.description && (
-                                <div style={{ alignSelf: "stretch", color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>
-                                  {category.description}
-                                </div>
-                              )}
-                            </div>
-                          </div>
-                          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                            <button
-                              type="button"
-                              onClick={() => {
-                                setEditingCategory(category);
-                                setEditCategoryName(category.name);
-                                setEditCategoryDescription(category.description);
-                                setEditSubcategories(category.subcategories.map(s => s.name));
-                                setIsEditCategoryModalOpen(true);
+                ) : (
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "24px",
+                    }}
+                  >
+                    {categories.map((category) => (
+                      <div
+                        key={category.id}
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          alignSelf: "stretch",
+                          borderRadius: "12px",
+                          border: "1px solid #E9EAEB",
+                          background: "#FFF",
+                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        }}
+                      >
+                        {/* Category Header */}
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "20px 24px 0 24px",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            gap: "16px",
+                            alignSelf: "stretch",
+                            background: "#FFF",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "16px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
                               }}
-                              style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "none", background: "transparent", cursor: "pointer" }}
                             >
-                              <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
-                                <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Edit Category</div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  justifyContent: "center",
+                                  alignItems: "flex-start",
+                                  gap: "2px",
+                                  flex: "1 0 0",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "8px",
+                                    alignSelf: "stretch",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#181D27",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "18px",
+                                      fontWeight: 600,
+                                      lineHeight: "28px",
+                                    }}
+                                  >
+                                    {category.name}
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      padding: "2px 8px",
+                                      alignItems: "center",
+                                      borderRadius: "9999px",
+                                      border: "1px solid #E9EAEB",
+                                      background: "#FAFAFA",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#414651",
+                                        textAlign: "center",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "12px",
+                                        fontWeight: 500,
+                                        lineHeight: "18px",
+                                      }}
+                                    >
+                                      {category.subcategories.reduce(
+                                        (total, subcat) =>
+                                          total + subcat.documents.length,
+                                        0,
+                                      )}
+                                    </div>
+                                  </div>
+                                </div>
+                                {category.description && (
+                                  <div
+                                    style={{
+                                      alignSelf: "stretch",
+                                      color: "#535862",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontWeight: 400,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    {category.description}
+                                  </div>
+                                )}
                               </div>
-                            </button>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "12px",
+                              }}
+                            >
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setEditingCategory(category);
+                                  setEditCategoryName(category.name);
+                                  setEditCategoryDescription(
+                                    category.description,
+                                  );
+                                  setEditSubcategories(
+                                    category.subcategories.map((s) => s.name),
+                                  );
+                                  setIsEditCategoryModalOpen(true);
+                                }}
+                                style={{
+                                  display: "flex",
+                                  minHeight: "36px",
+                                  padding: "6px 8px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                  borderRadius: "8px",
+                                  border: "none",
+                                  background: "transparent",
+                                  cursor: "pointer",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    padding: "0 2px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#535862",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontWeight: 600,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    Edit Category
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
                           </div>
                         </div>
-                      </div>
 
-                      {/* Subcategories */}
-                      <div style={{ display: "flex", padding: "20px 24px", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: "16px", alignSelf: "stretch" }}>
-                        {category.subcategories.map((subcategory) => (
-                          <div key={subcategory.id} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", alignSelf: "stretch", borderRadius: "12px", border: "1px solid #E9EAEB", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
-                            {/* Subcategory Header */}
-                            <div style={{ display: "flex", padding: "20px 24px 0 24px", flexDirection: "column", alignItems: "center", gap: "16px", alignSelf: "stretch", background: "#FFF" }}>
-                              <div style={{ display: "flex", alignItems: "center", gap: "16px", alignSelf: "stretch" }}>
-                                <div style={{ display: "flex", alignItems: "flex-start", gap: "4px", flex: "1 0 0" }}>
-                                  <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-start", gap: "2px", flex: "1 0 0" }}>
-                                    <div style={{ display: "flex", alignItems: "center", gap: "8px", alignSelf: "stretch" }}>
-                                      <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "18px", fontWeight: 600, lineHeight: "28px" }}>{subcategory.name}</div>
-                                      <div style={{ display: "flex", padding: "2px 8px", alignItems: "center", borderRadius: "9999px", border: "1px solid #E9EAEB", background: "#FAFAFA" }}>
-                                        <div style={{ color: "#414651", textAlign: "center", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 500, lineHeight: "18px" }}>{subcategory.documents.length}</div>
+                        {/* Subcategories */}
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "20px 24px",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "16px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          {category.subcategories.map((subcategory) => (
+                            <div
+                              key={subcategory.id}
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                alignSelf: "stretch",
+                                borderRadius: "12px",
+                                border: "1px solid #E9EAEB",
+                                background: "#FFF",
+                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              }}
+                            >
+                              {/* Subcategory Header */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "20px 24px 0 24px",
+                                  flexDirection: "column",
+                                  alignItems: "center",
+                                  gap: "16px",
+                                  alignSelf: "stretch",
+                                  background: "#FFF",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "16px",
+                                    alignSelf: "stretch",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "flex-start",
+                                      gap: "4px",
+                                      flex: "1 0 0",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        justifyContent: "center",
+                                        alignItems: "flex-start",
+                                        gap: "2px",
+                                        flex: "1 0 0",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                          alignSelf: "stretch",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            color: "#181D27",
+                                            fontFamily: "Public Sans",
+                                            fontSize: "18px",
+                                            fontWeight: 600,
+                                            lineHeight: "28px",
+                                          }}
+                                        >
+                                          {subcategory.name}
+                                        </div>
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            padding: "2px 8px",
+                                            alignItems: "center",
+                                            borderRadius: "9999px",
+                                            border: "1px solid #E9EAEB",
+                                            background: "#FAFAFA",
+                                          }}
+                                        >
+                                          <div
+                                            style={{
+                                              color: "#414651",
+                                              textAlign: "center",
+                                              fontFamily: "Public Sans",
+                                              fontSize: "12px",
+                                              fontWeight: 500,
+                                              lineHeight: "18px",
+                                            }}
+                                          >
+                                            {subcategory.documents.length}
+                                          </div>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
-                                </div>
-                                <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                                  <button type="button" style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "none", background: "transparent", cursor: "pointer" }}>
-                                    <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
-                                      <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Edit Category</div>
-                                    </div>
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-
-                            {/* Subcategory Content */}
-                            <div style={{ display: "flex", padding: "20px 24px", flexDirection: "column", alignItems: "flex-start", gap: "16px", alignSelf: "stretch" }}>
-                              {subcategory.documents.length > 0 ? (
-                                <>
-                                  {/* Documents List */}
-                                  <div style={{ display: "flex", alignItems: "flex-start", gap: "10px", alignSelf: "stretch", flexWrap: "wrap" }}>
-                                    {subcategory.documents.map((doc) => (
-                                      <div key={doc.id} style={{ display: "flex", width: "508px", padding: "16px", alignItems: "center", gap: "4px", borderRadius: "12px", border: "1px solid #E9EAEB", background: "#FFF" }}>
-                                        <div style={{ display: "flex", alignItems: "flex-start", gap: "12px", flex: "1 0 0" }}>
-                                          {/* Drag Handle */}
-                                          <button type="button" style={{ display: "flex", width: "24px", height: "24px", padding: "4px", justifyContent: "center", alignItems: "center", borderRadius: "6px", border: "none", background: "transparent", cursor: "grab" }}>
-                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                              <path d="M5.99992 8.6665C6.36811 8.6665 6.66658 8.36803 6.66658 7.99984C6.66658 7.63165 6.36811 7.33317 5.99992 7.33317C5.63173 7.33317 5.33325 7.63165 5.33325 7.99984C5.33325 8.36803 5.63173 8.6665 5.99992 8.6665Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
-                                              <path d="M5.99992 3.99984C6.36811 3.99984 6.66658 3.70136 6.66658 3.33317C6.66658 2.96498 6.36811 2.6665 5.99992 2.6665C5.63173 2.6665 5.33325 2.96498 5.33325 3.33317C5.33325 3.70136 5.63173 3.99984 5.99992 3.99984Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
-                                              <path d="M5.99992 13.3332C6.36811 13.3332 6.66658 13.0347 6.66658 12.6665C6.66658 12.2983 6.36811 11.9998 5.99992 11.9998C5.63173 11.9998 5.33325 12.2983 5.33325 12.6665C5.33325 13.0347 5.63173 13.3332 5.99992 13.3332Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
-                                              <path d="M9.99992 8.6665C10.3681 8.6665 10.6666 8.36803 10.6666 7.99984C10.6666 7.63165 10.3681 7.33317 9.99992 7.33317C9.63173 7.33317 9.33325 7.63165 9.33325 7.99984C9.33325 8.36803 9.63173 8.6665 9.99992 8.6665Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
-                                              <path d="M9.99992 3.99984C10.3681 3.99984 10.6666 3.70136 10.6666 3.33317C10.6666 2.96498 10.3681 2.6665 9.99992 2.6665C9.63173 2.6665 9.33325 2.96498 9.33325 3.33317C9.33325 3.70136 9.63173 3.99984 9.99992 3.99984Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
-                                              <path d="M9.99992 13.3332C10.3681 13.3332 10.6666 13.0347 10.6666 12.6665C10.6666 12.2983 10.3681 11.9998 9.99992 11.9998C9.63173 11.9998 9.33325 12.2983 9.33325 12.6665C9.33325 13.0347 9.63173 13.3332 9.99992 13.3332Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
-                                            </svg>
-                                          </button>
-                                          {/* PDF Icon */}
-                                          <div style={{ width: "40px", height: "40px", position: "relative" }}>
-                                            <svg width="32" height="40" viewBox="0 0 32 40" fill="none" style={{ position: "absolute", left: "7px", top: "0" }}>
-                                              <path d="M4 0.75H20C20.1212 0.75 20.2375 0.798088 20.3232 0.883789L31.1162 11.6768C31.2019 11.7625 31.25 11.8788 31.25 12V36C31.25 37.7949 29.7949 39.25 28 39.25H4C2.20507 39.25 0.75 37.7949 0.75 36V4C0.750001 2.20507 2.20508 0.75 4 0.75Z" stroke="#D5D7DA" strokeWidth="1.5"/>
-                                              <path d="M20 0.5V8C20 10.2091 21.7909 12 24 12H31.5" stroke="#D5D7DA" strokeWidth="1.5"/>
-                                            </svg>
-                                            <div style={{ position: "absolute", left: "1px", top: "18px", width: "26px", height: "16px", padding: "2px 3px", borderRadius: "2px", background: "#D92D20" }}>
-                                              <div style={{ color: "#FFF", textAlign: "center", fontFamily: "Inter", fontSize: "10px", fontWeight: 700, lineHeight: "normal" }}>PDF</div>
-                                            </div>
-                                          </div>
-                                          {/* Document Info */}
-                                          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px", flex: "1 0 0", alignSelf: "stretch" }}>
-                                            <div style={{ overflow: "hidden", color: "#414651", textOverflow: "ellipsis", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px", whiteSpace: "nowrap", width: "100%" }}>{doc.name}</div>
-                                            {doc.description && (
-                                              <div style={{ display: "flex", height: "18px", flexDirection: "column", justifyContent: "center", alignItems: "flex-start", gap: "8px", alignSelf: "stretch" }}>
-                                                <div style={{ overflow: "hidden", color: "#535862", textOverflow: "ellipsis", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 400, lineHeight: "18px", whiteSpace: "nowrap", width: "100%" }}>{doc.description}</div>
-                                              </div>
-                                            )}
-                                          </div>
-                                        </div>
-                                        {/* Actions */}
-                                        <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                                          <button
-                                            type="button"
-                                            onClick={() => {
-                                              setEditingResource({
-                                                resource: doc,
-                                                categoryName: category.name,
-                                                subcategoryName: subcategory.name
-                                              });
-                                              setEditResourceName(doc.name);
-                                              setEditResourceDescription(doc.description);
-                                              setEditResourceCategory(category.name);
-                                              setEditResourceSubCategory(subcategory.name);
-                                              setEditShowInQuickResources(false);
-                                              setIsEditResourceModalOpen(true);
-                                            }}
-                                            style={{ display: "flex", width: "36px", height: "36px", padding: "8px", justifyContent: "center", alignItems: "center", borderRadius: "6px", border: "none", background: "transparent", cursor: "pointer" }}
-                                          >
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                              <path d="M2.87604 18.1155C2.92198 17.702 2.94496 17.4952 3.00751 17.302C3.06301 17.1305 3.14143 16.9674 3.24064 16.8169C3.35246 16.6474 3.49955 16.5003 3.79373 16.2061L17 2.99981C18.1046 1.89524 19.8955 1.89525 21 2.99981C22.1046 4.10438 22.1046 5.89525 21 6.99982L7.79373 20.2061C7.49955 20.5003 7.35245 20.6474 7.18289 20.7592C7.03245 20.8584 6.86929 20.9368 6.69785 20.9923C6.5046 21.0549 6.29786 21.0778 5.88437 21.1238L2.5 21.4998L2.87604 18.1155Z" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                            </svg>
-                                          </button>
-                                          <button
-                                            type="button"
-                                            onClick={() => {
-                                              setResourceToDelete({
-                                                resource: doc,
-                                                categoryName: category.name,
-                                                subcategoryName: subcategory.name
-                                              });
-                                              setIsDeleteResourceModalOpen(true);
-                                            }}
-                                            style={{ display: "flex", width: "36px", height: "36px", padding: "8px", justifyContent: "center", alignItems: "center", borderRadius: "6px", border: "none", background: "transparent", cursor: "pointer" }}
-                                          >
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                              <path d="M16 6V5.2C16 4.0799 16 3.51984 15.782 3.09202C15.5903 2.71569 15.2843 2.40973 14.908 2.21799C14.4802 2 13.9201 2 12.8 2H11.2C10.0799 2 9.51984 2 9.09202 2.21799C8.71569 2.40973 8.40973 2.71569 8.21799 3.09202C8 3.51984 8 4.0799 8 5.2V6M3 6H21M19 6V17.2C19 18.8802 19 19.7202 18.673 20.362C18.3854 20.9265 17.9265 21.3854 17.362 21.673C16.7202 22 15.8802 22 14.2 22H9.8C8.11984 22 7.27976 22 6.63803 21.673C6.07354 21.3854 5.6146 20.9265 5.32698 20.362C5 19.7202 5 18.8802 5 17.2V6" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                            </svg>
-                                          </button>
-                                        </div>
-                                      </div>
-                                    ))}
-                                  </div>
-                                  {/* Add Documents Button */}
-                                  <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "12px", alignSelf: "stretch" }}>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "center",
+                                      gap: "12px",
+                                    }}
+                                  >
                                     <button
                                       type="button"
-                                      onClick={() => {
-                                        setResourceMainCategory(category.name);
-                                        setResourceSubCategory(subcategory.name);
-                                        setIsAddResourceModalOpen(true);
+                                      style={{
+                                        display: "flex",
+                                        minHeight: "36px",
+                                        padding: "6px 8px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        gap: "4px",
+                                        borderRadius: "8px",
+                                        border: "none",
+                                        background: "transparent",
+                                        cursor: "pointer",
                                       }}
-                                      style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}
                                     >
-                                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8.00016 3.33325V12.6666M3.3335 7.99992H12.6668" stroke="#8D9BD8" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                                      <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
-                                        <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Add documents</div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          padding: "0 2px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            color: "#535862",
+                                            fontFamily: "Public Sans",
+                                            fontSize: "14px",
+                                            fontWeight: 600,
+                                            lineHeight: "20px",
+                                          }}
+                                        >
+                                          Edit Category
+                                        </div>
                                       </div>
                                     </button>
                                   </div>
-                                </>
-                              ) : (
-                                /* Empty State */
-                                <div style={{ display: "flex", width: "512px", justifyContent: "center", alignItems: "center" }}>
-                                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "24px", flex: "1 0 0" }}>
-                                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", alignSelf: "stretch" }}>
-                                      <div style={{ display: "flex", width: "48px", height: "48px", padding: "12px", justifyContent: "center", alignItems: "center", borderRadius: "10px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14 11H8M10 15H8M16 7H8M20 12V6.8C20 5.11984 20 4.27976 19.673 3.63803C19.3854 3.07354 18.9265 2.6146 18.362 2.32698C17.7202 2 16.8802 2 15.2 2H8.8C7.11984 2 6.27976 2 5.63803 2.32698C5.07354 2.6146 4.6146 3.07354 4.32698 3.63803C4 4.27976 4 5.11984 4 6.8V17.2C4 18.8802 4 19.7202 4.32698 20.362C4.6146 20.9265 5.07354 21.3854 5.63803 21.673C6.27976 22 7.11984 22 8.8 22H12M16 16L21 21M21 16L16 21" stroke="#414651" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                                      </div>
-                                      <div style={{ display: "flex", maxWidth: "352px", flexDirection: "column", alignItems: "center", gap: "4px", alignSelf: "stretch" }}>
-                                        <div style={{ alignSelf: "stretch", color: "#181D27", textAlign: "center", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 600, lineHeight: "24px" }}>No documents in this subcategory</div>
-                                      </div>
+                                </div>
+                              </div>
+
+                              {/* Subcategory Content */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "20px 24px",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "16px",
+                                  alignSelf: "stretch",
+                                }}
+                              >
+                                {subcategory.documents.length > 0 ? (
+                                  <>
+                                    {/* Documents List */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        alignItems: "flex-start",
+                                        gap: "10px",
+                                        alignSelf: "stretch",
+                                        flexWrap: "wrap",
+                                      }}
+                                    >
+                                      {subcategory.documents.map((doc) => (
+                                        <div
+                                          key={doc.id}
+                                          style={{
+                                            display: "flex",
+                                            width: "508px",
+                                            padding: "16px",
+                                            alignItems: "center",
+                                            gap: "4px",
+                                            borderRadius: "12px",
+                                            border: "1px solid #E9EAEB",
+                                            background: "#FFF",
+                                          }}
+                                        >
+                                          <div
+                                            style={{
+                                              display: "flex",
+                                              alignItems: "flex-start",
+                                              gap: "12px",
+                                              flex: "1 0 0",
+                                            }}
+                                          >
+                                            {/* Drag Handle */}
+                                            <button
+                                              type="button"
+                                              style={{
+                                                display: "flex",
+                                                width: "24px",
+                                                height: "24px",
+                                                padding: "4px",
+                                                justifyContent: "center",
+                                                alignItems: "center",
+                                                borderRadius: "6px",
+                                                border: "none",
+                                                background: "transparent",
+                                                cursor: "grab",
+                                              }}
+                                            >
+                                              <svg
+                                                width="16"
+                                                height="16"
+                                                viewBox="0 0 16 16"
+                                                fill="none"
+                                              >
+                                                <path
+                                                  d="M5.99992 8.6665C6.36811 8.6665 6.66658 8.36803 6.66658 7.99984C6.66658 7.63165 6.36811 7.33317 5.99992 7.33317C5.63173 7.33317 5.33325 7.63165 5.33325 7.99984C5.33325 8.36803 5.63173 8.6665 5.99992 8.6665Z"
+                                                  stroke="#A4A7AE"
+                                                  strokeWidth="1.66667"
+                                                  strokeLinecap="round"
+                                                  strokeLinejoin="round"
+                                                />
+                                                <path
+                                                  d="M5.99992 3.99984C6.36811 3.99984 6.66658 3.70136 6.66658 3.33317C6.66658 2.96498 6.36811 2.6665 5.99992 2.6665C5.63173 2.6665 5.33325 2.96498 5.33325 3.33317C5.33325 3.70136 5.63173 3.99984 5.99992 3.99984Z"
+                                                  stroke="#A4A7AE"
+                                                  strokeWidth="1.66667"
+                                                  strokeLinecap="round"
+                                                  strokeLinejoin="round"
+                                                />
+                                                <path
+                                                  d="M5.99992 13.3332C6.36811 13.3332 6.66658 13.0347 6.66658 12.6665C6.66658 12.2983 6.36811 11.9998 5.99992 11.9998C5.63173 11.9998 5.33325 12.2983 5.33325 12.6665C5.33325 13.0347 5.63173 13.3332 5.99992 13.3332Z"
+                                                  stroke="#A4A7AE"
+                                                  strokeWidth="1.66667"
+                                                  strokeLinecap="round"
+                                                  strokeLinejoin="round"
+                                                />
+                                                <path
+                                                  d="M9.99992 8.6665C10.3681 8.6665 10.6666 8.36803 10.6666 7.99984C10.6666 7.63165 10.3681 7.33317 9.99992 7.33317C9.63173 7.33317 9.33325 7.63165 9.33325 7.99984C9.33325 8.36803 9.63173 8.6665 9.99992 8.6665Z"
+                                                  stroke="#A4A7AE"
+                                                  strokeWidth="1.66667"
+                                                  strokeLinecap="round"
+                                                  strokeLinejoin="round"
+                                                />
+                                                <path
+                                                  d="M9.99992 3.99984C10.3681 3.99984 10.6666 3.70136 10.6666 3.33317C10.6666 2.96498 10.3681 2.6665 9.99992 2.6665C9.63173 2.6665 9.33325 2.96498 9.33325 3.33317C9.33325 3.70136 9.63173 3.99984 9.99992 3.99984Z"
+                                                  stroke="#A4A7AE"
+                                                  strokeWidth="1.66667"
+                                                  strokeLinecap="round"
+                                                  strokeLinejoin="round"
+                                                />
+                                                <path
+                                                  d="M9.99992 13.3332C10.3681 13.3332 10.6666 13.0347 10.6666 12.6665C10.6666 12.2983 10.3681 11.9998 9.99992 11.9998C9.63173 11.9998 9.33325 12.2983 9.33325 12.6665C9.33325 13.0347 9.63173 13.3332 9.99992 13.3332Z"
+                                                  stroke="#A4A7AE"
+                                                  strokeWidth="1.66667"
+                                                  strokeLinecap="round"
+                                                  strokeLinejoin="round"
+                                                />
+                                              </svg>
+                                            </button>
+                                            {/* PDF Icon */}
+                                            <div
+                                              style={{
+                                                width: "40px",
+                                                height: "40px",
+                                                position: "relative",
+                                              }}
+                                            >
+                                              <svg
+                                                width="32"
+                                                height="40"
+                                                viewBox="0 0 32 40"
+                                                fill="none"
+                                                style={{
+                                                  position: "absolute",
+                                                  left: "7px",
+                                                  top: "0",
+                                                }}
+                                              >
+                                                <path
+                                                  d="M4 0.75H20C20.1212 0.75 20.2375 0.798088 20.3232 0.883789L31.1162 11.6768C31.2019 11.7625 31.25 11.8788 31.25 12V36C31.25 37.7949 29.7949 39.25 28 39.25H4C2.20507 39.25 0.75 37.7949 0.75 36V4C0.750001 2.20507 2.20508 0.75 4 0.75Z"
+                                                  stroke="#D5D7DA"
+                                                  strokeWidth="1.5"
+                                                />
+                                                <path
+                                                  d="M20 0.5V8C20 10.2091 21.7909 12 24 12H31.5"
+                                                  stroke="#D5D7DA"
+                                                  strokeWidth="1.5"
+                                                />
+                                              </svg>
+                                              <div
+                                                style={{
+                                                  position: "absolute",
+                                                  left: "1px",
+                                                  top: "18px",
+                                                  width: "26px",
+                                                  height: "16px",
+                                                  padding: "2px 3px",
+                                                  borderRadius: "2px",
+                                                  background: "#D92D20",
+                                                }}
+                                              >
+                                                <div
+                                                  style={{
+                                                    color: "#FFF",
+                                                    textAlign: "center",
+                                                    fontFamily: "Inter",
+                                                    fontSize: "10px",
+                                                    fontWeight: 700,
+                                                    lineHeight: "normal",
+                                                  }}
+                                                >
+                                                  PDF
+                                                </div>
+                                              </div>
+                                            </div>
+                                            {/* Document Info */}
+                                            <div
+                                              style={{
+                                                display: "flex",
+                                                flexDirection: "column",
+                                                alignItems: "flex-start",
+                                                gap: "2px",
+                                                flex: "1 0 0",
+                                                alignSelf: "stretch",
+                                              }}
+                                            >
+                                              <div
+                                                style={{
+                                                  overflow: "hidden",
+                                                  color: "#414651",
+                                                  textOverflow: "ellipsis",
+                                                  fontFamily: "Public Sans",
+                                                  fontSize: "14px",
+                                                  fontWeight: 500,
+                                                  lineHeight: "20px",
+                                                  whiteSpace: "nowrap",
+                                                  width: "100%",
+                                                }}
+                                              >
+                                                {doc.name}
+                                              </div>
+                                              {doc.description && (
+                                                <div
+                                                  style={{
+                                                    display: "flex",
+                                                    height: "18px",
+                                                    flexDirection: "column",
+                                                    justifyContent: "center",
+                                                    alignItems: "flex-start",
+                                                    gap: "8px",
+                                                    alignSelf: "stretch",
+                                                  }}
+                                                >
+                                                  <div
+                                                    style={{
+                                                      overflow: "hidden",
+                                                      color: "#535862",
+                                                      textOverflow: "ellipsis",
+                                                      fontFamily: "Public Sans",
+                                                      fontSize: "12px",
+                                                      fontWeight: 400,
+                                                      lineHeight: "18px",
+                                                      whiteSpace: "nowrap",
+                                                      width: "100%",
+                                                    }}
+                                                  >
+                                                    {doc.description}
+                                                  </div>
+                                                </div>
+                                              )}
+                                            </div>
+                                          </div>
+                                          {/* Actions */}
+                                          <div
+                                            style={{
+                                              display: "flex",
+                                              alignItems: "center",
+                                              gap: "4px",
+                                            }}
+                                          >
+                                            <button
+                                              type="button"
+                                              onClick={() => {
+                                                setEditingResource({
+                                                  resource: doc,
+                                                  categoryName: category.name,
+                                                  subcategoryName:
+                                                    subcategory.name,
+                                                });
+                                                setEditResourceName(doc.name);
+                                                setEditResourceDescription(
+                                                  doc.description,
+                                                );
+                                                setEditResourceCategory(
+                                                  category.name,
+                                                );
+                                                setEditResourceSubCategory(
+                                                  subcategory.name,
+                                                );
+                                                setEditShowInQuickResources(
+                                                  false,
+                                                );
+                                                setIsEditResourceModalOpen(
+                                                  true,
+                                                );
+                                              }}
+                                              style={{
+                                                display: "flex",
+                                                width: "36px",
+                                                height: "36px",
+                                                padding: "8px",
+                                                justifyContent: "center",
+                                                alignItems: "center",
+                                                borderRadius: "6px",
+                                                border: "none",
+                                                background: "transparent",
+                                                cursor: "pointer",
+                                              }}
+                                            >
+                                              <svg
+                                                width="24"
+                                                height="24"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                              >
+                                                <path
+                                                  d="M2.87604 18.1155C2.92198 17.702 2.94496 17.4952 3.00751 17.302C3.06301 17.1305 3.14143 16.9674 3.24064 16.8169C3.35246 16.6474 3.49955 16.5003 3.79373 16.2061L17 2.99981C18.1046 1.89524 19.8955 1.89525 21 2.99981C22.1046 4.10438 22.1046 5.89525 21 6.99982L7.79373 20.2061C7.49955 20.5003 7.35245 20.6474 7.18289 20.7592C7.03245 20.8584 6.86929 20.9368 6.69785 20.9923C6.5046 21.0549 6.29786 21.0778 5.88437 21.1238L2.5 21.4998L2.87604 18.1155Z"
+                                                  stroke="#A4A7AE"
+                                                  strokeWidth="1.5"
+                                                  strokeLinecap="round"
+                                                  strokeLinejoin="round"
+                                                />
+                                              </svg>
+                                            </button>
+                                            <button
+                                              type="button"
+                                              onClick={() => {
+                                                setResourceToDelete({
+                                                  resource: doc,
+                                                  categoryName: category.name,
+                                                  subcategoryName:
+                                                    subcategory.name,
+                                                });
+                                                setIsDeleteResourceModalOpen(
+                                                  true,
+                                                );
+                                              }}
+                                              style={{
+                                                display: "flex",
+                                                width: "36px",
+                                                height: "36px",
+                                                padding: "8px",
+                                                justifyContent: "center",
+                                                alignItems: "center",
+                                                borderRadius: "6px",
+                                                border: "none",
+                                                background: "transparent",
+                                                cursor: "pointer",
+                                              }}
+                                            >
+                                              <svg
+                                                width="24"
+                                                height="24"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                              >
+                                                <path
+                                                  d="M16 6V5.2C16 4.0799 16 3.51984 15.782 3.09202C15.5903 2.71569 15.2843 2.40973 14.908 2.21799C14.4802 2 13.9201 2 12.8 2H11.2C10.0799 2 9.51984 2 9.09202 2.21799C8.71569 2.40973 8.40973 2.71569 8.21799 3.09202C8 3.51984 8 4.0799 8 5.2V6M3 6H21M19 6V17.2C19 18.8802 19 19.7202 18.673 20.362C18.3854 20.9265 17.9265 21.3854 17.362 21.673C16.7202 22 15.8802 22 14.2 22H9.8C8.11984 22 7.27976 22 6.63803 21.673C6.07354 21.3854 5.6146 20.9265 5.32698 20.362C5 19.7202 5 18.8802 5 17.2V6"
+                                                  stroke="#A4A7AE"
+                                                  strokeWidth="1.5"
+                                                  strokeLinecap="round"
+                                                  strokeLinejoin="round"
+                                                />
+                                              </svg>
+                                            </button>
+                                          </div>
+                                        </div>
+                                      ))}
                                     </div>
-                                    <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+                                    {/* Add Documents Button */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        gap: "12px",
+                                        alignSelf: "stretch",
+                                      }}
+                                    >
                                       <button
                                         type="button"
                                         onClick={() => {
-                                          setResourceMainCategory(category.name);
-                                          setResourceSubCategory(subcategory.name);
+                                          setResourceMainCategory(
+                                            category.name,
+                                          );
+                                          setResourceSubCategory(
+                                            subcategory.name,
+                                          );
                                           setIsAddResourceModalOpen(true);
                                         }}
-                                        style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}
+                                        style={{
+                                          display: "flex",
+                                          minHeight: "36px",
+                                          padding: "6px 8px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                          gap: "4px",
+                                          borderRadius: "8px",
+                                          border:
+                                            "2px solid rgba(255, 255, 255, 0.12)",
+                                          background: "#344698",
+                                          boxShadow:
+                                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                          cursor: "pointer",
+                                        }}
                                       >
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8.00016 3.33325V12.6666M3.3335 7.99992H12.6668" stroke="#8D9BD8" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                                        <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
-                                          <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Add documents</div>
+                                        <svg
+                                          width="16"
+                                          height="16"
+                                          viewBox="0 0 16 16"
+                                          fill="none"
+                                        >
+                                          <path
+                                            d="M8.00016 3.33325V12.6666M3.3335 7.99992H12.6668"
+                                            stroke="#8D9BD8"
+                                            strokeWidth="1.66667"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </svg>
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            padding: "0 2px",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                          }}
+                                        >
+                                          <div
+                                            style={{
+                                              color: "#FFF",
+                                              fontFamily: "Public Sans",
+                                              fontSize: "14px",
+                                              fontWeight: 600,
+                                              lineHeight: "20px",
+                                            }}
+                                          >
+                                            Add documents
+                                          </div>
                                         </div>
                                       </button>
                                     </div>
+                                  </>
+                                ) : (
+                                  /* Empty State */
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "512px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "center",
+                                        gap: "24px",
+                                        flex: "1 0 0",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "center",
+                                          gap: "16px",
+                                          alignSelf: "stretch",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            width: "48px",
+                                            height: "48px",
+                                            padding: "12px",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            borderRadius: "10px",
+                                            border: "1px solid #D5D7DA",
+                                            background: "#FFF",
+                                            boxShadow:
+                                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                          }}
+                                        >
+                                          <svg
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                          >
+                                            <path
+                                              d="M14 11H8M10 15H8M16 7H8M20 12V6.8C20 5.11984 20 4.27976 19.673 3.63803C19.3854 3.07354 18.9265 2.6146 18.362 2.32698C17.7202 2 16.8802 2 15.2 2H8.8C7.11984 2 6.27976 2 5.63803 2.32698C5.07354 2.6146 4.6146 3.07354 4.32698 3.63803C4 4.27976 4 5.11984 4 6.8V17.2C4 18.8802 4 19.7202 4.32698 20.362C4.6146 20.9265 5.07354 21.3854 5.63803 21.673C6.27976 22 7.11984 22 8.8 22H12M16 16L21 21M21 16L16 21"
+                                              stroke="#414651"
+                                              strokeWidth="2"
+                                              strokeLinecap="round"
+                                              strokeLinejoin="round"
+                                            />
+                                          </svg>
+                                        </div>
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            maxWidth: "352px",
+                                            flexDirection: "column",
+                                            alignItems: "center",
+                                            gap: "4px",
+                                            alignSelf: "stretch",
+                                          }}
+                                        >
+                                          <div
+                                            style={{
+                                              alignSelf: "stretch",
+                                              color: "#181D27",
+                                              textAlign: "center",
+                                              fontFamily: "Public Sans",
+                                              fontSize: "16px",
+                                              fontWeight: 600,
+                                              lineHeight: "24px",
+                                            }}
+                                          >
+                                            No documents in this subcategory
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          alignItems: "flex-start",
+                                          gap: "12px",
+                                        }}
+                                      >
+                                        <button
+                                          type="button"
+                                          onClick={() => {
+                                            setResourceMainCategory(
+                                              category.name,
+                                            );
+                                            setResourceSubCategory(
+                                              subcategory.name,
+                                            );
+                                            setIsAddResourceModalOpen(true);
+                                          }}
+                                          style={{
+                                            display: "flex",
+                                            minHeight: "36px",
+                                            padding: "6px 8px",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            gap: "4px",
+                                            borderRadius: "8px",
+                                            border:
+                                              "2px solid rgba(255, 255, 255, 0.12)",
+                                            background: "#344698",
+                                            boxShadow:
+                                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            cursor: "pointer",
+                                          }}
+                                        >
+                                          <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 16 16"
+                                            fill="none"
+                                          >
+                                            <path
+                                              d="M8.00016 3.33325V12.6666M3.3335 7.99992H12.6668"
+                                              stroke="#8D9BD8"
+                                              strokeWidth="1.66667"
+                                              strokeLinecap="round"
+                                              strokeLinejoin="round"
+                                            />
+                                          </svg>
+                                          <div
+                                            style={{
+                                              display: "flex",
+                                              padding: "0 2px",
+                                              justifyContent: "center",
+                                              alignItems: "center",
+                                            }}
+                                          >
+                                            <div
+                                              style={{
+                                                color: "#FFF",
+                                                fontFamily: "Public Sans",
+                                                fontSize: "14px",
+                                                fontWeight: 600,
+                                                lineHeight: "20px",
+                                              }}
+                                            >
+                                              Add documents
+                                            </div>
+                                          </div>
+                                        </button>
+                                      </div>
+                                    </div>
                                   </div>
-                                </div>
-                              )}
+                                )}
+                              </div>
                             </div>
-                          </div>
-                        ))}
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
+                    ))}
+                  </div>
+                )}
+              </div>
 
-            {/* Edit Category Modal */}
-            {isEditCategoryModalOpen && editingCategory && (
-              <div
-                style={{
-                  position: "fixed",
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  zIndex: 9999,
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  alignItems: "flex-start",
-                }}
-              >
+              {/* Edit Category Modal */}
+              {isEditCategoryModalOpen && editingCategory && (
                 <div
-                  onClick={() => setIsEditCategoryModalOpen(false)}
                   style={{
-                    position: "absolute",
+                    position: "fixed",
                     top: 0,
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: "rgba(10, 13, 18, 0.7)",
-                    backdropFilter: "blur(4px)",
-                  }}
-                />
-                <div
-                  onClick={(e) => e.stopPropagation()}
-                  style={{
-                    position: "relative",
+                    zIndex: 9999,
                     display: "flex",
-                    flexDirection: "column",
-                    width: "400px",
-                    height: "100vh",
-                    background: "#FFF",
-                    borderLeft: "1px solid rgba(0, 0, 0, 0.08)",
-                    boxShadow: "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
+                    justifyContent: "flex-end",
+                    alignItems: "flex-start",
                   }}
                 >
-                  {/* Modal Header */}
                   <div
+                    onClick={() => setIsEditCategoryModalOpen(false)}
                     style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "rgba(10, 13, 18, 0.7)",
+                      backdropFilter: "blur(4px)",
+                    }}
+                  />
+                  <div
+                    onClick={(e) => e.stopPropagation()}
+                    style={{
+                      position: "relative",
                       display: "flex",
-                      padding: "24px",
-                      alignItems: "flex-start",
-                      gap: "8px",
+                      flexDirection: "column",
+                      width: "400px",
+                      height: "100vh",
                       background: "#FFF",
+                      borderLeft: "1px solid rgba(0, 0, 0, 0.08)",
+                      boxShadow:
+                        "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
                     }}
                   >
+                    {/* Modal Header */}
                     <div
                       style={{
                         display: "flex",
+                        padding: "24px",
                         alignItems: "flex-start",
-                        gap: "16px",
-                        flex: "1 0 0",
+                        gap: "8px",
+                        background: "#FFF",
                       }}
                     >
                       <div
                         style={{
                           display: "flex",
-                          width: "44px",
-                          height: "44px",
-                          padding: "12px",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          borderRadius: "9999px",
-                          background: "#D9DEF2",
+                          alignItems: "flex-start",
+                          gap: "16px",
+                          flex: "1 0 0",
                         }}
                       >
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                          <g clipPath="url(#clip0_edit_modal)">
-                            <path d="M10.0001 6.66675V13.3334M6.66675 10.0001H13.3334M18.3334 10.0001C18.3334 14.6025 14.6025 18.3334 10.0001 18.3334C5.39771 18.3334 1.66675 14.6025 1.66675 10.0001C1.66675 5.39771 5.39771 1.66675 10.0001 1.66675C14.6025 1.66675 18.3334 5.39771 18.3334 10.0001Z" stroke="#344698" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-                          </g>
-                          <defs>
-                            <clipPath id="clip0_edit_modal"><rect width="20" height="20" fill="white" /></clipPath>
-                          </defs>
-                        </svg>
-                      </div>
-                      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px", flex: "1 0 0" }}>
-                        <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "18px", fontWeight: 600, lineHeight: "28px" }}>Create Category</div>
-                        <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>Categories help you organize the content in a logical way, so your team members can find it easily.</div>
-                      </div>
-                    </div>
-                    <button type="button" onClick={() => setIsEditCategoryModalOpen(false)} style={{ display: "flex", width: "40px", height: "40px", padding: "8px", justifyContent: "center", alignItems: "center", borderRadius: "8px", border: "none", background: "transparent", cursor: "pointer" }}>
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6L18 18" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                    </button>
-                  </div>
-
-                  {/* Modal Content */}
-                  <div style={{ display: "flex", padding: "0 24px", flexDirection: "column", gap: "24px", overflowY: "auto", flex: 1 }}>
-                    {/* Category Name Input */}
-                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                        <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Name</label>
-                        <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
-                      </div>
-                      <input
-                        type="text"
-                        value={editCategoryName}
-                        onChange={(e) => setEditCategoryName(e.target.value)}
-                        style={{ display: "flex", padding: "10px 14px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#181D27", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none" }}
-                      />
-                    </div>
-
-                    {/* Category Description Textarea */}
-                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                      <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Description</label>
-                      <textarea
-                        value={editCategoryDescription}
-                        onChange={(e) => setEditCategoryDescription(e.target.value)}
-                        placeholder="Add a description to help others understand the purpose of this category."
-                        style={{ display: "flex", padding: "12px 14px", alignItems: "flex-start", gap: "8px", minHeight: "140px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#717680", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none", resize: "vertical" }}
-                      />
-                    </div>
-
-                    <div style={{ height: "1px", background: "#E9EAEB" }} />
-
-                    {/* Manage Subcategories Section */}
-                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                      <div style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Manage subcategories</div>
-                      <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>Rename, add or delete subcategories</div>
-
-                      {/* Add Subcategory Button */}
-                      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "10px", alignSelf: "stretch" }}>
-                        <button
-                          type="button"
-                          onClick={() => setEditSubcategories([...editSubcategories, ""])}
-                          style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "44px",
+                            height: "44px",
+                            padding: "12px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "9999px",
+                            background: "#D9DEF2",
+                          }}
                         >
-                          <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
-                            <div style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Add Subcategory</div>
-                          </div>
-                          <svg width="16" height="16" viewBox="0 0 17 16" fill="none">
-                            <path d="M8.50004 5.3335V10.6668M5.83337 8.00016H11.1667M15.1667 8.00016C15.1667 11.6821 12.1819 14.6668 8.50004 14.6668C4.81814 14.6668 1.83337 11.6821 1.83337 8.00016C1.83337 4.31826 4.81814 1.3335 8.50004 1.3335C12.1819 1.3335 15.1667 4.31826 15.1667 8.00016Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                          >
+                            <g clipPath="url(#clip0_edit_modal)">
+                              <path
+                                d="M10.0001 6.66675V13.3334M6.66675 10.0001H13.3334M18.3334 10.0001C18.3334 14.6025 14.6025 18.3334 10.0001 18.3334C5.39771 18.3334 1.66675 14.6025 1.66675 10.0001C1.66675 5.39771 5.39771 1.66675 10.0001 1.66675C14.6025 1.66675 18.3334 5.39771 18.3334 10.0001Z"
+                                stroke="#344698"
+                                strokeWidth="1.66667"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_edit_modal">
+                                <rect width="20" height="20" fill="white" />
+                              </clipPath>
+                            </defs>
                           </svg>
-                        </button>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "2px",
+                            flex: "1 0 0",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "18px",
+                              fontWeight: 600,
+                              lineHeight: "28px",
+                            }}
+                          >
+                            Create Category
+                          </div>
+                          <div
+                            style={{
+                              color: "#535862",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 400,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Categories help you organize the content in a
+                            logical way, so your team members can find it
+                            easily.
+                          </div>
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setIsEditCategoryModalOpen(false)}
+                        style={{
+                          display: "flex",
+                          width: "40px",
+                          height: "40px",
+                          padding: "8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "8px",
+                          border: "none",
+                          background: "transparent",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <path
+                            d="M18 6L6 18M6 6L18 18"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+
+                    {/* Modal Content */}
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "0 24px",
+                        flexDirection: "column",
+                        gap: "24px",
+                        overflowY: "auto",
+                        flex: 1,
+                      }}
+                    >
+                      {/* Category Name Input */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "6px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "2px",
+                          }}
+                        >
+                          <label
+                            style={{
+                              color: "#414651",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Name
+                          </label>
+                          <span
+                            style={{
+                              color: "#344698",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            *
+                          </span>
+                        </div>
+                        <input
+                          type="text"
+                          value={editCategoryName}
+                          onChange={(e) => setEditCategoryName(e.target.value)}
+                          style={{
+                            display: "flex",
+                            padding: "10px 14px",
+                            alignItems: "center",
+                            gap: "8px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            fontWeight: 400,
+                            lineHeight: "24px",
+                            outline: "none",
+                          }}
+                        />
                       </div>
 
-                      {/* Subcategories List */}
-                      <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "10px" }}>
-                        {editSubcategories.map((subcategory, index) => (
-                          <div key={index} style={{ display: "flex", alignItems: "flex-end", gap: "10px" }}>
-                            <div style={{ display: "flex", flexDirection: "column", gap: "6px", flex: "1 0 0" }}>
-                              <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                                <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Subcategory Name</label>
-                                <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
+                      {/* Category Description Textarea */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "6px",
+                        }}
+                      >
+                        <label
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Description
+                        </label>
+                        <textarea
+                          value={editCategoryDescription}
+                          onChange={(e) =>
+                            setEditCategoryDescription(e.target.value)
+                          }
+                          placeholder="Add a description to help others understand the purpose of this category."
+                          style={{
+                            display: "flex",
+                            padding: "12px 14px",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                            minHeight: "140px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            color: "#717680",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            fontWeight: 400,
+                            lineHeight: "24px",
+                            outline: "none",
+                            resize: "vertical",
+                          }}
+                        />
+                      </div>
+
+                      <div style={{ height: "1px", background: "#E9EAEB" }} />
+
+                      {/* Manage Subcategories Section */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "6px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Manage subcategories
+                        </div>
+                        <div
+                          style={{
+                            color: "#535862",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 400,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Rename, add or delete subcategories
+                        </div>
+
+                        {/* Add Subcategory Button */}
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "10px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setEditSubcategories([...editSubcategories, ""])
+                            }
+                            style={{
+                              display: "flex",
+                              minHeight: "36px",
+                              padding: "6px 8px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              gap: "4px",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow:
+                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              cursor: "pointer",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "0 2px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#414651",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 600,
+                                  lineHeight: "20px",
+                                }}
+                              >
+                                Add Subcategory
                               </div>
-                              <input
-                                type="text"
-                                value={subcategory}
-                                onChange={(e) => {
-                                  const newSubcategories = [...editSubcategories];
-                                  newSubcategories[index] = e.target.value;
+                            </div>
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 17 16"
+                              fill="none"
+                            >
+                              <path
+                                d="M8.50004 5.3335V10.6668M5.83337 8.00016H11.1667M15.1667 8.00016C15.1667 11.6821 12.1819 14.6668 8.50004 14.6668C4.81814 14.6668 1.83337 11.6821 1.83337 8.00016C1.83337 4.31826 4.81814 1.3335 8.50004 1.3335C12.1819 1.3335 15.1667 4.31826 15.1667 8.00016Z"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.66667"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+
+                        {/* Subcategories List */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "10px",
+                            marginTop: "10px",
+                          }}
+                        >
+                          {editSubcategories.map((subcategory, index) => (
+                            <div
+                              key={index}
+                              style={{
+                                display: "flex",
+                                alignItems: "flex-end",
+                                gap: "10px",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  gap: "6px",
+                                  flex: "1 0 0",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "2px",
+                                  }}
+                                >
+                                  <label
+                                    style={{
+                                      color: "#414651",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    Subcategory Name
+                                  </label>
+                                  <span
+                                    style={{
+                                      color: "#344698",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    *
+                                  </span>
+                                </div>
+                                <input
+                                  type="text"
+                                  value={subcategory}
+                                  onChange={(e) => {
+                                    const newSubcategories = [
+                                      ...editSubcategories,
+                                    ];
+                                    newSubcategories[index] = e.target.value;
+                                    setEditSubcategories(newSubcategories);
+                                  }}
+                                  style={{
+                                    display: "flex",
+                                    padding: "10px 14px",
+                                    alignItems: "center",
+                                    gap: "8px",
+                                    borderRadius: "8px",
+                                    border: "1px solid #D5D7DA",
+                                    background: "#FFF",
+                                    boxShadow:
+                                      "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    outline: "none",
+                                  }}
+                                />
+                              </div>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  const newSubcategories =
+                                    editSubcategories.filter(
+                                      (_, i) => i !== index,
+                                    );
                                   setEditSubcategories(newSubcategories);
                                 }}
-                                style={{ display: "flex", padding: "10px 14px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#181D27", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none" }}
-                              />
+                                style={{
+                                  display: "flex",
+                                  padding: "12px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow:
+                                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  cursor: "pointer",
+                                }}
+                              >
+                                <svg
+                                  width="20"
+                                  height="20"
+                                  viewBox="0 0 20 20"
+                                  fill="none"
+                                >
+                                  <g clipPath="url(#clip0_minus_edit)">
+                                    <path
+                                      d="M6.66663 10.0003H13.3333M18.3333 10.0003C18.3333 14.6027 14.6023 18.3337 9.99996 18.3337C5.39759 18.3337 1.66663 14.6027 1.66663 10.0003C1.66663 5.39795 5.39759 1.66699 9.99996 1.66699C14.6023 1.66699 18.3333 5.39795 18.3333 10.0003Z"
+                                      stroke="#A4A7AE"
+                                      strokeWidth="1.66667"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </g>
+                                  <defs>
+                                    <clipPath id="clip0_minus_edit">
+                                      <rect
+                                        width="20"
+                                        height="20"
+                                        fill="white"
+                                      />
+                                    </clipPath>
+                                  </defs>
+                                </svg>
+                              </button>
                             </div>
-                            <button
-                              type="button"
-                              onClick={() => {
-                                const newSubcategories = editSubcategories.filter((_, i) => i !== index);
-                                setEditSubcategories(newSubcategories);
-                              }}
-                              style={{ display: "flex", padding: "12px", justifyContent: "center", alignItems: "center", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}
-                            >
-                              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <g clipPath="url(#clip0_minus_edit)">
-                                  <path d="M6.66663 10.0003H13.3333M18.3333 10.0003C18.3333 14.6027 14.6023 18.3337 9.99996 18.3337C5.39759 18.3337 1.66663 14.6027 1.66663 10.0003C1.66663 5.39795 5.39759 1.66699 9.99996 1.66699C14.6023 1.66699 18.3333 5.39795 18.3333 10.0003Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
-                                </g>
-                                <defs>
-                                  <clipPath id="clip0_minus_edit"><rect width="20" height="20" fill="white"/></clipPath>
-                                </defs>
-                              </svg>
-                            </button>
-                          </div>
-                        ))}
+                          ))}
+                        </div>
                       </div>
-                    </div>
 
-                    {/* Update Category Button */}
-                    <button
-                      type="button"
-                      onClick={() => {
-                        // Validate
-                        if (!editCategoryName.trim()) {
-                          alert("Please enter a category name");
-                          return;
-                        }
+                      {/* Update Category Button */}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          // Validate
+                          if (!editCategoryName.trim()) {
+                            alert("Please enter a category name");
+                            return;
+                          }
 
-                        const validSubcategories = editSubcategories.filter(s => s.trim());
-                        if (validSubcategories.length === 0) {
-                          alert("Please add at least one subcategory");
-                          return;
-                        }
+                          const validSubcategories = editSubcategories.filter(
+                            (s) => s.trim(),
+                          );
+                          if (validSubcategories.length === 0) {
+                            alert("Please add at least one subcategory");
+                            return;
+                          }
 
-                        // Update category
-                        setCategories(categories.map(cat =>
-                          cat.id === editingCategory.id
-                            ? {
-                                ...cat,
-                                name: editCategoryName,
-                                description: editCategoryDescription,
-                                subcategories: validSubcategories.map((s, idx) => ({
-                                  id: editingCategory.subcategories[idx]?.id || Date.now().toString() + Math.random(),
-                                  name: s,
-                                  documents: editingCategory.subcategories[idx]?.documents || []
-                                }))
-                              }
-                            : cat
-                        ));
+                          // Update category
+                          setCategories(
+                            categories.map((cat) =>
+                              cat.id === editingCategory.id
+                                ? {
+                                    ...cat,
+                                    name: editCategoryName,
+                                    description: editCategoryDescription,
+                                    subcategories: validSubcategories.map(
+                                      (s, idx) => ({
+                                        id:
+                                          editingCategory.subcategories[idx]
+                                            ?.id ||
+                                          Date.now().toString() + Math.random(),
+                                        name: s,
+                                        documents:
+                                          editingCategory.subcategories[idx]
+                                            ?.documents || [],
+                                      }),
+                                    ),
+                                  }
+                                : cat,
+                            ),
+                          );
 
-                        // Close modal
-                        setIsEditCategoryModalOpen(false);
-                        setEditingCategory(null);
-                      }}
-                      style={{ display: "flex", padding: "12px", justifyContent: "center", alignItems: "center", gap: "4px", alignSelf: "stretch", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}
-                    >
-                      <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
-                        <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Update Category</div>
-                      </div>
-                    </button>
-
-                    {/* Delete Category Button */}
-                    <button
-                      type="button"
-                      onClick={() => {
-                        if (confirm(`Are you sure you want to delete the category "${editingCategory.name}"? This action cannot be undone.`)) {
-                          setCategories(categories.filter(cat => cat.id !== editingCategory.id));
+                          // Close modal
                           setIsEditCategoryModalOpen(false);
                           setEditingCategory(null);
+                        }}
+                        style={{
+                          display: "flex",
+                          padding: "12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          alignSelf: "stretch",
+                          borderRadius: "8px",
+                          border: "2px solid rgba(255, 255, 255, 0.12)",
+                          background: "#344698",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "0 2px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#FFF",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 600,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Update Category
+                          </div>
+                        </div>
+                      </button>
 
-                          toast({
-                            title: "Category deleted",
-                            description: `The category "${editingCategory.name}" has been successfully deleted.`,
-                          });
-                        }
-                      }}
-                      style={{ display: "flex", padding: "10px 14px", justifyContent: "center", alignItems: "center", gap: "4px", alignSelf: "stretch", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#D92D20", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer", marginBottom: "24px" }}
-                    >
-                      <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
-                        <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Delete Category</div>
-                      </div>
-                    </button>
+                      {/* Delete Category Button */}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          if (
+                            confirm(
+                              `Are you sure you want to delete the category "${editingCategory.name}"? This action cannot be undone.`,
+                            )
+                          ) {
+                            setCategories(
+                              categories.filter(
+                                (cat) => cat.id !== editingCategory.id,
+                              ),
+                            );
+                            setIsEditCategoryModalOpen(false);
+                            setEditingCategory(null);
+
+                            toast({
+                              title: "Category deleted",
+                              description: `The category "${editingCategory.name}" has been successfully deleted.`,
+                            });
+                          }
+                        }}
+                        style={{
+                          display: "flex",
+                          padding: "10px 14px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          alignSelf: "stretch",
+                          borderRadius: "8px",
+                          border: "2px solid rgba(255, 255, 255, 0.12)",
+                          background: "#D92D20",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          cursor: "pointer",
+                          marginBottom: "24px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "0 2px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#FFF",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 600,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Delete Category
+                          </div>
+                        </div>
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {/* Create Category Modal */}
-            {isCreateCategoryModalOpen && (
-              <div
-                style={{
-                  position: "fixed",
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  zIndex: 9999,
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  alignItems: "flex-start",
-                }}
-              >
+              {/* Create Category Modal */}
+              {isCreateCategoryModalOpen && (
                 <div
-                  onClick={() => setIsCreateCategoryModalOpen(false)}
                   style={{
-                    position: "absolute",
+                    position: "fixed",
                     top: 0,
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: "rgba(10, 13, 18, 0.7)",
-                    backdropFilter: "blur(4px)",
-                  }}
-                />
-                <div
-                  onClick={(e) => e.stopPropagation()}
-                  style={{
-                    position: "relative",
+                    zIndex: 9999,
                     display: "flex",
-                    flexDirection: "column",
-                    width: "400px",
-                    height: "100vh",
-                    background: "#FFF",
-                    borderLeft: "1px solid rgba(0, 0, 0, 0.08)",
-                    boxShadow: "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
+                    justifyContent: "flex-end",
+                    alignItems: "flex-start",
                   }}
                 >
                   <div
+                    onClick={() => setIsCreateCategoryModalOpen(false)}
                     style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "rgba(10, 13, 18, 0.7)",
+                      backdropFilter: "blur(4px)",
+                    }}
+                  />
+                  <div
+                    onClick={(e) => e.stopPropagation()}
+                    style={{
+                      position: "relative",
                       display: "flex",
-                      padding: "24px",
-                      alignItems: "flex-start",
-                      gap: "8px",
+                      flexDirection: "column",
+                      width: "400px",
+                      height: "100vh",
                       background: "#FFF",
+                      borderLeft: "1px solid rgba(0, 0, 0, 0.08)",
+                      boxShadow:
+                        "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
                     }}
                   >
                     <div
                       style={{
                         display: "flex",
+                        padding: "24px",
                         alignItems: "flex-start",
-                        gap: "16px",
-                        flex: "1 0 0",
+                        gap: "8px",
+                        background: "#FFF",
                       }}
                     >
                       <div
                         style={{
                           display: "flex",
-                          width: "44px",
-                          height: "44px",
-                          padding: "12px",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          borderRadius: "9999px",
-                          background: "#D9DEF2",
+                          alignItems: "flex-start",
+                          gap: "16px",
+                          flex: "1 0 0",
                         }}
                       >
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                          <g clipPath="url(#clip0_modal)">
-                            <path d="M10.0001 6.66675V13.3334M6.66675 10.0001H13.3334M18.3334 10.0001C18.3334 14.6025 14.6025 18.3334 10.0001 18.3334C5.39771 18.3334 1.66675 14.6025 1.66675 10.0001C1.66675 5.39771 5.39771 1.66675 10.0001 1.66675C14.6025 1.66675 18.3334 5.39771 18.3334 10.0001Z" stroke="#344698" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
-                          </g>
-                          <defs>
-                            <clipPath id="clip0_modal"><rect width="20" height="20" fill="white" /></clipPath>
-                          </defs>
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "44px",
+                            height: "44px",
+                            padding: "12px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "9999px",
+                            background: "#D9DEF2",
+                          }}
+                        >
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                          >
+                            <g clipPath="url(#clip0_modal)">
+                              <path
+                                d="M10.0001 6.66675V13.3334M6.66675 10.0001H13.3334M18.3334 10.0001C18.3334 14.6025 14.6025 18.3334 10.0001 18.3334C5.39771 18.3334 1.66675 14.6025 1.66675 10.0001C1.66675 5.39771 5.39771 1.66675 10.0001 1.66675C14.6025 1.66675 18.3334 5.39771 18.3334 10.0001Z"
+                                stroke="#344698"
+                                strokeWidth="1.66667"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_modal">
+                                <rect width="20" height="20" fill="white" />
+                              </clipPath>
+                            </defs>
+                          </svg>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "2px",
+                            flex: "1 0 0",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "18px",
+                              fontWeight: 600,
+                              lineHeight: "28px",
+                            }}
+                          >
+                            Create Category
+                          </div>
+                          <div
+                            style={{
+                              color: "#535862",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 400,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Categories help you organize the content in a
+                            logical way, so your team members can find it
+                            easily.
+                          </div>
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setIsCreateCategoryModalOpen(false)}
+                        style={{
+                          display: "flex",
+                          width: "40px",
+                          height: "40px",
+                          padding: "8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "8px",
+                          border: "none",
+                          background: "transparent",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <path
+                            d="M18 6L6 18M6 6L18 18"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
                         </svg>
-                      </div>
-                      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px", flex: "1 0 0" }}>
-                        <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "18px", fontWeight: 600, lineHeight: "28px" }}>Create Category</div>
-                        <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>Categories help you organize the content in a logical way, so your team members can find it easily.</div>
-                      </div>
-                    </div>
-                    <button type="button" onClick={() => setIsCreateCategoryModalOpen(false)} style={{ display: "flex", width: "40px", height: "40px", padding: "8px", justifyContent: "center", alignItems: "center", borderRadius: "8px", border: "none", background: "transparent", cursor: "pointer" }}>
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6L18 18" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                    </button>
-                  </div>
-                  <div style={{ display: "flex", padding: "0 24px", flexDirection: "column", gap: "24px" }}>
-                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                        <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Name</label>
-                        <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
-                      </div>
-                      <input type="text" value={categoryName} onChange={(e) => setCategoryName(e.target.value)} placeholder="Name this category" style={{ display: "flex", padding: "10px 14px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#717680", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none" }} />
-                    </div>
-                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                      <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Description</label>
-                      <textarea value={categoryDescription} onChange={(e) => setCategoryDescription(e.target.value)} placeholder="Add a description to help others understand the purpose of this category." style={{ display: "flex", padding: "12px 14px", alignItems: "flex-start", gap: "8px", minHeight: "140px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#717680", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none", resize: "vertical" }} />
-                    </div>
-                    <div style={{ height: "1px", background: "#E9EAEB" }} />
-                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                      <div style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Create Sub Categories</div>
-                      <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>Groups allow you to further organize your documents, by topics, dates or any other selection.</div>
-                      <button type="button" onClick={() => setSubcategories([...subcategories, ""])} style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}>
-                        <span style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center", color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Add Subcategory</span>
-                        <svg width="16" height="16" viewBox="0 0 17 16" fill="none"><path d="M8.49992 5.33325V10.6666M5.83325 7.99992H11.1666M15.1666 7.99992C15.1666 11.6818 12.1818 14.6666 8.49992 14.6666C4.81802 14.6666 1.83325 11.6818 1.83325 7.99992C1.83325 4.31802 4.81802 1.33325 8.49992 1.33325C12.1818 1.33325 15.1666 4.31802 15.1666 7.99992Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" /></svg>
                       </button>
-                      <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "10px" }}>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "0 24px",
+                        flexDirection: "column",
+                        gap: "24px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "6px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "2px",
+                          }}
+                        >
+                          <label
+                            style={{
+                              color: "#414651",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Name
+                          </label>
+                          <span
+                            style={{
+                              color: "#344698",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            *
+                          </span>
+                        </div>
+                        <input
+                          type="text"
+                          value={categoryName}
+                          onChange={(e) => setCategoryName(e.target.value)}
+                          placeholder="Name this category"
+                          style={{
+                            display: "flex",
+                            padding: "10px 14px",
+                            alignItems: "center",
+                            gap: "8px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            color: "#717680",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            fontWeight: 400,
+                            lineHeight: "24px",
+                            outline: "none",
+                          }}
+                        />
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "6px",
+                        }}
+                      >
+                        <label
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Description
+                        </label>
+                        <textarea
+                          value={categoryDescription}
+                          onChange={(e) =>
+                            setCategoryDescription(e.target.value)
+                          }
+                          placeholder="Add a description to help others understand the purpose of this category."
+                          style={{
+                            display: "flex",
+                            padding: "12px 14px",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                            minHeight: "140px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            color: "#717680",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            fontWeight: 400,
+                            lineHeight: "24px",
+                            outline: "none",
+                            resize: "vertical",
+                          }}
+                        />
+                      </div>
+                      <div style={{ height: "1px", background: "#E9EAEB" }} />
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "6px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Create Sub Categories
+                        </div>
+                        <div
+                          style={{
+                            color: "#535862",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 400,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Groups allow you to further organize your documents,
+                          by topics, dates or any other selection.
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setSubcategories([...subcategories, ""])
+                          }
+                          style={{
+                            display: "flex",
+                            minHeight: "36px",
+                            padding: "6px 8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "4px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <span
+                            style={{
+                              display: "flex",
+                              padding: "0 2px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              color: "#414651",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 600,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Add Subcategory
+                          </span>
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 17 16"
+                            fill="none"
+                          >
+                            <path
+                              d="M8.49992 5.33325V10.6666M5.83325 7.99992H11.1666M15.1666 7.99992C15.1666 11.6818 12.1818 14.6666 8.49992 14.6666C4.81802 14.6666 1.83325 11.6818 1.83325 7.99992C1.83325 4.31802 4.81802 1.33325 8.49992 1.33325C12.1818 1.33325 15.1666 4.31802 15.1666 7.99992Z"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "10px",
+                            marginTop: "10px",
+                          }}
+                        >
                           {subcategories.map((subcategory, index) => (
-                            <div key={index} style={{ display: "flex", alignItems: "flex-end", gap: "10px" }}>
-                              <div style={{ display: "flex", flexDirection: "column", gap: "6px", flex: "1 0 0" }}>
-                                <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                                  <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Subcategory Name</label>
-                                  <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
+                            <div
+                              key={index}
+                              style={{
+                                display: "flex",
+                                alignItems: "flex-end",
+                                gap: "10px",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  gap: "6px",
+                                  flex: "1 0 0",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "2px",
+                                  }}
+                                >
+                                  <label
+                                    style={{
+                                      color: "#414651",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    Subcategory Name
+                                  </label>
+                                  <span
+                                    style={{
+                                      color: "#344698",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    *
+                                  </span>
                                 </div>
-                                <input type="text" value={subcategory} onChange={(e) => { const newSubcategories = [...subcategories]; newSubcategories[index] = e.target.value; setSubcategories(newSubcategories); }} placeholder="Name this group" style={{ display: "flex", padding: "10px 14px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#181D27", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none" }} />
+                                <input
+                                  type="text"
+                                  value={subcategory}
+                                  onChange={(e) => {
+                                    const newSubcategories = [...subcategories];
+                                    newSubcategories[index] = e.target.value;
+                                    setSubcategories(newSubcategories);
+                                  }}
+                                  placeholder="Name this group"
+                                  style={{
+                                    display: "flex",
+                                    padding: "10px 14px",
+                                    alignItems: "center",
+                                    gap: "8px",
+                                    borderRadius: "8px",
+                                    border: "1px solid #D5D7DA",
+                                    background: "#FFF",
+                                    boxShadow:
+                                      "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    outline: "none",
+                                  }}
+                                />
                               </div>
                               {index > 0 && (
-                                <button type="button" onClick={() => { const newSubcategories = subcategories.filter((_, i) => i !== index); setSubcategories(newSubcategories); }} style={{ display: "flex", padding: "12px", justifyContent: "center", alignItems: "center", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}>
-                                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><g clipPath="url(#clip0_minus)"><path d="M6.6665 10.0001H13.3332M18.3332 10.0001C18.3332 14.6025 14.6022 18.3334 9.99984 18.3334C5.39746 18.3334 1.6665 14.6025 1.6665 10.0001C1.6665 5.39771 5.39746 1.66675 9.99984 1.66675C14.6022 1.66675 18.3332 5.39771 18.3332 10.0001Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" /></g><defs><clipPath id="clip0_minus"><rect width="20" height="20" fill="white" /></clipPath></defs></svg>
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    const newSubcategories =
+                                      subcategories.filter(
+                                        (_, i) => i !== index,
+                                      );
+                                    setSubcategories(newSubcategories);
+                                  }}
+                                  style={{
+                                    display: "flex",
+                                    padding: "12px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    borderRadius: "8px",
+                                    border: "1px solid #D5D7DA",
+                                    background: "#FFF",
+                                    boxShadow:
+                                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    cursor: "pointer",
+                                  }}
+                                >
+                                  <svg
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 20 20"
+                                    fill="none"
+                                  >
+                                    <g clipPath="url(#clip0_minus)">
+                                      <path
+                                        d="M6.6665 10.0001H13.3332M18.3332 10.0001C18.3332 14.6025 14.6022 18.3334 9.99984 18.3334C5.39746 18.3334 1.6665 14.6025 1.6665 10.0001C1.6665 5.39771 5.39746 1.66675 9.99984 1.66675C14.6022 1.66675 18.3332 5.39771 18.3332 10.0001Z"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.66667"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </g>
+                                    <defs>
+                                      <clipPath id="clip0_minus">
+                                        <rect
+                                          width="20"
+                                          height="20"
+                                          fill="white"
+                                        />
+                                      </clipPath>
+                                    </defs>
+                                  </svg>
                                 </button>
                               )}
                             </div>
                           ))}
+                        </div>
                       </div>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          // Validate that category name is provided
+                          if (!categoryName.trim()) {
+                            alert("Please enter a category name");
+                            return;
+                          }
+
+                          // Validate that at least one subcategory is provided
+                          const validSubcategories = subcategories.filter((s) =>
+                            s.trim(),
+                          );
+                          if (validSubcategories.length === 0) {
+                            alert("Please add at least one subcategory");
+                            return;
+                          }
+
+                          // Create new category
+                          const newCategory: Category = {
+                            id: Date.now().toString(),
+                            name: categoryName,
+                            description: categoryDescription,
+                            subcategories: validSubcategories.map((s) => ({
+                              id: Date.now().toString() + Math.random(),
+                              name: s,
+                              documents: [],
+                            })),
+                          };
+                          setCategories([...categories, newCategory]);
+
+                          // Reset form
+                          setCategoryName("");
+                          setCategoryDescription("");
+                          setSubcategories([""]);
+                          setIsCreateCategoryModalOpen(false);
+                        }}
+                        style={{
+                          display: "flex",
+                          padding: "12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          borderRadius: "8px",
+                          border: "2px solid rgba(255, 255, 255, 0.12)",
+                          background: "#344698",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          cursor: "pointer",
+                          marginBottom: "24px",
+                        }}
+                      >
+                        <span
+                          style={{
+                            display: "flex",
+                            padding: "0 2px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            color: "#FFF",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Create Category
+                        </span>
+                      </button>
                     </div>
-                    <button type="button" onClick={() => {
-                      // Validate that category name is provided
-                      if (!categoryName.trim()) {
-                        alert("Please enter a category name");
-                        return;
-                      }
-
-                      // Validate that at least one subcategory is provided
-                      const validSubcategories = subcategories.filter(s => s.trim());
-                      if (validSubcategories.length === 0) {
-                        alert("Please add at least one subcategory");
-                        return;
-                      }
-
-                      // Create new category
-                      const newCategory: Category = {
-                        id: Date.now().toString(),
-                        name: categoryName,
-                        description: categoryDescription,
-                        subcategories: validSubcategories.map(s => ({
-                          id: Date.now().toString() + Math.random(),
-                          name: s,
-                          documents: []
-                        }))
-                      };
-                      setCategories([...categories, newCategory]);
-
-                      // Reset form
-                      setCategoryName("");
-                      setCategoryDescription("");
-                      setSubcategories([""]);
-                      setIsCreateCategoryModalOpen(false);
-                    }} style={{ display: "flex", padding: "12px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer", marginBottom: "24px" }}>
-                      <span style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center", color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Create Category</span>
-                    </button>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {/* Add Resource Modal */}
-            {isAddResourceModalOpen && (
-              <div
-                style={{
-                  position: "fixed",
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  zIndex: 9999,
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  alignItems: "flex-start",
-                }}
-              >
+              {/* Add Resource Modal */}
+              {isAddResourceModalOpen && (
                 <div
-                  onClick={() => setIsAddResourceModalOpen(false)}
                   style={{
-                    position: "absolute",
+                    position: "fixed",
                     top: 0,
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: "rgba(10, 13, 18, 0.7)",
-                    backdropFilter: "blur(4px)",
-                  }}
-                />
-                <div
-                  onClick={(e) => e.stopPropagation()}
-                  style={{
-                    position: "relative",
+                    zIndex: 9999,
                     display: "flex",
-                    flexDirection: "column",
-                    width: "400px",
-                    height: "100vh",
-                    background: "#FFF",
-                    borderLeft: "1px solid rgba(0, 0, 0, 0.08)",
-                    boxShadow: "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
+                    justifyContent: "flex-end",
+                    alignItems: "flex-start",
                   }}
                 >
-                  {/* Modal Header */}
                   <div
+                    onClick={() => setIsAddResourceModalOpen(false)}
                     style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "rgba(10, 13, 18, 0.7)",
+                      backdropFilter: "blur(4px)",
+                    }}
+                  />
+                  <div
+                    onClick={(e) => e.stopPropagation()}
+                    style={{
+                      position: "relative",
                       display: "flex",
-                      padding: "24px",
-                      alignItems: "flex-start",
-                      gap: "8px",
+                      flexDirection: "column",
+                      width: "400px",
+                      height: "100vh",
                       background: "#FFF",
+                      borderLeft: "1px solid rgba(0, 0, 0, 0.08)",
+                      boxShadow:
+                        "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
                     }}
                   >
+                    {/* Modal Header */}
                     <div
                       style={{
                         display: "flex",
+                        padding: "24px",
                         alignItems: "flex-start",
-                        gap: "16px",
-                        flex: "1 0 0",
+                        gap: "8px",
+                        background: "#FFF",
                       }}
                     >
                       <div
                         style={{
                           display: "flex",
-                          width: "44px",
-                          height: "44px",
-                          padding: "12px",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          borderRadius: "9999px",
-                          background: "#D9DEF2",
+                          alignItems: "flex-start",
+                          gap: "16px",
+                          flex: "1 0 0",
                         }}
                       >
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                          <path d="M3.33329 13.5352C2.3283 12.8625 1.66663 11.7168 1.66663 10.4167C1.66663 8.46369 3.15955 6.85941 5.06641 6.68281C5.45647 4.31011 7.51683 2.5 9.99996 2.5C12.4831 2.5 14.5434 4.31011 14.9335 6.68281C16.8404 6.85941 18.3333 8.46369 18.3333 10.4167C18.3333 11.7168 17.6716 12.8625 16.6666 13.5352M6.66663 13.3333L9.99996 10M9.99996 10L13.3333 13.3333M9.99996 10V17.5" stroke="#344698" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "44px",
+                            height: "44px",
+                            padding: "12px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "9999px",
+                            background: "#D9DEF2",
+                          }}
+                        >
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                          >
+                            <path
+                              d="M3.33329 13.5352C2.3283 12.8625 1.66663 11.7168 1.66663 10.4167C1.66663 8.46369 3.15955 6.85941 5.06641 6.68281C5.45647 4.31011 7.51683 2.5 9.99996 2.5C12.4831 2.5 14.5434 4.31011 14.9335 6.68281C16.8404 6.85941 18.3333 8.46369 18.3333 10.4167C18.3333 11.7168 17.6716 12.8625 16.6666 13.5352M6.66663 13.3333L9.99996 10M9.99996 10L13.3333 13.3333M9.99996 10V17.5"
+                              stroke="#344698"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "2px",
+                            flex: "1 0 0",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "18px",
+                              fontWeight: 600,
+                              lineHeight: "28px",
+                            }}
+                          >
+                            Add Resource
+                          </div>
+                          <div
+                            style={{
+                              color: "#535862",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 400,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Add supporting materials via file upload or video
+                            link.
+                          </div>
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setIsAddResourceModalOpen(false)}
+                        style={{
+                          display: "flex",
+                          width: "40px",
+                          height: "40px",
+                          padding: "8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "8px",
+                          border: "none",
+                          background: "transparent",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <path
+                            d="M18 6L6 18M6 6L18 18"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
                         </svg>
-                      </div>
-                      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px", flex: "1 0 0" }}>
-                        <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "18px", fontWeight: 600, lineHeight: "28px" }}>Add Resource</div>
-                        <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>Add supporting materials via file upload or video link.</div>
-                      </div>
-                    </div>
-                    <button type="button" onClick={() => setIsAddResourceModalOpen(false)} style={{ display: "flex", width: "40px", height: "40px", padding: "8px", justifyContent: "center", alignItems: "center", borderRadius: "8px", border: "none", background: "transparent", cursor: "pointer" }}>
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6L18 18" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                    </button>
-                  </div>
-
-                  {/* Modal Content */}
-                  <div style={{ display: "flex", padding: "0 24px", flexDirection: "column", gap: "24px", overflowY: "auto", flex: 1 }}>
-                    {/* Tabs */}
-                    <div style={{ display: "flex", padding: "4px", alignItems: "center", gap: "4px", alignSelf: "stretch", borderRadius: "10px", border: "1px solid #E9EAEB", background: "#FFF" }}>
-                      <button
-                        type="button"
-                        onClick={() => setResourceUploadType("upload")}
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "8px 12px",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          gap: "8px",
-                          flex: "1 0 0",
-                          borderRadius: "6px",
-                          background: resourceUploadType === "upload" ? "#ECEEF9" : "transparent",
-                          boxShadow: resourceUploadType === "upload" ? "0 1px 3px 0 rgba(10, 13, 18, 0.10), 0 1px 2px -1px rgba(10, 13, 18, 0.10)" : "none",
-                          border: "none",
-                          cursor: "pointer",
-                          color: resourceUploadType === "upload" ? "#273572" : "#717680",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 600,
-                          lineHeight: "20px",
-                        }}
-                      >
-                        Upload files
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setResourceUploadType("link")}
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "8px 12px",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          gap: "8px",
-                          flex: "1 0 0",
-                          borderRadius: "6px",
-                          background: resourceUploadType === "link" ? "#ECEEF9" : "transparent",
-                          boxShadow: resourceUploadType === "link" ? "0 1px 3px 0 rgba(10, 13, 18, 0.10), 0 1px 2px -1px rgba(10, 13, 18, 0.10)" : "none",
-                          border: "none",
-                          cursor: "pointer",
-                          color: resourceUploadType === "link" ? "#273572" : "#717680",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 600,
-                          lineHeight: "20px",
-                        }}
-                      >
-                        Link (Files or Videos)
                       </button>
                     </div>
 
-                    {/* File Upload Area */}
-                    {resourceUploadType === "upload" && (
-                      uploadedFile ? (
-                        <div style={{ display: "flex", padding: "16px", alignItems: "flex-start", alignSelf: "stretch", borderRadius: "12px", border: "1px solid #E9EAEB", background: "#FFF", position: "relative" }}>
-                          <div style={{ display: "flex", alignItems: "flex-start", gap: "12px", flex: "1 0 0" }}>
-                            <div style={{ width: "40px", height: "40px", position: "relative" }}>
-                              <svg width="32" height="40" viewBox="0 0 32 40" fill="none" style={{ position: "absolute", left: "7px", top: "0" }}>
-                                <path d="M4 0.75H20C20.1212 0.75 20.2375 0.798089 20.3232 0.883789L31.1162 11.6768C31.2019 11.7625 31.25 11.8788 31.25 12V36C31.25 37.7949 29.7949 39.25 28 39.25H4C2.20507 39.25 0.75 37.7949 0.75 36V4C0.750001 2.20507 2.20508 0.75 4 0.75Z" stroke="#D5D7DA" strokeWidth="1.5"/>
-                                <path d="M20 0.5V8C20 10.2091 21.7909 12 24 12H31.5" stroke="#D5D7DA" strokeWidth="1.5"/>
-                              </svg>
-                              <div style={{ position: "absolute", left: "1px", top: "18px", width: "26px", height: "16px", padding: "2px 3px", borderRadius: "2px", background: "#D92D20" }}>
-                                <div style={{ color: "#FFF", textAlign: "center", fontFamily: "Inter", fontSize: "10px", fontWeight: 700, lineHeight: "normal" }}>PDF</div>
-                              </div>
-                            </div>
-                            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "4px", flex: "1 0 0" }}>
-                              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px", alignSelf: "stretch" }}>
-                                <div style={{ alignSelf: "stretch", overflow: "hidden", color: "#414651", textOverflow: "ellipsis", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px", whiteSpace: "nowrap" }}>{uploadedFile.name}</div>
-                                <div style={{ display: "flex", alignItems: "center", gap: "8px", alignSelf: "stretch" }}>
-                                  <div style={{ overflow: "hidden", color: "#535862", textOverflow: "ellipsis", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>{Math.round(uploadedFile.size / 1024)} KB of {Math.round(uploadedFile.size / 1024)} KB</div>
-                                  <svg width="2" height="14" viewBox="0 0 2 14" fill="none"><path d="M1 1V13" stroke="#D5D7DA" strokeLinecap="round"/></svg>
-                                  <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><g clipPath="url(#clip0_complete)"><path d="M5.00004 8.00016L7.00004 10.0002L11 6.00016M14.6667 8.00016C14.6667 11.6821 11.6819 14.6668 8.00004 14.6668C4.31814 14.6668 1.33337 11.6821 1.33337 8.00016C1.33337 4.31826 4.31814 1.3335 8.00004 1.3335C11.6819 1.3335 14.6667 4.31826 14.6667 8.00016Z" stroke="#079455" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></g><defs><clipPath id="clip0_complete"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>
-                                    <div style={{ color: "#079455", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Complete</div>
+                    {/* Modal Content */}
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "0 24px",
+                        flexDirection: "column",
+                        gap: "24px",
+                        overflowY: "auto",
+                        flex: 1,
+                      }}
+                    >
+                      {/* Tabs */}
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "4px",
+                          alignItems: "center",
+                          gap: "4px",
+                          alignSelf: "stretch",
+                          borderRadius: "10px",
+                          border: "1px solid #E9EAEB",
+                          background: "#FFF",
+                        }}
+                      >
+                        <button
+                          type="button"
+                          onClick={() => setResourceUploadType("upload")}
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "8px 12px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "8px",
+                            flex: "1 0 0",
+                            borderRadius: "6px",
+                            background:
+                              resourceUploadType === "upload"
+                                ? "#ECEEF9"
+                                : "transparent",
+                            boxShadow:
+                              resourceUploadType === "upload"
+                                ? "0 1px 3px 0 rgba(10, 13, 18, 0.10), 0 1px 2px -1px rgba(10, 13, 18, 0.10)"
+                                : "none",
+                            border: "none",
+                            cursor: "pointer",
+                            color:
+                              resourceUploadType === "upload"
+                                ? "#273572"
+                                : "#717680",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Upload files
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setResourceUploadType("link")}
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "8px 12px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "8px",
+                            flex: "1 0 0",
+                            borderRadius: "6px",
+                            background:
+                              resourceUploadType === "link"
+                                ? "#ECEEF9"
+                                : "transparent",
+                            boxShadow:
+                              resourceUploadType === "link"
+                                ? "0 1px 3px 0 rgba(10, 13, 18, 0.10), 0 1px 2px -1px rgba(10, 13, 18, 0.10)"
+                                : "none",
+                            border: "none",
+                            cursor: "pointer",
+                            color:
+                              resourceUploadType === "link"
+                                ? "#273572"
+                                : "#717680",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Link (Files or Videos)
+                        </button>
+                      </div>
+
+                      {/* File Upload Area */}
+                      {resourceUploadType === "upload" &&
+                        (uploadedFile ? (
+                          <div
+                            style={{
+                              display: "flex",
+                              padding: "16px",
+                              alignItems: "flex-start",
+                              alignSelf: "stretch",
+                              borderRadius: "12px",
+                              border: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "flex-start",
+                                gap: "12px",
+                                flex: "1 0 0",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: "40px",
+                                  height: "40px",
+                                  position: "relative",
+                                }}
+                              >
+                                <svg
+                                  width="32"
+                                  height="40"
+                                  viewBox="0 0 32 40"
+                                  fill="none"
+                                  style={{
+                                    position: "absolute",
+                                    left: "7px",
+                                    top: "0",
+                                  }}
+                                >
+                                  <path
+                                    d="M4 0.75H20C20.1212 0.75 20.2375 0.798089 20.3232 0.883789L31.1162 11.6768C31.2019 11.7625 31.25 11.8788 31.25 12V36C31.25 37.7949 29.7949 39.25 28 39.25H4C2.20507 39.25 0.75 37.7949 0.75 36V4C0.750001 2.20507 2.20508 0.75 4 0.75Z"
+                                    stroke="#D5D7DA"
+                                    strokeWidth="1.5"
+                                  />
+                                  <path
+                                    d="M20 0.5V8C20 10.2091 21.7909 12 24 12H31.5"
+                                    stroke="#D5D7DA"
+                                    strokeWidth="1.5"
+                                  />
+                                </svg>
+                                <div
+                                  style={{
+                                    position: "absolute",
+                                    left: "1px",
+                                    top: "18px",
+                                    width: "26px",
+                                    height: "16px",
+                                    padding: "2px 3px",
+                                    borderRadius: "2px",
+                                    background: "#D92D20",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#FFF",
+                                      textAlign: "center",
+                                      fontFamily: "Inter",
+                                      fontSize: "10px",
+                                      fontWeight: 700,
+                                      lineHeight: "normal",
+                                    }}
+                                  >
+                                    PDF
                                   </div>
                                 </div>
                               </div>
-                              <div style={{ display: "flex", alignItems: "center", gap: "12px", alignSelf: "stretch" }}>
-                                <div style={{ height: "8px", flex: "1 0 0", position: "relative" }}>
-                                  <div style={{ width: "100%", height: "8px", borderRadius: "9999px", background: "#D5D7DA", position: "absolute", left: "0", top: "0" }}></div>
-                                  <div style={{ width: "100%", height: "8px", borderRadius: "9999px", background: "#344698", position: "absolute", left: "0", top: "0" }}></div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "flex-start",
+                                    gap: "2px",
+                                    alignSelf: "stretch",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      alignSelf: "stretch",
+                                      overflow: "hidden",
+                                      color: "#414651",
+                                      textOverflow: "ellipsis",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                      whiteSpace: "nowrap",
+                                    }}
+                                  >
+                                    {uploadedFile.name}
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "center",
+                                      gap: "8px",
+                                      alignSelf: "stretch",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        overflow: "hidden",
+                                        color: "#535862",
+                                        textOverflow: "ellipsis",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "14px",
+                                        fontWeight: 400,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      {Math.round(uploadedFile.size / 1024)} KB
+                                      of {Math.round(uploadedFile.size / 1024)}{" "}
+                                      KB
+                                    </div>
+                                    <svg
+                                      width="2"
+                                      height="14"
+                                      viewBox="0 0 2 14"
+                                      fill="none"
+                                    >
+                                      <path
+                                        d="M1 1V13"
+                                        stroke="#D5D7DA"
+                                        strokeLinecap="round"
+                                      />
+                                    </svg>
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: "4px",
+                                      }}
+                                    >
+                                      <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                      >
+                                        <g clipPath="url(#clip0_complete)">
+                                          <path
+                                            d="M5.00004 8.00016L7.00004 10.0002L11 6.00016M14.6667 8.00016C14.6667 11.6821 11.6819 14.6668 8.00004 14.6668C4.31814 14.6668 1.33337 11.6821 1.33337 8.00016C1.33337 4.31826 4.31814 1.3335 8.00004 1.3335C11.6819 1.3335 14.6667 4.31826 14.6667 8.00016Z"
+                                            stroke="#079455"
+                                            strokeWidth="1.5"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </g>
+                                        <defs>
+                                          <clipPath id="clip0_complete">
+                                            <rect
+                                              width="16"
+                                              height="16"
+                                              fill="white"
+                                            />
+                                          </clipPath>
+                                        </defs>
+                                      </svg>
+                                      <div
+                                        style={{
+                                          color: "#079455",
+                                          fontFamily: "Public Sans",
+                                          fontSize: "14px",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        Complete
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
-                                <div style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>100%</div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "12px",
+                                    alignSelf: "stretch",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      height: "8px",
+                                      flex: "1 0 0",
+                                      position: "relative",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        width: "100%",
+                                        height: "8px",
+                                        borderRadius: "9999px",
+                                        background: "#D5D7DA",
+                                        position: "absolute",
+                                        left: "0",
+                                        top: "0",
+                                      }}
+                                    ></div>
+                                    <div
+                                      style={{
+                                        width: "100%",
+                                        height: "8px",
+                                        borderRadius: "9999px",
+                                        background: "#344698",
+                                        position: "absolute",
+                                        left: "0",
+                                        top: "0",
+                                      }}
+                                    ></div>
+                                  </div>
+                                  <div
+                                    style={{
+                                      color: "#414651",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    100%
+                                  </div>
+                                </div>
                               </div>
                             </div>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setUploadedFile(null);
+                                setResourceFileName("");
+                              }}
+                              style={{
+                                display: "flex",
+                                width: "32px",
+                                height: "32px",
+                                padding: "8px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                position: "absolute",
+                                right: "8px",
+                                top: "8px",
+                                borderRadius: "6px",
+                                border: "none",
+                                background: "transparent",
+                                cursor: "pointer",
+                              }}
+                            >
+                              <svg
+                                width="24"
+                                height="16"
+                                viewBox="0 0 24 16"
+                                fill="none"
+                              >
+                                <path
+                                  d="M16 4.00016V3.46683C16 2.72009 16 2.34672 15.782 2.06151C15.5903 1.81063 15.2843 1.60665 14.908 1.47882C14.4802 1.3335 13.9201 1.3335 12.8 1.3335H11.2C10.0799 1.3335 9.51984 1.3335 9.09202 1.47882C8.71569 1.60665 8.40973 1.81063 8.21799 2.06151C8 2.34672 8 2.72009 8 3.46683V4.00016M10 7.66683V11.0002M14 7.66683V11.0002M3 4.00016H21M19 4.00016V11.4668C19 12.5869 19 13.147 18.673 13.5748C18.3854 13.9511 17.9265 14.2571 17.362 14.4488C16.7202 14.6668 15.8802 14.6668 14.2 14.6668H9.8C8.11984 14.6668 7.27976 14.6668 6.63803 14.4488C6.07354 14.2571 5.6146 13.9511 5.32698 13.5748C5 13.147 5 12.5869 5 11.4668V4.00016"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                            </button>
                           </div>
-                          <button type="button" onClick={() => { setUploadedFile(null); setResourceFileName(""); }} style={{ display: "flex", width: "32px", height: "32px", padding: "8px", justifyContent: "center", alignItems: "center", position: "absolute", right: "8px", top: "8px", borderRadius: "6px", border: "none", background: "transparent", cursor: "pointer" }}>
-                            <svg width="24" height="16" viewBox="0 0 24 16" fill="none"><path d="M16 4.00016V3.46683C16 2.72009 16 2.34672 15.782 2.06151C15.5903 1.81063 15.2843 1.60665 14.908 1.47882C14.4802 1.3335 13.9201 1.3335 12.8 1.3335H11.2C10.0799 1.3335 9.51984 1.3335 9.09202 1.47882C8.71569 1.60665 8.40973 1.81063 8.21799 2.06151C8 2.34672 8 2.72009 8 3.46683V4.00016M10 7.66683V11.0002M14 7.66683V11.0002M3 4.00016H21M19 4.00016V11.4668C19 12.5869 19 13.147 18.673 13.5748C18.3854 13.9511 17.9265 14.2571 17.362 14.4488C16.7202 14.6668 15.8802 14.6668 14.2 14.6668H9.8C8.11984 14.6668 7.27976 14.6668 6.63803 14.4488C6.07354 14.2571 5.6146 13.9511 5.32698 13.5748C5 13.147 5 12.5869 5 11.4668V4.00016" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                          </button>
-                        </div>
-                      ) : (
-                        <div style={{ display: "flex", padding: "16px 24px", flexDirection: "column", alignItems: "center", gap: "4px", alignSelf: "stretch", borderRadius: "12px", border: "1px solid #E9EAEB", background: "#FFF" }}>
-                          <input type="file" id="resource-file-upload" style={{ display: "none" }} onChange={(e) => { const file = e.target.files?.[0]; if (file) { setUploadedFile(file); setResourceFileName(file.name); } }} />
-                          <label htmlFor="resource-file-upload" style={{ display: "flex", justifyContent: "center", alignItems: "flex-start", gap: "12px", alignSelf: "stretch", cursor: "pointer" }}>
-                            <div style={{ display: "flex", padding: "10px", alignItems: "center", gap: "10px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
-                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 16L12 12M12 12L16 16M12 12V21M20 16.7428C21.2215 15.734 22 14.2079 22 12.5C22 9.46243 19.5376 7 16.5 7C16.2815 7 16.0771 6.886 15.9661 6.69774C14.6621 4.48484 12.2544 3 9.5 3C5.35786 3 2 6.35786 2 10.5C2 12.5661 2.83545 14.4371 4.18695 15.7935" stroke="#414651" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                            </div>
-                            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "4px", flex: "1 0 0" }}>
-                              <div style={{ display: "flex", justifyContent: "center", alignItems: "flex-start", gap: "4px", alignSelf: "stretch" }}>
-                                <div style={{ color: "#273572", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Click to upload</div>
-                                <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>or drag and drop</div>
-                              </div>
-                              <div style={{ alignSelf: "stretch", color: "#535862", textAlign: "center", fontFamily: "Roboto Mono", fontSize: "12px", fontWeight: 400, lineHeight: "18px" }}>SVG, PNG, JPG or GIF (max. 800x400px)</div>
-                            </div>
-                          </label>
-                        </div>
-                      )
-                    )}
-
-                    {/* Link Tab Content */}
-                    {resourceUploadType === "link" && (
-                      <>
-                        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                          <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                            <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Video, File or Website URL</label>
-                            <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
-                          </div>
-                          <input type="text" value={resourceUrl} onChange={(e) => setResourceUrl(e.target.value)} placeholder="2025 Guidelines" style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#181D27", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none" }} />
-                        </div>
-                        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                          <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                            <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Video Name</label>
-                            <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
-                          </div>
-                          <input type="text" value={resourceVideoName} onChange={(e) => setResourceVideoName(e.target.value)} placeholder="Order Tutorial" style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#717680", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none" }} />
-                        </div>
-                      </>
-                    )}
-
-                    {/* File Name Input (only for upload mode) */}
-                    {resourceUploadType === "upload" && (
-                      <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                        <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                          <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>File name</label>
-                          <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
-                        </div>
-                      <input
-                        type="text"
-                        value={resourceFileName}
-                        onChange={(e) => setResourceFileName(e.target.value)}
-                          placeholder="Form Guidelines"
-                          style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#717680", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none" }}
-                        />
-                      </div>
-                    )}
-
-                    {/* Description Textarea */}
-                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                      <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Description</label>
-                      <textarea
-                        value={resourceDescription}
-                        onChange={(e) => setResourceDescription(e.target.value)}
-                        placeholder="Enter a description..."
-                        style={{ display: "flex", padding: "12px 14px", alignItems: "flex-start", gap: "8px", minHeight: "100px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#717680", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none", resize: "vertical" }}
-                      />
-                    </div>
-
-                    {/* Main Category Dropdown */}
-                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                        <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Main Category</label>
-                        <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
-                        <div style={{ display: "flex", width: "16px", height: "16px", justifyContent: "center", alignItems: "center", marginLeft: "2px" }}>
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <g clipPath="url(#clip0_help1)">
-                              <path d="M6.06004 6.00016C6.21678 5.55461 6.52614 5.1789 6.93334 4.93958C7.34055 4.70027 7.8193 4.61279 8.28483 4.69264C8.75035 4.77249 9.17259 5.01451 9.47676 5.37585C9.78093 5.73718 9.94741 6.19451 9.94671 6.66683C9.94671 8.00016 7.94671 8.66683 7.94671 8.66683M8.00004 11.3335H8.00671M14.6667 8.00016C14.6667 11.6821 11.6819 14.6668 8.00004 14.6668C4.31814 14.6668 1.33337 11.6821 1.33337 8.00016C1.33337 4.31826 4.31814 1.3335 8.00004 1.3335C11.6819 1.3335 14.6667 4.31826 14.6667 8.00016Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
-                            </g>
-                            <defs>
-                              <clipPath id="clip0_help1"><rect width="16" height="16" fill="white"/></clipPath>
-                            </defs>
-                          </svg>
-                        </div>
-                      </div>
-                      <select
-                        value={resourceMainCategory}
-                        onChange={(e) => {
-                          setResourceMainCategory(e.target.value);
-                          setResourceSubCategory("");
-                        }}
-                        style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#181D27", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 500, lineHeight: "24px", outline: "none", cursor: "pointer" }}
-                      >
-                        <option value="">Select a category</option>
-                        {categories.map(cat => (
-                          <option key={cat.id} value={cat.name}>{cat.name}</option>
-                        ))}
-                      </select>
-                    </div>
-
-                    {/* Sub Category Dropdown */}
-                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                        <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Sub Category</label>
-                        <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
-                        <div style={{ display: "flex", width: "16px", height: "16px", justifyContent: "center", alignItems: "center", marginLeft: "2px" }}>
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <g clipPath="url(#clip0_help2)">
-                              <path d="M6.06004 6.00016C6.21678 5.55461 6.52614 5.1789 6.93334 4.93958C7.34055 4.70027 7.8193 4.61279 8.28483 4.69264C8.75035 4.77249 9.17259 5.01451 9.47676 5.37585C9.78093 5.73718 9.94741 6.19451 9.94671 6.66683C9.94671 8.00016 7.94671 8.66683 7.94671 8.66683M8.00004 11.3335H8.00671M14.6667 8.00016C14.6667 11.6821 11.6819 14.6668 8.00004 14.6668C4.31814 14.6668 1.33337 11.6821 1.33337 8.00016C1.33337 4.31826 4.31814 1.3335 8.00004 1.3335C11.6819 1.3335 14.6667 4.31826 14.6667 8.00016Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
-                            </g>
-                            <defs>
-                              <clipPath id="clip0_help2"><rect width="16" height="16" fill="white"/></clipPath>
-                            </defs>
-                          </svg>
-                        </div>
-                      </div>
-                      <select
-                        value={resourceSubCategory}
-                        onChange={(e) => setResourceSubCategory(e.target.value)}
-                        disabled={!resourceMainCategory}
-                        style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#181D27", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 500, lineHeight: "24px", outline: "none", cursor: "pointer", opacity: !resourceMainCategory ? 0.5 : 1 }}
-                      >
-                        <option value="">Select a subcategory</option>
-                        {resourceMainCategory && categories
-                          .find(cat => cat.name === resourceMainCategory)
-                          ?.subcategories.map(subcat => (
-                            <option key={subcat.id} value={subcat.name}>{subcat.name}</option>
-                          ))}
-                      </select>
-                    </div>
-
-                    {/* Checkbox */}
-                    <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
-                      <div style={{ display: "flex", paddingTop: "2px", justifyContent: "center", alignItems: "center" }}>
-                        <input
-                          type="checkbox"
-                          checked={showInQuickResources}
-                          onChange={(e) => setShowInQuickResources(e.target.checked)}
-                          style={{ width: "20px", height: "20px", borderRadius: "6px", border: "1px solid #D5D7DA", cursor: "pointer" }}
-                        />
-                      </div>
-                      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px", flex: "1 0 0" }}>
-                        <div style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 500, lineHeight: "24px" }}>Show in Quick Resources Widget</div>
-                      </div>
-                    </div>
-
-                    {/* Add Resource Button */}
-                    <button
-                      type="button"
-                      onClick={() => {
-                        // Validate based on upload type
-                        if (resourceUploadType === "upload") {
-                          if (!resourceFileName.trim()) {
-                            alert("Please enter a file name");
-                            return;
-                          }
-                        } else {
-                          // Link mode validation
-                          if (!resourceUrl.trim()) {
-                            alert("Please enter a video, file or website URL");
-                            return;
-                          }
-                          if (!resourceVideoName.trim()) {
-                            alert("Please enter a video name");
-                            return;
-                          }
-                        }
-
-                        if (!resourceMainCategory) {
-                          alert("Please select a main category");
-                          return;
-                        }
-                        if (!resourceSubCategory) {
-                          alert("Please select a subcategory");
-                          return;
-                        }
-
-                        // Create new resource
-                        const newResource: Resource = {
-                          id: Date.now().toString() + Math.random(),
-                          name: resourceUploadType === "upload" ? resourceFileName : resourceVideoName,
-                          description: resourceDescription,
-                          type: resourceUploadType,
-                          url: resourceUploadType === "link" ? resourceUrl : undefined,
-                          fileName: resourceUploadType === "upload" ? resourceFileName : undefined,
-                          fileSize: uploadedFile?.size,
-                        };
-
-                        // Add resource to the correct subcategory
-                        setCategories(categories.map(cat => {
-                          if (cat.name === resourceMainCategory) {
-                            return {
-                              ...cat,
-                              subcategories: cat.subcategories.map(subcat => {
-                                if (subcat.name === resourceSubCategory) {
-                                  return {
-                                    ...subcat,
-                                    documents: [...subcat.documents, newResource]
-                                  };
+                        ) : (
+                          <div
+                            style={{
+                              display: "flex",
+                              padding: "16px 24px",
+                              flexDirection: "column",
+                              alignItems: "center",
+                              gap: "4px",
+                              alignSelf: "stretch",
+                              borderRadius: "12px",
+                              border: "1px solid #E9EAEB",
+                              background: "#FFF",
+                            }}
+                          >
+                            <input
+                              type="file"
+                              id="resource-file-upload"
+                              style={{ display: "none" }}
+                              onChange={(e) => {
+                                const file = e.target.files?.[0];
+                                if (file) {
+                                  setUploadedFile(file);
+                                  setResourceFileName(file.name);
                                 }
-                                return subcat;
-                              })
-                            };
-                          }
-                          return cat;
-                        }));
+                              }}
+                            />
+                            <label
+                              htmlFor="resource-file-upload"
+                              style={{
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "flex-start",
+                                gap: "12px",
+                                alignSelf: "stretch",
+                                cursor: "pointer",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "10px",
+                                  alignItems: "center",
+                                  gap: "10px",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow:
+                                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                }}
+                              >
+                                <svg
+                                  width="24"
+                                  height="24"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                >
+                                  <path
+                                    d="M8 16L12 12M12 12L16 16M12 12V21M20 16.7428C21.2215 15.734 22 14.2079 22 12.5C22 9.46243 19.5376 7 16.5 7C16.2815 7 16.0771 6.886 15.9661 6.69774C14.6621 4.48484 12.2544 3 9.5 3C5.35786 3 2 6.35786 2 10.5C2 12.5661 2.83545 14.4371 4.18695 15.7935"
+                                    stroke="#414651"
+                                    strokeWidth="1.66667"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "flex-start",
+                                    gap: "4px",
+                                    alignSelf: "stretch",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#273572",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontWeight: 600,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    Click to upload
+                                  </div>
+                                  <div
+                                    style={{
+                                      color: "#535862",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontWeight: 400,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    or drag and drop
+                                  </div>
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#535862",
+                                    textAlign: "center",
+                                    fontFamily: "Roboto Mono",
+                                    fontSize: "12px",
+                                    fontWeight: 400,
+                                    lineHeight: "18px",
+                                  }}
+                                >
+                                  SVG, PNG, JPG or GIF (max. 800x400px)
+                                </div>
+                              </div>
+                            </label>
+                          </div>
+                        ))}
 
-                        // Reset and close
-                        setResourceFileName("");
-                        setResourceUrl("");
-                        setResourceVideoName("");
-                        setResourceDescription("");
-                        setResourceMainCategory("");
-                        setResourceSubCategory("");
-                        setShowInQuickResources(false);
-                        setUploadedFile(null);
-                        setIsAddResourceModalOpen(false);
+                      {/* Link Tab Content */}
+                      {resourceUploadType === "link" && (
+                        <>
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              gap: "6px",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "2px",
+                              }}
+                            >
+                              <label
+                                style={{
+                                  color: "#414651",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                }}
+                              >
+                                Video, File or Website URL
+                              </label>
+                              <span
+                                style={{
+                                  color: "#344698",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                }}
+                              >
+                                *
+                              </span>
+                            </div>
+                            <input
+                              type="text"
+                              value={resourceUrl}
+                              onChange={(e) => setResourceUrl(e.target.value)}
+                              placeholder="2025 Guidelines"
+                              style={{
+                                display: "flex",
+                                padding: "8px 12px",
+                                alignItems: "center",
+                                gap: "8px",
+                                borderRadius: "8px",
+                                border: "1px solid #D5D7DA",
+                                background: "#FFF",
+                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                                outline: "none",
+                              }}
+                            />
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              gap: "6px",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "2px",
+                              }}
+                            >
+                              <label
+                                style={{
+                                  color: "#414651",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                }}
+                              >
+                                Video Name
+                              </label>
+                              <span
+                                style={{
+                                  color: "#344698",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                }}
+                              >
+                                *
+                              </span>
+                            </div>
+                            <input
+                              type="text"
+                              value={resourceVideoName}
+                              onChange={(e) =>
+                                setResourceVideoName(e.target.value)
+                              }
+                              placeholder="Order Tutorial"
+                              style={{
+                                display: "flex",
+                                padding: "8px 12px",
+                                alignItems: "center",
+                                gap: "8px",
+                                borderRadius: "8px",
+                                border: "1px solid #D5D7DA",
+                                background: "#FFF",
+                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                                outline: "none",
+                              }}
+                            />
+                          </div>
+                        </>
+                      )}
 
-                        toast({
-                          title: "Resource added",
-                          description: resourceUploadType === "upload" ? "Your file has been successfully uploaded." : "Your link has been successfully added.",
-                        });
-                      }}
-                      style={{ display: "flex", padding: "12px", justifyContent: "center", alignItems: "center", gap: "4px", alignSelf: "stretch", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer", marginBottom: "24px" }}
-                    >
-                      <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
-                        <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Add Resource</div>
-                      </div>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Delete Resource Modal */}
-            {isDeleteResourceModalOpen && resourceToDelete && (
-              <div style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 10000, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-                {/* Backdrop */}
-                <div onClick={() => setIsDeleteResourceModalOpen(false)} style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "#0A0D12", opacity: 0.7, backdropFilter: "blur(8px)" }} />
-
-                {/* Modal */}
-                <div onClick={(e) => e.stopPropagation()} style={{ position: "relative", display: "flex", maxWidth: "400px", flexDirection: "column", alignItems: "center", alignSelf: "stretch", borderRadius: "16px", background: "#FFF", boxShadow: "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)" }}>
-                  {/* Modal Header */}
-                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", alignSelf: "stretch" }}>
-                    <div style={{ display: "flex", padding: "24px 24px 0 24px", flexDirection: "column", alignItems: "flex-start", gap: "16px", alignSelf: "stretch" }}>
-                      {/* Featured Icon */}
-                      <div style={{ display: "flex", width: "48px", height: "48px", padding: "12px", justifyContent: "center", alignItems: "center", borderRadius: "9999px", background: "#FEE4E2" }}>
-                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none">
-                          <path d="M16 6.5V5.7C16 4.5799 16 4.01984 15.782 3.59202C15.5903 3.21569 15.2843 2.90973 14.908 2.71799C14.4802 2.5 13.9201 2.5 12.8 2.5H11.2C10.0799 2.5 9.51984 2.5 9.09202 2.71799C8.71569 2.90973 8.40973 3.21569 8.21799 3.59202C8 4.01984 8 4.5799 8 5.7V6.5M3 6.5H21M19 6.5V17.7C19 19.3802 19 20.2202 18.673 20.862C18.3854 21.4265 17.9265 21.8854 17.362 22.173C16.7202 22.5 15.8802 22.5 14.2 22.5H9.8C8.11984 22.5 7.27976 22.5 6.63803 22.173C6.07354 21.8854 5.6146 21.4265 5.32698 20.862C5 20.2202 5 19.3802 5 17.7V6.5" stroke="#D92D20" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
-                      </div>
-                      {/* Text */}
-                      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px", alignSelf: "stretch" }}>
-                        <div style={{ alignSelf: "stretch", color: "#181D27", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 600, lineHeight: "24px" }}>Delete Document</div>
-                        <div style={{ alignSelf: "stretch", color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>
-                          Removing {resourceToDelete.resource.name} will permanently eliminate it from the platform, and users will no longer have access to it. This action cannot be undone.
+                      {/* File Name Input (only for upload mode) */}
+                      {resourceUploadType === "upload" && (
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "6px",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "2px",
+                            }}
+                          >
+                            <label
+                              style={{
+                                color: "#414651",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              File name
+                            </label>
+                            <span
+                              style={{
+                                color: "#344698",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              *
+                            </span>
+                          </div>
+                          <input
+                            type="text"
+                            value={resourceFileName}
+                            onChange={(e) =>
+                              setResourceFileName(e.target.value)
+                            }
+                            placeholder="Form Guidelines"
+                            style={{
+                              display: "flex",
+                              padding: "8px 12px",
+                              alignItems: "center",
+                              gap: "8px",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              color: "#717680",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontWeight: 400,
+                              lineHeight: "24px",
+                              outline: "none",
+                            }}
+                          />
                         </div>
-                      </div>
-                    </div>
-                    {/* Close Button */}
-                    <button type="button" onClick={() => setIsDeleteResourceModalOpen(false)} style={{ display: "flex", width: "44px", height: "44px", padding: "8px", justifyContent: "center", alignItems: "center", position: "absolute", right: "12px", top: "12px", borderRadius: "8px", border: "none", background: "transparent", cursor: "pointer" }}>
-                      <svg width="24" height="25" viewBox="0 0 24 25" fill="none">
-                        <path d="M18 6.5L6 18.5M6 6.5L18 18.5" stroke="#A4A7AE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </button>
-                  </div>
+                      )}
 
-                  {/* Actions */}
-                  <div style={{ display: "flex", paddingTop: "32px", flexDirection: "column", alignItems: "flex-start", alignSelf: "stretch" }}>
-                    <div style={{ display: "flex", padding: "0 24px 24px 24px", alignItems: "flex-start", gap: "12px", alignSelf: "stretch" }}>
-                      {/* Cancel Button */}
-                      <button
-                        type="button"
-                        onClick={() => setIsDeleteResourceModalOpen(false)}
-                        style={{ display: "flex", padding: "12px 16px", justifyContent: "center", alignItems: "center", gap: "6px", flex: "1 0 0", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}
+                      {/* Description Textarea */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "6px",
+                        }}
                       >
-                        <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
-                          <div style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 600, lineHeight: "24px" }}>Cancel</div>
+                        <label
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Description
+                        </label>
+                        <textarea
+                          value={resourceDescription}
+                          onChange={(e) =>
+                            setResourceDescription(e.target.value)
+                          }
+                          placeholder="Enter a description..."
+                          style={{
+                            display: "flex",
+                            padding: "12px 14px",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                            minHeight: "100px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            color: "#717680",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            fontWeight: 400,
+                            lineHeight: "24px",
+                            outline: "none",
+                            resize: "vertical",
+                          }}
+                        />
+                      </div>
+
+                      {/* Main Category Dropdown */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "6px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "2px",
+                          }}
+                        >
+                          <label
+                            style={{
+                              color: "#414651",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Main Category
+                          </label>
+                          <span
+                            style={{
+                              color: "#344698",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            *
+                          </span>
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "16px",
+                              height: "16px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              marginLeft: "2px",
+                            }}
+                          >
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                            >
+                              <g clipPath="url(#clip0_help1)">
+                                <path
+                                  d="M6.06004 6.00016C6.21678 5.55461 6.52614 5.1789 6.93334 4.93958C7.34055 4.70027 7.8193 4.61279 8.28483 4.69264C8.75035 4.77249 9.17259 5.01451 9.47676 5.37585C9.78093 5.73718 9.94741 6.19451 9.94671 6.66683C9.94671 8.00016 7.94671 8.66683 7.94671 8.66683M8.00004 11.3335H8.00671M14.6667 8.00016C14.6667 11.6821 11.6819 14.6668 8.00004 14.6668C4.31814 14.6668 1.33337 11.6821 1.33337 8.00016C1.33337 4.31826 4.31814 1.3335 8.00004 1.3335C11.6819 1.3335 14.6667 4.31826 14.6667 8.00016Z"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.33333"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_help1">
+                                  <rect width="16" height="16" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
                         </div>
-                      </button>
-                      {/* Delete Button */}
+                        <select
+                          value={resourceMainCategory}
+                          onChange={(e) => {
+                            setResourceMainCategory(e.target.value);
+                            setResourceSubCategory("");
+                          }}
+                          style={{
+                            display: "flex",
+                            padding: "8px 12px",
+                            alignItems: "center",
+                            gap: "8px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            fontWeight: 500,
+                            lineHeight: "24px",
+                            outline: "none",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <option value="">Select a category</option>
+                          {categories.map((cat) => (
+                            <option key={cat.id} value={cat.name}>
+                              {cat.name}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      {/* Sub Category Dropdown */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "6px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "2px",
+                          }}
+                        >
+                          <label
+                            style={{
+                              color: "#414651",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Sub Category
+                          </label>
+                          <span
+                            style={{
+                              color: "#344698",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            *
+                          </span>
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "16px",
+                              height: "16px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              marginLeft: "2px",
+                            }}
+                          >
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                            >
+                              <g clipPath="url(#clip0_help2)">
+                                <path
+                                  d="M6.06004 6.00016C6.21678 5.55461 6.52614 5.1789 6.93334 4.93958C7.34055 4.70027 7.8193 4.61279 8.28483 4.69264C8.75035 4.77249 9.17259 5.01451 9.47676 5.37585C9.78093 5.73718 9.94741 6.19451 9.94671 6.66683C9.94671 8.00016 7.94671 8.66683 7.94671 8.66683M8.00004 11.3335H8.00671M14.6667 8.00016C14.6667 11.6821 11.6819 14.6668 8.00004 14.6668C4.31814 14.6668 1.33337 11.6821 1.33337 8.00016C1.33337 4.31826 4.31814 1.3335 8.00004 1.3335C11.6819 1.3335 14.6667 4.31826 14.6667 8.00016Z"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.33333"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_help2">
+                                  <rect width="16" height="16" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
+                        </div>
+                        <select
+                          value={resourceSubCategory}
+                          onChange={(e) =>
+                            setResourceSubCategory(e.target.value)
+                          }
+                          disabled={!resourceMainCategory}
+                          style={{
+                            display: "flex",
+                            padding: "8px 12px",
+                            alignItems: "center",
+                            gap: "8px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            fontWeight: 500,
+                            lineHeight: "24px",
+                            outline: "none",
+                            cursor: "pointer",
+                            opacity: !resourceMainCategory ? 0.5 : 1,
+                          }}
+                        >
+                          <option value="">Select a subcategory</option>
+                          {resourceMainCategory &&
+                            categories
+                              .find((cat) => cat.name === resourceMainCategory)
+                              ?.subcategories.map((subcat) => (
+                                <option key={subcat.id} value={subcat.name}>
+                                  {subcat.name}
+                                </option>
+                              ))}
+                        </select>
+                      </div>
+
+                      {/* Checkbox */}
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: "12px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            paddingTop: "2px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        >
+                          <input
+                            type="checkbox"
+                            checked={showInQuickResources}
+                            onChange={(e) =>
+                              setShowInQuickResources(e.target.checked)
+                            }
+                            style={{
+                              width: "20px",
+                              height: "20px",
+                              borderRadius: "6px",
+                              border: "1px solid #D5D7DA",
+                              cursor: "pointer",
+                            }}
+                          />
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "2px",
+                            flex: "1 0 0",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#414651",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontWeight: 500,
+                              lineHeight: "24px",
+                            }}
+                          >
+                            Show in Quick Resources Widget
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Add Resource Button */}
                       <button
                         type="button"
                         onClick={() => {
-                          setCategories(categories.map(cat => {
-                            if (cat.name === resourceToDelete.categoryName) {
-                              return {
-                                ...cat,
-                                subcategories: cat.subcategories.map(subcat => {
-                                  if (subcat.name === resourceToDelete.subcategoryName) {
-                                    return {
-                                      ...subcat,
-                                      documents: subcat.documents.filter(d => d.id !== resourceToDelete.resource.id)
-                                    };
-                                  }
-                                  return subcat;
-                                })
-                              };
+                          // Validate based on upload type
+                          if (resourceUploadType === "upload") {
+                            if (!resourceFileName.trim()) {
+                              alert("Please enter a file name");
+                              return;
                             }
-                            return cat;
-                          }));
+                          } else {
+                            // Link mode validation
+                            if (!resourceUrl.trim()) {
+                              alert(
+                                "Please enter a video, file or website URL",
+                              );
+                              return;
+                            }
+                            if (!resourceVideoName.trim()) {
+                              alert("Please enter a video name");
+                              return;
+                            }
+                          }
+
+                          if (!resourceMainCategory) {
+                            alert("Please select a main category");
+                            return;
+                          }
+                          if (!resourceSubCategory) {
+                            alert("Please select a subcategory");
+                            return;
+                          }
+
+                          // Create new resource
+                          const newResource: Resource = {
+                            id: Date.now().toString() + Math.random(),
+                            name:
+                              resourceUploadType === "upload"
+                                ? resourceFileName
+                                : resourceVideoName,
+                            description: resourceDescription,
+                            type: resourceUploadType,
+                            url:
+                              resourceUploadType === "link"
+                                ? resourceUrl
+                                : undefined,
+                            fileName:
+                              resourceUploadType === "upload"
+                                ? resourceFileName
+                                : undefined,
+                            fileSize: uploadedFile?.size,
+                          };
+
+                          // Add resource to the correct subcategory
+                          setCategories(
+                            categories.map((cat) => {
+                              if (cat.name === resourceMainCategory) {
+                                return {
+                                  ...cat,
+                                  subcategories: cat.subcategories.map(
+                                    (subcat) => {
+                                      if (subcat.name === resourceSubCategory) {
+                                        return {
+                                          ...subcat,
+                                          documents: [
+                                            ...subcat.documents,
+                                            newResource,
+                                          ],
+                                        };
+                                      }
+                                      return subcat;
+                                    },
+                                  ),
+                                };
+                              }
+                              return cat;
+                            }),
+                          );
+
+                          // Reset and close
+                          setResourceFileName("");
+                          setResourceUrl("");
+                          setResourceVideoName("");
+                          setResourceDescription("");
+                          setResourceMainCategory("");
+                          setResourceSubCategory("");
+                          setShowInQuickResources(false);
+                          setUploadedFile(null);
+                          setIsAddResourceModalOpen(false);
 
                           toast({
-                            title: "Document deleted",
-                            description: `"${resourceToDelete.resource.name}" has been removed.`,
+                            title: "Resource added",
+                            description:
+                              resourceUploadType === "upload"
+                                ? "Your file has been successfully uploaded."
+                                : "Your link has been successfully added.",
                           });
-
-                          setIsDeleteResourceModalOpen(false);
-                          setResourceToDelete(null);
                         }}
-                        style={{ display: "flex", padding: "12px 16px", justifyContent: "center", alignItems: "center", gap: "6px", flex: "1 0 0", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#D92D20", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}
+                        style={{
+                          display: "flex",
+                          padding: "12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          alignSelf: "stretch",
+                          borderRadius: "8px",
+                          border: "2px solid rgba(255, 255, 255, 0.12)",
+                          background: "#344698",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          cursor: "pointer",
+                          marginBottom: "24px",
+                        }}
                       >
-                        <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
-                          <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 600, lineHeight: "24px" }}>Delete</div>
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "0 2px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#FFF",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 600,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Add Resource
+                          </div>
                         </div>
                       </button>
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {/* Edit Resource Modal */}
-            {isEditResourceModalOpen && editingResource && (
-              <div style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 9999, display: "flex", justifyContent: "flex-end", alignItems: "flex-start" }}>
-                <div onClick={() => setIsEditResourceModalOpen(false)} style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "rgba(10, 13, 18, 0.7)", backdropFilter: "blur(4px)" }} />
-                <div onClick={(e) => e.stopPropagation()} style={{ position: "relative", display: "flex", flexDirection: "column", width: "400px", height: "100vh", background: "#FFF", borderLeft: "1px solid rgba(0, 0, 0, 0.08)", boxShadow: "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)" }}>
-                  {/* Modal Header */}
-                  <div style={{ display: "flex", padding: "24px", alignItems: "flex-start", gap: "8px", background: "#FFF" }}>
-                    <div style={{ display: "flex", alignItems: "flex-start", gap: "16px", flex: "1 0 0" }}>
-                      <div style={{ display: "flex", width: "44px", height: "44px", padding: "12px", justifyContent: "center", alignItems: "center", borderRadius: "9999px", background: "#D9DEF2" }}>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                          <path d="M2.39686 15.0963C2.43515 14.7517 2.45429 14.5794 2.50642 14.4184C2.55268 14.2755 2.61802 14.1396 2.70069 14.0142C2.79388 13.8729 2.91645 13.7503 3.1616 13.5052L14.1669 2.49992C15.0873 1.57945 16.5797 1.57945 17.5002 2.49993C18.4207 3.4204 18.4207 4.91279 17.5002 5.83326L6.49493 16.8385C6.24978 17.0836 6.12721 17.2062 5.9859 17.2994C5.86054 17.3821 5.72457 17.4474 5.5817 17.4937C5.42067 17.5458 5.24838 17.5649 4.9038 17.6032L2.0835 17.9166L2.39686 15.0963Z" stroke="#344698" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+              {/* Delete Resource Modal */}
+              {isDeleteResourceModalOpen && resourceToDelete && (
+                <div
+                  style={{
+                    position: "fixed",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    zIndex: 10000,
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  {/* Backdrop */}
+                  <div
+                    onClick={() => setIsDeleteResourceModalOpen(false)}
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "#0A0D12",
+                      opacity: 0.7,
+                      backdropFilter: "blur(8px)",
+                    }}
+                  />
+
+                  {/* Modal */}
+                  <div
+                    onClick={(e) => e.stopPropagation()}
+                    style={{
+                      position: "relative",
+                      display: "flex",
+                      maxWidth: "400px",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      alignSelf: "stretch",
+                      borderRadius: "16px",
+                      background: "#FFF",
+                      boxShadow:
+                        "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
+                    }}
+                  >
+                    {/* Modal Header */}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "24px 24px 0 24px",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "16px",
+                          alignSelf: "stretch",
+                        }}
+                      >
+                        {/* Featured Icon */}
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "48px",
+                            height: "48px",
+                            padding: "12px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "9999px",
+                            background: "#FEE4E2",
+                          }}
+                        >
+                          <svg
+                            width="24"
+                            height="25"
+                            viewBox="0 0 24 25"
+                            fill="none"
+                          >
+                            <path
+                              d="M16 6.5V5.7C16 4.5799 16 4.01984 15.782 3.59202C15.5903 3.21569 15.2843 2.90973 14.908 2.71799C14.4802 2.5 13.9201 2.5 12.8 2.5H11.2C10.0799 2.5 9.51984 2.5 9.09202 2.71799C8.71569 2.90973 8.40973 3.21569 8.21799 3.59202C8 4.01984 8 4.5799 8 5.7V6.5M3 6.5H21M19 6.5V17.7C19 19.3802 19 20.2202 18.673 20.862C18.3854 21.4265 17.9265 21.8854 17.362 22.173C16.7202 22.5 15.8802 22.5 14.2 22.5H9.8C8.11984 22.5 7.27976 22.5 6.63803 22.173C6.07354 21.8854 5.6146 21.4265 5.32698 20.862C5 20.2202 5 19.3802 5 17.7V6.5"
+                              stroke="#D92D20"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </div>
+                        {/* Text */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "2px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <div
+                            style={{
+                              alignSelf: "stretch",
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontWeight: 600,
+                              lineHeight: "24px",
+                            }}
+                          >
+                            Delete Document
+                          </div>
+                          <div
+                            style={{
+                              alignSelf: "stretch",
+                              color: "#535862",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 400,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Removing {resourceToDelete.resource.name} will
+                            permanently eliminate it from the platform, and
+                            users will no longer have access to it. This action
+                            cannot be undone.
+                          </div>
+                        </div>
+                      </div>
+                      {/* Close Button */}
+                      <button
+                        type="button"
+                        onClick={() => setIsDeleteResourceModalOpen(false)}
+                        style={{
+                          display: "flex",
+                          width: "44px",
+                          height: "44px",
+                          padding: "8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          position: "absolute",
+                          right: "12px",
+                          top: "12px",
+                          borderRadius: "8px",
+                          border: "none",
+                          background: "transparent",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <svg
+                          width="24"
+                          height="25"
+                          viewBox="0 0 24 25"
+                          fill="none"
+                        >
+                          <path
+                            d="M18 6.5L6 18.5M6 6.5L18 18.5"
+                            stroke="#A4A7AE"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
                         </svg>
-                      </div>
-                      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px", flex: "1 0 0" }}>
-                        <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "18px", fontWeight: 600, lineHeight: "28px" }}>Edit Resource</div>
-                        <div style={{ color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>Rename, update description or remove resource</div>
-                      </div>
-                    </div>
-                    <button type="button" onClick={() => setIsEditResourceModalOpen(false)} style={{ display: "flex", width: "40px", height: "40px", padding: "8px", justifyContent: "center", alignItems: "center", borderRadius: "8px", border: "none", background: "transparent", cursor: "pointer" }}>
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6L18 18" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                    </button>
-                  </div>
-
-                  {/* Modal Content */}
-                  <div style={{ display: "flex", padding: "0 24px", flexDirection: "column", gap: "24px", overflowY: "auto", flex: 1 }}>
-                    {/* File Name Input */}
-                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                        <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>File name</label>
-                        <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
-                      </div>
-                      <input type="text" value={editResourceName} onChange={(e) => setEditResourceName(e.target.value)} style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#181D27", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none" }} />
+                      </button>
                     </div>
 
-                    {/* Description Textarea */}
-                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                      <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Description</label>
-                      <textarea value={editResourceDescription} onChange={(e) => setEditResourceDescription(e.target.value)} placeholder="Enter a description..." style={{ display: "flex", padding: "12px 14px", alignItems: "flex-start", gap: "8px", minHeight: "100px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#181D27", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 400, lineHeight: "24px", outline: "none", resize: "vertical" }} />
-                    </div>
-
-                    {/* Category Dropdown */}
-                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                        <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Category</label>
-                        <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
-                      </div>
-                      <select value={editResourceCategory} onChange={(e) => { setEditResourceCategory(e.target.value); setEditResourceSubCategory(""); }} style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#181D27", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 500, lineHeight: "24px", outline: "none", cursor: "pointer" }}>
-                        <option value="">Select a category</option>
-                        {categories.map(cat => (<option key={cat.id} value={cat.name}>{cat.name}</option>))}
-                      </select>
-                    </div>
-
-                    {/* Sub Category Dropdown */}
-                    <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-                        <label style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>Sub Category</label>
-                        <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
-                      </div>
-                      <select value={editResourceSubCategory} onChange={(e) => setEditResourceSubCategory(e.target.value)} disabled={!editResourceCategory} style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", color: "#181D27", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 500, lineHeight: "24px", outline: "none", cursor: "pointer", opacity: !editResourceCategory ? 0.5 : 1 }}>
-                        <option value="">Select a subcategory</option>
-                        {editResourceCategory && categories.find(cat => cat.name === editResourceCategory)?.subcategories.map(subcat => (<option key={subcat.id} value={subcat.name}>{subcat.name}</option>))}
-                      </select>
-                    </div>
-
-                    {/* Checkbox */}
-                    <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
-                      <div style={{ display: "flex", paddingTop: "2px", justifyContent: "center", alignItems: "center" }}>
-                        <input type="checkbox" checked={editShowInQuickResources} onChange={(e) => setEditShowInQuickResources(e.target.checked)} style={{ width: "20px", height: "20px", borderRadius: "6px", border: "1px solid #D5D7DA", cursor: "pointer" }} />
-                      </div>
-                      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px", flex: "1 0 0" }}>
-                        <div style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 500, lineHeight: "24px" }}>Show in Quick Resources Widget</div>
-                      </div>
-                    </div>
-
-                    {/* Update Resource Button */}
-                    <button
-                      type="button"
-                      onClick={() => {
-                        if (!editResourceName.trim()) { alert("Please enter a file name"); return; }
-                        if (!editResourceCategory) { alert("Please select a category"); return; }
-                        if (!editResourceSubCategory) { alert("Please select a subcategory"); return; }
-
-                        // Remove from old location
-                        let updatedCategories = categories.map(cat => ({
-                          ...cat,
-                          subcategories: cat.subcategories.map(subcat => ({
-                            ...subcat,
-                            documents: subcat.documents.filter(d => d.id !== editingResource.resource.id)
-                          }))
-                        }));
-
-                        // Add to new location with updated data
-                        updatedCategories = updatedCategories.map(cat => {
-                          if (cat.name === editResourceCategory) {
-                            return {
-                              ...cat,
-                              subcategories: cat.subcategories.map(subcat => {
-                                if (subcat.name === editResourceSubCategory) {
+                    {/* Actions */}
+                    <div
+                      style={{
+                        display: "flex",
+                        paddingTop: "32px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "0 24px 24px 24px",
+                          alignItems: "flex-start",
+                          gap: "12px",
+                          alignSelf: "stretch",
+                        }}
+                      >
+                        {/* Cancel Button */}
+                        <button
+                          type="button"
+                          onClick={() => setIsDeleteResourceModalOpen(false)}
+                          style={{
+                            display: "flex",
+                            padding: "12px 16px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "6px",
+                            flex: "1 0 0",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              padding: "0 2px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#414651",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontWeight: 600,
+                                lineHeight: "24px",
+                              }}
+                            >
+                              Cancel
+                            </div>
+                          </div>
+                        </button>
+                        {/* Delete Button */}
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setCategories(
+                              categories.map((cat) => {
+                                if (
+                                  cat.name === resourceToDelete.categoryName
+                                ) {
                                   return {
-                                    ...subcat,
-                                    documents: [...subcat.documents, { ...editingResource.resource, name: editResourceName, description: editResourceDescription }]
+                                    ...cat,
+                                    subcategories: cat.subcategories.map(
+                                      (subcat) => {
+                                        if (
+                                          subcat.name ===
+                                          resourceToDelete.subcategoryName
+                                        ) {
+                                          return {
+                                            ...subcat,
+                                            documents: subcat.documents.filter(
+                                              (d) =>
+                                                d.id !==
+                                                resourceToDelete.resource.id,
+                                            ),
+                                          };
+                                        }
+                                        return subcat;
+                                      },
+                                    ),
                                   };
                                 }
-                                return subcat;
-                              })
-                            };
-                          }
-                          return cat;
-                        });
+                                return cat;
+                              }),
+                            );
 
-                        setCategories(updatedCategories);
-                        setIsEditResourceModalOpen(false);
-                        setEditingResource(null);
-                        toast({ title: "Resource updated", description: "Your changes have been saved." });
-                      }}
-                      style={{ display: "flex", padding: "12px", justifyContent: "center", alignItems: "center", gap: "4px", alignSelf: "stretch", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}
-                    >
-                      <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
-                        <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Update Resource</div>
-                      </div>
-                    </button>
+                            toast({
+                              title: "Document deleted",
+                              description: `"${resourceToDelete.resource.name}" has been removed.`,
+                            });
 
-                    {/* Delete Resource Button */}
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setIsEditResourceModalOpen(false);
-                        setResourceToDelete(editingResource);
-                        setIsDeleteResourceModalOpen(true);
-                      }}
-                      style={{ display: "flex", padding: "10px 14px", justifyContent: "center", alignItems: "center", gap: "4px", alignSelf: "stretch", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#D92D20", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer", marginBottom: "24px" }}
-                    >
-                      <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
-                        <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Delete Resource</div>
+                            setIsDeleteResourceModalOpen(false);
+                            setResourceToDelete(null);
+                          }}
+                          style={{
+                            display: "flex",
+                            padding: "12px 16px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "6px",
+                            flex: "1 0 0",
+                            borderRadius: "8px",
+                            border: "2px solid rgba(255, 255, 255, 0.12)",
+                            background: "#D92D20",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              padding: "0 2px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#FFF",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontWeight: 600,
+                                lineHeight: "24px",
+                              }}
+                            >
+                              Delete
+                            </div>
+                          </div>
+                        </button>
                       </div>
-                    </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
+
+              {/* Edit Resource Modal */}
+              {isEditResourceModalOpen && editingResource && (
+                <div
+                  style={{
+                    position: "fixed",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    zIndex: 9999,
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    alignItems: "flex-start",
+                  }}
+                >
+                  <div
+                    onClick={() => setIsEditResourceModalOpen(false)}
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: "rgba(10, 13, 18, 0.7)",
+                      backdropFilter: "blur(4px)",
+                    }}
+                  />
+                  <div
+                    onClick={(e) => e.stopPropagation()}
+                    style={{
+                      position: "relative",
+                      display: "flex",
+                      flexDirection: "column",
+                      width: "400px",
+                      height: "100vh",
+                      background: "#FFF",
+                      borderLeft: "1px solid rgba(0, 0, 0, 0.08)",
+                      boxShadow:
+                        "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
+                    }}
+                  >
+                    {/* Modal Header */}
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "24px",
+                        alignItems: "flex-start",
+                        gap: "8px",
+                        background: "#FFF",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: "16px",
+                          flex: "1 0 0",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "44px",
+                            height: "44px",
+                            padding: "12px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "9999px",
+                            background: "#D9DEF2",
+                          }}
+                        >
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                          >
+                            <path
+                              d="M2.39686 15.0963C2.43515 14.7517 2.45429 14.5794 2.50642 14.4184C2.55268 14.2755 2.61802 14.1396 2.70069 14.0142C2.79388 13.8729 2.91645 13.7503 3.1616 13.5052L14.1669 2.49992C15.0873 1.57945 16.5797 1.57945 17.5002 2.49993C18.4207 3.4204 18.4207 4.91279 17.5002 5.83326L6.49493 16.8385C6.24978 17.0836 6.12721 17.2062 5.9859 17.2994C5.86054 17.3821 5.72457 17.4474 5.5817 17.4937C5.42067 17.5458 5.24838 17.5649 4.9038 17.6032L2.0835 17.9166L2.39686 15.0963Z"
+                              stroke="#344698"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "2px",
+                            flex: "1 0 0",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "18px",
+                              fontWeight: 600,
+                              lineHeight: "28px",
+                            }}
+                          >
+                            Edit Resource
+                          </div>
+                          <div
+                            style={{
+                              color: "#535862",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 400,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Rename, update description or remove resource
+                          </div>
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setIsEditResourceModalOpen(false)}
+                        style={{
+                          display: "flex",
+                          width: "40px",
+                          height: "40px",
+                          padding: "8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "8px",
+                          border: "none",
+                          background: "transparent",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <path
+                            d="M18 6L6 18M6 6L18 18"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+
+                    {/* Modal Content */}
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "0 24px",
+                        flexDirection: "column",
+                        gap: "24px",
+                        overflowY: "auto",
+                        flex: 1,
+                      }}
+                    >
+                      {/* File Name Input */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "6px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "2px",
+                          }}
+                        >
+                          <label
+                            style={{
+                              color: "#414651",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            File name
+                          </label>
+                          <span
+                            style={{
+                              color: "#344698",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            *
+                          </span>
+                        </div>
+                        <input
+                          type="text"
+                          value={editResourceName}
+                          onChange={(e) => setEditResourceName(e.target.value)}
+                          style={{
+                            display: "flex",
+                            padding: "8px 12px",
+                            alignItems: "center",
+                            gap: "8px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            fontWeight: 400,
+                            lineHeight: "24px",
+                            outline: "none",
+                          }}
+                        />
+                      </div>
+
+                      {/* Description Textarea */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "6px",
+                        }}
+                      >
+                        <label
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Description
+                        </label>
+                        <textarea
+                          value={editResourceDescription}
+                          onChange={(e) =>
+                            setEditResourceDescription(e.target.value)
+                          }
+                          placeholder="Enter a description..."
+                          style={{
+                            display: "flex",
+                            padding: "12px 14px",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                            minHeight: "100px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            fontWeight: 400,
+                            lineHeight: "24px",
+                            outline: "none",
+                            resize: "vertical",
+                          }}
+                        />
+                      </div>
+
+                      {/* Category Dropdown */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "6px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "2px",
+                          }}
+                        >
+                          <label
+                            style={{
+                              color: "#414651",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Category
+                          </label>
+                          <span
+                            style={{
+                              color: "#344698",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            *
+                          </span>
+                        </div>
+                        <select
+                          value={editResourceCategory}
+                          onChange={(e) => {
+                            setEditResourceCategory(e.target.value);
+                            setEditResourceSubCategory("");
+                          }}
+                          style={{
+                            display: "flex",
+                            padding: "8px 12px",
+                            alignItems: "center",
+                            gap: "8px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            fontWeight: 500,
+                            lineHeight: "24px",
+                            outline: "none",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <option value="">Select a category</option>
+                          {categories.map((cat) => (
+                            <option key={cat.id} value={cat.name}>
+                              {cat.name}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      {/* Sub Category Dropdown */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "6px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "2px",
+                          }}
+                        >
+                          <label
+                            style={{
+                              color: "#414651",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Sub Category
+                          </label>
+                          <span
+                            style={{
+                              color: "#344698",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            *
+                          </span>
+                        </div>
+                        <select
+                          value={editResourceSubCategory}
+                          onChange={(e) =>
+                            setEditResourceSubCategory(e.target.value)
+                          }
+                          disabled={!editResourceCategory}
+                          style={{
+                            display: "flex",
+                            padding: "8px 12px",
+                            alignItems: "center",
+                            gap: "8px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            fontWeight: 500,
+                            lineHeight: "24px",
+                            outline: "none",
+                            cursor: "pointer",
+                            opacity: !editResourceCategory ? 0.5 : 1,
+                          }}
+                        >
+                          <option value="">Select a subcategory</option>
+                          {editResourceCategory &&
+                            categories
+                              .find((cat) => cat.name === editResourceCategory)
+                              ?.subcategories.map((subcat) => (
+                                <option key={subcat.id} value={subcat.name}>
+                                  {subcat.name}
+                                </option>
+                              ))}
+                        </select>
+                      </div>
+
+                      {/* Checkbox */}
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: "12px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            paddingTop: "2px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        >
+                          <input
+                            type="checkbox"
+                            checked={editShowInQuickResources}
+                            onChange={(e) =>
+                              setEditShowInQuickResources(e.target.checked)
+                            }
+                            style={{
+                              width: "20px",
+                              height: "20px",
+                              borderRadius: "6px",
+                              border: "1px solid #D5D7DA",
+                              cursor: "pointer",
+                            }}
+                          />
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "2px",
+                            flex: "1 0 0",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#414651",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontWeight: 500,
+                              lineHeight: "24px",
+                            }}
+                          >
+                            Show in Quick Resources Widget
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Update Resource Button */}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          if (!editResourceName.trim()) {
+                            alert("Please enter a file name");
+                            return;
+                          }
+                          if (!editResourceCategory) {
+                            alert("Please select a category");
+                            return;
+                          }
+                          if (!editResourceSubCategory) {
+                            alert("Please select a subcategory");
+                            return;
+                          }
+
+                          // Remove from old location
+                          let updatedCategories = categories.map((cat) => ({
+                            ...cat,
+                            subcategories: cat.subcategories.map((subcat) => ({
+                              ...subcat,
+                              documents: subcat.documents.filter(
+                                (d) => d.id !== editingResource.resource.id,
+                              ),
+                            })),
+                          }));
+
+                          // Add to new location with updated data
+                          updatedCategories = updatedCategories.map((cat) => {
+                            if (cat.name === editResourceCategory) {
+                              return {
+                                ...cat,
+                                subcategories: cat.subcategories.map(
+                                  (subcat) => {
+                                    if (
+                                      subcat.name === editResourceSubCategory
+                                    ) {
+                                      return {
+                                        ...subcat,
+                                        documents: [
+                                          ...subcat.documents,
+                                          {
+                                            ...editingResource.resource,
+                                            name: editResourceName,
+                                            description:
+                                              editResourceDescription,
+                                          },
+                                        ],
+                                      };
+                                    }
+                                    return subcat;
+                                  },
+                                ),
+                              };
+                            }
+                            return cat;
+                          });
+
+                          setCategories(updatedCategories);
+                          setIsEditResourceModalOpen(false);
+                          setEditingResource(null);
+                          toast({
+                            title: "Resource updated",
+                            description: "Your changes have been saved.",
+                          });
+                        }}
+                        style={{
+                          display: "flex",
+                          padding: "12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          alignSelf: "stretch",
+                          borderRadius: "8px",
+                          border: "2px solid rgba(255, 255, 255, 0.12)",
+                          background: "#344698",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "0 2px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#FFF",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 600,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Update Resource
+                          </div>
+                        </div>
+                      </button>
+
+                      {/* Delete Resource Button */}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setIsEditResourceModalOpen(false);
+                          setResourceToDelete(editingResource);
+                          setIsDeleteResourceModalOpen(true);
+                        }}
+                        style={{
+                          display: "flex",
+                          padding: "10px 14px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          alignSelf: "stretch",
+                          borderRadius: "8px",
+                          border: "2px solid rgba(255, 255, 255, 0.12)",
+                          background: "#D92D20",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          cursor: "pointer",
+                          marginBottom: "24px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "0 2px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#FFF",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 600,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Delete Resource
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
             </>
           )}
 
@@ -7193,7 +10578,8 @@ export default function CompanySettings() {
                       margin: "2px 0 0 0",
                     }}
                   >
-                    Access and download all your past invoices. Keep track of your billing details and payment history in one place.
+                    Access and download all your past invoices. Keep track of
+                    your billing details and payment history in one place.
                   </p>
                 </div>
 
@@ -7342,7 +10728,8 @@ export default function CompanySettings() {
                               borderRadius: "8px",
                               border: "1px solid #D5D7DA",
                               background: "#FFF",
-                              boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              boxShadow:
+                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               cursor: "pointer",
                               width: isMobile ? "100%" : "auto",
                             }}
@@ -7596,12 +10983,14 @@ export default function CompanySettings() {
                                 alignItems: "center",
                                 borderRadius: "9999px",
                                 border: `1px solid ${status === "Paid" ? "#ABEFC6" : "#B2DDFF"}`,
-                                background: status === "Paid" ? "#ECFDF3" : "#EFF8FF",
+                                background:
+                                  status === "Paid" ? "#ECFDF3" : "#EFF8FF",
                               }}
                             >
                               <span
                                 style={{
-                                  color: status === "Paid" ? "#067647" : "#175CD3",
+                                  color:
+                                    status === "Paid" ? "#067647" : "#175CD3",
                                   textAlign: "center",
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
@@ -8069,7 +11458,8 @@ export default function CompanySettings() {
                             borderRadius: "8px",
                             border: "1px solid #D5D7DA",
                             background: "#FFF",
-                            boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                             cursor: "pointer",
                           }}
                         >
@@ -8192,7 +11582,8 @@ export default function CompanySettings() {
                             borderRadius: "8px",
                             border: "1px solid #D5D7DA",
                             background: "#FFF",
-                            boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                             cursor: "pointer",
                           }}
                         >
@@ -8312,7 +11703,8 @@ export default function CompanySettings() {
                       margin: "2px 0 0 0",
                     }}
                   >
-                    View and track all administrative changes and security events
+                    View and track all administrative changes and security
+                    events
                   </p>
                 </div>
 
@@ -8461,7 +11853,8 @@ export default function CompanySettings() {
                               borderRadius: "8px",
                               border: "1px solid #D5D7DA",
                               background: "#FFF",
-                              boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              boxShadow:
+                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               cursor: "pointer",
                             }}
                             onMouseEnter={(e) => {
@@ -8512,7 +11905,8 @@ export default function CompanySettings() {
                               borderRadius: "8px",
                               border: "1px solid #D5D7DA",
                               background: "#FFF",
-                              boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              boxShadow:
+                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               cursor: "pointer",
                             }}
                             onMouseEnter={(e) => {
@@ -8945,11 +12339,23 @@ export default function CompanySettings() {
                           { from: "Enable", to: "Disable", arrow: true },
                           { from: "Off", to: "On", arrow: true },
                           { from: "Enable", to: "Disable", arrow: true },
-                          { from: "Active Account", to: "Deactivated", arrow: true },
+                          {
+                            from: "Active Account",
+                            to: "Deactivated",
+                            arrow: true,
+                          },
                           { from: "On", to: "Off", arrow: true },
-                          { from: "New device detected", to: null, arrow: false },
+                          {
+                            from: "New device detected",
+                            to: null,
+                            arrow: false,
+                          },
                           { from: "Weekly", to: "Off", arrow: true },
-                          { from: "Exported 1,250 Records", to: null, arrow: false },
+                          {
+                            from: "Exported 1,250 Records",
+                            to: null,
+                            arrow: false,
+                          },
                           { from: "30 mins", to: "60 mins", arrow: true },
                           { from: "Active", to: "Inactive", arrow: true },
                         ].map((change, idx) => (
@@ -9102,15 +12508,15 @@ export default function CompanySettings() {
                                   severity.type === "low"
                                     ? "#E9EAEB"
                                     : severity.type === "medium"
-                                    ? "#FEDF89"
-                                    : "#FECDCA"
+                                      ? "#FEDF89"
+                                      : "#FECDCA"
                                 }`,
                                 background:
                                   severity.type === "low"
                                     ? "#FAFAFA"
                                     : severity.type === "medium"
-                                    ? "#FFFAEB"
-                                    : "#FEF3F2",
+                                      ? "#FFFAEB"
+                                      : "#FEF3F2",
                               }}
                             >
                               {severity.type === "low" && (
@@ -9170,8 +12576,8 @@ export default function CompanySettings() {
                                     severity.type === "low"
                                       ? "#414651"
                                       : severity.type === "medium"
-                                      ? "#B54708"
-                                      : "#B42318",
+                                        ? "#B54708"
+                                        : "#B42318",
                                   textAlign: "center",
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
@@ -9240,7 +12646,8 @@ export default function CompanySettings() {
                             borderRadius: "8px",
                             border: "1px solid #D5D7DA",
                             background: "#FFF",
-                            boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                             cursor: "pointer",
                           }}
                         >
@@ -9363,7 +12770,8 @@ export default function CompanySettings() {
                             borderRadius: "8px",
                             border: "1px solid #D5D7DA",
                             background: "#FFF",
-                            boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                             cursor: "pointer",
                           }}
                         >
@@ -9446,77 +12854,106 @@ export default function CompanySettings() {
               }}
             >
               {/* Platform Customization */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-                <div>
-                  <h2 style={{
-                    color: "#181D27",
-                    fontFamily: "Public Sans",
-                    fontSize: "18px",
-                    fontWeight: 600,
-                    lineHeight: "28px",
-                    margin: 0,
-                  }}>
-                    Platform Customization
-                  </h2>
-                  <p style={{
-                    color: "#535862",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontWeight: 400,
-                    lineHeight: "20px",
-                    margin: "2px 0 0 0",
-                  }}>
-                    Customize your platform's branding and appearance
-                  </p>
-                </div>
-
-                {/* Brand Identity Card */}
-                <div style={{
+              <div
+                style={{
                   display: "flex",
                   flexDirection: "column",
-                  borderRadius: "12px",
-                  border: "1px solid #E9EAEB",
-                  background: "#FFF",
-                  overflow: "hidden",
-                }}>
-                  {/* Header */}
-                  <div style={{
-                    padding: "16px 16px 12px 16px",
-                    borderBottom: "1px solid #E9EAEB",
-                  }}>
-                    <h3 style={{
+                  gap: "24px",
+                }}
+              >
+                <div>
+                  <h2
+                    style={{
                       color: "#181D27",
                       fontFamily: "Public Sans",
                       fontSize: "18px",
                       fontWeight: 600,
                       lineHeight: "28px",
                       margin: 0,
-                    }}>
+                    }}
+                  >
+                    Platform Customization
+                  </h2>
+                  <p
+                    style={{
+                      color: "#535862",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      lineHeight: "20px",
+                      margin: "2px 0 0 0",
+                    }}
+                  >
+                    Customize your platform's branding and appearance
+                  </p>
+                </div>
+
+                {/* Brand Identity Card */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    borderRadius: "12px",
+                    border: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    overflow: "hidden",
+                  }}
+                >
+                  {/* Header */}
+                  <div
+                    style={{
+                      padding: "16px 16px 12px 16px",
+                      borderBottom: "1px solid #E9EAEB",
+                    }}
+                  >
+                    <h3
+                      style={{
+                        color: "#181D27",
+                        fontFamily: "Public Sans",
+                        fontSize: "18px",
+                        fontWeight: 600,
+                        lineHeight: "28px",
+                        margin: 0,
+                      }}
+                    >
                       Brand Identity
                     </h3>
                   </div>
 
                   {/* Content */}
-                  <div style={{
-                    padding: "12px 16px 40px 16px",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "16px",
-                  }}>
-                    {/* Company Name & Custom Domain */}
-                    <div style={{
+                  <div
+                    style={{
+                      padding: "12px 16px 40px 16px",
                       display: "flex",
+                      flexDirection: "column",
                       gap: "16px",
-                      flexDirection: isCompactLayout ? "column" : "row",
-                    }}>
-                      <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "6px" }}>
-                        <label style={{
-                          color: "#414651",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 500,
-                          lineHeight: "20px",
-                        }}>
+                    }}
+                  >
+                    {/* Company Name & Custom Domain */}
+                    <div
+                      style={{
+                        display: "flex",
+                        gap: "16px",
+                        flexDirection: isCompactLayout ? "column" : "row",
+                      }}
+                    >
+                      <div
+                        style={{
+                          flex: 1,
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "6px",
+                        }}
+                      >
+                        <label
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
                           Company Name
                         </label>
                         <input
@@ -9535,14 +12972,23 @@ export default function CompanySettings() {
                           }}
                         />
                       </div>
-                      <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "6px" }}>
-                        <label style={{
-                          color: "#414651",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 500,
-                          lineHeight: "20px",
-                        }}>
+                      <div
+                        style={{
+                          flex: 1,
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "6px",
+                        }}
+                      >
+                        <label
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
                           Custom Domain (Optional)
                         </label>
                         <input
@@ -9564,85 +13010,130 @@ export default function CompanySettings() {
                     </div>
 
                     {/* Logo & Favicon Uploaders */}
-                    <div style={{
-                      display: "flex",
-                      gap: "16px",
-                      flexDirection: isCompactLayout ? "column" : "row",
-                    }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        gap: "16px",
+                        flexDirection: isCompactLayout ? "column" : "row",
+                      }}
+                    >
                       {/* Logo */}
-                      <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "4px" }}>
-                        <label style={{
-                          color: "#414651",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 500,
-                          lineHeight: "20px",
-                        }}>
+                      <div
+                        style={{
+                          flex: 1,
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "4px",
+                        }}
+                      >
+                        <label
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
                           Logo
                         </label>
-                        <div style={{ display: "flex", alignItems: "flex-start", gap: "20px" }}>
-                          <div style={{
-                            width: "72px",
-                            height: "72px",
-                            borderRadius: "9999px",
-                            border: "1px solid rgba(0, 0, 0, 0.08)",
-                            background: "#FFF",
+                        <div
+                          style={{
                             display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            padding: "4px",
-                          }}>
-                            <div style={{
-                              width: "100%",
-                              height: "100%",
+                            alignItems: "flex-start",
+                            gap: "20px",
+                          }}
+                        >
+                          <div
+                            style={{
+                              width: "72px",
+                              height: "72px",
                               borderRadius: "9999px",
                               border: "1px solid rgba(0, 0, 0, 0.08)",
-                              background: "#F5F5F5",
+                              background: "#FFF",
                               display: "flex",
                               alignItems: "center",
                               justifyContent: "center",
-                            }}>
-                              <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-                                <path d="M18.75 4.5H11.7C9.17976 4.5 7.91965 4.5 6.95704 4.99047C6.11031 5.4219 5.4219 6.11031 4.99047 6.95704C4.5 7.91965 4.5 9.17976 4.5 11.7V24.3C4.5 26.8202 4.5 28.0804 4.99047 29.043C5.4219 29.8897 6.11031 30.5781 6.95704 31.0095C7.91965 31.5 9.17976 31.5 11.7 31.5H25.5C26.895 31.5 27.5924 31.5 28.1647 31.3467C29.7176 30.9306 30.9306 29.7176 31.3467 28.1647C31.5 27.5924 31.5 26.895 31.5 25.5M28.5 12V3M24 7.5H33M15.75 12.75C15.75 14.4069 14.4069 15.75 12.75 15.75C11.0931 15.75 9.75 14.4069 9.75 12.75C9.75 11.0931 11.0931 9.75 12.75 9.75C14.4069 9.75 15.75 11.0931 15.75 12.75Z" stroke="#A4A7AE" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
+                              padding: "4px",
+                            }}
+                          >
+                            <div
+                              style={{
+                                width: "100%",
+                                height: "100%",
+                                borderRadius: "9999px",
+                                border: "1px solid rgba(0, 0, 0, 0.08)",
+                                background: "#F5F5F5",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                              }}
+                            >
+                              <svg
+                                width="36"
+                                height="36"
+                                viewBox="0 0 36 36"
+                                fill="none"
+                              >
+                                <path
+                                  d="M18.75 4.5H11.7C9.17976 4.5 7.91965 4.5 6.95704 4.99047C6.11031 5.4219 5.4219 6.11031 4.99047 6.95704C4.5 7.91965 4.5 9.17976 4.5 11.7V24.3C4.5 26.8202 4.5 28.0804 4.99047 29.043C5.4219 29.8897 6.11031 30.5781 6.95704 31.0095C7.91965 31.5 9.17976 31.5 11.7 31.5H25.5C26.895 31.5 27.5924 31.5 28.1647 31.3467C29.7176 30.9306 30.9306 29.7176 31.3467 28.1647C31.5 27.5924 31.5 26.895 31.5 25.5M28.5 12V3M24 7.5H33M15.75 12.75C15.75 14.4069 14.4069 15.75 12.75 15.75C11.0931 15.75 9.75 14.4069 9.75 12.75C9.75 11.0931 11.0931 9.75 12.75 9.75C14.4069 9.75 15.75 11.0931 15.75 12.75Z"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="2.25"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
                             </div>
                           </div>
-                          <div style={{
-                            flex: 1,
-                            padding: "16px 24px",
-                            borderRadius: "12px",
-                            border: "1px solid #E9EAEB",
-                            background: "#FFF",
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                            gap: "4px",
-                            cursor: "pointer",
-                          }}>
+                          <div
+                            style={{
+                              flex: 1,
+                              padding: "16px 24px",
+                              borderRadius: "12px",
+                              border: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "center",
+                              gap: "4px",
+                              cursor: "pointer",
+                            }}
+                          >
                             <div style={{ textAlign: "center" }}>
-                              <span style={{
-                                color: "#273572",
-                                fontFamily: "Public Sans",
-                                fontSize: "14px",
-                                fontWeight: 600,
-                                lineHeight: "20px",
-                              }}>Click to upload</span>
-                              <span style={{
-                                color: "#535862",
-                                fontFamily: "Public Sans",
-                                fontSize: "14px",
-                                fontWeight: 400,
-                                lineHeight: "20px",
-                              }}> or drag and drop</span>
+                              <span
+                                style={{
+                                  color: "#273572",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 600,
+                                  lineHeight: "20px",
+                                }}
+                              >
+                                Click to upload
+                              </span>
+                              <span
+                                style={{
+                                  color: "#535862",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 400,
+                                  lineHeight: "20px",
+                                }}
+                              >
+                                {" "}
+                                or drag and drop
+                              </span>
                             </div>
-                            <p style={{
-                              color: "#535862",
-                              fontFamily: "Roboto Mono",
-                              fontSize: "12px",
-                              fontWeight: 400,
-                              lineHeight: "18px",
-                              margin: 0,
-                            }}>
+                            <p
+                              style={{
+                                color: "#535862",
+                                fontFamily: "Roboto Mono",
+                                fontSize: "12px",
+                                fontWeight: 400,
+                                lineHeight: "18px",
+                                margin: 0,
+                              }}
+                            >
                               SVG, PNG, JPG or GIF (max. 800x400px)
                             </p>
                           </div>
@@ -9650,79 +13141,122 @@ export default function CompanySettings() {
                       </div>
 
                       {/* Favicon */}
-                      <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "4px" }}>
-                        <label style={{
-                          color: "#414651",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 500,
-                          lineHeight: "20px",
-                        }}>
+                      <div
+                        style={{
+                          flex: 1,
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "4px",
+                        }}
+                      >
+                        <label
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
                           Favicon
                         </label>
-                        <div style={{ display: "flex", alignItems: "flex-start", gap: "20px" }}>
-                          <div style={{
-                            width: "72px",
-                            height: "72px",
-                            borderRadius: "9999px",
-                            border: "1px solid rgba(0, 0, 0, 0.08)",
-                            background: "#FFF",
+                        <div
+                          style={{
                             display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            padding: "4px",
-                          }}>
-                            <div style={{
-                              width: "100%",
-                              height: "100%",
+                            alignItems: "flex-start",
+                            gap: "20px",
+                          }}
+                        >
+                          <div
+                            style={{
+                              width: "72px",
+                              height: "72px",
                               borderRadius: "9999px",
                               border: "1px solid rgba(0, 0, 0, 0.08)",
-                              background: "#F5F5F5",
+                              background: "#FFF",
                               display: "flex",
                               alignItems: "center",
                               justifyContent: "center",
-                            }}>
-                              <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-                                <path d="M18.75 4.5H11.7C9.17976 4.5 7.91965 4.5 6.95704 4.99047C6.11031 5.4219 5.4219 6.11031 4.99047 6.95704C4.5 7.91965 4.5 9.17976 4.5 11.7V24.3C4.5 26.8202 4.5 28.0804 4.99047 29.043C5.4219 29.8897 6.11031 30.5781 6.95704 31.0095C7.91965 31.5 9.17976 31.5 11.7 31.5H25.5C26.895 31.5 27.5924 31.5 28.1647 31.3467C29.7176 30.9306 30.9306 29.7176 31.3467 28.1647C31.5 27.5924 31.5 26.895 31.5 25.5M28.5 12V3M24 7.5H33M15.75 12.75C15.75 14.4069 14.4069 15.75 12.75 15.75C11.0931 15.75 9.75 14.4069 9.75 12.75C9.75 11.0931 11.0931 9.75 12.75 9.75C14.4069 9.75 15.75 11.0931 15.75 12.75Z" stroke="#A4A7AE" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
+                              padding: "4px",
+                            }}
+                          >
+                            <div
+                              style={{
+                                width: "100%",
+                                height: "100%",
+                                borderRadius: "9999px",
+                                border: "1px solid rgba(0, 0, 0, 0.08)",
+                                background: "#F5F5F5",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                              }}
+                            >
+                              <svg
+                                width="36"
+                                height="36"
+                                viewBox="0 0 36 36"
+                                fill="none"
+                              >
+                                <path
+                                  d="M18.75 4.5H11.7C9.17976 4.5 7.91965 4.5 6.95704 4.99047C6.11031 5.4219 5.4219 6.11031 4.99047 6.95704C4.5 7.91965 4.5 9.17976 4.5 11.7V24.3C4.5 26.8202 4.5 28.0804 4.99047 29.043C5.4219 29.8897 6.11031 30.5781 6.95704 31.0095C7.91965 31.5 9.17976 31.5 11.7 31.5H25.5C26.895 31.5 27.5924 31.5 28.1647 31.3467C29.7176 30.9306 30.9306 29.7176 31.3467 28.1647C31.5 27.5924 31.5 26.895 31.5 25.5M28.5 12V3M24 7.5H33M15.75 12.75C15.75 14.4069 14.4069 15.75 12.75 15.75C11.0931 15.75 9.75 14.4069 9.75 12.75C9.75 11.0931 11.0931 9.75 12.75 9.75C14.4069 9.75 15.75 11.0931 15.75 12.75Z"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="2.25"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
                             </div>
                           </div>
-                          <div style={{
-                            flex: 1,
-                            padding: "16px 24px",
-                            borderRadius: "12px",
-                            border: "1px solid #E9EAEB",
-                            background: "#FFF",
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                            gap: "4px",
-                            cursor: "pointer",
-                          }}>
+                          <div
+                            style={{
+                              flex: 1,
+                              padding: "16px 24px",
+                              borderRadius: "12px",
+                              border: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "center",
+                              gap: "4px",
+                              cursor: "pointer",
+                            }}
+                          >
                             <div style={{ textAlign: "center" }}>
-                              <span style={{
-                                color: "#273572",
-                                fontFamily: "Public Sans",
-                                fontSize: "14px",
-                                fontWeight: 600,
-                                lineHeight: "20px",
-                              }}>Click to upload</span>
-                              <span style={{
-                                color: "#535862",
-                                fontFamily: "Public Sans",
-                                fontSize: "14px",
-                                fontWeight: 400,
-                                lineHeight: "20px",
-                              }}> or drag and drop</span>
+                              <span
+                                style={{
+                                  color: "#273572",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 600,
+                                  lineHeight: "20px",
+                                }}
+                              >
+                                Click to upload
+                              </span>
+                              <span
+                                style={{
+                                  color: "#535862",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 400,
+                                  lineHeight: "20px",
+                                }}
+                              >
+                                {" "}
+                                or drag and drop
+                              </span>
                             </div>
-                            <p style={{
-                              color: "#535862",
-                              fontFamily: "Roboto Mono",
-                              fontSize: "12px",
-                              fontWeight: 400,
-                              lineHeight: "18px",
-                              margin: 0,
-                            }}>
+                            <p
+                              style={{
+                                color: "#535862",
+                                fontFamily: "Roboto Mono",
+                                fontSize: "12px",
+                                fontWeight: 400,
+                                lineHeight: "18px",
+                                margin: 0,
+                              }}
+                            >
                               SVG, PNG, JPG or GIF (max. 800x400px)
                             </p>
                           </div>
@@ -9731,51 +13265,76 @@ export default function CompanySettings() {
                     </div>
 
                     {/* Hint Text */}
-                    <p style={{
-                      color: "#535862",
-                      fontFamily: "Public Sans",
-                      fontSize: "14px",
-                      fontWeight: 400,
-                      lineHeight: "20px",
-                      margin: 0,
-                    }}>
-                      Main logo: Recommended size 200x60px, PNG or SVG format<br/>
-                      Favicon: Must be 32x32px or 16x16px, ICO, PNG, or SVG format<br/>
+                    <p
+                      style={{
+                        color: "#535862",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        lineHeight: "20px",
+                        margin: 0,
+                      }}
+                    >
+                      Main logo: Recommended size 200x60px, PNG or SVG format
+                      <br />
+                      Favicon: Must be 32x32px or 16x16px, ICO, PNG, or SVG
+                      format
+                      <br />
                       Use transparent backgrounds for best results
                     </p>
 
                     {/* Footer */}
-                    <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "20px",
+                      }}
+                    >
                       <div style={{ height: "1px", background: "#E9EAEB" }} />
-                      <div style={{ display: "flex", justifyContent: "flex-end", gap: "12px" }}>
-                        <button type="button" style={{
-                          padding: "12px",
-                          borderRadius: buttonCornerRadius,
-                          border: "1px solid #D5D7DA",
-                          background: "#FFF",
-                          boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          color: "#414651",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 600,
-                          lineHeight: "20px",
-                          cursor: "pointer",
-                        }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "flex-end",
+                          gap: "12px",
+                        }}
+                      >
+                        <button
+                          type="button"
+                          style={{
+                            padding: "12px",
+                            borderRadius: buttonCornerRadius,
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                            cursor: "pointer",
+                          }}
+                        >
                           Cancel
                         </button>
-                        <button type="button" style={{
-                          padding: "12px",
-                          borderRadius: buttonCornerRadius,
-                          border: "2px solid rgba(255, 255, 255, 0.12)",
-                          background: "#344698",
-                          boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          color: "#FFF",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 600,
-                          lineHeight: "20px",
-                          cursor: "pointer",
-                        }}>
+                        <button
+                          type="button"
+                          style={{
+                            padding: "12px",
+                            borderRadius: buttonCornerRadius,
+                            border: "2px solid rgba(255, 255, 255, 0.12)",
+                            background: "#344698",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            color: "#FFF",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                            cursor: "pointer",
+                          }}
+                        >
                           Update
                         </button>
                       </div>
@@ -9785,58 +13344,95 @@ export default function CompanySettings() {
               </div>
 
               {/* Theme Appearance */}
-              <div style={{
-                display: "flex",
-                flexDirection: "column",
-                borderRadius: "12px",
-                border: "1px solid #E9EAEB",
-                background: "#FFF",
-                overflow: "hidden",
-              }}>
-                <div style={{
-                  padding: "16px 16px 12px 16px",
-                  borderBottom: "1px solid #E9EAEB",
-                }}>
-                  <h3 style={{
-                    color: "#181D27",
-                    fontFamily: "Public Sans",
-                    fontSize: "18px",
-                    fontWeight: 600,
-                    lineHeight: "28px",
-                    margin: 0,
-                  }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  borderRadius: "12px",
+                  border: "1px solid #E9EAEB",
+                  background: "#FFF",
+                  overflow: "hidden",
+                }}
+              >
+                <div
+                  style={{
+                    padding: "16px 16px 12px 16px",
+                    borderBottom: "1px solid #E9EAEB",
+                  }}
+                >
+                  <h3
+                    style={{
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "18px",
+                      fontWeight: 600,
+                      lineHeight: "28px",
+                      margin: 0,
+                    }}
+                  >
                     Theme Appearance
                   </h3>
                 </div>
 
-                <div style={{ padding: "12px 16px 16px 16px", display: "flex", flexDirection: "column", gap: "24px" }}>
+                <div
+                  style={{
+                    padding: "12px 16px 16px 16px",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "24px",
+                  }}
+                >
                   {/* Brand Color */}
-                  <div style={{ display: "flex", flexDirection: "column", gap: "16px", maxWidth: "504px", position: "relative" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "16px",
+                      maxWidth: "504px",
+                      position: "relative",
+                    }}
+                  >
                     <div>
-                      <h4 style={{
-                        color: "#181D27",
-                        fontFamily: "Public Sans",
-                        fontSize: "14px",
-                        fontWeight: 600,
-                        lineHeight: "20px",
-                        margin: 0,
-                      }}>Brand color</h4>
-                      <p style={{
-                        color: "#535862",
-                        fontFamily: "Public Sans",
-                        fontSize: "14px",
-                        fontWeight: 400,
-                        lineHeight: "20px",
-                        margin: 0,
-                      }}>Update your dashboard to your brand color.</p>
+                      <h4
+                        style={{
+                          color: "#181D27",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          margin: 0,
+                        }}
+                      >
+                        Brand color
+                      </h4>
+                      <p
+                        style={{
+                          color: "#535862",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                          margin: 0,
+                        }}
+                      >
+                        Update your dashboard to your brand color.
+                      </p>
                     </div>
-                    <div style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "16px",
+                        flexWrap: "wrap",
+                      }}
+                    >
                       <div style={{ display: "flex", gap: "8px" }}>
                         {PRESET_BRAND_COLORS.map((color) => (
                           <div
                             key={color}
                             onClick={() => {
-                              const normalized = normalizeHex(color) ?? DEFAULT_BRAND_COLOR;
+                              const normalized =
+                                normalizeHex(color) ?? DEFAULT_BRAND_COLOR;
                               const hsvColor = hexToHsv(normalized);
                               setBrandColor(normalized);
                               setHue(hsvColor.h);
@@ -9852,27 +13448,46 @@ export default function CompanySettings() {
                               borderRadius: "9999px",
                               border: "1px solid rgba(0, 0, 0, 0.10)",
                               background: color,
-                              boxShadow: appliedBrandColor === color ? "0 0 0 2px #FFF, 0 0 0 4px #34479A" : "none",
+                              boxShadow:
+                                appliedBrandColor === color
+                                  ? "0 0 0 2px #FFF, 0 0 0 4px #34479A"
+                                  : "none",
                               cursor: "pointer",
                             }}
                           />
                         ))}
                       </div>
-                      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                        <span style={{
-                          color: isCustomColorActive || isColorPickerOpen ? "#181D27" : "#414651",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 600,
-                          lineHeight: "20px",
-                        }}>Custom</span>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "12px",
+                        }}
+                      >
+                        <span
+                          style={{
+                            color:
+                              isCustomColorActive || isColorPickerOpen
+                                ? "#181D27"
+                                : "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Custom
+                        </span>
                         <div
                           role="button"
                           tabIndex={0}
                           aria-label="Select custom brand color"
-                          aria-pressed={isCustomColorActive || isColorPickerOpen}
+                          aria-pressed={
+                            isCustomColorActive || isColorPickerOpen
+                          }
                           onClick={() => {
-                            const normalized = normalizeHex(brandColor) ?? DEFAULT_BRAND_COLOR;
+                            const normalized =
+                              normalizeHex(brandColor) ?? DEFAULT_BRAND_COLOR;
                             const hsvColor = hexToHsv(normalized);
                             setBrandColor(normalized);
                             setHue(hsvColor.h);
@@ -9885,7 +13500,8 @@ export default function CompanySettings() {
                           onKeyDown={(event) => {
                             if (event.key === "Enter" || event.key === " ") {
                               event.preventDefault();
-                              const normalized = normalizeHex(brandColor) ?? DEFAULT_BRAND_COLOR;
+                              const normalized =
+                                normalizeHex(brandColor) ?? DEFAULT_BRAND_COLOR;
                               const hsvColor = hexToHsv(normalized);
                               setBrandColor(normalized);
                               setHue(hsvColor.h);
@@ -9902,7 +13518,10 @@ export default function CompanySettings() {
                             borderRadius: "9999px",
                             border: "1px solid rgba(0, 0, 0, 0.10)",
                             background: appliedBrandColor,
-                            boxShadow: isCustomColorActive || isColorPickerOpen ? "0 0 0 2px #FFF, 0 0 0 4px #34479A" : "none",
+                            boxShadow:
+                              isCustomColorActive || isColorPickerOpen
+                                ? "0 0 0 2px #FFF, 0 0 0 4px #34479A"
+                                : "none",
                             cursor: "pointer",
                           }}
                         />
@@ -9910,9 +13529,18 @@ export default function CompanySettings() {
                           type="text"
                           value={brandColor}
                           onChange={(event) => {
-                            const rawValue = event.target.value.replace(/[^0-9a-fA-F#]/g, "");
-                            const prefixedValue = rawValue.startsWith("#") ? rawValue : `#${rawValue}`;
-                            if (/^#?[0-9A-Fa-f]{0,6}$/.test(prefixedValue.replace(/#/g, ""))) {
+                            const rawValue = event.target.value.replace(
+                              /[^0-9a-fA-F#]/g,
+                              "",
+                            );
+                            const prefixedValue = rawValue.startsWith("#")
+                              ? rawValue
+                              : `#${rawValue}`;
+                            if (
+                              /^#?[0-9A-Fa-f]{0,6}$/.test(
+                                prefixedValue.replace(/#/g, ""),
+                              )
+                            ) {
                               setBrandColor(prefixedValue.toUpperCase());
                             }
                           }}
@@ -9956,14 +13584,21 @@ export default function CompanySettings() {
                           borderRadius: "8px",
                           border: "1px solid #D5D7DA",
                           background: "#FFF",
-                          boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                          boxShadow:
+                            "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
                           display: "flex",
                           flexDirection: "column",
                           gap: "16px",
                           zIndex: 20,
                         }}
                       >
-                        <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+                        <div
+                          style={{
+                            display: "flex",
+                            gap: "16px",
+                            flexWrap: "wrap",
+                          }}
+                        >
                           <div
                             onPointerDown={handleColorspacePointerDown}
                             style={{
@@ -9987,7 +13622,8 @@ export default function CompanySettings() {
                                 height: "16px",
                                 borderRadius: "9999px",
                                 border: "2px solid #FFF",
-                                boxShadow: "0 4px 6px rgba(31, 41, 55, 0.10), 0 2px 4px rgba(31, 41, 55, 0.06)",
+                                boxShadow:
+                                  "0 4px 6px rgba(31, 41, 55, 0.10), 0 2px 4px rgba(31, 41, 55, 0.06)",
                                 pointerEvents: "none",
                               }}
                             />
@@ -10013,7 +13649,8 @@ export default function CompanySettings() {
                                 borderRadius: "8px",
                                 border: "2px solid rgba(255, 255, 255, 0.12)",
                                 background: previewColor,
-                                boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                boxShadow:
+                                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 cursor: "default",
                               }}
                             >
@@ -10043,14 +13680,26 @@ export default function CompanySettings() {
                                 textAlign: "center",
                               }}
                             >
-                              To ensure legibility, the text color will be modified automatically according to the{" "}
-                              <span style={{ color: "#273572", textDecoration: "underline" }}>
+                              To ensure legibility, the text color will be
+                              modified automatically according to the{" "}
+                              <span
+                                style={{
+                                  color: "#273572",
+                                  textDecoration: "underline",
+                                }}
+                              >
                                 Accessibility Compliance Guidelines.
                               </span>
                             </p>
                           </div>
                         </div>
-                        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "12px",
+                          }}
+                        >
                           <div style={{ position: "relative", height: "8px" }}>
                             <div
                               onPointerDown={handleHuePointerDown}
@@ -10075,7 +13724,8 @@ export default function CompanySettings() {
                                   height: "12px",
                                   borderRadius: "9999px",
                                   border: "2px solid #FFF",
-                                  boxShadow: "0 4px 6px rgba(31, 41, 55, 0.10), 0 2px 4px rgba(31, 41, 55, 0.06)",
+                                  boxShadow:
+                                    "0 4px 6px rgba(31, 41, 55, 0.10), 0 2px 4px rgba(31, 41, 55, 0.06)",
                                   pointerEvents: "none",
                                 }}
                               />
@@ -10104,15 +13754,30 @@ export default function CompanySettings() {
                                   height: "12px",
                                   borderRadius: "9999px",
                                   border: "2px solid #FFF",
-                                  boxShadow: "0 4px 6px rgba(31, 41, 55, 0.10), 0 2px 4px rgba(31, 41, 55, 0.06)",
+                                  boxShadow:
+                                    "0 4px 6px rgba(31, 41, 55, 0.10), 0 2px 4px rgba(31, 41, 55, 0.06)",
                                   pointerEvents: "none",
                                 }}
                               />
                             </div>
                           </div>
                         </div>
-                        <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", flexWrap: "wrap" }}>
-                          <div style={{ display: "flex", width: "96px", flexDirection: "column", gap: "6px" }}>
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                            flexWrap: "wrap",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "96px",
+                              flexDirection: "column",
+                              gap: "6px",
+                            }}
+                          >
                             <div
                               style={{
                                 display: "flex",
@@ -10137,8 +13802,20 @@ export default function CompanySettings() {
                               >
                                 HEX
                               </span>
-                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M4 6L8 10L12 6"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.66667"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
                             </div>
                           </div>
@@ -10163,10 +13840,20 @@ export default function CompanySettings() {
                               }
                             }}
                             onChange={(event) => {
-                              const rawValue = event.target.value.replace(/[^0-9a-fA-F#]/g, "");
-                              const prefixedValue = rawValue.startsWith("#") ? rawValue : `#${rawValue}`;
-                              if (/^#?[0-9A-Fa-f]{0,6}$/.test(prefixedValue.replace(/#/g, ""))) {
-                                const uppercaseValue = prefixedValue.toUpperCase();
+                              const rawValue = event.target.value.replace(
+                                /[^0-9a-fA-F#]/g,
+                                "",
+                              );
+                              const prefixedValue = rawValue.startsWith("#")
+                                ? rawValue
+                                : `#${rawValue}`;
+                              if (
+                                /^#?[0-9A-Fa-f]{0,6}$/.test(
+                                  prefixedValue.replace(/#/g, ""),
+                                )
+                              ) {
+                                const uppercaseValue =
+                                  prefixedValue.toUpperCase();
                                 setHexInput(uppercaseValue);
                                 const normalized = normalizeHex(uppercaseValue);
                                 if (normalized) {
@@ -10227,11 +13914,18 @@ export default function CompanySettings() {
                             </span>
                           </div>
                         </div>
-                        <div style={{ display: "flex", justifyContent: "flex-end", gap: "12px" }}>
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "flex-end",
+                            gap: "12px",
+                          }}
+                        >
                           <button
                             type="button"
                             onClick={() => {
-                              const normalized = normalizeHex(brandColor) ?? DEFAULT_BRAND_COLOR;
+                              const normalized =
+                                normalizeHex(brandColor) ?? DEFAULT_BRAND_COLOR;
                               const hsvColor = hexToHsv(normalized);
                               setHue(hsvColor.h);
                               setSaturation(hsvColor.s);
@@ -10249,7 +13943,8 @@ export default function CompanySettings() {
                               borderRadius: buttonCornerRadius,
                               border: "1px solid #D5D7DA",
                               background: "#FFF",
-                              boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              boxShadow:
+                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               cursor: "pointer",
                             }}
                           >
@@ -10268,7 +13963,8 @@ export default function CompanySettings() {
                           <button
                             type="button"
                             onClick={() => {
-                              const normalized = normalizeHex(hexInput) ?? previewColor;
+                              const normalized =
+                                normalizeHex(hexInput) ?? previewColor;
                               setBrandColor(normalized);
                               const hsvColor = hexToHsv(normalized);
                               setHue(hsvColor.h);
@@ -10287,7 +13983,8 @@ export default function CompanySettings() {
                               borderRadius: buttonCornerRadius,
                               border: "2px solid rgba(255, 255, 255, 0.12)",
                               background: previewColor,
-                              boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              boxShadow:
+                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               cursor: "pointer",
                             }}
                           >
@@ -10311,41 +14008,88 @@ export default function CompanySettings() {
                   <div style={{ height: "1px", background: "#E9EAEB" }} />
 
                   {/* Display Preference */}
-                  <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "24px",
+                    }}
+                  >
                     <div>
-                      <h4 style={{
-                        color: "#181D27",
-                        fontFamily: "Public Sans",
-                        fontSize: "14px",
-                        fontWeight: 600,
-                        lineHeight: "20px",
-                        margin: 0,
-                      }}>Display preference</h4>
-                      <p style={{
-                        color: "#535862",
-                        fontFamily: "Public Sans",
-                        fontSize: "14px",
-                        fontWeight: 400,
-                        lineHeight: "20px",
-                        margin: 0,
-                      }}>Switch between light and dark modes.</p>
+                      <h4
+                        style={{
+                          color: "#181D27",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          margin: 0,
+                        }}
+                      >
+                        Display preference
+                      </h4>
+                      <p
+                        style={{
+                          color: "#535862",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                          margin: 0,
+                        }}
+                      >
+                        Switch between light and dark modes.
+                      </p>
                     </div>
-                    <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+                    <div
+                      style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}
+                    >
                       {[
-                        { id: 'system', label: 'System preference', image: 'https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F28061e34c4fb41358cd8bdc18c168d5d?format=webp&width=400' },
-                        { id: 'light', label: 'Light mode', image: 'https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2Fca32016b7e2a487da3c1f68ed93d8ecb?format=webp&width=400' },
-                        { id: 'dark', label: 'Dark mode', image: 'https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F7a6ae071236d46eb8447ef865a5c2f0d?format=webp&width=400' },
+                        {
+                          id: "system",
+                          label: "System preference",
+                          image:
+                            "https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F28061e34c4fb41358cd8bdc18c168d5d?format=webp&width=400",
+                        },
+                        {
+                          id: "light",
+                          label: "Light mode",
+                          image:
+                            "https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2Fca32016b7e2a487da3c1f68ed93d8ecb?format=webp&width=400",
+                        },
+                        {
+                          id: "dark",
+                          label: "Dark mode",
+                          image:
+                            "https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F7a6ae071236d46eb8447ef865a5c2f0d?format=webp&width=400",
+                        },
                       ].map((option) => (
-                        <div key={option.id} style={{ display: "flex", flexDirection: "column", gap: "12px", maxWidth: "240px" }}>
+                        <div
+                          key={option.id}
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "12px",
+                            maxWidth: "240px",
+                          }}
+                        >
                           <div
-                            onClick={() => setDisplayPreference(option.id as any)}
+                            onClick={() =>
+                              setDisplayPreference(option.id as any)
+                            }
                             style={{
                               width: "200px",
                               height: "132px",
                               borderRadius: "10px",
-                              border: displayPreference === option.id ? "1px solid #D5D7DA" : "1px solid #D5D7DA",
+                              border:
+                                displayPreference === option.id
+                                  ? "1px solid #D5D7DA"
+                                  : "1px solid #D5D7DA",
                               background: "#F5F5F5",
-                              boxShadow: displayPreference === option.id ? `0 0 0 2px #FFF, 0 0 0 4px ${brandColor}` : "none",
+                              boxShadow:
+                                displayPreference === option.id
+                                  ? `0 0 0 2px #FFF, 0 0 0 4px ${brandColor}`
+                                  : "none",
                               cursor: "pointer",
                               position: "relative",
                               overflow: "hidden",
@@ -10361,34 +14105,42 @@ export default function CompanySettings() {
                               }}
                             />
                             {displayPreference === option.id && (
-                              <div style={{
-                                position: "absolute",
-                                left: "8px",
-                                top: "104px",
-                                width: "20px",
-                                height: "20px",
-                                borderRadius: "9999px",
-                                background: brandColor,
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                              }}>
-                                <div style={{
-                                  width: "8px",
-                                  height: "8px",
+                              <div
+                                style={{
+                                  position: "absolute",
+                                  left: "8px",
+                                  top: "104px",
+                                  width: "20px",
+                                  height: "20px",
                                   borderRadius: "9999px",
-                                  background: "#FFF",
-                                }} />
+                                  background: brandColor,
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    width: "8px",
+                                    height: "8px",
+                                    borderRadius: "9999px",
+                                    background: "#FFF",
+                                  }}
+                                />
                               </div>
                             )}
                           </div>
-                          <span style={{
-                            color: "#181D27",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontWeight: 600,
-                            lineHeight: "20px",
-                          }}>{option.label}</span>
+                          <span
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 600,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {option.label}
+                          </span>
                         </div>
                       ))}
                     </div>
@@ -10397,32 +14149,75 @@ export default function CompanySettings() {
                   <div style={{ height: "1px", background: "#E9EAEB" }} />
 
                   {/* UI Styling */}
-                  <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "24px",
+                    }}
+                  >
                     <div>
-                      <h4 style={{
-                        color: "#181D27",
-                        fontFamily: "Public Sans",
-                        fontSize: "14px",
-                        fontWeight: 600,
-                        lineHeight: "20px",
-                        margin: 0,
-                      }}>UI Styling</h4>
-                      <p style={{
-                        color: "#535862",
-                        fontFamily: "Public Sans",
-                        fontSize: "14px",
-                        fontWeight: 400,
-                        lineHeight: "20px",
-                        margin: 0,
-                      }}>Choose the corner style for the interface throughout your platform</p>
+                      <h4
+                        style={{
+                          color: "#181D27",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          margin: 0,
+                        }}
+                      >
+                        UI Styling
+                      </h4>
+                      <p
+                        style={{
+                          color: "#535862",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                          margin: 0,
+                        }}
+                      >
+                        Choose the corner style for the interface throughout
+                        your platform
+                      </p>
                     </div>
-                    <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+                    <div
+                      style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}
+                    >
                       {[
-                        { id: 'pill', label: 'Pill', radius: '9999px', image: 'https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F8458897a322d4066ad368c6e476937c6?format=webp&width=400' },
-                        { id: 'round', label: 'Round', radius: '10px', image: 'https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2Fff2448386a5e4990b1f225aac0912e40?format=webp&width=400' },
-                        { id: 'sharp', label: 'Sharp', radius: '0px', image: 'https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2Fe8f87c4fe87c45c5bfd50e88a3f56f99?format=webp&width=400' },
+                        {
+                          id: "pill",
+                          label: "Pill",
+                          radius: "9999px",
+                          image:
+                            "https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F8458897a322d4066ad368c6e476937c6?format=webp&width=400",
+                        },
+                        {
+                          id: "round",
+                          label: "Round",
+                          radius: "10px",
+                          image:
+                            "https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2Fff2448386a5e4990b1f225aac0912e40?format=webp&width=400",
+                        },
+                        {
+                          id: "sharp",
+                          label: "Sharp",
+                          radius: "0px",
+                          image:
+                            "https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2Fe8f87c4fe87c45c5bfd50e88a3f56f99?format=webp&width=400",
+                        },
                       ].map((option) => (
-                        <div key={option.id} style={{ display: "flex", flexDirection: "column", gap: "12px", maxWidth: "240px" }}>
+                        <div
+                          key={option.id}
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "12px",
+                            maxWidth: "240px",
+                          }}
+                        >
                           <div
                             onClick={() => setUiStyling(option.id as any)}
                             style={{
@@ -10431,7 +14226,10 @@ export default function CompanySettings() {
                               borderRadius: "10px",
                               border: "1px solid #D5D7DA",
                               background: "#F5F5F5",
-                              boxShadow: uiStyling === option.id ? `0 0 0 2px #FFF, 0 0 0 4px ${brandColor}` : "none",
+                              boxShadow:
+                                uiStyling === option.id
+                                  ? `0 0 0 2px #FFF, 0 0 0 4px ${brandColor}`
+                                  : "none",
                               cursor: "pointer",
                               position: "relative",
                               overflow: "hidden",
@@ -10447,81 +14245,110 @@ export default function CompanySettings() {
                               }}
                             />
                             {uiStyling === option.id && (
-                              <div style={{
-                                position: "absolute",
-                                left: "8px",
-                                top: "104px",
-                                width: "20px",
-                                height: "20px",
-                                borderRadius: "9999px",
-                                background: brandColor,
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                              }}>
-                                <div style={{
-                                  width: "8px",
-                                  height: "8px",
+                              <div
+                                style={{
+                                  position: "absolute",
+                                  left: "8px",
+                                  top: "104px",
+                                  width: "20px",
+                                  height: "20px",
                                   borderRadius: "9999px",
-                                  background: "#FFF",
-                                }} />
+                                  background: brandColor,
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    width: "8px",
+                                    height: "8px",
+                                    borderRadius: "9999px",
+                                    background: "#FFF",
+                                  }}
+                                />
                               </div>
                             )}
                           </div>
-                          <span style={{
-                            color: "#181D27",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontWeight: 600,
-                            lineHeight: "20px",
-                          }}>{option.label}</span>
+                          <span
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 600,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {option.label}
+                          </span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   {/* Footer */}
-                  <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-                    <div style={{ display: "flex", justifyContent: "flex-end", gap: "12px" }}>
-                      <button type="button" onClick={() => {
-                        setBrandColor(initialState.brandColor);
-                        setDisplayPreference(initialState.displayPreference);
-                        setUiStyling(initialState.uiStyling);
-                        const hsvColor = hexToHsv(initialState.brandColor);
-                        setHue(hsvColor.h);
-                        setSaturation(hsvColor.s);
-                        setValue(hsvColor.v);
-                        setHexInput(initialState.brandColor);
-                        setIsColorPickerOpen(false);
-                        setIsEditingHex(false);
-                      }} style={{
-                        padding: "12px",
-                        borderRadius: buttonCornerRadius,
-                        border: "1px solid #D5D7DA",
-                        background: "#FFF",
-                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                        color: "#414651",
-                        fontFamily: "Public Sans",
-                        fontSize: "14px",
-                        fontWeight: 600,
-                        lineHeight: "20px",
-                        cursor: "pointer",
-                      }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "20px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        gap: "12px",
+                      }}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setBrandColor(initialState.brandColor);
+                          setDisplayPreference(initialState.displayPreference);
+                          setUiStyling(initialState.uiStyling);
+                          const hsvColor = hexToHsv(initialState.brandColor);
+                          setHue(hsvColor.h);
+                          setSaturation(hsvColor.s);
+                          setValue(hsvColor.v);
+                          setHexInput(initialState.brandColor);
+                          setIsColorPickerOpen(false);
+                          setIsEditingHex(false);
+                        }}
+                        style={{
+                          padding: "12px",
+                          borderRadius: buttonCornerRadius,
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          cursor: "pointer",
+                        }}
+                      >
                         Cancel
                       </button>
-                      <button type="button" style={{
-                        padding: "12px",
-                        borderRadius: buttonCornerRadius,
-                        border: "2px solid rgba(255, 255, 255, 0.12)",
-                        background: brandColor,
-                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                        color: getAccessibleTextColor(brandColor),
-                        fontFamily: "Public Sans",
-                        fontSize: "14px",
-                        fontWeight: 600,
-                        lineHeight: "20px",
-                        cursor: "pointer",
-                      }}>
+                      <button
+                        type="button"
+                        style={{
+                          padding: "12px",
+                          borderRadius: buttonCornerRadius,
+                          border: "2px solid rgba(255, 255, 255, 0.12)",
+                          background: brandColor,
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          color: getAccessibleTextColor(brandColor),
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          cursor: "pointer",
+                        }}
+                      >
                         Update
                       </button>
                     </div>
@@ -10530,34 +14357,60 @@ export default function CompanySettings() {
               </div>
 
               {/* Additional Customization */}
-              <div style={{
-                display: "flex",
-                flexDirection: "column",
-                borderRadius: "12px",
-                border: "1px solid #E9EAEB",
-                background: "#FFF",
-                overflow: "hidden",
-              }}>
-                <div style={{
-                  padding: "16px 16px 12px 16px",
-                  borderBottom: "1px solid #E9EAEB",
-                }}>
-                  <h3 style={{
-                    color: "#181D27",
-                    fontFamily: "Public Sans",
-                    fontSize: "18px",
-                    fontWeight: 600,
-                    lineHeight: "28px",
-                    margin: 0,
-                  }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  borderRadius: "12px",
+                  border: "1px solid #E9EAEB",
+                  background: "#FFF",
+                  overflow: "hidden",
+                }}
+              >
+                <div
+                  style={{
+                    padding: "16px 16px 12px 16px",
+                    borderBottom: "1px solid #E9EAEB",
+                  }}
+                >
+                  <h3
+                    style={{
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "18px",
+                      fontWeight: 600,
+                      lineHeight: "28px",
+                      margin: 0,
+                    }}
+                  >
                     Additional Customization
                   </h3>
                 </div>
 
-                <div style={{ padding: "12px 16px 16px 16px", display: "flex", flexDirection: "column", gap: "24px" }}>
+                <div
+                  style={{
+                    padding: "12px 16px 16px 16px",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "24px",
+                  }}
+                >
                   {/* Login Image */}
-                  <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                    <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", width: "344px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "12px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "8px",
+                        width: "344px",
+                      }}
+                    >
                       <div
                         onClick={() => setLoginImageEnabled(!loginImageEnabled)}
                         style={{
@@ -10568,36 +14421,48 @@ export default function CompanySettings() {
                           background: loginImageEnabled ? "#344698" : "#F5F5F5",
                           display: "flex",
                           alignItems: "center",
-                          justifyContent: loginImageEnabled ? "flex-end" : "flex-start",
+                          justifyContent: loginImageEnabled
+                            ? "flex-end"
+                            : "flex-start",
                           cursor: "pointer",
                           transition: "all 0.15s ease",
                         }}
                       >
-                        <div style={{
-                          width: "16px",
-                          height: "16px",
-                          borderRadius: "9999px",
-                          background: "#FFF",
-                          boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)",
-                        }} />
+                        <div
+                          style={{
+                            width: "16px",
+                            height: "16px",
+                            borderRadius: "9999px",
+                            background: "#FFF",
+                            boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)",
+                          }}
+                        />
                       </div>
                       <div style={{ flex: 1 }}>
-                        <p style={{
-                          color: "#414651",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 500,
-                          lineHeight: "20px",
-                          margin: 0,
-                        }}>Login Image</p>
-                        <p style={{
-                          color: "#535862",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 400,
-                          lineHeight: "20px",
-                          margin: 0,
-                        }}>Customize the login screen with an additional image.</p>
+                        <p
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                            margin: 0,
+                          }}
+                        >
+                          Login Image
+                        </p>
+                        <p
+                          style={{
+                            color: "#535862",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 400,
+                            lineHeight: "20px",
+                            margin: 0,
+                          }}
+                        >
+                          Customize the login screen with an additional image.
+                        </p>
                       </div>
                     </div>
 
@@ -10635,7 +14500,9 @@ export default function CompanySettings() {
                             event.preventDefault();
                             event.dataTransfer.dropEffect = "copy";
                           }}
-                          onDrop={(event) => handleImageDrop(event, setLoginImagePreview)}
+                          onDrop={(event) =>
+                            handleImageDrop(event, setLoginImagePreview)
+                          }
                           style={{
                             flex: 1,
                             maxWidth: isCompactLayout ? "100%" : "424px",
@@ -10652,41 +14519,54 @@ export default function CompanySettings() {
                           }}
                         >
                           <div style={{ textAlign: "center" }}>
-                            <span style={{
-                              color: "#273572",
-                              fontFamily: "Public Sans",
-                              fontSize: "14px",
-                              fontWeight: 600,
-                              lineHeight: "20px",
-                            }}>Click to upload</span>
-                            <span style={{
-                              color: "#535862",
-                              fontFamily: "Public Sans",
-                              fontSize: "14px",
-                              fontWeight: 400,
-                              lineHeight: "20px",
-                            }}> or drag and drop</span>
+                            <span
+                              style={{
+                                color: "#273572",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 600,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              Click to upload
+                            </span>
+                            <span
+                              style={{
+                                color: "#535862",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 400,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              {" "}
+                              or drag and drop
+                            </span>
                           </div>
-                          <p style={{
-                            color: "#535862",
-                            fontFamily: "Roboto Mono",
-                            fontSize: "12px",
-                            fontWeight: 400,
-                            lineHeight: "18px",
-                            margin: 0,
-                          }}>
+                          <p
+                            style={{
+                              color: "#535862",
+                              fontFamily: "Roboto Mono",
+                              fontSize: "12px",
+                              fontWeight: 400,
+                              lineHeight: "18px",
+                              margin: 0,
+                            }}
+                          >
                             SVG, PNG, JPG or GIF (max. 800x400px)
                           </p>
                         </div>
-                        <div style={{
-                          width: "200px",
-                          height: "132px",
-                          borderRadius: "10px",
-                          border: "1px solid #D5D7DA",
-                          background: "#F5F5F5",
-                          overflow: "hidden",
-                          flexShrink: 0,
-                        }}>
+                        <div
+                          style={{
+                            width: "200px",
+                            height: "132px",
+                            borderRadius: "10px",
+                            border: "1px solid #D5D7DA",
+                            background: "#F5F5F5",
+                            overflow: "hidden",
+                            flexShrink: 0,
+                          }}
+                        >
                           <img
                             src={loginImagePreview}
                             alt="Login image preview"
@@ -10713,48 +14593,81 @@ export default function CompanySettings() {
                       width: "100%",
                     }}
                   >
-                    <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", width: isCompactLayout ? "100%" : "424px" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "8px",
+                        width: isCompactLayout ? "100%" : "424px",
+                      }}
+                    >
                       <div
-                        onClick={() => setPortalInstructionsEnabled(!portalInstructionsEnabled)}
+                        onClick={() =>
+                          setPortalInstructionsEnabled(
+                            !portalInstructionsEnabled,
+                          )
+                        }
                         style={{
                           width: "36px",
                           height: "20px",
                           padding: "2px",
                           borderRadius: "9999px",
-                          background: portalInstructionsEnabled ? "#344698" : "#F5F5F5",
+                          background: portalInstructionsEnabled
+                            ? "#344698"
+                            : "#F5F5F5",
                           display: "flex",
                           alignItems: "center",
-                          justifyContent: portalInstructionsEnabled ? "flex-end" : "flex-start",
+                          justifyContent: portalInstructionsEnabled
+                            ? "flex-end"
+                            : "flex-start",
                           cursor: "pointer",
                           transition: "all 0.15s ease",
                         }}
                       >
-                        <div style={{
-                          width: "16px",
-                          height: "16px",
-                          borderRadius: "9999px",
-                          background: "#FFF",
-                          boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)",
-                        }} />
+                        <div
+                          style={{
+                            width: "16px",
+                            height: "16px",
+                            borderRadius: "9999px",
+                            background: "#FFF",
+                            boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10)",
+                          }}
+                        />
                       </div>
                       <div style={{ flex: 1 }}>
-                        <p style={{
-                          color: "#414651",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 500,
-                          lineHeight: "20px",
-                          margin: 0,
-                        }}>Applicant Portal Instructions</p>
-                        <p style={{
-                          color: "#535862",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 400,
-                          lineHeight: "20px",
-                          margin: 0,
-                        }}>
-                          Allow users to get an understanding and instructions of the upcoming steps. <span style={{ color: "#273572", textDecoration: "underline", cursor: "pointer" }}>Preview here</span>
+                        <p
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                            margin: 0,
+                          }}
+                        >
+                          Applicant Portal Instructions
+                        </p>
+                        <p
+                          style={{
+                            color: "#535862",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 400,
+                            lineHeight: "20px",
+                            margin: 0,
+                          }}
+                        >
+                          Allow users to get an understanding and instructions
+                          of the upcoming steps.{" "}
+                          <span
+                            style={{
+                              color: "#273572",
+                              textDecoration: "underline",
+                              cursor: "pointer",
+                            }}
+                          >
+                            Preview here
+                          </span>
                         </p>
                       </div>
                     </div>
@@ -10764,7 +14677,10 @@ export default function CompanySettings() {
                       accept="image/png,image/jpeg,image/gif,image/svg+xml"
                       style={{ display: "none" }}
                       onChange={(event) =>
-                        handleImageInputChange(event, setPortalInstructionsPreview)
+                        handleImageInputChange(
+                          event,
+                          setPortalInstructionsPreview,
+                        )
                       }
                     />
                     <div
@@ -10809,7 +14725,9 @@ export default function CompanySettings() {
                         background: "#F5F5F5",
                         overflow: "hidden",
                         flexShrink: 0,
-                        cursor: portalInstructionsEnabled ? "pointer" : "default",
+                        cursor: portalInstructionsEnabled
+                          ? "pointer"
+                          : "default",
                         opacity: portalInstructionsEnabled ? 1 : 0.6,
                         outline: "none",
                       }}
@@ -10827,37 +14745,57 @@ export default function CompanySettings() {
                   </div>
 
                   {/* Footer */}
-                  <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "20px",
+                    }}
+                  >
                     <div style={{ height: "1px", background: "#E9EAEB" }} />
-                    <div style={{ display: "flex", justifyContent: "flex-end", gap: "12px" }}>
-                      <button type="button" style={{
-                        padding: "12px",
-                        borderRadius: buttonCornerRadius,
-                        border: "1px solid #D5D7DA",
-                        background: "#FFF",
-                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                        color: "#414651",
-                        fontFamily: "Public Sans",
-                        fontSize: "14px",
-                        fontWeight: 600,
-                        lineHeight: "20px",
-                        cursor: "pointer",
-                      }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        gap: "12px",
+                      }}
+                    >
+                      <button
+                        type="button"
+                        style={{
+                          padding: "12px",
+                          borderRadius: buttonCornerRadius,
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          cursor: "pointer",
+                        }}
+                      >
                         Cancel
                       </button>
-                      <button type="button" style={{
-                        padding: "12px",
-                        borderRadius: buttonCornerRadius,
-                        border: "2px solid rgba(255, 255, 255, 0.12)",
-                        background: "#344698",
-                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                        color: "#FFF",
-                        fontFamily: "Public Sans",
-                        fontSize: "14px",
-                        fontWeight: 600,
-                        lineHeight: "20px",
-                        cursor: "pointer",
-                      }}>
+                      <button
+                        type="button"
+                        style={{
+                          padding: "12px",
+                          borderRadius: buttonCornerRadius,
+                          border: "2px solid rgba(255, 255, 255, 0.12)",
+                          background: "#344698",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          color: "#FFF",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          cursor: "pointer",
+                        }}
+                      >
                         Update
                       </button>
                     </div>
