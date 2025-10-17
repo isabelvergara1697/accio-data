@@ -5996,29 +5996,12 @@ export default function CompanySettings() {
                                           <button
                                             type="button"
                                             onClick={() => {
-                                              if (confirm(`Are you sure you want to delete "${doc.name}"?`)) {
-                                                setCategories(categories.map(cat => {
-                                                  if (cat.name === category.name) {
-                                                    return {
-                                                      ...cat,
-                                                      subcategories: cat.subcategories.map(subcat => {
-                                                        if (subcat.name === subcategory.name) {
-                                                          return {
-                                                            ...subcat,
-                                                            documents: subcat.documents.filter(d => d.id !== doc.id)
-                                                          };
-                                                        }
-                                                        return subcat;
-                                                      })
-                                                    };
-                                                  }
-                                                  return cat;
-                                                }));
-                                                toast({
-                                                  title: "Document deleted",
-                                                  description: `"${doc.name}" has been removed.`,
-                                                });
-                                              }
+                                              setResourceToDelete({
+                                                resource: doc,
+                                                categoryName: category.name,
+                                                subcategoryName: subcategory.name
+                                              });
+                                              setIsDeleteResourceModalOpen(true);
                                             }}
                                             style={{ display: "flex", width: "36px", height: "36px", padding: "8px", justifyContent: "center", alignItems: "center", borderRadius: "6px", border: "none", background: "transparent", cursor: "pointer" }}
                                           >
