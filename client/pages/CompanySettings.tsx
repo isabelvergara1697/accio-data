@@ -5850,6 +5850,11 @@ export default function CompanySettings() {
                                   <div style={{ color: "#414651", textAlign: "center", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 500, lineHeight: "18px" }}>0</div>
                                 </div>
                               </div>
+                              {category.description && (
+                                <div style={{ alignSelf: "stretch", color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>
+                                  {category.description}
+                                </div>
+                              )}
                             </div>
                           </div>
                           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
