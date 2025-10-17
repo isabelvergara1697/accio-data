@@ -5988,7 +5988,23 @@ export default function CompanySettings() {
                                         </div>
                                         {/* Actions */}
                                         <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                                          <button type="button" style={{ display: "flex", width: "36px", height: "36px", padding: "8px", justifyContent: "center", alignItems: "center", borderRadius: "6px", border: "none", background: "transparent", cursor: "pointer" }}>
+                                          <button
+                                            type="button"
+                                            onClick={() => {
+                                              setEditingResource({
+                                                resource: doc,
+                                                categoryName: category.name,
+                                                subcategoryName: subcategory.name
+                                              });
+                                              setEditResourceName(doc.name);
+                                              setEditResourceDescription(doc.description);
+                                              setEditResourceCategory(category.name);
+                                              setEditResourceSubCategory(subcategory.name);
+                                              setEditShowInQuickResources(false);
+                                              setIsEditResourceModalOpen(true);
+                                            }}
+                                            style={{ display: "flex", width: "36px", height: "36px", padding: "8px", justifyContent: "center", alignItems: "center", borderRadius: "6px", border: "none", background: "transparent", cursor: "pointer" }}
+                                          >
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                               <path d="M2.87604 18.1155C2.92198 17.702 2.94496 17.4952 3.00751 17.302C3.06301 17.1305 3.14143 16.9674 3.24064 16.8169C3.35246 16.6474 3.49955 16.5003 3.79373 16.2061L17 2.99981C18.1046 1.89524 19.8955 1.89525 21 2.99981C22.1046 4.10438 22.1046 5.89525 21 6.99982L7.79373 20.2061C7.49955 20.5003 7.35245 20.6474 7.18289 20.7592C7.03245 20.8584 6.86929 20.9368 6.69785 20.9923C6.5046 21.0549 6.29786 21.0778 5.88437 21.1238L2.5 21.4998L2.87604 18.1155Z" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                                             </svg>
