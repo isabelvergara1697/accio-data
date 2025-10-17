@@ -5933,19 +5933,92 @@ export default function CompanySettings() {
                               </div>
                             </div>
 
-                            {/* Empty State for Subcategory */}
-                            <div style={{ display: "flex", padding: "20px 24px", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: "16px", alignSelf: "stretch" }}>
-                              <div style={{ display: "flex", width: "512px", justifyContent: "center", alignItems: "center" }}>
-                                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "24px", flex: "1 0 0" }}>
-                                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", alignSelf: "stretch" }}>
-                                    <div style={{ display: "flex", width: "48px", height: "48px", padding: "12px", justifyContent: "center", alignItems: "center", borderRadius: "10px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
-                                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14 11H8M10 15H8M16 7H8M20 12V6.8C20 5.11984 20 4.27976 19.673 3.63803C19.3854 3.07354 18.9265 2.6146 18.362 2.32698C17.7202 2 16.8802 2 15.2 2H8.8C7.11984 2 6.27976 2 5.63803 2.32698C5.07354 2.6146 4.6146 3.07354 4.32698 3.63803C4 4.27976 4 5.11984 4 6.8V17.2C4 18.8802 4 19.7202 4.32698 20.362C4.6146 20.9265 5.07354 21.3854 5.63803 21.673C6.27976 22 7.11984 22 8.8 22H12M16 16L21 21M21 16L16 21" stroke="#414651" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                                    </div>
-                                    <div style={{ display: "flex", maxWidth: "352px", flexDirection: "column", alignItems: "center", gap: "4px", alignSelf: "stretch" }}>
-                                      <div style={{ alignSelf: "stretch", color: "#181D27", textAlign: "center", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 600, lineHeight: "24px" }}>No documents in this subcategory</div>
-                                    </div>
+                            {/* Subcategory Content */}
+                            <div style={{ display: "flex", padding: "20px 24px", flexDirection: "column", alignItems: "flex-start", gap: "16px", alignSelf: "stretch" }}>
+                              {subcategory.documents.length > 0 ? (
+                                <>
+                                  {/* Documents List */}
+                                  <div style={{ display: "flex", alignItems: "flex-start", gap: "10px", alignSelf: "stretch", flexWrap: "wrap" }}>
+                                    {subcategory.documents.map((doc) => (
+                                      <div key={doc.id} style={{ display: "flex", width: "508px", padding: "16px", alignItems: "center", gap: "4px", borderRadius: "12px", border: "1px solid #E9EAEB", background: "#FFF" }}>
+                                        <div style={{ display: "flex", alignItems: "flex-start", gap: "12px", flex: "1 0 0" }}>
+                                          {/* Drag Handle */}
+                                          <button type="button" style={{ display: "flex", width: "24px", height: "24px", padding: "4px", justifyContent: "center", alignItems: "center", borderRadius: "6px", border: "none", background: "transparent", cursor: "grab" }}>
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                              <path d="M5.99992 8.6665C6.36811 8.6665 6.66658 8.36803 6.66658 7.99984C6.66658 7.63165 6.36811 7.33317 5.99992 7.33317C5.63173 7.33317 5.33325 7.63165 5.33325 7.99984C5.33325 8.36803 5.63173 8.6665 5.99992 8.6665Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                              <path d="M5.99992 3.99984C6.36811 3.99984 6.66658 3.70136 6.66658 3.33317C6.66658 2.96498 6.36811 2.6665 5.99992 2.6665C5.63173 2.6665 5.33325 2.96498 5.33325 3.33317C5.33325 3.70136 5.63173 3.99984 5.99992 3.99984Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                              <path d="M5.99992 13.3332C6.36811 13.3332 6.66658 13.0347 6.66658 12.6665C6.66658 12.2983 6.36811 11.9998 5.99992 11.9998C5.63173 11.9998 5.33325 12.2983 5.33325 12.6665C5.33325 13.0347 5.63173 13.3332 5.99992 13.3332Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                              <path d="M9.99992 8.6665C10.3681 8.6665 10.6666 8.36803 10.6666 7.99984C10.6666 7.63165 10.3681 7.33317 9.99992 7.33317C9.63173 7.33317 9.33325 7.63165 9.33325 7.99984C9.33325 8.36803 9.63173 8.6665 9.99992 8.6665Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                              <path d="M9.99992 3.99984C10.3681 3.99984 10.6666 3.70136 10.6666 3.33317C10.6666 2.96498 10.3681 2.6665 9.99992 2.6665C9.63173 2.6665 9.33325 2.96498 9.33325 3.33317C9.33325 3.70136 9.63173 3.99984 9.99992 3.99984Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                              <path d="M9.99992 13.3332C10.3681 13.3332 10.6666 13.0347 10.6666 12.6665C10.6666 12.2983 10.3681 11.9998 9.99992 11.9998C9.63173 11.9998 9.33325 12.2983 9.33325 12.6665C9.33325 13.0347 9.63173 13.3332 9.99992 13.3332Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                            </svg>
+                                          </button>
+                                          {/* PDF Icon */}
+                                          <div style={{ width: "40px", height: "40px", position: "relative" }}>
+                                            <svg width="32" height="40" viewBox="0 0 32 40" fill="none" style={{ position: "absolute", left: "7px", top: "0" }}>
+                                              <path d="M4 0.75H20C20.1212 0.75 20.2375 0.798088 20.3232 0.883789L31.1162 11.6768C31.2019 11.7625 31.25 11.8788 31.25 12V36C31.25 37.7949 29.7949 39.25 28 39.25H4C2.20507 39.25 0.75 37.7949 0.75 36V4C0.750001 2.20507 2.20508 0.75 4 0.75Z" stroke="#D5D7DA" strokeWidth="1.5"/>
+                                              <path d="M20 0.5V8C20 10.2091 21.7909 12 24 12H31.5" stroke="#D5D7DA" strokeWidth="1.5"/>
+                                            </svg>
+                                            <div style={{ position: "absolute", left: "1px", top: "18px", width: "26px", height: "16px", padding: "2px 3px", borderRadius: "2px", background: "#D92D20" }}>
+                                              <div style={{ color: "#FFF", textAlign: "center", fontFamily: "Inter", fontSize: "10px", fontWeight: 700, lineHeight: "normal" }}>PDF</div>
+                                            </div>
+                                          </div>
+                                          {/* Document Info */}
+                                          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px", flex: "1 0 0", alignSelf: "stretch" }}>
+                                            <div style={{ overflow: "hidden", color: "#414651", textOverflow: "ellipsis", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px", whiteSpace: "nowrap", width: "100%" }}>{doc.name}</div>
+                                            {doc.description && (
+                                              <div style={{ display: "flex", height: "18px", flexDirection: "column", justifyContent: "center", alignItems: "flex-start", gap: "8px", alignSelf: "stretch" }}>
+                                                <div style={{ overflow: "hidden", color: "#535862", textOverflow: "ellipsis", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 400, lineHeight: "18px", whiteSpace: "nowrap", width: "100%" }}>{doc.description}</div>
+                                              </div>
+                                            )}
+                                          </div>
+                                        </div>
+                                        {/* Actions */}
+                                        <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                                          <button type="button" style={{ display: "flex", width: "36px", height: "36px", padding: "8px", justifyContent: "center", alignItems: "center", borderRadius: "6px", border: "none", background: "transparent", cursor: "pointer" }}>
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                              <path d="M2.87604 18.1155C2.92198 17.702 2.94496 17.4952 3.00751 17.302C3.06301 17.1305 3.14143 16.9674 3.24064 16.8169C3.35246 16.6474 3.49955 16.5003 3.79373 16.2061L17 2.99981C18.1046 1.89524 19.8955 1.89525 21 2.99981C22.1046 4.10438 22.1046 5.89525 21 6.99982L7.79373 20.2061C7.49955 20.5003 7.35245 20.6474 7.18289 20.7592C7.03245 20.8584 6.86929 20.9368 6.69785 20.9923C6.5046 21.0549 6.29786 21.0778 5.88437 21.1238L2.5 21.4998L2.87604 18.1155Z" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                            </svg>
+                                          </button>
+                                          <button
+                                            type="button"
+                                            onClick={() => {
+                                              if (confirm(`Are you sure you want to delete "${doc.name}"?`)) {
+                                                setCategories(categories.map(cat => {
+                                                  if (cat.name === category.name) {
+                                                    return {
+                                                      ...cat,
+                                                      subcategories: cat.subcategories.map(subcat => {
+                                                        if (subcat.name === subcategory.name) {
+                                                          return {
+                                                            ...subcat,
+                                                            documents: subcat.documents.filter(d => d.id !== doc.id)
+                                                          };
+                                                        }
+                                                        return subcat;
+                                                      })
+                                                    };
+                                                  }
+                                                  return cat;
+                                                }));
+                                                toast({
+                                                  title: "Document deleted",
+                                                  description: `"${doc.name}" has been removed.`,
+                                                });
+                                              }
+                                            }}
+                                            style={{ display: "flex", width: "36px", height: "36px", padding: "8px", justifyContent: "center", alignItems: "center", borderRadius: "6px", border: "none", background: "transparent", cursor: "pointer" }}
+                                          >
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                              <path d="M16 6V5.2C16 4.0799 16 3.51984 15.782 3.09202C15.5903 2.71569 15.2843 2.40973 14.908 2.21799C14.4802 2 13.9201 2 12.8 2H11.2C10.0799 2 9.51984 2 9.09202 2.21799C8.71569 2.40973 8.40973 2.71569 8.21799 3.09202C8 3.51984 8 4.0799 8 5.2V6M3 6H21M19 6V17.2C19 18.8802 19 19.7202 18.673 20.362C18.3854 20.9265 17.9265 21.3854 17.362 21.673C16.7202 22 15.8802 22 14.2 22H9.8C8.11984 22 7.27976 22 6.63803 21.673C6.07354 21.3854 5.6146 20.9265 5.32698 20.362C5 19.7202 5 18.8802 5 17.2V6" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                            </svg>
+                                          </button>
+                                        </div>
+                                      </div>
+                                    ))}
                                   </div>
-                                  <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+                                  {/* Add Documents Button */}
+                                  <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "12px", alignSelf: "stretch" }}>
                                     <button
                                       type="button"
                                       onClick={() => {
@@ -5961,8 +6034,38 @@ export default function CompanySettings() {
                                       </div>
                                     </button>
                                   </div>
+                                </>
+                              ) : (
+                                /* Empty State */
+                                <div style={{ display: "flex", width: "512px", justifyContent: "center", alignItems: "center" }}>
+                                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "24px", flex: "1 0 0" }}>
+                                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", alignSelf: "stretch" }}>
+                                      <div style={{ display: "flex", width: "48px", height: "48px", padding: "12px", justifyContent: "center", alignItems: "center", borderRadius: "10px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14 11H8M10 15H8M16 7H8M20 12V6.8C20 5.11984 20 4.27976 19.673 3.63803C19.3854 3.07354 18.9265 2.6146 18.362 2.32698C17.7202 2 16.8802 2 15.2 2H8.8C7.11984 2 6.27976 2 5.63803 2.32698C5.07354 2.6146 4.6146 3.07354 4.32698 3.63803C4 4.27976 4 5.11984 4 6.8V17.2C4 18.8802 4 19.7202 4.32698 20.362C4.6146 20.9265 5.07354 21.3854 5.63803 21.673C6.27976 22 7.11984 22 8.8 22H12M16 16L21 21M21 16L16 21" stroke="#414651" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                                      </div>
+                                      <div style={{ display: "flex", maxWidth: "352px", flexDirection: "column", alignItems: "center", gap: "4px", alignSelf: "stretch" }}>
+                                        <div style={{ alignSelf: "stretch", color: "#181D27", textAlign: "center", fontFamily: "Public Sans", fontSize: "16px", fontWeight: 600, lineHeight: "24px" }}>No documents in this subcategory</div>
+                                      </div>
+                                    </div>
+                                    <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+                                      <button
+                                        type="button"
+                                        onClick={() => {
+                                          setResourceMainCategory(category.name);
+                                          setResourceSubCategory(subcategory.name);
+                                          setIsAddResourceModalOpen(true);
+                                        }}
+                                        style={{ display: "flex", minHeight: "36px", padding: "6px 8px", justifyContent: "center", alignItems: "center", gap: "4px", borderRadius: "8px", border: "2px solid rgba(255, 255, 255, 0.12)", background: "#344698", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "pointer" }}
+                                      >
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8.00016 3.33325V12.6666M3.3335 7.99992H12.6668" stroke="#8D9BD8" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                                        <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                                          <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>Add documents</div>
+                                        </div>
+                                      </button>
+                                    </div>
+                                  </div>
                                 </div>
-                              </div>
+                              )}
                             </div>
                           </div>
                         ))}
