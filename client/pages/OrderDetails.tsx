@@ -7292,6 +7292,7 @@ const OrderDetails: React.FC = () => {
                                 display: "flex",
                                 justifyContent: "center",
                                 alignItems: "center",
+                                gap: "12px",
                               }}
                             >
                               <Checkbox
@@ -7309,6 +7310,14 @@ const OrderDetails: React.FC = () => {
                                   }
                                 }}
                               />
+                              <div
+                                style={{
+                                  ...REPORT_SUMMARY_HEADER_STYLE,
+                                  flex: "1 0 0",
+                                }}
+                              >
+                                Show on PDF
+                              </div>
                             </div>
                             <div style={REPORT_SUMMARY_HEADER_STYLE}>
                               Named Search
