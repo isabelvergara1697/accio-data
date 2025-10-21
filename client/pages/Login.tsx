@@ -72,6 +72,11 @@ export default function Login() {
     navigate("/signup");
   };
 
+  const handleSignUpForService = () => {
+    // Navigate to application form for service signup
+    navigate("/sign-up-for-service");
+  };
+
   const handleForgotPassword = () => {
     // Navigate to forgot password page
     navigate("/forgot-password");
