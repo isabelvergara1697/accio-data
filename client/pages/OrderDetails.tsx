@@ -13771,7 +13771,7 @@ const OrderDetails: React.FC = () => {
                   )}
                 </div>
 
-                {/* MJD Sue Jeans Section */}
+                {/* MJD Section */}
                 <div
                   id="mjd"
                   style={{
