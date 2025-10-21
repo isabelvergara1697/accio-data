@@ -9213,15 +9213,23 @@ const InvitesAndOrders: React.FC = () => {
                             </div>
 
                             {/* Table Rows */}
-                            {paginatedData.map((invite, index) => (
+                            {paginatedData.map((invite, index) => {
+                              const isFirstRow = index === 0;
+                              const isSecondRow = index === 1;
+                              const isDisabled = !isFirstRow && !isSecondRow;
+                              const handleRowClick = () => {
+                                if (isFirstRow) {
+                                  navigate("/order-details/123456");
+                                } else if (isSecondRow) {
+                                  navigate("/order-details/999");
+                                }
+                              };
+                              return (
                               <div
                                 key={invite.id}
                                 onMouseEnter={() => setHoveredRowId(invite.id)}
                                 onMouseLeave={() => setHoveredRowId(null)}
-                                onClick={() => {
-                                  // Navigate to order details page
-                                  navigate(`/order-details/${invite.id}`);
-                                }}
+                                onClick={handleRowClick}
                                 style={{
                                   display: "flex",
                                   alignItems: "flex-start",
@@ -9233,10 +9241,11 @@ const InvitesAndOrders: React.FC = () => {
                                       ? "#F5F5F5"
                                       : "transparent",
                                   transition: "background-color 0.15s ease",
-                                  cursor: "pointer",
-                                  pointerEvents: "auto", // Ensure hover events work
-                                  zIndex: 10, // Ensure table rows are above any sticky or floating elements
-                                  isolation: "isolate", // Create new stacking context to prevent interference
+                                  cursor: isDisabled ? "not-allowed" : "pointer",
+                                  pointerEvents: "auto",
+                                  opacity: isDisabled ? 0.5 : 1,
+                                  zIndex: 10,
+                                  isolation: "isolate",
                                 }}
                               >
                                 {/* Checkbox Cell */}
@@ -9731,7 +9740,8 @@ const InvitesAndOrders: React.FC = () => {
                                   </div>
                                 </div>
                               </div>
-                            ))}
+                            );
+                            })}
                           </div>
                         </div>
                       ) : (
