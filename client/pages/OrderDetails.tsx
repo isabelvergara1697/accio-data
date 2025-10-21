@@ -14906,6 +14906,7 @@ const OrderDetails: React.FC = () => {
 
 
                 {/* Special Notice Section */}
+                {orderId !== "999" && (
                 <div
                   id="special-notice-section"
                   style={{
@@ -15151,6 +15152,7 @@ const OrderDetails: React.FC = () => {
                     </div>
                   )}
                 </div>
+                )}
               </div>
             </div>
           </div>
