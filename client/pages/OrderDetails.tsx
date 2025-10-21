@@ -14002,7 +14002,7 @@ const OrderDetails: React.FC = () => {
                 <div
                   id="nationwide-federal-crime"
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("nationwide-federal-crime"),
                     paddingBottom: "20px",
                     flexDirection: "column",
                     alignItems: "flex-start",
