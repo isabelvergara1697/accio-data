@@ -279,6 +279,21 @@ const OrderDetails: React.FC = () => {
     return `Sue Janes Order #${orderId || "38138"}`;
   };
 
+  // For order 999, only show: Report Summary, Documents, Subject, Countywide Criminal History, MJD
+  const getSectionDisplay = (sectionId: string) => {
+    if (orderId !== "999") return "flex";
+
+    const visibleSections = [
+      "report-summary",
+      "documents-section",
+      "subject",
+      "countywide-criminal-history",
+      "mjd"
+    ];
+
+    return visibleSections.includes(sectionId) ? "flex" : "none";
+  };
+
   // Notes state (persisted per order)
   const storageKey = `order-notes-${orderId ?? "default"}`;
   const [notes, setNotes] = useState<Note[]>([]);
