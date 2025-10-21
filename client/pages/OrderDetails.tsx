@@ -10675,7 +10675,7 @@ const OrderDetails: React.FC = () => {
                 <div
                   id="education-at-brown-community-college"
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("education-at-brown-community-college"),
                     paddingBottom: "20px",
                     flexDirection: "column",
                     alignItems: "flex-start",
