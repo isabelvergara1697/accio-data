@@ -14854,10 +14854,12 @@ const OrderDetails: React.FC = () => {
                 </div>
 
                 {/* Credentials-Professional License #1 Section */}
+                {orderId !== "999" && (
                 <CredentialsSection
                   expanded={credentialsExpanded}
                   onToggle={() => setCredentialsExpanded(!credentialsExpanded)}
                 />
+                )}
 
                 {/* Motor Vehicle Driving History Section */}
                 <MotorVehicleDrivingHistorySection
