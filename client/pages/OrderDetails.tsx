@@ -9967,7 +9967,7 @@ const OrderDetails: React.FC = () => {
                 <div
                   id="employment-at-jerrys-tx"
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("employment-at-jerrys-tx"),
                     paddingBottom: "20px",
                     flexDirection: "column",
                     alignItems: "flex-start",
