@@ -34,6 +34,7 @@ import {
 } from "../components/ui/select";
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 import { MoreActionsSubmenu } from "../components/ui/more-actions-submenu";
+import { Checkbox } from "../components/ui/checkbox";
 import { User, X, HelpCircle, ChevronDown } from "lucide-react";
 
 type Note = {
@@ -66,7 +67,7 @@ type ReportSummaryRow = {
 };
 
 const REPORT_SUMMARY_GRID_TEMPLATE =
-  "120px 240px 220px 140px 110px 200px 220px 60px";
+  "50px 120px 240px 220px 140px 110px 200px 220px 60px";
 
 const REPORT_SUMMARY_HEADER_STYLE: React.CSSProperties = {
   color: "#717680",
@@ -362,6 +363,12 @@ const OrderDetails: React.FC = () => {
   const [specialNoticeExpanded, setSpecialNoticeExpanded] = useState(true);
   const [specialNoticeHoveredRowIndex, setSpecialNoticeHoveredRowIndex] =
     useState<number | null>(null);
+
+  // Report Summary checkbox selection state
+  const [selectedReportRows, setSelectedReportRows] = useState<Set<number>>(
+    new Set(),
+  );
+  const [selectAllReportRows, setSelectAllReportRows] = useState(false);
 
   // Upload modal state
   const [uploadModalOpen, setUploadModalOpen] = useState(false);
@@ -7280,6 +7287,29 @@ const OrderDetails: React.FC = () => {
                               zIndex: 1,
                             }}
                           >
+                            <div
+                              style={{
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <Checkbox
+                                checked={selectAllReportRows}
+                                onCheckedChange={(checked) => {
+                                  setSelectAllReportRows(!!checked);
+                                  if (checked) {
+                                    setSelectedReportRows(
+                                      new Set(
+                                        REPORT_SUMMARY_ROWS.map((_, i) => i),
+                                      ),
+                                    );
+                                  } else {
+                                    setSelectedReportRows(new Set());
+                                  }
+                                }}
+                              />
+                            </div>
                             <div style={REPORT_SUMMARY_HEADER_STYLE}>
                               Named Search
                             </div>
@@ -7333,6 +7363,37 @@ const OrderDetails: React.FC = () => {
                                   transition: "background-color 0.2s ease",
                                 }}
                               >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <Checkbox
+                                    checked={selectedReportRows.has(index)}
+                                    onCheckedChange={(checked) => {
+                                      const newSelected = new Set(
+                                        selectedReportRows,
+                                      );
+                                      if (checked) {
+                                        newSelected.add(index);
+                                      } else {
+                                        newSelected.delete(index);
+                                        setSelectAllReportRows(false);
+                                      }
+                                      setSelectedReportRows(newSelected);
+
+                                      // Update select all state
+                                      if (
+                                        newSelected.size ===
+                                        REPORT_SUMMARY_ROWS.length
+                                      ) {
+                                        setSelectAllReportRows(true);
+                                      }
+                                    }}
+                                  />
+                                </div>
                                 <div style={REPORT_SUMMARY_TEXT_STYLE}>
                                   {row.namedSearch}
                                 </div>
@@ -7349,7 +7410,7 @@ const OrderDetails: React.FC = () => {
                                     {row.searchType.label}
                                   </a>
                                 ) : (
-                                  <div style={REPORT_SUMMARY_TEXT_STYLE}>—</div>
+                                  <div style={REPORT_SUMMARY_TEXT_STYLE}>���</div>
                                 )}
 
                                 <div
