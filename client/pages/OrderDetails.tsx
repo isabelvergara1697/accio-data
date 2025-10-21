@@ -14075,7 +14075,7 @@ const OrderDetails: React.FC = () => {
                                   position: "relative",
                                 }}
                               >
-                                Nationwide Federal Crime Sue Jeans
+                                Nationwide Federal Crime {getOrderName()}
                               </div>
                               <div
                                 style={{
