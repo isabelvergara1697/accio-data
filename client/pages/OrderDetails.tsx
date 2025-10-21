@@ -13863,7 +13863,7 @@ const OrderDetails: React.FC = () => {
                                   position: "relative",
                                 }}
                               >
-                                MJD Sue Jeans
+                                MJD {getOrderName()}
                               </div>
                               <div
                                 style={{
