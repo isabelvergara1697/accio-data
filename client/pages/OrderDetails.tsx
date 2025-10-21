@@ -290,10 +290,11 @@ const OrderDetails: React.FC = () => {
       if (saved) {
         setNotes(JSON.parse(saved));
       } else {
+        const noteAuthor = orderId === "999" ? "Morgan Chen" : "Phoenix Baker";
         setNotes([
           {
             id: String(Date.now()),
-            author: "Phoenix Baker",
+            author: noteAuthor,
             avatarUrl:
               "https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F754e82e5620a450f95d1173ecb4f8ae5?format=webp&width=800",
             content:
@@ -306,7 +307,7 @@ const OrderDetails: React.FC = () => {
       console.warn("Failed to read notes from storage", e);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [storageKey]);
+  }, [storageKey, orderId]);
 
   useEffect(() => {
     try {
