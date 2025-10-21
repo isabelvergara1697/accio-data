@@ -11820,7 +11820,7 @@ const OrderDetails: React.FC = () => {
                                 position: "relative",
                               }}
                             >
-                              Sue Janes
+                              {getOrderName()}
                             </div>
                           </div>
 
