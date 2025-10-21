@@ -14862,10 +14862,12 @@ const OrderDetails: React.FC = () => {
                 )}
 
                 {/* Motor Vehicle Driving History Section */}
+                {orderId !== "999" && (
                 <MotorVehicleDrivingHistorySection
                   expanded={motorVehicleExpanded}
                   onToggle={() => setMotorVehicleExpanded(!motorVehicleExpanded)}
                 />
+                )}
 
                 {/* Credit Employment Report Section */}
                 <CreditEmploymentReportSection
