@@ -3384,7 +3384,7 @@ const OrderDetails: React.FC = () => {
                       }}
                       className="order-title"
                     >
-                      Sue Janes Order #{orderId || "38138"}
+                      {getOrderTitle()}
                     </div>
                     <div
                       style={{
