@@ -2183,7 +2183,7 @@ const OrderDetails: React.FC = () => {
                     });
                   }}
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("education-at-brown-community-college"),
                     padding: "8px 12px",
                     alignItems: "center",
                     gap: "8px",
