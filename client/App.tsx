@@ -35,6 +35,7 @@ import InviteNewMember from "./pages/InviteNewMember";
 import InviteNewMemberValidation from "./pages/InviteNewMemberValidation";
 import InviteNewMemberConfirmation from "./pages/InviteNewMemberConfirmation";
 import EditMember from "./pages/EditMember";
+import ApplicationForm from "./pages/ApplicationForm";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
