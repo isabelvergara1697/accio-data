@@ -2047,7 +2047,7 @@ const OrderDetails: React.FC = () => {
                     });
                   }}
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("resume-validation"),
                     height: "36px",
                     padding: "8px 12px",
                     alignItems: "center",
