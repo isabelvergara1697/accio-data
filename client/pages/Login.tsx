@@ -1018,7 +1018,7 @@ export default function Login() {
               </div>
               <button
                 type="button"
-                onClick={handleSignUp}
+                onClick={handleSignUpForService}
                 style={{
                   display: "flex",
                   justifyContent: "center",
