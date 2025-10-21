@@ -11547,7 +11547,7 @@ const OrderDetails: React.FC = () => {
                                 }}
                               >
                                 Countywide Criminal History Bossie, LA - Years:
-                                10 - Sue Jeans
+                                10 - {getOrderName()}
                               </div>
                               <div
                                 style={{
