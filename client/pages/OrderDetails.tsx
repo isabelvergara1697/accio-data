@@ -2113,7 +2113,7 @@ const OrderDetails: React.FC = () => {
                     });
                   }}
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("employment-at-jerrys-tx"),
                     padding: "8px 12px",
                     alignItems: "center",
                     gap: "8px",
