@@ -11767,7 +11767,7 @@ const OrderDetails: React.FC = () => {
                               position: "relative",
                             }}
                           >
-                            Defendant: Sue Janes
+                            Defendant: {getOrderName()}
                           </div>
                         </div>
 
@@ -12457,7 +12457,7 @@ const OrderDetails: React.FC = () => {
                               position: "relative",
                             }}
                           >
-                            Defendant: Sue Janes
+                            Defendant: {getOrderName()}
                           </div>
                         </div>
 
@@ -12809,7 +12809,7 @@ const OrderDetails: React.FC = () => {
                               position: "relative",
                             }}
                           >
-                            Defendant: Sue Janes
+                            Defendant: {getOrderName()}
                           </div>
                         </div>
 
