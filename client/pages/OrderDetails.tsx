@@ -9553,11 +9553,10 @@ const OrderDetails: React.FC = () => {
                 </div>
 
                 {/* Resume Validation Section */}
-                {orderId !== "999" && (
                 <div
                   id="resume-validation"
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("resume-validation"),
                     paddingBottom: "20px",
                     flexDirection: "column",
                     alignItems: "flex-start",
@@ -9963,7 +9962,6 @@ const OrderDetails: React.FC = () => {
                     </div>
                   )}
                 </div>
-                )}
 
                 {/* Employment Section */}
                 <div
