@@ -14897,10 +14897,12 @@ const OrderDetails: React.FC = () => {
                 )}
 
                 {/* CBSV Section */}
+                {orderId !== "999" && (
                 <CBSVSection
                   expanded={cbsvExpanded}
                   onToggle={() => setCbsvExpanded(!cbsvExpanded)}
                 />
+                )}
 
 
                 {/* Special Notice Section */}
