@@ -14870,6 +14870,7 @@ const OrderDetails: React.FC = () => {
                 )}
 
                 {/* Credit Employment Report Section */}
+                {orderId !== "999" && (
                 <CreditEmploymentReportSection
                   id="credit-employment-report"
                   expanded={creditEmploymentExpanded}
@@ -14877,6 +14878,7 @@ const OrderDetails: React.FC = () => {
                     setCreditEmploymentExpanded(!creditEmploymentExpanded)
                   }
                 />
+                )}
 
                 {/* E-Verify Section */}
                 <EVerifySection
