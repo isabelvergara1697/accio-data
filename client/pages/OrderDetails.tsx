@@ -3799,7 +3799,7 @@ const OrderDetails: React.FC = () => {
               style={{
                 display: "flex",
                 flexDirection: stackedLayout ? "column" : "row",
-                alignItems: "stretch",
+                alignItems: stackedLayout ? "stretch" : "flex-start",
                 gap: mainColumnsGap,
                 alignSelf: "stretch",
                 position: "relative",
