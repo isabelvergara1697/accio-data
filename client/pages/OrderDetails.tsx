@@ -2714,7 +2714,7 @@ const OrderDetails: React.FC = () => {
                     });
                   }}
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("e-verify"),
                     padding: "8px 12px",
                     alignItems: "center",
                     gap: "8px",
