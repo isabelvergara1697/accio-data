@@ -106,7 +106,7 @@ const getReportSummaryRows = (orderId?: string): ReportSummaryRow[] => {
   const primaryName = orderId === "999" ? "John Doe" : "Sue Jeans";
   const secondaryName = orderId === "999" ? "Doe, John" : "Sue DD";
 
-  return [
+  const allRows = [
     {
       namedSearch: primaryName,
       searchType: { label: "Subject", targetId: "subject" },
@@ -249,6 +249,17 @@ const getReportSummaryRows = (orderId?: string): ReportSummaryRow[] => {
       documentLabel: "CBSV_Response.pdf",
     },
   ];
+
+  // For order 999, only return Subject, Countywide Criminal History, and MJD rows
+  if (orderId === "999") {
+    return allRows.filter(row =>
+      row.searchType?.label === "Subject" ||
+      row.searchType?.label === "Countywide Criminal History" ||
+      row.searchType?.label === "MJD"
+    );
+  }
+
+  return allRows;
 };
 
 const OrderDetails: React.FC = () => {
