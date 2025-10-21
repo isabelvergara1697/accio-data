@@ -640,10 +640,21 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
               minWidth: 0,
             }}
           >
-            {mockReportsData.map((report, index) => (
+            {mockReportsData.map((report, index) => {
+              const isFirstRow = index === 0;
+              const isSecondRow = index === 1;
+              const isDisabled = !isFirstRow && !isSecondRow;
+              const handleRowClick = () => {
+                if (isFirstRow) {
+                  navigate("/order-details/123456");
+                } else if (isSecondRow) {
+                  navigate("/order-details/999");
+                }
+              };
+              return (
               <div
                 key={index}
-                onClick={() => navigate(`/order-details/${report.order}`)}
+                onClick={handleRowClick}
                 style={{
                   display: "flex",
                   height: "52px",
@@ -655,11 +666,15 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                       ? "1px solid #E9EAEB"
                       : "none",
                   background: "#FFF",
-                  cursor: "pointer",
+                  cursor: isDisabled ? "not-allowed" : "pointer",
                   position: "relative",
+                  opacity: isDisabled ? 0.5 : 1,
+                  pointerEvents: isDisabled ? "none" : "auto",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#F9FAFB";
+                  if (!isDisabled) {
+                    e.currentTarget.style.background = "#F9FAFB";
+                  }
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = "#FFF";
@@ -827,7 +842,8 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                   </div>
                 )}
               </div>
-            ))}
+            );
+            })}
           </div>
         </div>
       </div>
