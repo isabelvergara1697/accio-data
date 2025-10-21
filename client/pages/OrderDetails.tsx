@@ -7314,6 +7314,9 @@ const OrderDetails: React.FC = () => {
                                 style={{
                                   ...REPORT_SUMMARY_HEADER_STYLE,
                                   flex: "1 0 0",
+                                  whiteSpace: "normal",
+                                  maxWidth: "48px",
+                                  textAlign: "center",
                                 }}
                               >
                                 Show on PDF
