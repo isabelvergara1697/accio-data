@@ -2389,7 +2389,7 @@ const OrderDetails: React.FC = () => {
                     });
                   }}
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("nationwide-federal-crime"),
                     padding: "8px 12px",
                     alignItems: "center",
                     gap: "8px",
