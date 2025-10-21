@@ -14881,10 +14881,12 @@ const OrderDetails: React.FC = () => {
                 )}
 
                 {/* E-Verify Section */}
+                {orderId !== "999" && (
                 <EVerifySection
                   expanded={eVerifyExpanded}
                   onToggle={() => setEVerifyExpanded(!eVerifyExpanded)}
                 />
+                )}
 
                 {/* 5 Panels Section */}
                 <FivePanelsSection
