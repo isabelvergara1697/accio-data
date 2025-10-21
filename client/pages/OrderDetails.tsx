@@ -14208,7 +14208,7 @@ const OrderDetails: React.FC = () => {
                 <div
                   id="professional-references"
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("professional-references"),
                     paddingBottom: "20px",
                     flexDirection: "column",
                     alignItems: "flex-start",
