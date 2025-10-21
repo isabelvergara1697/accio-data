@@ -2844,7 +2844,7 @@ const OrderDetails: React.FC = () => {
                     });
                   }}
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("cbsv-section"),
                     padding: "8px 12px",
                     alignItems: "center",
                     gap: "8px",
