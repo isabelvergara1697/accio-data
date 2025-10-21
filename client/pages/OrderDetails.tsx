@@ -381,10 +381,6 @@ const OrderDetails: React.FC = () => {
     number | null
   >(null);
   const [criminalHistoryExpanded, setCriminalHistoryExpanded] = useState(true);
-  const [
-    adjudicationMatrixHoveredRowIndex,
-    setAdjudicationMatrixHoveredRowIndex,
-  ] = useState<number | null>(null);
   const [mjdExpanded, setMjdExpanded] = useState(true);
   const [federalCrimeExpanded, setFederalCrimeExpanded] = useState(true);
   const [professionalReferencesExpanded, setProfessionalReferencesExpanded] =
@@ -7518,7 +7514,7 @@ const OrderDetails: React.FC = () => {
                                 <div style={REPORT_SUMMARY_TEXT_STYLE}>
                                   {row.state && row.state.trim().length > 0
                                     ? row.state
-                                    : "���"}
+                                    : "—"}
                                 </div>
 
                                 <div style={REPORT_SUMMARY_TEXT_STYLE}>
