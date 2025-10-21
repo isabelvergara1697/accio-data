@@ -13983,7 +13983,7 @@ const OrderDetails: React.FC = () => {
                   )}
                 </div>
 
-                {/* Nationwide Federal Crime Sue Jeans Section */}
+                {/* Nationwide Federal Crime Section */}
                 <div
                   id="nationwide-federal-crime"
                   style={{
