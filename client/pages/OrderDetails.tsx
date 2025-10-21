@@ -14889,10 +14889,12 @@ const OrderDetails: React.FC = () => {
                 )}
 
                 {/* 5 Panels Section */}
+                {orderId !== "999" && (
                 <FivePanelsSection
                   expanded={fivePanelsExpanded}
                   onToggle={() => setFivePanelsExpanded(!fivePanelsExpanded)}
                 />
+                )}
 
                 {/* CBSV Section */}
                 <CBSVSection
