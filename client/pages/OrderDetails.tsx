@@ -266,6 +266,19 @@ const OrderDetails: React.FC = () => {
   const [showNotification] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
 
+  // Get order-specific data
+  const REPORT_SUMMARY_ROWS = useMemo(() => getReportSummaryRows(orderId), [orderId]);
+
+  const getOrderName = () => {
+    if (orderId === "999") return "John Doe";
+    return "Sue Janes";
+  };
+
+  const getOrderTitle = () => {
+    if (orderId === "999") return "John Doe Order #999";
+    return `Sue Janes Order #${orderId || "38138"}`;
+  };
+
   // Notes state (persisted per order)
   const storageKey = `order-notes-${orderId ?? "default"}`;
   const [notes, setNotes] = useState<Note[]>([]);
