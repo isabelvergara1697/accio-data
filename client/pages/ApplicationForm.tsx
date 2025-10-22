@@ -440,18 +440,21 @@ export default function ApplicationForm() {
               const allCollapsed =
                 !expandedSections.generalInformation &&
                 !expandedSections.administrativeContact &&
-                !expandedSections.drugTesting;
+                !expandedSections.drugTesting &&
+                !expandedSections.useOfInformation;
               if (allCollapsed) {
                 setExpandedSections({
                   generalInformation: true,
                   administrativeContact: true,
                   drugTesting: true,
+                  useOfInformation: true,
                 });
               } else {
                 setExpandedSections({
                   generalInformation: false,
                   administrativeContact: false,
                   drugTesting: false,
+                  useOfInformation: false,
                 });
               }
             }}
@@ -480,7 +483,8 @@ export default function ApplicationForm() {
             >
               {!expandedSections.generalInformation &&
               !expandedSections.administrativeContact &&
-              !expandedSections.drugTesting
+              !expandedSections.drugTesting &&
+              !expandedSections.useOfInformation
                 ? "Expand All"
                 : "Collapse All"}
             </div>
