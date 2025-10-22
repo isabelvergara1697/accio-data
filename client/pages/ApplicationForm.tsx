@@ -3800,6 +3800,420 @@ export default function ApplicationForm() {
               )}
             </div>
 
+            {/* Confirmation Section */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                borderRadius: "12px",
+                border: "1px solid #E9EAEB",
+                background: "#FFF",
+                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                marginBottom: "20px",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  padding: expandedSections.confirmation
+                    ? "20px 24px 0 24px"
+                    : "20px 24px 20px 24px",
+                  gap: "16px",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "2px",
+                      flex: 1,
+                    }}
+                  >
+                    <h2
+                      style={{
+                        fontSize: "18px",
+                        fontWeight: 600,
+                        color: "#181D27",
+                        margin: 0,
+                        lineHeight: "28px",
+                      }}
+                    >
+                      Confirmation
+                    </h2>
+                    <p
+                      style={{
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        color: "#535862",
+                        margin: 0,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      This form must be completed by an officer of the company
+                      or other individual authorized to enter into a legal
+                      contract on behalf of your company.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => toggleSection("confirmation")}
+                    style={{
+                      display: "flex",
+                      padding: "8px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      borderRadius: "8px",
+                      border: "1px solid #D5D7DA",
+                      background: "#FFF",
+                      boxShadow:
+                        "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      style={{
+                        transform: expandedSections.confirmation
+                          ? "rotate(180deg)"
+                          : "rotate(0deg)",
+                        transition: "transform 0.2s ease",
+                      }}
+                    >
+                      <path
+                        d="M4 6L8 10L12 6"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              {expandedSections.confirmation && (
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "12px 24px 16px 24px",
+                    flexDirection: "column",
+                    gap: "16px",
+                    borderRadius: "0 0 0 0",
+                    borderRight: "1px solid #E9EAEB",
+                    borderBottom: "1px solid #E9EAEB",
+                    borderLeft: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  }}
+                >
+                  {/* Name and Title Inputs */}
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "16px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "6px",
+                        flex: 1,
+                      }}
+                    >
+                      <label
+                        style={{
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          color: "#414651",
+                          lineHeight: "20px",
+                        }}
+                      >
+                        Name of Person Completing Form
+                      </label>
+                      <input
+                        type="text"
+                        name="confirmationName"
+                        value={formData.confirmationName}
+                        onChange={handleInputChange}
+                        style={{
+                          padding: "8px 12px",
+                          border: "1px solid #D5D7DA",
+                          borderRadius: "8px",
+                          fontSize: "16px",
+                          fontFamily: "inherit",
+                          outline: "none",
+                          background: "#FFF",
+                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        }}
+                      />
+                    </div>
+
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "6px",
+                        flex: 1,
+                      }}
+                    >
+                      <label
+                        style={{
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          color: "#414651",
+                          lineHeight: "20px",
+                        }}
+                      >
+                        Title of Person Completing Form
+                      </label>
+                      <input
+                        type="text"
+                        name="confirmationTitle"
+                        value={formData.confirmationTitle}
+                        onChange={handleInputChange}
+                        style={{
+                          padding: "8px 12px",
+                          border: "1px solid #D5D7DA",
+                          borderRadius: "8px",
+                          fontSize: "16px",
+                          fontFamily: "inherit",
+                          outline: "none",
+                          background: "#FFF",
+                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Agreement Checkbox */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "8px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        paddingTop: "2px",
+                      }}
+                    >
+                      <div
+                        onClick={() => {
+                          setFormData((prev) => ({
+                            ...prev,
+                            agreeToTerms: !prev.agreeToTerms,
+                          }));
+                        }}
+                        style={{
+                          display: "flex",
+                          width: "16px",
+                          height: "16px",
+                          padding: "1px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "4px",
+                          border: formData.agreeToTerms
+                            ? "none"
+                            : "1px solid #D5D7DA",
+                          background: formData.agreeToTerms
+                            ? "#344698"
+                            : "transparent",
+                          cursor: "pointer",
+                          position: "relative",
+                          flexShrink: 0,
+                        }}
+                      >
+                        {formData.agreeToTerms && (
+                          <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 14 14"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            style={{
+                              position: "absolute",
+                              left: "1px",
+                              top: "1px",
+                            }}
+                          >
+                            <path
+                              d="M11.6667 3.5L5.25004 9.91667L2.33337 7"
+                              stroke="white"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        )}
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        flex: 1,
+                      }}
+                    >
+                      <label
+                        onClick={() => {
+                          setFormData((prev) => ({
+                            ...prev,
+                            agreeToTerms: !prev.agreeToTerms,
+                          }));
+                        }}
+                        style={{
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          color: "#414651",
+                          lineHeight: "20px",
+                          cursor: "pointer",
+                        }}
+                      >
+                        I have read and agree to the terms described above in
+                        the Service Agreement, Addendum to Service Agreement for
+                        Credit Services, Addendum to the Service Agreement for
+                        Fair Credit Reporting Act Client Certification of Use
+                        and Access Security Requirements, Addendum to Service
+                        Agreement for California and Privacy Policy. If I want
+                        to purchase credit report based products or MVR's, I
+                        agree to an onsite inspection. I understand I must
+                        provide the required business documentation as listed on
+                        the fax cover sheet and my application will not be
+                        processed until provided. (Click here for form.)
+                      </label>
+                    </div>
+                  </div>
+
+                  {/* reCAPTCHA Component */}
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "8px 10px 7px 12px",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      borderRadius: "2px",
+                      border: "1px solid #D6D6D6",
+                      background: "#FAFAFA",
+                      boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.10)",
+                      maxWidth: "304px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "14px",
+                      }}
+                    >
+                      <div
+                        onClick={() => {
+                          setFormData((prev) => ({
+                            ...prev,
+                            captchaVerified: !prev.captchaVerified,
+                          }));
+                        }}
+                        style={{
+                          width: "24px",
+                          height: "24px",
+                          borderRadius: "1px",
+                          border: "2px solid #C1C1C1",
+                          background: formData.captchaVerified
+                            ? "#344698"
+                            : "#FFF",
+                          cursor: "pointer",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        {formData.captchaVerified && (
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M13.3333 4L6 11.3333L2.66667 8"
+                              stroke="white"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        )}
+                      </div>
+                      <div
+                        style={{
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          color: "#000",
+                          fontFamily: "Roboto, sans-serif",
+                        }}
+                      >
+                        I'm not a robot
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: "4px",
+                      }}
+                    >
+                      <svg
+                        width="48"
+                        height="46"
+                        viewBox="0 0 48 46"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M39.3061 16.2123C39.3053 15.9875 39.3001 15.7638 39.2901 15.5412V2.85126L35.7818 6.35951C32.9105 2.84491 28.5425 0.600098 23.65 0.600098C18.5584 0.600098 14.0351 3.03039 11.1758 6.79407L16.9262 12.605C17.4898 11.5628 18.2904 10.6676 19.2556 9.99149C20.2596 9.20805 21.6821 8.56748 23.6498 8.56748C23.8875 8.56748 24.071 8.59526 24.2058 8.64759C26.6438 8.84002 28.7571 10.1855 30.0014 12.1384L25.931 16.2088C31.0867 16.1886 36.9111 16.1767 39.3056 16.2114"
+                          fill="#1C3AA9"
+                        />
+                        <path
+                          d="M23.5585 0.600586C23.3337 0.601333 23.11 0.606522 22.8874 0.616602H10.1975L13.7057 4.12485C10.1911 6.99616 7.94629 11.3642 7.94629 16.2567C7.94629 21.3482 10.3766 25.8715 14.1403 28.7309L19.9512 22.9804C18.909 22.4169 18.0138 21.6163 17.3377 20.651C16.5543 19.6471 15.9137 18.2246 15.9137 16.2569C15.9137 16.0192 15.9414 15.8357 15.9938 15.7009C16.1862 13.2629 17.5317 11.1496 19.4846 9.90525L23.555 13.9757C23.5348 8.81997 23.5229 2.99559 23.5576 0.601034"
+                          fill="#4285F4"
+                        />
+                        <path
+                          d="M7.94684 16.2563C7.94759 16.4812 7.95277 16.7049 7.96285 16.9275V29.6174L11.4711 26.1092C14.3424 29.6238 18.7104 31.8686 23.6029 31.8686C28.6945 31.8686 33.2178 29.4383 36.0771 25.6746L30.3267 19.8637C29.7631 20.9059 28.9626 21.8011 27.9973 22.4772C26.9933 23.2606 25.5709 23.9012 23.6031 23.9012C23.3654 23.9012 23.1819 23.8734 23.0471 23.8211C20.6091 23.6287 18.4958 22.2832 17.2515 20.3303L21.322 16.2599C16.1662 16.2801 10.3418 16.292 7.94729 16.2573"
+                          fill="#ABABAB"
+                        />
+                      </svg>
+                      <div
+                        style={{
+                          fontSize: "8px",
+                          fontWeight: 500,
+                          color: "#A6A6A6",
+                          fontFamily: "Roboto, sans-serif",
+                        }}
+                      >
+                        Privacy - Terms
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
             {/* Bottom Action Buttons */}
             <div
               style={{
