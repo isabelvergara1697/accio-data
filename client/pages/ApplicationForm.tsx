@@ -51,6 +51,10 @@ export default function ApplicationForm() {
     screenApplicantsOnly: false,
     orderMVRs: false,
     orderCreditReports: false,
+    promoCode1: "",
+    promoCode2: "",
+    promoCode3: "",
+    promoCode4: "",
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
