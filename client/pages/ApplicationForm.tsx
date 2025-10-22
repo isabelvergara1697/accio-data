@@ -432,16 +432,19 @@ export default function ApplicationForm() {
             onClick={() => {
               const allCollapsed =
                 !expandedSections.generalInformation &&
-                !expandedSections.administrativeContact;
+                !expandedSections.administrativeContact &&
+                !expandedSections.drugTesting;
               if (allCollapsed) {
                 setExpandedSections({
                   generalInformation: true,
                   administrativeContact: true,
+                  drugTesting: true,
                 });
               } else {
                 setExpandedSections({
                   generalInformation: false,
                   administrativeContact: false,
+                  drugTesting: false,
                 });
               }
             }}
