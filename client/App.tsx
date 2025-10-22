@@ -75,16 +75,6 @@ const App = () => (
             path="/adverse-action-process/:orderId"
             element={<AdverseActionProcess />}
           />
-          <Route path="/quick-court-order" element={<QuickCourtOrder />} />
-          <Route path="/quick-order" element={<QuickOrder />} />
-          <Route path="/batch-orders" element={<BatchOrders />} />
-          <Route path="/i9-order" element={<I9Order />} />
-          <Route path="/i9-form-completion" element={<I9FormCompletion />} />
-          <Route path="/i9-order-submission" element={<I9OrderSubmission />} />
-          <Route
-            path="/i9-order-confirmation"
-            element={<I9OrderConfirmation />}
-          />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
