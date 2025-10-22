@@ -763,7 +763,7 @@ export default function ApplicationForm() {
             flex: 1,
           }}
         >
-          <form onSubmit={handleSubmit}>
+          <form ref={formRef} onSubmit={handleSubmit}>
             {/* General Information Section */}
             <div
               style={{
