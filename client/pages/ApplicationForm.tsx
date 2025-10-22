@@ -45,6 +45,7 @@ export default function ApplicationForm() {
     adminName: "",
     adminEmail: "",
     adminConfirmEmail: "",
+    useDrugTesting: false,
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -168,6 +169,7 @@ export default function ApplicationForm() {
       adminName: "",
       adminEmail: "",
       adminConfirmEmail: "",
+      useDrugTesting: false,
     });
     setErrors({});
   };
