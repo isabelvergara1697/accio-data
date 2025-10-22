@@ -22,6 +22,10 @@ interface SidebarProps {
   onOpenQuickOrderDrawer?: () => void;
   onOpenSSNOrderDrawer?: () => void;
   onOpenNotificationModal?: () => void;
+  onboardingStep?: number;
+  setOnboardingStep?: (step: number) => void;
+  completedSteps?: string[];
+  setCompletedSteps?: (steps: string[]) => void;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
