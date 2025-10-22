@@ -1574,6 +1574,10 @@ export default function Dashboard() {
           showNotification={showNotification || orderNotification?.show}
           isCollapsed={sidebarCollapsed}
           setIsCollapsed={setSidebarCollapsed}
+          onboardingStep={onboardingStep}
+          setOnboardingStep={setOnboardingStep}
+          completedSteps={completedSteps}
+          setCompletedSteps={setCompletedSteps}
         />
 
         {/* Main Content */}
