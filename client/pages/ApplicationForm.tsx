@@ -450,13 +450,15 @@ export default function ApplicationForm() {
                 !expandedSections.generalInformation &&
                 !expandedSections.administrativeContact &&
                 !expandedSections.drugTesting &&
-                !expandedSections.useOfInformation;
+                !expandedSections.useOfInformation &&
+                !expandedSections.promotionalCodes;
               if (allCollapsed) {
                 setExpandedSections({
                   generalInformation: true,
                   administrativeContact: true,
                   drugTesting: true,
                   useOfInformation: true,
+                  promotionalCodes: true,
                 });
               } else {
                 setExpandedSections({
@@ -464,6 +466,7 @@ export default function ApplicationForm() {
                   administrativeContact: false,
                   drugTesting: false,
                   useOfInformation: false,
+                  promotionalCodes: false,
                 });
               }
             }}
@@ -493,7 +496,8 @@ export default function ApplicationForm() {
               {!expandedSections.generalInformation &&
               !expandedSections.administrativeContact &&
               !expandedSections.drugTesting &&
-              !expandedSections.useOfInformation
+              !expandedSections.useOfInformation &&
+              !expandedSections.promotionalCodes
                 ? "Expand All"
                 : "Collapse All"}
             </div>
