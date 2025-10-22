@@ -70,6 +70,9 @@ export default function ApplicationForm() {
     "dateFormed",
     "stateOfFormation",
     "dunnBradstreet",
+    "adminName",
+    "adminEmail",
+    "adminConfirmEmail",
   ];
 
   const handleInputChange = (
