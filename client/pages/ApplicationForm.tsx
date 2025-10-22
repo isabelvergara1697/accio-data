@@ -164,6 +164,9 @@ export default function ApplicationForm() {
       stateOfFormation: "Select",
       dunnBradstreet: "",
       internetAddress: "",
+      adminName: "",
+      adminEmail: "",
+      adminConfirmEmail: "",
     });
     setErrors({});
   };
