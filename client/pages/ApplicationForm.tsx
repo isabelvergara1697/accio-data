@@ -99,7 +99,7 @@ export default function ApplicationForm() {
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
+    >,
   ) => {
     const { name, value, type } = e.target;
 
@@ -143,7 +143,7 @@ export default function ApplicationForm() {
 
     if (firstEmptyField) {
       const inputElement = formRef.current?.querySelector(
-        `input[name="${firstEmptyField}"], select[name="${firstEmptyField}"]`
+        `input[name="${firstEmptyField}"], select[name="${firstEmptyField}"]`,
       ) as HTMLElement;
 
       if (inputElement) {
@@ -208,11 +208,11 @@ export default function ApplicationForm() {
     const allFields = Object.keys(formData);
     const filledFields = allFields.filter((key) => {
       const value = formData[key as keyof typeof formData];
-      if (typeof value === 'boolean') {
+      if (typeof value === "boolean") {
         return value === true;
       }
-      if (typeof value === 'string') {
-        return value !== '' && value !== 'Select';
+      if (typeof value === "string") {
+        return value !== "" && value !== "Select";
       }
       return false;
     });
@@ -703,7 +703,9 @@ export default function ApplicationForm() {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     style={{
-                      transform: instructionsExpanded ? "rotate(0deg)" : "rotate(180deg)",
+                      transform: instructionsExpanded
+                        ? "rotate(0deg)"
+                        : "rotate(180deg)",
                       transition: "transform 0.2s ease",
                     }}
                   >
@@ -719,97 +721,53 @@ export default function ApplicationForm() {
               </div>
             </div>
             {instructionsExpanded && (
-            <div
-              style={{
-                display: "flex",
-                padding: "12px 16px 16px 16px",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: "16px",
-                alignSelf: "stretch",
-                borderRadius: "0px 0px 0 0",
-                borderRight: "1px solid #E9EAEB",
-                borderBottom: "1px solid #E9EAEB",
-                borderLeft: "1px solid #E9EAEB",
-                background: "#FFF",
-                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-              }}
-            >
               <div
                 style={{
                   display: "flex",
+                  padding: "12px 16px 16px 16px",
                   flexDirection: "column",
+                  alignItems: "center",
                   gap: "16px",
                   alignSelf: "stretch",
+                  borderRadius: "0px 0px 0 0",
+                  borderRight: "1px solid #E9EAEB",
+                  borderBottom: "1px solid #E9EAEB",
+                  borderLeft: "1px solid #E9EAEB",
+                  background: "#FFF",
+                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                 }}
               >
-                <p
-                  style={{
-                    fontSize: "16px",
-                    color: "#181D27",
-                    margin: 0,
-                    lineHeight: "24px",
-                  }}
-                >
-                  The information provided is sensitive in nature. To maintain
-                  compliance with the Fair Credit Reporting Act, the Driver
-                  Privacy Protection Act, and various other state laws and
-                  regulations, we must verify the legitimacy of all accounts. We
-                  reserve the right to limit access to our services based upon
-                  verification of your business.
-                </p>
-
                 <div
                   style={{
-                    height: "1px",
-                    background: "#E9EAEB",
-                  }}
-                ></div>
-
-                <p
-                  style={{
-                    fontSize: "16px",
-                    color: "#181D27",
-                    margin: 0,
-                    lineHeight: "24px",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "16px",
+                    alignSelf: "stretch",
                   }}
                 >
-                  This form must be completed by an officer of the company or
-                  other individual authorized to enter into a legal contract on
-                  behalf of your company.{" "}
-                  <strong>
-                    If you have any questions, please call{" "}
-                    <span
-                      style={{
-                        color: "#273572",
-                        textDecoration: "underline",
-                      }}
-                    >
-                      800-777-7777
-                    </span>
-                    .
-                  </strong>
-                </p>
-
-                <div
-                  style={{
-                    height: "1px",
-                    background: "#E9EAEB",
-                  }}
-                ></div>
-
-                <div>
-                  <h3
+                  <p
                     style={{
                       fontSize: "16px",
-                      fontWeight: 600,
-                      color: "#414651",
-                      margin: "0 0 8px 0",
+                      color: "#181D27",
+                      margin: 0,
                       lineHeight: "24px",
                     }}
                   >
-                    Lifetime Subscription Fee
-                  </h3>
+                    The information provided is sensitive in nature. To maintain
+                    compliance with the Fair Credit Reporting Act, the Driver
+                    Privacy Protection Act, and various other state laws and
+                    regulations, we must verify the legitimacy of all accounts.
+                    We reserve the right to limit access to our services based
+                    upon verification of your business.
+                  </p>
+
+                  <div
+                    style={{
+                      height: "1px",
+                      background: "#E9EAEB",
+                    }}
+                  ></div>
+
                   <p
                     style={{
                       fontSize: "16px",
@@ -834,268 +792,313 @@ export default function ApplicationForm() {
                       .
                     </strong>
                   </p>
-                </div>
 
-                <div
-                  style={{
-                    height: "1px",
-                    background: "#E9EAEB",
-                  }}
-                ></div>
-
-                <div>
-                  <h3
-                    style={{
-                      fontSize: "16px",
-                      fontWeight: 600,
-                      color: "#414651",
-                      margin: "0 0 8px 0",
-                      lineHeight: "24px",
-                    }}
-                  >
-                    Onsite Inspection Fee
-                  </h3>
-                  <p
-                    style={{
-                      fontSize: "16px",
-                      color: "#181D27",
-                      margin: "0 0 16px 0",
-                      lineHeight: "24px",
-                    }}
-                  >
-                    If you would like to purchase motor vehicle reports (MVR's)
-                    or credit report based products such as Trac, Credit
-                    Reports, Trac to Criminal History, an onsite inspection of
-                    your business is required. This fee is $99 and is usually
-                    completed within five business days.
-                  </p>
                   <div
                     style={{
-                      display: "flex",
-                      gap: "10px",
-                      flexWrap: "wrap",
+                      height: "1px",
+                      background: "#E9EAEB",
                     }}
-                  >
-                    {/* Payment Icons */}
-                    <div
+                  ></div>
+
+                  <div>
+                    <h3
                       style={{
-                        width: "58px",
-                        height: "40px",
-                        border: "1px solid #E9EAEB",
-                        borderRadius: "6px",
-                        background: "#FFF",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
+                        fontSize: "16px",
+                        fontWeight: 600,
+                        color: "#414651",
+                        margin: "0 0 8px 0",
+                        lineHeight: "24px",
                       }}
                     >
-                      <svg
-                        width="40"
-                        height="14"
-                        viewBox="0 0 40 14"
-                        fill="none"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M9.91709 13.4304H6.48419L3.90993 3.32063C3.78775 2.85558 3.52831 2.44444 3.14669 2.25067C2.19432 1.76372 1.14486 1.37618 5.72205e-06 1.18072V0.791494H5.53014C6.29338 0.791494 6.86581 1.37618 6.96121 2.05522L8.29688 9.34775L11.7281 0.791494H15.0656L9.91709 13.4304ZM16.9737 13.4304H13.7316L16.4013 0.791494H19.6434L16.9737 13.4304ZM23.8378 4.29286C23.9332 3.61213 24.5057 3.2229 25.1735 3.2229C26.223 3.12518 27.3661 3.32063 28.3202 3.8059L28.8926 1.08468C27.9386 0.695456 26.8891 0.5 25.9367 0.5C22.7901 0.5 20.5003 2.25068 20.5003 4.6804C20.5003 6.52881 22.1222 7.49934 23.2671 8.08403C24.5057 8.66703 24.9827 9.05625 24.8873 9.63925C24.8873 10.5137 23.9332 10.903 22.9809 10.903C21.836 10.903 20.6912 10.6115 19.6434 10.1245L19.0709 12.8474C20.2158 13.3327 21.4544 13.5282 22.5993 13.5282C26.1276 13.6242 28.3202 11.8752 28.3202 9.25002C28.3202 5.94412 23.8378 5.75035 23.8378 4.29286V4.29286ZM39.6667 13.4304L37.0924 0.791494H34.3273C33.7549 0.791494 33.1825 1.18072 32.9917 1.76372L28.2248 13.4304H31.5623L32.2284 11.5837H36.3292L36.7108 13.4304H39.6667ZM34.8044 4.19514L35.7568 8.95854H33.0871L34.8044 4.19514Z"
-                          fill="#172B85"
-                        />
-                      </svg>
-                    </div>
-                    <div
+                      Lifetime Subscription Fee
+                    </h3>
+                    <p
                       style={{
-                        width: "58px",
-                        height: "40px",
-                        border: "1px solid #E9EAEB",
-                        borderRadius: "6px",
-                        background: "#FFF",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        position: "relative",
+                        fontSize: "16px",
+                        color: "#181D27",
+                        margin: 0,
+                        lineHeight: "24px",
                       }}
                     >
-                      <svg
-                        width="37"
-                        height="22"
-                        viewBox="0 0 38 23"
-                        fill="none"
-                        style={{ position: "absolute" }}
-                      >
-                        <path
-                          d="M25.9619 0.38327C32.2034 0.38327 37.2637 5.38308 37.2637 11.5503C37.2635 17.7173 32.2033 22.7163 25.9619 22.7163C23.1635 22.7162 20.6046 21.7091 18.6309 20.0444C16.6572 21.7087 14.0989 22.7163 11.3008 22.7163C5.05961 22.7161 0.00017891 17.7172 0 11.5503C0 5.3832 5.0595 0.383466 11.3008 0.38327C14.0986 0.38327 16.6573 1.39016 18.6309 3.05417C20.6045 1.38975 23.1638 0.383315 25.9619 0.38327Z"
-                          fill="#ED0006"
-                        />
-                      </svg>
-                      <svg
-                        width="19"
-                        height="22"
-                        viewBox="0 0 20 23"
-                        fill="none"
-                        style={{
-                          position: "absolute",
-                          left: "29px",
-                        }}
-                      >
-                        <path
-                          d="M7.96167 0.38327C14.2031 0.38327 19.2634 5.38308 19.2634 11.5503C19.2632 17.7173 14.203 22.7163 7.96167 22.7163C5.16376 22.7162 2.60516 21.7096 0.631592 20.0454C3.06037 17.9973 4.6022 14.9525 4.60229 11.5503C4.60229 8.14777 3.06054 5.10233 0.631592 3.05417C2.60514 1.39002 5.16384 0.383366 7.96167 0.38327Z"
-                          fill="#F9A000"
-                        />
-                      </svg>
-                      <svg
-                        width="8"
-                        height="17"
-                        viewBox="0 0 9 18"
-                        fill="none"
-                        style={{
-                          position: "absolute",
-                          left: "25px",
-                          top: "13px",
-                        }}
-                      >
-                        <path
-                          d="M4.63074 0.053833C7.06007 2.102 8.60242 5.14713 8.60242 8.54993C8.60242 11.9525 7.05979 14.9969 4.63074 17.045C2.2023 14.9969 0.661011 11.952 0.661011 8.54993C0.661011 5.14762 2.20202 2.10199 4.63074 0.053833Z"
-                          fill="#FF5E00"
-                        />
-                      </svg>
-                    </div>
-                    <div
+                      This form must be completed by an officer of the company
+                      or other individual authorized to enter into a legal
+                      contract on behalf of your company.{" "}
+                      <strong>
+                        If you have any questions, please call{" "}
+                        <span
+                          style={{
+                            color: "#273572",
+                            textDecoration: "underline",
+                          }}
+                        >
+                          800-777-7777
+                        </span>
+                        .
+                      </strong>
+                    </p>
+                  </div>
+
+                  <div
+                    style={{
+                      height: "1px",
+                      background: "#E9EAEB",
+                    }}
+                  ></div>
+
+                  <div>
+                    <h3
                       style={{
-                        width: "58px",
-                        height: "40px",
-                        border: "1px solid #E9EAEB",
-                        borderRadius: "6px",
-                        background: "#FFF",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        position: "relative",
+                        fontSize: "16px",
+                        fontWeight: 600,
+                        color: "#414651",
+                        margin: "0 0 8px 0",
+                        lineHeight: "24px",
                       }}
                     >
-                      <svg
-                        width="47"
-                        height="8"
-                        viewBox="0 0 48 9"
-                        fill="none"
-                        style={{
-                          position: "absolute",
-                          left: "5px",
-                          top: "15px",
-                        }}
-                      >
-                        <path
-                          d="M18.6406 0.18457C19.2504 0.18457 19.9481 0.274633 20.4707 0.632812V2.42383C20.0352 1.88656 19.3375 1.52832 18.6406 1.52832C17.2472 1.61812 16.1151 2.8712 16.2021 4.30371V4.48242C16.2021 5.91514 17.3348 6.99023 18.7285 6.99023C19.4252 6.99012 20.0352 6.63191 20.4707 6.09473V7.88574C19.8609 8.15438 19.2506 8.33301 18.5537 8.33301C16.3761 8.33285 14.6338 6.4524 14.6338 4.21387C14.634 1.88605 16.3762 0.0057902 18.6406 0.18457ZM32.3174 5.55762L34.4072 0.18457H35.9756L32.7529 8.33301H31.9688L28.7451 0.18457H30.3135L32.3174 5.55762ZM11.6729 0.00585938C12.4567 0.0059819 13.2409 0.364189 13.8506 0.901367L13.0664 1.97559C12.718 1.61741 12.2822 1.34864 11.8467 1.34863C11.3241 1.25911 10.8889 1.70696 10.8018 2.24414C10.8018 2.69185 11.0626 2.87133 11.9336 3.22949C13.6758 3.94585 14.1111 4.48308 14.1982 5.55762V5.82617C14.1111 7.25883 12.9787 8.33368 11.585 8.24414C10.5398 8.24401 9.49426 7.70655 8.97168 6.72168L9.93066 5.73633C10.192 6.36309 10.8013 6.81144 11.498 6.81152H11.585C12.1075 6.81152 12.6306 6.27407 12.6309 5.64746C12.6309 5.28929 12.4566 5.01991 12.1953 4.84082C11.8469 4.66173 11.4978 4.4831 11.1494 4.39355C9.75592 3.94584 9.32031 3.3186 9.32031 2.24414V2.1543C9.40762 0.900868 10.4535 -0.0836756 11.6729 0.00585938ZM2.61328 0.18457C4.70372 0.274134 6.35837 2.06498 6.27148 4.21387C6.27148 5.37791 5.74895 6.45289 4.87793 7.25879C4.094 7.88552 3.13584 8.24382 2.17773 8.1543H0V0.18457H2.61328ZM8.3623 8.1543H6.88184V0.18457H8.3623V8.1543ZM40.8535 1.52832H38.1533V3.31836H40.7666V4.66211H38.1533V6.81152H40.8535V8.1543H36.6729V0.18457H40.8535V1.52832ZM43.9893 0.18457C45.7313 0.184582 46.6894 0.990575 46.6895 2.5127C46.7766 3.67678 45.9926 4.66173 44.9473 4.84082L47.2988 8.1543H45.4697L43.4668 4.93066H43.292V8.1543H41.8115V0.18457H43.9893ZM3.91992 2.1543C3.39728 1.70667 2.6128 1.43782 1.91602 1.52734H1.48047V6.81055H1.91602C2.61288 6.90009 3.39727 6.63132 3.91992 6.18359C4.44223 5.64647 4.704 4.93053 4.7041 4.125C4.70406 3.4087 4.44252 2.69152 3.91992 2.1543ZM43.292 3.85547H43.7275C44.6856 3.85547 45.122 3.40831 45.1221 2.60254C45.122 1.88627 44.6857 1.43848 43.7275 1.43848H43.292V3.85547Z"
-                          fill="black"
-                        />
-                      </svg>
-                      <svg
-                        width="8"
-                        height="8"
-                        viewBox="0 0 9 9"
-                        fill="none"
-                        style={{
-                          position: "absolute",
-                          left: "26px",
-                          top: "15px",
-                        }}
-                      >
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M4.91285 0C2.73515 0 0.905884 1.7909 0.905884 4.11907C0.905884 6.35769 2.64804 8.23813 4.91285 8.32768C7.17765 8.41722 8.91981 6.53678 9.00692 4.20861C8.91981 1.88044 7.17765 0 4.91285 0V0Z"
-                          fill="#FD6020"
-                        />
-                      </svg>
-                      <svg
-                        width="19"
-                        height="6"
-                        viewBox="0 0 19 6"
-                        fill="none"
-                        style={{
-                          position: "absolute",
-                          left: "37px",
-                          top: "33px",
-                        }}
-                      >
-                        <path
-                          d="M0 6L19 0.25V3C19 4.65685 17.6569 6 16 6H0Z"
-                          fill="#FD6020"
-                        />
-                      </svg>
-                    </div>
-                    <div
+                      Onsite Inspection Fee
+                    </h3>
+                    <p
                       style={{
-                        width: "58px",
-                        height: "40px",
-                        border: "1px solid #E9EAEB",
-                        borderRadius: "6px",
-                        background: "#1F72CD",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
+                        fontSize: "16px",
+                        color: "#181D27",
+                        margin: "0 0 16px 0",
+                        lineHeight: "24px",
                       }}
                     >
-                      <svg
-                        width="47"
-                        height="12"
-                        viewBox="0 0 48 13"
-                        fill="none"
+                      If you would like to purchase motor vehicle reports
+                      (MVR's) or credit report based products such as Trac,
+                      Credit Reports, Trac to Criminal History, an onsite
+                      inspection of your business is required. This fee is $99
+                      and is usually completed within five business days.
+                    </p>
+                    <div
+                      style={{
+                        display: "flex",
+                        gap: "10px",
+                        flexWrap: "wrap",
+                      }}
+                    >
+                      {/* Payment Icons */}
+                      <div
+                        style={{
+                          width: "58px",
+                          height: "40px",
+                          border: "1px solid #E9EAEB",
+                          borderRadius: "6px",
+                          background: "#FFF",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
                       >
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M6.15903 0.166656L0.857178 12.2446H7.20424L7.99109 10.3188H9.78965L10.5765 12.2446H17.5628V10.7748L18.1854 12.2446H21.7992L22.4218 10.7437V12.2446H36.9514L38.7182 10.3689L40.3725 12.2446L47.8352 12.2601L42.5166 6.23933L47.8352 0.166656H40.4882L38.7684 2.0077L37.1662 0.166656H21.3598L20.0025 3.28407L18.6134 0.166656H12.2796V1.58642L11.575 0.166656H6.15903ZM7.38715 1.88174H10.481L13.9977 10.0718V1.88174H17.3869L20.1032 7.754L22.6065 1.88174H25.9788V10.5484H23.9268L23.9101 3.75726L20.9185 10.5484H19.083L16.0747 3.75726V10.5484H11.8534L11.0531 8.60547H6.72948L5.93085 10.5467H3.66912L7.38715 1.88174ZM36.1997 1.88174H27.8561V10.5433H36.0705L38.7182 7.67273L41.2701 10.5433H43.9378L40.0604 6.23763L43.9378 1.88174H41.3858L38.7516 4.71937L36.1997 1.88174ZM8.8922 3.34809L7.46774 6.80932H10.315L8.8922 3.34809ZM29.9165 5.25827V3.67617V3.67465H35.1227L37.3944 6.20484L35.022 8.74885H29.9165V7.02165H34.4683V5.25827H29.9165Z"
-                          fill="white"
-                        />
-                      </svg>
+                        <svg
+                          width="40"
+                          height="14"
+                          viewBox="0 0 40 14"
+                          fill="none"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M9.91709 13.4304H6.48419L3.90993 3.32063C3.78775 2.85558 3.52831 2.44444 3.14669 2.25067C2.19432 1.76372 1.14486 1.37618 5.72205e-06 1.18072V0.791494H5.53014C6.29338 0.791494 6.86581 1.37618 6.96121 2.05522L8.29688 9.34775L11.7281 0.791494H15.0656L9.91709 13.4304ZM16.9737 13.4304H13.7316L16.4013 0.791494H19.6434L16.9737 13.4304ZM23.8378 4.29286C23.9332 3.61213 24.5057 3.2229 25.1735 3.2229C26.223 3.12518 27.3661 3.32063 28.3202 3.8059L28.8926 1.08468C27.9386 0.695456 26.8891 0.5 25.9367 0.5C22.7901 0.5 20.5003 2.25068 20.5003 4.6804C20.5003 6.52881 22.1222 7.49934 23.2671 8.08403C24.5057 8.66703 24.9827 9.05625 24.8873 9.63925C24.8873 10.5137 23.9332 10.903 22.9809 10.903C21.836 10.903 20.6912 10.6115 19.6434 10.1245L19.0709 12.8474C20.2158 13.3327 21.4544 13.5282 22.5993 13.5282C26.1276 13.6242 28.3202 11.8752 28.3202 9.25002C28.3202 5.94412 23.8378 5.75035 23.8378 4.29286V4.29286ZM39.6667 13.4304L37.0924 0.791494H34.3273C33.7549 0.791494 33.1825 1.18072 32.9917 1.76372L28.2248 13.4304H31.5623L32.2284 11.5837H36.3292L36.7108 13.4304H39.6667ZM34.8044 4.19514L35.7568 8.95854H33.0871L34.8044 4.19514Z"
+                            fill="#172B85"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        style={{
+                          width: "58px",
+                          height: "40px",
+                          border: "1px solid #E9EAEB",
+                          borderRadius: "6px",
+                          background: "#FFF",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          position: "relative",
+                        }}
+                      >
+                        <svg
+                          width="37"
+                          height="22"
+                          viewBox="0 0 38 23"
+                          fill="none"
+                          style={{ position: "absolute" }}
+                        >
+                          <path
+                            d="M25.9619 0.38327C32.2034 0.38327 37.2637 5.38308 37.2637 11.5503C37.2635 17.7173 32.2033 22.7163 25.9619 22.7163C23.1635 22.7162 20.6046 21.7091 18.6309 20.0444C16.6572 21.7087 14.0989 22.7163 11.3008 22.7163C5.05961 22.7161 0.00017891 17.7172 0 11.5503C0 5.3832 5.0595 0.383466 11.3008 0.38327C14.0986 0.38327 16.6573 1.39016 18.6309 3.05417C20.6045 1.38975 23.1638 0.383315 25.9619 0.38327Z"
+                            fill="#ED0006"
+                          />
+                        </svg>
+                        <svg
+                          width="19"
+                          height="22"
+                          viewBox="0 0 20 23"
+                          fill="none"
+                          style={{
+                            position: "absolute",
+                            left: "29px",
+                          }}
+                        >
+                          <path
+                            d="M7.96167 0.38327C14.2031 0.38327 19.2634 5.38308 19.2634 11.5503C19.2632 17.7173 14.203 22.7163 7.96167 22.7163C5.16376 22.7162 2.60516 21.7096 0.631592 20.0454C3.06037 17.9973 4.6022 14.9525 4.60229 11.5503C4.60229 8.14777 3.06054 5.10233 0.631592 3.05417C2.60514 1.39002 5.16384 0.383366 7.96167 0.38327Z"
+                            fill="#F9A000"
+                          />
+                        </svg>
+                        <svg
+                          width="8"
+                          height="17"
+                          viewBox="0 0 9 18"
+                          fill="none"
+                          style={{
+                            position: "absolute",
+                            left: "25px",
+                            top: "13px",
+                          }}
+                        >
+                          <path
+                            d="M4.63074 0.053833C7.06007 2.102 8.60242 5.14713 8.60242 8.54993C8.60242 11.9525 7.05979 14.9969 4.63074 17.045C2.2023 14.9969 0.661011 11.952 0.661011 8.54993C0.661011 5.14762 2.20202 2.10199 4.63074 0.053833Z"
+                            fill="#FF5E00"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        style={{
+                          width: "58px",
+                          height: "40px",
+                          border: "1px solid #E9EAEB",
+                          borderRadius: "6px",
+                          background: "#FFF",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          position: "relative",
+                        }}
+                      >
+                        <svg
+                          width="47"
+                          height="8"
+                          viewBox="0 0 48 9"
+                          fill="none"
+                          style={{
+                            position: "absolute",
+                            left: "5px",
+                            top: "15px",
+                          }}
+                        >
+                          <path
+                            d="M18.6406 0.18457C19.2504 0.18457 19.9481 0.274633 20.4707 0.632812V2.42383C20.0352 1.88656 19.3375 1.52832 18.6406 1.52832C17.2472 1.61812 16.1151 2.8712 16.2021 4.30371V4.48242C16.2021 5.91514 17.3348 6.99023 18.7285 6.99023C19.4252 6.99012 20.0352 6.63191 20.4707 6.09473V7.88574C19.8609 8.15438 19.2506 8.33301 18.5537 8.33301C16.3761 8.33285 14.6338 6.4524 14.6338 4.21387C14.634 1.88605 16.3762 0.0057902 18.6406 0.18457ZM32.3174 5.55762L34.4072 0.18457H35.9756L32.7529 8.33301H31.9688L28.7451 0.18457H30.3135L32.3174 5.55762ZM11.6729 0.00585938C12.4567 0.0059819 13.2409 0.364189 13.8506 0.901367L13.0664 1.97559C12.718 1.61741 12.2822 1.34864 11.8467 1.34863C11.3241 1.25911 10.8889 1.70696 10.8018 2.24414C10.8018 2.69185 11.0626 2.87133 11.9336 3.22949C13.6758 3.94585 14.1111 4.48308 14.1982 5.55762V5.82617C14.1111 7.25883 12.9787 8.33368 11.585 8.24414C10.5398 8.24401 9.49426 7.70655 8.97168 6.72168L9.93066 5.73633C10.192 6.36309 10.8013 6.81144 11.498 6.81152H11.585C12.1075 6.81152 12.6306 6.27407 12.6309 5.64746C12.6309 5.28929 12.4566 5.01991 12.1953 4.84082C11.8469 4.66173 11.4978 4.4831 11.1494 4.39355C9.75592 3.94584 9.32031 3.3186 9.32031 2.24414V2.1543C9.40762 0.900868 10.4535 -0.0836756 11.6729 0.00585938ZM2.61328 0.18457C4.70372 0.274134 6.35837 2.06498 6.27148 4.21387C6.27148 5.37791 5.74895 6.45289 4.87793 7.25879C4.094 7.88552 3.13584 8.24382 2.17773 8.1543H0V0.18457H2.61328ZM8.3623 8.1543H6.88184V0.18457H8.3623V8.1543ZM40.8535 1.52832H38.1533V3.31836H40.7666V4.66211H38.1533V6.81152H40.8535V8.1543H36.6729V0.18457H40.8535V1.52832ZM43.9893 0.18457C45.7313 0.184582 46.6894 0.990575 46.6895 2.5127C46.7766 3.67678 45.9926 4.66173 44.9473 4.84082L47.2988 8.1543H45.4697L43.4668 4.93066H43.292V8.1543H41.8115V0.18457H43.9893ZM3.91992 2.1543C3.39728 1.70667 2.6128 1.43782 1.91602 1.52734H1.48047V6.81055H1.91602C2.61288 6.90009 3.39727 6.63132 3.91992 6.18359C4.44223 5.64647 4.704 4.93053 4.7041 4.125C4.70406 3.4087 4.44252 2.69152 3.91992 2.1543ZM43.292 3.85547H43.7275C44.6856 3.85547 45.122 3.40831 45.1221 2.60254C45.122 1.88627 44.6857 1.43848 43.7275 1.43848H43.292V3.85547Z"
+                            fill="black"
+                          />
+                        </svg>
+                        <svg
+                          width="8"
+                          height="8"
+                          viewBox="0 0 9 9"
+                          fill="none"
+                          style={{
+                            position: "absolute",
+                            left: "26px",
+                            top: "15px",
+                          }}
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M4.91285 0C2.73515 0 0.905884 1.7909 0.905884 4.11907C0.905884 6.35769 2.64804 8.23813 4.91285 8.32768C7.17765 8.41722 8.91981 6.53678 9.00692 4.20861C8.91981 1.88044 7.17765 0 4.91285 0V0Z"
+                            fill="#FD6020"
+                          />
+                        </svg>
+                        <svg
+                          width="19"
+                          height="6"
+                          viewBox="0 0 19 6"
+                          fill="none"
+                          style={{
+                            position: "absolute",
+                            left: "37px",
+                            top: "33px",
+                          }}
+                        >
+                          <path
+                            d="M0 6L19 0.25V3C19 4.65685 17.6569 6 16 6H0Z"
+                            fill="#FD6020"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        style={{
+                          width: "58px",
+                          height: "40px",
+                          border: "1px solid #E9EAEB",
+                          borderRadius: "6px",
+                          background: "#1F72CD",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <svg
+                          width="47"
+                          height="12"
+                          viewBox="0 0 48 13"
+                          fill="none"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M6.15903 0.166656L0.857178 12.2446H7.20424L7.99109 10.3188H9.78965L10.5765 12.2446H17.5628V10.7748L18.1854 12.2446H21.7992L22.4218 10.7437V12.2446H36.9514L38.7182 10.3689L40.3725 12.2446L47.8352 12.2601L42.5166 6.23933L47.8352 0.166656H40.4882L38.7684 2.0077L37.1662 0.166656H21.3598L20.0025 3.28407L18.6134 0.166656H12.2796V1.58642L11.575 0.166656H6.15903ZM7.38715 1.88174H10.481L13.9977 10.0718V1.88174H17.3869L20.1032 7.754L22.6065 1.88174H25.9788V10.5484H23.9268L23.9101 3.75726L20.9185 10.5484H19.083L16.0747 3.75726V10.5484H11.8534L11.0531 8.60547H6.72948L5.93085 10.5467H3.66912L7.38715 1.88174ZM36.1997 1.88174H27.8561V10.5433H36.0705L38.7182 7.67273L41.2701 10.5433H43.9378L40.0604 6.23763L43.9378 1.88174H41.3858L38.7516 4.71937L36.1997 1.88174ZM8.8922 3.34809L7.46774 6.80932H10.315L8.8922 3.34809ZM29.9165 5.25827V3.67617V3.67465H35.1227L37.3944 6.20484L35.022 8.74885H29.9165V7.02165H34.4683V5.25827H29.9165Z"
+                            fill="white"
+                          />
+                        </svg>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div
-                  style={{
-                    height: "1px",
-                    background: "#E9EAEB",
-                  }}
-                ></div>
+                  <div
+                    style={{
+                      height: "1px",
+                      background: "#E9EAEB",
+                    }}
+                  ></div>
 
-                <div>
-                  <h3
-                    style={{
-                      fontSize: "16px",
-                      fontWeight: 600,
-                      color: "#414651",
-                      margin: "0 0 8px 0",
-                      lineHeight: "24px",
-                    }}
-                  >
-                    PDF Recommendation
-                  </h3>
-                  <p
-                    style={{
-                      fontSize: "16px",
-                      color: "#181D27",
-                      margin: "0 0 16px 0",
-                      lineHeight: "24px",
-                    }}
-                  >
-                    Many of our documents are in Adobe Portable Document Format
-                    (PDF). To view a PDF, you must have the Adobe Acrobat Reader
-                    9.0 or higher software installed on your computer. To
-                    download the software, click on the adjacent button.
-                  </p>
-                  <img
-                    src="https://api.builder.io/api/v1/image/assets/TEMP/6422fb8920e29f2d9842322e06055075310068b3?width=176"
-                    alt="Get Adobe Reader"
-                    style={{
-                      width: "88px",
-                      height: "31px",
-                    }}
-                  />
+                  <div>
+                    <h3
+                      style={{
+                        fontSize: "16px",
+                        fontWeight: 600,
+                        color: "#414651",
+                        margin: "0 0 8px 0",
+                        lineHeight: "24px",
+                      }}
+                    >
+                      PDF Recommendation
+                    </h3>
+                    <p
+                      style={{
+                        fontSize: "16px",
+                        color: "#181D27",
+                        margin: "0 0 16px 0",
+                        lineHeight: "24px",
+                      }}
+                    >
+                      Many of our documents are in Adobe Portable Document
+                      Format (PDF). To view a PDF, you must have the Adobe
+                      Acrobat Reader 9.0 or higher software installed on your
+                      computer. To download the software, click on the adjacent
+                      button.
+                    </p>
+                    <img
+                      src="https://api.builder.io/api/v1/image/assets/TEMP/6422fb8920e29f2d9842322e06055075310068b3?width=176"
+                      alt="Get Adobe Reader"
+                      style={{
+                        width: "88px",
+                        height: "31px",
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
             )}
           </div>
         </div>
@@ -1215,8 +1218,7 @@ export default function ApplicationForm() {
                           lineHeight: "20px",
                         }}
                       >
-                        Company Name{" "}
-                        <span style={{ color: "#344698" }}>*</span>
+                        Company Name <span style={{ color: "#344698" }}>*</span>
                       </label>
                       <input
                         type="text"
@@ -1657,8 +1659,8 @@ export default function ApplicationForm() {
                         }}
                       >
                         Pre-checked items are your most commonly ordered
-                        services. Any additional items you order will be added to
-                        your bill.
+                        services. Any additional items you order will be added
+                        to your bill.
                       </span>
                     </div>
 
@@ -2141,7 +2143,12 @@ export default function ApplicationForm() {
                     >
                       Please describe the nature of your business. (Maximum of
                       250 characters)
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                      >
                         <path
                           d="M6.05998 5.99998C6.21672 5.55442 6.52608 5.17872 6.93328 4.9394C7.34048 4.70009 7.81924 4.61261 8.28476 4.69245C8.75028 4.7723 9.17252 5.01433 9.4767 5.37567C9.78087 5.737 9.94735 6.19433 9.94665 6.66665C9.94665 7.99998 7.94665 8.66665 7.94665 8.66665M7.99998 11.3333H8.00665M14.6666 7.99998C14.6666 11.6819 11.6819 14.6666 7.99998 14.6666C4.31808 14.6666 1.33331 11.6819 1.33331 7.99998C1.33331 4.31808 4.31808 1.33331 7.99998 1.33331C11.6819 1.33331 14.6666 4.31808 14.6666 7.99998Z"
                           stroke="#A4A7AE"
