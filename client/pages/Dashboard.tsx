@@ -694,10 +694,6 @@ export default function Dashboard() {
 
     const routeMap: Record<string, string> = {
       "online-ordering": "/online-ordering",
-      "i9-order": "/i9-order",
-      "batch-orders": "/batch-orders",
-      "quick-order": "/quick-order",
-      "quick-court-order": "/quick-court-order",
     };
 
     const path = routeMap[shortcut.type];
