@@ -89,6 +89,9 @@ export default function ApplicationForm() {
     "adminName",
     "adminEmail",
     "adminConfirmEmail",
+    "confirmationName",
+    "confirmationTitle",
+    "agreeToTerms",
   ];
 
   const handleInputChange = (
