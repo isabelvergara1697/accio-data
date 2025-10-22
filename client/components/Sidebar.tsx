@@ -61,11 +61,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   // Keep accordions open for related pages
   useEffect(() => {
     const currentPath = location.pathname;
-    if (currentPath === "/document-library" || currentPath === "/resources") {
-      if (!openAccordions.includes("support")) {
-        setOpenAccordions((prev) => [...prev, "support"]);
-      }
-    } else if (currentPath === "/invites-orders") {
+    if (currentPath === "/invites-orders") {
       if (!openAccordions.includes("screening")) {
         setOpenAccordions((prev) => [...prev, "screening"]);
       }
