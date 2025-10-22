@@ -140,6 +140,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     "Quick Court Order",
     "Document Library",
     "Resources",
+    "Account",
     "ID Verification Status",
     "Adjudication Statuses",
     "Adverse Action Letters",
