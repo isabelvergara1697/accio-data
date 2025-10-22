@@ -9,6 +9,7 @@ export default function ApplicationForm() {
     [key: string]: boolean;
   }>({
     generalInformation: true,
+    administrativeContact: false,
   });
 
   const [formData, setFormData] = useState({
