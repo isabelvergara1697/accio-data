@@ -48,6 +48,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onOpenQuickOrderDrawer,
   onOpenSSNOrderDrawer,
   onOpenNotificationModal,
+  onboardingStep = 0,
+  setOnboardingStep,
+  completedSteps = [],
+  setCompletedSteps,
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
