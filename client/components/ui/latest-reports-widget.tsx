@@ -640,107 +640,57 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
               minWidth: 0,
             }}
           >
-            {mockReportsData.map((report, index) => (
-              <div
-                key={index}
-                onClick={() => navigate(`/order-details/${report.order}`)}
-                style={{
-                  display: "flex",
-                  height: "52px",
-                  alignItems: "center",
-                  alignSelf: "stretch",
-                  minWidth: 0,
-                  borderBottom:
-                    index < mockReportsData.length - 1
-                      ? "1px solid #E9EAEB"
-                      : "none",
-                  background: "#FFF",
-                  cursor: "pointer",
-                  position: "relative",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#F9FAFB";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "#FFF";
-                }}
-              >
-                {/* Order Cell */}
-                {columns.showOrder && (
-                  <div
-                    style={{
-                      display: "flex",
-                      width: "77px",
-                      flexShrink: 0,
-                      padding: "6px 12px",
-                      alignItems: "center",
-                    }}
-                  >
-                    <div
-                      style={{
-                        color: "#535862",
-                        fontFamily: "Public Sans",
-                        fontSize: "14px",
-                        fontWeight: "400",
-                        lineHeight: "20px",
-                      }}
-                    >
-                      {report.order}
-                    </div>
-                  </div>
-                )}
-
-                {/* Status Cell */}
-                {columns.showStatus && (
-                  <div
-                    style={{
-                      display: "flex",
-                      width: "120px",
-                      flexShrink: 0,
-                      padding: "6px 12px",
-                      alignItems: "center",
-                    }}
-                  >
-                    <StatusBadge status={report.status} />
-                  </div>
-                )}
-
-                {/* Requester Cell */}
-                {columns.showRequester && (
-                  <div
-                    style={{
-                      display: "flex",
-                      flex: "1 0 0",
-                      padding: "6px 12px",
-                      alignItems: "center",
-                      minWidth: 0, // Allow truncation
-                    }}
-                  >
+            {mockReportsData.map((report, index) => {
+              const isFirstRow = index === 0;
+              const isSecondRow = index === 1;
+              const isDisabled = !isFirstRow && !isSecondRow;
+              const handleRowClick = () => {
+                if (isFirstRow) {
+                  navigate("/order-details/123456");
+                } else if (isSecondRow) {
+                  navigate("/order-details/999");
+                }
+              };
+              return (
+                <div
+                  key={index}
+                  onClick={handleRowClick}
+                  style={{
+                    display: "flex",
+                    height: "52px",
+                    alignItems: "center",
+                    alignSelf: "stretch",
+                    minWidth: 0,
+                    borderBottom:
+                      index < mockReportsData.length - 1
+                        ? "1px solid #E9EAEB"
+                        : "none",
+                    background: "#FFF",
+                    cursor: isDisabled ? "not-allowed" : "pointer",
+                    position: "relative",
+                    opacity: isDisabled ? 0.5 : 1,
+                    pointerEvents: isDisabled ? "none" : "auto",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isDisabled) {
+                      e.currentTarget.style.background = "#F9FAFB";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "#FFF";
+                  }}
+                >
+                  {/* Order Cell */}
+                  {columns.showOrder && (
                     <div
                       style={{
                         display: "flex",
-                        flexDirection: "column",
-                        alignItems: "flex-start",
-                        flex: "1 0 0",
-                        alignSelf: "stretch",
-                        minWidth: 0, // Allow truncation
+                        width: "77px",
+                        flexShrink: 0,
+                        padding: "6px 12px",
+                        alignItems: "center",
                       }}
                     >
-                      <div
-                        style={{
-                          color: "#181D27",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: "500",
-                          lineHeight: "20px",
-                          overflow: "hidden",
-                          textOverflow: "ellipsis",
-                          whiteSpace: "nowrap",
-                          width: "100%",
-                        }}
-                      >
-                        {report.requester.name}
-                      </div>
                       <div
                         style={{
                           color: "#535862",
@@ -748,86 +698,152 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                           fontSize: "14px",
                           fontWeight: "400",
                           lineHeight: "20px",
-                          overflow: "hidden",
-                          textOverflow: "ellipsis",
-                          whiteSpace: "nowrap",
-                          width: "100%",
                         }}
                       >
-                        {report.requester.email}
+                        {report.order}
                       </div>
                     </div>
-                  </div>
-                )}
+                  )}
 
-                {/* Last Update Cell */}
-                {columns.showLastUpdate && (
-                  <div
-                    style={{
-                      display: "flex",
-                      width: "120px",
-                      flexShrink: 0,
-                      padding: "6px 12px",
-                      alignItems: "center",
-                    }}
-                  >
+                  {/* Status Cell */}
+                  {columns.showStatus && (
                     <div
                       style={{
-                        color: "#535862",
-                        fontFamily: "Public Sans",
-                        fontSize: "14px",
-                        fontWeight: "400",
-                        lineHeight: "20px",
+                        display: "flex",
+                        width: "120px",
+                        flexShrink: 0,
+                        padding: "6px 12px",
+                        alignItems: "center",
                       }}
                     >
-                      {report.lastUpdate}
+                      <StatusBadge status={report.status} />
                     </div>
-                  </div>
-                )}
+                  )}
 
-                {/* ETA Cell */}
-                {columns.showETA && (
-                  <div
-                    style={{
-                      display: "flex",
-                      width: "120px",
-                      flexShrink: 0,
-                      padding: "6px 12px",
-                      alignItems: "center",
-                    }}
-                  >
+                  {/* Requester Cell */}
+                  {columns.showRequester && (
                     <div
                       style={{
-                        color: "#535862",
-                        fontFamily: "Public Sans",
-                        fontSize: "14px",
-                        fontWeight: "400",
-                        lineHeight: "20px",
+                        display: "flex",
+                        flex: "1 0 0",
+                        padding: "6px 12px",
+                        alignItems: "center",
+                        minWidth: 0, // Allow truncation
                       }}
                     >
-                      {report.eta}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          flex: "1 0 0",
+                          alignSelf: "stretch",
+                          minWidth: 0, // Allow truncation
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: "500",
+                            lineHeight: "20px",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                            whiteSpace: "nowrap",
+                            width: "100%",
+                          }}
+                        >
+                          {report.requester.name}
+                        </div>
+                        <div
+                          style={{
+                            color: "#535862",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: "400",
+                            lineHeight: "20px",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                            whiteSpace: "nowrap",
+                            width: "100%",
+                          }}
+                        >
+                          {report.requester.email}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
 
-                {/* Progress Cell */}
-                {columns.showProgress && (
-                  <div
-                    style={{
-                      display: "flex",
-                      width: "107px",
-                      flexShrink: 0,
-                      height: "52px",
-                      padding: "6px 12px",
-                      alignItems: "center",
-                      gap: "12px",
-                    }}
-                  >
-                    <ProgressBar percentage={report.progress} />
-                  </div>
-                )}
-              </div>
-            ))}
+                  {/* Last Update Cell */}
+                  {columns.showLastUpdate && (
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "120px",
+                        flexShrink: 0,
+                        padding: "6px 12px",
+                        alignItems: "center",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#535862",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: "400",
+                          lineHeight: "20px",
+                        }}
+                      >
+                        {report.lastUpdate}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* ETA Cell */}
+                  {columns.showETA && (
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "120px",
+                        flexShrink: 0,
+                        padding: "6px 12px",
+                        alignItems: "center",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#535862",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: "400",
+                          lineHeight: "20px",
+                        }}
+                      >
+                        {report.eta}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Progress Cell */}
+                  {columns.showProgress && (
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "107px",
+                        flexShrink: 0,
+                        height: "52px",
+                        padding: "6px 12px",
+                        alignItems: "center",
+                        gap: "12px",
+                      }}
+                    >
+                      <ProgressBar percentage={report.progress} />
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

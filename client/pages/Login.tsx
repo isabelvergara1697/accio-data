@@ -72,6 +72,11 @@ export default function Login() {
     navigate("/signup");
   };
 
+  const handleSignUpForService = () => {
+    // Navigate to application form for service signup
+    navigate("/sign-up-for-service");
+  };
+
   const handleForgotPassword = () => {
     // Navigate to forgot password page
     navigate("/forgot-password");
@@ -962,6 +967,92 @@ export default function Login() {
                   }}
                 >
                   Sign up
+                </div>
+              </button>
+            </div>
+
+            {/* Divider */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                alignSelf: "stretch",
+              }}
+            >
+              <div
+                style={{
+                  height: "1px",
+                  flex: "1 0 0",
+                  background: "#E9EAEB",
+                }}
+              ></div>
+            </div>
+
+            {/* Service Information Section */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "4px",
+                alignSelf: "stretch",
+              }}
+            >
+              <div
+                style={{
+                  alignSelf: "stretch",
+                  color: "#535862",
+                  textAlign: "center",
+                  fontFamily:
+                    "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "20px",
+                }}
+              >
+                Log in to initiate a background screening or to retrieve your
+                background and drug screening results, or
+              </div>
+              <button
+                type="button"
+                onClick={handleSignUpForService}
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: "4px",
+                  background: "transparent",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) => {
+                  const textElement = e.currentTarget.querySelector("div");
+                  if (textElement) {
+                    textElement.style.color = "#1A234C";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  const textElement = e.currentTarget.querySelector("div");
+                  if (textElement) {
+                    textElement.style.color = "#273572";
+                  }
+                }}
+              >
+                <div
+                  style={{
+                    color: "#273572",
+                    fontFamily:
+                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 600,
+                    lineHeight: "20px",
+                  }}
+                >
+                  Sign up for service.
                 </div>
               </button>
             </div>

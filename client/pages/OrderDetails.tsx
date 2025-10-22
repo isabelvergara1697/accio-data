@@ -34,6 +34,7 @@ import {
 } from "../components/ui/select";
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 import { MoreActionsSubmenu } from "../components/ui/more-actions-submenu";
+import { Checkbox } from "../components/ui/checkbox";
 import { User, X, HelpCircle, ChevronDown } from "lucide-react";
 
 type Note = {
@@ -66,7 +67,7 @@ type ReportSummaryRow = {
 };
 
 const REPORT_SUMMARY_GRID_TEMPLATE =
-  "120px 240px 220px 140px 110px 200px 220px 60px";
+  "98px 120px 240px 220px 140px 110px 200px 220px 60px";
 
 const REPORT_SUMMARY_HEADER_STYLE: React.CSSProperties = {
   color: "#717680",
@@ -101,149 +102,166 @@ const REPORT_SUMMARY_LINK_STYLE: React.CSSProperties = {
   gap: "4px",
 };
 
-const REPORT_SUMMARY_ROWS: ReportSummaryRow[] = [
-  {
-    namedSearch: "Sue Jeans",
-    searchType: { label: "Subject", targetId: "subject" },
-    county: "Harris",
-    state: "Texas",
-    researchResult: "Completed - Verified",
-    searchId: "845841254/451254",
-    documentLabel: "Subject_Profile.pdf",
-  },
-  {
-    namedSearch: "Sue Jeans",
-    searchType: {
-      label: "Resume Validation",
-      targetId: "resume-validation",
+const getReportSummaryRows = (orderId?: string): ReportSummaryRow[] => {
+  const primaryName = orderId === "999" ? "John Doe" : "Sue Jeans";
+  const secondaryName = orderId === "999" ? "Doe, John" : "Sue DD";
+
+  const allRows = [
+    {
+      namedSearch: primaryName,
+      searchType: { label: "Subject", targetId: "subject" },
+      county: "Harris",
+      state: "Texas",
+      researchResult: "Completed - Verified",
+      searchId: "845841254/451254",
+      documentLabel: "Subject_Profile.pdf",
     },
-    county: "Harris",
-    state: "Texas",
-    researchResult: "Completed - Verified",
-    searchId: "845841254/451255",
-    documentLabel: "Resume_Submission.pdf",
-  },
-  {
-    namedSearch: "Sue Jeans",
-    searchType: {
-      label: "Employment at Jerrys",
-      targetId: "employment-at-jerrys-tx",
+    {
+      namedSearch: primaryName,
+      searchType: {
+        label: "Resume Validation",
+        targetId: "resume-validation",
+      },
+      county: "Harris",
+      state: "Texas",
+      researchResult: "Completed - Verified",
+      searchId: "845841254/451255",
+      documentLabel: "Resume_Submission.pdf",
     },
-    county: "",
-    state: "Texas",
-    researchResult: "Completed - Verified",
-    searchId: "845841254/451256",
-    documentLabel: "Employment_Verification.pdf",
-  },
-  {
-    namedSearch: "Sue Jeans",
-    searchType: {
-      label: "Education at Brown Community College",
-      targetId: "education-at-brown-community-college",
+    {
+      namedSearch: primaryName,
+      searchType: {
+        label: "Employment at Jerrys",
+        targetId: "employment-at-jerrys-tx",
+      },
+      county: "",
+      state: "Texas",
+      researchResult: "Completed - Verified",
+      searchId: "845841254/451256",
+      documentLabel: "Employment_Verification.pdf",
     },
-    county: "",
-    state: "Texas",
-    researchResult: "Completed - Verified",
-    searchId: "845841254/451257",
-    documentLabel: "Education_Transcript.pdf",
-  },
-  {
-    namedSearch: "Sue DD",
-    searchType: {
-      label: "Countywide Criminal History",
-      targetId: "countywide-criminal-history",
+    {
+      namedSearch: primaryName,
+      searchType: {
+        label: "Education at Brown Community College",
+        targetId: "education-at-brown-community-college",
+      },
+      county: "",
+      state: "Texas",
+      researchResult: "Completed - Verified",
+      searchId: "845841254/451257",
+      documentLabel: "Education_Transcript.pdf",
     },
-    county: "Bossier",
-    state: "LA",
-    researchResult: "Completed - Verified",
-    searchId: "845841254/451258",
-    documentLabel: "Criminal_History_Report.pdf",
-  },
-  {
-    namedSearch: "Sue DD",
-    searchType: { label: "MJD", targetId: "mjd" },
-    county: "",
-    state: "Texas",
-    researchResult: "Completed - Verified",
-    searchId: "845841254/451259",
-    documentLabel: "MJD_Process_Record.pdf",
-  },
-  {
-    namedSearch: "Sue Jeans",
-    searchType: {
-      label: "Nationwide Federal Crime",
-      targetId: "nationwide-federal-crime",
+    {
+      namedSearch: secondaryName,
+      searchType: {
+        label: "Countywide Criminal History",
+        targetId: "countywide-criminal-history",
+      },
+      county: "Bossier",
+      state: "LA",
+      researchResult: "Completed - Verified",
+      searchId: "845841254/451258",
+      documentLabel: "Criminal_History_Report.pdf",
     },
-    county: "Bossier",
-    state: "LA",
-    researchResult: "Completed - Verified",
-    searchId: "845841254/451260",
-    documentLabel: "Federal_Crime_Check.pdf",
-  },
-  {
-    namedSearch: "Sue DD",
-    searchType: {
-      label: "Professional References",
-      targetId: "professional-references",
+    {
+      namedSearch: secondaryName,
+      searchType: { label: "MJD", targetId: "mjd" },
+      county: "",
+      state: "Texas",
+      researchResult: "Completed - Verified",
+      searchId: "845841254/451259",
+      documentLabel: "MJD_Process_Record.pdf",
     },
-    county: "",
-    state: "Texas",
-    researchResult: "Completed - Verified",
-    searchId: "845841254/451261",
-    documentLabel: "Professional_References.docx",
-  },
-  {
-    namedSearch: "Sue DD",
-    searchType: {
-      label: "Credentials-Professional License #1",
-      targetId: "credentials-professional-license",
+    {
+      namedSearch: primaryName,
+      searchType: {
+        label: "Nationwide Federal Crime",
+        targetId: "nationwide-federal-crime",
+      },
+      county: "Bossier",
+      state: "LA",
+      researchResult: "Completed - Verified",
+      searchId: "845841254/451260",
+      documentLabel: "Federal_Crime_Check.pdf",
     },
-    county: "",
-    state: "Texas",
-    researchResult: "Completed - Verified",
-    searchId: "845841254/451262",
-    documentLabel: "License_Credential.pdf",
-  },
-  {
-    namedSearch: "Sue Jeans",
-    searchType: {
-      label: "Motor Vehicle Driving History",
-      targetId: "motor-vehicle-driving-history",
+    {
+      namedSearch: secondaryName,
+      searchType: {
+        label: "Professional References",
+        targetId: "professional-references",
+      },
+      county: "",
+      state: "Texas",
+      researchResult: "Completed - Verified",
+      searchId: "845841254/451261",
+      documentLabel: "Professional_References.docx",
     },
-    county: "Bossier",
-    state: "LA",
-    researchResult: "Completed - Verified",
-    searchId: "845841254/451263",
-    documentLabel: "Motor_Vehicle_Record.pdf",
-  },
-  {
-    namedSearch: "Sue Jeans",
-    searchType: { label: "E-Verify", targetId: "e-verify" },
-    county: "Bossier",
-    state: "LA",
-    researchResult: "Completed - Verified",
-    searchId: "845841254/451264",
-    documentLabel: "E-Verify_Confirmation.pdf",
-  },
-  {
-    namedSearch: "Sue Jeans",
-    searchType: { label: "5 Panel", targetId: "five-panels-section" },
-    county: "Bossier",
-    state: "LA",
-    researchResult: "Completed - Verified",
-    searchId: "845841254/451265",
-    documentLabel: "Drug_Screen_Result.pdf",
-  },
-  {
-    namedSearch: "Sue Jeans",
-    searchType: { label: "CBSV", targetId: "cbsv-section" },
-    county: "Bossier",
-    state: "LA",
-    researchResult: "Completed - Verified",
-    searchId: "845841254/451266",
-    documentLabel: "CBSV_Response.pdf",
-  },
-];
+    {
+      namedSearch: secondaryName,
+      searchType: {
+        label: "Credentials-Professional License #1",
+        targetId: "credentials-professional-license",
+      },
+      county: "",
+      state: "Texas",
+      researchResult: "Completed - Verified",
+      searchId: "845841254/451262",
+      documentLabel: "License_Credential.pdf",
+    },
+    {
+      namedSearch: primaryName,
+      searchType: {
+        label: "Motor Vehicle Driving History",
+        targetId: "motor-vehicle-driving-history",
+      },
+      county: "Bossier",
+      state: "LA",
+      researchResult: "Completed - Verified",
+      searchId: "845841254/451263",
+      documentLabel: "Motor_Vehicle_Record.pdf",
+    },
+    {
+      namedSearch: primaryName,
+      searchType: { label: "E-Verify", targetId: "e-verify" },
+      county: "Bossier",
+      state: "LA",
+      researchResult: "Completed - Verified",
+      searchId: "845841254/451264",
+      documentLabel: "E-Verify_Confirmation.pdf",
+    },
+    {
+      namedSearch: primaryName,
+      searchType: { label: "5 Panel", targetId: "five-panels-section" },
+      county: "Bossier",
+      state: "LA",
+      researchResult: "Completed - Verified",
+      searchId: "845841254/451265",
+      documentLabel: "Drug_Screen_Result.pdf",
+    },
+    {
+      namedSearch: primaryName,
+      searchType: { label: "CBSV", targetId: "cbsv-section" },
+      county: "Bossier",
+      state: "LA",
+      researchResult: "Completed - Verified",
+      searchId: "845841254/451266",
+      documentLabel: "CBSV_Response.pdf",
+    },
+  ];
+
+  // For order 999, only return Subject, Countywide Criminal History, and MJD rows
+  if (orderId === "999") {
+    return allRows.filter(
+      (row) =>
+        row.searchType?.label === "Subject" ||
+        row.searchType?.label === "Countywide Criminal History" ||
+        row.searchType?.label === "MJD",
+    );
+  }
+
+  return allRows;
+};
 
 const OrderDetails: React.FC = () => {
   const { orderId } = useParams<{ orderId: string }>();
@@ -260,6 +278,37 @@ const OrderDetails: React.FC = () => {
   const [showNotification] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
 
+  // Get order-specific data
+  const REPORT_SUMMARY_ROWS = useMemo(
+    () => getReportSummaryRows(orderId),
+    [orderId],
+  );
+
+  const getOrderName = () => {
+    if (orderId === "999") return "John Doe";
+    return "Sue Janes";
+  };
+
+  const getOrderTitle = () => {
+    if (orderId === "999") return "John Doe Order #999";
+    return `Sue Janes Order #${orderId || "38138"}`;
+  };
+
+  // For order 999, only show: Report Summary, Documents, Subject, Countywide Criminal History, MJD
+  const getSectionDisplay = (sectionId: string) => {
+    if (orderId !== "999") return "flex";
+
+    const visibleSections = [
+      "report-summary",
+      "documents-section",
+      "subject",
+      "countywide-criminal-history",
+      "mjd",
+    ];
+
+    return visibleSections.includes(sectionId) ? "flex" : "none";
+  };
+
   // Notes state (persisted per order)
   const storageKey = `order-notes-${orderId ?? "default"}`;
   const [notes, setNotes] = useState<Note[]>([]);
@@ -271,10 +320,11 @@ const OrderDetails: React.FC = () => {
       if (saved) {
         setNotes(JSON.parse(saved));
       } else {
+        const noteAuthor = orderId === "999" ? "Morgan Chen" : "Phoenix Baker";
         setNotes([
           {
             id: String(Date.now()),
-            author: "Phoenix Baker",
+            author: noteAuthor,
             avatarUrl:
               "https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F754e82e5620a450f95d1173ecb4f8ae5?format=webp&width=800",
             content:
@@ -287,7 +337,7 @@ const OrderDetails: React.FC = () => {
       console.warn("Failed to read notes from storage", e);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [storageKey]);
+  }, [storageKey, orderId]);
 
   useEffect(() => {
     try {
@@ -331,10 +381,6 @@ const OrderDetails: React.FC = () => {
     number | null
   >(null);
   const [criminalHistoryExpanded, setCriminalHistoryExpanded] = useState(true);
-  const [
-    adjudicationMatrixHoveredRowIndex,
-    setAdjudicationMatrixHoveredRowIndex,
-  ] = useState<number | null>(null);
   const [mjdExpanded, setMjdExpanded] = useState(true);
   const [federalCrimeExpanded, setFederalCrimeExpanded] = useState(true);
   const [professionalReferencesExpanded, setProfessionalReferencesExpanded] =
@@ -362,6 +408,12 @@ const OrderDetails: React.FC = () => {
   const [specialNoticeExpanded, setSpecialNoticeExpanded] = useState(true);
   const [specialNoticeHoveredRowIndex, setSpecialNoticeHoveredRowIndex] =
     useState<number | null>(null);
+
+  // Report Summary checkbox selection state
+  const [selectedReportRows, setSelectedReportRows] = useState<Set<number>>(
+    new Set(),
+  );
+  const [selectAllReportRows, setSelectAllReportRows] = useState(false);
 
   // Upload modal state
   const [uploadModalOpen, setUploadModalOpen] = useState(false);
@@ -1169,7 +1221,7 @@ const OrderDetails: React.FC = () => {
                   }}
                   className="order-title"
                 >
-                  Sue Janes Order #38138
+                  {getOrderTitle()}
                 </div>
                 <div
                   style={{
@@ -1995,7 +2047,7 @@ const OrderDetails: React.FC = () => {
                     });
                   }}
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("resume-validation"),
                     height: "36px",
                     padding: "8px 12px",
                     alignItems: "center",
@@ -2061,7 +2113,7 @@ const OrderDetails: React.FC = () => {
                     });
                   }}
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("employment-at-jerrys-tx"),
                     padding: "8px 12px",
                     alignItems: "center",
                     gap: "8px",
@@ -2131,7 +2183,9 @@ const OrderDetails: React.FC = () => {
                     });
                   }}
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay(
+                      "education-at-brown-community-college",
+                    ),
                     padding: "8px 12px",
                     alignItems: "center",
                     gap: "8px",
@@ -2337,7 +2391,7 @@ const OrderDetails: React.FC = () => {
                     });
                   }}
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("nationwide-federal-crime"),
                     padding: "8px 12px",
                     alignItems: "center",
                     gap: "8px",
@@ -2402,7 +2456,7 @@ const OrderDetails: React.FC = () => {
                     });
                   }}
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("professional-references"),
                     padding: "8px 12px",
                     alignItems: "center",
                     gap: "8px",
@@ -2532,7 +2586,7 @@ const OrderDetails: React.FC = () => {
                     });
                   }}
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("motor-vehicle-driving-history"),
                     padding: "8px 12px",
                     alignItems: "center",
                     gap: "8px",
@@ -2597,7 +2651,7 @@ const OrderDetails: React.FC = () => {
                     });
                   }}
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("credit-employment-report"),
                     padding: "8px 12px",
                     alignItems: "center",
                     gap: "8px",
@@ -2662,7 +2716,7 @@ const OrderDetails: React.FC = () => {
                     });
                   }}
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("e-verify"),
                     padding: "8px 12px",
                     alignItems: "center",
                     gap: "8px",
@@ -2727,7 +2781,7 @@ const OrderDetails: React.FC = () => {
                     });
                   }}
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("five-panels-section"),
                     padding: "8px 12px",
                     alignItems: "center",
                     gap: "8px",
@@ -2792,7 +2846,7 @@ const OrderDetails: React.FC = () => {
                     });
                   }}
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("cbsv-section"),
                     padding: "8px 12px",
                     alignItems: "center",
                     gap: "8px",
@@ -3358,7 +3412,7 @@ const OrderDetails: React.FC = () => {
                       }}
                       className="order-title"
                     >
-                      Sue Janes Order #{orderId || "38138"}
+                      {getOrderTitle()}
                     </div>
                     <div
                       style={{
@@ -3747,7 +3801,7 @@ const OrderDetails: React.FC = () => {
               style={{
                 display: "flex",
                 flexDirection: stackedLayout ? "column" : "row",
-                alignItems: "stretch",
+                alignItems: stackedLayout ? "stretch" : "flex-start",
                 gap: mainColumnsGap,
                 alignSelf: "stretch",
                 position: "relative",
@@ -5091,10 +5145,12 @@ const OrderDetails: React.FC = () => {
                                 style={{
                                   display: "flex",
                                   flexDirection: isMobile ? "column" : "row",
-                                alignItems: isMobile ? "flex-start" : "center",
-                                gap: "8px",
-                                alignSelf: "stretch",
-                                position: "relative",
+                                  alignItems: isMobile
+                                    ? "flex-start"
+                                    : "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
                                 }}
                               >
                                 <div
@@ -7280,6 +7336,41 @@ const OrderDetails: React.FC = () => {
                               zIndex: 1,
                             }}
                           >
+                            <div
+                              style={{
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                gap: "12px",
+                              }}
+                            >
+                              <Checkbox
+                                checked={selectAllReportRows}
+                                onCheckedChange={(checked) => {
+                                  setSelectAllReportRows(!!checked);
+                                  if (checked) {
+                                    setSelectedReportRows(
+                                      new Set(
+                                        REPORT_SUMMARY_ROWS.map((_, i) => i),
+                                      ),
+                                    );
+                                  } else {
+                                    setSelectedReportRows(new Set());
+                                  }
+                                }}
+                              />
+                              <div
+                                style={{
+                                  ...REPORT_SUMMARY_HEADER_STYLE,
+                                  flex: "1 0 0",
+                                  whiteSpace: "normal",
+                                  maxWidth: "48px",
+                                  textAlign: "center",
+                                }}
+                              >
+                                Show on PDF
+                              </div>
+                            </div>
                             <div style={REPORT_SUMMARY_HEADER_STYLE}>
                               Named Search
                             </div>
@@ -7333,6 +7424,37 @@ const OrderDetails: React.FC = () => {
                                   transition: "background-color 0.2s ease",
                                 }}
                               >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <Checkbox
+                                    checked={selectedReportRows.has(index)}
+                                    onCheckedChange={(checked) => {
+                                      const newSelected = new Set(
+                                        selectedReportRows,
+                                      );
+                                      if (checked) {
+                                        newSelected.add(index);
+                                      } else {
+                                        newSelected.delete(index);
+                                        setSelectAllReportRows(false);
+                                      }
+                                      setSelectedReportRows(newSelected);
+
+                                      // Update select all state
+                                      if (
+                                        newSelected.size ===
+                                        REPORT_SUMMARY_ROWS.length
+                                      ) {
+                                        setSelectAllReportRows(true);
+                                      }
+                                    }}
+                                  />
+                                </div>
                                 <div style={REPORT_SUMMARY_TEXT_STYLE}>
                                   {row.namedSearch}
                                 </div>
@@ -7349,7 +7471,9 @@ const OrderDetails: React.FC = () => {
                                     {row.searchType.label}
                                   </a>
                                 ) : (
-                                  <div style={REPORT_SUMMARY_TEXT_STYLE}>—</div>
+                                  <div style={REPORT_SUMMARY_TEXT_STYLE}>
+                                    ���
+                                  </div>
                                 )}
 
                                 <div
@@ -9449,7 +9573,7 @@ const OrderDetails: React.FC = () => {
                 <div
                   id="resume-validation"
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("resume-validation"),
                     paddingBottom: "20px",
                     flexDirection: "column",
                     alignItems: "flex-start",
@@ -9860,7 +9984,7 @@ const OrderDetails: React.FC = () => {
                 <div
                   id="employment-at-jerrys-tx"
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("employment-at-jerrys-tx"),
                     paddingBottom: "20px",
                     flexDirection: "column",
                     alignItems: "flex-start",
@@ -10568,7 +10692,9 @@ const OrderDetails: React.FC = () => {
                 <div
                   id="education-at-brown-community-college"
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay(
+                      "education-at-brown-community-college",
+                    ),
                     paddingBottom: "20px",
                     flexDirection: "column",
                     alignItems: "flex-start",
@@ -11455,7 +11581,7 @@ const OrderDetails: React.FC = () => {
                                 }}
                               >
                                 Countywide Criminal History Bossie, LA - Years:
-                                10 - Sue Jeans
+                                10 - {getOrderName()}
                               </div>
                               <div
                                 style={{
@@ -11675,7 +11801,7 @@ const OrderDetails: React.FC = () => {
                               position: "relative",
                             }}
                           >
-                            Defendant: Sue Janes
+                            Defendant: {getOrderName()}
                           </div>
                         </div>
 
@@ -11728,7 +11854,7 @@ const OrderDetails: React.FC = () => {
                                 position: "relative",
                               }}
                             >
-                              Sue Janes
+                              {getOrderName()}
                             </div>
                           </div>
 
@@ -12365,7 +12491,7 @@ const OrderDetails: React.FC = () => {
                               position: "relative",
                             }}
                           >
-                            Defendant: Sue Janes
+                            Defendant: {getOrderName()}
                           </div>
                         </div>
 
@@ -12717,7 +12843,7 @@ const OrderDetails: React.FC = () => {
                               position: "relative",
                             }}
                           >
-                            Defendant: Sue Janes
+                            Defendant: {getOrderName()}
                           </div>
                         </div>
 
@@ -13403,220 +13529,6 @@ const OrderDetails: React.FC = () => {
                         />
                       </svg>
 
-                      {/* Adjudication Matrix */}
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "flex-start",
-                          gap: "12px",
-                          alignSelf: "stretch",
-                          position: "relative",
-                        }}
-                      >
-                        <div
-                          style={{
-                            alignSelf: "stretch",
-                            color: "#181D27",
-                            fontFamily: "Public Sans",
-                            fontSize: "16px",
-                            fontStyle: "normal",
-                            fontWeight: 500,
-                            lineHeight: "24px",
-                            position: "relative",
-                          }}
-                        >
-                          Adjudication Matrix
-                        </div>
-
-                        <div
-                          style={{
-                            display: "flex",
-                            alignItems: "flex-start",
-                            alignSelf: "stretch",
-                            position: "relative",
-                            overflowX: isMobile ? "auto" : "visible",
-                          }}
-                        >
-                          {/* Items Column */}
-                          <div
-                            style={{
-                              display: "flex",
-                              width: "355px",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              position: "relative",
-                            }}
-                          >
-                            <div
-                              style={{
-                                display: "flex",
-                                height: "36px",
-                                padding: "6px 12px",
-                                alignItems: "center",
-                                gap: "12px",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                background: "#FFF",
-                                position: "relative",
-                              }}
-                            >
-                              <div
-                                style={{
-                                  color: "#717680",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "12px",
-                                  fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight: "18px",
-                                  position: "relative",
-                                }}
-                              >
-                                Item
-                              </div>
-                            </div>
-
-                            {[
-                              "Perjury (Felony or Misdemeanor)",
-                              "Subordination of Perjury (Felony or Misdemeanor)",
-                              "Criminal Fraud",
-                              "Embezzlement",
-                              "False Pretenses",
-                              "Bribery",
-                              "Theft",
-                              "Unauthorized use of a Motor Vehicle",
-                              "Unlawful use of a Computer",
-                              "Computer Fraud & Abuse",
-                              "Crimes against a Person",
-                              "Intent to Distribute Drug / Controlled Substance",
-                            ].map((item, index) => (
-                              <div
-                                key={index}
-                                onMouseEnter={() =>
-                                  setAdjudicationMatrixHoveredRowIndex(index)
-                                }
-                                onMouseLeave={() =>
-                                  setAdjudicationMatrixHoveredRowIndex(null)
-                                }
-                                style={{
-                                  display: "flex",
-                                  height: "36px",
-                                  padding: "6px 12px",
-                                  alignItems: "center",
-                                  gap: "12px",
-                                  alignSelf: "stretch",
-                                  borderBottom: "1px solid #E9EAEB",
-                                  background:
-                                    adjudicationMatrixHoveredRowIndex === index
-                                      ? "#F5F5F5"
-                                      : "#FFF",
-                                  position: "relative",
-                                  cursor: "pointer",
-                                  transition: "background-color 0.2s ease",
-                                }}
-                              >
-                                <div
-                                  style={{
-                                    color: "#717680",
-                                    fontFamily: "Public Sans",
-                                    fontSize: "12px",
-                                    fontStyle: "normal",
-                                    fontWeight: 600,
-                                    lineHeight: "18px",
-                                    position: "relative",
-                                  }}
-                                >
-                                  {item}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-
-                          {/* Count Column */}
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              flex: "1 0 0",
-                              position: "relative",
-                            }}
-                          >
-                            <div
-                              style={{
-                                display: "flex",
-                                height: "36px",
-                                padding: "6px 12px",
-                                alignItems: "center",
-                                gap: "12px",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                background: "#FFF",
-                                position: "relative",
-                              }}
-                            >
-                              <div
-                                style={{
-                                  color: "#717680",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "12px",
-                                  fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight: "18px",
-                                  position: "relative",
-                                }}
-                              >
-                                Count
-                              </div>
-                            </div>
-
-                            {Array(12)
-                              .fill("0")
-                              .map((count, index) => (
-                                <div
-                                  key={index}
-                                  onMouseEnter={() =>
-                                    setAdjudicationMatrixHoveredRowIndex(index)
-                                  }
-                                  onMouseLeave={() =>
-                                    setAdjudicationMatrixHoveredRowIndex(null)
-                                  }
-                                  style={{
-                                    display: "flex",
-                                    height: "36px",
-                                    padding: "12px",
-                                    alignItems: "center",
-                                    alignSelf: "stretch",
-                                    borderBottom: "1px solid #E9EAEB",
-                                    background:
-                                      adjudicationMatrixHoveredRowIndex ===
-                                      index
-                                        ? "#F5F5F5"
-                                        : "transparent",
-                                    position: "relative",
-                                    cursor: "pointer",
-                                    transition: "background-color 0.2s ease",
-                                  }}
-                                >
-                                  <div
-                                    style={{
-                                      color: "#181D27",
-                                      fontFamily: "Public Sans",
-                                      fontSize: "14px",
-                                      fontStyle: "normal",
-                                      fontWeight: 500,
-                                      lineHeight: "20px",
-                                      position: "relative",
-                                    }}
-                                  >
-                                    {count}
-                                  </div>
-                                </div>
-                              ))}
-                          </div>
-                        </div>
-                      </div>
-
                       {/* See File Button */}
                       <button
                         style={{
@@ -13679,7 +13591,7 @@ const OrderDetails: React.FC = () => {
                   )}
                 </div>
 
-                {/* MJD Sue Jeans Section */}
+                {/* MJD Section */}
                 <div
                   id="mjd"
                   style={{
@@ -13771,7 +13683,7 @@ const OrderDetails: React.FC = () => {
                                   position: "relative",
                                 }}
                               >
-                                MJD Sue Jeans
+                                MJD {getOrderName()}
                               </div>
                               <div
                                 style={{
@@ -13891,11 +13803,11 @@ const OrderDetails: React.FC = () => {
                   )}
                 </div>
 
-                {/* Nationwide Federal Crime Sue Jeans Section */}
+                {/* Nationwide Federal Crime Section */}
                 <div
                   id="nationwide-federal-crime"
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("nationwide-federal-crime"),
                     paddingBottom: "20px",
                     flexDirection: "column",
                     alignItems: "flex-start",
@@ -13983,7 +13895,7 @@ const OrderDetails: React.FC = () => {
                                   position: "relative",
                                 }}
                               >
-                                Nationwide Federal Crime Sue Jeans
+                                Nationwide Federal Crime {getOrderName()}
                               </div>
                               <div
                                 style={{
@@ -14101,7 +14013,7 @@ const OrderDetails: React.FC = () => {
                 <div
                   id="professional-references"
                   style={{
-                    display: "flex",
+                    display: getSectionDisplay("professional-references"),
                     paddingBottom: "20px",
                     flexDirection: "column",
                     alignItems: "flex-start",
@@ -14747,92 +14659,99 @@ const OrderDetails: React.FC = () => {
                 </div>
 
                 {/* Credentials-Professional License #1 Section */}
-                <CredentialsSection
-                  expanded={credentialsExpanded}
-                  onToggle={() => setCredentialsExpanded(!credentialsExpanded)}
-                />
+                {orderId !== "999" && (
+                  <CredentialsSection
+                    expanded={credentialsExpanded}
+                    onToggle={() =>
+                      setCredentialsExpanded(!credentialsExpanded)
+                    }
+                  />
+                )}
 
                 {/* Motor Vehicle Driving History Section */}
-                <MotorVehicleDrivingHistorySection
-                  expanded={motorVehicleExpanded}
-                  onToggle={() => setMotorVehicleExpanded(!motorVehicleExpanded)}
-                />
+                {orderId !== "999" && (
+                  <MotorVehicleDrivingHistorySection
+                    expanded={motorVehicleExpanded}
+                    onToggle={() =>
+                      setMotorVehicleExpanded(!motorVehicleExpanded)
+                    }
+                  />
+                )}
 
                 {/* Credit Employment Report Section */}
-                <CreditEmploymentReportSection
-                  id="credit-employment-report"
-                  expanded={creditEmploymentExpanded}
-                  onToggle={() =>
-                    setCreditEmploymentExpanded(!creditEmploymentExpanded)
-                  }
-                />
+                {orderId !== "999" && (
+                  <CreditEmploymentReportSection
+                    id="credit-employment-report"
+                    expanded={creditEmploymentExpanded}
+                    onToggle={() =>
+                      setCreditEmploymentExpanded(!creditEmploymentExpanded)
+                    }
+                  />
+                )}
 
                 {/* E-Verify Section */}
-                <EVerifySection
-                  expanded={eVerifyExpanded}
-                  onToggle={() => setEVerifyExpanded(!eVerifyExpanded)}
-                />
+                {orderId !== "999" && (
+                  <EVerifySection
+                    expanded={eVerifyExpanded}
+                    onToggle={() => setEVerifyExpanded(!eVerifyExpanded)}
+                  />
+                )}
 
                 {/* 5 Panels Section */}
-                <FivePanelsSection
-                  expanded={fivePanelsExpanded}
-                  onToggle={() => setFivePanelsExpanded(!fivePanelsExpanded)}
-                />
+                {orderId !== "999" && (
+                  <FivePanelsSection
+                    expanded={fivePanelsExpanded}
+                    onToggle={() => setFivePanelsExpanded(!fivePanelsExpanded)}
+                  />
+                )}
 
                 {/* CBSV Section */}
-                <CBSVSection
-                  expanded={cbsvExpanded}
-                  onToggle={() => setCbsvExpanded(!cbsvExpanded)}
-                />
-
+                {orderId !== "999" && (
+                  <CBSVSection
+                    expanded={cbsvExpanded}
+                    onToggle={() => setCbsvExpanded(!cbsvExpanded)}
+                  />
+                )}
 
                 {/* Special Notice Section */}
-                <div
-                  id="special-notice-section"
-                  style={{
-                    display: "flex",
-                    padding: "0px",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    gap: "0px",
-                    alignSelf: "stretch",
-                    borderRadius: "12px",
-                    border: "1px solid #E9EAEB",
-                    background: "#FFF",
-                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                    position: "relative",
-                    paddingBottom: specialNoticeExpanded ? "0px" : "20px",
-                    overflow: "hidden",
-                    minWidth: "0",
-                  }}
-                >
+                {orderId !== "999" && (
                   <div
+                    id="special-notice-section"
                     style={{
                       display: "flex",
+                      padding: "0px",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      gap: "20px",
+                      gap: "0px",
                       alignSelf: "stretch",
+                      borderRadius: "12px",
+                      border: "1px solid #E9EAEB",
                       background: "#FFF",
-                      borderRadius: "12px 12px 0 0",
+                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                       position: "relative",
+                      paddingBottom: specialNoticeExpanded ? "0px" : "20px",
+                      overflow: "hidden",
+                      minWidth: "0",
                     }}
                   >
                     <div
                       style={{
                         display: "flex",
-                        padding: "20px 24px 0 24px",
                         flexDirection: "column",
                         alignItems: "flex-start",
-                        gap: "16px",
+                        gap: "20px",
                         alignSelf: "stretch",
+                        background: "#FFF",
+                        borderRadius: "12px 12px 0 0",
                         position: "relative",
                       }}
                     >
                       <div
                         style={{
                           display: "flex",
-                          alignItems: "center",
+                          padding: "20px 24px 0 24px",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
                           gap: "16px",
                           alignSelf: "stretch",
                           position: "relative",
@@ -14841,19 +14760,17 @@ const OrderDetails: React.FC = () => {
                         <div
                           style={{
                             display: "flex",
-                            alignItems: "flex-start",
-                            gap: "4px",
-                            flex: "1 0 0",
+                            alignItems: "center",
+                            gap: "16px",
+                            alignSelf: "stretch",
                             position: "relative",
                           }}
                         >
                           <div
                             style={{
                               display: "flex",
-                              flexDirection: "column",
-                              justifyContent: "center",
                               alignItems: "flex-start",
-                              gap: "2px",
+                              gap: "4px",
                               flex: "1 0 0",
                               position: "relative",
                             }}
@@ -14861,177 +14778,191 @@ const OrderDetails: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                flexDirection: isMobile ? "column" : "row",
-                                alignItems: isMobile ? "flex-start" : "center",
-                                gap: "8px",
-                                alignSelf: "stretch",
+                                flexDirection: "column",
+                                justifyContent: "center",
+                                alignItems: "flex-start",
+                                gap: "2px",
+                                flex: "1 0 0",
                                 position: "relative",
                               }}
                             >
                               <div
                                 style={{
-                                  color: "#181D27",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "18px",
-                                  fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight: "28px",
+                                  display: "flex",
+                                  flexDirection: isMobile ? "column" : "row",
+                                  alignItems: isMobile
+                                    ? "flex-start"
+                                    : "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
                                   position: "relative",
                                 }}
                               >
-                                Special Notice
+                                <div
+                                  style={{
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "18px",
+                                    fontStyle: "normal",
+                                    fontWeight: 600,
+                                    lineHeight: "28px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Special Notice
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <button
-                          onClick={() =>
-                            setSpecialNoticeExpanded(!specialNoticeExpanded)
-                          }
-                          style={{
-                            display: "flex",
-                            padding: "8px",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            borderRadius: "8px",
-                            border: "1px solid #D5D7DA",
-                            background: "#FFF",
-                            boxShadow:
-                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                            position: "relative",
-                            cursor: "pointer",
-                          }}
-                        >
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
+                          <button
+                            onClick={() =>
+                              setSpecialNoticeExpanded(!specialNoticeExpanded)
+                            }
                             style={{
-                              transform: specialNoticeExpanded
-                                ? "rotate(180deg)"
-                                : "rotate(0deg)",
-                              transition: "transform 0.2s ease",
+                              display: "flex",
+                              padding: "8px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow:
+                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              position: "relative",
+                              cursor: "pointer",
                             }}
                           >
-                            <path
-                              d="M4 6L8 10L12 6"
-                              stroke="#A4A7AE"
-                              strokeWidth="1.66667"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </button>
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                              style={{
+                                transform: specialNoticeExpanded
+                                  ? "rotate(180deg)"
+                                  : "rotate(0deg)",
+                                transition: "transform 0.2s ease",
+                              }}
+                            >
+                              <path
+                                d="M4 6L8 10L12 6"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.66667"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Special Notice Content */}
-                  {specialNoticeExpanded && (
-                    <div
-                      style={{
-                        display: "flex",
-                        padding: "12px 24px 20px 24px",
-                        flexDirection: "column",
-                        alignItems: "flex-start",
-                        gap: "10px",
-                        alignSelf: "stretch",
-                        position: "relative",
-                      }}
-                    >
-                      {/* Notice Information */}
+                    {/* Special Notice Content */}
+                    {specialNoticeExpanded && (
                       <div
                         style={{
                           display: "flex",
+                          padding: "12px 24px 20px 24px",
                           flexDirection: "column",
                           alignItems: "flex-start",
-                          gap: "4px",
+                          gap: "10px",
                           alignSelf: "stretch",
                           position: "relative",
                         }}
                       >
+                        {/* Notice Information */}
                         <div
                           style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "4px",
                             alignSelf: "stretch",
-                            color: "#717680",
-                            fontFamily: "Public Sans",
-                            fontSize: "16px",
-                            fontStyle: "normal",
-                            fontWeight: 400,
-                            lineHeight: "24px",
                             position: "relative",
                           }}
                         >
-                          Noticy
+                          <div
+                            style={{
+                              alignSelf: "stretch",
+                              color: "#717680",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontStyle: "normal",
+                              fontWeight: 400,
+                              lineHeight: "24px",
+                              position: "relative",
+                            }}
+                          >
+                            Noticy
+                          </div>
+                          <div
+                            style={{
+                              alignSelf: "stretch",
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontStyle: "normal",
+                              fontWeight: 400,
+                              lineHeight: "24px",
+                              position: "relative",
+                            }}
+                          >
+                            The information provided is a consumer report as
+                            defined in the federal Fair Credit Reporting Act [15
+                            U.S.C. 1681- 1681u]. It contains confidential
+                            information on the individual named. It is submitted
+                            to the conditions contained in your Subscriber
+                            Agreement with us and may be used solely as a factor
+                            in evaluating the named individual for property
+                            renting/leasing, employment, promotion, reassignment
+                            or retention as an employee. We maintain strict
+                            procedures designed to ensure that the information
+                            is complete and up to date. While the information
+                            furnished is from reliable sources, its accuracy is
+                            not guaranteed. Proper use of this report and final
+                            verification of the named individual's identity is
+                            your sole responsibility. If any adverse action is
+                            taken based in whole or in part on this consumer
+                            report, a copy of this report and a summary of the
+                            consumer's rights must be provided to the consumer
+                            prior to taking adverse action.
+                          </div>
                         </div>
-                        <div
-                          style={{
-                            alignSelf: "stretch",
-                            color: "#181D27",
-                            fontFamily: "Public Sans",
-                            fontSize: "16px",
-                            fontStyle: "normal",
-                            fontWeight: 400,
-                            lineHeight: "24px",
-                            position: "relative",
-                          }}
-                        >
-                          The information provided is a consumer report as
-                          defined in the federal Fair Credit Reporting Act [15
-                          U.S.C. 1681- 1681u]. It contains confidential
-                          information on the individual named. It is submitted
-                          to the conditions contained in your Subscriber
-                          Agreement with us and may be used solely as a factor
-                          in evaluating the named individual for property
-                          renting/leasing, employment, promotion, reassignment
-                          or retention as an employee. We maintain strict
-                          procedures designed to ensure that the information is
-                          complete and up to date. While the information
-                          furnished is from reliable sources, its accuracy is
-                          not guaranteed. Proper use of this report and final
-                          verification of the named individual's identity is
-                          your sole responsibility. If any adverse action is
-                          taken based in whole or in part on this consumer
-                          report, a copy of this report and a summary of the
-                          consumer's rights must be provided to the consumer
-                          prior to taking adverse action.
-                        </div>
-                      </div>
 
-                      {/* Fair Credit Reporting Act Link */}
-                      <button
-                        style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          gap: "4px",
-                          position: "relative",
-                          background: "none",
-                          border: "none",
-                          cursor: "pointer",
-                          padding: "0",
-                        }}
-                      >
-                        <div
+                        {/* Fair Credit Reporting Act Link */}
+                        <button
                           style={{
-                            color: "#273572",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontStyle: "normal",
-                            fontWeight: 600,
-                            lineHeight: "20px",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "4px",
                             position: "relative",
+                            background: "none",
+                            border: "none",
+                            cursor: "pointer",
+                            padding: "0",
                           }}
                         >
-                          A Summary of Your Rights Under the Fair Credit
-                          Reporting Act
-                        </div>
-                      </button>
-                    </div>
-                  )}
-                </div>
+                          <div
+                            style={{
+                              color: "#273572",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontStyle: "normal",
+                              fontWeight: 600,
+                              lineHeight: "20px",
+                              position: "relative",
+                            }}
+                          >
+                            A Summary of Your Rights Under the Fair Credit
+                            Reporting Act
+                          </div>
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -15699,10 +15630,12 @@ const OrderDetails: React.FC = () => {
                                 style={{
                                   display: "flex",
                                   flexDirection: isMobile ? "column" : "row",
-                                alignItems: isMobile ? "flex-start" : "center",
-                                gap: "8px",
-                                alignSelf: "stretch",
-                                position: "relative",
+                                  alignItems: isMobile
+                                    ? "flex-start"
+                                    : "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
                                   flexWrap: "wrap",
                                 }}
                               >
