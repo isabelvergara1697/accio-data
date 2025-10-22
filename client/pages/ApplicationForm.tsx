@@ -740,6 +740,7 @@ export default function ApplicationForm() {
                   display: "flex",
                   flexDirection: "column",
                   gap: "16px",
+                  alignSelf: "stretch",
                 }}
               >
                 <p
