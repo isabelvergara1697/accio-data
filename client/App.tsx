@@ -20,7 +20,6 @@ import EmailSent from "./pages/EmailSent";
 import SetNewPassword from "./pages/SetNewPassword";
 import PasswordResetSuccess from "./pages/PasswordResetSuccess";
 import ActivateAccount from "./pages/ActivateAccount";
-import AccountSettings from "./pages/AccountSettings";
 import CompanySettings from "./pages/CompanySettings";
 import InviteNewMember from "./pages/InviteNewMember";
 import InviteNewMemberValidation from "./pages/InviteNewMemberValidation";
@@ -48,7 +47,6 @@ const App = () => (
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/reporting" element={<Reporting />} />
           <Route path="/search" element={<SearchResults />} />
-          <Route path="/account-settings" element={<AccountSettings />} />
           <Route path="/company-settings" element={<CompanySettings />} />
           <Route path="/invite-new-member" element={<InviteNewMember />} />
           <Route path="/edit-member" element={<EditMember />} />
