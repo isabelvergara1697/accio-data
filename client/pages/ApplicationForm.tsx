@@ -2872,6 +2872,593 @@ export default function ApplicationForm() {
               )}
             </div>
 
+            {/* Use of Information Section */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                borderRadius: "12px",
+                border: "1px solid #E9EAEB",
+                background: "#FFF",
+                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                marginBottom: "20px",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  padding: expandedSections.useOfInformation
+                    ? "20px 24px 0 24px"
+                    : "20px 24px 20px 24px",
+                  gap: "16px",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "2px",
+                      flex: 1,
+                    }}
+                  >
+                    <h2
+                      style={{
+                        fontSize: "18px",
+                        fontWeight: 600,
+                        color: "#181D27",
+                        margin: 0,
+                        lineHeight: "28px",
+                      }}
+                    >
+                      Use of Information
+                    </h2>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => toggleSection("useOfInformation")}
+                    style={{
+                      display: "flex",
+                      padding: "8px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      borderRadius: "8px",
+                      border: "1px solid #D5D7DA",
+                      background: "#FFF",
+                      boxShadow:
+                        "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      style={{
+                        transform: expandedSections.useOfInformation
+                          ? "rotate(180deg)"
+                          : "rotate(0deg)",
+                        transition: "transform 0.2s ease",
+                      }}
+                    >
+                      <path
+                        d="M4 6L8 10L12 6"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              {expandedSections.useOfInformation && (
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "12px 24px 16px 24px",
+                    flexDirection: "column",
+                    gap: "16px",
+                    borderRadius: "0 0 0 0",
+                    borderRight: "1px solid #E9EAEB",
+                    borderBottom: "1px solid #E9EAEB",
+                    borderLeft: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  }}
+                >
+                  {/* Checkbox 1 */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "8px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        paddingTop: "2px",
+                      }}
+                    >
+                      <div
+                        onClick={() => {
+                          setFormData((prev) => ({
+                            ...prev,
+                            screenApplicantsOnly: !prev.screenApplicantsOnly,
+                          }));
+                        }}
+                        style={{
+                          display: "flex",
+                          width: "16px",
+                          height: "16px",
+                          padding: "1px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "4px",
+                          border: formData.screenApplicantsOnly
+                            ? "none"
+                            : "1px solid #D5D7DA",
+                          background: formData.screenApplicantsOnly
+                            ? "#344698"
+                            : "transparent",
+                          cursor: "pointer",
+                          position: "relative",
+                        }}
+                      >
+                        {formData.screenApplicantsOnly && (
+                          <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 14 14"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            style={{
+                              position: "absolute",
+                              left: "1px",
+                              top: "1px",
+                            }}
+                          >
+                            <path
+                              d="M11.6667 3.5L5.25004 9.91667L2.33337 7"
+                              stroke="white"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        )}
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                      }}
+                    >
+                      <label
+                        onClick={() => {
+                          setFormData((prev) => ({
+                            ...prev,
+                            screenApplicantsOnly: !prev.screenApplicantsOnly,
+                          }));
+                        }}
+                        style={{
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          color: "#414651",
+                          lineHeight: "20px",
+                          cursor: "pointer",
+                        }}
+                      >
+                        I will screen applicants/employees for my company only.
+                      </label>
+                    </div>
+                  </div>
+
+                  {/* Checkbox 2 */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "8px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        paddingTop: "2px",
+                      }}
+                    >
+                      <div
+                        onClick={() => {
+                          setFormData((prev) => ({
+                            ...prev,
+                            orderMVRs: !prev.orderMVRs,
+                          }));
+                        }}
+                        style={{
+                          display: "flex",
+                          width: "16px",
+                          height: "16px",
+                          padding: "1px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "4px",
+                          border: formData.orderMVRs
+                            ? "none"
+                            : "1px solid #D5D7DA",
+                          background: formData.orderMVRs
+                            ? "#344698"
+                            : "transparent",
+                          cursor: "pointer",
+                          position: "relative",
+                        }}
+                      >
+                        {formData.orderMVRs && (
+                          <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 14 14"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            style={{
+                              position: "absolute",
+                              left: "1px",
+                              top: "1px",
+                            }}
+                          >
+                            <path
+                              d="M11.6667 3.5L5.25004 9.91667L2.33337 7"
+                              stroke="white"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        )}
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        flex: 1,
+                      }}
+                    >
+                      <label
+                        onClick={() => {
+                          setFormData((prev) => ({
+                            ...prev,
+                            orderMVRs: !prev.orderMVRs,
+                          }));
+                        }}
+                        style={{
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          color: "#414651",
+                          lineHeight: "20px",
+                          cursor: "pointer",
+                        }}
+                      >
+                        I would like to order driving records (MVR's). If I
+                        order MVR's, I will order them for employment purposes
+                        on applicants/employees for my company only. (Please
+                        Note: Onsite Inspection Required.)
+                      </label>
+                    </div>
+                  </div>
+
+                  {/* Checkbox 3 */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "8px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        paddingTop: "2px",
+                      }}
+                    >
+                      <div
+                        onClick={() => {
+                          setFormData((prev) => ({
+                            ...prev,
+                            orderCreditReports: !prev.orderCreditReports,
+                          }));
+                        }}
+                        style={{
+                          display: "flex",
+                          width: "16px",
+                          height: "16px",
+                          padding: "1px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "4px",
+                          border: formData.orderCreditReports
+                            ? "none"
+                            : "1px solid #D5D7DA",
+                          background: formData.orderCreditReports
+                            ? "#344698"
+                            : "transparent",
+                          cursor: "pointer",
+                          position: "relative",
+                        }}
+                      >
+                        {formData.orderCreditReports && (
+                          <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 14 14"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            style={{
+                              position: "absolute",
+                              left: "1px",
+                              top: "1px",
+                            }}
+                          >
+                            <path
+                              d="M11.6667 3.5L5.25004 9.91667L2.33337 7"
+                              stroke="white"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        )}
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        flex: 1,
+                      }}
+                    >
+                      <label
+                        onClick={() => {
+                          setFormData((prev) => ({
+                            ...prev,
+                            orderCreditReports: !prev.orderCreditReports,
+                          }));
+                        }}
+                        style={{
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          color: "#414651",
+                          lineHeight: "20px",
+                          cursor: "pointer",
+                        }}
+                      >
+                        I would like to order credit report based products. Some
+                        examples of these products are Trac, Credit Reports and
+                        Trac to Criminal History. (Please Note: Onsite
+                        Inspection Required.)
+                      </label>
+                    </div>
+                  </div>
+
+                  {/* Divider */}
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "1px",
+                      background: "#E9EAEB",
+                    }}
+                  />
+
+                  {/* Links Section */}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "16px",
+                    }}
+                  >
+                    <a
+                      href="#"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "4px",
+                        textDecoration: "none",
+                      }}
+                    >
+                      <span
+                        style={{
+                          color: "#273572",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          textDecoration: "underline",
+                        }}
+                      >
+                        Click here to review the Agreement for Service.
+                      </span>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M14 6L14 2M14 2H10M14 2L8.66667 7.33333M6.66667 3.33333H5.2C4.0799 3.33333 3.51984 3.33333 3.09202 3.55132C2.71569 3.74307 2.40973 4.04903 2.21799 4.42535C2 4.85318 2 5.41323 2 6.53333V10.8C2 11.9201 2 12.4802 2.21799 12.908C2.40973 13.2843 2.71569 13.5903 3.09202 13.782C3.51984 14 4.0799 14 5.2 14H9.46667C10.5868 14 11.1468 14 11.5746 13.782C11.951 13.5903 12.2569 13.2843 12.4487 12.908C12.6667 12.4802 12.6667 11.9201 12.6667 10.8V9.33333"
+                          stroke="#34479A"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </a>
+
+                    <a
+                      href="#"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "4px",
+                        textDecoration: "none",
+                      }}
+                    >
+                      <span
+                        style={{
+                          color: "#273572",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          textDecoration: "underline",
+                        }}
+                      >
+                        Click here to review the Addendum to Service Agreement
+                        for Credit Services.
+                      </span>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M14 6L14 2M14 2H10M14 2L8.66667 7.33333M6.66667 3.33333H5.2C4.0799 3.33333 3.51984 3.33333 3.09202 3.55132C2.71569 3.74307 2.40973 4.04903 2.21799 4.42535C2 4.85318 2 5.41323 2 6.53333V10.8C2 11.9201 2 12.4802 2.21799 12.908C2.40973 13.2843 2.71569 13.5903 3.09202 13.782C3.51984 14 4.0799 14 5.2 14H9.46667C10.5868 14 11.1468 14 11.5746 13.782C11.951 13.5903 12.2569 13.2843 12.4487 12.908C12.6667 12.4802 12.6667 11.9201 12.6667 10.8V9.33333"
+                          stroke="#34479A"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </a>
+
+                    <a
+                      href="#"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "4px",
+                        textDecoration: "none",
+                      }}
+                    >
+                      <span
+                        style={{
+                          color: "#273572",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          textDecoration: "underline",
+                        }}
+                      >
+                        Click here to review the Addendum to the Service
+                        Agreement for California.
+                      </span>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M14 6L14 2M14 2H10M14 2L8.66667 7.33333M6.66667 3.33333H5.2C4.0799 3.33333 3.51984 3.33333 3.09202 3.55132C2.71569 3.74307 2.40973 4.04903 2.21799 4.42535C2 4.85318 2 5.41323 2 6.53333V10.8C2 11.9201 2 12.4802 2.21799 12.908C2.40973 13.2843 2.71569 13.5903 3.09202 13.782C3.51984 14 4.0799 14 5.2 14H9.46667C10.5868 14 11.1468 14 11.5746 13.782C11.951 13.5903 12.2569 13.2843 12.4487 12.908C12.6667 12.4802 12.6667 11.9201 12.6667 10.8V9.33333"
+                          stroke="#34479A"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </a>
+
+                    <a
+                      href="#"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "4px",
+                        textDecoration: "none",
+                      }}
+                    >
+                      <span
+                        style={{
+                          color: "#273572",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          textDecoration: "underline",
+                        }}
+                      >
+                        Click here to review our Privacy Policy.
+                      </span>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M14 6L14 2M14 2H10M14 2L8.66667 7.33333M6.66667 3.33333H5.2C4.0799 3.33333 3.51984 3.33333 3.09202 3.55132C2.71569 3.74307 2.40973 4.04903 2.21799 4.42535C2 4.85318 2 5.41323 2 6.53333V10.8C2 11.9201 2 12.4802 2.21799 12.908C2.40973 13.2843 2.71569 13.5903 3.09202 13.782C3.51984 14 4.0799 14 5.2 14H9.46667C10.5868 14 11.1468 14 11.5746 13.782C11.951 13.5903 12.2569 13.2843 12.4487 12.908C12.6667 12.4802 12.6667 11.9201 12.6667 10.8V9.33333"
+                          stroke="#34479A"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-start",
+                    }}
+                  >
+                    <button
+                      type="button"
+                      style={{
+                        display: "flex",
+                        minHeight: "36px",
+                        padding: "6px 8px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "4px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#414651",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                        }}
+                      >
+                        Next Section
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+
             {/* Bottom Action Buttons */}
             <div
               style={{
