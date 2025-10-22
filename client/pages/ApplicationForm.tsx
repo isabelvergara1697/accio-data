@@ -10,6 +10,7 @@ export default function ApplicationForm() {
   }>({
     generalInformation: true,
     administrativeContact: false,
+    drugTesting: false,
   });
 
   const [formData, setFormData] = useState({
