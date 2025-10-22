@@ -435,6 +435,8 @@ export default function Dashboard() {
   ); // Jan 10, 2025
   const [selectedEndDate, setSelectedEndDate] = useState(new Date(2025, 0, 16)); // Jan 16, 2025
   const [customizeButtonHovered, setCustomizeButtonHovered] = useState(false);
+  const [onboardingStep, setOnboardingStep] = useState(0);
+  const [completedSteps, setCompletedSteps] = useState<string[]>([]);
 
   const [dateButtonHovered, setDateButtonHovered] = useState(false);
   const dateButtonRef = useRef<HTMLButtonElement>(null);
