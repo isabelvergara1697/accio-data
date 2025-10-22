@@ -2746,19 +2746,54 @@ export default function ApplicationForm() {
                         paddingTop: "2px",
                       }}
                     >
-                      <input
-                        type="checkbox"
-                        name="useDrugTesting"
-                        checked={formData.useDrugTesting}
-                        onChange={handleInputChange}
+                      <div
+                        onClick={() => {
+                          setFormData((prev) => ({
+                            ...prev,
+                            useDrugTesting: !prev.useDrugTesting,
+                          }));
+                        }}
                         style={{
+                          display: "flex",
                           width: "16px",
                           height: "16px",
+                          padding: "1px",
+                          justifyContent: "center",
+                          alignItems: "center",
                           borderRadius: "4px",
-                          border: "1px solid #D5D7DA",
+                          border: formData.useDrugTesting
+                            ? "none"
+                            : "1px solid #D5D7DA",
+                          background: formData.useDrugTesting
+                            ? "#344698"
+                            : "transparent",
                           cursor: "pointer",
+                          position: "relative",
                         }}
-                      />
+                      >
+                        {formData.useDrugTesting && (
+                          <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 14 14"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            style={{
+                              position: "absolute",
+                              left: "1px",
+                              top: "1px",
+                            }}
+                          >
+                            <path
+                              d="M11.6667 3.5L5.25004 9.91667L2.33337 7"
+                              stroke="white"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        )}
+                      </div>
                     </div>
                     <div
                       style={{
@@ -2767,6 +2802,12 @@ export default function ApplicationForm() {
                       }}
                     >
                       <label
+                        onClick={() => {
+                          setFormData((prev) => ({
+                            ...prev,
+                            useDrugTesting: !prev.useDrugTesting,
+                          }));
+                        }}
                         style={{
                           fontSize: "14px",
                           fontWeight: 500,
