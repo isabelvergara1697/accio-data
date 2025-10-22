@@ -1322,9 +1322,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   <NavItem
                     section="account"
                     label="Account"
-                    isActive={currentPage === "account-settings"}
+                    isActive={false}
                     hasChevron={false}
-                    onClick={() => navigate("/account-settings")}
                   />
 
                   {/* Company Item */}
