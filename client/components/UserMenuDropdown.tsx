@@ -72,12 +72,12 @@ export const UserMenuDropdown: React.FC<UserMenuDropdownProps> = ({
                 gap: "12px",
                 flex: "1 0 0",
                 borderRadius: "6px",
-                cursor: "pointer",
+                cursor: "not-allowed",
                 position: "relative",
+                opacity: 0.5,
               }}
-              onClick={() => navigate("/account-settings")}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#F5F5F5";
+                e.currentTarget.style.background = "transparent";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "transparent";
