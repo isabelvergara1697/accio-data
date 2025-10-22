@@ -2332,6 +2332,279 @@ export default function ApplicationForm() {
               )}
             </div>
 
+            {/* Administration / Primary User Contact Information Section */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                borderRadius: "12px",
+                border: "1px solid #E9EAEB",
+                background: "#FFF",
+                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                marginBottom: "20px",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  padding: "20px 24px 0 24px",
+                  gap: "16px",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "2px",
+                      flex: 1,
+                    }}
+                  >
+                    <h2
+                      style={{
+                        fontSize: "18px",
+                        fontWeight: 600,
+                        color: "#181D27",
+                        margin: 0,
+                        lineHeight: "28px",
+                      }}
+                    >
+                      Administration / Primary User Contact Information
+                    </h2>
+                    <p
+                      style={{
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        color: "#535862",
+                        margin: 0,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      User access information will be provided to the primary
+                      contact only. Account information and Training Guides are
+                      e-mailed to this user. Providing iProspectcheck with the
+                      correct e-mail address will ensure a quick setup process.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => toggleSection("administrativeContact")}
+                    style={{
+                      display: "flex",
+                      padding: "8px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      borderRadius: "8px",
+                      border: "1px solid #D5D7DA",
+                      background: "#FFF",
+                      boxShadow:
+                        "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      style={{
+                        transform: expandedSections.administrativeContact
+                          ? "rotate(180deg)"
+                          : "rotate(0deg)",
+                        transition: "transform 0.2s ease",
+                      }}
+                    >
+                      <path
+                        d="M4 6L8 10L12 6"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              {expandedSections.administrativeContact && (
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "12px 24px 16px 24px",
+                    flexDirection: "column",
+                    gap: "16px",
+                    borderRadius: "0 0 0 0",
+                    borderRight: "1px solid #E9EAEB",
+                    borderBottom: "1px solid #E9EAEB",
+                    borderLeft: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "16px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "6px",
+                        flex: 1,
+                      }}
+                    >
+                      <label
+                        style={{
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          color: "#414651",
+                          lineHeight: "20px",
+                        }}
+                      >
+                        Name <span style={{ color: "#344698" }}>*</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="adminName"
+                        value={formData.adminName}
+                        onChange={handleInputChange}
+                        style={{
+                          padding: "8px 12px",
+                          border: "1px solid #D5D7DA",
+                          borderRadius: "8px",
+                          fontSize: "16px",
+                          fontFamily: "inherit",
+                          outline: "none",
+                          background: "#FFF",
+                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        }}
+                      />
+                    </div>
+
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "6px",
+                        flex: 1,
+                      }}
+                    >
+                      <label
+                        style={{
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          color: "#414651",
+                          lineHeight: "20px",
+                        }}
+                      >
+                        E-mail Address{" "}
+                        <span style={{ color: "#344698" }}>*</span>
+                      </label>
+                      <input
+                        type="email"
+                        name="adminEmail"
+                        value={formData.adminEmail}
+                        onChange={handleInputChange}
+                        style={{
+                          padding: "8px 12px",
+                          border: "1px solid #D5D7DA",
+                          borderRadius: "8px",
+                          fontSize: "16px",
+                          fontFamily: "inherit",
+                          outline: "none",
+                          background: "#FFF",
+                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        }}
+                      />
+                    </div>
+
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "6px",
+                        flex: 1,
+                      }}
+                    >
+                      <label
+                        style={{
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          color: "#414651",
+                          lineHeight: "20px",
+                        }}
+                      >
+                        Confirm Email Address{" "}
+                        <span style={{ color: "#344698" }}>*</span>
+                      </label>
+                      <input
+                        type="email"
+                        name="adminConfirmEmail"
+                        value={formData.adminConfirmEmail}
+                        onChange={handleInputChange}
+                        style={{
+                          padding: "8px 12px",
+                          border: "1px solid #D5D7DA",
+                          borderRadius: "8px",
+                          fontSize: "16px",
+                          fontFamily: "inherit",
+                          outline: "none",
+                          background: "#FFF",
+                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-start",
+                    }}
+                  >
+                    <button
+                      type="button"
+                      style={{
+                        display: "flex",
+                        minHeight: "36px",
+                        padding: "6px 8px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "4px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#414651",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                        }}
+                      >
+                        Next Section
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+
             {/* Bottom Action Buttons */}
             <div
               style={{
