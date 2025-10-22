@@ -434,12 +434,59 @@ export default function ApplicationForm() {
       <div
         style={{
           display: "flex",
-          padding: "32px 32px 0 32px",
+          padding: "0 32px",
           flexDirection: "column",
           alignItems: "flex-start",
-          gap: "16px",
+          gap: "20px",
         }}
       >
+        {/* Back to Login Button */}
+        <button
+          type="button"
+          onClick={() => navigate("/login")}
+          style={{
+            display: "flex",
+            minHeight: "36px",
+            padding: "6px 8px",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "4px",
+            borderRadius: "8px",
+            border: "1px solid #D5D7DA",
+            background: "#FFF",
+            boxShadow:
+              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+            cursor: "pointer",
+            marginTop: "32px",
+          }}
+        >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 12L6 8L10 4"
+              stroke="#A4A7AE"
+              strokeWidth="1.66667"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          <div
+            style={{
+              color: "#414651",
+              fontSize: "14px",
+              fontWeight: 600,
+              lineHeight: "20px",
+            }}
+          >
+            Back to Login
+          </div>
+        </button>
+
         <div
           style={{
             display: "flex",
