@@ -16,6 +16,8 @@ export default function ApplicationForm() {
     confirmation: false,
   });
 
+  const [instructionsExpanded, setInstructionsExpanded] = useState(true);
+
   const [formData, setFormData] = useState({
     companyName: "",
     parentCompanyName: "",
@@ -641,21 +643,98 @@ export default function ApplicationForm() {
           >
             <div
               style={{
-                padding: "20px 16px 12px 16px",
+                display: "flex",
+                padding: "20px 16px 0 16px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "16px",
+                alignSelf: "stretch",
+                background: "#FFF",
               }}
             >
-              <h2
+              <div
                 style={{
-                  fontSize: "18px",
-                  fontWeight: 600,
-                  color: "#181D27",
-                  margin: 0,
-                  marginBottom: "16px",
-                  lineHeight: "28px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "16px",
+                  alignSelf: "stretch",
                 }}
               >
-                Instructions and Information
-              </h2>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "4px",
+                    flex: "1 0 0",
+                  }}
+                >
+                  <h2
+                    style={{
+                      fontSize: "18px",
+                      fontWeight: 600,
+                      color: "#181D27",
+                      margin: 0,
+                      lineHeight: "28px",
+                    }}
+                  >
+                    Instructions and Information
+                  </h2>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setInstructionsExpanded(!instructionsExpanded)}
+                  style={{
+                    display: "flex",
+                    padding: "8px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow:
+                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    cursor: "pointer",
+                  }}
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{
+                      transform: instructionsExpanded ? "rotate(0deg)" : "rotate(180deg)",
+                      transition: "transform 0.2s ease",
+                    }}
+                  >
+                    <path
+                      d="M4 6L8 10L12 6"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.66667"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            {instructionsExpanded && (
+            <div
+              style={{
+                display: "flex",
+                padding: "12px 16px 16px 16px",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "16px",
+                alignSelf: "stretch",
+                borderRadius: "0px 0px 0 0",
+                borderRight: "1px solid #E9EAEB",
+                borderBottom: "1px solid #E9EAEB",
+                borderLeft: "1px solid #E9EAEB",
+                background: "#FFF",
+                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+              }}
+            >
               <div
                 style={{
                   display: "flex",
@@ -1016,6 +1095,7 @@ export default function ApplicationForm() {
                 </div>
               </div>
             </div>
+            )}
           </div>
         </div>
 
