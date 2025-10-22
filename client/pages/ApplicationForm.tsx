@@ -472,7 +472,8 @@ export default function ApplicationForm() {
               }}
             >
               {!expandedSections.generalInformation &&
-              !expandedSections.administrativeContact
+              !expandedSections.administrativeContact &&
+              !expandedSections.drugTesting
                 ? "Expand All"
                 : "Collapse All"}
             </div>
