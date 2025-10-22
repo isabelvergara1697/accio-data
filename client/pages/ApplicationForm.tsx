@@ -2214,6 +2214,7 @@ export default function ApplicationForm() {
             >
               <button
                 type="button"
+                onClick={findNextField}
                 style={{
                   display: "flex",
                   padding: "12px 16px",
@@ -2257,6 +2258,7 @@ export default function ApplicationForm() {
 
               <button
                 type="button"
+                onClick={clearFields}
                 style={{
                   display: "flex",
                   padding: "12px 16px",
