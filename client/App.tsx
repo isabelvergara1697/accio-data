@@ -5,8 +5,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
-import DocumentLibrary from "./pages/DocumentLibrary";
-import Resources from "./pages/Resources";
 import InvitesAndOrders from "./pages/InvitesAndOrders";
 import OnlineOrdering from "./pages/OnlineOrdering";
 import SubmitOrSaveOrder from "./pages/SubmitOrSaveOrder";
@@ -65,8 +63,6 @@ const App = () => (
           <Route path="/online-ordering" element={<OnlineOrdering />} />
           <Route path="/submit-order" element={<SubmitOrSaveOrder />} />
           <Route path="/order-confirmation" element={<OrderConfirmation />} />
-          <Route path="/document-library" element={<DocumentLibrary />} />
-          <Route path="/resources" element={<Resources />} />
           <Route path="/invites-orders" element={<InvitesAndOrders />} />
           <Route path="/order-details/:orderId" element={<OrderDetails />} />
           <Route path="/orders-details/:orderId" element={<OrderDetails />} />
