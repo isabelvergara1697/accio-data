@@ -2616,6 +2616,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         cursor: "pointer",
                         position: "relative",
                       }}
+                      onClick={() => setOnboardingStep?.(1)}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.background = "#F5F5F5";
                       }}
