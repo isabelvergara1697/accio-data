@@ -56,6 +56,10 @@ export default function ApplicationForm() {
     promoCode2: "",
     promoCode3: "",
     promoCode4: "",
+    confirmationName: "",
+    confirmationTitle: "",
+    agreeToTerms: false,
+    captchaVerified: false,
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
