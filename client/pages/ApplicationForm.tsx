@@ -41,6 +41,9 @@ export default function ApplicationForm() {
     stateOfFormation: "Select",
     dunnBradstreet: "",
     internetAddress: "",
+    adminName: "",
+    adminEmail: "",
+    adminConfirmEmail: "",
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
