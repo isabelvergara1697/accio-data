@@ -174,6 +174,9 @@ export default function ApplicationForm() {
       adminEmail: "",
       adminConfirmEmail: "",
       useDrugTesting: false,
+      screenApplicantsOnly: false,
+      orderMVRs: false,
+      orderCreditReports: false,
     });
     setErrors({});
   };
