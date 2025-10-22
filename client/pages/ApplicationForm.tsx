@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function ApplicationForm() {
   const navigate = useNavigate();
+  const formRef = useRef<HTMLFormElement>(null);
+
   const [expandedSections, setExpandedSections] = useState<{
     [key: string]: boolean;
   }>({
@@ -42,13 +44,37 @@ export default function ApplicationForm() {
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
+  const mandatoryFields = [
+    "companyName",
+    "businessName",
+    "businessTelephone",
+    "faxNumber",
+    "streetAddress",
+    "physicalFax",
+    "physicalAddress",
+    "physicalCity",
+    "physicalState",
+    "physicalZip",
+    "mailingAddress",
+    "mailingCity",
+    "mailingState",
+    "mailingZip",
+    "numberOfEmployees",
+    "sicCode",
+    "stateIdNumber",
+    "federalTaxId",
+    "dateFormed",
+    "stateOfFormation",
+    "dunnBradstreet",
+  ];
+
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
     >
   ) => {
     const { name, value, type } = e.target;
-    
+
     if (type === "checkbox") {
       const checked = (e.target as HTMLInputElement).checked;
       setFormData((prev) => ({
@@ -76,6 +102,63 @@ export default function ApplicationForm() {
       ...prev,
       [section]: !prev[section],
     }));
+  };
+
+  const findNextField = () => {
+    const firstEmptyField = mandatoryFields.find((fieldName) => {
+      const value = formData[fieldName as keyof typeof formData];
+      if (fieldName.includes("City") || fieldName.includes("State")) {
+        return value === "Select" || value === "";
+      }
+      return !value;
+    });
+
+    if (firstEmptyField) {
+      const inputElement = formRef.current?.querySelector(
+        `input[name="${firstEmptyField}"], select[name="${firstEmptyField}"]`
+      ) as HTMLElement;
+
+      if (inputElement) {
+        inputElement.scrollIntoView({ behavior: "smooth", block: "center" });
+        inputElement.focus();
+      }
+    } else {
+      alert("All mandatory fields are filled!");
+    }
+  };
+
+  const clearFields = () => {
+    setFormData({
+      companyName: "",
+      parentCompanyName: "",
+      otherTradeNames: "",
+      otherTradeName2: "",
+      businessName: "",
+      businessTelephone: "",
+      faxNumber: "",
+      streetAddress: "",
+      physicalFax: "",
+      physicalAddress: "",
+      physicalCity: "Select",
+      physicalState: "Select",
+      physicalZip: "",
+      sameAsPhysical: false,
+      mailingAddress: "",
+      mailingCity: "Select",
+      mailingState: "Select",
+      mailingZip: "",
+      numberOfEmployees: "",
+      sicCode: "",
+      businessDescription: "",
+      stateIdNumber: "",
+      federalTaxId: "",
+      businessStructure: "Select",
+      dateFormed: "",
+      stateOfFormation: "Select",
+      dunnBradstreet: "",
+      internetAddress: "",
+    });
+    setErrors({});
   };
 
   const handleSubmit = (e: React.FormEvent) => {
