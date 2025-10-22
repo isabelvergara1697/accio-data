@@ -202,6 +202,21 @@ export default function ApplicationForm() {
     setErrors({});
   };
 
+  const calculateProgress = () => {
+    const allFields = Object.keys(formData);
+    const filledFields = allFields.filter((key) => {
+      const value = formData[key as keyof typeof formData];
+      if (typeof value === 'boolean') {
+        return value === true;
+      }
+      if (typeof value === 'string') {
+        return value !== '' && value !== 'Select';
+      }
+      return false;
+    });
+    return Math.round((filledFields.length / allFields.length) * 100);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
@@ -223,9 +238,9 @@ export default function ApplicationForm() {
       <div
         style={{
           display: "flex",
-          height: "64px",
           flexDirection: "column",
-          alignItems: "center",
+          alignItems: "flex-start",
+          alignSelf: "stretch",
           borderBottom: "1px solid #E9EAEB",
           background: "#FFF",
         }}
@@ -233,12 +248,11 @@ export default function ApplicationForm() {
         <div
           style={{
             display: "flex",
+            height: "64px",
             padding: "12px 16px",
             justifyContent: "space-between",
             alignItems: "center",
-            flex: "1 0 0",
             alignSelf: "stretch",
-            maxWidth: "100%",
           }}
         >
           <img
@@ -246,8 +260,10 @@ export default function ApplicationForm() {
             style={{
               height: "32px",
               width: "auto",
+              cursor: "pointer",
             }}
             alt="Accio Data"
+            onClick={() => navigate("/login")}
           />
           <div
             style={{
@@ -366,7 +382,7 @@ export default function ApplicationForm() {
                   lineHeight: "20px",
                 }}
               >
-                Proccess Application
+                Process Application
               </div>
             </button>
           </div>
@@ -378,27 +394,38 @@ export default function ApplicationForm() {
             display: "flex",
             height: "8px",
             alignItems: "center",
-            width: "100%",
+            alignSelf: "stretch",
             position: "relative",
           }}
         >
           <div
             style={{
-              width: "100%",
               height: "8px",
-              borderRadius: "9999px 0px 0 9999px",
-              background: "#D5D7DA",
+              flex: "1 0 0",
+              borderRadius: "0px",
               position: "relative",
             }}
           >
             <div
               style={{
-                width: "32%",
+                width: "100%",
                 height: "8px",
-                borderRadius: "0px 9999px 9999px 0",
-                background: "#344698",
+                borderRadius: "9999px 0px 0 9999px",
+                background: "#D5D7DA",
+                position: "absolute",
+                left: 0,
+                top: 0,
               }}
-            ></div>
+            >
+              <div
+                style={{
+                  width: `${calculateProgress()}%`,
+                  height: "8px",
+                  borderRadius: "0px 9999px 9999px 0",
+                  background: "#344698",
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
