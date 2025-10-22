@@ -2348,7 +2348,9 @@ export default function ApplicationForm() {
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  padding: "20px 24px 0 24px",
+                  padding: expandedSections.administrativeContact
+                    ? "20px 24px 0 24px"
+                    : "20px 24px 20px 24px",
                   gap: "16px",
                 }}
               >
