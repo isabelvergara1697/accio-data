@@ -427,9 +427,20 @@ export default function ApplicationForm() {
           <button
             type="button"
             onClick={() => {
-              setExpandedSections({
-                generalInformation: false,
-              });
+              const allCollapsed =
+                !expandedSections.generalInformation &&
+                !expandedSections.administrativeContact;
+              if (allCollapsed) {
+                setExpandedSections({
+                  generalInformation: true,
+                  administrativeContact: true,
+                });
+              } else {
+                setExpandedSections({
+                  generalInformation: false,
+                  administrativeContact: false,
+                });
+              }
             }}
             style={{
               display: "flex",
@@ -454,7 +465,10 @@ export default function ApplicationForm() {
                 lineHeight: "20px",
               }}
             >
-              Collapse All
+              {!expandedSections.generalInformation &&
+              !expandedSections.administrativeContact
+                ? "Expand All"
+                : "Collapse All"}
             </div>
             <svg
               width="16"
