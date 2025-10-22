@@ -520,14 +520,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                           item === "Document Library") ||
                         (currentPage === "resources" && item === "Resources") ||
                         (currentPage === "invites-orders" &&
-                          item === "Invites & Orders") ||
-                        (currentPage === "quick-court-order" &&
-                          item === "Quick Court Order") ||
-                        (currentPage === "batch-orders" &&
-                          item === "Batch Orders") ||
-                        (currentPage === "quick-order" &&
-                          item === "Quick Order") ||
-                        (currentPage === "i9-order" && item === "I-9 Order")
+                          item === "Invites & Orders")
                           ? "#ECEEF9"
                           : "#FFF",
                       position: "relative",
@@ -540,14 +533,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                           item === "Document Library") ||
                         (currentPage === "resources" && item === "Resources") ||
                         (currentPage === "invites-orders" &&
-                          item === "Invites & Orders") ||
-                        (currentPage === "quick-court-order" &&
-                          item === "Quick Court Order") ||
-                        (currentPage === "batch-orders" &&
-                          item === "Batch Orders") ||
-                        (currentPage === "quick-order" &&
-                          item === "Quick Order") ||
-                        (currentPage === "i9-order" && item === "I-9 Order")
+                          item === "Invites & Orders")
                       ) && !disabledMenuItems.includes(item)
                         ? getHoverStyles(
                             `${section}-${item.toLowerCase().replace(/[^a-z0-9]/g, "-")}`,
@@ -560,14 +546,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                           item === "Document Library") ||
                         (currentPage === "resources" && item === "Resources") ||
                         (currentPage === "invites-orders" &&
-                          item === "Invites & Orders") ||
-                        (currentPage === "quick-court-order" &&
-                          item === "Quick Court Order") ||
-                        (currentPage === "batch-orders" &&
-                          item === "Batch Orders") ||
-                        (currentPage === "quick-order" &&
-                          item === "Quick Order") ||
-                        (currentPage === "i9-order" && item === "I-9 Order")
+                          item === "Invites & Orders")
                       ) &&
                       !disabledMenuItems.includes(item) &&
                       setHoveredItem(
@@ -593,18 +572,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       } else if (section === "tools") {
                         if (item === "Online Ordering") {
                           navigate("/online-ordering");
-                        }
-                        if (item === "Quick Court Order") {
-                          navigate("/quick-court-order");
-                        }
-                        if (item === "Quick Order") {
-                          navigate("/quick-order");
-                        }
-                        if (item === "Batch Orders") {
-                          navigate("/batch-orders");
-                        }
-                        if (item === "I-9 Order") {
-                          navigate("/i9-order");
                         }
                       }
                     }}
