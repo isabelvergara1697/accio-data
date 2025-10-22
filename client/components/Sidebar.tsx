@@ -122,6 +122,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
   const menuSections = {
     tools: [
       "Online Ordering",
+      "I-9 Order",
+      "Batch Orders",
+      "Quick MVR Order",
+      "Quick Court Order",
     ],
     screening: [
       "Invites & Orders",
@@ -134,6 +138,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
   // Define which menu items are disabled (don't have content yet)
   const disabledMenuItems = [
+    "I-9 Order",
+    "Batch Orders",
+    "Quick MVR Order",
+    "Quick Court Order",
     "ID Verification Status",
     "Adjudication Statuses",
     "Adverse Action Letters",
