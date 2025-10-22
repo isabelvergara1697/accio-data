@@ -594,15 +594,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                 (currentPage === "resources" &&
                                   item === "Resources") ||
                                 (currentPage === "invites-orders" &&
-                                  item === "Invites & Orders") ||
-                                (currentPage === "quick-court-order" &&
-                                  item === "Quick Court Order") ||
-                                (currentPage === "batch-orders" &&
-                                  item === "Batch Orders") ||
-                                (currentPage === "quick-order" &&
-                                  item === "Quick Order") ||
-                                (currentPage === "i9-order" &&
-                                  item === "I-9 Order")
+                                  item === "Invites & Orders")
                               ? "#273572"
                               : "var(--colors-text-text-secondary-700, #414651)",
                           fontFamily:
@@ -627,15 +619,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                   (currentPage === "resources" &&
                                     item === "Resources") ||
                                   (currentPage === "invites-orders" &&
-                                    item === "Invites & Orders") ||
-                                  (currentPage === "quick-court-order" &&
-                                    item === "Quick Court Order") ||
-                                  (currentPage === "batch-orders" &&
-                                    item === "Batch Orders") ||
-                                  (currentPage === "quick-order" &&
-                                    item === "Quick Order") ||
-                                  (currentPage === "i9-order" &&
-                                    item === "I-9 Order")
+                                    item === "Invites & Orders")
                                 ? "#273572"
                                 : "rgba(65,70,81,1)",
                           }}
